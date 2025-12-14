@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0",
+  "release_date": "2025-12-14",
+  "download_url": "https://github.com/TON_USERNAME/RADX_Benchmark/releases/download/v1.0.0/RADX_Benchmark_Pro.exe",
+  "changelog": {
+    "fr": "Version initiale de RADX Benchmark Professional\n- Système de licence cloud\n- Support multilingue (27 langues)\n- Génération de comptes rendus automatiques\n- Interface moderne et intuitive",
+    "en": "Initial release of RADX Benchmark Professional\n- Cloud license system\n- Multilingual support (27 languages)\n- Automatic report generation\n- Modern and intuitive interface"
+  },
+  "mandatory": false,
+  "min_version_required": "1.0.0",
+  "features": [
+    "Système de licence cloud sécurisé",
+    "27 langues disponibles",
+    "7 modalités d'imagerie",
+    "Génération de documents Word professionnels",
+    "Mise à jour automatique"
+  ]
+}
