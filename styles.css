@@ -481,3 +481,9 @@ p {
     font-size: 2rem;
   }
 }
+
+.logo img {
+  height: 40px;        /* ajuste la taille du logo */
+  width: auto;         /* garde les proportions */
+  display: block;      /* évite le petit espace sous l’image */
+}
