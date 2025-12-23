@@ -1750,6 +1750,7 @@
     </div>
 
     <script>
+        // Créer les particules
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
             for (let i = 0; i < 30; i++) {
@@ -1762,45 +1763,72 @@
             }
         }
         createParticles();
-
+    
+        // Variable pour stocker la langue actuelle
+        let currentLang = 'en';
+    
+        // Fonction pour changer de langue
         function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // Afficher/cacher le contenu
             document.querySelectorAll('.lang-content').forEach(content => {
                 content.classList.remove('active');
             });
             document.getElementById('content-' + lang).classList.add('active');
             
+            // Mettre à jour les boutons de langue
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
             
-            // Mise à jour du texte de navigation
+            // Mettre à jour le texte de navigation
             document.querySelectorAll('.nav-text').forEach(elem => {
                 const text = elem.getAttribute('data-' + lang);
                 if (text) elem.textContent = text;
             });
             
-            // NE PAS faire défiler automatiquement lors du changement de langue
-            // window.scrollTo({ top: 0, behavior: 'smooth' }); // Commentez cette ligne
+            // Remonter en haut
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Réactiver les animations après le changement de langue
+            setTimeout(() => {
+                document.querySelectorAll('.scroll-reveal').forEach(el => {
+                    observer.observe(el);
+                });
+            }, 100);
         }
-
-
+    
+        // Gestion des clics sur les liens d'ancre
         document.addEventListener('click', function(e) {
             if (e.target.tagName === 'A' && e.target.getAttribute('href')?.startsWith('#')) {
                 e.preventDefault();
                 const targetId = e.target.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
+                
+                // Chercher l'élément dans le contenu actif
+                const activeContent = document.getElementById('content-' + currentLang);
+                const targetElement = activeContent.querySelector('#' + targetId);
+                
                 if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Calculer la position en tenant compte du header fixe
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
                 }
             }
         });
-
+    
+        // Observer pour les animations au scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
         };
-
+    
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1808,13 +1836,16 @@
                 }
             });
         }, observerOptions);
-
+    
+        // Observer tous les éléments avec scroll-reveal
         document.querySelectorAll('.scroll-reveal').forEach(el => {
             observer.observe(el);
         });
     </script>
+
 </body>
 </html>
+
 
 
 
