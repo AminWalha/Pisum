@@ -1768,22 +1768,22 @@
                 content.classList.remove('active');
             });
             document.getElementById('content-' + lang).classList.add('active');
+            
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
+            
+            // Mise à jour du texte de navigation
             document.querySelectorAll('.nav-text').forEach(elem => {
                 const text = elem.getAttribute('data-' + lang);
                 if (text) elem.textContent = text;
             });
-            window.scrollTo({ top: 0, behavior: 'smooth' });
             
-            setTimeout(() => {
-                document.querySelectorAll('.scroll-reveal').forEach(el => {
-                    observer.observe(el);
-                });
-            }, 100);
+            // NE PAS faire défiler automatiquement lors du changement de langue
+            // window.scrollTo({ top: 0, behavior: 'smooth' }); // Commentez cette ligne
         }
+
 
         document.addEventListener('click', function(e) {
             if (e.target.tagName === 'A' && e.target.getAttribute('href')?.startsWith('#')) {
@@ -1815,6 +1815,7 @@
     </script>
 </body>
 </html>
+
 
 
 
