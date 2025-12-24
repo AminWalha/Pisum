@@ -1749,93 +1749,123 @@
     </div>
 
     <script>
-        // Créer les particules
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            for (let i = 0; i < 30; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 20 + 's';
-                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
-                particlesContainer.appendChild(particle);
-            }
+    // Créer les particules
+    function createParticles() {
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+            particlesContainer.appendChild(particle);
         }
-        createParticles();
+    }
+    createParticles();
 
-        // Variable pour la langue actuelle
-        let currentLang = 'en';
+    // Variable pour la langue actuelle
+    let currentLang = 'en';
 
-        // Fonction pour changer de langue
-        function switchLanguage(lang) {
-            currentLang = lang;
-            
-            document.querySelectorAll('.lang-content').forEach(content => {
-                content.classList.remove('active');
+    // Fonction pour gérer la visibilité des sections selon la langue
+    function updateSectionsVisibility() {
+        document.querySelectorAll('section[data-section]').forEach(section => {
+            if (currentLang === 'en') {
+                // En anglais : afficher seulement les sections avec un id
+                section.style.display = section.id ? 'block' : 'none';
+            } else if (currentLang === 'fr') {
+                // En français : afficher seulement les sections SANS id
+                section.style.display = !section.id ? 'block' : 'none';
+            }
+        });
+    }
+
+    // Fonction pour changer de langue
+    function switchLanguage(lang) {
+        currentLang = lang;
+        
+        // Gérer les contenus lang-content
+        document.querySelectorAll('.lang-content').forEach(content => {
+            content.classList.remove('active');
+        });
+        document.getElementById('content-' + lang).classList.add('active');
+        
+        // Gérer les boutons
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.querySelector('.lang-btn[data-lang="' + lang + '"]').classList.add('active');
+        
+        // Gérer les textes de navigation
+        document.querySelectorAll('.nav-text').forEach(elem => {
+            const text = elem.getAttribute('data-' + lang);
+            if (text) elem.textContent = text;
+        });
+        
+        // Mettre à jour la visibilité des sections
+        updateSectionsVisibility();
+        
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        setTimeout(() => {
+            document.querySelectorAll('.scroll-reveal').forEach(el => {
+                observer.observe(el);
             });
-            document.getElementById('content-' + lang).classList.add('active');
+        }, 100);
+    }
+
+    // Gestion des clics sur les liens
+    document.addEventListener('click', function(e) {
+        const link = e.target.closest('a[href^="#"]');
+        if (link) {
+            e.preventDefault();
+            const hash = link.getAttribute('href').substring(1);
             
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
+            // Trouver la section visible correspondante
+            let targetSection = null;
             
-            document.querySelectorAll('.nav-text').forEach(elem => {
-                const text = elem.getAttribute('data-' + lang);
-                if (text) elem.textContent = text;
-            });
-            
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            
-            setTimeout(() => {
-                document.querySelectorAll('.scroll-reveal').forEach(el => {
-                    observer.observe(el);
+            if (currentLang === 'en') {
+                // En anglais, chercher par id
+                targetSection = document.getElementById(hash);
+            } else {
+                // En français, chercher par data-section parmi les sections visibles
+                const sections = document.querySelectorAll('[data-section="' + hash + '"]');
+                sections.forEach(section => {
+                    if (section.style.display !== 'none') {
+                        targetSection = section;
+                    }
                 });
-            }, 100);
+            }
+            
+            if (targetSection) {
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+            }
         }
+    });
 
-        // Gestion des clics sur les liens
-        document.addEventListener('click', function(e) {
-            // Vérifier si c'est un lien avec data-section
-            const link = e.target.closest('a[data-section]');
-            if (link) {
-                e.preventDefault();
-                const sectionName = link.getAttribute('data-section');
-                
-                // Trouver la section dans le contenu actif
-                const activeContent = document.getElementById('content-' + currentLang);
-                const targetSection = activeContent.querySelector(`[data-section="${sectionName}"]`);
-                
-                if (targetSection) {
-                    const headerHeight = document.querySelector('header').offsetHeight;
-                    const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
+    // Observer pour les animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
             }
         });
+    }, observerOptions);
 
-        // Observer pour les animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+        observer.observe(el);
+    });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
+    // Initialiser la visibilité au chargement
+    updateSectionsVisibility();
+</script>
 
-        document.querySelectorAll('.scroll-reveal').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
 
 </body>
 </html>
