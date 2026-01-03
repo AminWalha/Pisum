@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pisum</title>
-    <head><link rel="icon" type="image/png" href="favicon.png"></head>
+    <title>Pisum - Professional Radiology Reporting Software</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css">
     
     <link rel="stylesheet" href="style.css">
@@ -41,13 +40,7 @@
                 <li><a href="#pricing" class="nav-text" data-en="Pricing" data-fr="Tarifs" data-es="Precios" data-de="Preise">Pricing</a></li>
             </ul>
             <a href="#pricing" class="cta-header-btn nav-text" data-en="Get Started" data-fr="Commencer" data-es="Comenzar" data-de="Jetzt Starten">Get Started</a>
-        
-        <button class="mobile-menu-toggle" aria-label="Menu" onclick="toggleMobileMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-</nav>
+        </nav>
     </header>
 
     <div class="lang-content active" id="content-en">
@@ -1286,35 +1279,6 @@
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
-        });
-    </script>
-
-    <script>
-        function toggleMobileMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            const menuToggle = document.querySelector('.mobile-menu-toggle');
-
-            navLinks.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-        }
-
-        // Fermer le menu quand on clique sur un lien
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.querySelector('.nav-links').classList.remove('active');
-                document.querySelector('.mobile-menu-toggle').classList.remove('active');
-            });
-        });
-
-        // Fermer le menu si on clique en dehors
-        document.addEventListener('click', (e) => {
-            const navLinks = document.querySelector('.nav-links');
-            const menuToggle = document.querySelector('.mobile-menu-toggle');
-
-            if (!e.target.closest('nav') && navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                menuToggle.classList.remove('active');
-            }
         });
     </script>
 </body>
