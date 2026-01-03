@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pisum - Professional Radiology Reporting Software</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css">
+        <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+
+    <div class="lang-switcher">
+        <button class="lang-btn active" onclick="switchLanguage('en')" data-lang="en">English</button>
+        <button class="lang-btn" onclick="switchLanguage('fr')" data-lang="fr">Français</button>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">⚕️ Pisum</div>
+            <ul class="nav-links">
+                <li><a href="#modalities" data-section="modalities" class="nav-text" data-en="Imaging Modalities" data-fr="Modalités">Imaging Modalities</a></li>
+                <li><a href="#features" data-section="features" class="nav-text" data-en="Features" data-fr="Fonctionnalités">Features</a></li>
+                <li><a href="#languages" data-section="languages" class="nav-text" data-en="Languages" data-fr="Langues">Languages</a></li>
+                <li><a href="#pricing" data-section="pricing" class="nav-text" data-en="Pricing" data-fr="Tarifs">Pricing</a></li>
+            </ul>
+
+            <a href="#pricing" class="cta-header-btn nav-text" data-en="Get Started" data-fr="Commencer">Get Started</a>
+        </nav>
+    </header>
+
+    <!-- ENGLISH CONTENT -->
+    <div class="lang-content active" id="content-en">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Professional Radiology<br>Reporting Software</h1>
+                <p class="hero-subtitle">Spend less time on data entry and more time on imaging interpretation. Generate professional, structured, and customizable radiology reports in seconds with integrated voice dictation and Word export.</p>
+                <div class="hero-buttons">
+                    <a href="#pricing" class="primary-btn">Start Free Trial</a>
+                    <a href="#modalities" class="secondary-btn">Explore Modalities</a>
+                </div>
+                <div class="trust-badge">
+                    <span>✓</span>
+                    <span>Trusted by radiologists worldwide</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="modalities" data-section="modalities" class="modalities">
+            <div class="section-container">
+                <h2 class="section-title scroll-reveal">Pre-Built Template Libraries</h2>
+                <p class="section-subtitle scroll-reveal">Comprehensive, specialty-specific report templates ready to use from day one</p>
+                
+                <div class="modalities-grid">
+                    <div class="modality-card scroll-reveal">
+                        <div class="modality-icon">🔬</div>
+                        <h3>Computed Tomography (CT)</h3>
+                        <p>Complete template library for multi-detector CT scanning including contrast-enhanced protocols.</p>
+                        <div class="modality-examples">
+                            <strong>Includes:</strong>
+                            CT Brain, CT Chest, CT Abdomen-Pelvis, CTA, CTPA, HRCT, CT Enterography, CT Colonography
+                        </div>
+                    </div>
+
+                    <div class="modality-card scroll-reveal">
+                        <div class="modality-icon">🧲</div>
+                        <h3>Magnetic Resonance Imaging</h3>
+                        <p>Advanced MRI reporting templates with sequence-specific descriptions for anatomical studies.</p>
+                        <div class="modality-examples">
+                            <strong>Includes:</strong>
+                            MRI Brain, Spine, Musculoskeletal, MRA, MRV, Cardiac MRI, MR Enterography, MRCP, fMRI
+                        </div>
+                    </div>
+
+                    <div class="modality-card scroll-reveal">
+                        <div class="modality-icon">📡</div>
+                        <h3>Diagnostic Ultrasound</h3>
+                        <p>Comprehensive ultrasound reporting templates for real-time imaging across all regions.</p>
+                        <div class="modality-examples">
+                            <strong>Includes:</strong>
+                            Abdominal, Obstetric, Gynecological, Thyroid, Vascular Doppler, Echo, MSK, FAST Exam
+                        </div>
+                    </div>
+
+                    <div class="modality-card scroll-reveal">
+                        <div class="modality-icon">📸</div>
+                        <h3>Conventional Radiography</h3>
+                        <p>Standard X-ray reporting templates with anatomical region-specific structured reports.</p>
+                        <div class="modality-examples">
+                            <strong>Includes:</strong>
+                            Chest X-Ray, Skeletal, Abdominal Plain Film, Mammography, Dental, Fluoroscopy, Barium Studies
+                        </div>
+                    </div>
+
+                    <div class="modality-card scroll-reveal">
+                        <div class="modality-icon">💉</div>
+                        <h3>Interventional Radiology</h3>
+                        <p>Procedure-specific templates for image-guided interventions with standardized documentation.</p>
+                        <div class="modality-examples">
+                            <strong>Includes:</strong>
+                            Vascular Access, Angiography, Embolization, Biopsy, Drainage, Ablation, TIPS, Vertebroplasty
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" data-section="features" class="features">
+            <div class="section-container">
+                <h2 class="section-title scroll-reveal">Why Choose Pisum?</h2>
+                <div class="features-grid">
+                    <div class="feature-card scroll-reveal">
+                        <div class="feature-icon">∞</div>
+                        <h3>Unlimited Reports</h3>
+                        <p>No quotas, no limitations. Generate as many radiology reports as needed for maximum productivity.</p>
+                    </div>
+
+                    <div class="feature-card scroll-reveal">
+                        <div class="feature-icon">🎤</div>
+                        <h3>Dragon Medical</h3>
+                        <p>Seamlessly integrates with Dragon Medical voice recognition for hands-free dictation.</p>
+                    </div>
+
+                    <div class="feature-card scroll-reveal">
+                        <div class="feature-icon">📄</div>
+                        <h3>Flexible Export</h3>
+                        <p>Export to Word format or use quick copy-paste directly into your RIS/PACS system.</p>
+                    </div>
+
+                    <div class="feature-card scroll-reveal">
+                        <div class="feature-icon">✨</div>
+                        <h3>Professional Layout</h3>
+                        <p>Sophisticated, structured formatting that projects clinical expertise to referring physicians.</p>
+                    </div>
+
+                    <div class="feature-card scroll-reveal">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Standardization</h3>
+                        <p>Validated templates ensure consistent quality and minimize diagnostic omissions.</p>
+                    </div>
+
+                    <div class="feature-card scroll-reveal">
+                        <div class="feature-icon">🌍</div>
+                        <h3>24 Languages</h3>
+                        <p>Generate reports in 24 languages for international collaboration and multicultural healthcare.</p>
+                    </div>
+
+                    <div class="feature-card scroll-reveal">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Zero Configuration</h3>
+                        <p>Install and start reporting immediately. Productive from day one.</p>
+                    </div>
+
+                    <div class="feature-card scroll-reveal">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Full Compatibility</h3>
+                        <p>Integrates seamlessly with existing workflows, RIS, PACS, and dictation systems.</p>
+                    </div>
+
+                    <div class="feature-card scroll-reveal">
+                        <div class="feature-icon">📚</div>
+                        <h3>Custom Templates</h3>
+                        <p>Build your own personalized library to match your unique reporting style.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="languages" data-section="languages" class="languages">
+            <div class="section-container">
+                <div class="languages-intro">
+                    <h3>🌍 Global Language Support</h3>
+                    <p>Generate professional radiology reports in 24 languages with native script support. Perfect for international collaborations and multicultural healthcare settings.</p>
+                </div>
+
+                <div class="languages-grid">
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-gb"></span></div>
+                        <div class="language-name">English</div>
+                        <div class="language-native">Anglais</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-fr"></span></div>
+                        <div class="language-name">French</div>
+                        <div class="language-native">Français</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-de"></span></div>
+                        <div class="language-name">German</div>
+                        <div class="language-native">Deutsch</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-cn"></span></div>
+                        <div class="language-name">Chinese</div>
+                        <div class="language-native">中文</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-es"></span></div>
+                        <div class="language-name">Spanish</div>
+                        <div class="language-native">Español</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-in"></span></div>
+                        <div class="language-name">Hindi</div>
+                        <div class="language-native">हिन्दी</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-pt"></span></div>
+                        <div class="language-name">Portuguese</div>
+                        <div class="language-native">Português</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-ru"></span></div>
+                        <div class="language-name">Russian</div>
+                        <div class="language-native">Русский</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-tr"></span></div>
+                        <div class="language-name">Turkish</div>
+                        <div class="language-native">Türkçe</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-se"></span></div>
+                        <div class="language-name">Swedish</div>
+                        <div class="language-native">Svenska</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-no"></span></div>
+                        <div class="language-name">Norwegian</div>
+                        <div class="language-native">Norsk</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-dk"></span></div>
+                        <div class="language-name">Danish</div>
+                        <div class="language-native">Dansk</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-nl"></span></div>
+                        <div class="language-name">Dutch</div>
+                        <div class="language-native">Nederlands</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-jp"></span></div>
+                        <div class="language-name">Japanese</div>
+                        <div class="language-native">日本語</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-it"></span></div>
+                        <div class="language-name">Italian</div>
+                        <div class="language-native">Italiano</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-kr"></span></div>
+                        <div class="language-name">Korean</div>
+                        <div class="language-native">한국어</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-id"></span></div>
+                        <div class="language-name">Indonesian</div>
+                        <div class="language-native">Bahasa Indonesia</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-pl"></span></div>
+                        <div class="language-name">Polish</div>
+                        <div class="language-native">Polski</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-th"></span></div>
+                        <div class="language-name">Thai</div>
+                        <div class="language-native">ไทย</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-my"></span></div>
+                        <div class="language-name">Malay</div>
+                        <div class="language-native">Bahasa Melayu</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-gr"></span></div>
+                        <div class="language-name">Greek</div>
+                        <div class="language-native">Ελληνικά</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-ph"></span></div>
+                        <div class="language-name">Filipino</div>
+                        <div class="language-native">Filipino</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-ro"></span></div>
+                        <div class="language-name">Romanian</div>
+                        <div class="language-native">Română</div>
+                    </div>
+                </div>
+
+                <div class="languages-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">24</div>
+                        <div class="stat-label">Languages Supported</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">1k+</div>
+                        <div class="stat-label">People Reached</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Native Script Support</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" data-section="pricing" class="pricing">
+            <div class="section-container">
+                <h2 class="section-title scroll-reveal">Simple, Transparent Pricing</h2>
+                <p class="section-subtitle scroll-reveal">Choose the plan that fits your radiology practice</p>
+                <div class="pricing-cards">
+                    <div class="pricing-card scroll-reveal">
+                        <h3>Monthly Plan</h3>
+                        <div class="price">€30<span class="price-period">/mo</span></div>
+                        <ul class="pricing-features">
+                            <li>Unlimited report generation</li>
+                            <li>All 5 imaging modality libraries</li>
+                            <li>100% customizable templates</li>
+                            <li>Word export & copy-paste</li>
+                            <li>Dragon Medical compatible</li>
+                            <li>24 language support</li>
+                            <li>Regular updates</li>
+                            <li>Technical support</li>
+                        </ul>
+                        <a href="#contact" class="pricing-btn">Subscribe Now</a>
+                    </div>
+
+                    <div class="pricing-card popular scroll-reveal">
+                        <div class="popular-badge">⭐ BEST VALUE</div>
+                        <h3>Annual Plan</h3>
+                        <div class="price">€290<span class="price-period">/yr</span></div>
+                        <div class="savings-badge">💰 Save €70 per year!</div>
+                        <ul class="pricing-features">
+                            <li>Unlimited report generation</li>
+                            <li>All 5 imaging modality libraries</li>
+                            <li>100% customizable templates</li>
+                            <li>Word export & copy-paste</li>
+                            <li>Dragon Medical compatible</li>
+                            <li>24 language support</li>
+                            <li>Priority updates</li>
+                            <li>Priority support</li>
+                            <li>€70 annual savings</li>
+                        </ul>
+                        <a href="#contact" class="pricing-btn">Subscribe Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section" id="contact">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Practice?</h2>
+                <p>Join radiologists worldwide who have optimized their reporting workflow with Pisum</p>
+                <a href="mailto:contact@pisumrad.com" class="primary-btn">Contact Us Today</a>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Pisum</h4>
+                    <p style="color: #94a3b8;">Professional radiology reporting software with multilingual support and comprehensive imaging modality coverage.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#modalities">Imaging Modalities</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">HIPAA Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Pisum. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- FRENCH CONTENT -->
+    <div class="lang-content" id="content-fr">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Logiciel Professionnel<br>de Radiologie</h1>
+                <p class="hero-subtitle">Passez moins de temps sur la saisie et plus de temps sur l'interprétation des images. Générez des comptes rendus radiologiques professionnels, structurés et personnalisables en quelques secondes avec dictée vocale et export Word.</p>
+                <div class="hero-buttons">
+                    <a href="#pricing" data-section="pricing" class="primary-btn">Essai Gratuit</a>
+                    <a href="#modalities" data-section="modalities" class="secondary-btn">Explorer les Modalités</a>
+                </div>
+                <div class="trust-badge">
+                    <span>✓</span>
+                    <span>Approuvé par les radiologues du monde entier</span>
+                </div>
+            </div>
+        </section>
+
+        <section data-section="modalities" class="modalities">
+            <div class="section-container">
+                <h2 class="section-title scroll-reveal">Bibliothèques de Modèles Pré-Configurées</h2>
+                <p class="section-subtitle scroll-reveal">Modèles de comptes rendus spécialisés et complets prêts à l'emploi dès le premier jour</p>
+                
+                <div class="modalities-grid">
+                    <div class="modality-card scroll-reveal">
+                        <div class="modality-icon">🔬</div>
+                        <h3>Tomodensitométrie (Scanner)</h3>
+                        <p>Bibliothèque complète pour scanner multi-barrettes incluant protocoles avec injection de contraste.</p>
+                        <div class="modality-examples">
+                            <strong>Inclut :</strong>
+                            Scanner Cérébral, Thoracique, Abdomino-Pelvien, Angioscanner, CTPA, HRCT, Entéroscanner, Coloscanner
+                        </div>
+                    </div>
+
+                    <div class="modality-card scroll-reveal">
+                        <div class="modality-icon">🧲</div>
+                        <h3>Imagerie par Résonance Magnétique</h3>
+                        <p>Modèles IRM avancés avec descriptions spécifiques par séquence pour études anatomiques.</p>
+                        <div class="modality-examples">
+                            <strong>Inclut :</strong>
+                            IRM Cérébrale, Rachidienne, Musculo-Squelettique, ARM, Phlébographie, IRM Cardiaque, Entéro-IRM, Bili-IRM, IRMf
+                        </div>
+                    </div>
+
+                    <div class="modality-card scroll-reveal">
+                        <div class="modality-icon">📡</div>
+                        <h3>Échographie Diagnostique</h3>
+                        <p>Modèles complets pour imagerie échographique en temps réel de toutes les régions anatomiques.</p>
+                        <div class="modality-examples">
+                            <strong>Inclut :</strong>
+                            Écho Abdominale, Obstétricale, Gynécologique, Thyroïdienne, Doppler Vasculaire, Échocardiographie, Écho MSK, FAST
+                        </div>
+                    </div>
+
+                    <div class="modality-card scroll-reveal">
+                        <div class="modality-icon">📸</div>
+                        <h3>Radiologie Conventionnelle</h3>
+                        <p>Modèles standards pour radiographie avec comptes rendus structurés par région anatomique.</p>
+                        <div class="modality-examples">
+                            <strong>Inclut :</strong>
+                            Radiographie Thoracique, Osseuse, Abdomen Sans Préparation, Mammographie, Dentaire, Fluoroscopie, Études Barytées
+                        </div>
+                    </div>
+
+                    <div class="modality-card scroll-reveal">
+                        <div class="modality-icon">💉</div>
+                        <h3>Radiologie Interventionnelle</h3>
+                        <p>Modèles spécifiques pour interventions guidées avec documentation standardisée des procédures.</p>
+                        <div class="modality-examples">
+                            <strong>Inclut :</strong>
+                            Abord Vasculaire, Artériographie, Embolisation, Biopsie, Drainage, Ablation, TIPS, Vertébroplastie
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section data-section="features" class="features">
+            <div class="section-container">
+                <h2 class="section-title scroll-reveal">Pourquoi Choisir Pisum ?</h2>
+                <div class="features-grid">
+                    <div class="feature-card scroll-reveal">
+                        <div class="feature-icon">∞</div>
+                        <h3>Comptes Rendus Illimités</h3>
+                        <p>Aucun quota, aucune limitation. Générez autant de comptes rendus que nécessaire pour une productivité maximale.</p>
+                    </div>
+
+                    <div class="feature-card scroll-reveal">
+                        <div class="feature-icon">🎤</div>
+                        <h3>Dragon Medical</h3>
+                        <p>S'intègre parfaitement avec la reconnaissance vocale Dragon Medical pour dictée mains-libres.</p>
+                    </div>
+
+                    <div class="feature-card scroll-reveal">
+                        <div class="feature-icon">📄</div>
+                        <h3>Export Flexible</h3>
+                        <p>Export Word ou copier-coller rapide directement dans votre système RIS/PACS.</p>
+                    </div>
+
+                    <div class="feature-card scroll-reveal">
+                        <div class="feature-icon">✨</div>
+                        <h3>Rendu Professionnel</h3>
+                        <p>Formatage sophistiqué et structuré qui projette une expertise clinique auprès des correspondants.</p>
+                    </div>
+
+                    <div class="feature-card scroll-reveal">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Standardisation</h3>
+                        <p>Modèles validés garantissant qualité constante et minimisant les omissions diagnostiques.</p>
+                    </div>
+
+                    <div class="feature-card scroll-reveal">
+                        <div class="feature-icon">🌍</div>
+                        <h3>24 Langues</h3>
+                        <p>Générez des comptes rendus en 24 langues pour collaboration internationale et environnements multiculturels.</p>
+                    </div>
+
+                    <div class="feature-card scroll-reveal">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Zéro Configuration</h3>
+                        <p>Installez et commencez immédiatement. Productif dès le premier jour.</p>
+                    </div>
+
+                    <div class="feature-card scroll-reveal">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Compatibilité Totale</h3>
+                        <p>S'intègre parfaitement aux workflows existants, RIS, PACS et systèmes de dictée.</p>
+                    </div>
+
+                    <div class="feature-card scroll-reveal">
+                        <div class="feature-icon">📚</div>
+                        <h3>Modèles Personnalisés</h3>
+                        <p>Créez votre propre bibliothèque personnalisée correspondant à votre style unique.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section data-section="languages" class="languages">
+            <div class="section-container">
+                <div class="languages-intro">
+                    <h3>🌍 Support Linguistique Mondial</h3>
+                    <p>Générez des comptes rendus radiologiques professionnels dans 24 langues avec support des scripts natifs. Parfait pour les collaborations internationales et environnements médicaux multiculturels.</p>
+                </div>
+
+                <div class="languages-grid">
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-gb"></span></div>
+                        <div class="language-name">Anglais</div>
+                        <div class="language-native">English</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-fr"></span></div>
+                        <div class="language-name">Français</div>
+                        <div class="language-native">Français</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-de"></span></div>
+                        <div class="language-name">Allemand</div>
+                        <div class="language-native">Deutsch</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-cn"></span></div>
+                        <div class="language-name">Chinois</div>
+                        <div class="language-native">中文</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-es"></span></div>
+                        <div class="language-name">Espagnol</div>
+                        <div class="language-native">Español</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-in"></span></div>
+                        <div class="language-name">Hindi</div>
+                        <div class="language-native">हिन्दी</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-pt"></span></div>
+                        <div class="language-name">Portugais</div>
+                        <div class="language-native">Português</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-ru"></span></div>
+                        <div class="language-name">Russe</div>
+                        <div class="language-native">Русский</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-tr"></span></div>
+                        <div class="language-name">Turc</div>
+                        <div class="language-native">Türkçe</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-se"></span></div>
+                        <div class="language-name">Suédois</div>
+                        <div class="language-native">Svenska</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-no"></span></div>
+                        <div class="language-name">Norvégien</div>
+                        <div class="language-native">Norsk</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-dk"></span></div>
+                        <div class="language-name">Danois</div>
+                        <div class="language-native">Dansk</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-nl"></span></div>
+                        <div class="language-name">Néerlandais</div>
+                        <div class="language-native">Nederlands</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-jp"></span></div>
+                        <div class="language-name">Japonais</div>
+                        <div class="language-native">日本語</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-it"></span></div>
+                        <div class="language-name">Italien</div>
+                        <div class="language-native">Italiano</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-kr"></span></div>
+                        <div class="language-name">Coréen</div>
+                        <div class="language-native">한국어</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-id"></span></div>
+                        <div class="language-name">Indonésien</div>
+                        <div class="language-native">Bahasa Indonesia</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-pl"></span></div>
+                        <div class="language-name">Polonais</div>
+                        <div class="language-native">Polski</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-th"></span></div>
+                        <div class="language-name">Thaï</div>
+                        <div class="language-native">ไทย</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-my"></span></div>
+                        <div class="language-name">Malais</div>
+                        <div class="language-native">Bahasa Melayu</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-gr"></span></div>
+                        <div class="language-name">Grec</div>
+                        <div class="language-native">Ελληνικά</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-ph"></span></div>
+                        <div class="language-name">Filipino</div>
+                        <div class="language-native">Filipino</div>
+                    </div>
+                    <div class="language-card">
+                        <div class="flag-container"><span class="fi fi-ro"></span></div>
+                        <div class="language-name">Roumain</div>
+                        <div class="language-native">Română</div>
+                    </div>
+                </div>
+
+                <div class="languages-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">24</div>
+                        <div class="stat-label">Langues Supportées</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">1k+</div>
+                        <div class="stat-label">Personnes Atteintes</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Support Script Natif</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section data-section="pricing" class="pricing">
+            <div class="section-container">
+                <h2 class="section-title scroll-reveal">Tarifs Simples et Transparents</h2>
+                <p class="section-subtitle scroll-reveal">Choisissez le plan adapté à votre pratique radiologique</p>
+                <div class="pricing-cards">
+                    <div class="pricing-card scroll-reveal">
+                        <h3>Abonnement Mensuel</h3>
+                        <div class="price">30€<span class="price-period">/mois</span></div>
+                        <ul class="pricing-features">
+                            <li>Génération illimitée de comptes rendus</li>
+                            <li>Les 5 bibliothèques de modalités</li>
+                            <li>Modèles 100% personnalisables</li>
+                            <li>Export Word & copier-coller</li>
+                            <li>Compatible Dragon Medical</li>
+                            <li>Support de 24 langues</li>
+                            <li>Mises à jour régulières</li>
+                            <li>Support technique inclus</li>
+                        </ul>
+                        <a href="#contact" class="pricing-btn">S'abonner</a>
+                    </div>
+
+                    <div class="pricing-card popular scroll-reveal">
+                        <div class="popular-badge">⭐ MEILLEUR PRIX</div>
+                        <h3>Abonnement Annuel</h3>
+                        <div class="price">290€<span class="price-period">/an</span></div>
+                        <div class="savings-badge">💰 Économisez 70€ par an !</div>
+                        <ul class="pricing-features">
+                            <li>Génération illimitée de comptes rendus</li>
+                            <li>Les 5 bibliothèques de modalités</li>
+                            <li>Modèles 100% personnalisables</li>
+                            <li>Export Word & copier-coller</li>
+                            <li>Compatible Dragon Medical</li>
+                            <li>Support de 24 langues</li>
+                            <li>Mises à jour prioritaires</li>
+                            <li>Support technique prioritaire</li>
+                            <li>Économie de 70€ annuelle</li>
+                        </ul>
+                        <a href="#contact" class="pricing-btn">S'abonner</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section" id="contact">
+            <div class="cta-content">
+                <h2>Prêt à Transformer Votre Pratique ?</h2>
+                <p>Rejoignez les radiologues du monde entier qui ont optimisé leur flux de travail avec Pisum</p>
+                <a href="mailto:contact@pisumrad.com" class="primary-btn">Nous Contacter</a>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Pisum</h4>
+                    <p style="color: #94a3b8;">Logiciel professionnel de comptes rendus radiologiques avec support multilingue et couverture complète des modalités d'imagerie.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Produit</h4>
+                    <ul>
+                        <li><a href="#modalities">Modalités d'Imagerie</a></li>
+                        <li><a href="#features">Fonctionnalités</a></li>
+                        <li><a href="#pricing">Tarifs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="#">Conditions d'Utilisation</a></li>
+                        <li><a href="#">Politique de Confidentialité</a></li>
+                        <li><a href="#">Conformité RGPD</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Pisum. Tous droits réservés.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+    // Créer les particules
+    function createParticles() {
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+    }
+    createParticles();
+
+    // Variable pour la langue actuelle
+    let currentLang = 'en';
+
+    // Fonction pour gérer la visibilité des sections selon la langue
+    function updateSectionsVisibility() {
+        document.querySelectorAll('section[data-section]').forEach(section => {
+            if (currentLang === 'en') {
+                // En anglais : afficher seulement les sections avec un id
+                section.style.display = section.id ? 'block' : 'none';
+            } else if (currentLang === 'fr') {
+                // En français : afficher seulement les sections SANS id
+                section.style.display = !section.id ? 'block' : 'none';
+            }
+        });
+    }
+
+    // Fonction pour changer de langue
+    function switchLanguage(lang) {
+        currentLang = lang;
+        
+        // Gérer les contenus lang-content
+        document.querySelectorAll('.lang-content').forEach(content => {
+            content.classList.remove('active');
+        });
+        document.getElementById('content-' + lang).classList.add('active');
+        
+        // Gérer les boutons
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.querySelector('.lang-btn[data-lang="' + lang + '"]').classList.add('active');
+        
+        // Gérer les textes de navigation
+        document.querySelectorAll('.nav-text').forEach(elem => {
+            const text = elem.getAttribute('data-' + lang);
+            if (text) elem.textContent = text;
+        });
+        
+        // Mettre à jour la visibilité des sections
+        updateSectionsVisibility();
+        
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        setTimeout(() => {
+            document.querySelectorAll('.scroll-reveal').forEach(el => {
+                observer.observe(el);
+            });
+        }, 100);
+    }
+
+    // Gestion des clics sur les liens
+    document.addEventListener('click', function(e) {
+        const link = e.target.closest('a[href^="#"]');
+        if (link) {
+            e.preventDefault();
+            const hash = link.getAttribute('href').substring(1);
+            
+            // Trouver la section visible correspondante
+            let targetSection = null;
+            
+            if (currentLang === 'en') {
+                // En anglais, chercher par id
+                targetSection = document.getElementById(hash);
+            } else {
+                // En français, chercher par data-section parmi les sections visibles
+                const sections = document.querySelectorAll('[data-section="' + hash + '"]');
+                sections.forEach(section => {
+                    if (section.style.display !== 'none') {
+                        targetSection = section;
+                    }
+                });
+            }
+            
+            if (targetSection) {
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+            }
+        }
+    });
+
+    // Observer pour les animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Initialiser la visibilité au chargement
+    updateSectionsVisibility();
+</script>
+
+
+</body>
+</html>
