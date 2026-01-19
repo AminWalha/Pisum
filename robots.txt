@@ -1,11 +1,9 @@
-# robots.txt pour pisum.app
 User-agent: *
 Allow: /
 
-# Bloquer les ressources sensibles (si applicable)
-Disallow: /admin/
-Disallow: /api/
-Disallow: /private/
+# Fichiers et dossiers à ne pas indexer
+Disallow: /assets/
+Disallow: /*.js$
+Disallow: /*.css$
 
-# Référence au sitemap
 Sitemap: https://pisum.app/sitemap.xml
