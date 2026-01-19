@@ -1,52 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Page principale multilingue -->
   <url>
     <loc>https://pisum.app/</loc>
     <lastmod>2026-01-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- Section fonctionnalités / Features -->
   <url>
     <loc>https://pisum.app/#features</loc>
     <lastmod>2026-01-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Section templates / modèles -->
   <url>
-    <loc>https://pisum.app/#templates</loc>
+    <loc>https://pisum.app/#modalities</loc>
     <lastmod>2026-01-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Section pricing / tarifs -->
   <url>
     <loc>https://pisum.app/#pricing</loc>
     <lastmod>2026-01-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- Section use cases / cas d'usage -->
   <url>
-    <loc>https://pisum.app/#use-cases</loc>
+    <loc>https://pisum.app/#languages</loc>
     <lastmod>2026-01-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <!-- Section FAQ (si id présent dans ton HTML, adapte-le) -->
-  <url>
-    <loc>https://pisum.app/#faq</loc>
-    <lastmod>2026-01-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
 </urlset>
