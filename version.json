@@ -7,7 +7,6 @@
     "en": "Initial release of PISUM \n- Cloud license system\n- Multilingual support (23 languages)\n- Automatic report generation\n- Modern and intuitive interface"
   },
   "mandatory": true,
-  "min_version_required": "1.0.2",
   "features": [
     "Système de licence cloud sécurisé",
     "27 langues disponibles",
