@@ -1,6 +1,5 @@
 {
   "version": "1.0.2",
-  "release_date": "2025-12-14",
   "download_url": "https://drive.google.com/drive/folders/1igTnleiHnzlReGgYQ-nCLDG8j9ItTEcp?usp=drive_link",
   "changelog": {
     "fr": "Version initiale de PISUM\n- Système de licence cloud\n- Support multilingue (23 langues)\n- Génération de comptes rendus automatiques\n- Interface moderne et intuitive",
