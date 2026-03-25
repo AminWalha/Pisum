@@ -28,7 +28,7 @@
       }
     },
     "url": "https://pisum.app",
-    "featureList": "112 radiology report templates, 23 languages, Dragon Medical compatible, Word export, RIS PACS compatible, offline use, no patient data stored"
+    "featureList": "112 radiology report templates, 23 languages, built-in AI voice dictation multilingual, Dragon Medical compatible, Word export, RIS PACS compatible, offline use, no patient data stored"
   }
   </script>
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png">
@@ -171,6 +171,23 @@
     }
     .nav-cta:hover { background: var(--teal); transform: translateY(-1px); }
 
+    .nav-download {
+      background: var(--teal);
+      color: white;
+      text-decoration: none;
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: all 0.2s;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      box-shadow: 0 2px 10px rgba(14,110,110,0.25);
+    }
+    .nav-download:hover { background: #0a5454; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(14,110,110,0.35); }
+
     /* ─── HERO ─── */
     .hero {
       min-height: 88vh;
@@ -283,6 +300,22 @@
       box-shadow: 0 4px 16px rgba(14,110,110,0.3);
     }
     .btn-primary:hover { background: #0a5454; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(14,110,110,0.35); }
+
+    .btn-download {
+      background: var(--gold);
+      color: var(--ink);
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+      box-shadow: 0 4px 16px rgba(200,151,58,0.35);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-download:hover { background: #d4a03f; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,151,58,0.45); }
 
     .btn-secondary {
       background: white;
@@ -399,6 +432,16 @@
       margin-bottom: 0.6rem;
     }
     .vp-card p { font-size: 0.88rem; color: var(--ink-muted); line-height: 1.55; }
+    .vp-download-link {
+      display: inline-block;
+      margin-top: 0.8rem;
+      font-size: 0.83rem;
+      font-weight: 700;
+      color: var(--teal);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .vp-download-link:hover { color: var(--gold); }
 
     /* ─── WHO IT'S FOR ─── */
     .who { background: var(--cream); }
@@ -740,6 +783,68 @@
     }
     .pricing-guarantee span { color: var(--teal); font-weight: 600; }
 
+    /* ─── DOWNLOAD SECTION ─── */
+    .download-section {
+      background: linear-gradient(135deg, var(--ink) 0%, #1a2535 100%);
+      text-align: center;
+      padding: 5rem clamp(1rem, 8vw, 6rem);
+      position: relative;
+      overflow: hidden;
+    }
+    .download-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 30% 50%, rgba(14,110,110,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 80% 30%, rgba(200,151,58,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .download-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .download-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: block;
+      animation: bounce 2s ease-in-out infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .download-section .section-label { color: var(--gold); margin-bottom: 0.5rem; }
+    .download-section h2 { color: white; margin-bottom: 1rem; }
+    .download-section p { color: rgba(255,255,255,0.6); margin-bottom: 2rem; font-size: 1.05rem; }
+    .btn-download-large {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: var(--ink);
+      text-decoration: none;
+      padding: 18px 44px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: all 0.25s;
+      box-shadow: 0 8px 30px rgba(200,151,58,0.4);
+      margin-bottom: 2rem;
+    }
+    .btn-download-large:hover { background: #d4a03f; transform: translateY(-3px); box-shadow: 0 14px 40px rgba(200,151,58,0.5); }
+    .download-trust {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      color: rgba(255,255,255,0.45);
+      font-size: 0.83rem;
+      font-weight: 500;
+    }
+
     /* ─── CTA SECTION ─── */
     .cta-section {
       background: var(--teal);
@@ -789,6 +894,11 @@
       transition: color 0.2s;
     }
     footer ul a:hover { color: var(--gold); }
+    .footer-download-link {
+      color: var(--gold) !important;
+      font-weight: 600 !important;
+    }
+    .footer-download-link:hover { color: #d4a03f !important; }
     .footer-bottom {
       border-top: 1px solid rgba(255,255,255,0.08);
       padding-top: 1.5rem;
@@ -812,11 +922,216 @@
     /* ─── RESPONSIVE ─── */
     @media (max-width: 768px) {
       .nav-links { display: none; }
+      .nav-download { display: none; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .pricing-tiers { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; align-items: center; }
+      .btn-download, .btn-primary, .btn-secondary { width: 100%; max-width: 340px; justify-content: center; }
     }
     @media (max-width: 480px) {
       .footer-grid { grid-template-columns: 1fr; }
+      .download-trust { flex-direction: column; gap: 8px; }
+    }
+
+    /* ─── FLOATING DOWNLOAD (mobile) ─── */
+    .floating-download {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 200;
+      background: var(--gold);
+      color: var(--ink);
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+      white-space: nowrap;
+      animation: floatUp 0.5s ease 1s both;
+    }
+    @keyframes floatUp {
+      from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+      to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+    @media (max-width: 768px) {
+      .floating-download { display: inline-flex; align-items: center; gap: 6px; }
+    }
+
+    /* ─── AI DICTATION HIGHLIGHT ─── */
+    .feat-highlight {
+      background: linear-gradient(135deg, rgba(14,110,110,0.12), rgba(200,151,58,0.08)) !important;
+      border-left: 3px solid var(--teal);
+    }
+    .feat-highlight h3 { color: var(--gold) !important; }
+    
+    .vp-card-featured {
+      border-color: var(--teal) !important;
+      background: linear-gradient(135deg, var(--teal-light), rgba(200,151,58,0.06)) !important;
+    }
+    .vp-card-featured .vp-icon {
+      background: var(--teal);
+      font-size: 1.4rem;
+    }
+    
+    /* ─── DICTATION SECTION ─── */
+    .dictation { background: var(--ink); }
+    .dictation .section-title { color: white; }
+    .dictation .section-sub { color: rgba(255,255,255,0.6); }
+    .dictation .section-label { color: var(--gold); }
+    
+    .dictation-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .dictation-grid { grid-template-columns: 1fr; }
+    }
+    
+    .dictation-visual {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(200,151,58,0.2);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+    }
+    .dictation-waveform {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      height: 60px;
+      margin-bottom: 1.5rem;
+    }
+    .wave-bar {
+      width: 5px;
+      border-radius: 3px;
+      background: var(--teal);
+      animation: wave 1.2s ease-in-out infinite;
+    }
+    .wave-bar:nth-child(1) { height: 20px; animation-delay: 0s; }
+    .wave-bar:nth-child(2) { height: 35px; animation-delay: 0.1s; }
+    .wave-bar:nth-child(3) { height: 50px; animation-delay: 0.2s; }
+    .wave-bar:nth-child(4) { height: 40px; animation-delay: 0.3s; }
+    .wave-bar:nth-child(5) { height: 55px; animation-delay: 0.15s; }
+    .wave-bar:nth-child(6) { height: 30px; animation-delay: 0.25s; }
+    .wave-bar:nth-child(7) { height: 45px; animation-delay: 0.05s; }
+    .wave-bar:nth-child(8) { height: 25px; animation-delay: 0.35s; }
+    .wave-bar:nth-child(9) { height: 40px; animation-delay: 0.1s; }
+    .wave-bar:nth-child(10) { height: 15px; animation-delay: 0.4s; }
+    @keyframes wave {
+      0%, 100% { transform: scaleY(1); opacity: 0.7; }
+      50% { transform: scaleY(1.4); opacity: 1; background: var(--gold); }
+    }
+    
+    .dictation-transcript {
+      background: rgba(0,0,0,0.3);
+      border-radius: 10px;
+      padding: 1.2rem;
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .transcript-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1em;
+      background: var(--gold);
+      vertical-align: middle;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+    
+    .dictation-lang-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .d-lang-badge {
+      background: rgba(14,110,110,0.3);
+      color: #6ee7e7;
+      border: 1px solid rgba(14,110,110,0.4);
+      padding: 4px 10px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    
+    .dictation-features {
+      list-style: none;
+    }
+    .dictation-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+    }
+    .dictation-features li:last-child { border-bottom: none; }
+    .dictation-features li .df-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: rgba(14,110,110,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .dictation-features li strong {
+      display: block;
+      color: white;
+      font-size: 0.88rem;
+      margin-bottom: 2px;
+    }
+    .dictation-features li span {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+    }
+    
+    .dictation-vs {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    .dictation-vs-item {
+      flex: 1;
+      min-width: 140px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .dictation-vs-item.winner {
+      background: rgba(14,110,110,0.2);
+      border-color: var(--teal);
+    }
+    .dvs-label { font-size: 0.72rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.3rem; }
+    .dvs-name { font-family: 'DM Serif Display', serif; font-size: 1rem; color: white; margin-bottom: 0.2rem; }
+    .dvs-price { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-bottom: 0.5rem; }
+    .dvs-features { font-size: 0.72rem; color: rgba(255,255,255,0.5); line-height: 1.6; }
+    .dictation-vs-item.winner .dvs-name { color: var(--gold); }
+    .dictation-vs-item.winner .dvs-features { color: rgba(255,255,255,0.7); }
+    
+    /* nav link for dictation */
+    .nav-links a[href="#dictation"] { position: relative; }
+    .nav-badge-new {
+      position: absolute;
+      top: -8px; right: -22px;
+      background: var(--gold);
+      color: var(--ink);
+      font-size: 0.55rem;
+      font-weight: 800;
+      padding: 1px 5px;
+      border-radius: 4px;
+      letter-spacing: 0.04em;
     }
   </style>
 </head>
@@ -837,8 +1152,10 @@
     <ul class="nav-links">
       <li><a href="#modalities" data-nav="modalities" data-en="Templates" data-fr="Modèles" data-es="Plantillas" data-de="Vorlagen">Templates</a></li>
       <li><a href="#features" data-nav="features" data-en="Features" data-fr="Fonctionnalités" data-es="Características" data-de="Funktionen">Features</a></li>
+      <li style="position:relative"><a href="#dictation" data-nav="dictation" data-en="AI Dictation" data-fr="Dictée IA" data-es="Dictado IA" data-de="KI-Diktat">AI Dictation</a><span class="nav-badge-new">NEW</span></li>
       <li><a href="#languages" data-nav="languages" data-en="Languages" data-fr="Langues" data-es="Idiomas" data-de="Sprachen">Languages</a></li>
       <li><a href="#pricing" data-nav="pricing" data-en="Pricing" data-fr="Tarifs" data-es="Precios" data-de="Preise">Pricing</a></li>
+      <li><a href="#download" data-nav="download" data-en="Download" data-fr="Télécharger" data-es="Descargar" data-de="Download" style="color: var(--teal); font-weight:700;">Download</a></li>
     </ul>
     <div class="nav-right">
       <div class="lang-switcher">
@@ -847,9 +1164,13 @@
         <button class="lang-btn" onclick="setLang('es')" data-l="es" title="Español"><span class="fi fi-es"></span></button>
         <button class="lang-btn" onclick="setLang('de')" data-l="de" title="Deutsch"><span class="fi fi-de"></span></button>
       </div>
-      <a href="#pricing" class="nav-cta" data-en="Start Free Trial" data-fr="Essai Gratuit" data-es="Prueba Gratis" data-de="Kostenlos Testen">Start Free Trial</a>
+      <a href="https://drive.google.com/drive/folders/1igTnleiHnzlReGgYQ-nCLDG8j9ItTEcp?usp=drive_link" target="_blank" rel="noopener" class="nav-download t" data-en="⬇ Download" data-fr="⬇ Télécharger" data-es="⬇ Descargar" data-de="⬇ Herunterladen">⬇ Download</a>
+      <a href="#pricing" class="nav-cta t" data-en="Start Free Trial" data-fr="Essai Gratuit" data-es="Prueba Gratis" data-de="Kostenlos Testen">Start Free Trial</a>
     </div>
   </nav>
+
+  <!-- FLOATING DOWNLOAD (mobile) -->
+  <a href="https://drive.google.com/drive/folders/1igTnleiHnzlReGgYQ-nCLDG8j9ItTEcp?usp=drive_link" target="_blank" rel="noopener" class="floating-download t" data-en="⬇ Download Pisum" data-fr="⬇ Télécharger Pisum" data-es="⬇ Descargar Pisum" data-de="⬇ Pisum Herunterladen">⬇ Download Pisum</a>
 
   <!-- HERO -->
   <section class="hero">
@@ -861,10 +1182,11 @@
       <h1>
         <span class="t" data-en="Radiology reports.<br><em>Done in minutes.</em>" data-fr="Comptes rendus.<br><em>En quelques minutes.</em>" data-es="Informes radiológicos.<br><em>En minutos.</em>" data-de="Radiologiebefunde.<br><em>In Minuten erledigt.</em>">Radiology reports.<br><em>Done in minutes.</em></span>
       </h1>
-      <p class="hero-sub t" data-en="Structured radiology reporting software with 112 expert templates across CT, MRI, Ultrasound and X-Ray. The affordable PowerScribe alternative for independent radiologists, private clinics, and teleradiology services." data-fr="Logiciel de compte rendu radiologique structuré avec 112 modèles experts en scanner, IRM, échographie et radiographie. L'alternative abordable à PowerScribe pour radiologues indépendants, cliniques et téléradiologie." data-es="Software de informes radiológicos estructurados con 112 plantillas expertas en TC, RM, ecografía y radiografía. La alternativa asequible a PowerScribe para radiólogos independientes y servicios de telerradiología." data-de="Strukturierte Radiologie-Befundungssoftware mit 112 Expertenvorlagen für CT, MRT, Ultraschall und Röntgen. Die günstige PowerScribe-Alternative für unabhängige Radiologen, Kliniken und Teleradiologie.">Structured radiology reporting software with 112 expert templates across CT, MRI, Ultrasound and X-Ray. The affordable PowerScribe alternative for independent radiologists, private clinics, and teleradiology services.</p>
+      <p class="hero-sub t" data-en="Structured radiology reporting software with 112 expert templates and built-in AI voice dictation in 23 languages. The affordable PowerScribe &amp; Dragon Medical alternative for independent radiologists, private clinics, and teleradiology services." data-fr="Logiciel de compte rendu radiologique structuré avec 112 modèles experts et dictée vocale IA en 23 langues. L'alternative abordable à PowerScribe et Dragon Medical pour radiologues indépendants, cliniques et téléradiologie." data-es="Software de informes radiológicos estructurados con 112 plantillas expertas en TC, RM, ecografía y radiografía. La alternativa asequible a PowerScribe para radiólogos independientes y servicios de telerradiología." data-de="Strukturierte Radiologie-Befundungssoftware mit 112 Expertenvorlagen für CT, MRT, Ultraschall und Röntgen. Die günstige PowerScribe-Alternative für unabhängige Radiologen, Kliniken und Teleradiologie.">Structured radiology reporting software with 112 expert templates across CT, MRI, Ultrasound and X-Ray. The affordable PowerScribe alternative for independent radiologists, private clinics, and teleradiology services.</p>
       <div class="hero-pills">
         <div class="pill"><span>112</span> Expert Templates</div>
         <div class="pill"><span>23</span> Languages</div>
+        <div class="pill">🎙️ AI Dictation — 23 Languages</div>
         <div class="pill">🎤 Dragon Medical Compatible</div>
         <div class="pill">📄 Word Export</div>
         <div class="pill">🔒 No Patient Data Stored</div>
@@ -872,6 +1194,7 @@
       </div>
       <div class="hero-actions">
         <a href="#pricing" class="btn-primary t" data-en="Start 7-Day Free Trial" data-fr="Essai Gratuit 7 Jours" data-es="Prueba Gratuita 7 Días" data-de="7 Tage Kostenlos Testen">Start 7-Day Free Trial</a>
+        <a href="https://drive.google.com/drive/folders/1igTnleiHnzlReGgYQ-nCLDG8j9ItTEcp?usp=drive_link" target="_blank" rel="noopener" class="btn-download t" data-en="⬇ Download for Windows" data-fr="⬇ Télécharger pour Windows" data-es="⬇ Descargar para Windows" data-de="⬇ Für Windows Herunterladen">⬇ Download for Windows</a>
         <a href="#modalities" class="btn-secondary t" data-en="View Templates" data-fr="Voir les Modèles" data-es="Ver Plantillas" data-de="Vorlagen Ansehen">View Templates</a>
       </div>
       <div class="hero-trust">
@@ -902,6 +1225,10 @@
       <div class="stat-label t" data-en="To First Report" data-fr="Jusqu'au premier rapport" data-es="Para el primer informe" data-de="Bis zum ersten Befund">To First Report</div>
     </div>
     <div class="stat-item reveal">
+      <span class="stat-num">🎙️</span>
+      <div class="stat-label t" data-en="AI Dictation Built-In" data-fr="Dictée IA Intégrée" data-es="Dictado IA Integrado" data-de="KI-Diktat Integriert">AI Dictation Built-In</div>
+    </div>
+    <div class="stat-item reveal">
       <span class="stat-num">€39</span>
       <div class="stat-label t" data-en="Starting Price / Month" data-fr="Prix de départ / Mois" data-es="Precio desde / Mes" data-de="Ab Preis / Monat">Starting Price / Month</div>
     </div>
@@ -924,6 +1251,7 @@
         <h3 class="t" data-en="Ready in 5 Minutes" data-fr="Prêt en 5 Minutes" data-es="Listo en 5 Minutos" data-de="In 5 Minuten Einsatzbereit">Ready in 5 Minutes</h3>
         <div class="vp-price t" data-en="Install & start immediately" data-fr="Installez et commencez immédiatement" data-es="Instale y comience inmediatamente" data-de="Sofort installieren und starten">Install & start immediately</div>
         <p class="t" data-en="No IT projects, no integration teams, no training. Download, install, and start generating professional reports immediately." data-fr="Pas de projet IT, pas d'équipes d'intégration. Téléchargez, installez et commencez à générer des rapports professionnels." data-es="Sin proyectos IT. Descargue, instale y empiece a generar informes profesionales de inmediato." data-de="Keine IT-Projekte, keine Schulungen. Herunterladen, installieren und sofort professionelle Berichte erstellen.">No IT projects, no integration teams, no training. Download, install, and start generating professional reports immediately.</p>
+        <a href="https://drive.google.com/drive/folders/1igTnleiHnzlReGgYQ-nCLDG8j9ItTEcp?usp=drive_link" target="_blank" rel="noopener" class="vp-download-link t" data-en="⬇ Download now →" data-fr="⬇ Télécharger maintenant →" data-es="⬇ Descargar ahora →" data-de="⬇ Jetzt herunterladen →">⬇ Download now →</a>
       </div>
       <div class="vp-card reveal">
         <div class="vp-icon">📚</div>
@@ -936,6 +1264,12 @@
         <h3 class="t" data-en="23 Languages Built-In" data-fr="23 Langues Intégrées" data-es="23 Idiomas Integrados" data-de="23 Sprachen Integriert">23 Languages Built-In</h3>
         <div class="vp-price t" data-en="Global reach, no extra cost" data-fr="Portée mondiale, sans coût supplémentaire" data-es="Alcance global, sin coste adicional" data-de="Globale Reichweite, ohne Mehrkosten">Global reach, no extra cost</div>
         <p class="t" data-en="Most premium platforms support 1–2 languages. Pisum enables you to serve international patients and collaborate globally without extra costs." data-fr="La plupart des plateformes supportent 1–2 langues. Pisum vous permet de servir des patients internationaux sans frais additionnels." data-es="La mayoría soporta 1–2 idiomas. Pisum le permite atender pacientes internacionales sin costes adicionales." data-de="Die meisten Plattformen unterstützen 1–2 Sprachen. Pisum ermöglicht internationale Patienten ohne Mehrkosten.">Most premium platforms support 1–2 languages. Pisum enables you to serve international patients and collaborate globally without extra costs.</p>
+      </div>
+      <div class="vp-card reveal vp-card-featured">
+        <div class="vp-icon">🎙️</div>
+        <h3 class="t" data-en="Built-in AI Dictation" data-fr="Dictée IA Intégrée" data-es="Dictado IA Integrado" data-de="KI-Diktat Integriert">Built-in AI Dictation</h3>
+        <div class="vp-price t" data-en="Like Dragon Medical — included" data-fr="Comme Dragon Medical — inclus" data-es="Como Dragon Medical — incluido" data-de="Wie Dragon Medical — inklusive">Like Dragon Medical — included</div>
+        <p class="t" data-en="Pisum includes its own AI-powered voice dictation engine supporting 23 languages. Dictate your reports hands-free in English, French, Arabic, Romanian, and more — with radiology-specific vocabulary correction built in." data-fr="Pisum intègre son propre moteur de dictée vocale IA supportant 23 langues. Dictez vos comptes rendus en mains-libres en français, anglais, arabe, roumain et plus — avec correction vocabulaire radiologique intégrée." data-es="Pisum incluye su propio motor de dictado IA compatible con 23 idiomas. Dicte sus informes en inglés, francés, árabe, rumano y más — con corrección de vocabulario radiológico." data-de="Pisum enthält eine eigene KI-Sprachdiktiermaschine für 23 Sprachen. Diktieren Sie Befunde freihändig auf Englisch, Französisch, Arabisch und mehr — mit radiologischem Vokabular-Korrektur.">Pisum includes its own AI-powered voice dictation engine supporting 23 languages.</p>
       </div>
       <div class="vp-card reveal">
         <div class="vp-icon">🔒</div>
@@ -1040,10 +1374,11 @@
   <section class="features" id="features">
     <div class="section-label t" data-en="Features" data-fr="Fonctionnalités" data-es="Características" data-de="Funktionen">Features</div>
     <h2 class="section-title reveal t" data-en="Everything you need.<br>Nothing you don't." data-fr="Tout ce dont vous avez besoin.<br>Rien de superflu." data-es="Todo lo que necesita.<br>Nada superfluo." data-de="Alles was Sie brauchen.<br>Nichts Überflüssiges.">Everything you need.<br>Nothing you don't.</h2>
-    <p class="section-sub reveal t" data-en="Structured radiology reporting software that works offline, stores no patient data, and integrates with Dragon Medical, RIS and PACS — without any IT project." data-fr="Logiciel de compte rendu radiologique structuré qui fonctionne hors ligne, ne stocke aucune donnée patient et s'intègre à Dragon Medical, RIS et PACS — sans projet IT." data-es="Software de informes radiológicos estructurados que funciona sin conexión, no almacena datos de pacientes y se integra con Dragon Medical, RIS y PACS — sin proyecto IT." data-de="Strukturierte Radiologie-Befundungssoftware, die offline funktioniert, keine Patientendaten speichert und mit Dragon Medical, RIS und PACS integriert — ohne IT-Projekt.">Structured radiology reporting that works offline, stores no patient data, and integrates with Dragon Medical, RIS and PACS — without any IT project.</p>
+    <p class="section-sub reveal t" data-en="Structured radiology reporting software with built-in multilingual AI dictation, works offline, stores no patient data, and integrates with Dragon Medical, RIS and PACS — without any IT project." data-fr="Logiciel de compte rendu radiologique avec dictée IA multilingue intégrée, fonctionne hors ligne, ne stocke aucune donnée patient et s'intègre à Dragon Medical, RIS et PACS — sans projet IT." data-es="Software de informes radiológicos estructurados que funciona sin conexión, no almacena datos de pacientes y se integra con Dragon Medical, RIS y PACS — sin proyecto IT." data-de="Strukturierte Radiologie-Befundungssoftware, die offline funktioniert, keine Patientendaten speichert und mit Dragon Medical, RIS und PACS integriert — ohne IT-Projekt.">Structured radiology reporting that works offline, stores no patient data, and integrates with Dragon Medical, RIS and PACS — without any IT project.</p>
     <div class="feat-grid">
       <div class="feat-item"><span class="feat-icon">∞</span><h3 class="t" data-en="Unlimited Reports" data-fr="Rapports Illimités" data-es="Informes Ilimitados" data-de="Unbegrenzte Berichte">Unlimited Reports</h3><p class="t" data-en="No quotas, no limitations. Generate as many reports as needed." data-fr="Aucun quota, aucune limitation. Générez autant de rapports que nécessaire." data-es="Sin cuotas. Genere tantos informes como necesite." data-de="Keine Quoten. Erstellen Sie so viele Berichte wie nötig.">No quotas, no limitations.</p></div>
-      <div class="feat-item"><span class="feat-icon">🎤</span><h3 class="t" data-en="Dragon Medical Compatible" data-fr="Compatible Dragon Medical" data-es="Compatible Dragon Medical" data-de="Dragon Medical Kompatibel">Dragon Medical Compatible</h3><p class="t" data-en="Seamless integration with Dragon Medical for hands-free dictation." data-fr="Intégration parfaite avec Dragon Medical pour dictée mains-libres." data-es="Integración perfecta con Dragon Medical para dictado manos libres." data-de="Nahtlose Integration mit Dragon Medical für freihändiges Diktieren.">Hands-free dictation workflow.</p></div>
+      <div class="feat-item feat-highlight"><span class="feat-icon">🎙️</span><h3 class="t" data-en="Built-in AI Dictation" data-fr="Dictée IA Intégrée" data-es="Dictado IA Integrado" data-de="KI-Diktat Integriert">Built-in AI Dictation</h3><p class="t" data-en="Multilingual AI voice dictation in 23 languages — like Dragon Medical, built right in. No extra software needed." data-fr="Dictée vocale IA multilingue en 23 langues — comme Dragon Medical, intégrée nativement. Aucun logiciel supplémentaire." data-es="Dictado por voz IA multilingüe en 23 idiomas — como Dragon Medical, integrado. Sin software adicional." data-de="Mehrsprachige KI-Sprachdiktat in 23 Sprachen — wie Dragon Medical, integriert. Keine zusätzliche Software.">Multilingual dictation, 23 languages.</p></div>
+      <div class="feat-item"><span class="feat-icon">🎤</span><h3 class="t" data-en="Dragon Medical Compatible" data-fr="Compatible Dragon Medical" data-es="Compatible Dragon Medical" data-de="Dragon Medical Kompatibel">Dragon Medical Compatible</h3><p class="t" data-en="Prefer Dragon Medical? Full compatibility for hands-free dictation." data-fr="Vous préférez Dragon Medical ? Compatibilité totale pour la dictée mains-libres." data-es="¿Prefiere Dragon Medical? Compatibilidad total para dictado manos libres." data-de="Dragon Medical bevorzugt? Volle Kompatibilität für freihändiges Diktieren.">Full Dragon Medical compatibility.</p></div>
       <div class="feat-item"><span class="feat-icon">📄</span><h3 class="t" data-en="Word Export & Copy-Paste" data-fr="Export Word & Copier-Coller" data-es="Exportación Word & Copiar-Pegar" data-de="Word-Export & Kopieren-Einfügen">Word Export & Copy-Paste</h3><p class="t" data-en="Export to Word or paste directly into your RIS/PACS system." data-fr="Export Word ou copier-coller dans votre RIS/PACS." data-es="Exporte a Word o pegue directamente en su RIS/PACS." data-de="Export nach Word oder direkt in Ihr RIS/PACS-System.">Into any RIS/PACS system.</p></div>
       <div class="feat-item"><span class="feat-icon">✨</span><h3 class="t" data-en="Professional Layout" data-fr="Rendu Professionnel" data-es="Presentación Profesional" data-de="Professionelles Layout">Professional Layout</h3><p class="t" data-en="Clinic-grade formatting that projects clinical expertise to referring physicians." data-fr="Formatage clinique qui projette une expertise professionnelle." data-es="Formato de calidad clínica que proyecta experiencia profesional." data-de="Klinik-Format, das professionelle Expertise ausstrahlt.">Clinic-grade formatting.</p></div>
       <div class="feat-item"><span class="feat-icon">📚</span><h3 class="t" data-en="Custom Templates" data-fr="Modèles Personnalisés" data-es="Plantillas Personalizadas" data-de="Benutzerdefinierte Vorlagen">Custom Templates</h3><p class="t" data-en="Add your own templates to the library alongside the 112 built-in ones." data-fr="Ajoutez vos propres modèles à la bibliothèque en plus des 112 inclus." data-es="Añada sus propias plantillas junto a las 112 integradas." data-de="Eigene Vorlagen zur Bibliothek hinzufügen neben den 112 integrierten.">Your own library alongside 112 built-ins.</p></div>
@@ -1051,6 +1386,129 @@
       <div class="feat-item"><span class="feat-icon">🔒</span><h3 class="t" data-en="Works Offline" data-fr="Fonctionne Hors Ligne" data-es="Funciona sin Conexión" data-de="Offline-Fähig">Works Offline</h3><p class="t" data-en="No internet dependency mid-report. Your data never leaves your device." data-fr="Aucune dépendance Internet. Vos données ne quittent jamais votre appareil." data-es="Sin dependencia de Internet. Sus datos nunca salen de su dispositivo." data-de="Keine Internet-Abhängigkeit. Ihre Daten verlassen nie Ihr Gerät.">Your data never leaves your device.</p></div>
       <div class="feat-item"><span class="feat-icon">🎯</span><h3 class="t" data-en="Clinical Standardization" data-fr="Standardisation Clinique" data-es="Estandarización Clínica" data-de="Klinische Standardisierung">Clinical Standardization</h3><p class="t" data-en="Validated templates minimize diagnostic omissions across your team." data-fr="Modèles validés minimisant les omissions diagnostiques." data-es="Plantillas validadas que minimizan omisiones diagnósticas." data-de="Validierte Vorlagen minimieren diagnostische Auslassungen.">Minimize diagnostic omissions.</p></div>
       <div class="feat-item"><span class="feat-icon">🌍</span><h3 class="t" data-en="23 Languages" data-fr="23 Langues" data-es="23 Idiomas" data-de="23 Sprachen">23 Languages</h3><p class="t" data-en="Native script support for international collaboration and multicultural healthcare." data-fr="Support des scripts natifs pour collaboration internationale." data-es="Soporte de escritura nativa para colaboración internacional." data-de="Native Schriftunterstützung für internationale Zusammenarbeit.">Native scripts for global teams.</p></div>
+    </div>
+  </section>
+
+
+  <!-- AI DICTATION SECTION -->
+  <section class="dictation" id="dictation">
+    <div class="section-label t" data-en="AI Voice Dictation" data-fr="Dictée Vocale IA" data-es="Dictado de Voz IA" data-de="KI-Sprachdiktat">AI Voice Dictation</div>
+    <h2 class="section-title reveal t" data-en="Dictate radiology reports.<br>In 23 languages." data-fr="Dictez vos comptes rendus.<br>En 23 langues." data-es="Dicte informes radiológicos.<br>En 23 idiomas." data-de="Radiologiebefunde diktieren.<br>In 23 Sprachen.">Dictate radiology reports.<br>In 23 languages.</h2>
+    <p class="section-sub reveal t" data-en="Pisum comes with its own built-in AI dictation engine — no Dragon Medical license needed. Powered by Sally AI with radiology-specific vocabulary correction across all 23 supported languages." data-fr="Pisum intègre son propre moteur de dictée IA — sans licence Dragon Medical. Propulsé par Sally AI avec correction vocabulaire radiologique dans les 23 langues supportées." data-es="Pisum incluye su propio motor de dictado IA — sin licencia Dragon Medical. Impulsado por Sally AI con corrección de vocabulario radiológico en los 23 idiomas." data-de="Pisum enthält eine eigene KI-Diktat-Engine — keine Dragon Medical-Lizenz nötig. Angetrieben von Sally AI mit radiologischer Vokabularkorrektur in allen 23 Sprachen.">Pisum comes with its own built-in AI dictation engine — no Dragon Medical license needed.</p>
+
+    <div class="dictation-grid">
+      <!-- LEFT: Features list -->
+      <div>
+        <ul class="dictation-features">
+          <li class="reveal">
+            <div class="df-icon">🧠</div>
+            <div>
+              <strong class="t" data-en="Sally AI Engine" data-fr="Moteur Sally IA" data-es="Motor Sally IA" data-de="Sally-KI-Motor">Sally AI Engine</strong>
+              <span class="t" data-en="State-of-the-art speech recognition trained on medical vocabulary across all supported languages." data-fr="Reconnaissance vocale de pointe entraînée sur le vocabulaire médical dans toutes les langues supportées." data-es="Reconocimiento de voz de última generación entrenado en vocabulario médico en todos los idiomas." data-de="Modernste Spracherkennung, auf medizinischem Vokabular in allen unterstützten Sprachen trainiert.">State-of-the-art speech recognition trained on medical vocabulary across all supported languages.</span>
+            </div>
+          </li>
+          <li class="reveal">
+            <div class="df-icon">🩺</div>
+            <div>
+              <strong class="t" data-en="Radiology Vocabulary Correction" data-fr="Correction Vocabulaire Radiologique" data-es="Corrección de Vocabulario Radiológico" data-de="Radiologische Vokabularkorrektur">Radiology Vocabulary Correction</strong>
+              <span class="t" data-en="Automatic post-processing corrects phonetic transcription errors specific to radiology: HRCT, MRCP, gadolinium, hepatomegaly and more." data-fr="Post-traitement automatique corrigeant les erreurs phonétiques propres à la radiologie : HRCT, MRCP, gadolinium, hépatomégalie, etc." data-es="Procesamiento posterior automático que corrige errores fonéticos específicos de radiología: HRCT, MRCP, gadolinio, hepatomegalia y más." data-de="Automatische Nachverarbeitung korrigiert phonetische Transkriptionsfehler der Radiologie: HRCT, MRCP, Gadolinium, Hepatomegalie und mehr.">Automatic post-processing corrects phonetic transcription errors specific to radiology.</span>
+            </div>
+          </li>
+          <li class="reveal">
+            <div class="df-icon">🌍</div>
+            <div>
+              <strong class="t" data-en="True Multilingual — 23 Languages" data-fr="Véritablement Multilingue — 23 Langues" data-es="Verdaderamente Multilingüe — 23 Idiomas" data-de="Wirklich Mehrsprachig — 23 Sprachen">True Multilingual — 23 Languages</strong>
+              <span class="t" data-en="Dictate in French, English, Arabic, Romanian, Spanish, German and 17 more. Language auto-detected or manually selected per session." data-fr="Dictez en français, anglais, arabe, roumain, espagnol, allemand et 17 autres. Langue auto-détectée ou sélectionnée manuellement." data-es="Dicte en francés, inglés, árabe, rumano, español, alemán y 17 más. Idioma detectado automáticamente o seleccionado manualmente." data-de="Diktieren Sie auf Französisch, Englisch, Arabisch, Rumänisch, Spanisch, Deutsch und 17 weiteren. Sprache wird automatisch erkannt oder manuell gewählt.">Dictate in French, English, Arabic, Romanian, Spanish, German and 17 more.</span>
+            </div>
+          </li>
+          <li class="reveal">
+            <div class="df-icon">🔒</div>
+            <div>
+              <strong class="t" data-en="100% Offline — No Cloud" data-fr="100% Hors Ligne — Sans Cloud" data-es="100% Sin Conexión — Sin Nube" data-de="100% Offline — Keine Cloud">100% Offline — No Cloud</strong>
+              <span class="t" data-en="All speech recognition runs locally on your machine. No audio ever leaves your device. Full patient data privacy." data-fr="Toute la reconnaissance vocale tourne en local. Aucun audio ne quitte votre appareil. Confidentialité totale des données patients." data-es="Todo el reconocimiento de voz funciona localmente. Ningún audio sale de su dispositivo. Privacidad total de datos del paciente." data-de="Die gesamte Spracherkennung läuft lokal auf Ihrem Rechner. Kein Audio verlässt Ihr Gerät. Vollständiger Datenschutz für Patientendaten.">All speech recognition runs locally on your machine. No audio ever leaves your device.</span>
+            </div>
+          </li>
+          <li class="reveal">
+            <div class="df-icon">💰</div>
+            <div>
+              <strong class="t" data-en="No Extra License — Included at €39/mo" data-fr="Aucune Licence Supplémentaire — Inclus à 39€/mois" data-es="Sin Licencia Extra — Incluido a €39/mes" data-de="Keine Extra-Lizenz — Enthalten ab €39/Monat">No Extra License — Included at €39/mo</strong>
+              <span class="t" data-en="Dragon Medical One costs €80–150/month on top of your reporting software. Pisum's AI dictation is built in, included in every plan." data-fr="Dragon Medical One coûte 80–150€/mois en plus de votre logiciel de reporting. La dictée IA de Pisum est intégrée, incluse dans tous les plans." data-es="Dragon Medical One cuesta €80–150/mes además de su software de informes. La dictación IA de Pisum está integrada, incluida en todos los planes." data-de="Dragon Medical One kostet €80–150/Monat zusätzlich zu Ihrer Reporting-Software. Pisum's KI-Diktat ist integriert und in jedem Plan enthalten.">Dragon Medical One costs €80–150/month extra. Pisum's AI dictation is built in, included in every plan.</span>
+            </div>
+          </li>
+        </ul>
+        
+        <div class="dictation-vs">
+          <div class="dictation-vs-item">
+            <div class="dvs-label">Competitor</div>
+            <div class="dvs-name">Dragon Medical One</div>
+            <div class="dvs-price">€80–150/month <em>extra</em></div>
+            <div class="dvs-features">Separate subscription<br>Cloud-based<br>English-focused<br>Requires setup</div>
+          </div>
+          <div class="dictation-vs-item winner">
+            <div class="dvs-label">Included in Pisum</div>
+            <div class="dvs-name">Pisum AI Dictation</div>
+            <div class="dvs-price">Included from €39/mo</div>
+            <div class="dvs-features">Built-in, no extra cost<br>100% offline<br>23 languages<br>Radiology vocabulary</div>
+          </div>
+          <div class="dictation-vs-item">
+            <div class="dvs-label">Competitor</div>
+            <div class="dvs-name">Nuance PowerScribe</div>
+            <div class="dvs-price">€250+/month</div>
+            <div class="dvs-features">Enterprise only<br>Complex IT setup<br>1–2 languages<br>Lock-in contract</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- RIGHT: Visual demo -->
+      <div class="dictation-visual reveal">
+        <div class="dictation-waveform" aria-hidden="true">
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+        </div>
+        
+        <div class="dictation-transcript">
+          <span style="color:var(--gold); font-size:0.72rem; letter-spacing:0.05em;">🔴 RECORDING — FR</span><br><br>
+          "Scanner thoracique sans injection de produit de contraste...<br>
+          Parenchyme pulmonaire : pas d'opacité en verre dépoli,<br>
+          pas de condensation parenchymateuse...<br>
+          Médiastin de calibre normal.<br>
+          Pas d'adénopathie médiastinale ou hilaire."<span class="transcript-cursor"></span>
+        </div>
+        
+        <div style="margin-bottom: 0.8rem; font-size: 0.78rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.06em;">Supported languages include</div>
+        <div class="dictation-lang-badges">
+          <span class="d-lang-badge">🇫🇷 Français</span>
+          <span class="d-lang-badge">🇬🇧 English</span>
+          <span class="d-lang-badge">🇩🇪 Deutsch</span>
+          <span class="d-lang-badge">🇪🇸 Español</span>
+          <span class="d-lang-badge">🇷🇴 Română</span>
+          <span class="d-lang-badge">🇦🇪 العربية</span>
+          <span class="d-lang-badge">🇮🇹 Italiano</span>
+          <span class="d-lang-badge">🇵🇹 Português</span>
+          <span class="d-lang-badge">🇷🇺 Русский</span>
+          <span class="d-lang-badge">+14 more</span>
+        </div>
+        
+        <div style="margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,0.08);">
+          <div style="font-size:0.78rem; color:rgba(255,255,255,0.4); margin-bottom:0.4rem;">Radiology vocabulary auto-corrected ✓</div>
+          <div style="display:flex; flex-wrap:wrap; gap:6px;">
+            <span style="background:rgba(200,151,58,0.15); border:1px solid rgba(200,151,58,0.3); color:var(--gold); padding:3px 8px; border-radius:6px; font-size:0.72rem;">HRCT</span>
+            <span style="background:rgba(200,151,58,0.15); border:1px solid rgba(200,151,58,0.3); color:var(--gold); padding:3px 8px; border-radius:6px; font-size:0.72rem;">gadolinium</span>
+            <span style="background:rgba(200,151,58,0.15); border:1px solid rgba(200,151,58,0.3); color:var(--gold); padding:3px 8px; border-radius:6px; font-size:0.72rem;">hepatomegaly</span>
+            <span style="background:rgba(200,151,58,0.15); border:1px solid rgba(200,151,58,0.3); color:var(--gold); padding:3px 8px; border-radius:6px; font-size:0.72rem;">MRCP</span>
+            <span style="background:rgba(200,151,58,0.15); border:1px solid rgba(200,151,58,0.3); color:var(--gold); padding:3px 8px; border-radius:6px; font-size:0.72rem;">pneumothorax</span>
+            <span style="background:rgba(200,151,58,0.15); border:1px solid rgba(200,151,58,0.3); color:var(--gold); padding:3px 8px; border-radius:6px; font-size:0.72rem;">+300 terms</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1121,11 +1579,12 @@
           <li class="t" data-en="Unlimited reports" data-fr="Rapports illimités" data-es="Informes ilimitados" data-de="Unbegrenzte Berichte">Unlimited reports</li>
           <li class="t" data-en="Custom templates" data-fr="Modèles personnalisés" data-es="Plantillas personalizadas" data-de="Benutzerdefinierte Vorlagen">Custom templates</li>
           <li class="t" data-en="Word export & copy-paste" data-fr="Export Word & copier-coller" data-es="Exportación Word & copiar-pegar" data-de="Word-Export & Kopieren-Einfügen">Word export & copy-paste</li>
+          <li class="t" data-en="Built-in AI dictation (23 languages)" data-fr="Dictée IA intégrée (23 langues)" data-es="Dictado IA integrado (23 idiomas)" data-de="KI-Diktat integriert (23 Sprachen)">Built-in AI dictation (23 languages)</li>
           <li class="t" data-en="Dragon Medical compatible" data-fr="Compatible Dragon Medical" data-es="Compatible Dragon Medical" data-de="Dragon Medical kompatibel">Dragon Medical compatible</li>
           <li class="t" data-en="Email support" data-fr="Support email" data-es="Soporte por email" data-de="E-Mail-Support">Email support</li>
         </ul>
         <a href="https://payhip.com/b/zohaH" target="_blank" class="tier-cta t plan-cta" data-monthly="https://payhip.com/b/zohaH" data-annual="https://payhip.com/b/yRox5" data-en="Buy Now" data-fr="Acheter" data-es="Comprar" data-de="Jetzt Kaufen">Buy Now</a>
-        <a href="mailto:MyPisum@proton.me?subject=Free%20Trial%20Request%20%E2%80%94%20Solo%20Plan&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20a%20free%20trial%20for%20the%20Pisum%20Solo%20Plan.%0A%0AName%3A%20%0ACountry%3A%20%0ASpecialty%3A%20%0A%0AThank%20you." class="tier-trial t" data-en="Request Free Trial" data-fr="Demander un Essai" data-es="Solicitar Prueba" data-de="Testversion Anfragen">Request Free Trial</a>
+        <a href="/cdn-cgi/l/email-protection#3c71456c554f49517c4c4e53485352125159034f495e56595f48017a4e5959190e0c684e555d50190e0c6e594d49594f48190e0c19790e19040c190508190e0c6f535053190e0c6c505d521a5e535845017459505053190e7f190c7d190c7d75190e0c4b53495058190e0c50555759190e0c4853190e0c4e594d49594f48190e0c5d190e0c5a4e5959190e0c484e555d50190e0c5a534e190e0c485459190e0c6c554f4951190e0c6f535053190e0c6c505d5212190c7d190c7d725d5159190f7d190e0c190c7d7f534952484e45190f7d190e0c190c7d6f4c595f555d504845190f7d190e0c190c7d190c7d68545d5257190e0c45534912" class="tier-trial t" data-en="Request Free Trial" data-fr="Demander un Essai" data-es="Solicitar Prueba" data-de="Testversion Anfragen">Request Free Trial</a>
       </div>
 
       <!-- CLINIC S -->
@@ -1146,7 +1605,7 @@
           <li class="t" data-en="Priority email support" data-fr="Support email prioritaire" data-es="Soporte email prioritario" data-de="Prioritäts-E-Mail-Support">Priority email support</li>
         </ul>
         <a href="https://payhip.com/b/pXlOy" target="_blank" class="tier-cta t plan-cta" data-monthly="https://payhip.com/b/pXlOy" data-annual="https://payhip.com/b/HlA7k" data-en="Buy Now" data-fr="Acheter" data-es="Comprar" data-de="Jetzt Kaufen">Buy Now</a>
-        <a href="mailto:MyPisum@proton.me?subject=Free%20Trial%20Request%20%E2%80%94%20Clinic%20S%20Plan&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20a%20free%20trial%20for%20the%20Pisum%20Clinic%20S%20Plan%20(3%20seats).%0A%0AName%3A%20%0AClinic%20Name%3A%20%0ACountry%3A%20%0ANumber%20of%20Radiologists%3A%20%0A%0AThank%20you." class="tier-trial t" data-en="Request Free Trial" data-fr="Demander un Essai" data-es="Solicitar Prueba" data-de="Testversion Anfragen">Request Free Trial</a>
+        <a href="/cdn-cgi/l/email-protection#c489bd94adb7b1a984b4b6abb0abaaeaa9a1fbb7b1a6aea1a7b0f982b6a1a1e1f6f490b6ada5a8e1f6f496a1b5b1a1b7b0e1f6f4e181f6e1fcf4e1fdf0e1f6f487a8adaaada7e1f6f497e1f6f494a8a5aae2a6aba0bdf98ca1a8a8abe1f687e1f485e1f4858de1f6f4b3abb1a8a0e1f6f4a8adafa1e1f6f4b0abe1f6f4b6a1b5b1a1b7b0e1f6f4a5e1f6f4a2b6a1a1e1f6f4b0b6ada5a8e1f6f4a2abb6e1f6f4b0aca1e1f6f494adb7b1a9e1f6f487a8adaaada7e1f6f497e1f6f494a8a5aae1f6f4ecf7e1f6f4b7a1a5b0b7edeae1f485e1f4858aa5a9a1e1f785e1f6f4e1f48587a8adaaada7e1f6f48aa5a9a1e1f785e1f6f4e1f48587abb1aab0b6bde1f785e1f6f4e1f4858ab1a9a6a1b6e1f6f4aba2e1f6f496a5a0adaba8aba3adb7b0b7e1f785e1f6f4e1f485e1f48590aca5aaafe1f6f4bdabb1ea" class="tier-trial t" data-en="Request Free Trial" data-fr="Demander un Essai" data-es="Solicitar Prueba" data-de="Testversion Anfragen">Request Free Trial</a>
       </div>
 
       <!-- CLINIC M — FEATURED -->
@@ -1168,7 +1627,7 @@
           <li class="t" data-en="Priority email support" data-fr="Support email prioritaire" data-es="Soporte email prioritario" data-de="Prioritäts-E-Mail-Support">Priority email support</li>
         </ul>
         <a href="https://payhip.com/b/sFBoD" target="_blank" class="tier-cta t plan-cta" data-monthly="https://payhip.com/b/sFBoD" data-annual="https://payhip.com/b/U7fkp" data-en="Buy Now" data-fr="Acheter" data-es="Comprar" data-de="Jetzt Kaufen">Buy Now</a>
-        <a href="mailto:MyPisum@proton.me?subject=Free%20Trial%20Request%20%E2%80%94%20Clinic%20M%20Plan&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20a%20free%20trial%20for%20the%20Pisum%20Clinic%20M%20Plan%20(5%20seats).%0A%0AName%3A%20%0AClinic%20Name%3A%20%0ACountry%3A%20%0ANumber%20of%20Radiologists%3A%20%0A%0AThank%20you." class="tier-trial t tier-trial-light" data-en="Request Free Trial" data-fr="Demander un Essai" data-es="Solicitar Prueba" data-de="Testversion Anfragen">Request Free Trial</a>
+        <a href="/cdn-cgi/l/email-protection#8cc1f5dce5fff9e1ccfcfee3f8e3e2a2e1e9b3fff9eee6e9eff8b1cafee9e9a9bebcd8fee5ede0a9bebcdee9fdf9e9fff8a9bebca9c9bea9b4bca9b5b8a9bebccfe0e5e2e5efa9bebcc1a9bebcdce0ede2aaeee3e8f5b1c4e9e0e0e3a9becfa9bccda9bccdc5a9bebcfbe3f9e0e8a9bebce0e5e7e9a9bebcf8e3a9bebcfee9fdf9e9fff8a9bebceda9bebceafee9e9a9bebcf8fee5ede0a9bebceae3fea9bebcf8e4e9a9bebcdce5fff9e1a9bebccfe0e5e2e5efa9bebcc1a9bebcdce0ede2a9bebca4b9a9bebcffe9edf8ffa5a2a9bccda9bccdc2ede1e9a9bfcda9bebca9bccdcfe0e5e2e5efa9bebcc2ede1e9a9bfcda9bebca9bccdcfe3f9e2f8fef5a9bfcda9bebca9bccdc2f9e1eee9fea9bebce3eaa9bebcdeede8e5e3e0e3ebe5fff8ffa9bfcda9bebca9bccda9bccdd8e4ede2e7a9bebcf5e3f9a2" class="tier-trial t tier-trial-light" data-en="Request Free Trial" data-fr="Demander un Essai" data-es="Solicitar Prueba" data-de="Testversion Anfragen">Request Free Trial</a>
       </div>
 
       <!-- PRO 10 -->
@@ -1188,7 +1647,7 @@
           <li class="t" data-en="Priority support" data-fr="Support prioritaire" data-es="Soporte prioritario" data-de="Prioritäts-Support">Priority support</li>
         </ul>
         <a href="https://payhip.com/b/Z1qRI" target="_blank" class="tier-cta t plan-cta" data-monthly="https://payhip.com/b/Z1qRI" data-annual="https://payhip.com/b/i7SGu" data-en="Buy Now" data-fr="Acheter" data-es="Comprar" data-de="Jetzt Kaufen">Buy Now</a>
-        <a href="mailto:MyPisum@proton.me?subject=Free%20Trial%20Request%20%E2%80%94%20Pro%2010%20Plan&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20a%20free%20trial%20for%20the%20Pisum%20Pro%2010%20Plan%20(10%20seats).%0A%0AName%3A%20%0ACompany%20Name%3A%20%0ACountry%3A%20%0ANumber%20of%20Radiologists%3A%20%0AUse%20Case%3A%20%0A%0AThank%20you." class="tier-trial t" data-en="Request Free Trial" data-fr="Demander un Essai" data-es="Solicitar Prueba" data-de="Testversion Anfragen">Request Free Trial</a>
+        <a href="/cdn-cgi/l/email-protection#024f7b526b71776f4272706d766d6c2c6f673d717760686761763f4470676727303256706b636e27303250677377677176273032274730273a32273b3627303252706d2730323332273032526e636c24606d667b3f4a676e6e6d2730412732432732434b273032756d776e662730326e6b6967273032766d27303270677377677176273032632730326470676727303276706b636e273032646d70273032766a67273032526b71776f27303252706d2730323332273032526e636c2730322a333227303271676376712b2c2732432732434c636f67273143273032273243416d6f72636c7b2730324c636f67273143273032273243416d776c76707b2731432730322732434c776f6067702730326d642730325063666b6d6e6d656b71767127314327303227324357716727303241637167273143273032273243273243566a636c692730327b6d772c" class="tier-trial t" data-en="Request Free Trial" data-fr="Demander un Essai" data-es="Solicitar Prueba" data-de="Testversion Anfragen">Request Free Trial</a>
       </div>
 
     </div>
@@ -1205,7 +1664,7 @@
           <a href="https://payhip.com/b/Stfg6" target="_blank" class="btn-secondary plan-enterprise-cta" data-monthly="https://payhip.com/b/Stfg6" data-annual="https://payhip.com/b/YcRnT" style="font-size:0.85rem; padding:10px 18px;">
             <span class="enterprise-label-50">Pro 50 — €799/mo</span>
           </a>
-          <a href="mailto:MyPisum@proton.me" class="btn-primary t" style="font-size:0.85rem; padding:10px 18px;" data-en="Custom Quote" data-fr="Devis Personnalisé" data-es="Cotización Personalizada" data-de="Individuelles Angebot">Custom Quote</a>
+          <a href="/cdn-cgi/l/email-protection#afe2d6ffc6dcdac2efdfddc0dbc0c181c2ca" class="btn-primary t" style="font-size:0.85rem; padding:10px 18px;" data-en="Custom Quote" data-fr="Devis Personnalisé" data-es="Cotización Personalizada" data-de="Individuelles Angebot">Custom Quote</a>
         </div>
       </div>
     </div>
@@ -1218,11 +1677,30 @@
     </div>
   </section>
 
+  <!-- DOWNLOAD SECTION -->
+  <section class="download-section" id="download">
+    <div class="download-inner reveal">
+      <div class="download-icon">⬇</div>
+      <div class="section-label t" data-en="Free Download" data-fr="Téléchargement Gratuit" data-es="Descarga Gratuita" data-de="Kostenloser Download">Free Download</div>
+      <h2 class="t" data-en="Download Pisum — Free to try" data-fr="Télécharger Pisum — Essai gratuit" data-es="Descargar Pisum — Prueba gratuita" data-de="Pisum herunterladen — Kostenlos testen">Download Pisum — Free to try</h2>
+      <p class="t" data-en="Available for Windows. Install in under 2 minutes. No IT team required." data-fr="Disponible pour Windows. Installation en moins de 2 minutes. Sans équipe IT." data-es="Disponible para Windows. Instalación en menos de 2 minutos. Sin equipo IT." data-de="Für Windows verfügbar. Installation in unter 2 Minuten. Kein IT-Team erforderlich.">Available for Windows. Install in under 2 minutes. No IT team required.</p>
+      <a href="https://drive.google.com/drive/folders/1igTnleiHnzlReGgYQ-nCLDG8j9ItTEcp?usp=drive_link" target="_blank" rel="noopener" class="btn-download-large t" data-en="⬇ Download for Windows" data-fr="⬇ Télécharger pour Windows" data-es="⬇ Descargar para Windows" data-de="⬇ Für Windows Herunterladen">⬇ Download for Windows</a>
+      <div class="download-trust">
+        <span class="t" data-en="✓ 7-day free trial" data-fr="✓ 7 jours d'essai gratuit" data-es="✓ 7 días de prueba gratuita" data-de="✓ 7 Tage kostenlos">✓ 7-day free trial</span>
+        <span class="t" data-en="✓ No credit card required" data-fr="✓ Sans carte bancaire" data-es="✓ Sin tarjeta de crédito" data-de="✓ Keine Kreditkarte">✓ No credit card required</span>
+        <span class="t" data-en="✓ Works offline" data-fr="✓ Fonctionne hors ligne" data-es="✓ Funciona sin conexión" data-de="✓ Offline nutzbar">✓ Works offline</span>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA SECTION -->
   <section class="cta-section">
     <h2 class="t" data-en="Ready to transform your reporting?" data-fr="Prêt à transformer vos comptes rendus ?" data-es="¿Listo para transformar sus informes?" data-de="Bereit, Ihre Befundung zu transformieren?">Ready to transform your reporting?</h2>
     <p class="t" data-en="Join independent radiologists worldwide who chose professional quality without enterprise complexity." data-fr="Rejoignez les radiologues indépendants du monde entier qui ont choisi qualité professionnelle sans complexité d'entreprise." data-es="Únase a radiólogos independientes de todo el mundo que eligieron calidad profesional sin complejidad empresarial." data-de="Schließen Sie sich unabhängigen Radiologen weltweit an, die professionelle Qualität ohne Enterprise-Komplexität gewählt haben.">Join independent radiologists worldwide who chose professional quality without enterprise complexity.</p>
-    <a href="#pricing" class="btn-primary t" data-en="Start Your Free Trial Today" data-fr="Commencez Votre Essai Gratuit" data-es="Empiece Su Prueba Gratuita Hoy" data-de="Starten Sie Ihren Gratis-Test Heute">Start Your Free Trial Today</a>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="#pricing" class="btn-primary t" data-en="Start Your Free Trial Today" data-fr="Commencez Votre Essai Gratuit" data-es="Empiece Su Prueba Gratuita Hoy" data-de="Starten Sie Ihren Gratis-Test Heute">Start Your Free Trial Today</a>
+      <a href="https://drive.google.com/drive/folders/1igTnleiHnzlReGgYQ-nCLDG8j9ItTEcp?usp=drive_link" target="_blank" rel="noopener" style="background:rgba(255,255,255,0.15); color:white; text-decoration:none; padding:14px 32px; border-radius:10px; font-weight:600; font-size:0.95rem; border:1.5px solid rgba(255,255,255,0.35); transition:all 0.2s; display:inline-flex; align-items:center; gap:6px;" class="t" data-en="⬇ Download Now" data-fr="⬇ Télécharger" data-es="⬇ Descargar Ahora" data-de="⬇ Jetzt Herunterladen">⬇ Download Now</a>
+    </div>
   </section>
 
   <!-- FOOTER -->
@@ -1233,7 +1711,7 @@
           <div class="nav-logo-icon">⚕</div>
           Pisum
         </div>
-        <p class="t" data-en="Professional radiology reporting software with 112 expert templates, 23-language support, and zero complexity. Designed for independent radiologists." data-fr="Logiciel professionnel de radiologie avec 112 modèles experts, 23 langues et zéro complexité. Conçu pour les radiologues indépendants." data-es="Software profesional de radiología con 112 plantillas expertas, soporte 23 idiomas y cero complejidad. Diseñado para radiólogos independientes." data-de="Professionelle Radiologie-Software mit 112 Expertenvorlagen, 23-Sprachen-Unterstützung und null Komplexität. Für unabhängige Radiologen.">Professional radiology reporting software with 112 expert templates and 23-language support.</p>
+        <p class="t" data-en="Professional radiology reporting software with 112 expert templates, built-in AI dictation in 23 languages, and zero complexity. Designed for independent radiologists." data-fr="Logiciel professionnel de radiologie avec 112 modèles experts, dictée IA en 23 langues et zéro complexité. Conçu pour les radiologues indépendants." data-es="Software profesional de radiología con 112 plantillas expertas, soporte 23 idiomas y cero complejidad. Diseñado para radiólogos independientes." data-de="Professionelle Radiologie-Software mit 112 Expertenvorlagen, 23-Sprachen-Unterstützung und null Komplexität. Für unabhängige Radiologen.">Professional radiology reporting software with 112 expert templates and 23-language support.</p>
       </div>
       <div>
         <h4 class="t" data-en="Product" data-fr="Produit" data-es="Producto" data-de="Produkt">Product</h4>
@@ -1242,12 +1720,13 @@
           <li><a href="#features" class="t" data-en="Features" data-fr="Fonctionnalités" data-es="Características" data-de="Funktionen">Features</a></li>
           <li><a href="#languages" class="t" data-en="Languages" data-fr="Langues" data-es="Idiomas" data-de="Sprachen">Languages</a></li>
           <li><a href="#pricing" class="t" data-en="Pricing" data-fr="Tarifs" data-es="Precios" data-de="Preise">Pricing</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1igTnleiHnzlReGgYQ-nCLDG8j9ItTEcp?usp=drive_link" target="_blank" rel="noopener" class="t footer-download-link" data-en="⬇ Download" data-fr="⬇ Télécharger" data-es="⬇ Descargar" data-de="⬇ Herunterladen">⬇ Download</a></li>
         </ul>
       </div>
       <div>
         <h4 class="t" data-en="Support" data-fr="Support" data-es="Soporte" data-de="Support">Support</h4>
         <ul>
-          <li><a href="mailto:MyPisum@proton.me" class="t" data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#25685c754c5650486555574a514a4b0b4840" class="t" data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</a></li>
           <li><a href="#" class="t" data-en="Documentation" data-fr="Documentation" data-es="Documentación" data-de="Dokumentation">Documentation</a></li>
           <li><a href="#" class="t" data-en="FAQ" data-fr="FAQ" data-es="FAQ" data-de="FAQ">FAQ</a></li>
         </ul>
@@ -1266,7 +1745,7 @@
     </div>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // ─── LANGUAGE SYSTEM ───────────────────────────────────────────────────────
     let currentLang = localStorage.getItem('pisum-lang') || 'en';
 
@@ -1386,35 +1865,31 @@
         const savingEl = document.getElementById('saving-' + key);
         if (priceEl) priceEl.textContent = data[key].price;
         if (periodEl) periodEl.textContent = trans[type][key];
-        if (savingEl) savingEl.textContent = type === 'annual' ? '💰 ' + trans['annual'][key].split('·')[1].trim() : '';
+        if (savingEl) savingEl.textContent = type === 'annual' ? '💰 ' + trans['annual'][key].split('·')[1]?.trim() : '';
       });
     }
 
     // ─── SCROLL REVEAL ─────────────────────────────────────────────────────────
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('revealed'), i * 80);
+          entry.target.classList.add('revealed');
         }
       });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.reveal, .vp-card, .who-card, .mod-card').forEach(el => observer.observe(el));
-
-    // ─── SMOOTH SCROLL ─────────────────────────────────────────────────────────
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
+    document.querySelectorAll('.reveal, .vp-card, .who-card, .mod-card').forEach(el => {
+      observer.observe(el);
     });
 
     // ─── INIT ──────────────────────────────────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', () => {
+      setLang(currentLang);
+      applyBilling('monthly');
+    });
+
+    // Also run on load in case DOMContentLoaded already fired
     setLang(currentLang);
-    setBilling('monthly');
   </script>
 </body>
 </html>
