@@ -1828,6 +1828,7 @@
     let currentBilling = 'monthly';
 
     function setLang(lang) {
+      document.documentElement.lang = lang;
       currentLang = lang;
       localStorage.setItem('pisum-lang', lang);
 
@@ -1921,6 +1922,8 @@
         mobileMenuBtn.addEventListener('click', () => {
           mobileMenuBtn.classList.toggle('active');
           navLinks.classList.toggle('active');
+          // Bloque ou débloque le scroll
+          document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : ''; 
         });
 
         // Ferme le menu quand on clique sur un lien
@@ -1931,6 +1934,15 @@
           });
         });
     }
+    
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 20) {
+        nav.style.boxShadow = '0 4px 24px rgba(13,17,23,0.08)';
+      } else {
+        nav.style.boxShadow = 'none';
+      }
+    });
 
   </script>
 </body>
