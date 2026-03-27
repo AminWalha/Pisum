@@ -46,7 +46,34 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css">
+  
   <style>
+    /* ─── ARTISTIC SHOWCASE (IMAGES 3D) ─── */
+    .artistic-showcase { background: linear-gradient(135deg, var(--ink) 0%, #1a2535 100%); padding: 6rem clamp(1rem, 8vw, 6rem); overflow: hidden; position: relative; }
+    .showcase-container { position: relative; max-width: 1200px; margin: 0 auto; height: 500px; display: flex; align-items: center; justify-content: center; perspective: 1200px; transform-style: preserve-3d; }
+    .showcase-glow { position: absolute; width: 300px; height: 300px; background: radial-gradient(circle, rgba(200,151,58,0.4) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -50%); filter: blur(50px); animation: pulseGlow 4s infinite alternate; z-index: 0; }
+    .showcase-card { position: absolute; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 25px 50px rgba(0,0,0,0.6), 0 0 30px rgba(200,151,58,0.15); background: rgba(255,255,255,0.05); backdrop-filter: blur(12px); transition: transform 0.4s ease, box-shadow 0.4s ease; will-change: transform; }
+
+    /* Ajout d'une hauteur par défaut pour éviter l'effondrement sans image */
+    .showcase-card img { width: 100%; display: block; border-bottom: 1px solid rgba(255,255,255,0.1); min-height: 220px; background: rgba(255,255,255,0.02); object-fit: cover; }
+
+    .card-caption { padding: 12px; color: white; text-align: center; font-size: 0.9rem; font-weight: 600; background: rgba(13, 17, 23, 0.85); letter-spacing: 0.05em; }
+    .card-left { width: 45%; z-index: 1; transform: translateX(-40%) translateZ(-100px) rotateY(15deg) rotateX(5deg); animation: floatLeft 7s ease-in-out infinite; }
+    .card-right { width: 45%; z-index: 2; transform: translateX(40%) translateZ(-50px) rotateY(-15deg) rotateX(-5deg); animation: floatRight 6s ease-in-out infinite 1s; }
+    .card-center { width: 55%; z-index: 10; transform: translateZ(50px) translateY(40px); border-color: rgba(200,151,58,0.4); box-shadow: 0 30px 60px rgba(0,0,0,0.7), 0 0 40px rgba(200,151,58,0.3); animation: floatCenter 8s ease-in-out infinite; }
+    .card-back { opacity: 0; z-index: 0; transform: translateX(0) scale(0.6) translateZ(-300px); }
+    .showcase-card:hover { transform: translateZ(120px) scale(1.05) !important; z-index: 20; cursor: pointer; box-shadow: 0 40px 80px rgba(0,0,0,0.8), 0 0 50px rgba(200,151,58,0.5); }
+
+    @keyframes pulseGlow { 0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; } 100% { transform: translate(-50%, -50%) scale(1.3); opacity: 0.8; } }
+    @keyframes floatLeft { 0%, 100% { transform: translateX(-40%) translateZ(-100px) rotateY(15deg) rotateX(5deg) translateY(0); } 50% { transform: translateX(-40%) translateZ(-100px) rotateY(15deg) rotateX(5deg) translateY(-20px); } }
+    @keyframes floatRight { 0%, 100% { transform: translateX(40%) translateZ(-50px) rotateY(-15deg) rotateX(-5deg) translateY(0); } 50% { transform: translateX(40%) translateZ(-50px) rotateY(-15deg) rotateX(-5deg) translateY(-25px); } }
+    @keyframes floatCenter { 0%, 100% { transform: translateZ(50px) translateY(40px); } 50% { transform: translateZ(50px) translateY(20px); } }
+
+    @media (max-width: 968px) {
+      .showcase-container { height: auto; flex-direction: column; gap: 2rem; perspective: none; transform-style: flat; }
+      .showcase-card { position: relative; width: 95% !important; transform: none !important; animation: none !important; margin: 0 auto; opacity: 1; }
+      .showcase-card:hover { transform: translateY(-8px) !important; }
+    }
     /* --- Effet Glow (Halo interactif) sur les cartes --- */
     .vp-card, .glow-card {
       position: relative;
@@ -78,7 +105,7 @@
       z-index: 1;
     }
 
-    /* --- Effet Magnétique pour les boutons --- */
+    /* --- Effet Magnétique para los botones --- */
     .btn-primary, .btn-download, .btn-download-large {
       transition: transform 0.1s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.2s;
       will-change: transform;
@@ -889,6 +916,7 @@
     /* ─── FLOATING DOWNLOAD (mobile) ─── */
     .floating-download { display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 200; background: var(--gold); color: var(--ink); text-decoration: none; padding: 14px 28px; border-radius: 50px; font-weight: 700; font-size: 0.9rem; box-shadow: 0 8px 30px rgba(0,0,0,0.25); white-space: nowrap; animation: floatUp 0.5s ease 1s both; }
     @keyframes floatUp { from { opacity: 0; transform: translateX(-50%) translateY(20px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
+
   </style>
 </head>
 <body>
@@ -1000,6 +1028,35 @@
       <div class="stat-label t" data-en="Starting Price / Month" data-fr="Prix de départ / Mois" data-es="Precio desde / Mes" data-de="Ab Preis / Monat">Starting Price / Month</div>
     </div>
   </div>
+
+  <section class="artistic-showcase" id="interface">
+      <div class="section-label t" style="text-align: center;" data-en="Interface" data-fr="Interface" data-es="Interfaz" data-de="Schnittstelle">Interface</div>
+      <h2 class="section-title reveal t" style="text-align: center; color: white; margin-bottom: 3rem;" data-en="A beautiful workspace." data-fr="Un espace de travail élégant." data-es="Un espacio de travail elegante." data-de="Ein eleganter Arbeitsbereich.">Un espace de travail élégant.</h2>
+
+      <div class="showcase-container reveal">
+        <div class="showcase-glow"></div>
+
+        <div class="showcase-card card-left">
+          <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/Capture%20d'%C3%A9cran%202026-03-27%20135154.png" alt="Interface Claire">
+          <div class="card-caption t" data-en="Light Interface" data-fr="Interface Claire" data-es="Interfaz Clara" data-de="Helle Benutzeroberfläche">Interface Claire</div>
+        </div>
+
+        <div class="showcase-card card-center">
+          <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/Capture%20d'%C3%A9cran%202026-03-27%20135302.png" alt="PACS/RIS">
+          <div class="card-caption t" >PACS/RIS</div>
+        </div>
+
+        <div class="showcase-card card-right">
+          <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/Capture%20d'%C3%A9cran%202026-03-27%20135228.png" alt="Interface Sombre">
+          <div class="card-caption t" data-en="Dark Mode" data-fr="Mode Sombre" data-es="Modo Oscuro" data-de="Dunkelmodus">Mode Sombre</div>
+        </div>
+        
+        <div class="showcase-card card-back">
+          <img src="https://github.com/AminWalha/Pisum/blob/86f118df77ddcfc0945e57cb2d2a4da249b62069/Capture%20d'%C3%A9cran%202026-03-27%20135319.png?raw=true" alt="Word Export">
+          <div class="card-caption t">Word Export</div>
+        </div>
+      </div>
+  </section>
 
   <section class="value-prop" id="why">
     <div class="section-label t" data-en="Why Us" data-fr="Pourquoi Nous" data-es="Por qué Nosotros" data-de="Warum Wir">Why Us</div>
@@ -1523,14 +1580,13 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="t" data-en="created by radiologists, for radiologists. Have a great shift! 👨‍⚕️ - Support & Feedback : MyPisum@Proton.me" data-fr="créé par les radiologues, pour les radiologues. Bon travail ! 👨‍⚕️ - Support & Feedback : MyPisum@Proton.me" data-es="creado por radiólogos, para radiólogos. ¡Buen trabajo! 👨‍⚕️ - Support & Feedback : MyPisum@Proton.me" data-de="von Radiologen für Radiologen entwickelt. Frohes Schaffen! 👨‍⚕️ - Support & Feedback : MyPisum@Proton.me">créé par les radiologues, pour les radiologues. Bon travail ! 👨‍⚕️ - Support & Feedback : MyPisum@Proton.me</p>
+      <p class="t" data-en="created by radiologists, for radiologists. Have a great shift! 👨‍⚕️ - Support & Feedback : MyPisum@Proton.me" data-fr="créé par les radiologues, pour les radiologues. Bon travail ! 👨‍⚕️ - Support & Feedback : MyPisum@Proton.me" data-es="creado por radiólogos, para radiólogos. ¡Buen trabajo! 👨‍⚕️ - Support & Feedback : MyPisum@Proton.me" data-de="von Radiologen für Radiologen entwickelt. Frohes Schaffen! 👨‍⚕️ - Support & Feedback : MyPisum@Proton.me">créé par les radiologues, pour les radiologues. Bon travail ! 👨‍⚕️ - Support & Feedback : <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="09447059607a7c6449597b667d666727646c">[email&#160;protected]</a></p>
       <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.6;">© 2026. <span class="t" data-en="All rights reserved." data-fr="Tous droits réservés." data-es="Todos los derechos reservados." data-de="Alle Rechte vorbehalten.">Tous droits réservés.</span></p>
     </div>
   </footer>
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script>
-    // ─── LANGUAGE SYSTEM ───────────────────────────────────────────────────────
     let currentLang = localStorage.getItem('pisum-lang') || 'fr'; 
 
     const BILLING = {
@@ -1627,7 +1683,6 @@
       });
     }
 
-    // ─── SCROLL PROGRESS BAR ───────────────────────────────────────────────────
     window.addEventListener('scroll', () => {
       const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -1635,7 +1690,6 @@
       document.getElementById("progressBar").style.width = scrolled + "%";
     });
 
-    // ─── STAGGERED SCROLL REVEAL ───────────────────────────────────────────────
     const observer = new IntersectionObserver((entries) => {
       const visibleEntries = entries.filter(entry => entry.isIntersecting);
       visibleEntries.forEach((entry, index) => {
@@ -1650,7 +1704,6 @@
       observer.observe(el);
     });
 
-    // ─── EFFET 3D TILT ─────────────────────────────────────────────────────────
     const tiltCards = document.querySelectorAll('.tier-card');
     tiltCards.forEach(card => {
       card.addEventListener('mousemove', (e) => {
@@ -1673,12 +1726,10 @@
       });
     });
 
-    // ─── INIT ──────────────────────────────────────────────────────────────────
     document.addEventListener('DOMContentLoaded', () => {
       setLang(currentLang);
       applyBilling('monthly');
 
-      // Effet Glow (Halo)
       document.querySelectorAll('.vp-card, .glow-card').forEach(card => {
         card.addEventListener('mousemove', e => {
           const rect = card.getBoundingClientRect();
@@ -1689,7 +1740,6 @@
         });
       });
 
-      // Effet Magnétique
       const magneticButtons = document.querySelectorAll('.btn-primary, .btn-download, .btn-download-large');
       magneticButtons.forEach(btn => {
         btn.addEventListener('mousemove', (e) => {
@@ -1703,7 +1753,6 @@
         });
       });
 
-      // Texte Dynamique Multilingue
       const dynamicWords = {
         en: ["In minutes.", "Effortless.", "In real-time.", "Structured."],
         fr: ["En quelques minutes.", "Sans effort.", "En temps réel.", "Structurés."],
@@ -1731,7 +1780,6 @@
 
     setLang(currentLang);
 
-    // ─── MENU MOBILE ───
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
 
@@ -1751,13 +1799,38 @@
         });
     }
 
-    window.addEventListener('scroll', () => {
-      const nav = document.querySelector('nav');
-      if (window.scrollY > 20) {
-        nav.style.boxShadow = '0 4px 24px rgba(13,17,23,0.08)';
-      } else {
-        nav.style.boxShadow = 'none';
-      }
+    // CORRECTION JS : Ajout de 'card-back' dans le remove() pour éviter les bugs
+    document.addEventListener("DOMContentLoaded", function() {
+        const cards = Array.from(document.querySelectorAll('.showcase-card'));
+        const classes = ['card-left', 'card-center', 'card-right', 'card-back'];
+
+        function rotateCards() {
+            classes.unshift(classes.pop());
+            
+            cards.forEach((card, index) => {
+                // L'erreur venait d'ici, 'card-back' n'était pas supprimé !
+                card.classList.remove('card-left', 'card-center', 'card-right', 'card-back');
+                card.classList.add(classes[index]);
+            });
+        }
+
+        let autoSwap = setInterval(rotateCards, 3000);
+
+        const container = document.querySelector('.showcase-container');
+        if(container) {
+          container.addEventListener('mouseenter', () => clearInterval(autoSwap));
+          container.addEventListener('mouseleave', () => autoSwap = setInterval(rotateCards, 3000));
+        }
+        
+        cards.forEach(card => {
+            card.addEventListener('click', function() {
+                if (!this.classList.contains('card-center')) {
+                    rotateCards(); 
+                    clearInterval(autoSwap); 
+                    autoSwap = setInterval(rotateCards, 3000);
+                }
+            });
+        });
     });
   </script>
 </body>

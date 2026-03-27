@@ -1,3 +1,76 @@
+/* Conteneur principal avec perspective 3D */
+.showcase-container {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Ajustez selon la taille de vos images */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1200px; /* Crée la profondeur 3D */
+    overflow: hidden;
+}
+
+/* Base des cartes avec transitions ultra-fluides */
+.showcase-card {
+    position: absolute;
+    width: 55%; /* Largeur de l'image centrale */
+    max-width: 800px;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                opacity 0.8s ease, 
+                filter 0.8s ease,
+                box-shadow 0.8s ease;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.showcase-card img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+}
+
+/* --- LES ÉTATS 3D --- */
+
+/* Carte Centrale (Focus) */
+.card-center {
+    transform: translateX(0) scale(1) translateZ(50px);
+    opacity: 1;
+    z-index: 10;
+    filter: blur(0px) brightness(1);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5); /* Ombre premium */
+}
+
+/* Carte Gauche (En retrait) */
+.card-left {
+    transform: translateX(-50%) scale(0.8) translateZ(-150px) rotateY(15deg);
+    opacity: 0.5;
+    z-index: 5;
+    filter: blur(3px) brightness(0.7);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Carte Droite (En retrait) */
+.card-right {
+    transform: translateX(50%) scale(0.8) translateZ(-150px) rotateY(-15deg);
+    opacity: 0.5;
+    z-index: 5;
+    filter: blur(3px) brightness(0.7);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Optionnel : cacher les légendes sur les côtés, les afficher au centre */
+.showcase-card .card-caption {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+.card-center .card-caption {
+    opacity: 1;
+}
+.card-back {
+    transform: translateX(0) scale(0.6) translateZ(-300px);
+    opacity: 0; /* Elle reste invisible jusqu'à ce que son tour arrive */
+    z-index: 1;
+}
 /* Styles existants conservés */
 * {
     margin: 0;
@@ -16,6 +89,23 @@
     --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --gradient-2: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
     --gradient-3: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+    
+    /* Variables ajoutées pour les nouvelles sections */
+    --ink: #0d1117;
+    --ink-soft: #2d3748;
+    --ink-muted: #718096;
+    --cream: #faf8f4;
+    --cream-dark: #f0ece4;
+    --gold: #c8973a;
+    --gold-light: #f5e6c8;
+    --gold-dark: #8b6420;
+    --teal: #0e6e6e;
+    --teal-light: #e0f2f2;
+    --white: #ffffff;
+    --radius: 12px;
+    --radius-lg: 20px;
+    --shadow: 0 4px 24px rgba(13,17,23,0.08);
+    --shadow-lg: 0 12px 48px rgba(13,17,23,0.14);
 }
 
 body {
@@ -317,7 +407,6 @@ nav {
     font-size: 0.95rem;
 }
 
-/* Value Proposition Section */
 .value-prop {
     padding: 120px 2rem;
     background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
@@ -394,7 +483,6 @@ nav {
     font-size: 1.05rem;
 }
 
-/* Use Cases Section */
 .use-cases {
     padding: 120px 2rem;
     background: white;
@@ -1391,3 +1479,137 @@ footer {
 
 @keyframes dataFlowDown { to { top: 100%; } }
 @keyframes dataFlowUp { to { bottom: 100%; } }
+
+/* ─── ARTISTIC SHOWCASE (IMAGES 3D) ─── */
+.artistic-showcase {
+  background: linear-gradient(135deg, var(--ink) 0%, #1a2535 100%);
+  padding: 6rem clamp(1rem, 8vw, 6rem);
+  overflow: hidden;
+  position: relative;
+}
+
+.showcase-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.showcase-glow {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(200,151,58,0.4) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(50px);
+  animation: pulseGlow 4s infinite alternate;
+  z-index: 0;
+}
+
+.showcase-card {
+  position: absolute;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.6), 0 0 30px rgba(200,151,58,0.15);
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  will-change: transform;
+}
+
+.showcase-card img {
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.card-caption {
+  padding: 12px;
+  color: white;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: rgba(13, 17, 23, 0.85);
+  letter-spacing: 0.05em;
+}
+
+/* Positionnement 3D & Animations */
+.card-left {
+  width: 45%;
+  z-index: 1;
+  transform: translateX(-40%) translateZ(-100px) rotateY(15deg) rotateX(5deg);
+  animation: floatLeft 7s ease-in-out infinite;
+}
+
+.card-right {
+  width: 45%;
+  z-index: 2;
+  transform: translateX(40%) translateZ(-50px) rotateY(-15deg) rotateX(-5deg);
+  animation: floatRight 6s ease-in-out infinite 1s;
+}
+
+.card-center {
+  width: 55%;
+  z-index: 10;
+  transform: translateZ(50px) translateY(40px);
+  border-color: rgba(200,151,58,0.4);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.7), 0 0 40px rgba(200,151,58,0.3);
+  animation: floatCenter 8s ease-in-out infinite;
+}
+
+/* Interaction au survol */
+.showcase-card:hover {
+  transform: translateZ(120px) scale(1.05) !important;
+  z-index: 20;
+  cursor: pointer;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.8), 0 0 50px rgba(200,151,58,0.5);
+}
+
+@keyframes pulseGlow {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+  100% { transform: translate(-50%, -50%) scale(1.3); opacity: 0.8; }
+}
+
+@keyframes floatLeft {
+  0%, 100% { transform: translateX(-40%) translateZ(-100px) rotateY(15deg) rotateX(5deg) translateY(0); }
+  50% { transform: translateX(-40%) translateZ(-100px) rotateY(15deg) rotateX(5deg) translateY(-20px); }
+}
+
+@keyframes floatRight {
+  0%, 100% { transform: translateX(40%) translateZ(-50px) rotateY(-15deg) rotateX(-5deg) translateY(0); }
+  50% { transform: translateX(40%) translateZ(-50px) rotateY(-15deg) rotateX(-5deg) translateY(-25px); }
+}
+
+@keyframes floatCenter {
+  0%, 100% { transform: translateZ(50px) translateY(40px); }
+  50% { transform: translateZ(50px) translateY(20px); }
+}
+
+/* Adaptation Mobile */
+@media (max-width: 968px) {
+  .showcase-container {
+    height: auto;
+    flex-direction: column;
+    gap: 2rem;
+    perspective: none;
+    transform-style: flat;
+  }
+  .showcase-card {
+    position: relative;
+    width: 95% !important;
+    transform: none !important;
+    animation: none !important;
+    margin: 0 auto;
+  }
+  .showcase-card:hover {
+    transform: translateY(-8px) !important;
+  }
+}
