@@ -917,6 +917,288 @@
     .floating-download { display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 200; background: var(--gold); color: var(--ink); text-decoration: none; padding: 14px 28px; border-radius: 50px; font-weight: 700; font-size: 0.9rem; box-shadow: 0 8px 30px rgba(0,0,0,0.25); white-space: nowrap; animation: floatUp 0.5s ease 1s both; }
     @keyframes floatUp { from { opacity: 0; transform: translateX(-50%) translateY(20px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
 
+    /* ─── ULTRA-MODERN PRICING V2 ─── */
+    .pricing-ultra {
+      background: #07090f;
+      padding: 7rem clamp(1rem, 8vw, 6rem);
+      position: relative;
+      overflow: hidden;
+    }
+    .pricing-ultra::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      left: -150px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(ellipse, rgba(14,110,110,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .pricing-ultra::after {
+      content: '';
+      position: absolute;
+      bottom: -150px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(ellipse, rgba(200,151,58,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .pricing-ultra .section-label { color: var(--gold); }
+    .pricing-ultra .section-title { color: white; }
+    .pricing-ultra .section-sub { color: rgba(255,255,255,0.45); margin-bottom: 3rem; }
+
+    .pricing-toggle-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 3.5rem;
+    }
+    .pricing-toggle-pill {
+      display: flex;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 100px;
+      padding: 5px;
+      gap: 4px;
+    }
+    .toggle-pill-btn {
+      background: none;
+      border: none;
+      padding: 9px 22px;
+      border-radius: 100px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.45);
+      transition: all 0.25s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toggle-pill-btn.active {
+      background: white;
+      color: #07090f;
+    }
+    .save-pill {
+      background: linear-gradient(135deg, #0e6e6e, #14a89a);
+      color: white;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 100px;
+      letter-spacing: 0.03em;
+    }
+
+    .pricing-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      align-items: start;
+      max-width: 1280px;
+      margin: 0 auto 3rem;
+    }
+
+    .tier-v2 {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 20px;
+      padding: 2rem 1.6rem;
+      position: relative;
+      transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      overflow: hidden;
+    }
+    .tier-v2::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .tier-v2:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(255,255,255,0.18);
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+    }
+
+    /* SOLO */
+    .tier-v2.solo {
+      border-color: rgba(14,110,110,0.3);
+    }
+    .tier-v2.solo:hover {
+      border-color: rgba(14,110,110,0.6);
+      box-shadow: 0 24px 60px rgba(14,110,110,0.2);
+    }
+
+    /* PRO — star card */
+    .tier-v2.pro {
+      background: rgba(200,151,58,0.06);
+      border: 1.5px solid rgba(200,151,58,0.4);
+      transform: translateY(-8px);
+      box-shadow: 0 30px 80px rgba(200,151,58,0.2), 0 0 0 1px rgba(200,151,58,0.15);
+    }
+    .tier-v2.pro:hover {
+      transform: translateY(-16px);
+      border-color: rgba(200,151,58,0.7);
+      box-shadow: 0 40px 100px rgba(200,151,58,0.3), 0 0 0 1px rgba(200,151,58,0.25);
+    }
+    .tier-v2.pro::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      border-radius: 20px 20px 0 0;
+    }
+
+    /* CLINIC */
+    .tier-v2.clinic {
+      background: linear-gradient(145deg, rgba(14,110,110,0.12) 0%, rgba(7,9,15,0.8) 100%);
+      border-color: rgba(14,110,110,0.4);
+    }
+    .tier-v2.clinic:hover {
+      border-color: rgba(14,110,110,0.7);
+      box-shadow: 0 24px 60px rgba(14,110,110,0.25);
+      transform: translateY(-6px);
+    }
+    .tier-v2.clinic::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #0e6e6e, transparent);
+      border-radius: 20px 20px 0 0;
+    }
+
+    .tier-v2-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 100px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .badge-free { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); }
+    .badge-solo { background: rgba(14,110,110,0.2); color: #6ee7e7; }
+    .badge-pro { background: rgba(200,151,58,0.2); color: var(--gold); }
+    .badge-clinic { background: rgba(14,110,110,0.25); color: #5dd4d4; border: 1px solid rgba(14,110,110,0.4); }
+
+    .tier-v2-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      color: white;
+      margin-bottom: 0.3rem;
+      line-height: 1.1;
+    }
+    .tier-v2-tagline {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 1.5rem;
+      line-height: 1.4;
+    }
+
+    .tier-v2-price-block {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .tier-v2-amount {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.6rem;
+      color: white;
+      line-height: 1;
+    }
+    .tier-v2.pro .tier-v2-amount { color: var(--gold); }
+    .tier-v2.clinic .tier-v2-amount { color: #6ee7e7; }
+    .tier-v2-period {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.35);
+      margin-left: 4px;
+    }
+    .tier-v2-saving {
+      font-size: 0.75rem;
+      color: #6ee7e7;
+      font-weight: 600;
+      margin-top: 4px;
+      min-height: 18px;
+    }
+
+    .tier-v2-features {
+      list-style: none;
+      margin-bottom: 1.8rem;
+    }
+    .tier-v2-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      line-height: 1.4;
+    }
+    .tier-v2-features li:last-child { border-bottom: none; }
+    .tier-v2-features .chk { color: #3eb489; font-size: 0.75rem; flex-shrink: 0; margin-top: 2px; }
+    .tier-v2-features .no { color: rgba(255,255,255,0.2); font-size: 0.75rem; flex-shrink: 0; margin-top: 2px; }
+    .tier-v2-features .bold-feat { color: rgba(255,255,255,0.9); font-weight: 600; }
+    .tier-v2.pro .tier-v2-features li { color: rgba(255,255,255,0.75); }
+    .tier-v2.pro .tier-v2-features .chk { color: var(--gold); }
+
+    .tier-v2-cta {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      transition: all 0.25s;
+      cursor: pointer;
+    }
+    .cta-free { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.12); }
+    .cta-free:hover { background: rgba(255,255,255,0.13); color: white; }
+    .cta-solo { background: rgba(14,110,110,0.25); color: #6ee7e7; border: 1px solid rgba(14,110,110,0.4); }
+    .cta-solo:hover { background: rgba(14,110,110,0.4); border-color: #0e6e6e; }
+    .cta-pro { background: var(--gold); color: #07090f; }
+    .cta-pro:hover { background: #d4a03f; transform: translateY(-1px); box-shadow: 0 8px 30px rgba(200,151,58,0.4); }
+    .cta-clinic { background: rgba(14,110,110,0.3); color: #6ee7e7; border: 1px solid rgba(14,110,110,0.5); }
+    .cta-clinic:hover { background: #0e6e6e; color: white; }
+
+    .tier-v2-seats {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
+      text-align: center;
+      margin-top: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .pricing-guarantee-dark {
+      text-align: center;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.3);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .pricing-guarantee-dark span { color: #6ee7e7; font-weight: 600; }
+
+    @media (max-width: 1100px) {
+      .pricing-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+      .tier-v2.pro { transform: none; }
+      .tier-v2.pro:hover { transform: translateY(-6px); }
+    }
+    @media (max-width: 600px) {
+      .pricing-grid-4 { grid-template-columns: 1fr; }
+    }
+
   </style>
 </head>
 <body>
@@ -973,13 +1255,13 @@
     <div class="hero-inner">
       <div class="hero-eyebrow">
         <span>🏥</span>
-        <span class="t" data-en="The radiologist's rhythm." data-fr="Le rythme du radiologue." data-es="El ritmo del radiólogo." data-de="Der Rhythmus des Radiologen.">Le rythme du radiologue.</span>
+        <span class="t" data-en="Secure Radiology Reporting Platform" data-fr="Plateforme de Reporting Radiologique Sécurisée" data-es="Plataforma Segura de Reporting Radiológico" data-de="Sichere Radiologische Reporting-Plattform">Plateforme de Reporting Radiologique Sécurisée</span>
       </div>
       <h1>
-        <span class="t" data-en="Radiology reports.<br>" data-fr="Comptes rendus.<br>" data-es="Informes radiológicos.<br>" data-de="Radiologiebefunde.<br>">Comptes rendus.<br></span>
-        <em id="dynamic-text" style="color: var(--teal); display: inline-block; min-width: 280px; text-align: left;">En quelques minutes.</em>
+        <span class="t" data-en="The secure radiology<br>reporting platform" data-fr="La plateforme de reporting<br>radiologique sécurisée" data-es="La plataforma segura de<br>reporting radiológico" data-de="Die sichere radiologische<br>Reporting-Plattform">La plateforme de reporting<br>radiologique sécurisée</span>
       </h1>
-      <p class="hero-sub t" data-en="Structured radiology reporting software with 112 expert templates and built-in AI voice dictation in 23 languages. The affordable alternative for independent radiologists, private clinics, and teleradiology services." data-fr="Logiciel de compte rendu radiologique structuré avec 112 modèles experts et dictée vocale IA en 23 langues. L'alternative abordable pour radiologues indépendants, cliniques et téléradiologie." data-es="Software de informes radiológicos estructurados con 112 plantillas expertas en TC, RM, ecografía y radiografía. La alternativa asequible para radiólogos independientes y servicios de telerradiología." data-de="Strukturierte Radiologie-Befundungssoftware mit 112 Expertenvorlagen für CT, MRT, Ultraschall und Röntgen. Die günstige Alternative für unabhängige Radiologen, Kliniken und Teleradiologie.">Structured radiology reporting software with 112 expert templates across CT, MRI, Ultrasound and X-Ray. The affordable alternative for independent radiologists, private clinics, and teleradiology services.</p>
+      <p class="hero-sub t" data-en="Write, structure and secure your reports in seconds — without depending on the cloud." data-fr="Rédigez, structurez et sécurisez vos comptes rendus en quelques secondes — sans dépendre du cloud." data-es="Redacte, estructure y asegure sus informes en segundos — sin depender de la nube." data-de="Schreiben, strukturieren und sichern Sie Ihre Befunde in Sekunden — ohne Cloud-Abhängigkeit.">Rédigez, structurez et sécurisez vos comptes rendus en quelques secondes — sans dépendre du cloud.</p>
+      <p style="font-size:1.05rem; font-weight:600; color:var(--gold); margin-bottom:1.2rem;" class="t" data-en="Fewer clicks. Less stress. More efficiency." data-fr="Moins de clics. Moins de stress. Plus d'efficacité." data-es="Menos clics. Menos estrés. Más eficiencia." data-de="Weniger Klicks. Weniger Stress. Mehr Effizienz.">Moins de clics. Moins de stress. Plus d'efficacité.</p>
       
       <div class="hero-pills">
         <div class="pill"><span class="t-num">112</span> <span class="t" data-en="Expert Templates" data-fr="Modèles Experts" data-es="Plantillas Expertas" data-de="Expertenvorlagen">Expert Templates</span></div>
@@ -992,14 +1274,13 @@
       </div>
 
       <div class="hero-actions">
-        <a href="contact.html" class="btn-primary t" data-en="Start 30-Day Free Trial" data-fr="Essai Gratuit 30 Jours" data-es="Prueba Gratuita 30 Días" data-de="30 Tage Kostenlos Testen">Start 30-Day Free Trial</a>
-        <a href="https://drive.google.com/drive/folders/1igTnleiHnzlReGgYQ-nCLDG8j9ItTEcp?usp=drive_link" target="_blank" rel="noopener" class="btn-download t" data-en="⬇ Download for Windows" data-fr="⬇ Télécharger pour Windows" data-es="⬇ Descargar para Windows" data-de="⬇ Für Windows Herunterladen">⬇ Download for Windows</a>
-        <a href="#modalities" class="btn-secondary t" data-en="View Templates" data-fr="Voir les Modèles" data-es="Ver Plantillas" data-de="Vorlagen Ansehen">View Templates</a>
+        <a href="contact.html" class="btn-primary t" data-en="Try for free" data-fr="Essayer gratuitement" data-es="Probar gratis" data-de="Kostenlos testen">Essayer gratuitement</a>
+        <a href="#interface" class="btn-secondary t" data-en="Watch the demo" data-fr="Voir la démo" data-es="Ver la demo" data-de="Demo ansehen">Voir la démo</a>
       </div>
       <div class="hero-trust">
-        <div class="trust-item t" data-en="30-day free trial" data-fr="30 jours d'essai gratuit" data-es="30 días de prueba gratuita" data-de="30 Tage kostenlos">30-day free trial</div>
-        <div class="trust-item t" data-en="Cancel anytime" data-fr="Résiliation à tout moment" data-es="Cancelar cuando quiera" data-de="Jederzeit kündbar">Cancel anytime</div>
-        <div class="trust-item t" data-en="No IT setup required" data-fr="Aucune config IT" data-es="Sin config IT" data-de="Keine IT erforderlich">No IT setup required</div>
+        <div class="trust-item t" data-en="Free plan — no credit card" data-fr="Plan gratuit — sans carte bancaire" data-es="Plan gratuito — sin tarjeta" data-de="Gratis-Plan — keine Kreditkarte">Plan gratuit — sans carte bancaire</div>
+        <div class="trust-item t" data-en="100% local — no cloud" data-fr="100% local — aucun cloud" data-es="100% local — sin nube" data-de="100% lokal — keine Cloud">100% local — aucun cloud</div>
+        <div class="trust-item t" data-en="No IT setup required" data-fr="Aucune config IT" data-es="Sin config IT" data-de="Keine IT erforderlich">Aucune config IT</div>
       </div>
     </div>
   </section>
@@ -1026,10 +1307,91 @@
       <div class="stat-label t" data-en="AI Dictation Built-In" data-fr="Dictée IA Intégrée" data-es="Dictado IA Integrado" data-de="KI-Diktat Integriert">AI Dictation Built-In</div>
     </div>
     <div class="stat-item reveal">
-      <span class="stat-num">€39</span>
-      <div class="stat-label t" data-en="Starting Price / Month" data-fr="Prix de départ / Mois" data-es="Precio desde / Mes" data-de="Ab Preis / Monat">Starting Price / Month</div>
+      <span class="stat-num">€9</span>
+      <div class="stat-label t" data-en="Solo plan / month" data-fr="Plan Solo / mois" data-es="Plan Solo / mes" data-de="Solo-Plan / Monat">Plan Solo / mois</div>
     </div>
   </div>
+
+  <!-- ── PROBLEM SECTION ── -->
+  <section style="background: var(--cream); padding: 5rem clamp(1rem, 8vw, 6rem);">
+    <div class="section-label t" data-en="The Problem" data-fr="Le Problème" data-es="El Problema" data-de="Das Problem">Le Problème</div>
+    <h2 class="section-title reveal t" data-en="You're losing time… and you know it." data-fr="Vous perdez du temps… et vous le savez." data-es="Está perdiendo tiempo… y lo sabe." data-de="Sie verlieren Zeit… und das wissen Sie.">Vous perdez du temps… et vous le savez.</h2>
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:1.2rem; margin-top:2rem;">
+      <div class="vp-card reveal" style="border-left:3px solid #e74c3c;">
+        <div class="vp-icon">🖱️</div>
+        <h3 class="t" data-en="Too many clicks for a simple report" data-fr="Trop de clics pour un simple compte rendu" data-es="Demasiados clics para un informe simple" data-de="Zu viele Klicks für einen einfachen Befund">Trop de clics pour un simple compte rendu</h3>
+      </div>
+      <div class="vp-card reveal" style="border-left:3px solid #e74c3c;">
+        <div class="vp-icon">⚙️</div>
+        <h3 class="t" data-en="Heavy, complex and expensive software" data-fr="Des logiciels lourds, complexes et chers" data-es="Software pesado, complejo y costoso" data-de="Schwere, komplexe und teure Software">Des logiciels lourds, complexes et chers</h3>
+      </div>
+      <div class="vp-card reveal" style="border-left:3px solid #e74c3c;">
+        <div class="vp-icon">🎤</div>
+        <h3 class="t" data-en="Dictation alone… that structures nothing" data-fr="Une dictée seule… qui ne structure rien" data-es="Dictado solo… que no estructura nada" data-de="Diktat allein… das nichts strukturiert">Une dictée seule… qui ne structure rien</h3>
+      </div>
+      <div class="vp-card reveal" style="border-left:3px solid #e74c3c;">
+        <div class="vp-icon">☁️</div>
+        <h3 class="t" data-en="Patient data exposed to the cloud" data-fr="Des données patients exposées au cloud" data-es="Datos de pacientes expuestos a la nube" data-de="Patientendaten in der Cloud gefährdet">Des données patients exposées au cloud</h3>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:2.5rem; font-size:1.1rem; font-weight:700; color:#e74c3c;" class="t" data-en="Result: fatigue, wasted time, frustration." data-fr="Résultat : fatigue, perte de temps, frustration." data-es="Resultado: fatiga, pérdida de tiempo, frustración." data-de="Ergebnis: Erschöpfung, Zeitverlust, Frust.">Résultat : fatigue, perte de temps, frustration.</p>
+  </section>
+
+  <!-- ── SOLUTION SECTION ── -->
+  <section style="background: var(--ink); padding: 5rem clamp(1rem, 8vw, 6rem);">
+    <div class="section-label" style="color:var(--gold);" >Solution</div>
+    <h2 class="section-title reveal" style="color:white;" data-i18n>
+      <span class="t" data-en="Pisum changes how you work." data-fr="Pisum change votre façon de travailler." data-es="Pisum cambia su forma de trabajar." data-de="Pisum verändert Ihre Arbeitsweise.">Pisum change votre façon de travailler.</span>
+    </h2>
+    <p style="color:rgba(255,255,255,0.6); font-size:1.05rem; margin-bottom:2.5rem; max-width:600px;" class="t" data-en="One tool to do it all:" data-fr="Un seul outil pour tout faire :" data-es="Una sola herramienta para todo:" data-de="Ein einziges Tool für alles:">Un seul outil pour tout faire :</p>
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:1rem;">
+      <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(200,151,58,0.3); border-radius:12px; padding:1.5rem; text-align:center;" class="reveal">
+        <div style="font-size:2rem; margin-bottom:0.8rem;">📝</div>
+        <p style="color:white; font-weight:600;" class="t" data-en="Write your reports" data-fr="Rédiger vos comptes rendus" data-es="Redactar sus informes" data-de="Befunde schreiben">Rédiger vos comptes rendus</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(200,151,58,0.3); border-radius:12px; padding:1.5rem; text-align:center;" class="reveal">
+        <div style="font-size:2rem; margin-bottom:0.8rem;">🗂️</div>
+        <p style="color:white; font-weight:600;" class="t" data-en="Structure your exams" data-fr="Structurer vos examens" data-es="Estructurar sus exámenes" data-de="Untersuchungen strukturieren">Structurer vos examens</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(200,151,58,0.3); border-radius:12px; padding:1.5rem; text-align:center;" class="reveal">
+        <div style="font-size:2rem; margin-bottom:0.8rem;">👤</div>
+        <p style="color:white; font-weight:600;" class="t" data-en="Manage your patients" data-fr="Gérer vos patients" data-es="Gestionar sus pacientes" data-de="Patienten verwalten">Gérer vos patients</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(200,151,58,0.3); border-radius:12px; padding:1.5rem; text-align:center;" class="reveal">
+        <div style="font-size:2rem; margin-bottom:0.8rem;">🔒</div>
+        <p style="color:white; font-weight:600;" class="t" data-en="Protect your data" data-fr="Protéger vos données" data-es="Proteger sus datos" data-de="Daten schützen">Protéger vos données</p>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:2.5rem; font-size:1.15rem; font-weight:700; color:var(--gold);" class="t" data-en="Fast, local and secure." data-fr="Rapide, local et sécurisé." data-es="Rápido, local y seguro." data-de="Schnell, lokal und sicher.">Rapide, local et sécurisé.</p>
+  </section>
+
+  <!-- ── 3-STEP DEMO ── -->
+  <section style="background:white; padding: 5rem clamp(1rem, 8vw, 6rem); text-align:center;">
+    <div class="section-label t" data-en="How It Works" data-fr="Comment ça Marche" data-es="Cómo Funciona" data-de="So Funktioniert Es">Comment ça Marche</div>
+    <h2 class="section-title reveal t" data-en="A report in seconds." data-fr="Un compte rendu en quelques secondes." data-es="Un informe en segundos." data-de="Ein Befund in Sekunden.">Un compte rendu en quelques secondes.</h2>
+    <div style="display:flex; gap:2rem; justify-content:center; align-items:flex-start; flex-wrap:wrap; margin-top:3rem; max-width:900px; margin-left:auto; margin-right:auto;">
+      <div class="reveal" style="flex:1; min-width:200px; max-width:260px;">
+        <div style="width:60px; height:60px; background:var(--teal); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.5rem; font-weight:700; color:white; margin:0 auto 1rem;">1</div>
+        <h3 class="t" data-en="Choose a template" data-fr="Choisissez un modèle" data-es="Elija una plantilla" data-de="Vorlage wählen">Choisissez un modèle</h3>
+        <p style="color:var(--ink-muted); font-size:0.9rem;" class="t" data-en="112 expert templates ready to use" data-fr="112 modèles experts prêts à l'emploi" data-es="112 plantillas expertas listas" data-de="112 Expertenvorlagen, sofort einsatzbereit">112 modèles experts prêts à l'emploi</p>
+      </div>
+      <div style="font-size:2rem; color:var(--gold); align-self:center; padding-top:0;">→</div>
+      <div class="reveal" style="flex:1; min-width:200px; max-width:260px;">
+        <div style="width:60px; height:60px; background:var(--teal); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.5rem; font-weight:700; color:white; margin:0 auto 1rem;">2</div>
+        <h3 class="t" data-en="Dictate or fill in" data-fr="Dictez ou remplissez" data-es="Dicte o complete" data-de="Diktieren oder ausfüllen">Dictez ou remplissez</h3>
+        <p style="color:var(--ink-muted); font-size:0.9rem;" class="t" data-en="AI dictation in 23 languages" data-fr="Dictée IA en 23 langues" data-es="Dictado IA en 23 idiomas" data-de="KI-Diktat in 23 Sprachen">Dictée IA en 23 langues</p>
+      </div>
+      <div style="font-size:2rem; color:var(--gold); align-self:center; padding-top:0;">→</div>
+      <div class="reveal" style="flex:1; min-width:200px; max-width:260px;">
+        <div style="width:60px; height:60px; background:var(--teal); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.5rem; font-weight:700; color:white; margin:0 auto 1rem;">3</div>
+        <h3 class="t" data-en="Export or print" data-fr="Exportez ou imprimez" data-es="Exporte o imprima" data-de="Exportieren oder drucken">Exportez ou imprimez</h3>
+        <p style="color:var(--ink-muted); font-size:0.9rem;" class="t" data-en="Word export or direct print" data-fr="Export Word ou impression directe" data-es="Exportación Word o impresión directa" data-de="Word-Export oder Direktdruck">Export Word ou impression directe</p>
+      </div>
+    </div>
+    <div style="margin-top:2.5rem; background:var(--teal-light); border:1px solid var(--teal); border-radius:12px; padding:1.2rem 2rem; display:inline-block;">
+      <p style="font-size:1.1rem; font-weight:700; color:var(--teal);" class="t" data-en="Result: a clean, structured report, ready to sign." data-fr="Résultat : un compte rendu propre, structuré, prêt à être signé." data-es="Resultado: un informe limpio, estructurado, listo para firmar." data-de="Ergebnis: Ein sauberer, strukturierter Befund, bereit zur Unterschrift.">Résultat : un compte rendu propre, structuré, prêt à être signé.</p>
+    </div>
+  </section>
 
   <section class="artistic-showcase" id="interface">
     <div class="section-label t" style="text-align: center;" data-en="Interface" data-fr="Interface" data-es="Interfaz" data-de="Schnittstelle">Interface</div>
@@ -1245,6 +1607,50 @@
     </div>
   </section>
 
+  <!-- ── COMPARISON TABLE ── -->
+  <section style="background:var(--cream); padding: 5rem clamp(1rem, 8vw, 6rem);">
+    <div class="section-label t" data-en="Why Pisum" data-fr="Pourquoi Pisum" data-es="Por Qué Pisum" data-de="Warum Pisum">Pourquoi Pisum</div>
+    <h2 class="section-title reveal t" data-en="Why Pisum is different." data-fr="Pourquoi Pisum est différent." data-es="Por qué Pisum es diferente." data-de="Warum Pisum anders ist.">Pourquoi Pisum est différent.</h2>
+    <div style="overflow-x:auto; margin-top:2rem;">
+      <table style="width:100%; border-collapse:collapse; max-width:800px; margin:0 auto; background:white; border-radius:16px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+        <thead>
+          <tr style="background:var(--ink); color:white;">
+            <th style="padding:1rem 1.5rem; text-align:left; font-size:0.9rem;" class="t" data-en="Feature" data-fr="Fonction" data-es="Función" data-de="Funktion">Fonction</th>
+            <th style="padding:1rem 1.5rem; text-align:center; font-size:0.9rem; color:var(--gold);">Pisum</th>
+            <th style="padding:1rem 1.5rem; text-align:center; font-size:0.9rem; color:rgba(255,255,255,0.5);" class="t" data-en="Other solutions" data-fr="Autres solutions" data-es="Otras soluciones" data-de="Andere Lösungen">Autres solutions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--cream-dark);">
+            <td style="padding:1rem 1.5rem; font-size:0.9rem;" class="t" data-en="Structured reports" data-fr="Structure des comptes rendus" data-es="Estructura de informes" data-de="Strukturierte Befunde">Structure des comptes rendus</td>
+            <td style="padding:1rem; text-align:center; color:var(--teal); font-size:1.2rem;">✅</td>
+            <td style="padding:1rem; text-align:center; color:#e74c3c; font-size:1.2rem;">❌</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--cream-dark); background:var(--cream);">
+            <td style="padding:1rem 1.5rem; font-size:0.9rem;" class="t" data-en="Integrated patient database (local)" data-fr="Base patient intégrée (locale)" data-es="Base de pacientes integrada (local)" data-de="Integrierte Patientendatenbank (lokal)">Base patient intégrée (locale)</td>
+            <td style="padding:1rem; text-align:center; color:var(--teal); font-size:1.2rem;">✅</td>
+            <td style="padding:1rem; text-align:center; color:#e74c3c; font-size:1.2rem;">❌</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--cream-dark);">
+            <td style="padding:1rem 1.5rem; font-size:0.9rem;" class="t" data-en="Works offline" data-fr="Fonctionne offline" data-es="Funciona sin conexión" data-de="Offline-Fähig">Fonctionne offline</td>
+            <td style="padding:1rem; text-align:center; color:var(--teal); font-size:1.2rem;">✅</td>
+            <td style="padding:1rem; text-align:center; color:#e74c3c; font-size:1.2rem;">❌</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--cream-dark); background:var(--cream);">
+            <td style="padding:1rem 1.5rem; font-size:0.9rem;" class="t" data-en="Data secured locally" data-fr="Données sécurisées localement" data-es="Datos seguros localmente" data-de="Daten lokal gesichert">Données sécurisées localement</td>
+            <td style="padding:1rem; text-align:center; color:var(--teal); font-size:1.2rem;">✅</td>
+            <td style="padding:1rem; text-align:center; color:#e74c3c; font-size:1.2rem;">❌</td>
+          </tr>
+          <tr style="background:white;">
+            <td style="padding:1rem 1.5rem; font-size:0.9rem;" class="t" data-en="Simplicity" data-fr="Simplicité" data-es="Simplicidad" data-de="Einfachheit">Simplicité</td>
+            <td style="padding:1rem; text-align:center; color:var(--teal); font-size:1.2rem;">✅</td>
+            <td style="padding:1rem; text-align:center; color:#e74c3c; font-size:1.2rem;">❌</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
   <section class="dictation" id="dictation">
     <div class="section-label t" data-en="AI Voice Dictation" data-fr="Dictée Vocale IA" data-es="Dictado de Voz IA" data-de="KI-Sprachdiktat">AI Voice Dictation</div>
     <h2 class="section-title reveal t" data-en="Dictate radiology reports.<br>In 23 languages." data-fr="Dictez vos comptes rendus.<br>En 23 langues." data-es="Dicte informes radiológicos.<br>En 23 idiomas." data-de="Radiologiebefunde diktieren.<br>In 23 Sprachen.">Dictate radiology reports.<br>In 23 languages.</h2>
@@ -1395,124 +1801,169 @@
     </div>
   </section>
 
-  <section class="pricing" id="pricing">
+  <!-- ── ROI SECTION ── -->
+  <section style="background:var(--ink); padding: 5rem clamp(1rem, 8vw, 6rem); text-align:center;">
+    <div class="section-label" style="color:var(--gold);">ROI</div>
+    <h2 class="section-title reveal" style="color:white;" ><span class="t" data-en="How much is 1 hour of your time worth?" data-fr="Combien vaut 1 heure de votre temps ?" data-es="¿Cuánto vale 1 hora de su tiempo?" data-de="Was ist 1 Stunde Ihrer Zeit wert?">Combien vaut 1 heure de votre temps ?</span></h2>
+    <p style="color:rgba(255,255,255,0.6); font-size:1.05rem; max-width:560px; margin:0 auto 2.5rem;" class="t" data-en="If you save just 30 minutes per day:" data-fr="Si vous gagnez seulement 30 minutes par jour :" data-es="Si gana solo 30 minutos por día:" data-de="Wenn Sie nur 30 Minuten pro Tag gewinnen:">Si vous gagnez seulement 30 minutes par jour :</p>
+    <div style="display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap;">
+      <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(200,151,58,0.3); border-radius:14px; padding:1.5rem 2rem; min-width:160px;" class="reveal">
+        <div style="font-size:2rem; margin-bottom:0.5rem;">📈</div>
+        <p style="color:var(--gold); font-weight:700;" class="t" data-en="More productivity" data-fr="Plus de productivité" data-es="Más productividad" data-de="Mehr Produktivität">Plus de productivité</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(200,151,58,0.3); border-radius:14px; padding:1.5rem 2rem; min-width:160px;" class="reveal">
+        <div style="font-size:2rem; margin-bottom:0.5rem;">👥</div>
+        <p style="color:var(--gold); font-weight:700;" class="t" data-en="More patients" data-fr="Plus de patients" data-es="Más pacientes" data-de="Mehr Patienten">Plus de patients</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(200,151,58,0.3); border-radius:14px; padding:1.5rem 2rem; min-width:160px;" class="reveal">
+        <div style="font-size:2rem; margin-bottom:0.5rem;">💶</div>
+        <p style="color:var(--gold); font-weight:700;" class="t" data-en="More revenue" data-fr="Plus de revenus" data-es="Más ingresos" data-de="Mehr Einnahmen">Plus de revenus</p>
+      </div>
+    </div>
+    <p style="color:white; font-size:1.2rem; font-weight:700; margin-top:2.5rem;" class="t" data-en="Pisum pays for itself in days." data-fr="Pisum est rentabilisé en quelques jours." data-es="Pisum se amortiza en días." data-de="Pisum amortisiert sich in wenigen Tagen.">Pisum est rentabilisé en quelques jours.</p>
+  </section>
+
+  <!-- ── OBJECTIONS SECTION ── -->
+  <section style="background:white; padding: 5rem clamp(1rem, 8vw, 6rem);">
+    <div class="section-label t" data-en="Your Questions" data-fr="Vos Questions" data-es="Sus Preguntas" data-de="Ihre Fragen">Vos Questions</div>
+    <h2 class="section-title reveal t" data-en="We have answers." data-fr="Nous avons les réponses." data-es="Tenemos las respuestas." data-de="Wir haben die Antworten.">Nous avons les réponses.</h2>
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem; margin-top:2.5rem;">
+      <div class="vp-card reveal" style="border-top:3px solid var(--teal);">
+        <div class="vp-icon">🎤</div>
+        <h3 class="t" 
+            data-en='"My dictation isn&apos;t perfect"' 
+            data-fr='"Ma dictée n&apos;est pas parfaite"' 
+            data-es='"Mi dictado no es perfecto"' 
+            data-de='"Mein Diktat ist nicht perfekt"'>
+            "Ma dictée n'est pas parfaite"
+        </h3>        <p class="t" data-en="Good news: Pisum doesn't depend on dictation alone. It structures and accelerates your work regardless." data-fr="Bonne nouvelle : Pisum ne dépend pas uniquement de la dictée. Il structure et accélère votre travail." data-es="Buenas noticias: Pisum no depende solo del dictado. Estructura y acelera su trabajo." data-de="Gute Nachricht: Pisum hängt nicht nur vom Diktat ab. Es strukturiert und beschleunigt Ihre Arbeit.">Bonne nouvelle : Pisum ne dépend pas uniquement de la dictée. Il structure et accélère votre travail.</p>
+      </div>
+      <div class="vp-card reveal" style="border-top:3px solid var(--teal);">
+        <div class="vp-icon">🔒</div>
+        <h3 class="t" data-en='"I want to protect my data"' data-fr='"Je veux protéger mes données"' data-es='"Quiero proteger mis datos"' data-de='"Ich will meine Daten schützen"'>"Je veux protéger mes données"</h3>
+        <p class="t" data-en="Perfect. No patient data ever leaves your computer. 100% local, advanced encryption." data-fr="Parfait. Aucune donnée patient ne quitte votre ordinateur. 100% local, chiffrement avancé." data-es="Perfecto. Ningún dato de paciente sale de su ordenador. 100% local, cifrado avanzado." data-de="Perfekt. Keine Patientendaten verlassen Ihren Computer. 100% lokal, erweiterte Verschlüsselung.">Parfait. Aucune donnée patient ne quitte votre ordinateur. 100% local, chiffrement avancé.</p>
+      </div>
+      <div class="vp-card reveal" style="border-top:3px solid var(--teal);">
+        <div class="vp-icon">⚡</div>
+        <h3 class="t" data-en='"I don't want complicated software"' data-fr='"Je ne veux pas un logiciel compliqué"' data-es='"No quiero software complicado"' data-de='"Ich will keine komplizierte Software"'>"Je ne veux pas un logiciel compliqué"</h3>
+        <p class="t" data-en="Pisum is designed to go fast, with no training needed. Install and start in 5 minutes." data-fr="Pisum est conçu pour aller vite, sans formation. Installez et commencez en 5 minutes." data-es="Pisum está diseñado para ir rápido, sin formación. Instale y empiece en 5 minutos." data-de="Pisum ist auf Schnelligkeit ausgelegt, ohne Schulung. Installieren und in 5 Minuten starten.">Pisum est conçu pour aller vite, sans formation. Installez et commencez en 5 minutes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing-ultra" id="pricing">
     <div class="section-label t" data-en="Pricing" data-fr="Tarifs" data-es="Precios" data-de="Preise">Pricing</div>
-    <h2 class="section-title reveal t" data-en="Transparent pricing for every practice size." data-fr="Tarifs transparents pour toute taille de cabinet." data-es="Precios transparentes para todo tamaño de práctica." data-de="Transparente Preise für jede Praxisgröße.">Transparent pricing for every practice size.</h2>
-    <p class="section-sub reveal t" data-en="Radiology reporting software starting at €39/month — 10x cheaper than enterprise solutions. Seat-based licensing for solo radiologists, clinics and teleradiology companies." data-fr="Logiciel de compte rendu radiologique à partir de 39€/mois — 10x moins cher que les solutions traditionnelles. Licences par siège pour radiologues solo, cliniques et sociétés de téléradiologie." data-es="Software de informes radiológicos desde €39/mes — 10x más barato que las soluciones tradicionales. Licencias por puesto para radiólogos independientes, clínicas y empresas de telerradiología." data-de="Radiologie-Befundungssoftware ab €39/Monat — 10x günstiger als traditionelle Lösungen. Sitzbasierte Lizenzierung für Solo-Radiologen, Kliniken und Teleradiologie-Unternehmen.">Radiology reporting software starting at €39/month — 10x cheaper than traditional solutions.</p>
+    <h2 class="section-title reveal t" data-en="Simple pricing. Powerful results." data-fr="Tarifs simples. Résultats puissants." data-es="Precios simples. Resultados poderosos." data-de="Klare Preise. Starke Ergebnisse.">Tarifs simples. Résultats puissants.</h2>
+    <p class="section-sub reveal t" data-en="Free to start. Solo at €9/mo. Pro at €19/mo. Clinic from €49/mo. No IT team, no commitment." data-fr="Gratuit pour démarrer. Solo à 9€/mois. Pro à 19€/mois. Clinic dès 49€/mois. Aucun projet IT, aucun engagement." data-es="Gratis para empezar. Solo €9/mes. Pro €19/mes. Clinic desde €49/mes. Sin proyecto IT." data-de="Kostenlos starten. Solo 9€/Mon. Pro 19€/Mon. Clinic ab 49€/Mon. Kein IT-Projekt.">Gratuit pour démarrer. Solo à 9€/mois. Pro à 19€/mois. Clinic dès 49€/mois. Aucun projet IT, aucun engagement.</p>
 
-    <div class="pricing-toggle" id="billingToggle">
-      <button class="toggle-btn active" onclick="setBilling('monthly')" data-billing="monthly" id="btn-monthly">
-        <span class="t" data-en="Monthly" data-fr="Mensuel" data-es="Mensual" data-de="Monatlich">Monthly</span>
-      </button>
-      <button class="toggle-btn" onclick="setBilling('annual')" data-billing="annual" id="btn-annual">
-        <span class="t" data-en="Annual" data-fr="Annuel" data-es="Anual" data-de="Jährlich">Annual</span>
-        <span class="save-badge t" data-en="2 months free" data-fr="2 mois offerts" data-es="2 meses gratis" data-de="2 Monate gratis">2 months free</span>
-      </button>
-    </div>
-
-    <div class="pricing-tiers">
-
-      <div class="tier-card reveal">
-        <div class="tier-name t" data-en="Solo" data-fr="Solo" data-es="Solo" data-de="Solo">Solo</div>
-        <div class="tier-sub t" data-en="For independent radiologists" data-fr="Pour les radiologues indépendants" data-es="Para radiólogos independientes" data-de="Für unabhängige Radiologen">For independent radiologists</div>
-        <div class="tier-price">
-          <span class="tier-amount" id="price-solo">€39</span>
-          <span class="tier-period" id="period-solo">/month</span>
-        </div>
-        <div class="tier-saving" id="saving-solo"></div>
-        <div class="tier-seats">👤 <span class="t" data-en="1 seat" data-fr="1 siège" data-es="1 puesto" data-de="1 Platz">1 seat</span></div>
-        <ul class="tier-features">
-          <li class="t" data-en="112 expert templates included" data-fr="112 modèles experts inclus" data-es="112 plantillas expertas incluidas" data-de="112 Expertenvorlagen enthalten">112 expert templates included</li>
-          <li class="t" data-en="All 5 imaging modalities" data-fr="Les 5 modalités d'imagerie" data-es="Las 5 modalidades de imagen" data-de="Alle 5 Bildgebungsmodalitäten">All 5 imaging modalities</li>
-          <li class="t" data-en="23 languages" data-fr="23 langues" data-es="23 idiomas" data-de="23 Sprachen">23 languages</li>
-          <li class="t" data-en="Unlimited reports" data-fr="Rapports illimités" data-es="Informes ilimitados" data-de="Unbegrenzte Berichte">Unlimited reports</li>
-          <li class="t" data-en="Custom templates" data-fr="Modèles personnalisés" data-es="Plantillas personalizadas" data-de="Benutzerdefinierte Vorlagen">Custom templates</li>
-          <li class="t" data-en="Word export & copy-paste" data-fr="Export Word & copier-coller" data-es="Exportación Word & copiar-pegar" data-de="Word-Export & Kopieren-Einfügen">Word export & copy-paste</li>
-          <li class="t" data-en="Built-in AI dictation (23 languages)" data-fr="Dictée IA intégrée (23 langues)" data-es="Dictado IA integrado (23 idiomas)" data-de="KI-Diktat integriert (23 Sprachen)">Built-in AI dictation (23 languages)</li>
-          <li class="t" data-en="External dictation compatible" data-fr="Compatible avec d'autres dictées" data-es="Compatible con dictado externo" data-de="Kompatibel mit externem Diktat">External dictation compatible</li>
-          <li class="t" data-en="Email support" data-fr="Support email" data-es="Soporte por email" data-de="E-Mail-Support">Email support</li>
-        </ul>
-        <a href="https://payhip.com/b/zohaH" target="_blank" class="tier-cta t plan-cta" data-monthly="https://payhip.com/b/zohaH" data-annual="https://payhip.com/b/yRox5" data-en="Buy Now" data-fr="Acheter" data-es="Comprar" data-de="Jetzt Kaufen">Buy Now</a>
-      </div>
-
-      <div class="tier-card reveal">
-        <div class="tier-name t" data-en="Clinic S" data-fr="Clinique S" data-es="Clínica S" data-de="Klinik S">Clinic S</div>
-        <div class="tier-sub t" data-en="For small clinics" data-fr="Pour les petites cliniques" data-es="Para clínicas pequeñas" data-de="Für kleine Kliniken">For small clinics</div>
-        <div class="tier-price">
-          <span class="tier-amount" id="price-clinic3">€99</span>
-          <span class="tier-period" id="period-clinic3">/month</span>
-        </div>
-        <div class="tier-saving" id="saving-clinic3"></div>
-        <div class="tier-seats">👥 <span class="t" data-en="3 seats" data-fr="3 sièges" data-es="3 puestos" data-de="3 Plätze">3 seats</span></div>
-        <ul class="tier-features">
-          <li class="t" data-en="Everything in Solo" data-fr="Tout ce qui est dans Solo" data-es="Todo lo incluido en Solo" data-de="Alles aus Solo">Everything in Solo</li>
-          <li class="t" data-en="3 individual seat licenses" data-fr="3 licences de siège individuelles" data-es="3 licencias de puesto individuales" data-de="3 individuelle Sitzlizenzen">3 individual seat licenses</li>
-          <li class="t" data-en="Each radiologist keeps own templates" data-fr="Chaque radiologue garde ses modèles" data-es="Cada radiólogo mantiene sus plantillas" data-de="Jeder Radiologe behält eigene Vorlagen">Each radiologist keeps own templates</li>
-          <li class="t" data-en="One invoice for your clinic" data-fr="Une facture pour votre clinique" data-es="Una factura para su clínica" data-de="Eine Rechnung für Ihre Klinik">One invoice for your clinic</li>
-          <li class="t" data-en="Priority email support" data-fr="Support email prioritaire" data-es="Soporte email prioritario" data-de="Prioritäts-E-Mail-Support">Priority email support</li>
-        </ul>
-        <a href="https://payhip.com/b/pXlOy" target="_blank" class="tier-cta t plan-cta" data-monthly="https://payhip.com/b/pXlOy" data-annual="https://payhip.com/b/HlA7k" data-en="Buy Now" data-fr="Acheter" data-es="Comprar" data-de="Jetzt Kaufen">Buy Now</a>
-      </div>
-
-      <div class="tier-card featured reveal">
-        <div class="tier-badge t" data-en="⭐ Most Popular" data-fr="⭐ Le Plus Populaire" data-es="⭐ Más Popular" data-de="⭐ Am Beliebtesten">⭐ Most Popular</div>
-        <div class="tier-name t" data-en="Clinic M" data-fr="Clinique M" data-es="Clínica M" data-de="Klinik M">Clinic M</div>
-        <div class="tier-sub t" data-en="For growing clinics" data-fr="Pour les cliniques en croissance" data-es="Para clínicas en crecimiento" data-de="Für wachsende Kliniken">For growing clinics</div>
-        <div class="tier-price">
-          <span class="tier-amount" id="price-clinic5">€149</span>
-          <span class="tier-period" id="period-clinic5">/month</span>
-        </div>
-        <div class="tier-saving" id="saving-clinic5"></div>
-        <div class="tier-seats">👥 <span class="t" data-en="5 seats" data-fr="5 sièges" data-es="5 puestos" data-de="5 Plätze">5 seats</span></div>
-        <ul class="tier-features">
-          <li class="t" data-en="Everything in Clinic S" data-fr="Tout ce qui est dans Clinique S" data-es="Todo lo incluido en Clínica S" data-de="Alles aus Klinik S">Everything in Clinic S</li>
-          <li class="t" data-en="5 individual seat licenses" data-fr="5 licences de siège individuelles" data-es="5 licencias de puesto individuales" data-de="5 individuelle Sitzlizenzen">5 individual seat licenses</li>
-          <li class="t" data-en="Onboarding assistance" data-fr="Assistance à l'intégration" data-es="Asistencia de incorporación" data-de="Onboarding-Unterstützung">Onboarding assistance</li>
-          <li class="t" data-en="Priority updates" data-fr="Mises à jour prioritaires" data-es="Actualizaciones prioritarias" data-de="Prioritäts-Updates">Priority updates</li>
-          <li class="t" data-en="Priority email support" data-fr="Support email prioritaire" data-es="Soporte email prioritario" data-de="Prioritäts-E-Mail-Support">Priority email support</li>
-        </ul>
-        <a href="https://payhip.com/b/sFBoD" target="_blank" class="tier-cta t plan-cta" data-monthly="https://payhip.com/b/sFBoD" data-annual="https://payhip.com/b/U7fkp" data-en="Buy Now" data-fr="Acheter" data-es="Comprar" data-de="Jetzt Kaufen">Buy Now</a>
-      </div>
-
-      <div class="tier-card reveal">
-        <div class="tier-name t" data-en="Pro 10" data-fr="Pro 10" data-es="Pro 10" data-de="Pro 10">Pro 10</div>
-        <div class="tier-sub t" data-en="For teleradiology teams" data-fr="Pour les équipes de téléradiologie" data-es="Para equipos de telerradiología" data-de="Für Teleradiologie-Teams">For teleradiology teams</div>
-        <div class="tier-price">
-          <span class="tier-amount" id="price-pro10">€249</span>
-          <span class="tier-period" id="period-pro10">/month</span>
-        </div>
-        <div class="tier-saving" id="saving-pro10"></div>
-        <div class="tier-seats">👥 <span class="t" data-en="10 seats" data-fr="10 sièges" data-es="10 puestos" data-de="10 Plätze">10 seats</span></div>
-        <ul class="tier-features">
-          <li class="t" data-en="Everything in Clinic M" data-fr="Tout ce qui est dans Clinique M" data-es="Todo lo incluido en Clínica M" data-de="Alles aus Klinik M">Everything in Clinic M</li>
-          <li class="t" data-en="10 individual seat licenses" data-fr="10 licences de siège" data-es="10 licencias de puesto" data-de="10 Sitzlizenzen">10 individual seat licenses</li>
-          <li class="t" data-en="Dedicated onboarding" data-fr="Intégration dédiée" data-es="Incorporación dedicada" data-de="Dediziertes Onboarding">Dedicated onboarding</li>
-          <li class="t" data-en="Priority support" data-fr="Support prioritaire" data-es="Soporte prioritario" data-de="Prioritäts-Support">Priority support</li>
-        </ul>
-        <a href="https://payhip.com/b/Z1qRI" target="_blank" class="tier-cta t plan-cta" data-monthly="https://payhip.com/b/Z1qRI" data-annual="https://payhip.com/b/i7SGu" data-en="Buy Now" data-fr="Acheter" data-es="Comprar" data-de="Jetzt Kaufen">Buy Now</a>
-      </div>
-
-    </div>
-
-    <div class="enterprise-cta reveal">
-      <div>
-        <h3 class="t" data-en="Need 25 or 50 seats?" data-fr="Besoin de 25 ou 50 sièges ?" data-es="¿Necesita 25 o 50 puestos?" data-de="Benötigen Sie 25 oder 50 Plätze?">Need 25 or 50 seats?</h3>
-        <p class="t" data-en="Pro 25 and Pro 50 plans available for large teleradiology companies." data-fr="Plans Pro 25 et Pro 50 disponibles pour les grandes sociétés de téléradiologie." data-es="Planes Pro 25 y Pro 50 disponibles para grandes empresas." data-de="Pro 25 und Pro 50 Pläne für große Teleradiologie-Unternehmen.">Pro 25 and Pro 50 plans available for large teleradiology companies.</p>
-        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:1rem;">
-          <a href="https://payhip.com/b/BSKMf" target="_blank" class="btn-secondary plan-enterprise-cta" data-monthly="https://payhip.com/b/BSKMf" data-annual="https://payhip.com/b/dWLa9" style="font-size:0.85rem; padding:10px 18px;">
-            <span class="enterprise-label-25">Pro 25 — €499/mo</span>
-          </a>
-          <a href="https://payhip.com/b/Stfg6" target="_blank" class="btn-secondary plan-enterprise-cta" data-monthly="https://payhip.com/b/Stfg6" data-annual="https://payhip.com/b/YcRnT" style="font-size:0.85rem; padding:10px 18px;">
-            <span class="enterprise-label-50">Pro 50 — €799/mo</span>
-          </a>
-        </div>
+    <div class="pricing-toggle-wrap">
+      <div class="pricing-toggle-pill">
+        <button class="toggle-pill-btn active" onclick="setBilling('monthly')" data-billing="monthly" id="btn-monthly">
+          <span class="t" data-en="Monthly" data-fr="Mensuel" data-es="Mensual" data-de="Monatlich">Mensuel</span>
+        </button>
+        <button class="toggle-pill-btn" onclick="setBilling('annual')" data-billing="annual" id="btn-annual">
+          <span class="t" data-en="Annual" data-fr="Annuel" data-es="Anual" data-de="Jährlich">Annuel</span>
+          <span class="save-pill t" data-en="Save up to 30%" data-fr="Jusqu'à −30%" data-es="Hasta −30%" data-de="Bis −30%">Jusqu'à −30%</span>
+        </button>
       </div>
     </div>
 
-    <div class="pricing-guarantee">
-      <span class="t" data-en="✓ 30-day free trial" data-fr="✓ 30 jours d'essai gratuit" data-es="✓ 30 días de prueba gratuita" data-de="✓ 30 Tage kostenlos testen">✓ 30-day free trial</span> &nbsp;•&nbsp;
-      <span class="t" data-en="✓ Cancel anytime" data-fr="✓ Résiliation à tout moment" data-es="✓ Cancele cuando quiera" data-de="✓ Jederzeit kündbar">✓ Cancel anytime</span> &nbsp;•&nbsp;
-      <span class="t" data-en="✓ No long-term contracts" data-fr="✓ Aucun engagement long terme" data-es="✓ Sin contratos a largo plazo" data-de="✓ Keine Langzeitverträge">✓ No long-term contracts</span>
+    <div class="pricing-grid-4">
+
+      <!-- FREE -->
+      <div class="tier-v2 reveal">
+        <div class="tier-v2-badge badge-free t" data-en="Free forever" data-fr="Gratuit à vie" data-es="Gratis siempre" data-de="Dauerhaft gratis">Gratuit à vie</div>
+        <div class="tier-v2-name t" data-en="Free" data-fr="Free" data-es="Free" data-de="Free">Free</div>
+        <div class="tier-v2-tagline t" data-en="Try Pisum — zero risk" data-fr="Testez Pisum — zéro risque" data-es="Pruebe Pisum — sin riesgo" data-de="Pisum testen — kein Risiko">Testez Pisum — zéro risque</div>
+        <div class="tier-v2-price-block">
+          <span class="tier-v2-amount" id="price-free">€0</span>
+          <span class="tier-v2-period" id="period-free"></span>
+          <div class="tier-v2-saving" id="saving-free">&nbsp;</div>
+        </div>
+        <ul class="tier-v2-features">
+          <li><span class="chk">✓</span> <span class="t" data-en="5 standard templates" data-fr="5 modèles standards" data-es="5 plantillas estándar" data-de="5 Standardvorlagen">5 modèles standards</span></li>
+          <li><span class="chk">✓</span> <span class="t" data-en="10 reports / month" data-fr="10 rapports / mois" data-es="10 informes / mes" data-de="10 Befunde / Monat">10 rapports / mois</span></li>
+          <li><span class="chk">✓</span> <span class="t" data-en="Limited dictation" data-fr="Dictée limitée" data-es="Dictado limitado" data-de="Eingeschränktes Diktat">Dictée limitée</span></li>
+          <li><span class="chk">✓</span> <span class="t" data-en="PDF export (watermark)" data-fr="Export PDF (filigrane)" data-es="Export PDF (marca agua)" data-de="PDF-Export (Wasserzeichen)">Export PDF (filigrane)</span></li>
+          <li><span class="chk">✓</span> <span class="t" data-en="Limited patient base" data-fr="Base patients limitée" data-es="Base pacientes limitada" data-de="Begrenzte Patientenbasis">Base patients limitée</span></li>
+          <li><span class="no">✕</span> <span style="opacity:0.4;" class="t" data-en="No custom templates" data-fr="Pas de modèles perso" data-es="Sin plantillas personales" data-de="Keine eigenen Vorlagen">Pas de modèles perso</span></li>
+        </ul>
+        <a href="contact.html" class="tier-v2-cta cta-free t" data-en="Start for free" data-fr="Commencer gratuitement" data-es="Empezar gratis" data-de="Kostenlos starten">Commencer gratuitement</a>
+        <div class="tier-v2-seats">👤 <span class="t" data-en="1 user" data-fr="1 utilisateur" data-es="1 usuario" data-de="1 Nutzer">1 utilisateur</span></div>
+      </div>
+
+      <!-- SOLO -->
+      <div class="tier-v2 solo reveal">
+        <div class="tier-v2-badge badge-solo t" data-en="Individual" data-fr="Individuel" data-es="Individual" data-de="Einzelperson">Individuel</div>
+        <div class="tier-v2-name t" data-en="Solo" data-fr="Solo" data-es="Solo" data-de="Solo">Solo</div>
+        <div class="tier-v2-tagline t" data-en="Start adapting to your workflow" data-fr="Commencez à adapter à votre pratique" data-es="Adapte a su flujo de trabajo" data-de="Ihrem Workflow anpassen">Commencez à adapter à votre pratique</div>
+        <div class="tier-v2-price-block">
+          <span class="tier-v2-amount" id="price-solo">€9</span>
+          <span class="tier-v2-period" id="period-solo">/mois</span>
+          <div class="tier-v2-saving" id="saving-solo">&nbsp;</div>
+        </div>
+        <ul class="tier-v2-features">
+          <li><span class="chk">✓</span> <span class="t" data-en="All Free templates" data-fr="Tous les modèles Free" data-es="Todas plantillas Free" data-de="Alle Free-Vorlagen">Tous les modèles Free</span></li>
+          <li><span class="chk">✓</span> <span class="bold-feat t" data-en="Unlimited reports" data-fr="Rapports illimités" data-es="Informes ilimitados" data-de="Unbegrenzte Befunde">Rapports illimités</span></li>
+          <li><span class="chk">✓</span> <span class="t" data-en="Standard dictation" data-fr="Dictée standard" data-es="Dictado estándar" data-de="Standard-Diktat">Dictée standard</span></li>
+          <li><span class="chk">✓</span> <span class="bold-feat t" data-en="Clean PDF export (no watermark)" data-fr="Export propre (sans filigrane)" data-es="Export limpio (sin marca agua)" data-de="Sauberer Export (kein Wasserzeichen)">Export propre (sans filigrane)</span></li>
+          <li><span class="chk">✓</span> <span class="t" data-en="Full patient base" data-fr="Base patients complète" data-es="Base pacientes completa" data-de="Vollständige Patientenbasis">Base patients complète</span></li>
+          <li><span class="chk">✓</span> <span class="t" data-en="Custom templates (5 max)" data-fr="Modèles perso (5 max)" data-es="Plantillas perso (5 máx)" data-de="Eigene Vorlagen (max. 5)">Modèles perso (5 max)</span></li>
+        </ul>
+        <a href="https://payhip.com/b/zohaH" target="_blank" class="tier-v2-cta cta-solo t plan-cta" data-monthly="https://payhip.com/b/zohaH" data-annual="https://payhip.com/b/yRox5" data-en="Get Solo" data-fr="Choisir Solo" data-es="Elegir Solo" data-de="Solo wählen">Choisir Solo</a>
+        <div class="tier-v2-seats">👤 <span class="t" data-en="1 user" data-fr="1 utilisateur" data-es="1 usuario" data-de="1 Nutzer">1 utilisateur</span></div>
+      </div>
+
+      <!-- PRO 🔥 -->
+      <div class="tier-v2 pro reveal">
+        <div class="tier-v2-badge badge-pro">🔥 <span class="t" data-en="Most Popular" data-fr="Le plus choisi" data-es="Más popular" data-de="Beliebteste">Le plus choisi</span></div>
+        <div class="tier-v2-name t" data-en="Pro" data-fr="Pro" data-es="Pro" data-de="Pro">Pro</div>
+        <div class="tier-v2-tagline t" data-en="Your workflow, your way — no compromise" data-fr="Mon workflow, mes règles — zéro compromis" data-es="Mi flujo, mis reglas — sin compromiso" data-de="Mein Workflow, meine Regeln">Mon workflow, mes règles — zéro compromis</div>
+        <div class="tier-v2-price-block">
+          <span class="tier-v2-amount" id="price-pro">€19</span>
+          <span class="tier-v2-period" id="period-pro">/mois</span>
+          <div class="tier-v2-saving" id="saving-pro">&nbsp;</div>
+        </div>
+        <ul class="tier-v2-features">
+          <li><span class="chk">✓</span> <span class="bold-feat t" data-en="All 112 templates unlocked" data-fr="Les 112 modèles débloqués" data-es="Los 112 plantillas desbloqueadas" data-de="Alle 112 Vorlagen entsperrt">Les 112 modèles débloqués</span></li>
+          <li><span class="chk">✓</span> <span class="bold-feat t" data-en="Smart suggestions (AI auto-complete)" data-fr="Suggestions intelligentes (auto-complétion)" data-es="Sugerencias inteligentes (autocompletar)" data-de="Intelligente Vorschläge (KI-Autovervollständigung)">Suggestions intelligentes (auto-complétion)</span></li>
+          <li><span class="chk">✓</span> <span class="bold-feat t" data-en="AI dictation — auto-fill" data-fr="Dictée IA — remplissage auto" data-es="Dictado IA — relleno automático" data-de="KI-Diktat — automatisches Ausfüllen">Dictée IA — remplissage auto</span></li>
+          <li><span class="chk">✓</span> <span class="t" data-en="Pro PDF export (logo + clean layout)" data-fr="Export PDF pro (logo + mise en page clean)" data-es="Export PDF pro (logo + diseño limpio)" data-de="Pro PDF-Export (Logo + sauberes Layout)">Export PDF pro (logo + mise en page clean)</span></li>
+          <li><span class="chk">✓</span> <span class="t" data-en="Ultra fast (local)" data-fr="Ultra rapide (local)" data-es="Ultra rápido (local)" data-de="Ultra schnell (lokal)">Ultra rapide (local)</span></li>
+          <li><span class="chk">✓</span> <span class="bold-feat t" data-en="Unlimited custom templates" data-fr="Modèles perso ILLIMITÉS" data-es="Plantillas perso ILIMITADAS" data-de="Eigene Vorlagen UNBEGRENZT">Modèles perso ILLIMITÉS</span></li>
+        </ul>
+        <a href="https://payhip.com/b/sFBoD" target="_blank" class="tier-v2-cta cta-pro t plan-cta" data-monthly="https://payhip.com/b/sFBoD" data-annual="https://payhip.com/b/U7fkp" data-en="Get Pro" data-fr="Choisir Pro" data-es="Elegir Pro" data-de="Pro wählen">Choisir Pro</a>
+        <div class="tier-v2-seats">👤 <span class="t" data-en="1 user" data-fr="1 utilisateur" data-es="1 usuario" data-de="1 Nutzer">1 utilisateur</span></div>
+      </div>
+
+      <!-- CLINIC 💣 -->
+      <div class="tier-v2 clinic reveal">
+        <div class="tier-v2-badge badge-clinic">💣 <span class="t" data-en="For clinics" data-fr="Pour cabinets" data-es="Para clínicas" data-de="Für Praxen">Pour cabinets</span></div>
+        <div class="tier-v2-name t" data-en="Clinic" data-fr="Clinic" data-es="Clinic" data-de="Clinic">Clinic</div>
+        <div class="tier-v2-tagline t" data-en="Structure your department, not just your reports" data-fr="Structurez votre cabinet, pas juste vos comptes rendus" data-es="Estructure su clínica, no solo sus informes" data-de="Strukturieren Sie Ihre Praxis, nicht nur Befunde">Structurez votre cabinet, pas juste vos comptes rendus</div>
+        <div class="tier-v2-price-block">
+          <span class="tier-v2-amount" id="price-clinic">€49</span>
+          <span class="tier-v2-period" id="period-clinic">/mois</span>
+          <div class="tier-v2-saving" id="saving-clinic">&nbsp;</div>
+        </div>
+        <ul class="tier-v2-features">
+          <li><span class="chk">✓</span> <span class="t" data-en="Everything in Pro" data-fr="Tout ce qui est dans Pro" data-es="Todo lo de Pro" data-de="Alles aus Pro">Tout ce qui est dans Pro</span></li>
+          <li><span class="chk">✓</span> <span class="bold-feat t" data-en="Multi-users (team)" data-fr="Multi-utilisateurs (équipe)" data-es="Multi-usuarios (equipo)" data-de="Mehrbenutzer (Team)">Multi-utilisateurs (équipe)</span></li>
+          <li><span class="chk">✓</span> <span class="t" data-en="Activity tracking & dashboard" data-fr="Suivi d'activité & tableau de bord" data-es="Seguimiento actividad & dashboard" data-de="Aktivitäts-Tracking & Dashboard">Suivi d'activité & tableau de bord</span></li>
+          <li><span class="chk">✓</span> <span class="bold-feat t" data-en="Shared custom templates across team" data-fr="Partage de modèles perso entre collègues" data-es="Plantillas compartidas entre equipo" data-de="Geteilte Vorlagen im Team">Partage de modèles perso entre collègues</span></li>
+          <li><span class="chk">✓</span> <span class="t" data-en="Department-wide standardisation" data-fr="Standardisation du cabinet" data-es="Estandarización del servicio" data-de="Abteilungsweite Standardisierung">Standardisation du cabinet</span></li>
+          <li><span class="chk">✓</span> <span class="t" data-en="Priority onboarding" data-fr="Onboarding prioritaire" data-es="Incorporación prioritaria" data-de="Vorrangiges Onboarding">Onboarding prioritaire</span></li>
+        </ul>
+        <a href="contact.html" class="tier-v2-cta cta-clinic t" data-en="Contact us" data-fr="Nous contacter" data-es="Contáctenos" data-de="Kontakt">Nous contacter</a>
+        <div class="tier-v2-seats">👥 <span class="t" data-en="Multi-user" data-fr="Multi-utilisateurs" data-es="Multi-usuarios" data-de="Mehrbenutzer">Multi-utilisateurs</span></div>
+      </div>
+
+    </div>
+
+    <div class="pricing-guarantee-dark reveal">
+      <span class="t" data-en="✓ 30-day free trial" data-fr="✓ 30 jours d'essai gratuit" data-es="✓ 30 días de prueba gratuita" data-de="✓ 30 Tage kostenlos testen">✓ 30 jours d'essai gratuit</span> &nbsp;•&nbsp;
+      <span class="t" data-en="✓ Cancel anytime" data-fr="✓ Résiliation à tout moment" data-es="✓ Cancele cuando quiera" data-de="✓ Jederzeit kündbar">✓ Résiliation à tout moment</span> &nbsp;•&nbsp;
+      <span class="t" data-en="✓ No credit card required" data-fr="✓ Sans carte bancaire" data-es="✓ Sin tarjeta de crédito" data-de="✓ Keine Kreditkarte">✓ Sans carte bancaire</span>
     </div>
   </section>
 
@@ -1532,11 +1983,11 @@
   </section>
 
   <section class="cta-section">
-    <h2 class="t" data-en="Ready to transform your reporting?" data-fr="Prêt à transformer vos comptes rendus ?" data-es="¿Listo para transformar sus informes?" data-de="Bereit, Ihre Befundung zu transformieren?">Ready to transform your reporting?</h2>
-    <p class="t" data-en="Join independent radiologists worldwide who chose professional quality without enterprise complexity." data-fr="Rejoignez les radiologues indépendants du monde entier qui ont choisi qualité professionnelle sans complexité d'entreprise." data-es="Únase a radiólogos independientes de todo el mundo que eligieron calidad profesional sin complejidad empresarial." data-de="Schließen Sie sich unabhängigen Radiologen weltweit an, die professionelle Qualität ohne Enterprise-Komplexität gewählt haben.">Join independent radiologists worldwide who chose professional quality without enterprise complexity.</p>
+    <h2 class="t" data-en="Take back control of your time." data-fr="Reprenez le contrôle de votre temps." data-es="Recupere el control de su tiempo." data-de="Gewinnen Sie die Kontrolle über Ihre Zeit zurück.">Reprenez le contrôle de votre temps.</h2>
+    <p class="t" data-en="Fewer clicks. Less stress. More efficiency." data-fr="Moins de clics. Moins de stress. Plus d'efficacité." data-es="Menos clics. Menos estrés. Más eficiencia." data-de="Weniger Klicks. Weniger Stress. Mehr Effizienz.">Moins de clics. Moins de stress. Plus d'efficacité.</p>
     <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-      <a href="contact.html" class="btn-primary t" data-en="Start Your Free Trial Today" data-fr="Commencez Votre Essai Gratuit" data-es="Empiece Su Prueba Gratuita Hoy" data-de="Starten Sie Ihren Gratis-Test Heute">Start Your Free Trial Today</a>
-      <a href="https://drive.google.com/drive/folders/1igTnleiHnzlReGgYQ-nCLDG8j9ItTEcp?usp=drive_link" target="_blank" rel="noopener" style="background:rgba(255,255,255,0.15); color:white; text-decoration:none; padding:14px 32px; border-radius:10px; font-weight:600; font-size:0.95rem; border:1.5px solid rgba(255,255,255,0.35); transition:all 0.2s; display:inline-flex; align-items:center; gap:6px;" class="t" data-en="⬇ Download Now" data-fr="⬇ Télécharger" data-es="⬇ Descargar Ahora" data-de="⬇ Jetzt Herunterladen">⬇ Download Now</a>
+      <a href="contact.html" class="btn-primary t" data-en="Try for free now" data-fr="Essayer gratuitement maintenant" data-es="Probar gratis ahora" data-de="Jetzt kostenlos testen">Essayer gratuitement maintenant</a>
+      <a href="https://drive.google.com/drive/folders/1igTnleiHnzlReGgYQ-nCLDG8j9ItTEcp?usp=drive_link" target="_blank" rel="noopener" style="background:rgba(255,255,255,0.15); color:white; text-decoration:none; padding:14px 32px; border-radius:10px; font-weight:600; font-size:0.95rem; border:1.5px solid rgba(255,255,255,0.35); transition:all 0.2s; display:inline-flex; align-items:center; gap:6px;" class="t" data-en="⬇ Download" data-fr="⬇ Télécharger" data-es="⬇ Descargar" data-de="⬇ Herunterladen">⬇ Télécharger</a>
     </div>
   </section>
 
@@ -1547,12 +1998,12 @@
           <div class="nav-logo-icon">⚕</div>
           Pisum
         </div>
-        <p class="t" 
-           data-en="Professional radiology reporting software with 112 expert templates, built-in AI dictation in 23 languages, and zero complexity. Designed for independent radiologists." 
-           data-fr="Logiciel professionnel de radiologie avec 112 modèles experts, dictée IA en 23 langues et zéro complexité. Conçu pour les radiologues indépendants." 
-           data-es="Software profesional de radiología con 112 plantillas expertas, soporte 23 idiomas y cero complejidad. Diseñado para radiólogos independientes." 
-           data-de="Professionelle Radiologie-Software mit 112 Expertenvorlagen, 23-Sprachen-Unterstützung und null Komplexität. Für unabhängige Radiologen.">
-           Logiciel professionnel de radiologie avec 112 modèles experts et support de 23 langues.
+        <p class="t"
+           data-en="The secure radiology reporting platform. 112 expert templates, AI dictation in 23 languages, local data. Fast, simple, no cloud."
+           data-fr="La plateforme de reporting radiologique sécurisée. 112 modèles experts, dictée IA en 23 langues, données locales. Rapide, simple, sans cloud."
+           data-es="La plataforma segura de reporting radiológico. 112 plantillas expertas, dictado IA en 23 idiomas, datos locales. Rápido, simple, sin nube."
+           data-de="Die sichere radiologische Reporting-Plattform. 112 Expertenvorlagen, KI-Diktat in 23 Sprachen, lokale Daten. Schnell, einfach, ohne Cloud.">
+           La plateforme de reporting radiologique sécurisée. 112 modèles experts, dictée IA en 23 langues, données locales.
         </p>
       </div>
       <div>
@@ -1593,35 +2044,35 @@
 
     const BILLING = {
       monthly: {
-        solo:    { price: '€39',  period: '/month',  saving: '' },
-        clinic3: { price: '€99',  period: '/month',  saving: '' },
-        clinic5: { price: '€149', period: '/month',  saving: '' },
-        pro10:   { price: '€249', period: '/month',  saving: '' },
+        free:   { price: '€0',  period: '',       saving: '' },
+        solo:   { price: '€9',  period: '/mois',  saving: '' },
+        pro:    { price: '€19', period: '/mois',  saving: '' },
+        clinic: { price: '€49', period: '/mois',  saving: '' },
       },
       annual: {
-        solo:    { price: '€390',   period: '/year', saving: 'Save €78 — 2 months free' },
-        clinic3: { price: '€990',   period: '/year', saving: 'Save €198 — 2 months free' },
-        clinic5: { price: '€1,490', period: '/year', saving: 'Save €298 — 2 months free' },
-        pro10:   { price: '€2,490', period: '/year', saving: 'Save €498 — 2 months free' },
+        free:   { price: '€0',   period: '',     saving: '' },
+        solo:   { price: '€79',  period: '/an',  saving: '💰 Économisez €29 — −27%' },
+        pro:    { price: '€149', period: '/an',  saving: '💰 Économisez €79 — −35%' },
+        clinic: { price: '€399', period: '/an',  saving: '💰 Économisez €189 — −32%' },
       }
     };
 
     const BILLING_TRANSLATED = {
       en: {
-        monthly: { solo: '/month', clinic3: '/month', clinic5: '/month', pro10: '/month' },
-        annual: { solo: '/year · Save €78', clinic3: '/year · Save €198', clinic5: '/year · Save €298', pro10: '/year · Save €498' }
+        monthly: { free: '', solo: '/mo',   pro: '/mo',   clinic: '/mo'   },
+        annual:  { free: '', solo: '/yr · Save €29', pro: '/yr · Save €79', clinic: '/yr · Save €189' }
       },
       fr: {
-        monthly: { solo: '/mois', clinic3: '/mois', clinic5: '/mois', pro10: '/mois' },
-        annual: { solo: '/an · Économisez €78', clinic3: '/an · Économisez €198', clinic5: '/an · Économisez €298', pro10: '/an · Économisez €498' }
+        monthly: { free: '', solo: '/mois', pro: '/mois', clinic: '/mois' },
+        annual:  { free: '', solo: '/an · Économisez €29', pro: '/an · Économisez €79', clinic: '/an · Économisez €189' }
       },
       es: {
-        monthly: { solo: '/mes', clinic3: '/mes', clinic5: '/mes', pro10: '/mes' },
-        annual: { solo: '/año · Ahorre €78', clinic3: '/año · Ahorre €198', clinic5: '/año · Ahorre €298', pro10: '/año · Ahorre €498' }
+        monthly: { free: '', solo: '/mes',  pro: '/mes',  clinic: '/mes'  },
+        annual:  { free: '', solo: '/año · Ahorre €29', pro: '/año · Ahorre €79', clinic: '/año · Ahorre €189' }
       },
       de: {
-        monthly: { solo: '/Monat', clinic3: '/Monat', clinic5: '/Monat', pro10: '/Monat' },
-        annual: { solo: '/Jahr · Sparen €78', clinic3: '/Jahr · Sparen €198', clinic5: '/Jahr · Sparen €298', pro10: '/Jahr · Sparen €498' }
+        monthly: { free: '', solo: '/Mon.', pro: '/Mon.', clinic: '/Mon.' },
+        annual:  { free: '', solo: '/Jahr · Sparen €29', pro: '/Jahr · Sparen €79', clinic: '/Jahr · Sparen €189' }
       }
     };
 
@@ -1650,22 +2101,13 @@
 
     function setBilling(type) {
       currentBilling = type;
-      document.querySelectorAll('.toggle-btn').forEach(b => {
+      document.querySelectorAll('.toggle-pill-btn').forEach(b => {
         b.classList.toggle('active', b.dataset.billing === type);
       });
 
       document.querySelectorAll('.plan-cta').forEach(btn => {
         btn.href = btn.dataset[type];
       });
-
-      document.querySelectorAll('.plan-enterprise-cta').forEach(btn => {
-        btn.href = btn.dataset[type];
-      });
-
-      const label25 = document.querySelector('.enterprise-label-25');
-      const label50 = document.querySelector('.enterprise-label-50');
-      if (label25) label25.textContent = type === 'annual' ? 'Pro 25 — €4,990/yr' : 'Pro 25 — €499/mo';
-      if (label50) label50.textContent = type === 'annual' ? 'Pro 50 — €7,990/yr' : 'Pro 50 — €799/mo';
 
       applyBilling(type);
     }
@@ -1675,13 +2117,13 @@
       const lang = currentLang;
       const trans = BILLING_TRANSLATED[lang] || BILLING_TRANSLATED['en'];
 
-      ['solo', 'clinic3', 'clinic5', 'pro10'].forEach(key => {
-        const priceEl = document.getElementById('price-' + key);
+      ['free', 'solo', 'pro', 'clinic'].forEach(key => {
+        const priceEl  = document.getElementById('price-'  + key);
         const periodEl = document.getElementById('period-' + key);
         const savingEl = document.getElementById('saving-' + key);
-        if (priceEl) priceEl.textContent = data[key].price;
-        if (periodEl) periodEl.textContent = trans[type][key];
-        if (savingEl) savingEl.textContent = type === 'annual' ? '💰 ' + trans['annual'][key].split('·')[1]?.trim() : '';
+        if (priceEl)  priceEl.textContent  = data[key].price;
+        if (periodEl) periodEl.textContent = trans[type][key] || '';
+        if (savingEl) savingEl.innerHTML   = type === 'annual' && data[key].saving ? data[key].saving : '&nbsp;';
       });
     }
 
