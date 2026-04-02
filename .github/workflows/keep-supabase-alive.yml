@@ -1,0 +1,28 @@
+name: Keep Supabase Alive
+
+on:
+  schedule:
+    # Exécute le script tous les 3 jours à minuit (UTC)
+    - cron: '0 0 */3 * *'
+  workflow_dispatch: # Permet de lancer le script manuellement depuis GitHub pour tester
+
+jobs:
+  ping-supabase:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Effectuer une requête API vers Supabase
+        run: |
+          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+            -X GET "${{ secrets.SUPABASE_URL }}/rest/v1/licenses?limit=1" \
+            -H "apikey: ${{ secrets.SUPABASE_KEY }}" \
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY }}")
+          
+          echo "Statut de la requête : $HTTP_STATUS"
+          
+          if [ "$HTTP_STATUS" -eq 200 ]; then
+            echo "✅ Ping Supabase réussi. La base de données reste active."
+          else
+            echo "❌ Échec du ping (Code: $HTTP_STATUS)"
+            exit 1
+          fi
