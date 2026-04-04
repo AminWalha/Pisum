@@ -1,230 +1,193 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact – Pisum</title>
-  <meta name="robots" content="index, follow">
-  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css">
-  <style>
-    :root {
-      --ink: #0d1117;
-      --ink-soft: #2d3748;
-      --ink-muted: #718096;
-      --cream: #faf8f4;
-      --cream-dark: #f0ece4;
-      --gold: #c8973a;
-      --gold-light: #f5e6c8;
-      --teal: #0e6e6e;
-      --teal-light: #e0f2f2;
-      --white: #ffffff;
-      --radius-lg: 20px;
-      --shadow: 0 4px 24px rgba(13,17,23,0.08);
-      --shadow-hover: 0 8px 32px rgba(13,17,23,0.12);
-    }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Contact — PISUM Radiology Software</title>
+<meta name="description" content="Get in touch with the PISUM team for support, sales, or bug reports."/>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+:root{--white:#ffffff;--off:#f9f9fb;--bg:#f2f2f6;--ink:#09090f;--ink-2:#3a3a4c;--ink-3:#8a8aa8;--ink-4:#bbbbd0;--b1:rgba(0,0,0,0.06);--b2:rgba(0,0,0,0.10);--blue:#3b6ef8;--blue-d:#2952d9;--purple:#7c5af0;--green:#16a34a;--grad:linear-gradient(135deg,#3b6ef8 0%,#7c5af0 100%);--shadow-xs:0 1px 2px rgba(0,0,0,0.04);--shadow-sm:0 2px 8px rgba(0,0,0,0.06);--shadow-lg:0 24px 64px rgba(0,0,0,0.10),0 8px 24px rgba(0,0,0,0.06);--t:cubic-bezier(0.25,1,0.5,1);--serif:'DM Serif Display',Georgia,serif;--sans:'Sora',-apple-system,sans-serif;--r:16px;--r-lg:24px;--r-xl:32px}
+body{font-family:var(--sans);background:var(--white);color:var(--ink);overflow-x:hidden;line-height:1.65}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+.container{max-width:1160px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem)}
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--cream);
-      color: var(--ink);
-      line-height: 1.6;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--sans);font-size:0.9rem;font-weight:600;border:none;cursor:pointer;border-radius:999px;transition:all 0.22s var(--t);white-space:nowrap}
+.btn-primary{background:var(--ink);color:var(--white);padding:0.75rem 1.75rem;box-shadow:0 2px 8px rgba(0,0,0,0.2)}
+.btn-primary:hover{background:#1a1a2e;transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,0.25)}
+.btn-sm{padding:0.5rem 1.1rem;font-size:0.8rem}
 
-    h1, h2, h3, h4 { font-family: 'DM Serif Display', serif; line-height: 1.15; }
-    h1 { font-size: clamp(2.4rem, 5vw, 3.5rem); }
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:998;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.25rem,5vw,3rem);background:rgba(255,255,255,0.88);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--b1);box-shadow:0 1px 0 rgba(0,0,0,0.03)}
+.nav-logo{display:flex;align-items:center;gap:9px;font-size:1rem;font-weight:700;letter-spacing:-0.03em;color:var(--ink)}
+.nav-logo img{width:30px;height:30px;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.12)}
+.nav-links{display:flex;align-items:center;gap:2.2rem;list-style:none}
+.nav-links a{font-size:0.875rem;font-weight:500;color:var(--ink-2);transition:color 0.18s}
+.nav-links a:hover{color:var(--ink)}
+.nav-right{display:flex;align-items:center;gap:0.75rem}
+.btn-nav{font-size:0.875rem;font-weight:500;color:var(--ink-2);padding:0.5rem 1rem;border-radius:999px;transition:color 0.18s}
+.btn-nav:hover{color:var(--ink)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--ink);border-radius:2px;transition:all 0.3s}
+@media(max-width:780px){.nav-links,.btn-nav{display:none}.hamburger{display:flex}.nav-links.open{display:flex;flex-direction:column;align-items:flex-start;gap:1.5rem;position:fixed;inset:64px 0 0 0;background:var(--white);padding:2rem clamp(1.25rem,5vw,3rem);z-index:997}.nav-links.open a{font-size:1.15rem;color:var(--ink)}}
 
-    /* Nav */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(250,248,244,0.92); backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(200,151,58,0.2);
-      padding: 0 clamp(1rem, 5vw, 4rem);
-      display: flex; align-items: center; justify-content: space-between;
-      height: 64px;
-    }
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--ink); }
-    .nav-logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--teal), var(--gold)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; }
-    
-    .nav-right { display: flex; align-items: center; gap: 1.5rem; }
-    .nav-links { display: flex; list-style: none; gap: 2rem; margin: 0; padding: 0; }
-    .nav-links a { text-decoration: none; color: var(--ink-soft); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--teal); }
+/* HERO */
+.hero{padding:clamp(120px,16vw,160px) 0 clamp(64px,9vw,96px);background:var(--ink);position:relative;overflow:hidden;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(59,110,248,0.18) 0%,transparent 70%)}
+.hero-inner{position:relative;z-index:1;max-width:640px;margin:0 auto}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:0.72rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-3);margin-bottom:1.5rem}
+.eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0}
+.hero h1{font-family:var(--serif);font-size:clamp(2.8rem,6vw,5rem);line-height:1.06;letter-spacing:-0.01em;color:var(--white);margin-bottom:1.25rem}
+.hero p{font-size:clamp(0.95rem,2vw,1.1rem);color:var(--ink-3);max-width:480px;margin:0 auto;line-height:1.7}
 
-    /* Lang Switcher */
-    .lang-switcher { display: flex; gap: 4px; }
-    .lang-btn { background: none; border: 1px solid transparent; border-radius: 6px; padding: 4px 6px; cursor: pointer; font-size: 1.1rem; transition: all 0.15s; opacity: 0.6; }
-    .lang-btn:hover, .lang-btn.active { border-color: var(--gold); opacity: 1; background: var(--gold-light); }
+/* CARDS */
+.cards-section{padding:clamp(4rem,8vw,6rem) 0;background:var(--off)}
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+@media(max-width:900px){.cards-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.cards-grid{grid-template-columns:1fr}}
+.contact-card{background:var(--white);border:1px solid var(--b1);border-radius:var(--r-xl);padding:2.25rem;display:flex;flex-direction:column;gap:1rem;transition:all 0.28s var(--t)}
+.contact-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:rgba(59,110,248,0.12)}
+.card-icon{width:52px;height:52px;border-radius:16px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 6px 18px rgba(59,110,248,0.22)}
+.card-title{font-size:1.05rem;font-weight:700;color:var(--ink);letter-spacing:-0.01em}
+.card-desc{font-size:0.85rem;color:var(--ink-3);line-height:1.65;flex:1}
+.card-email{font-size:0.875rem;font-weight:600;color:var(--blue)}
+.card-tag{display:inline-flex;align-items:center;gap:5px;font-size:0.7rem;font-weight:700;padding:0.22rem 0.7rem;border-radius:6px;background:rgba(22,163,74,0.08);color:#15803d;width:fit-content}
+.card-btn{display:inline-flex;align-items:center;justify-content:center;padding:0.62rem 1.3rem;border-radius:999px;font-size:0.82rem;font-weight:600;background:var(--ink);color:var(--white);transition:all 0.22s var(--t);border:none;cursor:pointer;font-family:var(--sans);width:fit-content}
+.card-btn:hover{background:#1a1a2e;transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,0.2)}
+.card-btn.ghost{background:transparent;color:var(--blue);border:1.5px solid rgba(59,110,248,0.28)}
+.card-btn.ghost:hover{background:rgba(59,110,248,0.05);border-color:var(--blue)}
 
-    /* Header Contact */
-    .contact-hero {
-      background: var(--ink);
-      color: white;
-      padding: 6rem clamp(1rem, 5vw, 4rem);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .contact-hero::before {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse 70% 60% at 50% 10%, rgba(14,110,110,0.2) 0%, transparent 60%); pointer-events: none;
-    }
-    .contact-hero h1 { position: relative; z-index: 1; margin-bottom: 0.8rem; color: white;}
-    .contact-hero p { position: relative; z-index: 1; color: var(--gold); font-size: 1.2rem; max-width: 600px; margin: 0 auto; font-weight: 500;}
+/* CTA ROW */
+.cta-row{padding:clamp(2.5rem,5vw,4rem) 0;background:var(--white);border-top:1px solid var(--b1)}
+.cta-inner{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;text-align:center}
+.cta-inner p{font-size:1rem;color:var(--ink-2);font-weight:500}
+.link-arrow{font-size:1rem;font-weight:700;color:var(--blue);display:inline-flex;align-items:center;gap:6px;transition:gap 0.2s var(--t)}
+.link-arrow:hover{gap:12px}
 
-    /* Content Contact */
-    .contact-content {
-      flex-grow: 1;
-      max-width: 800px;
-      margin: -3rem auto 4rem;
-      position: relative;
-      z-index: 10;
-      width: 100%;
-      padding: 0 1rem;
-    }
-
-    .contact-card {
-      background: white;
-      padding: 4rem 3rem;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--cream-dark);
-      box-shadow: var(--shadow);
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .contact-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-hover);
-      border-color: rgba(200,151,58,0.3);
-    }
-    
-    .contact-icon {
-      width: 64px; height: 64px;
-      background: var(--teal-light);
-      color: var(--teal);
-      border-radius: 16px;
-      display: inline-flex; align-items: center; justify-content: center;
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .contact-card h2 { font-size: 1.8rem; color: var(--ink); margin-bottom: 1rem; }
-    .contact-card p { color: var(--ink-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
-    
-    .email-link {
-      display: inline-block;
-      background: var(--teal);
-      color: white;
-      text-decoration: none;
-      padding: 16px 36px;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: all 0.2s;
-      box-shadow: 0 4px 16px rgba(14,110,110,0.3);
-    }
-    .email-link:hover {
-      background: #0a5454;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(14,110,110,0.35);
-    }
-
-    .response-time {
-      margin-top: 1.5rem;
-      font-size: 0.9rem;
-      color: var(--ink-soft);
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-    }
-
-    /* Footer */
-    footer { background: var(--ink); color: white; padding: 2.5rem; margin-top: auto; }
-    .footer-bottom { text-align: center; font-size: 0.95rem; color: rgba(255,255,255,0.7); }
-
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .contact-card { padding: 3rem 1.5rem; }
-    }
-  </style>
+/* FOOTER */
+.site-footer{background:var(--ink);padding:2.5rem 0}
+.foot-in{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+.foot-logo{display:flex;align-items:center;gap:8px;font-size:0.95rem;font-weight:700;color:var(--white);letter-spacing:-0.02em}
+.foot-logo img{width:28px;height:28px;border-radius:7px}
+.foot-copy{font-size:0.78rem;color:var(--ink-3)}
+.foot-links{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+.foot-links a{font-size:0.78rem;color:var(--ink-3);transition:color 0.18s}
+.foot-links a:hover{color:var(--white)}
+@media(max-width:640px){.foot-in{flex-direction:column;text-align:center}.foot-links{justify-content:center}}
+</style>
 </head>
 <body>
 
-  <nav>
-    <a href="index.html" class="nav-logo">
-      <div class="nav-logo-icon">⚕</div>
-      Pisum
-    </a>
-    <div class="nav-right">
-      <ul class="nav-links">
-        <li><a href="index.html" class="t" data-en="Back to Home" data-fr="Retour à l'accueil" data-es="Volver al inicio" data-de="Zurück zur Startseite">Retour à l'accueil</a></li>
-      </ul>
-      <div class="lang-switcher">
-        <button class="lang-btn active" onclick="setLang('en')" data-l="en" title="English"><span class="fi fi-gb"></span></button>
-        <button class="lang-btn" onclick="setLang('fr')" data-l="fr" title="Français"><span class="fi fi-fr"></span></button>
-        <button class="lang-btn" onclick="setLang('es')" data-l="es" title="Español"><span class="fi fi-es"></span></button>
-        <button class="lang-btn" onclick="setLang('de')" data-l="de" title="Deutsch"><span class="fi fi-de"></span></button>
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="PISUM"/>
+    PISUM
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html#features">Features</a></li>
+    <li><a href="index.html#demo">Demo</a></li>
+    <li><a href="index.html#templates">Templates</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="documentation.html">Docs</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="contact.html" class="btn-nav">Contact</a>
+    <a href="index.html#pricing" class="btn btn-primary btn-sm">Get Started Free</a>
+  </div>
+  <button class="hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>Contact</div>
+      <h1>Get in touch</h1>
+      <p>We're a small, focused team. Whether you have a support question, a sales inquiry, or found a bug — we read every message.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cards-section">
+  <div class="container">
+    <div class="cards-grid">
+
+      <div class="contact-card">
+        <div class="card-icon">✉️</div>
+        <div class="card-title">Email Support</div>
+        <div class="card-email">Mypisum@Proton.me</div>
+        <div class="card-desc">For technical support, billing questions, and general inquiries. We read every message personally and aim to resolve issues quickly.</div>
+        <a href="mailto:Mypisum@Proton.me?subject=Support%20Request" class="card-btn">Send a message</a>
+        <div class="card-tag">
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="4.5" stroke="#15803d" stroke-width="1.4"/><path d="M6 3.5v2.5l1.5 1.5" stroke="#15803d" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          We reply within 24h
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="card-icon">🏥</div>
+        <div class="card-title">Clinic Sales</div>
+        <div class="card-desc">Deploying PISUM across a radiology department? Let's talk. We offer volume pricing, onboarding support, and custom configurations for clinics and hospitals.</div>
+        <a href="mailto:Mypisum@Proton.me?subject=Clinic%20Sales%20Inquiry" class="card-btn ghost">Request a quote</a>
+        <div class="card-tag" style="background:rgba(59,110,248,0.08);color:var(--blue-d)">
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><rect x="2" y="3.5" width="8" height="6.5" rx="1.5" stroke="#2952d9" stroke-width="1.4"/><path d="M4.5 3.5V2.75a1.5 1.5 0 0 1 3 0V3.5" stroke="#2952d9" stroke-width="1.4" stroke-linecap="round"/></svg>
+          Custom quote available
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="card-icon">🐛</div>
+        <div class="card-title">Report a Bug</div>
+        <div class="card-desc">Found a bug or have a feature request? We want to know. Every report is reviewed by our engineering team and logged in our internal tracker.</div>
+        <a href="mailto:Mypisum@Proton.me?subject=Bug%20Report" class="card-btn ghost">Report an issue</a>
+        <div class="card-tag" style="background:rgba(124,90,240,0.08);color:var(--purple)">
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="4.5" stroke="#7c5af0" stroke-width="1.4"/><path d="M6 4v2.5" stroke="#7c5af0" stroke-width="1.4" stroke-linecap="round"/><circle cx="6" cy="8.5" r="0.6" fill="#7c5af0"/></svg>
+          Reviewed within 48h
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="cta-row">
+  <div class="container">
+    <div class="cta-inner">
+      <p>Have a question? Check the FAQ first — it's probably answered there.</p>
+      <a href="faq.html" class="link-arrow">Browse the FAQ <span>→</span></a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="foot-in">
+      <div class="foot-logo">
+        <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="PISUM"/>
+        <span>PISUM</span>
+      </div>
+      <p class="foot-copy">© 2026 PISUM. All rights reserved.</p>
+      <div class="foot-links">
+        <a href="rgpd.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="faq.html">FAQ</a>
+        <a href="documentation.html">Docs</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
-  </nav>
+  </div>
+</footer>
 
-  <header class="contact-hero">
-    <h1 class="t" data-en="Contact Us" data-fr="Contactez-nous" data-es="Contáctenos" data-de="Kontaktieren Sie uns">Contactez-nous</h1>
-    <p class="t" data-en="How can we help you today?" data-fr="Comment pouvons-nous vous aider aujourd'hui ?" data-es="¿Cómo podemos ayudarle hoy?" data-de="Wie können wir Ihnen heute helfen?">Comment pouvons-nous vous aider aujourd'hui ?</p>
-  </header>
-
-  <main class="contact-content">
-    <div class="contact-card">
-      <div class="contact-icon">✉️</div>
-      <h2 class="t" data-en="Email Support" data-fr="Support par Email" data-es="Soporte por Correo" data-de="E-Mail-Support">Support par Email</h2>
-      
-      <p class="t" data-en="Have a question, need technical assistance, or want to discuss enterprise licensing? Drop us a line." data-fr="Vous avez une question, besoin d'assistance technique ou souhaitez discuter d'une licence pour votre clinique ? Écrivez-nous." data-es="¿Tiene alguna pregunta, necesita asistencia técnica o desea hablar sobre licencias corporativas? Escríbanos." data-de="Haben Sie eine Frage, benötigen Sie technische Unterstützung oder möchten Sie über Unternehmenslizenzen sprechen? Schreiben Sie uns.">Vous avez une question, besoin d'assistance technique ou souhaitez discuter d'une licence pour votre clinique ? Écrivez-nous.</p>
-      
-      <a href="mailto:Mypisum@Proton.me" class="email-link">Mypisum@Proton.me</a>
-      
-      <div class="response-time">
-        <span>⚡</span>
-        <span class="t" data-en="We typically reply within 24 hours." data-fr="Nous répondons généralement sous 24 heures." data-es="Normalmente respondemos en 24 horas." data-de="Wir antworten normalerweise innerhalb von 24 Stunden.">Nous répondons généralement sous 24 heures.</span>
-      </div>
-    </div>
-  </main>
-
-  <footer>
-    <div class="footer-bottom">
-      <p class="t" data-en="created by radiologists, for radiologists. Good work! 👨‍⚕️- Support & Feedback: Mypisum@Proton.me" data-fr="créé par les radiologues, pour les radiologues. Bon travail ! 👨‍⚕️- Support & Feedback : Mypisum@Proton.me" data-es="creado por radiólogos, para radiólogos. ¡Buen trabajo! 👨‍⚕️- Soporte y comentarios: Mypisum@Proton.me" data-de="von Radiologen für Radiologen entwickelt. Gute Arbeit! 👨‍⚕️- Support & Feedback: Mypisum@Proton.me">créé par les radiologues, pour les radiologues. Bon travail ! 👨‍⚕️- Support & Feedback : Mypisum@Proton.me</p>
-    </div>
-  </footer>
-
-  <script>
-    let currentLang = localStorage.getItem('pisum-lang') || 'fr';
-
-    function setLang(lang) {
-      currentLang = lang;
-      localStorage.setItem('pisum-lang', lang);
-
-      document.querySelectorAll('.t').forEach(el => {
-        const val = el.dataset[lang];
-        if (val) el.innerHTML = val;
-      });
-
-      document.querySelectorAll('.lang-btn').forEach(b => {
-        b.classList.toggle('active', b.dataset.l === lang);
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      setLang(currentLang);
-    });
-  </script>
-
+<script>
+const ham=document.getElementById('ham'),links=document.getElementById('nav-links');
+ham.addEventListener('click',()=>links.classList.toggle('open'));
+</script>
 </body>
 </html>

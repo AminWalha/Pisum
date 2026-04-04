@@ -1,232 +1,523 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Conformité RGPD – Pisum</title>
-  <meta name="robots" content="noindex, follow">
-  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css">
-  <style>
-    :root {
-      --ink: #0d1117;
-      --ink-soft: #2d3748;
-      --ink-muted: #718096;
-      --cream: #faf8f4;
-      --cream-dark: #f0ece4;
-      --gold: #c8973a;
-      --gold-light: #f5e6c8;
-      --teal: #0e6e6e;
-      --teal-light: #e0f2f2;
-      --white: #ffffff;
-      --radius-lg: 20px;
-      --shadow: 0 4px 24px rgba(13,17,23,0.08);
-    }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Conformité RGPD — PISUM</title>
+<meta name="robots" content="noindex, follow"/>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+:root {
+  --void: #06060a; --s1: #0e0e14; --s2: #14141e; --s3: #1c1c2a; --s4: #252535;
+  --border: rgba(255,255,255,0.07); --border-b: rgba(255,255,255,0.14);
+  --ink: #f0f0f8; --ink-2: #a0a0c0; --ink-3: #606080; --ink-4: #35354a;
+  --cyan: #00e5cc; --blue: #3b6ef8; --purple: #8b6ef8; --green: #10b981; --amber: #f59e0b;
+  --grad: linear-gradient(135deg, #00e5cc 0%, #3b6ef8 60%, #8b6ef8 100%);
+  --fd: 'Clash Display', Georgia, serif; --fb: 'Plus Jakarta Sans', system-ui, sans-serif; --fm: 'JetBrains Mono', monospace;
+  --r: 12px; --r-lg: 20px; --t: cubic-bezier(0.25,1,0.5,1);
+}
+body { font-family: var(--fb); background: var(--void); color: var(--ink); line-height: 1.65; overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; }
+body::before {
+  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+a { text-decoration: none; color: inherit; }
+main { flex: 1; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 clamp(1.25rem,5vw,3rem); position: relative; z-index: 1; }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--cream);
-      color: var(--ink);
-      line-height: 1.6;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+/* ── NAV ── */
+.nav {
+  position: sticky; top: 0; z-index: 999; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 clamp(1.25rem,5vw,3rem);
+  background: rgba(6,6,10,0.92); backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; font-family: var(--fd); font-size: 1.1rem; font-weight: 600; color: var(--ink); }
+.nav-logo img { width: 30px; height: 30px; border-radius: 8px; }
+.nav-right { display: flex; align-items: center; gap: 0.75rem; }
+.nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+.nav-links a { font-size: 0.83rem; font-weight: 500; color: var(--ink-2); transition: color 0.18s; }
+.nav-links a:hover { color: var(--cyan); }
+.lang-switcher { display: flex; gap: 4px; }
+.lang-btn {
+  background: none; border: 1px solid var(--border);
+  border-radius: 6px; padding: 4px 8px;
+  cursor: pointer; font-size: 0.7rem; font-weight: 700;
+  color: var(--ink-3); transition: all 0.15s; font-family: var(--fm);
+  text-transform: uppercase; letter-spacing: 0.05em;
+}
+.lang-btn:hover, .lang-btn.active { border-color: var(--cyan); color: var(--cyan); background: rgba(0,229,204,0.07); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 1.5px; background: var(--ink); border-radius: 2px; }
+@media(max-width:780px){.nav-links{display:none}.hamburger{display:flex}.nav-links.open{display:flex;flex-direction:column;align-items:flex-start;gap:1.5rem;position:fixed;inset:64px 0 0 0;background:var(--s1);padding:2rem;z-index:997}.nav-links.open a{font-size:1.1rem}}
 
-    h1, h2, h3, h4 { font-family: 'DM Serif Display', serif; line-height: 1.15; }
-    h1 { font-size: clamp(2rem, 4vw, 3rem); }
+/* ── HERO ── */
+.hero {
+  padding: clamp(60px,10vw,100px) 0 clamp(50px,7vw,70px);
+  position: relative; overflow: hidden; text-align: center;
+}
+.hero-orb {
+  position: absolute; border-radius: 50%; pointer-events: none;
+  width: 800px; height: 600px; top: -200px; left: 50%; transform: translateX(-50%);
+  background: radial-gradient(ellipse, rgba(0,229,204,0.05) 0%, transparent 65%);
+}
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.67rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--cyan); margin-bottom: 1.2rem;
+}
+.eyebrow::before { content: ''; width: 20px; height: 1.5px; background: var(--cyan); display: inline-block; }
+.hero h1 {
+  font-family: var(--fd); font-size: clamp(2.4rem,4.5vw,4.2rem); font-weight: 700;
+  line-height: 1.06; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 1.2rem;
+}
+.hero h1 em { font-style: italic; color: var(--cyan); }
+.hero-sub { font-size: clamp(0.9rem,1.6vw,1rem); color: var(--ink-2); max-width: 560px; margin: 0 auto 2rem; line-height: 1.7; }
+.hero-meta {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.72rem; color: var(--ink-3); font-family: var(--fm);
+}
 
-    /* Nav */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(250,248,244,0.92); backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(200,151,58,0.2);
-      padding: 0 clamp(1rem, 5vw, 4rem);
-      display: flex; align-items: center; justify-content: space-between;
-      height: 64px;
-    }
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--ink); }
-    .nav-logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--teal), var(--gold)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; }
-    
-    .nav-right { display: flex; align-items: center; gap: 1.5rem; }
-    .nav-links { display: flex; list-style: none; gap: 2rem; margin: 0; padding: 0; }
-    .nav-links a { text-decoration: none; color: var(--ink-soft); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--teal); }
+/* ── TRUST BADGES ── */
+.badges-row {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+  margin: clamp(2.5rem,5vw,4rem) 0; position: relative; z-index: 1;
+}
+@media(max-width:640px){.badges-row{grid-template-columns:1fr;}}
+.badge-card {
+  background: var(--s2); border: 1px solid var(--border); border-radius: var(--r-lg);
+  padding: 1.5rem 1.75rem; display: flex; flex-direction: column; gap: 0.75rem;
+  transition: border-color 0.22s var(--t), box-shadow 0.22s var(--t);
+}
+.badge-card:hover { border-color: var(--border-b); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+.badge-card-icon {
+  width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+}
+.icon-cyan { background: rgba(0,229,204,0.12); }
+.icon-green { background: rgba(16,185,129,0.12); }
+.icon-amber { background: rgba(245,158,11,0.12); }
+.badge-card-title { font-family: var(--fd); font-size: 1rem; font-weight: 600; color: var(--ink); letter-spacing: -0.02em; }
+.badge-card-desc { font-size: 0.8rem; color: var(--ink-2); line-height: 1.65; }
 
-    /* Lang Switcher */
-    .lang-switcher { display: flex; gap: 4px; }
-    .lang-btn { background: none; border: 1px solid transparent; border-radius: 6px; padding: 4px 6px; cursor: pointer; font-size: 1.1rem; transition: all 0.15s; opacity: 0.6; }
-    .lang-btn:hover, .lang-btn.active { border-color: var(--gold); opacity: 1; background: var(--gold-light); }
+/* ── CONTENT LAYOUT ── */
+.content-layout {
+  display: grid; grid-template-columns: 240px 1fr; gap: 3rem;
+  align-items: start; padding-bottom: clamp(5rem,10vw,8rem);
+  position: relative; z-index: 1;
+}
+@media(max-width:860px){ .content-layout { grid-template-columns: 1fr; } .toc { display: none; } }
 
-    /* Header RGPD */
-    .docs-hero {
-      background: var(--ink);
-      color: white;
-      padding: 5rem clamp(1rem, 5vw, 4rem);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .docs-hero::before {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse 70% 60% at 50% 10%, rgba(14,110,110,0.2) 0%, transparent 60%); pointer-events: none;
-    }
-    .docs-hero h1 { position: relative; z-index: 1; margin-bottom: 0.5rem; color: white;}
-    .docs-hero p { position: relative; z-index: 1; color: var(--gold); font-size: 1.1rem; max-width: 600px; margin: 0 auto; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase;}
+/* TOC */
+.toc { position: sticky; top: 80px; }
+.toc-title { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 1rem; }
+.toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+.toc-list a {
+  display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--ink-3);
+  padding: 0.35rem 0.6rem; border-radius: 7px; transition: all 0.18s;
+}
+.toc-list a:hover, .toc-list a.toc-active { color: var(--cyan); background: rgba(0,229,204,0.06); }
+.toc-list a::before { content: ''; width: 3px; height: 3px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
 
-    /* Content RGPD */
-    .legal-content {
-      flex-grow: 1;
-      max-width: 900px;
-      margin: 4rem auto;
-      background: white;
-      padding: 4rem;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--cream-dark);
-      box-shadow: var(--shadow);
-    }
-    
-    .legal-intro {
-      font-size: 1.1rem;
-      color: var(--ink-soft);
-      margin-bottom: 3rem;
-      padding-bottom: 2rem;
-      border-bottom: 2px solid var(--cream-dark);
-    }
+/* PROSE */
+.prose { min-width: 0; }
+.prose-section { margin-bottom: 3.5rem; }
+.prose-section:last-child { margin-bottom: 0; }
+.prose h2 {
+  font-family: var(--fd); font-size: clamp(1.3rem,2.5vw,1.8rem); font-weight: 600;
+  letter-spacing: -0.03em; color: var(--ink); margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 10px;
+}
+.prose h2 .num {
+  font-family: var(--fm); font-size: 0.7rem; font-weight: 500; color: var(--cyan);
+  border: 1px solid rgba(0,229,204,0.3); border-radius: 5px; padding: 2px 7px;
+}
+.prose h3 {
+  font-family: var(--fd); font-size: 1.05rem; font-weight: 600;
+  color: var(--ink); margin: 1.75rem 0 0.75rem; letter-spacing: -0.02em;
+}
+.prose p { font-size: 0.88rem; color: var(--ink-2); line-height: 1.8; margin-bottom: 1rem; }
+.prose ul { list-style: none; margin: 0.75rem 0 1rem 0; display: flex; flex-direction: column; gap: 0.5rem; }
+.prose ul li { font-size: 0.87rem; color: var(--ink-2); line-height: 1.7; padding-left: 1.2rem; position: relative; }
+.prose ul li::before { content: '—'; position: absolute; left: 0; color: var(--cyan); font-size: 0.7rem; top: 2px; }
+.prose strong { color: var(--ink); font-weight: 600; }
+.prose em { font-style: italic; color: var(--ink); }
+.prose a { color: var(--cyan); transition: opacity 0.18s; }
+.prose a:hover { opacity: 0.8; }
 
-    .legal-content h2 { font-size: 1.8rem; color: var(--ink); margin-top: 3rem; margin-bottom: 1.5rem; }
-    .legal-content h3 { margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem; color: var(--teal); display: flex; align-items: center; gap: 12px; }
-    .legal-content p { color: var(--ink-muted); margin-bottom: 1.2rem; font-size: 1rem; line-height: 1.7; }
-    .legal-content ul { margin-left: 2rem; margin-bottom: 1.5rem; color: var(--ink-muted); line-height: 1.7; }
-    .legal-content li { margin-bottom: 0.5rem; }
-    
-    .badge-icon { background: var(--teal-light); width: 40px; height: 40px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+/* Info blocks */
+.info-block {
+  background: var(--s2); border: 1px solid var(--border); border-left: 3px solid;
+  border-radius: var(--r); padding: 1rem 1.25rem; margin: 1.25rem 0; font-size: 0.85rem; color: var(--ink-2); line-height: 1.7;
+}
+.info-block.cyan { border-left-color: var(--cyan); }
+.info-block.green { border-left-color: var(--green); }
+.info-block.amber { border-left-color: var(--amber); }
+.info-block strong { color: var(--ink); }
 
-    .summary-box {
-      background: rgba(200,151,58,0.05);
-      border: 1px solid rgba(200,151,58,0.2);
-      border-left: 4px solid var(--gold);
-      padding: 1.5rem 2rem;
-      border-radius: 0 12px 12px 0;
-      margin: 2rem 0;
-    }
-    .summary-box h4 { color: var(--gold-dark); margin-bottom: 0.8rem; font-family: 'DM Sans', sans-serif; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
-    .summary-box p { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
+/* Data table */
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; margin: 1rem 0 1.5rem; }
+.data-table th { background: var(--s3); border: 1px solid var(--border); padding: 0.6rem 1rem; text-align: left; font-size: 0.67rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
+.data-table td { border: 1px solid var(--border); padding: 0.65rem 1rem; color: var(--ink-2); vertical-align: top; line-height: 1.6; }
+.data-table td:first-child { color: var(--ink); font-weight: 500; font-family: var(--fm); font-size: 0.78rem; }
+.data-table tr:hover td { background: rgba(255,255,255,0.02); }
 
-    /* Footer */
-    footer { background: var(--ink); color: white; padding: 2.5rem; margin-top: auto; }
-    .footer-bottom { text-align: center; font-size: 0.95rem; color: rgba(255,255,255,0.7); }
+/* ── FOOTER ── */
+footer {
+  background: var(--s1); border-top: 1px solid var(--border);
+  padding: 2rem 0; position: relative; z-index: 1;
+}
+.foot-in { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+.foot-logo { display: flex; align-items: center; gap: 8px; font-family: var(--fd); font-size: 0.95rem; font-weight: 600; color: var(--ink); }
+.foot-logo img { width: 26px; height: 26px; border-radius: 6px; }
+.foot-copy { font-size: 0.72rem; color: var(--ink-3); }
+.foot-links { display: flex; align-items: center; gap: 1.5rem; }
+.foot-links a { font-size: 0.72rem; color: var(--ink-3); transition: color 0.18s; }
+.foot-links a:hover { color: var(--cyan); }
+@media(max-width:640px){.foot-in{flex-direction:column;text-align:center}.foot-links{justify-content:center;flex-wrap:wrap}}
 
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .legal-content { padding: 2rem; margin: 2rem 1rem; }
-      .docs-hero { padding: 3rem 1rem; }
-    }
-  </style>
+@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+.animate-in { animation: fadeUp 0.55s cubic-bezier(0.25,1,0.5,1) both; }
+.d1{animation-delay:0.05s}.d2{animation-delay:0.12s}.d3{animation-delay:0.2s}
+</style>
 </head>
 <body>
 
-  <nav>
-    <a href="index.html" class="nav-logo">
-      <div class="nav-logo-icon">⚕</div>
-      Pisum
-    </a>
-    <div class="nav-right">
-      <ul class="nav-links">
-        <li><a href="index.html" class="t" data-en="Back to Home" data-fr="Retour à l'accueil" data-es="Volver al inicio" data-de="Zurück zur Startseite">Retour à l'accueil</a></li>
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="PISUM"/>
+    PISUM
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html#features">Features</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="documentation.html">Docs</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('de')">DE</button>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+    </div>
+    <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-orb"></div>
+  <div class="container">
+    <div class="animate-in d1"><span class="eyebrow" id="ey">Conformité</span></div>
+    <h1 class="animate-in d2" id="h1">Protection des<br/><em>données patients</em></h1>
+    <p class="hero-sub animate-in d3" id="hsub">Architecture 100% locale · Zéro cloud · RGPD Art. 25 · HDS-Ready</p>
+    <p class="hero-meta animate-in">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2"/><path d="M6 4v2.5l1.5 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+      <span id="updated">Mise à jour : Janvier 2026</span>
+    </p>
+  </div>
+</section>
+
+<!-- TRUST BADGES -->
+<div class="container" style="position:relative;z-index:1">
+  <div class="badges-row">
+    <div class="badge-card">
+      <div class="badge-card-icon icon-cyan">🔒</div>
+      <div class="badge-card-title" id="b1t">Architecture Hors Ligne</div>
+      <div class="badge-card-desc" id="b1d">Aucune donnée médicale ne quitte votre poste de travail. Compatible réseau air-gapped.</div>
+    </div>
+    <div class="badge-card">
+      <div class="badge-card-icon icon-green">🛡️</div>
+      <div class="badge-card-title" id="b2t">Zéro sous-traitance</div>
+      <div class="badge-card-desc" id="b2d">Aucun hébergeur cloud, analytics ou tiers n'a accès aux données de santé de vos patients.</div>
+    </div>
+    <div class="badge-card">
+      <div class="badge-card-icon icon-amber">🎙️</div>
+      <div class="badge-card-title" id="b3t">IA vocale locale</div>
+      <div class="badge-card-desc" id="b3d">Sally AI tourne sur votre CPU/GPU. Votre voix et vos données cliniques ne sont jamais transmises.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+  <div class="content-layout">
+
+    <!-- TOC -->
+    <nav class="toc" aria-label="Table of contents">
+      <div class="toc-title" id="toc-title">Sommaire</div>
+      <ul class="toc-list">
+        <li><a href="#s1" id="tl1">1. Données collectées</a></li>
+        <li><a href="#s2" id="tl2">2. Architecture offline</a></li>
+        <li><a href="#s3" id="tl3">3. Souveraineté & télémétrie</a></li>
+        <li><a href="#s4" id="tl4">4. Droits des patients</a></li>
+        <li><a href="#s5" id="tl5">5. Contact DPO</a></li>
       </ul>
-      <div class="lang-switcher">
-        <button class="lang-btn active" onclick="setLang('en')" data-l="en" title="English"><span class="fi fi-gb"></span></button>
-        <button class="lang-btn" onclick="setLang('fr')" data-l="fr" title="Français"><span class="fi fi-fr"></span></button>
-        <button class="lang-btn" onclick="setLang('es')" data-l="es" title="Español"><span class="fi fi-es"></span></button>
-        <button class="lang-btn" onclick="setLang('de')" data-l="de" title="Deutsch"><span class="fi fi-de"></span></button>
+    </nav>
+
+    <!-- PROSE -->
+    <article class="prose">
+
+      <div class="prose-section" id="s1">
+        <h2><span class="num">01</span> <span id="s1h">Données collectées par PISUM</span></h2>
+        <p id="s1p1">PISUM est conçu selon le principe de <strong>Privacy by Design</strong> (Art. 25 RGPD). Le logiciel distingue deux catégories de données fondamentalement séparées :</p>
+
+        <h3 id="s1h2">Données de compte (traité par PISUM SAS)</h3>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th id="th1">Donnée</th>
+              <th id="th2">Finalité</th>
+              <th id="th3">Durée</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Nom, prénom</td><td id="td1a">Création du compte utilisateur</td><td>Durée de l'abonnement + 12 mois</td></tr>
+            <tr><td>Email professionnel</td><td id="td2a">Authentification &amp; notifications</td><td>Durée de l'abonnement + 12 mois</td></tr>
+            <tr><td>Clé de licence</td><td id="td3a">Activation &amp; anti-piratage</td><td>Durée de l'abonnement</td></tr>
+            <tr><td>Version OS / app</td><td id="td4a">Compatibilité &amp; support technique</td><td>12 mois glissants</td></tr>
+          </tbody>
+        </table>
+
+        <div class="info-block green" id="ib1">
+          <strong>✓ Données de santé — AUCUNE collecte.</strong> Les comptes rendus radiologiques, données patient (nom, IPP, date de naissance), images médicales et transcriptions vocales ne sont <em>jamais</em> transmis à PISUM SAS ni à un quelconque tiers.
+        </div>
+      </div>
+
+      <div class="prose-section" id="s2">
+        <h2><span class="num">02</span> <span id="s2h">Architecture 100% hors ligne</span></h2>
+
+        <h3 id="s2h1">🔒 Air-Gapped Ready</h3>
+        <p id="s2p1">La sécurité la plus forte est l'absence de réseau. PISUM ne nécessite aucune connexion Internet pour la saisie des comptes rendus ou pour la dictée. Les données ne quittent jamais l'environnement physique et logique de votre établissement, neutralisant les risques Man-in-the-Middle et les fuites liées au Cloud.</p>
+
+        <h3 id="s2h2">🎙️ Dictée Vocale IA locale (Edge Computing)</h3>
+        <p id="s2p2">La reconnaissance vocale est un point de vulnérabilité majeur chez les solutions concurrentes qui envoient les flux audio vers des API externes (Google, AWS, Nuance). Le moteur <strong>Sally AI</strong> de PISUM fonctionne <em>strictement en local sur le processeur (CPU/GPU) de votre machine</em>. La voix du radiologue et les données cliniques dictées ne sont jamais transmises sur Internet.</p>
+
+        <div class="info-block cyan" id="ib2">
+          <strong>Conformité HDS.</strong> L'architecture locale de PISUM est compatible avec les exigences d'hébergement de données de santé (HDS) françaises. Aucun hébergeur tiers n'est sollicité pour le traitement des données médicales.
+        </div>
+      </div>
+
+      <div class="prose-section" id="s3">
+        <h2><span class="num">03</span> <span id="s3h">Souveraineté et télémétrie</span></h2>
+
+        <h3 id="s3h1">🛡️ Zéro sous-traitance de données de santé</h3>
+        <p id="s3p1">Puisque le logiciel fonctionne en vase clos sur le poste de l'utilisateur, aucun sous-traitant tiers (hébergeur Cloud, service d'analyse) n'a accès aux données médicales. L'archivage légal et le stockage sécurisé incombent uniquement au système RIS/PACS de l'établissement, garantissant la pleine souveraineté des données.</p>
+
+        <h3 id="s3h2">📝 Journaux d'application anonymisés</h3>
+        <p id="s3p2">Afin d'assurer la stabilité du logiciel, PISUM génère des journaux d'erreurs techniques locaux. Ces fichiers sont programmés de manière stricte pour ne capter <strong>aucune donnée métier</strong> :</p>
+        <ul>
+          <li id="li1">Aucun nom de patient, date de naissance ou numéro d'identification (IPP).</li>
+          <li id="li2">Aucun terme médical, contenu de compte rendu ou transcription vocale.</li>
+          <li id="li3">Uniquement des codes d'erreurs système, des temps de chargement et des événements de clics.</li>
+        </ul>
+      </div>
+
+      <div class="prose-section" id="s4">
+        <h2><span class="num">04</span> <span id="s4h">Droits des patients (Art. 15 à 22)</span></h2>
+        <p id="s4p1">Le RGPD garantit aux patients le droit d'accès, de rectification, d'effacement et de portabilité de leurs données. Étant donné que PISUM ne conserve aucune donnée après la fermeture de l'application, <strong>il est techniquement impossible d'y interroger ou d'y supprimer un dossier patient</strong>.</p>
+        <div class="info-block amber" id="ib3">
+          <strong>Exercice des droits patients.</strong> L'exercice de ces droits doit être dirigé vers le Responsable de Traitement (le DPO de la clinique ou de l'hôpital) qui interviendra directement sur le RIS/PACS ou le système d'information hospitalier (SIH) où les comptes rendus finaux sont archivés.
+        </div>
+      </div>
+
+      <div class="prose-section" id="s5">
+        <h2><span class="num">05</span> <span id="s5h">Contact & DPO</span></h2>
+        <p id="s5p1">Pour toute question relative à la protection des données ou pour exercer vos droits en tant qu'utilisateur du service PISUM :</p>
+        <ul>
+          <li><strong>Email :</strong> <a href="mailto:MyPisum@Proton.me">MyPisum@Proton.me</a></li>
+          <li><strong>Objet recommandé :</strong> [RGPD] — votre demande</li>
+          <li><strong>Délai de réponse :</strong> 30 jours maximum (Art. 12 RGPD)</li>
+        </ul>
+        <p id="s5p2" style="margin-top:1.25rem">Créé par les radiologues, pour les radiologues. 👨‍⚕️</p>
+      </div>
+
+    </article>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-in">
+      <div class="foot-logo">
+        <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="PISUM"/>
+        PISUM
+      </div>
+      <p class="foot-copy">© 2026 PISUM. All rights reserved.</p>
+      <div class="foot-links">
+        <a href="rgpd.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="faq.html">FAQ</a>
+        <a href="documentation.html">Docs</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
-  </nav>
+  </div>
+</footer>
 
-  <header class="docs-hero">
-    <h1 class="t" data-en="GDPR Compliance & Security" data-fr="Conformité RGPD & Sécurité" data-es="Cumplimiento RGPD y Seguridad" data-de="DSGVO-Konformität & Sicherheit">Conformité RGPD & Sécurité</h1>
-    <p class="t" data-en="The radiologist's rhythm." data-fr="Le rythme du radiologue." data-es="El ritmo del radiólogo." data-de="Der Rhythmus des Radiologen.">Le rythme du radiologue.</p>
-  </header>
+<script>
+// Hamburger
+const ham = document.getElementById('ham'), nl = document.getElementById('nav-links');
+if(ham) ham.addEventListener('click', () => nl.classList.toggle('open'));
 
-  <main class="legal-content">
-    
-    <div class="legal-intro">
-      <p class="t" data-en="In the field of medical imaging, protecting Personal Health Data (PHD) is an absolute legal and ethical requirement. Pisum was architected around the principle of <strong>'Privacy by Design'</strong> as defined by Article 25 of the General Data Protection Regulation (GDPR)." data-fr="Dans le domaine de l'imagerie médicale, la protection des Données de Santé à Caractère Personnel (HDS) est une exigence légale et éthique absolue. Pisum a été architecturé selon le principe de <strong>'Privacy by Design' (Confidentialité dès la conception)</strong> tel que défini par l'Article 25 du Règlement Général sur la Protection des Données (RGPD)." data-es="En el campo de la imagen médica, la protección de Datos Personales de Salud (PHD) es un requisito legal y ético absoluto. Pisum fue diseñado en torno al principio de <strong>'Privacidad por Diseño'</strong> según lo define el Artículo 25 del Reglamento General de Protección de Datos (RGPD)." data-de="Im Bereich der medizinischen Bildgebung ist der Schutz personenbezogener Gesundheitsdaten eine absolute rechtliche und ethische Anforderung. Pisum wurde nach dem Prinzip <strong>'Privacy by Design'</strong> (Datenschutz durch Technikgestaltung) gemäß Artikel 25 der Datenschutz-Grundverordnung (DSGVO) konzipiert.">Dans le domaine de l'imagerie médicale, la protection des Données de Santé à Caractère Personnel (HDS) est une exigence légale et éthique absolue. Pisum a été architecturé selon le principe de <strong>"Privacy by Design" (Confidentialité dès la conception)</strong> tel que défini par l'Article 25 du Règlement Général sur la Protection des Données (RGPD).</p>
-      
-      <p class="t" data-en="This page details technically and legally how our software guarantees total compliance, by nature, by eliminating risks related to data processing." data-fr="Cette page détaille techniquement et juridiquement comment notre logiciel garantit une conformité totale, par nature, en éliminant les risques liés au traitement des données." data-es="Esta página detalla técnica y legalmente cómo nuestro software garantiza un cumplimiento total, por naturaleza, al eliminar los riesgos relacionados con el procesamiento de datos." data-de="Diese Seite erläutert technisch und rechtlich, wie unsere Software von Natur aus absolute Konformität garantiert, indem sie die mit der Datenverarbeitung verbundenen Risiken eliminiert.">Cette page détaille techniquement et juridiquement comment notre logiciel garantit une conformité totale, par nature, en éliminant les risques liés au traitement des données.</p>
-    </div>
+// TOC active
+const sections = document.querySelectorAll('.prose-section');
+const tocLinks = document.querySelectorAll('.toc-list a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 100) current = s.id; });
+  tocLinks.forEach(a => {
+    a.classList.toggle('toc-active', a.getAttribute('href') === '#'+current);
+  });
+});
 
-    <div class="summary-box">
-      <h4 class="t" data-en="Summary for Data Protection Officers (DPO)" data-fr="Résumé pour les Délégués à la Protection des Données (DPO)" data-es="Resumen para Delegados de Protección de Datos (DPO)" data-de="Zusammenfassung für Datenschutzbeauftragte (DSB)">Résumé pour les Délégués à la Protection des Données (DPO)</h4>
-      <p class="t" data-en="Pisum is an <strong>'On-Premise' and 'Stateless'</strong> software. We do not act as a Data Controller or Data Processor for your patients' health data, because <strong>no patient data transits, is processed, or is stored by our servers</strong>. The radiologist or healthcare facility remains the sole Data Controller." data-fr="Pisum est un logiciel <strong>'On-Premise' (sur site) et 'Stateless' (sans état)</strong>. Nous n'agissons ni en tant que Responsable de Traitement ni en tant que Sous-Traitant pour les données de santé de vos patients, car <strong>aucune donnée patient ne transite, n'est traitée ou n'est stockée par nos serveurs</strong>. Le radiologue ou l'établissement de santé demeure l'unique Responsable de Traitement." data-es="Pisum es un software <strong>'On-Premise' (local) y 'Stateless' (sin estado)</strong>. No actuamos como Responsables ni Encargados del Tratamiento de los datos de salud de sus pacientes, porque <strong>ningún dato de paciente transita, se procesa o se almacena en nuestros servidores</strong>. El radiólogo o centro de salud sigue siendo el único Responsable del Tratamiento." data-de="Pisum ist eine <strong>'On-Premise'- (lokale) und 'Stateless'- (zustandslose)</strong> Software. Wir agieren weder als Verantwortlicher noch als Auftragsverarbeiter für die Gesundheitsdaten Ihrer Patienten, da <strong>keine Patientendaten über unsere Server übertragen, verarbeitet oder gespeichert werden</strong>. Der Radiologe oder die Gesundheitseinrichtung bleibt der alleinige Verantwortliche.">Pisum est un logiciel <strong>"On-Premise" (sur site) et "Stateless" (sans état)</strong>. Nous n'agissons ni en tant que Responsable de Traitement ni en tant que Sous-Traitant pour les données de santé de vos patients, car <strong>aucune donnée patient ne transite, n'est traitée ou n'est stockée par nos serveurs</strong>. Le radiologue ou l'établissement de santé demeure l'unique Responsable de Traitement.</p>
-    </div>
+// Language
+const t = {
+  fr: {
+    ey:'Conformité', h1:'Protection des<br/><em>données patients</em>',
+    hsub:'Architecture 100% locale · Zéro cloud · RGPD Art. 25 · HDS-Ready',
+    updated:'Mise à jour : Janvier 2026',
+    b1t:'Architecture Hors Ligne', b1d:'Aucune donnée médicale ne quitte votre poste de travail. Compatible réseau air-gapped.',
+    b2t:'Zéro sous-traitance', b2d:'Aucun hébergeur cloud, analytics ou tiers n\'a accès aux données de santé de vos patients.',
+    b3t:'IA vocale locale', b3d:'Sally AI tourne sur votre CPU/GPU. Votre voix et vos données cliniques ne sont jamais transmises.',
+    'toc-title':'Sommaire',
+    tl1:'1. Données collectées', tl2:'2. Architecture offline', tl3:'3. Souveraineté & télémétrie', tl4:'4. Droits des patients', tl5:'5. Contact DPO',
+    s1h:'Données collectées par PISUM',
+    s1p1:'PISUM est conçu selon le principe de <strong>Privacy by Design</strong> (Art. 25 RGPD). Le logiciel distingue deux catégories de données fondamentalement séparées :',
+    s1h2:'Données de compte (traité par PISUM SAS)',
+    th1:'Donnée', th2:'Finalité', th3:'Durée',
+    td1a:'Création du compte utilisateur', td2a:'Authentification & notifications', td3a:'Activation & anti-piratage', td4a:'Compatibilité & support technique',
+    ib1:'<strong>✓ Données de santé — AUCUNE collecte.</strong> Les comptes rendus radiologiques, données patient, images médicales et transcriptions vocales ne sont <em>jamais</em> transmis à PISUM SAS ni à un quelconque tiers.',
+    s2h:'Architecture 100% hors ligne',
+    s2h1:'🔒 Air-Gapped Ready',
+    s2p1:'La sécurité la plus forte est l\'absence de réseau. PISUM ne nécessite aucune connexion Internet pour la saisie des comptes rendus ou pour la dictée. Les données ne quittent jamais l\'environnement physique de votre établissement.',
+    s2h2:'🎙️ Dictée Vocale IA locale (Edge Computing)',
+    s2p2:'La reconnaissance vocale est un point de vulnérabilité majeur chez les solutions concurrentes. Le moteur <strong>Sally AI</strong> de PISUM fonctionne <em>strictement en local sur votre machine</em>. La voix du radiologue n\'est jamais transmise sur Internet.',
+    ib2:'<strong>Conformité HDS.</strong> L\'architecture locale de PISUM est compatible avec les exigences d\'hébergement de données de santé (HDS) françaises.',
+    s3h:'Souveraineté et télémétrie',
+    s3h1:'🛡️ Zéro sous-traitance de données de santé',
+    s3p1:'Puisque le logiciel fonctionne en vase clos sur le poste de l\'utilisateur, aucun sous-traitant tiers n\'a accès aux données médicales. L\'archivage légal incombe uniquement au système RIS/PACS de l\'établissement.',
+    s3h2:'📝 Journaux d\'application anonymisés',
+    s3p2:'Les journaux techniques locaux sont programmés pour ne capter <strong>aucune donnée métier</strong> :',
+    li1:'Aucun nom de patient, date de naissance ou numéro d\'identification (IPP).',
+    li2:'Aucun terme médical, contenu de compte rendu ou transcription vocale.',
+    li3:'Uniquement des codes d\'erreurs système, des temps de chargement et des événements de clics.',
+    s4h:'Droits des patients (Art. 15 à 22)',
+    s4p1:'Le RGPD garantit aux patients le droit d\'accès, rectification, effacement et portabilité. PISUM ne conservant aucune donnée après fermeture, <strong>il est techniquement impossible d\'y interroger un dossier patient</strong>.',
+    ib3:'<strong>Exercice des droits patients.</strong> Ces droits doivent être dirigés vers le DPO de l\'établissement qui interviendra directement sur le RIS/PACS.',
+    s5h:'Contact & DPO',
+    s5p1:'Pour toute question relative à la protection des données :',
+    s5p2:'Créé par les radiologues, pour les radiologues. 👨‍⚕️',
+  },
+  en: {
+    ey:'Compliance', h1:'Patient data<br/><em>protection</em>',
+    hsub:'100% local architecture · Zero cloud · GDPR Art. 25 · HDS-Ready',
+    updated:'Updated: January 2026',
+    b1t:'Offline Architecture', b1d:'No medical data ever leaves your workstation. Air-gapped network compatible.',
+    b2t:'Zero sub-processing', b2d:'No cloud host, analytics service, or third party accesses your patients\' health data.',
+    b3t:'Local AI Voice', b3d:'Sally AI runs on your CPU/GPU. Your voice and clinical data are never transmitted.',
+    'toc-title':'Contents',
+    tl1:'1. Data collected', tl2:'2. Offline architecture', tl3:'3. Sovereignty & telemetry', tl4:'4. Patient rights', tl5:'5. DPO contact',
+    s1h:'Data collected by PISUM',
+    s1p1:'PISUM is built on the <strong>Privacy by Design</strong> principle (Art. 25 GDPR). The software distinguishes two fundamentally separate data categories:',
+    s1h2:'Account data (processed by PISUM SAS)',
+    th1:'Data', th2:'Purpose', th3:'Duration',
+    td1a:'Account creation', td2a:'Authentication & notifications', td3a:'Activation & anti-piracy', td4a:'Compatibility & technical support',
+    ib1:'<strong>✓ Health data — ZERO collection.</strong> Radiology reports, patient data, medical images, and voice transcriptions are <em>never</em> transmitted to PISUM SAS or any third party.',
+    s2h:'100% offline architecture',
+    s2h1:'🔒 Air-Gapped Ready',
+    s2p1:'The strongest security is the absence of a network. PISUM requires no internet connection for report authoring or dictation. Data never leaves the physical and logical environment of your facility.',
+    s2h2:'🎙️ Local AI Voice Dictation (Edge Computing)',
+    s2p2:'Voice recognition is a major vulnerability in competing solutions that send audio streams to external APIs (Google, AWS, Nuance). PISUM\'s <strong>Sally AI</strong> engine runs <em>strictly locally on your machine\'s processor (CPU/GPU)</em>. The radiologist\'s voice is never transmitted over the internet.',
+    ib2:'<strong>HDS Compliance.</strong> PISUM\'s local architecture is compatible with French healthcare data hosting (HDS) requirements. No third-party host processes medical data.',
+    s3h:'Sovereignty and telemetry',
+    s3h1:'🛡️ Zero health data sub-processing',
+    s3p1:'Since the software runs in isolation on the user\'s workstation, no third-party processor (cloud host, analytics service) has access to medical data. Legal archiving is the sole responsibility of the facility\'s RIS/PACS system.',
+    s3h2:'📝 Anonymized application logs',
+    s3p2:'Local technical error logs are strictly programmed to capture <strong>no business data</strong>:',
+    li1:'No patient name, date of birth, or identification number.',
+    li2:'No medical terms, report content, or voice transcriptions.',
+    li3:'Only system error codes, interface loading times, and click events.',
+    s4h:'Patient rights (Art. 15 to 22)',
+    s4p1:'GDPR guarantees patients the right of access, rectification, erasure, and portability. Since PISUM retains no data after the application is closed, <strong>it is technically impossible to query or delete a patient file within it</strong>.',
+    ib3:'<strong>Exercising patient rights.</strong> These rights must be directed to the facility\'s DPO, who will intervene directly on the RIS/PACS or hospital information system.',
+    s5h:'Contact & DPO',
+    s5p1:'For any question regarding data protection:',
+    s5p2:'Created by radiologists, for radiologists. 👨‍⚕️',
+  },
+  de: {
+    ey:'Datenschutz', h1:'Patientendaten<br/><em>schutz</em>',
+    hsub:'100% lokale Architektur · Kein Cloud · DSGVO Art. 25 · HDS-Ready',
+    updated:'Aktualisiert: Januar 2026',
+    b1t:'Offline-Architektur', b1d:'Keine medizinischen Daten verlassen Ihren Arbeitsplatz. Air-Gapped-Netzwerk kompatibel.',
+    b2t:'Null Unterverarbeitung', b2d:'Kein Cloud-Anbieter, Analysedienst oder Dritter hat Zugriff auf die Gesundheitsdaten Ihrer Patienten.',
+    b3t:'Lokale KI-Stimme', b3d:'Sally AI läuft auf Ihrer CPU/GPU. Ihre Stimme und klinischen Daten werden nie übertragen.',
+    'toc-title':'Inhalt', tl1:'1. Erfasste Daten', tl2:'2. Offline-Architektur', tl3:'3. Souveränität & Telemetrie', tl4:'4. Patientenrechte', tl5:'5. DSB-Kontakt',
+    s1h:'Von PISUM erfasste Daten', s1p1:'PISUM basiert auf dem <strong>Privacy by Design</strong> Prinzip (Art. 25 DSGVO).', s1h2:'Kontodaten (verarbeitet von PISUM SAS)', th1:'Datum', th2:'Zweck', th3:'Dauer',
+    td1a:'Kontoerstellung', td2a:'Authentifizierung & Benachrichtigungen', td3a:'Aktivierung & Anti-Piraterie', td4a:'Kompatibilität & technischer Support',
+    ib1:'<strong>✓ Gesundheitsdaten — KEINE Erfassung.</strong> Radiologieberichte, Patientendaten und Voicetranskriptionen werden <em>niemals</em> übertragen.',
+    s2h:'100% Offline-Architektur', s2h1:'🔒 Air-Gapped Ready', s2p1:'Die stärkste Sicherheit ist die Abwesenheit eines Netzwerks. PISUM benötigt keine Internetverbindung.',
+    s2h2:'🎙️ Lokales KI-Sprachdiktat', s2p2:'Pisums <strong>Sally AI</strong>-Engine läuft <em>ausschließlich lokal auf Ihrem Prozessor (CPU/GPU)</em>. Die Stimme wird niemals übertragen.',
+    ib2:'<strong>HDS-Konformität.</strong> Die lokale Architektur ist mit den deutschen und französischen Anforderungen für Gesundheitsdaten kompatibel.',
+    s3h:'Souveränität und Telemetrie', s3h1:'🛡️ Keine Unterverarbeitung von Gesundheitsdaten', s3p1:'Da die Software isoliert auf der Workstation läuft, hat kein dritter Verarbeiter Zugriff auf medizinische Daten.',
+    s3h2:'📝 Anonymisierte Anwendungsprotokolle', s3p2:'Lokale technische Protokolle erfassen <strong>keine Geschäftsdaten</strong>:',
+    li1:'Kein Patientenname, Geburtsdatum oder Identifikationsnummer.', li2:'Keine medizinischen Begriffe oder Sprachtranskriptionen.', li3:'Nur Systemfehlercodes und Klickereignisse.',
+    s4h:'Patientenrechte (Art. 15 bis 22)', s4p1:'Die DSGVO garantiert Patienten Auskunft, Berichtigung, Löschung und Übertragbarkeit. Da PISUM keine Daten speichert, ist es technisch unmöglich, eine Patientenakte abzufragen.',
+    ib3:'<strong>Ausübung von Patientenrechten.</strong> Diese Rechte sind an den DSB der Einrichtung zu richten.',
+    s5h:'Kontakt & DSB', s5p1:'Für Fragen zum Datenschutz:', s5p2:'Von Radiologen für Radiologen entwickelt. 👨‍⚕️',
+  },
+  es: {
+    ey:'Cumplimiento', h1:'Protección de<br/><em>datos pacientes</em>',
+    hsub:'Arquitectura 100% local · Sin nube · RGPD Art. 25 · HDS-Ready',
+    updated:'Actualizado: Enero 2026',
+    b1t:'Arquitectura Sin Conexión', b1d:'Ningún dato médico sale de su estación de trabajo. Compatible con redes air-gapped.',
+    b2t:'Cero subcontratación', b2d:'Ningún proveedor de nube, analytics o tercero accede a los datos de salud de sus pacientes.',
+    b3t:'Voz IA local', b3d:'Sally AI funciona en su CPU/GPU. Su voz y datos clínicos nunca se transmiten.',
+    'toc-title':'Contenido', tl1:'1. Datos recopilados', tl2:'2. Arquitectura sin conexión', tl3:'3. Soberanía & telemetría', tl4:'4. Derechos de pacientes', tl5:'5. Contacto DPD',
+    s1h:'Datos recopilados por PISUM', s1p1:'PISUM está diseñado bajo el principio de <strong>Privacy by Design</strong> (Art. 25 RGPD).', s1h2:'Datos de cuenta (procesado por PISUM SAS)', th1:'Dato', th2:'Finalidad', th3:'Duración',
+    td1a:'Creación de cuenta', td2a:'Autenticación y notificaciones', td3a:'Activación y anti-piratería', td4a:'Compatibilidad y soporte técnico',
+    ib1:'<strong>✓ Datos de salud — CERO recopilación.</strong> Los informes radiológicos, datos de pacientes e imágenes médicas <em>nunca</em> se transmiten a PISUM SAS ni a terceros.',
+    s2h:'Arquitectura 100% sin conexión', s2h1:'🔒 Air-Gapped Ready', s2p1:'La mayor seguridad es la ausencia de red. PISUM no requiere conexión a Internet para redactar informes o usar el dictado.',
+    s2h2:'🎙️ Dictado de Voz IA local', s2p2:'El motor <strong>Sally AI</strong> de PISUM funciona <em>estrictamente de forma local en el procesador de su máquina</em>. La voz del radiólogo nunca se transmite.',
+    ib2:'<strong>Cumplimiento HDS.</strong> La arquitectura local de PISUM es compatible con los requisitos de alojamiento de datos de salud.',
+    s3h:'Soberanía y telemetría', s3h1:'🛡️ Cero subcontratación de datos de salud', s3p1:'Dado que el software funciona en aislamiento, ningún procesador externo tiene acceso a los datos médicos.',
+    s3h2:'📝 Registros de aplicación anonimizados', s3p2:'Los registros técnicos locales están programados para <strong>no capturar datos de negocio</strong>:',
+    li1:'Ningún nombre de paciente, fecha de nacimiento o número de identificación.', li2:'Ningún término médico, contenido de informe o transcripción de voz.', li3:'Solo códigos de error, tiempos de carga y eventos de clic.',
+    s4h:'Derechos de los pacientes (Art. 15 a 22)', s4p1:'El RGPD garantiza a los pacientes el derecho de acceso, rectificación, supresión y portabilidad. PISUM no conserva datos, por lo que es técnicamente imposible consultar un expediente de paciente.',
+    ib3:'<strong>Ejercicio de derechos.</strong> Estos derechos deben dirigirse al DPD del establecimiento, quien intervendrá directamente en el RIS/PACS.',
+    s5h:'Contacto & DPD', s5p1:'Para cualquier pregunta sobre protección de datos:', s5p2:'Creado por radiólogos, para radiólogos. 👨‍⚕️',
+  }
+};
 
-    <h2 class="t" data-en="1. Data minimization and processing principles (Art. 5 GDPR)" data-fr="1. Principes de minimisation et de traitement (Art. 5 du RGPD)" data-es="1. Principios de minimización y tratamiento (Art. 5 RGPD)" data-de="1. Grundsätze der Datenminimierung und Verarbeitung (Art. 5 DSGVO)">1. Principes de minimisation et de traitement (Art. 5 du RGPD)</h2>
+let currentLang = localStorage.getItem('pisum-lang') || 'fr';
 
-    <h3 class="t" data-en="<span class='badge-icon'>🚫</span> Absence of persistent database" data-fr="<span class='badge-icon'>🚫</span> Absence de base de données persistante" data-es="<span class='badge-icon'>🚫</span> Ausencia de base de datos persistente" data-de="<span class='badge-icon'>🚫</span> Keine persistente Datenbank"><span class="badge-icon">🚫</span> Absence de base de données persistante</h3>
-    <p class="t" data-en="Unlike SaaS (Software as a Service) or web solutions, Pisum does not have or create any database (SQL, NoSQL, etc.) to store patient history, reports, or medical IDs. The software acts as an intelligent, ephemeral text editor." data-fr="Contrairement aux solutions SaaS (Software as a Service) ou web, Pisum ne possède et ne crée aucune base de données (SQL, NoSQL, etc.) pour stocker l'historique de vos patients, vos comptes rendus, ou les identifiants médicaux. Le logiciel agit comme un éditeur de texte intelligent et éphémère." data-es="A diferencia de las soluciones SaaS (Software as a Service) o web, Pisum no posee ni crea ninguna base de datos (SQL, NoSQL, etc.) para almacenar el historial de los pacientes, informes o identificaciones médicas. El software actúa como un editor de texto inteligente y efímero." data-de="Im Gegensatz zu SaaS- (Software as a Service) oder Web-Lösungen verfügt Pisum über keine Datenbank (SQL, NoSQL usw.) und erstellt auch keine, um Patientenakten, Berichte oder medizinische IDs zu speichern. Die Software fungiert als intelligenter, flüchtiger Texteditor.">Contrairement aux solutions SaaS (Software as a Service) ou web, Pisum ne possède et ne crée aucune base de données (SQL, NoSQL, etc.) pour stocker l'historique de vos patients, vos comptes rendus, ou les identifiants médicaux. Le logiciel agit comme un éditeur de texte intelligent et éphémère.</p>
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('pisum-lang', lang);
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.textContent.toLowerCase() === lang);
+  });
+  const d = t[lang] || t.fr;
+  Object.keys(d).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = d[id];
+  });
+}
 
-    <h3 class="t" data-en="<span class='badge-icon'>⚡</span> Systematic RAM purge" data-fr="<span class='badge-icon'>⚡</span> Purge systématique de la mémoire vive (RAM)" data-es="<span class='badge-icon'>⚡</span> Purga sistemática de la memoria RAM" data-de="<span class='badge-icon'>⚡</span> Systematische RAM-Löschung"><span class="badge-icon">⚡</span> Purge systématique de la mémoire vive (RAM)</h3>
-    <p class="t" data-en="Data processing during report drafting occurs exclusively in the volatile memory (RAM) of the workstation. Once the user exports the document or closes the application, all typed text and session context are permanently destroyed and unrecoverable (Data Minimization - Art. 5.1.c)." data-fr="Le traitement des données lors de la rédaction d'un compte rendu s'effectue exclusivement dans la mémoire volatile (RAM) du poste de travail. Dès que l'utilisateur exporte le document ou ferme l'application, l'intégralité du texte saisi et du contexte de la session est définitivement détruite et irrécupérable (Minimisation des données - Art. 5.1.c)." data-es="El tratamiento de datos durante la redacción de un informe se realiza exclusivamente en la memoria volátil (RAM) de la estación de trabajo. Una vez que el usuario exporta el documento o cierra la aplicación, todo el texto escrito y el contexto de la sesión se destruyen permanentemente y son irrecuperables (Minimización de datos - Art. 5.1.c)." data-de="Die Datenverarbeitung während der Berichtserstellung erfolgt ausschließlich im flüchtigen Speicher (RAM) der Workstation. Sobald der Benutzer das Dokument exportiert oder die Anwendung schließt, werden der gesamte eingegebene Text und der Sitzungskontext dauerhaft zerstört und sind unwiederbringlich (Datenminimierung - Art. 5.1.c).">Le traitement des données lors de la rédaction d'un compte rendu s'effectue exclusivement dans la mémoire volatile (RAM) du poste de travail. Dès que l'utilisateur exporte le document ou ferme l'application, l'intégralité du texte saisi et du contexte de la session est définitivement détruite et irrécupérable (Minimisation des données - Art. 5.1.c).</p>
-
-    <h2 class="t" data-en="2. Security of processing (Art. 32 GDPR)" data-fr="2. Sécurité des traitements (Art. 32 du RGPD)" data-es="2. Seguridad del tratamiento (Art. 32 RGPD)" data-de="2. Sicherheit der Verarbeitung (Art. 32 DSGVO)">2. Sécurité des traitements (Art. 32 du RGPD)</h2>
-
-    <h3 class="t" data-en="<span class='badge-icon'>🔒</span> 100% Offline Architecture (Air-Gapped Ready)" data-fr="<span class='badge-icon'>🔒</span> Architecture 100% Hors Ligne (Air-Gapped Ready)" data-es="<span class='badge-icon'>🔒</span> Arquitectura 100% Offline (Air-Gapped Ready)" data-de="<span class='badge-icon'>🔒</span> 100% Offline-Architektur (Air-Gapped Ready)"><span class="badge-icon">🔒</span> Architecture 100% Hors Ligne (Air-Gapped Ready)</h3>
-    <p class="t" data-en="The strongest security is the absence of a network. Pisum requires no Internet connection to type reports or use dictation. Data never leaves the physical and logical environment of the Hospital or radiology clinic. This neutralizes Man-in-the-Middle interception risks and Cloud-related data leaks." data-fr="La sécurité la plus forte est l'absence de réseau. Pisum ne nécessite aucune connexion Internet pour la saisie des comptes rendus ou pour la dictée. Les données ne quittent jamais l'environnement physique et logique du Centre Hospitalier ou du cabinet de radiologie. Cela neutralise les risques d'interception (Man-in-the-Middle) et les fuites de données liées au Cloud." data-es="La mayor seguridad es la ausencia de red. Pisum no requiere conexión a Internet para redactar informes o usar el dictado. Los datos nunca abandonan el entorno físico y lógico del Hospital o la clínica de radiología. Esto neutraliza los riesgos de intercepción (Man-in-the-Middle) y las fugas de datos relacionadas con la nube." data-de="Die stärkste Sicherheit ist die Abwesenheit eines Netzwerks. Pisum benötigt keine Internetverbindung zum Verfassen von Berichten oder zum Diktieren. Daten verlassen niemals die physische und logische Umgebung des Krankenhauses oder der Radiologiepraxis. Dies neutralisiert Man-in-the-Middle-Abfangrisiken und Cloud-bedingte Datenlecks.">La sécurité la plus forte est l'absence de réseau. Pisum ne nécessite aucune connexion Internet pour la saisie des comptes rendus ou pour la dictée. Les données ne quittent jamais l'environnement physique et logique du Centre Hospitalier ou du cabinet de radiologie. Cela neutralise les risques d'interception (Man-in-the-Middle) et les fuites de données liées au Cloud.</p>
-
-    <h3 class="t" data-en="<span class='badge-icon'>🎙️</span> Local AI Voice Dictation (Edge Computing)" data-fr="<span class='badge-icon'>🎙️</span> Dictée Vocale IA exécutée en local (Edge Computing)" data-es="<span class='badge-icon'>🎙️</span> Dictado de Voz IA en local (Edge Computing)" data-de="<span class='badge-icon'>🎙️</span> Lokales KI-Sprachdiktat (Edge Computing)"><span class="badge-icon">🎙️</span> Dictée Vocale IA exécutée en local (Edge Computing)</h3>
-    <p class="t" data-en="Voice recognition is a major vulnerability point in competing solutions that send audio streams to external APIs (Google, AWS, Nuance) for transcription. Pisum's <em>Sally AI</em> engine runs <strong>strictly locally on your machine's processor (CPU/GPU)</strong>. The radiologist's voice and dictated clinical data are never transmitted over the Internet." data-fr="La reconnaissance vocale est un point de vulnérabilité majeur dans les solutions concurrentes qui envoient les flux audio vers des API externes (Google, AWS, Nuance) pour transcription. Le moteur <em>Sally AI</em> de Pisum fonctionne <strong>strictement en local sur le processeur (CPU/GPU) de votre machine</strong>. La voix du radiologue et les données cliniques dictées ne sont jamais transmises sur Internet." data-es="El reconocimiento de voz es un punto de vulnerabilidad importante en soluciones de la competencia que envían flujos de audio a API externas (Google, AWS, Nuance) para su transcripción. El motor <em>Sally AI</em> de Pisum funciona <strong>estrictamente de forma local en el procesador (CPU/GPU) de su máquina</strong>. La voz del radiólogo y los datos clínicos dictados nunca se transmiten por Internet." data-de="Die Spracherkennung ist eine große Schwachstelle bei Konkurrenzlösungen, die Audiostreams zur Transkription an externe APIs (Google, AWS, Nuance) senden. Pisums <em>Sally AI</em>-Engine läuft <strong>ausschließlich lokal auf dem Prozessor (CPU/GPU) Ihrer Maschine</strong>. Die Stimme des Radiologen und die diktierten klinischen Daten werden niemals über das Internet übertragen.">La reconnaissance vocale est un point de vulnérabilité majeur dans les solutions concurrentes qui envoient les flux audio vers des API externes (Google, AWS, Nuance) pour transcription. Le moteur <em>Sally AI</em> de Pisum fonctionne <strong>strictement en local sur le processeur (CPU/GPU) de votre machine</strong>. La voix du radiologue et les données cliniques dictées ne sont jamais transmises sur Internet.</p>
-
-    <h2 class="t" data-en="3. Sovereignty and Telemetry" data-fr="3. Souveraineté et Télémétrie" data-es="3. Soberanía y Telemetría" data-de="3. Souveränität und Telemetrie">3. Souveraineté et Télémétrie</h2>
-
-    <h3 class="t" data-en="<span class='badge-icon'>🛡️</span> Zero sub-processing of health data" data-fr="<span class='badge-icon'>🛡️</span> Zéro sous-traitance de données de santé" data-es="<span class='badge-icon'>🛡️</span> Cero subcontratación de datos de salud" data-de="<span class='badge-icon'>🛡️</span> Keine Unterverarbeitung von Gesundheitsdaten"><span class="badge-icon">🛡️</span> Zéro sous-traitance de données de santé</h3>
-    <p class="t" data-en="Since the software runs entirely on the user's workstation, no third-party processor (Cloud host, analytics service) has access to medical data. Legal archiving and secure storage are the sole responsibility of the facility's RIS/PACS system, ensuring full data sovereignty." data-fr="Puisque le logiciel fonctionne en vase clos sur le poste de l'utilisateur, aucun sous-traitant tiers (hébergeur Cloud, service d'analyse) n'a accès aux données médicales. L'archivage légal et le stockage sécurisé incombent uniquement au système RIS/PACS de l'établissement, garantissant la pleine souveraineté des données." data-es="Dado que el software se ejecuta completamente en la estación de trabajo del usuario, ningún procesador externo (servidor en la nube, servicio de análisis) tiene acceso a los datos médicos. El archivo legal y el almacenamiento seguro son responsabilidad exclusiva del sistema RIS/PACS de la instalación, lo que garantiza la plena soberanía de los datos." data-de="Da die Software vollständig auf der Workstation des Benutzers ausgeführt wird, hat kein dritter Verarbeiter (Cloud-Host, Analysedienst) Zugriff auf medizinische Daten. Die rechtliche Archivierung und sichere Speicherung liegen in der alleinigen Verantwortung des RIS/PACS-Systems der Einrichtung, was die volle Datensouveränität gewährleistet.">Puisque le logiciel fonctionne en vase clos sur le poste de l'utilisateur, aucun sous-traitant tiers (hébergeur Cloud, service d'analyse) n'a accès aux données médicales. L'archivage légal et le stockage sécurisé incombent uniquement au système RIS/PACS de l'établissement, garantissant la pleine souveraineté des données.</p>
-
-    <h3 class="t" data-en="<span class='badge-icon'>📝</span> Anonymized application logs" data-fr="<span class='badge-icon'>📝</span> Journaux d'application (Logs) anonymisés" data-es="<span class='badge-icon'>📝</span> Registros de aplicación (Logs) anonimizados" data-de="<span class='badge-icon'>📝</span> Anonymisierte Anwendungsprotokolle (Logs)"><span class="badge-icon">📝</span> Journaux d'application (Logs) anonymisés</h3>
-    <p class="t" data-en="To ensure software stability, Pisum generates local technical error logs. These files are strictly programmed to capture <strong>no business data</strong>:" data-fr="Afin d'assurer la stabilité du logiciel, Pisum génère des journaux d'erreurs techniques locaux (logs). Ces fichiers sont programmés de manière stricte pour ne capter <strong>aucune donnée métier</strong> :" data-es="Para garantizar la estabilidad del software, Pisum genera registros de errores técnicos locales. Estos archivos están estrictamente programados para <strong>no capturar datos de negocio</strong>:" data-de="Um die Softwarestabilität zu gewährleisten, generiert Pisum lokale technische Fehlerprotokolle. Diese Dateien sind strikt darauf programmiert, <strong>keine Geschäftsdaten zu erfassen</strong>:">Afin d'assurer la stabilité du logiciel, Pisum génère des journaux d'erreurs techniques locaux (logs). Ces fichiers sont programmés de manière stricte pour ne capter <strong>aucune donnée métier</strong> :</p>
-    <ul>
-      <li class="t" data-en="No patient name, date of birth, or identification number (ID)." data-fr="Aucun nom de patient, date de naissance ou numéro d'identification (IPP)." data-es="Ningún nombre de paciente, fecha de nacimiento o número de identificación." data-de="Kein Patientenname, Geburtsdatum oder Identifikationsnummer.">Aucun nom de patient, date de naissance ou numéro d'identification (IPP).</li>
-      <li class="t" data-en="No medical terms, report content, or voice transcriptions." data-fr="Aucun terme médical, contenu de compte rendu ou transcription vocale." data-es="Ningún término médico, contenido de informe o transcripción de voz." data-de="Keine medizinischen Begriffe, Berichtsinhalte oder Sprachtranskriptionen.">Aucun terme médical, contenu de compte rendu ou transcription vocale.</li>
-      <li class="t" data-en="Only system error codes, interface loading times, and click events." data-fr="Uniquement des codes d'erreurs système, des temps de chargement de l'interface et des événements de clics." data-es="Solo códigos de error del sistema, tiempos de carga de la interfaz y eventos de clic." data-de="Nur Systemfehlercodes, Ladezeiten der Schnittstelle und Klickereignisse.">Uniquement des codes d'erreurs système, des temps de chargement de l'interface et des événements de clics.</li>
-    </ul>
-
-    <h2 class="t" data-en="4. Exercise of patient rights (Art. 15 to 22)" data-fr="4. Exercice des droits des patients (Art. 15 à 22)" data-es="4. Ejercicio de los derechos de los pacientes (Art. 15 a 22)" data-de="4. Ausübung von Patientenrechten (Art. 15 bis 22)">4. Exercice des droits des patients (Art. 15 à 22)</h2>
-    <p class="t" data-en="GDPR guarantees patients the right of access, rectification, erasure (right to be forgotten), and portability of their data. Given that Pisum retains no data after the application is closed, <strong>it is technically impossible to query or delete a patient file within it</strong>. The exercise of these rights by patients must be directed to the Data Controller (the clinic or hospital's DPO) who will intervene directly on the RIS/PACS or hospital information system (HIS) where the final reports are archived." data-fr="Le RGPD garantit aux patients le droit d'accès, de rectification, d'effacement (droit à l'oubli) et de portabilité de leurs données. Étant donné que Pisum ne conserve aucune donnée après la fermeture de l'application, <strong>il est techniquement impossible d'y interroger ou d'y supprimer un dossier patient</strong>. L'exercice de ces droits par les patients doit être dirigé vers le Responsable de Traitement (le DPO de la clinique ou de l'hôpital) qui interviendra directement sur le RIS/PACS ou le système d'information hospitalier (SIH) où les comptes rendus finaux sont archivés." data-es="El RGPD garantiza a los pacientes el derecho de acceso, rectificación, supresión (derecho al olvido) y portabilidad de sus datos. Dado que Pisum no retiene ningún dato tras cerrar la aplicación, <strong>es técnicamente imposible consultar o eliminar un archivo de paciente en él</strong>. El ejercicio de estos derechos debe dirigirse al Responsable del Tratamiento (el DPO de la clínica u hospital), quien intervendrá directamente en el RIS/PACS o sistema de información hospitalario (HIS) donde se archivan los informes finales." data-de="Die DSGVO garantiert Patienten das Recht auf Auskunft, Berichtigung, Löschung (Recht auf Vergessenwerden) und Übertragbarkeit ihrer Daten. Da Pisum nach dem Schließen der Anwendung keine Daten aufbewahrt, <strong>ist es technisch unmöglich, eine Patientenakte darin abzufragen oder zu löschen</strong>. Die Ausübung dieser Rechte durch Patienten muss an den Verantwortlichen (den DSB der Klinik oder des Krankenhauses) gerichtet werden, der direkt auf das RIS/PACS oder Krankenhausinformationssystem (KIS) zugreift, in dem die endgültigen Berichte archiviert sind.">Le RGPD garantit aux patients le droit d'accès, de rectification, d'effacement (droit à l'oubli) et de portabilité de leurs données. Étant donné que Pisum ne conserve aucune donnée après la fermeture de l'application, <strong>il est techniquement impossible d'y interroger ou d'y supprimer un dossier patient</strong>. L'exercice de ces droits par les patients doit être dirigé vers le Responsable de Traitement (le DPO de la clinique ou de l'hôpital) qui interviendra directement sur le RIS/PACS ou le système d'information hospitalier (SIH) où les comptes rendus finaux sont archivés.</p>
-
-  </main>
-
-  <footer>
-    <div class="footer-bottom">
-      <p class="t" data-en="created by radiologists, for radiologists. Good work! 👨‍⚕️- Support & Feedback: MyPisum@Proton.me" data-fr="créé par les radiologues, pour les radiologues. Bon travail ! 👨‍⚕️- Support & Feedback : MyPisum@Proton.me" data-es="creado por radiólogos, para radiólogos. ¡Buen trabajo! 👨‍⚕️- Soporte y comentarios: MyPisum@Proton.me" data-de="von Radiologen für Radiologen entwickelt. Gute Arbeit! 👨‍⚕️- Support & Feedback: MyPisum@Proton.me">créé par les radiologues, pour les radiologues. Bon travail ! 👨‍⚕️- Support & Feedback : MyPisum@Proton.me</p>
-    </div>
-  </footer>
-
-  <script>
-    let currentLang = localStorage.getItem('pisum-lang') || 'fr';
-
-    function setLang(lang) {
-      currentLang = lang;
-      localStorage.setItem('pisum-lang', lang);
-
-      document.querySelectorAll('.t').forEach(el => {
-        const val = el.dataset[lang];
-        if (val) el.innerHTML = val;
-      });
-
-      document.querySelectorAll('.lang-btn').forEach(b => {
-        b.classList.toggle('active', b.dataset.l === lang);
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      setLang(currentLang);
-    });
-  </script>
-
+setLang(currentLang);
+</script>
 </body>
 </html>

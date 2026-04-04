@@ -1,213 +1,535 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Conditions d'Utilisation – Pisum</title>
-  <meta name="robots" content="noindex, follow">
-  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css">
-  <style>
-    :root {
-      --ink: #0d1117;
-      --ink-soft: #2d3748;
-      --ink-muted: #718096;
-      --cream: #faf8f4;
-      --cream-dark: #f0ece4;
-      --gold: #c8973a;
-      --gold-light: #f5e6c8;
-      --teal: #0e6e6e;
-      --teal-light: #e0f2f2;
-      --white: #ffffff;
-      --radius-lg: 20px;
-      --shadow: 0 4px 24px rgba(13,17,23,0.08);
-    }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Conditions d'Utilisation — PISUM</title>
+<meta name="robots" content="noindex, follow"/>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+:root {
+  --void: #06060a; --s1: #0e0e14; --s2: #14141e; --s3: #1c1c2a;
+  --border: rgba(255,255,255,0.07); --border-b: rgba(255,255,255,0.14);
+  --ink: #f0f0f8; --ink-2: #a0a0c0; --ink-3: #606080; --ink-4: #35354a;
+  --cyan: #00e5cc; --blue: #3b6ef8; --purple: #8b6ef8; --amber: #f59e0b;
+  --grad: linear-gradient(135deg, #00e5cc 0%, #3b6ef8 60%, #8b6ef8 100%);
+  --fd: 'Clash Display', Georgia, serif; --fb: 'Plus Jakarta Sans', system-ui, sans-serif; --fm: 'JetBrains Mono', monospace;
+  --r: 12px; --r-lg: 20px; --t: cubic-bezier(0.25,1,0.5,1);
+}
+body { font-family: var(--fb); background: var(--void); color: var(--ink); line-height: 1.65; overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; }
+body::before {
+  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+a { text-decoration: none; color: inherit; }
+main { flex: 1; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 clamp(1.25rem,5vw,3rem); position: relative; z-index: 1; }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--cream);
-      color: var(--ink);
-      line-height: 1.6;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+/* ── NAV ── */
+.nav {
+  position: sticky; top: 0; z-index: 999; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 clamp(1.25rem,5vw,3rem);
+  background: rgba(6,6,10,0.92); backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; font-family: var(--fd); font-size: 1.1rem; font-weight: 600; color: var(--ink); }
+.nav-logo img { width: 30px; height: 30px; border-radius: 8px; }
+.nav-right { display: flex; align-items: center; gap: 0.75rem; }
+.nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+.nav-links a { font-size: 0.83rem; font-weight: 500; color: var(--ink-2); transition: color 0.18s; }
+.nav-links a:hover { color: var(--cyan); }
+.lang-switcher { display: flex; gap: 4px; }
+.lang-btn {
+  background: none; border: 1px solid var(--border); border-radius: 6px; padding: 4px 8px;
+  cursor: pointer; font-size: 0.7rem; font-weight: 700; color: var(--ink-3);
+  transition: all 0.15s; font-family: var(--fm); text-transform: uppercase; letter-spacing: 0.05em;
+}
+.lang-btn:hover, .lang-btn.active { border-color: var(--cyan); color: var(--cyan); background: rgba(0,229,204,0.07); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 1.5px; background: var(--ink); border-radius: 2px; }
+@media(max-width:780px){.nav-links{display:none}.hamburger{display:flex}.nav-links.open{display:flex;flex-direction:column;gap:1.5rem;position:fixed;inset:64px 0 0 0;background:var(--s1);padding:2rem;z-index:997}.nav-links.open a{font-size:1.1rem}}
 
-    h1, h2, h3, h4 { font-family: 'DM Serif Display', serif; line-height: 1.15; }
-    h1 { font-size: clamp(2rem, 4vw, 3rem); }
+/* ── HERO ── */
+.hero {
+  padding: clamp(60px,10vw,100px) 0 clamp(50px,7vw,70px);
+  position: relative; overflow: hidden; text-align: center;
+}
+.hero-orb {
+  position: absolute; border-radius: 50%; pointer-events: none;
+  width: 800px; height: 600px; top: -250px; left: 50%; transform: translateX(-50%);
+  background: radial-gradient(ellipse, rgba(59,110,248,0.05) 0%, transparent 65%);
+}
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.67rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--cyan); margin-bottom: 1.2rem;
+}
+.eyebrow::before { content: ''; width: 20px; height: 1.5px; background: var(--cyan); display: inline-block; }
+.hero h1 {
+  font-family: var(--fd); font-size: clamp(2.4rem,4.5vw,4.2rem); font-weight: 700;
+  line-height: 1.06; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 1.2rem;
+}
+.hero h1 em { font-style: italic; color: var(--cyan); }
+.hero-sub { font-size: clamp(0.9rem,1.6vw,1rem); color: var(--ink-2); max-width: 560px; margin: 0 auto 2rem; line-height: 1.7; }
+.hero-meta { display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; color: var(--ink-3); font-family: var(--fm); }
 
-    /* Nav */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(250,248,244,0.92); backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(200,151,58,0.2);
-      padding: 0 clamp(1rem, 5vw, 4rem);
-      display: flex; align-items: center; justify-content: space-between;
-      height: 64px;
-    }
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--ink); }
-    .nav-logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--teal), var(--gold)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; }
-    
-    .nav-right { display: flex; align-items: center; gap: 1.5rem; }
-    .nav-links { display: flex; list-style: none; gap: 2rem; margin: 0; padding: 0; }
-    .nav-links a { text-decoration: none; color: var(--ink-soft); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--teal); }
+/* ── CONTENT LAYOUT ── */
+.content-layout {
+  display: grid; grid-template-columns: 240px 1fr; gap: 3rem;
+  align-items: start; padding: clamp(2rem,4vw,3rem) 0 clamp(5rem,10vw,8rem);
+  position: relative; z-index: 1;
+}
+@media(max-width:860px){ .content-layout { grid-template-columns: 1fr; } .toc { display: none; } }
 
-    /* Lang Switcher */
-    .lang-switcher { display: flex; gap: 4px; }
-    .lang-btn { background: none; border: 1px solid transparent; border-radius: 6px; padding: 4px 6px; cursor: pointer; font-size: 1.1rem; transition: all 0.15s; opacity: 0.6; }
-    .lang-btn:hover, .lang-btn.active { border-color: var(--gold); opacity: 1; background: var(--gold-light); }
+/* TOC */
+.toc { position: sticky; top: 80px; }
+.toc-title { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 1rem; }
+.toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+.toc-list a {
+  display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--ink-3);
+  padding: 0.35rem 0.6rem; border-radius: 7px; transition: all 0.18s;
+}
+.toc-list a:hover, .toc-list a.toc-active { color: var(--cyan); background: rgba(0,229,204,0.06); }
+.toc-list a::before { content: ''; width: 3px; height: 3px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
 
-    /* Header Legal */
-    .docs-hero {
-      background: var(--ink);
-      color: white;
-      padding: 5rem clamp(1rem, 5vw, 4rem);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .docs-hero::before {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse 70% 60% at 50% 10%, rgba(14,110,110,0.2) 0%, transparent 60%); pointer-events: none;
-    }
-    .docs-hero h1 { position: relative; z-index: 1; margin-bottom: 0.5rem; color: white;}
-    .docs-hero p { position: relative; z-index: 1; color: var(--gold); font-size: 1.1rem; max-width: 600px; margin: 0 auto; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase;}
+/* PROSE */
+.prose { min-width: 0; }
+.prose-section { margin-bottom: 3.5rem; scroll-margin-top: 80px; }
+.prose-section:last-child { margin-bottom: 0; }
+.prose h2 {
+  font-family: var(--fd); font-size: clamp(1.2rem,2.3vw,1.7rem); font-weight: 600;
+  letter-spacing: -0.03em; color: var(--ink); margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 10px;
+}
+.prose h2 .num {
+  font-family: var(--fm); font-size: 0.68rem; font-weight: 500; color: var(--blue);
+  border: 1px solid rgba(59,110,248,0.3); border-radius: 5px; padding: 2px 7px; flex-shrink: 0;
+}
+.prose h3 { font-family: var(--fd); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 1.75rem 0 0.65rem; letter-spacing: -0.02em; }
+.prose p { font-size: 0.875rem; color: var(--ink-2); line-height: 1.82; margin-bottom: 1rem; }
+.prose ul { list-style: none; margin: 0.75rem 0 1rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.prose ul li { font-size: 0.87rem; color: var(--ink-2); line-height: 1.7; padding-left: 1.2rem; position: relative; }
+.prose ul li::before { content: '—'; position: absolute; left: 0; color: var(--blue); font-size: 0.7rem; top: 2px; }
+.prose ol { list-style: none; counter-reset: ol-counter; margin: 0.75rem 0 1rem; display: flex; flex-direction: column; gap: 0.6rem; }
+.prose ol li { counter-increment: ol-counter; font-size: 0.87rem; color: var(--ink-2); line-height: 1.7; padding-left: 2rem; position: relative; }
+.prose ol li::before { content: counter(ol-counter, decimal-leading-zero); position: absolute; left: 0; font-family: var(--fm); font-size: 0.68rem; color: var(--blue); top: 3px; }
+.prose strong { color: var(--ink); font-weight: 600; }
+.prose em { font-style: italic; }
+.prose a { color: var(--cyan); transition: opacity 0.18s; }
+.prose a:hover { opacity: 0.8; }
 
-    /* Content Legal */
-    .legal-content {
-      flex-grow: 1;
-      max-width: 900px;
-      margin: 4rem auto;
-      background: white;
-      padding: 4rem;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--cream-dark);
-      box-shadow: var(--shadow);
-    }
-    
-    .legal-intro {
-      font-size: 1.1rem;
-      color: var(--ink-soft);
-      margin-bottom: 3rem;
-      padding-bottom: 2rem;
-      border-bottom: 2px solid var(--cream-dark);
-    }
+.info-block {
+  background: var(--s2); border: 1px solid var(--border); border-left: 3px solid;
+  border-radius: var(--r); padding: 1rem 1.25rem; margin: 1.25rem 0;
+  font-size: 0.84rem; color: var(--ink-2); line-height: 1.75;
+}
+.info-block.blue { border-left-color: var(--blue); }
+.info-block.amber { border-left-color: var(--amber); }
+.info-block strong { color: var(--ink); }
 
-    .legal-content h2 { font-size: 1.6rem; color: var(--ink); margin-top: 3rem; margin-bottom: 1.2rem; }
-    .legal-content p { color: var(--ink-muted); margin-bottom: 1.2rem; font-size: 1rem; line-height: 1.7; }
-    .legal-content ul { margin-left: 2rem; margin-bottom: 1.5rem; color: var(--ink-muted); line-height: 1.7; }
-    .legal-content li { margin-bottom: 0.5rem; }
+/* ── FOOTER ── */
+footer { background: var(--s1); border-top: 1px solid var(--border); padding: 2rem 0; position: relative; z-index: 1; }
+.foot-in { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+.foot-logo { display: flex; align-items: center; gap: 8px; font-family: var(--fd); font-size: 0.95rem; font-weight: 600; color: var(--ink); }
+.foot-logo img { width: 26px; height: 26px; border-radius: 6px; }
+.foot-copy { font-size: 0.72rem; color: var(--ink-3); }
+.foot-links { display: flex; align-items: center; gap: 1.5rem; }
+.foot-links a { font-size: 0.72rem; color: var(--ink-3); transition: color 0.18s; }
+.foot-links a:hover { color: var(--cyan); }
+@media(max-width:640px){.foot-in{flex-direction:column;text-align:center}.foot-links{justify-content:center;flex-wrap:wrap}}
 
-    .summary-box {
-      background: rgba(14,110,110,0.05);
-      border: 1px solid rgba(14,110,110,0.2);
-      border-left: 4px solid var(--teal);
-      padding: 1.5rem 2rem;
-      border-radius: 0 12px 12px 0;
-      margin: 2rem 0;
-    }
-    .summary-box h4 { color: var(--teal); margin-bottom: 0.8rem; font-family: 'DM Sans', sans-serif; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
-    .summary-box p { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
-
-    /* Footer */
-    footer { background: var(--ink); color: white; padding: 2.5rem; margin-top: auto; }
-    .footer-bottom { text-align: center; font-size: 0.95rem; color: rgba(255,255,255,0.7); }
-
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .legal-content { padding: 2rem; margin: 2rem 1rem; }
-      .docs-hero { padding: 3rem 1rem; }
-    }
-  </style>
+@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+.animate-in { animation: fadeUp 0.55s cubic-bezier(0.25,1,0.5,1) both; }
+.d1{animation-delay:0.05s}.d2{animation-delay:0.12s}.d3{animation-delay:0.2s}
+</style>
 </head>
 <body>
 
-  <nav>
-    <a href="index.html" class="nav-logo">
-      <div class="nav-logo-icon">⚕</div>
-      Pisum
-    </a>
-    <div class="nav-right">
-      <ul class="nav-links">
-        <li><a href="index.html" class="t" data-en="Back to Home" data-fr="Retour à l'accueil" data-es="Volver al inicio" data-de="Zurück zur Startseite">Retour à l'accueil</a></li>
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="PISUM"/>
+    PISUM
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html#features">Features</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="documentation.html">Docs</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('de')">DE</button>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+    </div>
+    <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-orb"></div>
+  <div class="container">
+    <div class="animate-in d1"><span class="eyebrow" id="ey">Légal</span></div>
+    <h1 class="animate-in d2" id="h1">Conditions<br/><em>d'utilisation</em></h1>
+    <p class="hero-sub animate-in d3" id="hsub">En utilisant PISUM, vous acceptez les présentes conditions. Merci de les lire attentivement.</p>
+    <p class="hero-meta animate-in">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2"/><path d="M6 4v2.5l1.5 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+      <span id="updated">Version 1.3 — Janvier 2026</span>
+    </p>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<div class="container">
+  <div class="content-layout">
+
+    <!-- TOC -->
+    <nav class="toc" aria-label="Sommaire">
+      <div class="toc-title" id="toc-title">Sommaire</div>
+      <ul class="toc-list">
+        <li><a href="#s1" id="tl1">1. Acceptation</a></li>
+        <li><a href="#s2" id="tl2">2. Licence d'utilisation</a></li>
+        <li><a href="#s3" id="tl3">3. Responsabilité médicale</a></li>
+        <li><a href="#s4" id="tl4">4. Données & confidentialité</a></li>
+        <li><a href="#s5" id="tl5">5. Propriété intellectuelle</a></li>
+        <li><a href="#s6" id="tl6">6. Résiliation</a></li>
+        <li><a href="#s7" id="tl7">7. Limitation de responsabilité</a></li>
+        <li><a href="#s8" id="tl8">8. Droit applicable</a></li>
       </ul>
-      <div class="lang-switcher">
-        <button class="lang-btn active" onclick="setLang('en')" data-l="en" title="English"><span class="fi fi-gb"></span></button>
-        <button class="lang-btn" onclick="setLang('fr')" data-l="fr" title="Français"><span class="fi fi-fr"></span></button>
-        <button class="lang-btn" onclick="setLang('es')" data-l="es" title="Español"><span class="fi fi-es"></span></button>
-        <button class="lang-btn" onclick="setLang('de')" data-l="de" title="Deutsch"><span class="fi fi-de"></span></button>
+    </nav>
+
+    <!-- PROSE -->
+    <article class="prose">
+
+      <div class="prose-section" id="s1">
+        <h2><span class="num">01</span> <span id="s1h">Acceptation des conditions</span></h2>
+        <p id="s1p1">Les présentes Conditions Générales d'Utilisation (CGU) régissent l'accès et l'utilisation du logiciel PISUM, éditeur de comptes rendus radiologiques, développé par <strong>PISUM SAS</strong>.</p>
+        <p id="s1p2">En installant, activant ou utilisant PISUM, vous reconnaissez avoir pris connaissance de l'intégralité de ces CGU et vous les acceptez sans réserve. Si vous n'acceptez pas ces conditions, vous ne devez pas utiliser le logiciel.</p>
+        <div class="info-block blue" id="ib1">
+          <strong>Usage professionnel.</strong> PISUM est un outil exclusivement réservé aux professionnels de santé habilités (radiologues, médecins spécialistes). Son utilisation par des personnes non qualifiées est expressément interdite.
+        </div>
+      </div>
+
+      <div class="prose-section" id="s2">
+        <h2><span class="num">02</span> <span id="s2h">Licence d'utilisation</span></h2>
+        <p id="s2p1">PISUM SAS accorde à l'utilisateur une licence personnelle, non exclusive, non transférable et révocable pour utiliser le logiciel PISUM dans le cadre de son activité professionnelle de radiologie, sous réserve du respect des présentes CGU.</p>
+
+        <h3 id="s2h1">Droits accordés</h3>
+        <ul>
+          <li id="s2l1">Installer et utiliser PISUM sur le nombre de postes correspondant au plan souscrit.</li>
+          <li id="s2l2">Créer des comptes rendus radiologiques à usage professionnel.</li>
+          <li id="s2l3">Personnaliser les templates inclus pour votre pratique médicale.</li>
+        </ul>
+
+        <h3 id="s2h2">Restrictions</h3>
+        <ul>
+          <li id="s2l4">Vous ne pouvez pas redistribuer, sous-licencier ou vendre l'accès au logiciel.</li>
+          <li id="s2l5">Vous ne pouvez pas décompiler, désassembler ou tenter d'extraire le code source.</li>
+          <li id="s2l6">Vous ne pouvez pas utiliser PISUM pour développer un produit concurrent.</li>
+        </ul>
+      </div>
+
+      <div class="prose-section" id="s3">
+        <h2><span class="num">03</span> <span id="s3h">Responsabilité médicale</span></h2>
+        <p id="s3p1">PISUM est un <strong>outil d'aide à la rédaction</strong>. Les comptes rendus générés ne constituent pas un avis médical autonome et restent sous la responsabilité exclusive du radiologue qui les signe et les valide.</p>
+
+        <div class="info-block amber" id="ib3">
+          <strong>⚠️ Avertissement important.</strong> L'utilisateur demeure entièrement responsable de l'exactitude médicale, de la pertinence clinique et de la conformité réglementaire de chaque compte rendu émis via PISUM. PISUM SAS décline toute responsabilité en cas d'erreur diagnostique.
+        </div>
+
+        <p id="s3p2">Les templates fournis sont des modèles structurels indicatifs. Ils ont été élaborés par des radiologues expérimentés mais doivent être adaptés au contexte clinique spécifique de chaque patient par le professionnel de santé.</p>
+      </div>
+
+      <div class="prose-section" id="s4">
+        <h2><span class="num">04</span> <span id="s4h">Données & confidentialité</span></h2>
+        <p id="s4p1">PISUM est une application entièrement locale. Aucune donnée patient, aucun compte rendu, aucune image médicale ni transcription vocale n'est transmis aux serveurs de PISUM SAS.</p>
+        <p id="s4p2">Les seules données collectées par PISUM SAS concernent la gestion de votre compte et de votre licence (email, clé de licence, version logicielle). Pour le détail complet, consultez notre <a href="rgpd.html">Politique de confidentialité RGPD</a>.</p>
+        <ul>
+          <li id="s4l1">Les données de compte sont hébergées en Union Européenne.</li>
+          <li id="s4l2">Les données patients restent sur votre machine locale — nous n'y avons aucun accès.</li>
+          <li id="s4l3">La dictée vocale (Sally AI) est traitée exclusivement en local sur votre processeur.</li>
+        </ul>
+      </div>
+
+      <div class="prose-section" id="s5">
+        <h2><span class="num">05</span> <span id="s5h">Propriété intellectuelle</span></h2>
+        <p id="s5p1">PISUM, son code source, ses 112 templates, son moteur de dictée Sally AI, son interface graphique et l'ensemble de ses composants sont la propriété exclusive de <strong>PISUM SAS</strong> et sont protégés par les lois françaises et internationales sur la propriété intellectuelle.</p>
+        <p id="s5p2">Les comptes rendus générés par l'utilisateur à partir des templates lui appartiennent intégralement. PISUM SAS ne revendique aucun droit sur le contenu médical produit.</p>
+      </div>
+
+      <div class="prose-section" id="s6">
+        <h2><span class="num">06</span> <span id="s6h">Résiliation</span></h2>
+        <p id="s6p1">Vous pouvez résilier votre abonnement à tout moment depuis votre espace client. La résiliation prend effet à la fin de la période de facturation en cours — vous conservez l'accès jusqu'à cette date.</p>
+        <p id="s6p2">PISUM SAS se réserve le droit de suspendre ou résilier votre accès immédiatement en cas de violation des présentes CGU, de fraude, ou d'utilisation abusive du logiciel, sans préavis ni remboursement.</p>
+      </div>
+
+      <div class="prose-section" id="s7">
+        <h2><span class="num">07</span> <span id="s7h">Limitation de responsabilité</span></h2>
+        <p id="s7p1">Dans la limite permise par la loi applicable, PISUM SAS ne pourra être tenu responsable de dommages indirects, accessoires, spéciaux ou consécutifs résultant de l'utilisation ou de l'impossibilité d'utiliser le logiciel.</p>
+        <p id="s7p2">La responsabilité totale de PISUM SAS, quelle qu'en soit la cause, ne pourra excéder le montant payé par l'utilisateur au titre de son abonnement au cours des 12 derniers mois.</p>
+        <div class="info-block blue" id="ib7">
+          <strong>Disponibilité du service.</strong> PISUM étant une application locale, sa disponibilité ne dépend pas de nos serveurs. Nous garantissons la mise à disposition des mises à jour et du service de licence avec un objectif de disponibilité de 99,5%.
+        </div>
+      </div>
+
+      <div class="prose-section" id="s8">
+        <h2><span class="num">08</span> <span id="s8h">Droit applicable & litiges</span></h2>
+        <p id="s8p1">Les présentes CGU sont régies par le droit français. En cas de litige, les parties s'engagent à rechercher une solution amiable avant tout recours judiciaire. À défaut d'accord, les tribunaux compétents de Paris seront seuls compétents.</p>
+        <p id="s8p2">Pour toute question relative aux présentes CGU : <a href="mailto:MyPisum@Proton.me">MyPisum@Proton.me</a></p>
+      </div>
+
+    </article>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-in">
+      <div class="foot-logo">
+        <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="PISUM"/>
+        PISUM
+      </div>
+      <p class="foot-copy">© 2026 PISUM SAS. Tous droits réservés.</p>
+      <div class="foot-links">
+        <a href="rgpd.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="faq.html">FAQ</a>
+        <a href="documentation.html">Docs</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
-  </nav>
+  </div>
+</footer>
 
-  <header class="docs-hero">
-    <h1 class="t" data-en="Terms of Service" data-fr="Conditions d'Utilisation" data-es="Términos de Servicio" data-de="Nutzungsbedingungen">Conditions d'Utilisation</h1>
-    <p class="t" data-en="The radiologist's rhythm." data-fr="Le rythme du radiologue." data-es="El ritmo del radiólogo." data-de="Der Rhythmus des Radiologen.">Le rythme du radiologue.</p>
-  </header>
+<script>
+const ham = document.getElementById('ham'), nl = document.getElementById('nav-links');
+if(ham) ham.addEventListener('click', () => nl.classList.toggle('open'));
 
-  <main class="legal-content">
-    
-    <div class="legal-intro">
-      <p class="t" data-en="Welcome to Pisum. By downloading, installing, or using our software, you agree to comply with these Terms of Service. Please read them carefully." data-fr="Bienvenue sur Pisum. En téléchargeant, installant ou utilisant notre logiciel, vous acceptez de vous conformer aux présentes Conditions Générales d'Utilisation. Veuillez les lire attentivement." data-es="Bienvenido a Pisum. Al descargar, instalar o utilizar nuestro software, acepta cumplir con estos Términos de Servicio." data-de="Willkommen bei Pisum. Durch das Herunterladen, Installieren oder Verwenden unserer Software stimmen Sie diesen Nutzungsbedingungen zu.">Bienvenue sur Pisum. En téléchargeant, installant ou utilisant notre logiciel, vous acceptez de vous conformer aux présentes Conditions Générales d'Utilisation. Veuillez les lire attentivement.</p>
-    </div>
+// TOC active
+const sections = document.querySelectorAll('.prose-section');
+const tocLinks = document.querySelectorAll('.toc-list a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 100) cur = s.id; });
+  tocLinks.forEach(a => a.classList.toggle('toc-active', a.getAttribute('href') === '#'+cur));
+});
 
-    <div class="summary-box">
-      <h4 class="t" data-en="Medical Disclaimer" data-fr="Décharge de Responsabilité Médicale" data-es="Aviso Médico" data-de="Medizinischer Haftungsausschluss">Décharge de Responsabilité Médicale</h4>
-      <p class="t" data-en="Pisum is a text-editing and structured reporting tool. It is NOT a diagnostic medical device. The radiologist remains solely responsible for the final medical diagnosis, the accuracy of the dictated text, and the validation of the final report before it is sent to the RIS/PACS." data-fr="Pisum est un outil d'édition de texte et de structuration de rapports. Il N'EST PAS un dispositif médical de diagnostic. Le radiologue demeure le seul et unique responsable du diagnostic médical final, de l'exactitude du texte dicté, et de la validation du compte rendu final avant son envoi au RIS/PACS." data-es="Pisum es una herramienta de edición de texto. NO es un dispositivo médico de diagnóstico. El radiólogo sigue siendo el único responsable del diagnóstico médico final y la validación del informe." data-de="Pisum ist ein Textverarbeitungs- und Strukturierungstool. Es ist KEIN diagnostisches Medizinprodukt. Der Radiologe bleibt allein verantwortlich für die endgültige medizinische Diagnose und die Validierung des Berichts.">Pisum est un outil d'édition de texte et de structuration de rapports. Il N'EST PAS un dispositif médical de diagnostic. Le radiologue demeure le seul et unique responsable du diagnostic médical final, de l'exactitude du texte dicté, et de la validation du compte rendu final avant son envoi au RIS/PACS.</p>
-    </div>
+// Language translations
+const t = {
+  fr: {
+    ey:'Légal', h1:'Conditions<br/><em>d\'utilisation</em>',
+    hsub:'En utilisant PISUM, vous acceptez les présentes conditions. Merci de les lire attentivement.',
+    updated:'Version 1.3 — Janvier 2026',
+    'toc-title':'Sommaire',
+    tl1:'1. Acceptation', tl2:'2. Licence d\'utilisation', tl3:'3. Responsabilité médicale',
+    tl4:'4. Données & confidentialité', tl5:'5. Propriété intellectuelle',
+    tl6:'6. Résiliation', tl7:'7. Limitation de responsabilité', tl8:'8. Droit applicable',
+    s1h:'Acceptation des conditions',
+    s1p1:'Les présentes Conditions Générales d\'Utilisation (CGU) régissent l\'accès et l\'utilisation du logiciel PISUM, éditeur de comptes rendus radiologiques, développé par <strong>PISUM SAS</strong>.',
+    s1p2:'En installant, activant ou utilisant PISUM, vous reconnaissez avoir pris connaissance de l\'intégralité de ces CGU et vous les acceptez sans réserve.',
+    ib1:'<strong>Usage professionnel.</strong> PISUM est un outil exclusivement réservé aux professionnels de santé habilités (radiologues, médecins spécialistes). Son utilisation par des personnes non qualifiées est expressément interdite.',
+    s2h:'Licence d\'utilisation',
+    s2p1:'PISUM SAS accorde à l\'utilisateur une licence personnelle, non exclusive, non transférable et révocable pour utiliser le logiciel dans le cadre de son activité professionnelle de radiologie.',
+    s2h1:'Droits accordés',
+    s2l1:'Installer et utiliser PISUM sur le nombre de postes correspondant au plan souscrit.',
+    s2l2:'Créer des comptes rendus radiologiques à usage professionnel.',
+    s2l3:'Personnaliser les templates inclus pour votre pratique médicale.',
+    s2h2:'Restrictions',
+    s2l4:'Vous ne pouvez pas redistribuer, sous-licencier ou vendre l\'accès au logiciel.',
+    s2l5:'Vous ne pouvez pas décompiler, désassembler ou tenter d\'extraire le code source.',
+    s2l6:'Vous ne pouvez pas utiliser PISUM pour développer un produit concurrent.',
+    s3h:'Responsabilité médicale',
+    s3p1:'PISUM est un <strong>outil d\'aide à la rédaction</strong>. Les comptes rendus générés restent sous la responsabilité exclusive du radiologue qui les signe et les valide.',
+    ib3:'<strong>⚠️ Avertissement important.</strong> L\'utilisateur demeure entièrement responsable de l\'exactitude médicale et de la conformité réglementaire de chaque compte rendu émis via PISUM. PISUM SAS décline toute responsabilité en cas d\'erreur diagnostique.',
+    s3p2:'Les templates fournis sont des modèles structurels indicatifs, à adapter au contexte clinique de chaque patient.',
+    s4h:'Données & confidentialité',
+    s4p1:'PISUM est une application entièrement locale. Aucune donnée patient, aucun compte rendu ni transcription vocale n\'est transmis aux serveurs de PISUM SAS.',
+    s4p2:'Les seules données collectées concernent la gestion de votre compte. Consultez notre <a href="rgpd.html">Politique de confidentialité RGPD</a>.',
+    s4l1:'Les données de compte sont hébergées en Union Européenne.',
+    s4l2:'Les données patients restent sur votre machine locale — nous n\'y avons aucun accès.',
+    s4l3:'La dictée vocale (Sally AI) est traitée exclusivement en local sur votre processeur.',
+    s5h:'Propriété intellectuelle',
+    s5p1:'PISUM, son code source, ses 112 templates, son moteur de dictée Sally AI et l\'ensemble de ses composants sont la propriété exclusive de <strong>PISUM SAS</strong>.',
+    s5p2:'Les comptes rendus générés par l\'utilisateur lui appartiennent intégralement. PISUM SAS ne revendique aucun droit sur le contenu médical produit.',
+    s6h:'Résiliation',
+    s6p1:'Vous pouvez résilier votre abonnement à tout moment depuis votre espace client. La résiliation prend effet à la fin de la période de facturation en cours.',
+    s6p2:'PISUM SAS se réserve le droit de suspendre votre accès immédiatement en cas de violation des CGU ou d\'utilisation abusive.',
+    s7h:'Limitation de responsabilité',
+    s7p1:'Dans la limite permise par la loi applicable, PISUM SAS ne pourra être tenu responsable de dommages indirects résultant de l\'utilisation du logiciel.',
+    s7p2:'La responsabilité totale de PISUM SAS ne pourra excéder le montant payé au titre de l\'abonnement au cours des 12 derniers mois.',
+    ib7:'<strong>Disponibilité du service.</strong> PISUM étant une application locale, sa disponibilité ne dépend pas de nos serveurs. Nous garantissons le service de licence avec un objectif de 99,5%.',
+    s8h:'Droit applicable & litiges',
+    s8p1:'Les présentes CGU sont régies par le droit français. En cas de litige persistant, les tribunaux compétents de Paris seront seuls compétents.',
+    s8p2:'Pour toute question relative aux présentes CGU : <a href="mailto:MyPisum@Proton.me">MyPisum@Proton.me</a>',
+  },
+  en: {
+    ey:'Legal', h1:'Terms of<br/><em>use</em>',
+    hsub:'By using PISUM, you agree to these terms. Please read them carefully.',
+    updated:'Version 1.3 — January 2026',
+    'toc-title':'Contents',
+    tl1:'1. Acceptance', tl2:'2. License', tl3:'3. Medical liability',
+    tl4:'4. Data & privacy', tl5:'5. Intellectual property',
+    tl6:'6. Termination', tl7:'7. Limitation of liability', tl8:'8. Governing law',
+    s1h:'Acceptance of terms',
+    s1p1:'These Terms of Use govern access to and use of the PISUM radiology reporting software, developed by <strong>PISUM SAS</strong>.',
+    s1p2:'By installing, activating, or using PISUM, you acknowledge that you have read and accept these terms in full.',
+    ib1:'<strong>Professional use only.</strong> PISUM is exclusively intended for qualified healthcare professionals (radiologists, specialist physicians). Use by unqualified persons is expressly prohibited.',
+    s2h:'License',
+    s2p1:'PISUM SAS grants the user a personal, non-exclusive, non-transferable, revocable license to use the software for professional radiology activities.',
+    s2h1:'Rights granted',
+    s2l1:'Install and use PISUM on the number of workstations included in your plan.',
+    s2l2:'Create radiology reports for professional use.',
+    s2l3:'Customize included templates for your medical practice.',
+    s2h2:'Restrictions',
+    s2l4:'You may not redistribute, sublicense, or sell access to the software.',
+    s2l5:'You may not decompile, disassemble, or attempt to extract the source code.',
+    s2l6:'You may not use PISUM to develop a competing product.',
+    s3h:'Medical liability',
+    s3p1:'PISUM is a <strong>report drafting aid</strong>. Generated reports remain under the exclusive responsibility of the radiologist who signs and validates them.',
+    ib3:'<strong>⚠️ Important disclaimer.</strong> The user remains fully responsible for the medical accuracy and regulatory compliance of each report issued via PISUM. PISUM SAS declines all liability for diagnostic errors.',
+    s3p2:'Provided templates are structural models to be adapted to each patient\'s specific clinical context by the healthcare professional.',
+    s4h:'Data & privacy',
+    s4p1:'PISUM is a fully local application. No patient data, report content, or voice transcription is transmitted to PISUM SAS servers.',
+    s4p2:'The only data collected concerns account and license management. See our <a href="rgpd.html">GDPR Privacy Policy</a>.',
+    s4l1:'Account data is hosted in the European Union.',
+    s4l2:'Patient data stays on your local machine — we have no access to it.',
+    s4l3:'Voice dictation (Sally AI) is processed exclusively on your local processor.',
+    s5h:'Intellectual property',
+    s5p1:'PISUM, its source code, 112 templates, Sally AI dictation engine, and all components are the exclusive property of <strong>PISUM SAS</strong>.',
+    s5p2:'Reports generated by the user belong entirely to them. PISUM SAS claims no rights over the medical content produced.',
+    s6h:'Termination',
+    s6p1:'You may cancel your subscription at any time from your account dashboard. Cancellation takes effect at the end of the current billing period.',
+    s6p2:'PISUM SAS reserves the right to suspend your access immediately in case of terms violation or misuse.',
+    s7h:'Limitation of liability',
+    s7p1:'To the extent permitted by applicable law, PISUM SAS shall not be liable for indirect or consequential damages arising from use of the software.',
+    s7p2:'PISUM SAS\'s total liability shall not exceed the amount paid by the user over the last 12 months.',
+    ib7:'<strong>Service availability.</strong> As a local application, PISUM\'s availability does not depend on our servers. We guarantee the licensing service with a 99.5% uptime objective.',
+    s8h:'Governing law & disputes',
+    s8p1:'These terms are governed by French law. In case of persistent dispute, the courts of Paris shall have exclusive jurisdiction.',
+    s8p2:'For any question regarding these terms: <a href="mailto:MyPisum@Proton.me">MyPisum@Proton.me</a>',
+  },
+  de: {
+    ey:'Rechtliches', h1:'Nutzungs-<br/><em>bedingungen</em>',
+    hsub:'Durch die Nutzung von PISUM akzeptieren Sie diese Bedingungen. Bitte lesen Sie sie sorgfältig.',
+    updated:'Version 1.3 — Januar 2026',
+    'toc-title':'Inhalt',
+    tl1:'1. Akzeptanz', tl2:'2. Lizenz', tl3:'3. Medizinische Haftung',
+    tl4:'4. Daten & Datenschutz', tl5:'5. Geistiges Eigentum',
+    tl6:'6. Kündigung', tl7:'7. Haftungsbeschränkung', tl8:'8. Anwendbares Recht',
+    s1h:'Akzeptanz der Bedingungen',
+    s1p1:'Diese Nutzungsbedingungen regeln den Zugang und die Nutzung der PISUM-Radiologieberichtssoftware, entwickelt von <strong>PISUM SAS</strong>.',
+    s1p2:'Durch die Installation, Aktivierung oder Nutzung von PISUM bestätigen Sie, diese Bedingungen vollständig gelesen und akzeptiert zu haben.',
+    ib1:'<strong>Nur für den professionellen Gebrauch.</strong> PISUM ist ausschließlich für qualifizierte Gesundheitsfachkräfte (Radiologen, Fachärzte) bestimmt.',
+    s2h:'Lizenz',
+    s2p1:'PISUM SAS gewährt dem Nutzer eine persönliche, nicht-exklusive, nicht übertragbare und widerrufliche Lizenz zur Nutzung der Software für berufliche Radiologiezwecke.',
+    s2h1:'Gewährte Rechte',
+    s2l1:'Installation und Nutzung von PISUM auf der im Plan enthaltenen Anzahl von Workstations.',
+    s2l2:'Erstellung von Radiologieberichten für den professionellen Gebrauch.',
+    s2l3:'Anpassung der enthaltenen Templates für Ihre medizinische Praxis.',
+    s2h2:'Einschränkungen',
+    s2l4:'Sie dürfen die Software nicht weitervertreiben, unterlizenzieren oder den Zugang verkaufen.',
+    s2l5:'Sie dürfen die Software nicht dekompilieren oder disassemblieren.',
+    s2l6:'Sie dürfen PISUM nicht zur Entwicklung eines Konkurrenzprodukts nutzen.',
+    s3h:'Medizinische Haftung',
+    s3p1:'PISUM ist ein <strong>Berichterstellungswerkzeug</strong>. Die generierten Berichte liegen in der ausschließlichen Verantwortung des unterzeichnenden Radiologen.',
+    ib3:'<strong>⚠️ Wichtiger Haftungsausschluss.</strong> Der Nutzer bleibt vollständig verantwortlich für die medizinische Genauigkeit jedes über PISUM ausgestellten Berichts. PISUM SAS lehnt jede Haftung für diagnostische Fehler ab.',
+    s3p2:'Die bereitgestellten Templates sind strukturelle Muster und müssen an den spezifischen klinischen Kontext jedes Patienten angepasst werden.',
+    s4h:'Daten & Datenschutz',
+    s4p1:'PISUM ist eine vollständig lokale Anwendung. Keine Patientendaten oder Sprachtranskriptionen werden an PISUM SAS-Server übertragen.',
+    s4p2:'Die einzigen erfassten Daten betreffen die Konto- und Lizenzverwaltung. Siehe unsere <a href="rgpd.html">DSGVO-Datenschutzrichtlinie</a>.',
+    s4l1:'Kontodaten werden in der Europäischen Union gehostet.',
+    s4l2:'Patientendaten verbleiben auf Ihrer lokalen Maschine — wir haben keinen Zugriff.',
+    s4l3:'Sprachdiktat (Sally AI) wird ausschließlich auf Ihrem lokalen Prozessor verarbeitet.',
+    s5h:'Geistiges Eigentum',
+    s5p1:'PISUM, sein Quellcode, 112 Templates, Sally AI und alle Komponenten sind Eigentum von <strong>PISUM SAS</strong>.',
+    s5p2:'Die vom Nutzer generierten Berichte gehören vollständig dem Nutzer. PISUM SAS erhebt keine Ansprüche auf produzierten medizinischen Inhalt.',
+    s6h:'Kündigung',
+    s6p1:'Sie können Ihr Abonnement jederzeit über Ihr Kundenkonto kündigen. Die Kündigung tritt am Ende der aktuellen Abrechnungsperiode in Kraft.',
+    s6p2:'PISUM SAS behält sich das Recht vor, Ihren Zugang bei Verstößen gegen die Nutzungsbedingungen sofort zu sperren.',
+    s7h:'Haftungsbeschränkung',
+    s7p1:'PISUM SAS haftet im gesetzlich zulässigen Rahmen nicht für indirekte Schäden aus der Nutzung der Software.',
+    s7p2:'Die Gesamthaftung von PISUM SAS übersteigt nicht den in den letzten 12 Monaten gezahlten Betrag.',
+    ib7:'<strong>Dienstverfügbarkeit.</strong> Als lokale Anwendung hängt PISUMs Verfügbarkeit nicht von unseren Servern ab. Wir garantieren den Lizenzdienst mit 99,5% Verfügbarkeit.',
+    s8h:'Anwendbares Recht & Streitigkeiten',
+    s8p1:'Diese Bedingungen unterliegen französischem Recht. Bei anhaltenden Streitigkeiten sind die Pariser Gerichte ausschließlich zuständig.',
+    s8p2:'Für Fragen zu diesen Bedingungen: <a href="mailto:MyPisum@Proton.me">MyPisum@Proton.me</a>',
+  },
+  es: {
+    ey:'Legal', h1:'Condiciones<br/><em>de uso</em>',
+    hsub:'Al usar PISUM, acepta estas condiciones. Por favor, léalas detenidamente.',
+    updated:'Versión 1.3 — Enero 2026',
+    'toc-title':'Contenido',
+    tl1:'1. Aceptación', tl2:'2. Licencia', tl3:'3. Responsabilidad médica',
+    tl4:'4. Datos & privacidad', tl5:'5. Propiedad intelectual',
+    tl6:'6. Cancelación', tl7:'7. Limitación de responsabilidad', tl8:'8. Derecho aplicable',
+    s1h:'Aceptación de los términos',
+    s1p1:'Estas Condiciones de Uso rigen el acceso y uso del software de informes radiológicos PISUM, desarrollado por <strong>PISUM SAS</strong>.',
+    s1p2:'Al instalar, activar o utilizar PISUM, usted reconoce haber leído y aceptado íntegramente estas condiciones.',
+    ib1:'<strong>Solo uso profesional.</strong> PISUM está destinado exclusivamente a profesionales de la salud cualificados (radiólogos, médicos especialistas).',
+    s2h:'Licencia',
+    s2p1:'PISUM SAS otorga al usuario una licencia personal, no exclusiva, no transferible y revocable para usar el software en su actividad profesional de radiología.',
+    s2h1:'Derechos otorgados',
+    s2l1:'Instalar y usar PISUM en el número de estaciones incluidas en su plan.',
+    s2l2:'Crear informes radiológicos para uso profesional.',
+    s2l3:'Personalizar las plantillas incluidas para su práctica médica.',
+    s2h2:'Restricciones',
+    s2l4:'No puede redistribuir, sublicenciar o vender el acceso al software.',
+    s2l5:'No puede descompilar o desensamblar el software.',
+    s2l6:'No puede usar PISUM para desarrollar un producto competidor.',
+    s3h:'Responsabilidad médica',
+    s3p1:'PISUM es una <strong>herramienta de ayuda a la redacción</strong>. Los informes generados son responsabilidad exclusiva del radiólogo que los firma.',
+    ib3:'<strong>⚠️ Aviso importante.</strong> El usuario es plenamente responsable de la exactitud médica de cada informe emitido a través de PISUM. PISUM SAS rechaza toda responsabilidad por errores diagnósticos.',
+    s3p2:'Las plantillas proporcionadas son modelos estructurales a adaptar al contexto clínico específico de cada paciente.',
+    s4h:'Datos & privacidad',
+    s4p1:'PISUM es una aplicación completamente local. Ningún dato de paciente, informe o transcripción de voz se transmite a los servidores de PISUM SAS.',
+    s4p2:'Los únicos datos recopilados conciernen a la gestión de su cuenta. Consulte nuestra <a href="rgpd.html">Política de privacidad RGPD</a>.',
+    s4l1:'Los datos de cuenta se alojan en la Unión Europea.',
+    s4l2:'Los datos de pacientes permanecen en su máquina local — no tenemos acceso.',
+    s4l3:'El dictado de voz (Sally AI) se procesa exclusivamente en su procesador local.',
+    s5h:'Propiedad intelectual',
+    s5p1:'PISUM, su código fuente, 112 plantillas, Sally AI y todos sus componentes son propiedad exclusiva de <strong>PISUM SAS</strong>.',
+    s5p2:'Los informes generados por el usuario le pertenecen íntegramente. PISUM SAS no reclama ningún derecho sobre el contenido médico producido.',
+    s6h:'Cancelación',
+    s6p1:'Puede cancelar su suscripción en cualquier momento desde su área de cliente. La cancelación surte efecto al final del período de facturación actual.',
+    s6p2:'PISUM SAS se reserva el derecho de suspender su acceso de inmediato en caso de incumplimiento.',
+    s7h:'Limitación de responsabilidad',
+    s7p1:'En la medida permitida por la ley, PISUM SAS no será responsable de daños indirectos derivados del uso del software.',
+    s7p2:'La responsabilidad total de PISUM SAS no superará el importe pagado en los últimos 12 meses.',
+    ib7:'<strong>Disponibilidad del servicio.</strong> Como aplicación local, la disponibilidad de PISUM no depende de nuestros servidores. Garantizamos el servicio de licencia con un objetivo del 99,5%.',
+    s8h:'Derecho aplicable y litigios',
+    s8p1:'Estas condiciones se rigen por el derecho francés. Los tribunales de París tienen jurisdicción exclusiva en caso de litigio persistente.',
+    s8p2:'Para cualquier pregunta sobre estas condiciones: <a href="mailto:MyPisum@Proton.me">MyPisum@Proton.me</a>',
+  }
+};
 
-    <h2 class="t" data-en="1. License and Usage" data-fr="1. Licence et Utilisation" data-es="1. Licencia y Uso" data-de="1. Lizenz und Nutzung">1. Licence et Utilisation</h2>
-    <p class="t" data-en="Pisum grants you a non-exclusive, non-transferable, and revocable license to use the software according to your subscription plan (Solo, Clinic, Pro). Sharing a single-seat license across multiple users is strictly prohibited." data-fr="Pisum vous accorde une licence non exclusive, non transférable et révocable d'utilisation du logiciel, conformément à votre plan d'abonnement (Solo, Clinique, Pro). Le partage d'une licence individuelle entre plusieurs utilisateurs est strictement interdit." data-es="Pisum le otorga una licencia no exclusiva, intransferible y revocable para utilizar el software según su plan de suscripción. Está prohibido compartir una licencia individual entre varios usuarios." data-de="Pisum gewährt Ihnen eine nicht exklusive, nicht übertragbare und widerrufliche Lizenz zur Nutzung der Software gemäß Ihrem Abonnementplan. Die Weitergabe einer Einzellizenz an mehrere Benutzer ist untersagt.">Pisum vous accorde une licence non exclusive, non transférable et révocable d'utilisation du logiciel, conformément à votre plan d'abonnement (Solo, Clinique, Pro). Le partage d'une licence individuelle entre plusieurs utilisateurs est strictement interdit.</p>
+let currentLang = localStorage.getItem('pisum-lang') || 'fr';
 
-    <h2 class="t" data-en="2. Privacy and Data (GDPR)" data-fr="2. Confidentialité et Données (RGPD)" data-es="2. Privacidad y Datos (RGPD)" data-de="2. Datenschutz und Daten (DSGVO)">2. Confidentialité et Données (RGPD)</h2>
-    <p class="t" data-en="Pisum is designed to operate 100% offline. We do not collect, store, or transmit any Personal Health Data (PHD) to our servers. For more details, please consult our GDPR Compliance page." data-fr="Pisum est conçu pour fonctionner 100% hors ligne. Nous ne collectons, ne stockons, ni ne transmettons aucune Donnée de Santé à Caractère Personnel (HDS) vers nos serveurs. Pour plus de détails, veuillez consulter notre page de Conformité RGPD." data-es="Pisum está diseñado para funcionar 100% sin conexión. No recopilamos, almacenamos ni transmitimos ningún Dato de Salud Personal. Consulte nuestra página de Cumplimiento RGPD." data-de="Pisum ist zu 100 % für den Offline-Betrieb konzipiert. Wir sammeln, speichern oder übertragen keine personenbezogenen Gesundheitsdaten an unsere Server. Weitere Informationen finden Sie auf unserer DSGVO-Konformitätsseite.">Pisum est conçu pour fonctionner 100% hors ligne. Nous ne collectons, ne stockons, ni ne transmettons aucune Donnée de Santé à Caractère Personnel (HDS) vers nos serveurs. Pour plus de détails, veuillez consulter notre page de Conformité RGPD.</p>
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('pisum-lang', lang);
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent.toLowerCase() === lang));
+  const d = t[lang] || t.fr;
+  Object.keys(d).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = d[id];
+  });
+}
 
-    <h2 class="t" data-en="3. Intellectual Property" data-fr="3. Propriété Intellectuelle" data-es="3. Propiedad Intelectual" data-de="3. Geistiges Eigentum">3. Propriété Intellectuelle</h2>
-    <p class="t" data-en="The software, its source code, its built-in expert templates, and the Sally AI engine remain the exclusive property of Pisum. You may not reverse-engineer, decompile, or distribute the software without written authorization." data-fr="Le logiciel, son code source, ses modèles experts intégrés et le moteur Sally AI demeurent la propriété exclusive de Pisum. Il est interdit d'effectuer de l'ingénierie inverse, de décompiler ou de distribuer le logiciel sans autorisation écrite." data-es="El software, su código fuente, sus plantillas expertas y el motor Sally AI siguen siendo propiedad exclusiva de Pisum. No puede realizar ingeniería inversa, descompilar ni distribuir el software." data-de="Die Software, ihr Quellcode, ihre integrierten Expertenvorlagen und die Sally AI Engine bleiben das ausschließliche Eigentum von Pisum. Sie dürfen die Software ohne schriftliche Genehmigung nicht zurückentwickeln, dekompilieren oder verbreiten.">Le logiciel, son code source, ses modèles experts intégrés et le moteur Sally AI demeurent la propriété exclusive de Pisum. Il est interdit d'effectuer de l'ingénierie inverse, de décompiler ou de distribuer le logiciel sans autorisation écrite.</p>
-
-    <h2 class="t" data-en="4. Subscriptions" data-fr="4. Abonnements" data-es="4. Suscripciones" data-de="4. Abonnements">4. Abonnements</h2>
-    <p class="t" data-en="Subscriptions are billed via our partner Payhip. We offer a 7-day free trial. You may cancel your subscription at any time without penalty." data-fr="Les abonnements sont facturés via notre partenaire Payhip. Nous offrons un essai gratuit de 7 jours. Vous pouvez résilier votre abonnement à tout moment sans pénalité." data-es="Las suscripciones se facturan a través de nuestro socio Payhip. Ofrecemos una prueba gratuita de 7 días. Puede cancelar su suscripción en cualquier momento." data-de="Abonnements werden über unseren Partner Payhip abgerechnet. Wir bieten eine 7-tägige kostenlose Testversion. Sie können Ihr Abonnement jederzeit kündigen.">Les abonnements sont facturés via notre partenaire Payhip. Nous offrons un essai gratuit de 7 jours. Vous pouvez résilier votre abonnement à tout moment sans pénalité.</p>
-
-    <h2 class="t" data-en="5. Limitation of Liability" data-fr="5. Limitation de Responsabilité" data-es="5. Limitación de Responsabilidad" data-de="5. Haftungsbeschränkung">5. Limitation de Responsabilité</h2>
-    <p class="t" data-en="In no event shall Pisum be liable for any direct, indirect, incidental, special, or consequential damages resulting from the use or inability to use the software, including but not limited to medical errors or loss of data." data-fr="En aucun cas, Pisum ne pourra être tenu responsable des dommages directs, indirects, accessoires, spéciaux ou consécutifs résultant de l'utilisation ou de l'incapacité d'utiliser le logiciel, incluant, mais sans s'y limiter, les erreurs médicales ou la perte de données." data-es="En ningún caso Pisum será responsable de ningún daño directo, indirecto o consecuente que resulte del uso o la incapacidad de usar el software, incluidos los errores médicos o la pérdida de datos." data-de="In keinem Fall haftet Pisum für direkte, indirekte oder Folgeschäden, die sich aus der Nutzung oder Unmöglichkeit der Nutzung der Software ergeben, einschließlich medizinischer Fehler oder Datenverlust.">En aucun cas, Pisum ne pourra être tenu responsable des dommages directs, indirects, accessoires, spéciaux ou consécutifs résultant de l'utilisation ou de l'incapacité d'utiliser le logiciel, incluant, mais sans s'y limiter, les erreurs médicales ou la perte de données.</p>
-
-    <h2 class="t" data-en="6. Contact" data-fr="6. Contact" data-es="6. Contacto" data-de="6. Kontakt">6. Contact</h2>
-    <p class="t" data-en="For any questions regarding these Terms of Service, please contact us at Mypisum@Proton.me." data-fr="Pour toute question concernant ces Conditions d'Utilisation, veuillez nous contacter à l'adresse Mypisum@Proton.me." data-es="Para cualquier pregunta sobre estos Términos de Servicio, contáctenos en Mypisum@Proton.me." data-de="Bei Fragen zu diesen Nutzungsbedingungen kontaktieren Sie uns bitte unter Mypisum@Proton.me.">Pour toute question concernant ces Conditions d'Utilisation, veuillez nous contacter à l'adresse Mypisum@Proton.me.</p>
-
-  </main>
-
-  <footer>
-    <div class="footer-bottom">
-      <p class="t" data-en="created by radiologists, for radiologists. Good work! 👨‍⚕️- Support & Feedback: Mypisum@Proton.me" data-fr="créé par les radiologues, pour les radiologues. Bon travail ! 👨‍⚕️- Support & Feedback : Mypisum@Proton.me" data-es="creado por radiólogos, para radiólogos. ¡Buen trabajo! 👨‍⚕️- Soporte y comentarios: Mypisum@Proton.me" data-de="von Radiologen für Radiologen entwickelt. Gute Arbeit! 👨‍⚕️- Support & Feedback: Mypisum@Proton.me">créé par les radiologues, pour les radiologues. Bon travail ! 👨‍⚕️- Support & Feedback : Mypisum@Proton.me</p>
-    </div>
-  </footer>
-
-  <script>
-    let currentLang = localStorage.getItem('pisum-lang') || 'fr';
-
-    function setLang(lang) {
-      currentLang = lang;
-      localStorage.setItem('pisum-lang', lang);
-
-      document.querySelectorAll('.t').forEach(el => {
-        const val = el.dataset[lang];
-        if (val) el.innerHTML = val;
-      });
-
-      document.querySelectorAll('.lang-btn').forEach(b => {
-        b.classList.toggle('active', b.dataset.l === lang);
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      setLang(currentLang);
-    });
-  </script>
-
+setLang(currentLang);
+</script>
 </body>
 </html>
