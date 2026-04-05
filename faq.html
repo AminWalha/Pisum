@@ -205,20 +205,19 @@ a { text-decoration: none; color: inherit; }
 
 <nav class="nav" id="nav">
   <a href="index.html" class="nav-logo">
-    <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="PISUM"/>
+    <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="Logo"/>
     PISUM
   </a>
   <ul class="nav-links" id="nav-links">
     <li><a href="index.html#features">Features</a></li>
-    <li><a href="index.html#demo">Demo</a></li>
     <li><a href="index.html#templates">Templates</a></li>
     <li><a href="index.html#pricing">Pricing</a></li>
-    <li><a href="faq.html" class="active">FAQ</a></li>
+    <li><a href="faq.html">FAQ</a></li>
     <li><a href="documentation.html">Docs</a></li>
+    <li><a href="contact.html">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <a href="contact.html" class="btn-nav">Contact</a>
-    <a href="index.html#pricing" class="btn-cta">Get started</a>
+    <a href="index.html#pricing" class="btn btn-primary btn-sm" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600;">Get Started Free</a>
     <button class="hamburger" id="ham" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -369,20 +368,20 @@ a { text-decoration: none; color: inherit; }
 </section>
 
 <!-- FOOTER -->
-<footer class="site-footer">
-  <div class="container-wide">
-    <div class="foot-in">
-      <div class="foot-logo">
-        <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="PISUM"/>
+<footer style="background: #09090f; border-top: 1px solid rgba(255,255,255,0.05); padding: 2.5rem 0; width: 100%; position: relative; z-index: 10; margin-top: auto;">
+  <div style="max-width: 1160px; margin: 0 auto; padding: 0 clamp(1.25rem, 5vw, 3rem);">
+    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;">
+      <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; color: #ffffff; font-size: 0.95rem; font-family: 'Clash Display', sans-serif;">
+        <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="Logo" style="width: 26px; height: 26px; border-radius: 6px;"/>
         PISUM
       </div>
-      <p class="foot-copy">© 2026 PISUM. All rights reserved.</p>
-      <div class="foot-links">
-        <a href="rgpd.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-        <a href="faq.html">FAQ</a>
-        <a href="documentation.html">Docs</a>
-        <a href="contact.html">Contact</a>
+      <p style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin: 0; font-family: 'Plus Jakarta Sans', sans-serif;">© 2026 PISUM. All rights reserved.</p>
+      <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; font-family: 'Plus Jakarta Sans', sans-serif;">
+        <a href="rgpd.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Privacy</a>
+        <a href="terms.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Terms</a>
+        <a href="faq.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">FAQ</a>
+        <a href="documentation.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Docs</a>
+        <a href="contact.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Contact</a>
       </div>
     </div>
   </div>
@@ -455,6 +454,15 @@ document.getElementById('search').addEventListener('input', function() {
   });
   document.getElementById('no-results').classList.toggle('show', count === 0);
 });
+</script>
+<script>
+  const ham = document.getElementById('ham');
+  const navLinks = document.getElementById('nav-links');
+  if (ham && navLinks) {
+    ham.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+  }
 </script>
 </body>
 </html>
