@@ -86,9 +86,15 @@ input:focus{border-color:var(--blue)}
   const { createClient } = supabase;
   const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  // Redirect if already logged in
+  // Redirect if already logged in OR after email confirmation (PKCE code exchange)
   sb.auth.getSession().then(({ data }) => {
     if (data.session) window.location.href = 'dashboard.html';
+  });
+
+  sb.auth.onAuthStateChange((event, session) => {
+    if ((event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') && session) {
+      window.location.href = 'dashboard.html';
+    }
   });
 
   function switchTab(tab) {
