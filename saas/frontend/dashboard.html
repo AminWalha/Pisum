@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>PISUM — Mon abonnement</title>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#3b6ef8;--purple:#7c5af0;--green:#16a34a;--red:#dc2626;--amber:#d97706;
+  --grad:linear-gradient(135deg,#3b6ef8 0%,#7c5af0 100%);
+  --ink:#09090f;--ink-2:#3a3a4c;--ink-3:#8a8aa8;--ink-4:#bbbbd0;
+  --bg:#f2f2f6;--white:#fff;
+  --shadow:0 8px 32px rgba(0,0,0,0.08),0 2px 8px rgba(0,0,0,0.04);
+  --r:16px;
+}
+body{font-family:'Segoe UI',-apple-system,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+
+/* NAV */
+nav{background:var(--white);border-bottom:1px solid rgba(0,0,0,0.06);padding:0 2rem;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.nav-logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:1rem;letter-spacing:-0.03em}
+.nav-logo img{width:30px;height:30px;border-radius:7px}
+.nav-right{display:flex;align-items:center;gap:12px}
+#user-email{font-size:0.82rem;color:var(--ink-3)}
+.btn-nav{padding:0.45rem 1rem;border:1.5px solid rgba(0,0,0,0.12);border-radius:999px;background:transparent;cursor:pointer;font-size:0.82rem;font-weight:600;color:var(--ink-2);transition:all 0.2s}
+.btn-nav:hover{background:var(--bg);border-color:rgba(0,0,0,0.2)}
+
+/* MAIN */
+main{max-width:860px;margin:3rem auto;padding:0 1.5rem}
+h1{font-size:1.7rem;font-weight:700;letter-spacing:-0.03em;margin-bottom:0.4rem}
+.subtitle{color:var(--ink-3);font-size:0.9rem;margin-bottom:2.5rem}
+
+/* ACCESS CARD */
+.access-card{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);padding:2rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:1.5rem}
+.access-icon{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0}
+.access-icon.granted{background:#dcfce7}
+.access-icon.denied{background:#fee2e2}
+.access-text h2{font-size:1.1rem;font-weight:700;margin-bottom:0.25rem}
+.access-text p{font-size:0.85rem;color:var(--ink-3)}
+
+/* CARD */
+.card{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);padding:2rem;margin-bottom:1.5rem}
+.card h3{font-size:1rem;font-weight:700;margin-bottom:0.3rem}
+.card > p{font-size:0.85rem;color:var(--ink-3);margin-bottom:1.5rem;line-height:1.6}
+
+/* PLAN GRID */
+.plan-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0.75rem;margin-bottom:1.5rem}
+@media(max-width:860px){.plan-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:540px){.plan-grid{grid-template-columns:repeat(2,1fr)}}
+
+.plan-card{border:2px solid rgba(0,0,0,0.08);border-radius:14px;padding:1rem 0.75rem;cursor:pointer;transition:all 0.18s;background:var(--white);text-align:center;position:relative}
+.plan-card:hover{border-color:var(--blue);background:#f5f7ff}
+.plan-card.selected{border-color:var(--blue);background:#eef2ff;box-shadow:0 0 0 3px rgba(59,110,248,0.15)}
+
+.plan-tag{font-size:0.65rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.15rem 0.5rem;border-radius:999px;display:inline-block;margin-bottom:0.5rem}
+.plan-name{font-weight:700;font-size:0.9rem;margin-bottom:0.6rem;color:var(--ink)}
+.plan-features{list-style:none;text-align:left;font-size:0.72rem;color:var(--ink-3);line-height:1.8}
+.plan-features li{display:flex;align-items:flex-start;gap:5px}
+.plan-features li .fi{flex-shrink:0;margin-top:1px}
+.fi-ok{color:#16a34a}
+.fi-no{color:#d1d5db}
+.fi-lim{color:var(--amber)}
+
+.tag-free{background:#f1f5f9;color:#475569}
+.tag-starter{background:#e0f2fe;color:#0369a1}
+.tag-pro{background:#ede9fe;color:#6d28d9}
+.tag-expert{background:#fef3c7;color:#92400e}
+.tag-clinic{background:#dcfce7;color:#166534}
+
+/* POPULAR badge */
+.popular-badge{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--grad);color:#fff;font-size:0.6rem;font-weight:700;letter-spacing:0.05em;padding:0.15rem 0.6rem;border-radius:999px;white-space:nowrap}
+
+/* SUBSCRIBE BTN */
+.btn-subscribe{display:block;width:100%;padding:0.85rem 2rem;background:var(--grad);color:#fff;border:none;border-radius:999px;cursor:pointer;font-size:0.9rem;font-weight:700;transition:opacity 0.2s,transform 0.15s;margin-top:0.5rem}
+.btn-subscribe:hover{opacity:0.9;transform:translateY(-1px)}
+.btn-subscribe:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+.btn-free{background:linear-gradient(135deg,#64748b,#475569)}
+
+/* STATUS BADGE */
+.badge{display:inline-flex;align-items:center;gap:6px;padding:0.25rem 0.75rem;border-radius:999px;font-size:0.75rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase}
+.badge.active{background:#dcfce7;color:#16a34a}
+.badge.inactive{background:#fee2e2;color:#dc2626}
+.badge.canceled{background:#f3f4f6;color:#6b7280}
+
+/* ACTIVE FEATURES */
+.feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0.5rem 1.5rem;margin:1rem 0;font-size:0.83rem}
+@media(max-width:540px){.feature-grid{grid-template-columns:1fr}}
+.feature-row{display:flex;align-items:center;gap:8px;color:var(--ink-2)}
+.feature-row .fi{font-size:1rem}
+
+/* AI ENHANCER BAR */
+.enhancer-block{margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid rgba(0,0,0,0.07)}
+.enhancer-block h4{font-size:0.85rem;font-weight:700;margin-bottom:0.3rem}
+.enhancer-block p{font-size:0.78rem;color:var(--ink-3);margin-bottom:0.6rem}
+.progress-bar{height:8px;border-radius:999px;background:#e5e7eb;overflow:hidden}
+.progress-fill{height:100%;border-radius:999px;background:var(--grad);transition:width 0.4s}
+.progress-fill.warning{background:linear-gradient(135deg,#f59e0b,#d97706)}
+.progress-fill.danger{background:linear-gradient(135deg,#ef4444,#dc2626)}
+.enhancer-label{font-size:0.75rem;color:var(--ink-3);margin-top:0.35rem;text-align:right}
+
+/* UPGRADE LINK */
+.upgrade-row{margin-top:1.25rem;text-align:center;font-size:0.82rem;color:var(--ink-3)}
+.upgrade-row a{color:var(--blue);text-decoration:none;font-weight:600}
+.upgrade-row a:hover{text-decoration:underline}
+
+/* MISC */
+.spinner{display:inline-block;width:18px;height:18px;border:2.5px solid rgba(255,255,255,0.4);border-top-color:#fff;border-radius:50%;animation:spin 0.7s linear infinite;vertical-align:middle}
+@keyframes spin{to{transform:rotate(360deg)}}
+.msg{padding:0.7rem 1rem;border-radius:10px;font-size:0.83rem;margin-top:0.75rem;display:none}
+.msg.error{background:#fff0f0;color:#c0392b;border:1px solid #fcc;display:block}
+.msg.info{background:#f0f6ff;color:#2563eb;border:1px solid #bfdbfe;display:block}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="PISUM"/>
+    PISUM
+  </div>
+  <div class="nav-right">
+    <span id="user-email"></span>
+    <button class="btn-nav" onclick="signOut()">Déconnexion</button>
+  </div>
+</nav>
+
+<main>
+  <h1>Mon abonnement</h1>
+  <p class="subtitle">Gérez votre accès et votre offre PISUM.</p>
+
+  <!-- ACCESS STATUS CARD -->
+  <div class="access-card" id="access-card">
+    <div class="access-icon" id="access-icon">⏳</div>
+    <div class="access-text">
+      <h2 id="access-title">Vérification en cours…</h2>
+      <p id="access-desc">Veuillez patienter pendant la vérification de votre abonnement.</p>
+    </div>
+  </div>
+
+  <!-- SUBSCRIBE CARD (no active subscription) -->
+  <div class="card" id="sub-card" style="display:none">
+    <h3>Choisissez votre offre</h3>
+    <p>Sélectionnez le plan adapté à votre pratique, puis procédez au paiement sécurisé.</p>
+
+    <div class="plan-grid" id="plan-grid"><!-- generated by JS --></div>
+
+    <button class="btn-subscribe" id="btn-subscribe" onclick="handleSubscribe()">
+      Continuer
+    </button>
+    <div class="msg" id="sub-msg"></div>
+  </div>
+
+  <!-- ACTIVE SUBSCRIPTION CARD -->
+  <div class="card" id="active-card" style="display:none">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
+      <h3 style="margin:0">Détails de l'abonnement</h3>
+      <div style="display:flex;gap:8px;align-items:center">
+        <span class="badge" id="plan-badge"></span>
+        <span class="badge active">Actif</span>
+      </div>
+    </div>
+
+    <div class="feature-grid" id="active-features"><!-- generated by JS --></div>
+
+    <!-- AI Enhancer usage (Pro only) -->
+    <div class="enhancer-block" id="enhancer-block" style="display:none">
+      <h4>🤖 AI Enhancer</h4>
+      <p id="enhancer-desc"></p>
+      <div class="progress-bar"><div class="progress-fill" id="enhancer-fill"></div></div>
+      <div class="enhancer-label" id="enhancer-label"></div>
+    </div>
+
+    <p id="period-end-text" style="font-size:0.82rem;color:var(--ink-3);margin-top:1rem"></p>
+
+    <div class="upgrade-row">
+      <a href="pricing.html">Voir toutes les offres et upgrader →</a>
+    </div>
+  </div>
+</main>
+
+<!-- Supabase JS client (CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+  // ── CONFIG — replace with your actual values ──────────────────────────────
+  const SUPABASE_URL  = 'https://lepqbnhrdgfetoysedbq.supabase.co';
+  const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlcHFibmhyZGdmZXRveXNlZGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwNjQ1MDAsImV4cCI6MjA5MDY0MDUwMH0.St12IwG0_RRKzxrbH1QRolCC2OOAaSIsK4PDmlR2Loo        ';
+  const API_BASE      = 'https://pisum-backend.onrender.com';
+  // ──────────────────────────────────────────────────────────────────────────
+
+  const { createClient } = supabase;
+  const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
+
+  let currentSession = null;
+  let selectedPlan   = 'free';
+
+  // ── Plan definitions ──────────────────────────────────────────────────────
+  const PLANS = {
+    free: {
+      label: 'Free', tag: 'tag-free', paid: false,
+      features: [
+        { ok: true,  text: '10 templates' },
+        { ok: true,  text: '2 langues' },
+        { ok: true,  text: 'Export PDF' },
+        { ok: false, text: 'Export Word' },
+        { ok: false, text: 'Dictée AI' },
+        { ok: false, text: 'AI Enhancer' },
+        { ok: false, text: 'Worklist' },
+        { ok: false, text: 'Statistiques' },
+        { ok: 'lim', text: '20 CR / mois' },
+      ],
+    },
+    starter: {
+      label: 'Starter', tag: 'tag-starter', paid: true,
+      features: [
+        { ok: true,  text: '20 templates' },
+        { ok: true,  text: '5 langues' },
+        { ok: true,  text: 'Export PDF + Word' },
+        { ok: false, text: 'Dictée AI' },
+        { ok: false, text: 'AI Enhancer' },
+        { ok: 'lim', text: 'Worklist basique' },
+        { ok: false, text: 'Statistiques' },
+        { ok: true,  text: 'CR illimités' },
+      ],
+    },
+    pro: {
+      label: 'Pro ⭐', tag: 'tag-pro', paid: true, popular: true,
+      features: [
+        { ok: true,  text: '112+ templates' },
+        { ok: true,  text: '23 langues' },
+        { ok: true,  text: 'Export PDF + Word' },
+        { ok: true,  text: 'Dictée AI' },
+        { ok: 'lim', text: 'AI Enhancer (50/mois)' },
+        { ok: 'lim', text: 'Worklist complète' },
+        { ok: 'lim', text: 'Statistiques basiques' },
+        { ok: true,  text: 'CR illimités' },
+      ],
+    },
+    expert: {
+      label: 'Expert 🔥', tag: 'tag-expert', paid: true,
+      features: [
+        { ok: true, text: '112+ templates custom' },
+        { ok: true, text: '23 langues' },
+        { ok: true, text: 'Export PDF + Word' },
+        { ok: true, text: 'Dictée AI' },
+        { ok: true, text: 'AI Enhancer illimité' },
+        { ok: true, text: 'Worklist avancée' },
+        { ok: true, text: 'Statistiques complètes' },
+        { ok: true, text: 'CR illimités' },
+      ],
+    },
+    clinic: {
+      label: 'Clinic 🏥', tag: 'tag-clinic', paid: true,
+      features: [
+        { ok: true, text: 'Templates sur mesure' },
+        { ok: true, text: '23 langues' },
+        { ok: true, text: 'Export PDF + Word' },
+        { ok: true, text: 'Dictée AI' },
+        { ok: true, text: 'AI Enhancer illimité' },
+        { ok: true, text: 'Worklist multi-site' },
+        { ok: true, text: 'Stats avancées' },
+        { ok: true, text: '5 utilisateurs inclus' },
+        { ok: true, text: 'CR illimités' },
+      ],
+    },
+  };
+
+  const PLAN_ORDER = ['free', 'starter', 'pro', 'expert', 'clinic'];
+
+  // ── Render plan selector ──────────────────────────────────────────────────
+  function renderPlanGrid() {
+    const grid = document.getElementById('plan-grid');
+    grid.innerHTML = '';
+
+    PLAN_ORDER.forEach(key => {
+      const p = PLANS[key];
+      const card = document.createElement('div');
+      card.className = 'plan-card' + (key === selectedPlan ? ' selected' : '');
+      card.id = 'plan-' + key;
+      card.onclick = () => selectPlan(key);
+
+      const featuresHtml = p.features.map(f => {
+        const cls = f.ok === true ? 'fi-ok' : f.ok === 'lim' ? 'fi-lim' : 'fi-no';
+        const icon = f.ok === true ? '✓' : f.ok === 'lim' ? '◐' : '–';
+        return `<li><span class="fi ${cls}">${icon}</span>${f.text}</li>`;
+      }).join('');
+
+      card.innerHTML = `
+        ${p.popular ? '<div class="popular-badge">Recommandé</div>' : ''}
+        <div class="plan-tag ${p.tag}">${p.label.replace(/ [^\s]+$/, '').trim()}</div>
+        <div class="plan-name">${p.label}</div>
+        <ul class="plan-features">${featuresHtml}</ul>
+      `;
+      grid.appendChild(card);
+    });
+
+    updateSubscribeButton();
+  }
+
+  function selectPlan(plan) {
+    selectedPlan = plan;
+    PLAN_ORDER.forEach(p => {
+      const el = document.getElementById('plan-' + p);
+      if (el) el.classList.toggle('selected', p === plan);
+    });
+    updateSubscribeButton();
+  }
+
+  function updateSubscribeButton() {
+    const btn = document.getElementById('btn-subscribe');
+    if (!btn) return;
+    const plan = PLANS[selectedPlan];
+    if (!plan) return;
+    if (!plan.paid) {
+      btn.textContent = 'Activer gratuitement';
+      btn.className = 'btn-subscribe btn-free';
+    } else {
+      btn.textContent = 'S\'abonner à ' + plan.label;
+      btn.className = 'btn-subscribe';
+    }
+  }
+
+  // ── Init ──────────────────────────────────────────────────────────────────
+  async function init() {
+    const { data } = await sb.auth.getSession();
+    if (!data.session) {
+      window.location.href = 'auth.html';
+      return;
+    }
+    currentSession = data.session;
+    document.getElementById('user-email').textContent = data.session.user.email;
+
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('checkout') === 'success') {
+      setTimeout(loadAccessStatus, 2500);
+    } else {
+      loadAccessStatus();
+    }
+  }
+
+  // ── Check access ──────────────────────────────────────────────────────────
+  async function loadAccessStatus() {
+    try {
+      const res = await fetch(`${API_BASE}/check-access`, {
+        headers: { Authorization: `Bearer ${currentSession.access_token}` },
+      });
+      const json = await res.json();
+      renderAccess(json);
+    } catch {
+      renderAccess({ access: false, reason: 'network_error' });
+    }
+  }
+
+  function renderAccess({ access, reason, plan, features }) {
+    const icon     = document.getElementById('access-icon');
+    const title    = document.getElementById('access-title');
+    const desc     = document.getElementById('access-desc');
+    const subCard  = document.getElementById('sub-card');
+    const actCard  = document.getElementById('active-card');
+
+    if (access) {
+      icon.textContent  = '✅';
+      icon.className    = 'access-icon granted';
+      title.textContent = 'Accès accordé';
+      title.style.color = 'var(--green)';
+      desc.textContent  = 'Votre abonnement est actif. Lancez l\'application de bureau pour commencer.';
+
+      // Plan badge
+      const pDef = PLANS[plan] || {};
+      const badge = document.getElementById('plan-badge');
+      badge.textContent = pDef.label || plan;
+      badge.className   = 'badge ' + (pDef.tag || 'tag-free');
+
+      // Active features grid
+      renderActiveFeatures(plan, features);
+
+      // AI Enhancer usage (Pro only)
+      if (plan === 'pro') loadEnhancerUsage();
+
+      actCard.style.display = '';
+      subCard.style.display = 'none';
+    } else {
+      icon.textContent  = '🔒';
+      icon.className    = 'access-icon denied';
+      title.textContent = 'Aucun abonnement actif';
+      title.style.color = 'var(--red)';
+      desc.textContent  =
+        reason === 'canceled' ? 'Votre abonnement a été résilié. Réabonnez-vous pour retrouver l\'accès.' :
+        reason === 'expired'  ? 'Votre abonnement a expiré. Renouvelez pour continuer.' :
+                                'Choisissez une offre pour accéder à PISUM.';
+      renderPlanGrid();
+      subCard.style.display = '';
+      actCard.style.display = 'none';
+    }
+  }
+
+  function renderActiveFeatures(plan, features) {
+    const planDef = PLANS[plan];
+    if (!planDef) return;
+    const container = document.getElementById('active-features');
+    container.innerHTML = planDef.features.map(f => {
+      const cls  = f.ok === true ? 'fi-ok' : f.ok === 'lim' ? 'fi-lim' : 'fi-no';
+      const icon = f.ok === true ? '✅' : f.ok === 'lim' ? '🟡' : '⬜';
+      return `<div class="feature-row"><span class="fi">${icon}</span>${f.text}</div>`;
+    }).join('');
+  }
+
+  async function loadEnhancerUsage() {
+    try {
+      const res = await fetch(`${API_BASE}/check-feature?feature=ai_enhancer`, {
+        headers: { Authorization: `Bearer ${currentSession.access_token}` },
+      });
+      const { used, limit, remaining, reset_at } = await res.json();
+      const block = document.getElementById('enhancer-block');
+      const fill  = document.getElementById('enhancer-fill');
+      const label = document.getElementById('enhancer-label');
+      const desc  = document.getElementById('enhancer-desc');
+
+      block.style.display = '';
+      const pct = Math.round((used / limit) * 100);
+      fill.style.width = pct + '%';
+      fill.className   = 'progress-fill' + (pct >= 90 ? ' danger' : pct >= 70 ? ' warning' : '');
+      label.textContent = `${used} / ${limit} utilisations ce mois`;
+      desc.textContent  = `Remise à zéro le ${reset_at ? new Date(reset_at).toLocaleDateString('fr-FR') : '—'}`;
+    } catch { /* silent */ }
+  }
+
+  // ── Subscribe ─────────────────────────────────────────────────────────────
+  async function handleSubscribe() {
+    const plan = PLANS[selectedPlan];
+    if (!plan) return;
+    if (!plan.paid) {
+      await activateFree();
+    } else {
+      await subscribePaid();
+    }
+  }
+
+  async function activateFree() {
+    const btn = document.getElementById('btn-subscribe');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span> Activation…';
+
+    try {
+      const res = await fetch(`${API_BASE}/activate-free`, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${currentSession.access_token}` },
+      });
+      if (!res.ok) throw new Error((await res.json()).detail || 'Erreur serveur');
+      await loadAccessStatus();
+    } catch (err) {
+      showError(err.message);
+      btn.disabled = false;
+      btn.textContent = 'Activer gratuitement';
+    }
+  }
+
+  async function subscribePaid() {
+    const btn = document.getElementById('btn-subscribe');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span> Redirection vers Stripe…';
+
+    try {
+      const res = await fetch(`${API_BASE}/create-checkout-session`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${currentSession.access_token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ plan: selectedPlan }),
+      });
+      if (!res.ok) throw new Error((await res.json()).detail || 'Erreur serveur');
+      const { checkout_url } = await res.json();
+      window.location.href = checkout_url;
+    } catch (err) {
+      showError(err.message);
+      btn.disabled = false;
+      updateSubscribeButton();
+    }
+  }
+
+  function showError(msg) {
+    const el = document.getElementById('sub-msg');
+    el.textContent = `Erreur : ${msg}`;
+    el.className = 'msg error';
+  }
+
+  // ── Sign out ──────────────────────────────────────────────────────────────
+  async function signOut() {
+    await sb.auth.signOut();
+    window.location.href = 'auth.html';
+  }
+
+  init();
+</script>
+</body>
+</html>

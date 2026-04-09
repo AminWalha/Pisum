@@ -1,0 +1,16 @@
+# robots.txt pour pisum.app
+User-agent: *
+Allow: /
+
+# Bloquer les ressources système et privées
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+
+# Empêcher l'indexation des fichiers de style et scripts si nécessaire
+# (Optionnel, généralement laissé en Allow pour le rendu SEO)
+# Disallow: /css/
+# Disallow: /js/
+
+# Référence au sitemap corrigé
+Sitemap: https://pisum.app/sitemap.xml
