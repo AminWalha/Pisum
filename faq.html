@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>FAQ — PISUM Radiology Software</title>
+<meta name="description" content="Frequently asked questions about PISUM radiology reporting software."/>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+/* ──────────────── TOKENS ──────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+:root {
+  --void: #06060a; --s1: #0e0e14; --s2: #14141e; --s3: #1c1c2a; --s4: #252535;
+  --border: rgba(255,255,255,0.07); --border-b: rgba(255,255,255,0.14);
+  --ink: #f0f0f8; --ink-2: #a0a0c0; --ink-3: #606080; --ink-4: #35354a;
+  --cyan: #00e5cc; --blue: #3b6ef8; --purple: #8b6ef8;
+  --grad: linear-gradient(135deg, #00e5cc 0%, #3b6ef8 60%, #8b6ef8 100%);
+  --fd: 'Clash Display', Georgia, serif; --fb: 'Plus Jakarta Sans', system-ui, sans-serif; --fm: 'JetBrains Mono', monospace;
+  --r: 12px; --r-lg: 20px; --t: cubic-bezier(0.25,1,0.5,1);
+}
+body { font-family: var(--fb); background: var(--void); color: var(--ink); line-height: 1.65; overflow-x: hidden; }
+body::before {
+  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+a { text-decoration: none; color: inherit; }
+.container { max-width: 760px; margin: 0 auto; padding: 0 clamp(1.25rem,5vw,3rem); position: relative; z-index: 1; }
+.container-wide { max-width: 1100px; margin: 0 auto; padding: 0 clamp(1.25rem,5vw,3rem); position: relative; z-index: 1; }
+#bar { position: fixed; top: 0; left: 0; height: 2px; z-index: 9999; background: var(--grad); width: 0; }
+
+/* ── NAV ── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 999; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 clamp(1.25rem,5vw,3rem);
+  background: rgba(6,6,10,0.85); backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; font-family: var(--fd); font-size: 1.1rem; font-weight: 600; color: var(--ink); }
+.nav-logo img { width: 30px; height: 30px; border-radius: 8px; }
+.nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+.nav-links a { font-size: 0.83rem; font-weight: 500; color: var(--ink-2); transition: color 0.18s; }
+.nav-links a:hover, .nav-links a.active { color: var(--cyan); }
+.nav-right { display: flex; align-items: center; gap: 0.75rem; }
+.btn-nav { font-size: 0.83rem; font-weight: 500; color: var(--ink-2); padding: 0.45rem 1rem; border-radius: 999px; border: 1px solid var(--border); transition: all 0.2s; }
+.btn-nav:hover { color: var(--ink); border-color: var(--border-b); }
+.btn-cta { font-size: 0.83rem; font-weight: 700; color: var(--void); background: var(--cyan); padding: 0.45rem 1.1rem; border-radius: 999px; transition: all 0.2s; }
+.btn-cta:hover { transform: translateY(-1px); box-shadow: 0 0 20px rgba(0,229,204,0.3); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 1.5px; background: var(--ink); border-radius: 2px; transition: all 0.3s; }
+@media(max-width:780px){.nav-links,.btn-nav{display:none}.hamburger{display:flex}.nav-links.open{display:flex;flex-direction:column;align-items:flex-start;gap:1.5rem;position:fixed;inset:64px 0 0 0;background:var(--s1);padding:2rem clamp(1.25rem,5vw,3rem);z-index:997}.nav-links.open a{font-size:1.1rem}}
+
+/* ── HERO ── */
+.hero {
+  padding: clamp(120px,18vw,160px) 0 clamp(60px,8vw,80px);
+  text-align: center; position: relative; overflow: hidden;
+}
+.hero-orb {
+  position: absolute; border-radius: 50%; pointer-events: none;
+  width: 700px; height: 700px; top: -200px; left: 50%; transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(0,229,204,0.06) 0%, transparent 65%);
+}
+.hero::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 160px;
+  background: linear-gradient(to top, var(--void), transparent); pointer-events: none;
+}
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.67rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--cyan); margin-bottom: 1.25rem;
+}
+.eyebrow::before { content: ''; width: 20px; height: 1.5px; background: var(--cyan); display: inline-block; }
+.hero h1 {
+  font-family: var(--fd); font-size: clamp(2.8rem,5vw,5rem); font-weight: 700;
+  line-height: 1.05; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 1.25rem;
+}
+.hero h1 em { font-style: italic; color: var(--cyan); }
+.hero-sub { font-size: clamp(0.95rem,1.8vw,1.1rem); color: var(--ink-2); max-width: 500px; margin: 0 auto 3rem; line-height: 1.7; }
+
+/* ── SEARCH ── */
+.search-wrap { padding: 0 0 clamp(3rem,6vw,5rem); position: relative; z-index: 1; }
+.search-box { position: relative; max-width: 560px; margin: 0 auto; }
+.search-box input {
+  width: 100%; padding: 0.9rem 1.4rem 0.9rem 3.2rem;
+  border-radius: 999px; border: 1px solid var(--border-b);
+  font-family: var(--fb); font-size: 0.9rem; color: var(--ink);
+  background: var(--s2); outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+}
+.search-box input::placeholder { color: var(--ink-3); }
+.search-box input:focus { border-color: rgba(0,229,204,0.4); box-shadow: 0 0 0 3px rgba(0,229,204,0.08); }
+.search-icon { position: absolute; left: 1.1rem; top: 50%; transform: translateY(-50%); color: var(--ink-3); pointer-events: none; }
+.no-results { display: none; text-align: center; padding: 3rem 0; color: var(--ink-3); font-size: 0.9rem; }
+.no-results.show { display: block; }
+
+/* ── FAQ BODY ── */
+.faq-body { padding: 0 0 clamp(5rem,10vw,8rem); position: relative; z-index: 1; }
+
+/* Category tabs */
+.faq-tabs {
+  display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border); padding-bottom: 1.25rem;
+}
+.faq-tab {
+  background: none; border: 1px solid var(--border); border-radius: 999px;
+  padding: 0.4rem 1rem; font-family: var(--fb); font-size: 0.78rem; font-weight: 600;
+  color: var(--ink-3); cursor: pointer; transition: all 0.2s var(--t); white-space: nowrap;
+}
+.faq-tab:hover { border-color: var(--border-b); color: var(--ink-2); }
+.faq-tab.active { background: var(--cyan); color: var(--void); border-color: var(--cyan); }
+
+.faq-group { margin-bottom: 2rem; }
+.faq-group-label {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.67rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-3); margin-bottom: 1rem;
+}
+.faq-group-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* Accordion */
+.accordion { display: flex; flex-direction: column; gap: 0.5rem; }
+.acc-item {
+  background: var(--s2); border: 1px solid var(--border);
+  border-radius: var(--r-lg); overflow: hidden;
+  transition: border-color 0.2s var(--t), box-shadow 0.2s var(--t);
+}
+.acc-item.active {
+  border-color: rgba(0,229,204,0.25);
+  box-shadow: 0 4px 24px rgba(0,229,204,0.05), inset 0 0 0 1px rgba(0,229,204,0.08);
+}
+.acc-item.hidden { display: none; }
+.acc-q {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 1.15rem 1.4rem; cursor: pointer; background: transparent; border: none;
+  width: 100%; font-family: var(--fb); text-align: left; user-select: none;
+}
+.acc-q-text { font-size: 0.9rem; font-weight: 600; color: var(--ink); line-height: 1.4; flex: 1; }
+.acc-item.active .acc-q-text { color: var(--cyan); }
+.acc-icon {
+  width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
+  border: 1px solid var(--border-b); display: flex; align-items: center; justify-content: center;
+  color: var(--ink-3); transition: all 0.22s var(--t);
+}
+.acc-item.active .acc-icon {
+  background: var(--cyan); border-color: var(--cyan); color: var(--void); transform: rotate(45deg);
+}
+.acc-body { max-height: 0; overflow: hidden; transition: max-height 0.4s var(--t); }
+.acc-body-inner {
+  padding: 0 1.4rem 1.3rem 1.4rem; font-size: 0.86rem; color: var(--ink-2); line-height: 1.75;
+  border-top: 1px solid var(--border); padding-top: 1rem;
+}
+.acc-body-inner a { color: var(--cyan); }
+.acc-body-inner strong { color: var(--ink); }
+.acc-body-inner br + br { display: none; }
+
+/* ── CTA ── */
+.faq-cta {
+  position: relative; overflow: hidden;
+  background: var(--s1); border-top: 1px solid var(--border);
+  padding: clamp(4rem,8vw,6rem) 0; text-align: center;
+}
+.faq-cta::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 70% at 50% 100%, rgba(0,229,204,0.06) 0%, transparent 65%);
+}
+.faq-cta-in { position: relative; z-index: 1; }
+.faq-cta h2 {
+  font-family: var(--fd); font-size: clamp(1.8rem,3.5vw,3rem);
+  font-weight: 700; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 0.75rem;
+}
+.faq-cta p { color: var(--ink-2); font-size: 0.95rem; margin-bottom: 2rem; }
+.btn-grad {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--cyan); color: var(--void);
+  padding: 0.8rem 2rem; border-radius: 999px; font-family: var(--fb);
+  font-size: 0.9rem; font-weight: 700; border: none; cursor: pointer;
+  transition: all 0.22s var(--t);
+}
+.btn-grad:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(0,229,204,0.25); }
+
+/* ── FOOTER ── */
+.site-footer { background: var(--s1); border-top: 1px solid var(--border); padding: 2.5rem 0; position: relative; z-index: 1; }
+.foot-in { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+.foot-logo { display: flex; align-items: center; gap: 8px; font-family: var(--fd); font-size: 1rem; font-weight: 600; color: var(--ink); }
+.foot-logo img { width: 26px; height: 26px; border-radius: 6px; }
+.foot-copy { font-size: 0.75rem; color: var(--ink-3); }
+.foot-links { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+.foot-links a { font-size: 0.75rem; color: var(--ink-3); transition: color 0.18s; }
+.foot-links a:hover { color: var(--cyan); }
+@media(max-width:640px){.foot-in{flex-direction:column;text-align:center}.foot-links{justify-content:center}}
+
+/* ── Animate ── */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+.animate-in { animation: fadeUp 0.55s cubic-bezier(0.25,1,0.5,1) both; }
+.d1{animation-delay:0.05s}.d2{animation-delay:0.12s}.d3{animation-delay:0.2s}.d4{animation-delay:0.28s}
+</style>
+</head>
+<body>
+
+<div id="bar"></div>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="Logo"/>
+    PISUM
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html#features">Features</a></li>
+    <li><a href="index.html#templates">Templates</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="documentation.html">Docs</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="index.html#pricing" class="btn btn-primary btn-sm" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600;">Get Started Free</a>
+    <button class="hamburger" id="ham" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-orb"></div>
+  <div class="container">
+    <div class="animate-in d1"><span class="eyebrow">Support</span></div>
+    <h1 class="animate-in d2">Frequently asked<br/><em>questions</em></h1>
+    <p class="hero-sub animate-in d3">Everything you need to know about PISUM. Can't find what you're looking for? Reach our team directly.</p>
+  </div>
+</section>
+
+<!-- SEARCH -->
+<div class="search-wrap">
+  <div class="container animate-in d4">
+    <div class="search-box">
+      <svg class="search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M11 11l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <input type="search" id="search" placeholder="Search questions…" autocomplete="off"/>
+    </div>
+    <div class="no-results" id="no-results">No results found for your search.</div>
+  </div>
+</div>
+
+<!-- FAQ BODY -->
+<section class="faq-body">
+  <div class="container">
+
+    <!-- Tabs -->
+    <div class="faq-tabs">
+      <button class="faq-tab active" data-filter="all">All</button>
+      <button class="faq-tab" data-filter="General">General</button>
+      <button class="faq-tab" data-filter="Features">Features</button>
+      <button class="faq-tab" data-filter="Pricing">Pricing &amp; Plans</button>
+      <button class="faq-tab" data-filter="Privacy">Privacy &amp; Security</button>
+    </div>
+
+    <!-- General -->
+    <div class="faq-group" data-group data-category="General">
+      <div class="faq-group-label">General</div>
+      <div class="accordion">
+        <div class="acc-item" data-q="What is PISUM and who is it for?">
+          <button class="acc-q"><span class="acc-q-text">What is PISUM and who is it for?</span><span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></button>
+          <div class="acc-body"><div class="acc-body-inner">PISUM is a radiology reporting desktop application designed for radiologists and radiology departments. It provides 112 structured report templates, AI-assisted voice dictation, multi-language support, and one-click PDF/Word export — all running entirely offline on your workstation.</div></div>
+        </div>
+        <div class="acc-item" data-q="Does PISUM require an internet connection?">
+          <button class="acc-q"><span class="acc-q-text">Does PISUM require an internet connection?</span><span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></button>
+          <div class="acc-body"><div class="acc-body-inner">No. PISUM is a fully offline application. Once installed, it runs entirely on your local machine — no internet connection is needed for reporting, dictation, or export. An internet connection is only required at initial activation and for software updates.</div></div>
+        </div>
+        <div class="acc-item" data-q="What operating systems are supported?">
+          <button class="acc-q"><span class="acc-q-text">What operating systems are supported?</span><span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></button>
+          <div class="acc-body"><div class="acc-body-inner">PISUM supports Windows 10/11 (64-bit). macOS and Linux versions are currently in development. A minimum of 8 GB RAM is recommended; 16 GB is advised for optimal voice dictation performance.</div></div>
+        </div>
+        <div class="acc-item" data-q="Can multiple radiologists use PISUM on the same site?">
+          <button class="acc-q"><span class="acc-q-text">Can multiple radiologists use PISUM on the same site?</span><span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></button>
+          <div class="acc-body"><div class="acc-body-inner">Yes — with the <strong>Clinic plan</strong>. It supports up to 10 radiologist seats per institution, multi-site management, an admin dashboard, and network sync across workstations. Each seat retains its own profiles and preferences.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <div class="faq-group" data-group data-category="Features">
+      <div class="faq-group-label">Features</div>
+      <div class="accordion">
+        <div class="acc-item" data-q="How does the voice dictation work?">
+          <button class="acc-q"><span class="acc-q-text">How does the voice dictation (Sally AI) work?</span><span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></button>
+          <div class="acc-body"><div class="acc-body-inner"><strong>Sally AI</strong> is PISUM's built-in voice recognition engine. It runs <em>entirely on your local processor (CPU/GPU)</em> — no audio data is ever sent to external servers. It adapts to medical vocabulary in radiology across 23 supported languages and improves accuracy over time on your device.</div></div>
+        </div>
+        <div class="acc-item" data-q="How many templates are available and can I add my own?">
+          <button class="acc-q"><span class="acc-q-text">How many templates are available? Can I create my own?</span><span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></button>
+          <div class="acc-body"><div class="acc-body-inner">PISUM ships with <strong>112 structured templates</strong> covering all major imaging modalities (CT, MRI, X-Ray, Ultrasound, PET-CT…). You can also create and save unlimited custom templates — either from scratch or by modifying existing ones. Custom templates are stored locally and travel with your user profile.</div></div>
+        </div>
+        <div class="acc-item" data-q="What export formats are supported?">
+          <button class="acc-q"><span class="acc-q-text">What export formats are supported?</span><span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></button>
+          <div class="acc-body"><div class="acc-body-inner">PISUM exports to <strong>PDF</strong> and <strong>Microsoft Word (.docx)</strong>. Reports can be formatted with custom headers, footers, logos, and signatures. Bulk export for batch reporting is available on the Clinic plan. Direct RIS/PACS integration is on our roadmap.</div></div>
+        </div>
+        <div class="acc-item" data-q="Can I use PISUM in languages other than English?">
+          <button class="acc-q"><span class="acc-q-text">Can I use PISUM in languages other than English?</span><span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></button>
+          <div class="acc-body"><div class="acc-body-inner">Yes. The interface and report templates are available in <strong>23 languages</strong> including French, German, Spanish, Arabic, Italian, Portuguese, and more. Voice dictation is also language-specific — Sally AI understands medical terminology in each supported language.</div></div>
+        </div>
+        <div class="acc-item" data-q="Can I brand my reports with my clinic logo?">
+          <button class="acc-q"><span class="acc-q-text">Can I brand reports with my clinic's identity?</span><span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></button>
+          <div class="acc-body"><div class="acc-body-inner">Yes — the <strong>Clinic plan</strong> includes full custom branding. Upload your institution's logo, customize headers, footers, color accents, and digital signature fields. Every exported report will carry your department's visual identity.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing -->
+    <div class="faq-group" data-group data-category="Pricing">
+      <div class="faq-group-label">Pricing &amp; Plans</div>
+      <div class="accordion">
+        <div class="acc-item" data-q="What is the difference between Pro and Clinic?">
+          <button class="acc-q"><span class="acc-q-text">What's the difference between Pro and Clinic?</span><span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></button>
+          <div class="acc-body"><div class="acc-body-inner"><strong>Pro</strong> is designed for individual radiologists — includes all 112 templates, Sally AI voice dictation, and priority support.<br/><br/><strong>Clinic</strong> is built for teams: multi-site management, up to 10 radiologist seats, admin dashboard, custom report branding, bulk export, and network sync across workstations.</div></div>
+        </div>
+        <div class="acc-item" data-q="Can I switch plans anytime?">
+          <button class="acc-q"><span class="acc-q-text">Can I switch plans anytime?</span><span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></button>
+          <div class="acc-body"><div class="acc-body-inner">Yes, anytime. Upgrades take effect immediately and are prorated to your current billing cycle. Downgrades apply at the start of the next cycle — you keep your current features until then.</div></div>
+        </div>
+        <div class="acc-item" data-q="Is there a discount for annual billing?">
+          <button class="acc-q"><span class="acc-q-text">Is there a discount for annual billing?</span><span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></button>
+          <div class="acc-body"><div class="acc-body-inner">Yes — <strong>25% off</strong> when you pay annually. Pro goes from €39/month to €29/month (€348/year). Clinic goes from €99/month to €74/month (€888/year).</div></div>
+        </div>
+        <div class="acc-item" data-q="Is there a free trial?">
+          <button class="acc-q"><span class="acc-q-text">Is there a free trial?</span><span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></button>
+          <div class="acc-body"><div class="acc-body-inner">Yes. PISUM offers a 14-day free trial with full access to all Pro features — no credit card required. At the end of the trial you can choose a plan or export your custom templates before the account expires.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Privacy -->
+    <div class="faq-group" data-group data-category="Privacy">
+      <div class="faq-group-label">Privacy &amp; Security</div>
+      <div class="accordion">
+        <div class="acc-item" data-q="Is PISUM GDPR compliant?">
+          <button class="acc-q"><span class="acc-q-text">Is PISUM GDPR / RGPD compliant?</span><span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></button>
+          <div class="acc-body"><div class="acc-body-inner">Yes. All patient data is generated and stored <strong>locally on your machine</strong>. No patient data is ever transmitted to our servers. PISUM only collects anonymized license telemetry (activation key, OS version). See our <a href="rgpd.html">Privacy Policy</a> for the full compliance overview.</div></div>
+        </div>
+        <div class="acc-item" data-q="Where is patient data stored?">
+          <button class="acc-q"><span class="acc-q-text">Where is patient data stored?</span><span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></button>
+          <div class="acc-body"><div class="acc-body-inner">All patient data stays on your local machine. PISUM never uploads patient information to any server. The application is designed to be air-gapped compatible — it can operate in fully disconnected environments. Local backups and RIS/PACS archiving remain your institution's responsibility.</div></div>
+        </div>
+        <div class="acc-item" data-q="Can I use PISUM in a hospital with strict IT security policies?">
+          <button class="acc-q"><span class="acc-q-text">Can PISUM be used in hospitals with strict IT security policies?</span><span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></button>
+          <div class="acc-body"><div class="acc-body-inner">Yes. Because PISUM is a fully local application with no cloud dependency, it is compatible with strict healthcare IT environments. It supports air-gapped networks and requires no outbound firewall rules for normal operation (only for license activation). Contact us for enterprise deployment documentation.</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="faq-cta">
+  <div class="container-wide">
+    <div class="faq-cta-in">
+      <h2>Still have questions?</h2>
+      <p>Our team is happy to help with anything not covered above.</p>
+      <a href="contact.html" class="btn-grad">Contact us →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background: #09090f; border-top: 1px solid rgba(255,255,255,0.05); padding: 2.5rem 0; width: 100%; position: relative; z-index: 10; margin-top: auto;">
+  <div style="max-width: 1160px; margin: 0 auto; padding: 0 clamp(1.25rem, 5vw, 3rem);">
+    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;">
+      <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; color: #ffffff; font-size: 0.95rem; font-family: 'Clash Display', sans-serif;">
+        <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="Logo" style="width: 26px; height: 26px; border-radius: 6px;"/>
+        PISUM
+      </div>
+      <p style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin: 0; font-family: 'Plus Jakarta Sans', sans-serif;">© 2026 PISUM. All rights reserved.</p>
+      <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; font-family: 'Plus Jakarta Sans', sans-serif;">
+        <a href="rgpd.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Privacy</a>
+        <a href="terms.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Terms</a>
+        <a href="faq.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">FAQ</a>
+        <a href="documentation.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Docs</a>
+        <a href="contact.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll bar
+const bar = document.getElementById('bar');
+window.addEventListener('scroll', () => {
+  const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+  bar.style.width = (pct * 100) + '%';
+});
+
+// Hamburger
+const ham = document.getElementById('ham'), nl = document.getElementById('nav-links');
+ham.addEventListener('click', () => nl.classList.toggle('open'));
+
+// Accordion
+document.querySelectorAll('.acc-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.acc-item');
+    const body = item.querySelector('.acc-body');
+    const isOpen = item.classList.contains('active');
+    btn.closest('.accordion').querySelectorAll('.acc-item').forEach(i => {
+      i.classList.remove('active');
+      i.querySelector('.acc-body').style.maxHeight = '0';
+    });
+    if (!isOpen) {
+      item.classList.add('active');
+      body.style.maxHeight = body.scrollHeight + 'px';
+    }
+  });
+});
+
+// Tabs
+document.querySelectorAll('.faq-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.faq-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const filter = tab.dataset.filter;
+    document.querySelectorAll('[data-group]').forEach(g => {
+      const cat = g.dataset.category;
+      g.style.display = (filter === 'all' || cat === filter) ? '' : 'none';
+    });
+    // Reset search
+    document.getElementById('search').value = '';
+    document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('hidden'));
+    document.getElementById('no-results').classList.remove('show');
+  });
+});
+
+// Search
+document.getElementById('search').addEventListener('input', function() {
+  const q = this.value.toLowerCase().trim();
+  // Reset tabs
+  document.querySelectorAll('.faq-tab').forEach(t => t.classList.remove('active'));
+  document.querySelector('[data-filter="all"]').classList.add('active');
+  document.querySelectorAll('[data-group]').forEach(g => g.style.display = '');
+
+  let count = 0;
+  document.querySelectorAll('.acc-item').forEach(item => {
+    const text = (item.dataset.q || '') + (item.querySelector('.acc-body-inner') || {textContent:''}).textContent;
+    const match = !q || text.toLowerCase().includes(q);
+    item.classList.toggle('hidden', !match);
+    if (match) count++;
+  });
+  document.querySelectorAll('[data-group]').forEach(g => {
+    const vis = [...g.querySelectorAll('.acc-item')].some(i => !i.classList.contains('hidden'));
+    g.style.display = vis ? '' : 'none';
+  });
+  document.getElementById('no-results').classList.toggle('show', count === 0);
+});
+</script>
+<script>
+  const ham = document.getElementById('ham');
+  const navLinks = document.getElementById('nav-links');
+  if (ham && navLinks) {
+    ham.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+  }
+</script>
+</body>
+</html>
