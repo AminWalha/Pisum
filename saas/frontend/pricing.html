@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>PISUM — Tarifs</title>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#3b6ef8;--purple:#7c5af0;--green:#16a34a;--amber:#d97706;
+  --grad:linear-gradient(135deg,#3b6ef8 0%,#7c5af0 100%);
+  --ink:#09090f;--ink-2:#3a3a4c;--ink-3:#8a8aa8;--ink-4:#bbbbd0;
+  --bg:#f2f2f6;--white:#fff;
+  --shadow:0 8px 32px rgba(0,0,0,0.08),0 2px 8px rgba(0,0,0,0.04);
+  --r:16px;
+}
+body{font-family:'Segoe UI',-apple-system,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+
+/* NAV */
+nav{background:var(--white);border-bottom:1px solid rgba(0,0,0,0.06);padding:0 2rem;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.nav-logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:1rem;letter-spacing:-0.03em;text-decoration:none;color:var(--ink)}
+.nav-logo img{width:30px;height:30px;border-radius:7px}
+.btn-nav{padding:0.45rem 1.1rem;border:1.5px solid rgba(0,0,0,0.12);border-radius:999px;background:transparent;cursor:pointer;font-size:0.82rem;font-weight:600;color:var(--ink-2);transition:all 0.2s;text-decoration:none;display:inline-block}
+.btn-nav:hover{background:var(--bg);border-color:rgba(0,0,0,0.2)}
+.btn-nav.primary{background:var(--grad);color:#fff;border-color:transparent}
+.btn-nav.primary:hover{opacity:0.9}
+
+/* HERO */
+.hero{text-align:center;padding:4rem 1.5rem 2.5rem;max-width:640px;margin:0 auto}
+.hero h1{font-size:2.4rem;font-weight:800;letter-spacing:-0.04em;line-height:1.15;margin-bottom:1rem}
+.hero h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:1rem;color:var(--ink-3);line-height:1.7;max-width:480px;margin:0 auto}
+
+/* PLAN CARDS */
+.plans-section{max-width:1100px;margin:0 auto;padding:1.5rem 1.5rem 3rem}
+.plans-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;align-items:start}
+@media(max-width:1000px){.plans-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.plans-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:420px){.plans-grid{grid-template-columns:1fr}}
+
+.plan-card{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);padding:1.5rem 1.25rem;position:relative;border:2px solid transparent;transition:transform 0.18s}
+.plan-card:hover{transform:translateY(-3px)}
+.plan-card.popular{border-color:var(--blue)}
+
+.popular-ribbon{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--grad);color:#fff;font-size:0.65rem;font-weight:800;letter-spacing:0.07em;text-transform:uppercase;padding:0.2rem 0.8rem;border-radius:999px;white-space:nowrap}
+
+.plan-tag{font-size:0.65rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:999px;display:inline-block;margin-bottom:0.6rem}
+.tag-free{background:#f1f5f9;color:#475569}
+.tag-starter{background:#e0f2fe;color:#0369a1}
+.tag-pro{background:#ede9fe;color:#6d28d9}
+.tag-expert{background:#fef3c7;color:#92400e}
+.tag-clinic{background:#dcfce7;color:#166534}
+
+.plan-name{font-size:1.1rem;font-weight:800;margin-bottom:0.3rem;letter-spacing:-0.02em}
+.plan-price{font-size:1.8rem;font-weight:800;letter-spacing:-0.04em;margin:0.5rem 0 0.2rem;line-height:1}
+.plan-price span{font-size:0.85rem;font-weight:500;color:var(--ink-3)}
+.plan-tagline{font-size:0.78rem;color:var(--ink-3);margin-bottom:1.25rem;line-height:1.5}
+
+.plan-cta{display:block;width:100%;padding:0.7rem 1rem;border-radius:999px;font-size:0.85rem;font-weight:700;text-align:center;text-decoration:none;cursor:pointer;transition:opacity 0.2s,transform 0.15s;border:none}
+.plan-cta:hover{opacity:0.9;transform:translateY(-1px)}
+.cta-free{background:#f1f5f9;color:#475569}
+.cta-paid{background:var(--grad);color:#fff}
+.cta-popular{background:var(--grad);color:#fff;box-shadow:0 4px 14px rgba(59,110,248,0.35)}
+
+.divider{height:1px;background:rgba(0,0,0,0.06);margin:1.25rem 0}
+
+.feature-list{list-style:none;font-size:0.8rem;color:var(--ink-2);line-height:1;display:flex;flex-direction:column;gap:0.6rem}
+.feature-list li{display:flex;align-items:flex-start;gap:7px}
+.fi-ok{color:#16a34a;flex-shrink:0}
+.fi-no{color:#d1d5db;flex-shrink:0}
+.fi-lim{color:var(--amber);flex-shrink:0}
+.fi-txt{line-height:1.4}
+
+/* COMPARISON TABLE */
+.compare-section{max-width:1100px;margin:0 auto;padding:0 1.5rem 4rem}
+.compare-section h2{font-size:1.5rem;font-weight:800;letter-spacing:-0.03em;text-align:center;margin-bottom:2rem}
+.compare-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;background:var(--white);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);font-size:0.83rem}
+thead{background:var(--grad);color:#fff}
+thead th{padding:0.9rem 1rem;font-weight:700;text-align:center}
+thead th:first-child{text-align:left}
+tbody tr{border-bottom:1px solid rgba(0,0,0,0.05)}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:#f8f9ff}
+tbody td{padding:0.75rem 1rem;text-align:center;color:var(--ink-2)}
+tbody td:first-child{text-align:left;font-weight:600;color:var(--ink);font-size:0.82rem}
+.yes{color:#16a34a;font-size:1rem}
+.no{color:#d1d5db;font-size:1rem}
+.lim{color:var(--amber);font-size:0.78rem;font-weight:700}
+
+/* FAQ / FOOTER */
+.footer-note{text-align:center;padding:2rem 1.5rem 3rem;font-size:0.82rem;color:var(--ink-3)}
+.footer-note a{color:var(--blue);text-decoration:none}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="PISUM"/>
+    PISUM
+  </a>
+  <div style="display:flex;gap:10px;align-items:center">
+    <a class="btn-nav" href="auth.html">Se connecter</a>
+    <a class="btn-nav primary" href="auth.html">Commencer gratuitement</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>L'offre adaptée à<br/><span>votre pratique</span></h1>
+  <p>Du radiologue indépendant à la clinique multi-sites — PISUM s'adapte à vos besoins avec des fonctionnalités pensées pour vous.</p>
+</div>
+
+<!-- PLAN CARDS -->
+<section class="plans-section">
+  <div class="plans-grid">
+
+    <!-- FREE -->
+    <div class="plan-card">
+      <div class="plan-tag tag-free">Free</div>
+      <div class="plan-name">Pisum Free</div>
+      <div class="plan-price">0 €<span> / mois</span></div>
+      <div class="plan-tagline">Découvrez PISUM sans engagement</div>
+      <a class="plan-cta cta-free" href="auth.html">Commencer</a>
+      <div class="divider"></div>
+      <ul class="feature-list">
+        <li><span class="fi-ok">✓</span><span class="fi-txt">10 templates</span></li>
+        <li><span class="fi-ok">✓</span><span class="fi-txt">2 langues</span></li>
+        <li><span class="fi-ok">✓</span><span class="fi-txt">Export PDF</span></li>
+        <li><span class="fi-no">–</span><span class="fi-txt">Export Word</span></li>
+        <li><span class="fi-no">–</span><span class="fi-txt">Dictée AI</span></li>
+        <li><span class="fi-no">–</span><span class="fi-txt">AI Enhancer</span></li>
+        <li><span class="fi-no">–</span><span class="fi-txt">Worklist</span></li>
+        <li><span class="fi-lim">◐</span><span class="fi-txt">20 CR / mois</span></li>
+      </ul>
+    </div>
+
+    <!-- STARTER -->
+    <div class="plan-card">
+      <div class="plan-tag tag-starter">Starter</div>
+      <div class="plan-name">Pisum Starter</div>
+      <div class="plan-price">— €<span> / mois</span></div>
+      <div class="plan-tagline">Radiologue indépendant</div>
+      <a class="plan-cta cta-paid" href="auth.html">S'abonner</a>
+      <div class="divider"></div>
+      <ul class="feature-list">
+        <li><span class="fi-ok">✓</span><span class="fi-txt">20 templates</span></li>
+        <li><span class="fi-ok">✓</span><span class="fi-txt">5 langues</span></li>
+        <li><span class="fi-ok">✓</span><span class="fi-txt">Export PDF + Word</span></li>
+        <li><span class="fi-no">–</span><span class="fi-txt">Dictée AI</span></li>
+        <li><span class="fi-no">–</span><span class="fi-txt">AI Enhancer</span></li>
+        <li><span class="fi-lim">◐</span><span class="fi-txt">Worklist basique</span></li>
+        <li><span class="fi-ok">✓</span><span class="fi-txt">CR illimités</span></li>
+      </ul>
+    </div>
+
+    <!-- PRO -->
+    <div class="plan-card popular">
+      <div class="popular-ribbon">Recommandé</div>
+      <div class="plan-tag tag-pro">Pro ⭐</div>
+      <div class="plan-name">Pisum Pro</div>
+      <div class="plan-price">— €<span> / mois</span></div>
+      <div class="plan-tagline">Praticien avancé, tout-en-un</div>
+      <a class="plan-cta cta-popular" href="auth.html">S'abonner</a>
+      <div class="divider"></div>
+      <ul class="feature-list">
+        <li><span class="fi-ok">✓</span><span class="fi-txt">112+ templates</span></li>
+        <li><span class="fi-ok">✓</span><span class="fi-txt">23 langues</span></li>
+        <li><span class="fi-ok">✓</span><span class="fi-txt">Export PDF + Word</span></li>
+        <li><span class="fi-ok">✓</span><span class="fi-txt">Dictée AI</span></li>
+        <li><span class="fi-lim">◐</span><span class="fi-txt">AI Enhancer (50/mois)</span></li>
+        <li><span class="fi-ok">✓</span><span class="fi-txt">Worklist complète</span></li>
+        <li><span class="fi-lim">◐</span><span class="fi-txt">Statistiques basiques</span></li>
+      </ul>
+    </div>
+
+    <!-- EXPERT -->
+    <div class="plan-card">
+      <div class="plan-tag tag-expert">Expert 🔥</div>
+      <div class="plan-name">Pisum Expert</div>
+      <div class="plan-price">— €<span> / mois</span></div>
+      <div class="plan-tagline">Radiologue expert, sans limites</div>
+      <a class="plan-cta cta-paid" href="auth.html">S'abonner</a>
+      <div class="divider"></div>
+      <ul class="feature-list">
+        <li><span class="fi-ok">✓</span><span class="fi-txt">112+ templates custom</span></li>
+        <li><span class="fi-ok">✓</span><span class="fi-txt">23 langues</span></li>
+        <li><span class="fi-ok">✓</span><span class="fi-txt">Export PDF + Word</span></li>
+        <li><span class="fi-ok">✓</span><span class="fi-txt">Dictée AI</span></li>
+        <li><span class="fi-ok">✓</span><span class="fi-txt">AI Enhancer illimité</span></li>
+        <li><span class="fi-ok">✓</span><span class="fi-txt">Worklist avancée</span></li>
+        <li><span class="fi-ok">✓</span><span class="fi-txt">Statistiques complètes</span></li>
+      </ul>
+    </div>
+
+    <!-- CLINIC -->
+    <div class="plan-card">
+      <div class="plan-tag tag-clinic">Clinic 🏥</div>
+      <div class="plan-name">Pisum Clinic</div>
+      <div class="plan-price">— €<span> / mois</span></div>
+      <div class="plan-tagline">Cabinet multi-praticiens</div>
+      <a class="plan-cta cta-paid" href="auth.html">Nous contacter</a>
+      <div class="divider"></div>
+      <ul class="feature-list">
+        <li><span class="fi-ok">✓</span><span class="fi-txt">Templates sur mesure</span></li>
+        <li><span class="fi-ok">✓</span><span class="fi-txt">23 langues</span></li>
+        <li><span class="fi-ok">✓</span><span class="fi-txt">Export PDF + Word</span></li>
+        <li><span class="fi-ok">✓</span><span class="fi-txt">Dictée AI</span></li>
+        <li><span class="fi-ok">✓</span><span class="fi-txt">AI Enhancer illimité</span></li>
+        <li><span class="fi-ok">✓</span><span class="fi-txt">Worklist multi-site</span></li>
+        <li><span class="fi-ok">✓</span><span class="fi-txt">5 utilisateurs inclus</span></li>
+        <li><span class="fi-ok">✓</span><span class="fi-txt">Stats avancées</span></li>
+        <li><span class="fi-ok">✓</span><span class="fi-txt">Onboarding dédié</span></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="compare-section">
+  <h2>Comparaison détaillée</h2>
+  <div class="compare-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Fonctionnalité</th>
+          <th>Free</th>
+          <th>Starter</th>
+          <th>Pro ⭐</th>
+          <th>Expert 🔥</th>
+          <th>Clinic 🏥</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Templates</td>
+          <td>10</td>
+          <td>20</td>
+          <td>112+</td>
+          <td>112+ custom</td>
+          <td>Sur mesure</td>
+        </tr>
+        <tr>
+          <td>Langues disponibles</td>
+          <td>2</td>
+          <td>5</td>
+          <td>23</td>
+          <td>23</td>
+          <td>23</td>
+        </tr>
+        <tr>
+          <td>Export PDF</td>
+          <td><span class="yes">✓</span></td>
+          <td><span class="yes">✓</span></td>
+          <td><span class="yes">✓</span></td>
+          <td><span class="yes">✓</span></td>
+          <td><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>Export Word</td>
+          <td><span class="no">–</span></td>
+          <td><span class="yes">✓</span></td>
+          <td><span class="yes">✓</span></td>
+          <td><span class="yes">✓</span></td>
+          <td><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>Dictée AI</td>
+          <td><span class="no">–</span></td>
+          <td><span class="no">–</span></td>
+          <td><span class="yes">✓</span></td>
+          <td><span class="yes">✓</span></td>
+          <td><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>AI Enhancer</td>
+          <td><span class="no">–</span></td>
+          <td><span class="no">–</span></td>
+          <td><span class="lim">50 / mois</span></td>
+          <td><span class="yes">Illimité</span></td>
+          <td><span class="yes">Illimité</span></td>
+        </tr>
+        <tr>
+          <td>Worklist</td>
+          <td><span class="no">–</span></td>
+          <td><span class="lim">Basique</span></td>
+          <td><span class="lim">Complète</span></td>
+          <td><span class="yes">Avancée</span></td>
+          <td><span class="yes">Multi-site</span></td>
+        </tr>
+        <tr>
+          <td>Utilisateurs</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>5 inclus + extra</td>
+        </tr>
+        <tr>
+          <td>Statistiques</td>
+          <td><span class="no">–</span></td>
+          <td><span class="no">–</span></td>
+          <td><span class="lim">Basiques</span></td>
+          <td><span class="yes">✓</span></td>
+          <td><span class="yes">Avancées</span></td>
+        </tr>
+        <tr>
+          <td>Comptes-rendus / mois</td>
+          <td><span class="lim">20</span></td>
+          <td><span class="yes">Illimités</span></td>
+          <td><span class="yes">Illimités</span></td>
+          <td><span class="yes">Illimités</span></td>
+          <td><span class="yes">Illimités</span></td>
+        </tr>
+        <tr>
+          <td>Support</td>
+          <td>—</td>
+          <td>Email</td>
+          <td>Email prioritaire</td>
+          <td>Chat + email</td>
+          <td>Dédié + onboarding</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="footer-note">
+  Des questions ? <a href="mailto:contact@pisum.app">Contactez-nous</a> ·
+  <a href="auth.html">Créer un compte gratuit</a>
+</div>
+
+</body>
+</html>
