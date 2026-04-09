@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>PISUM — Sign in</title>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#3b6ef8;--blue-d:#2952d9;--purple:#7c5af0;
+  --grad:linear-gradient(135deg,#3b6ef8 0%,#7c5af0 100%);
+  --ink:#09090f;--ink-2:#3a3a4c;--ink-3:#8a8aa8;
+  --bg:#f2f2f6;--white:#fff;
+  --shadow:0 8px 32px rgba(0,0,0,0.08),0 2px 8px rgba(0,0,0,0.04);
+  --r:14px;
+}
+body{font-family:'Segoe UI',-apple-system,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:1.5rem}
+.card{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);padding:2.5rem 2rem;width:100%;max-width:420px}
+.logo{display:flex;align-items:center;gap:10px;margin-bottom:2rem;justify-content:center}
+.logo img{width:36px;height:36px;border-radius:8px}
+.logo-text{font-size:1.3rem;font-weight:700;letter-spacing:-0.03em}
+.tabs{display:flex;gap:0;border-radius:999px;background:#f0f0f5;padding:4px;margin-bottom:2rem}
+.tab{flex:1;padding:0.55rem;border:none;border-radius:999px;cursor:pointer;font-size:0.85rem;font-weight:600;transition:all 0.2s;background:transparent;color:var(--ink-3)}
+.tab.active{background:var(--white);color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,0.1)}
+label{display:block;font-size:0.8rem;font-weight:600;color:var(--ink-2);margin-bottom:0.35rem;margin-top:1rem}
+input{width:100%;padding:0.7rem 0.9rem;border:1.5px solid #e0e0ea;border-radius:10px;font-size:0.9rem;outline:none;transition:border-color 0.2s;background:var(--white)}
+input:focus{border-color:var(--blue)}
+.btn{width:100%;margin-top:1.5rem;padding:0.8rem;border:none;border-radius:999px;cursor:pointer;font-size:0.9rem;font-weight:700;background:var(--grad);color:#fff;transition:opacity 0.2s,transform 0.15s;letter-spacing:0.01em}
+.btn:hover{opacity:0.9;transform:translateY(-1px)}
+.btn:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+.msg{margin-top:1rem;padding:0.75rem 1rem;border-radius:10px;font-size:0.85rem;display:none}
+.msg.error{background:#fff0f0;color:#c0392b;border:1px solid #fcc}
+.msg.success{background:#f0fff4;color:#16a34a;border:1px solid #bbf7d0}
+.divider{text-align:center;font-size:0.78rem;color:var(--ink-3);margin:1.2rem 0}
+.back-link{text-align:center;margin-top:1.2rem;font-size:0.82rem;color:var(--ink-3)}
+.back-link a{color:var(--blue);font-weight:600}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="logo">
+    <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="PISUM"/>
+    <span class="logo-text">PISUM</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" id="tab-login" onclick="switchTab('login')">Sign in</button>
+    <button class="tab" id="tab-signup" onclick="switchTab('signup')">Create account</button>
+  </div>
+
+  <!-- LOGIN FORM -->
+  <form id="form-login" onsubmit="handleLogin(event)">
+    <label for="login-email">Email</label>
+    <input id="login-email" type="email" placeholder="you@example.com" required autocomplete="email"/>
+    <label for="login-password">Password</label>
+    <input id="login-password" type="password" placeholder="••••••••" required autocomplete="current-password"/>
+    <button class="btn" type="submit" id="btn-login">Sign in</button>
+    <div class="msg" id="msg-login"></div>
+  </form>
+
+  <!-- SIGNUP FORM -->
+  <form id="form-signup" onsubmit="handleSignup(event)" style="display:none">
+    <label for="signup-email">Email</label>
+    <input id="signup-email" type="email" placeholder="you@example.com" required autocomplete="email"/>
+    <label for="signup-password">Password</label>
+    <input id="signup-password" type="password" placeholder="Min. 8 characters" required autocomplete="new-password" minlength="8"/>
+    <button class="btn" type="submit" id="btn-signup">Create account</button>
+    <div class="msg" id="msg-signup"></div>
+  </form>
+
+  <div class="back-link">
+    <a href="../SiteWeb/index.html">&larr; Back to website</a>
+  </div>
+</div>
+
+<!-- Supabase JS client (CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+  // ── CONFIG — replace with your actual values ────────────────────────────
+  const SUPABASE_URL = 'https://lepqbnhrdgfetoysedbq.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlcHFibmhyZGdmZXRveXNlZGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwNjQ1MDAsImV4cCI6MjA5MDY0MDUwMH0.St12IwG0_RRKzxrbH1QRolCC2OOAaSIsK4PDmlR2Loo        ';
+  // ────────────────────────────────────────────────────────────────────────
+
+  const { createClient } = supabase;
+  const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  // Redirect if already logged in OR after email confirmation (PKCE code exchange)
+  sb.auth.getSession().then(({ data }) => {
+    if (data.session) window.location.href = 'dashboard.html';
+  });
+
+  sb.auth.onAuthStateChange((event, session) => {
+    if ((event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') && session) {
+      window.location.href = 'dashboard.html';
+    }
+  });
+
+  function switchTab(tab) {
+    document.getElementById('form-login').style.display  = tab === 'login'  ? '' : 'none';
+    document.getElementById('form-signup').style.display = tab === 'signup' ? '' : 'none';
+    document.getElementById('tab-login').classList.toggle('active', tab === 'login');
+    document.getElementById('tab-signup').classList.toggle('active', tab === 'signup');
+  }
+
+  function showMsg(id, text, type) {
+    const el = document.getElementById(id);
+    el.textContent = text;
+    el.className = `msg ${type}`;
+    el.style.display = 'block';
+  }
+
+  async function handleLogin(e) {
+    e.preventDefault();
+    const btn = document.getElementById('btn-login');
+    btn.disabled = true;
+    btn.textContent = 'Signing in…';
+
+    const email    = document.getElementById('login-email').value.trim();
+    const password = document.getElementById('login-password').value;
+
+    const { data, error } = await sb.auth.signInWithPassword({ email, password });
+
+    if (error) {
+      showMsg('msg-login', error.message, 'error');
+      btn.disabled = false;
+      btn.textContent = 'Sign in';
+      return;
+    }
+
+    // Store session — Supabase SDK handles this automatically in localStorage
+    window.location.href = 'dashboard.html';
+  }
+
+  async function handleSignup(e) {
+    e.preventDefault();
+    const btn = document.getElementById('btn-signup');
+    btn.disabled = true;
+    btn.textContent = 'Creating account…';
+
+    const email    = document.getElementById('signup-email').value.trim();
+    const password = document.getElementById('signup-password').value;
+
+    const { data, error } = await sb.auth.signUp({ email, password });
+
+    if (error) {
+      showMsg('msg-signup', error.message, 'error');
+      btn.disabled = false;
+      btn.textContent = 'Create account';
+      return;
+    }
+
+    showMsg('msg-signup', 'Account created! Check your email to confirm, then sign in.', 'success');
+    btn.disabled = false;
+    btn.textContent = 'Create account';
+  }
+</script>
+</body>
+</html>
