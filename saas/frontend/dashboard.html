@@ -3,558 +3,551 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>PISUM — Mon abonnement</title>
+<title>PISUM — Mon espace</title>
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --blue:#3b6ef8;--purple:#7c5af0;--green:#16a34a;--red:#dc2626;--amber:#d97706;
   --grad:linear-gradient(135deg,#3b6ef8 0%,#7c5af0 100%);
-  --ink:#09090f;--ink-2:#3a3a4c;--ink-3:#8a8aa8;--ink-4:#bbbbd0;
-  --bg:#f2f2f6;--white:#fff;
-  --shadow:0 8px 32px rgba(0,0,0,0.08),0 2px 8px rgba(0,0,0,0.04);
+  --ink:#09090f;--ink-2:#3a3a4c;--ink-3:#6b7280;--ink-4:#d1d5db;
+  --bg:#f5f5f7;--white:#fff;
+  --shadow-sm:0 1px 3px rgba(0,0,0,0.07);
+  --shadow:0 4px 24px rgba(0,0,0,0.08),0 1px 4px rgba(0,0,0,0.04);
   --r:16px;
 }
-body{font-family:'Segoe UI',-apple-system,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
 
-/* NAV */
-nav{background:var(--white);border-bottom:1px solid rgba(0,0,0,0.06);padding:0 2rem;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.nav-logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:1rem;letter-spacing:-0.03em}
-.nav-logo img{width:30px;height:30px;border-radius:7px}
-.nav-right{display:flex;align-items:center;gap:12px}
-#user-email{font-size:0.82rem;color:var(--ink-3)}
-.btn-nav{padding:0.45rem 1rem;border:1.5px solid rgba(0,0,0,0.12);border-radius:999px;background:transparent;cursor:pointer;font-size:0.82rem;font-weight:600;color:var(--ink-2);transition:all 0.2s}
-.btn-nav:hover{background:var(--bg);border-color:rgba(0,0,0,0.2)}
+/* ── NAV ── */
+nav{
+  background:rgba(255,255,255,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(0,0,0,0.07);padding:0 2rem;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:100
+}
+.nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
+.nav-logo img{width:32px;height:32px;border-radius:9px}
+.nav-logo-text{font-size:1.05rem;font-weight:800;letter-spacing:-0.04em;
+  background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-right{display:flex;align-items:center;gap:10px}
 
-/* MAIN */
-main{max-width:860px;margin:3rem auto;padding:0 1.5rem}
-h1{font-size:1.7rem;font-weight:700;letter-spacing:-0.03em;margin-bottom:0.4rem}
-.subtitle{color:var(--ink-3);font-size:0.9rem;margin-bottom:2.5rem}
+.nav-user{display:flex;align-items:center;gap:8px}
+.nav-avatar{
+  width:34px;height:34px;border-radius:50%;background:var(--grad);
+  color:#fff;font-size:0.82rem;font-weight:700;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;letter-spacing:0.01em
+}
+.nav-user-info{display:flex;flex-direction:column;line-height:1.2}
+.nav-user-name{font-size:0.82rem;font-weight:600;color:var(--ink)}
+.nav-user-email{font-size:0.72rem;color:var(--ink-3)}
 
-/* ACCESS CARD */
-.access-card{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);padding:2rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:1.5rem}
-.access-icon{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0}
-.access-icon.granted{background:#dcfce7}
-.access-icon.denied{background:#fee2e2}
-.access-text h2{font-size:1.1rem;font-weight:700;margin-bottom:0.25rem}
-.access-text p{font-size:0.85rem;color:var(--ink-3)}
+.btn-nav{
+  padding:0.45rem 1rem;border:1.5px solid var(--ink-4);border-radius:999px;
+  background:transparent;cursor:pointer;font-size:0.8rem;font-weight:600;
+  color:var(--ink-2);transition:all 0.18s;font-family:inherit
+}
+.btn-nav:hover{background:var(--bg);border-color:#b0b3be}
 
-/* CARD */
-.card{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);padding:2rem;margin-bottom:1.5rem}
-.card h3{font-size:1rem;font-weight:700;margin-bottom:0.3rem}
-.card > p{font-size:0.85rem;color:var(--ink-3);margin-bottom:1.5rem;line-height:1.6}
+/* ── MAIN ── */
+main{max-width:900px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
 
-/* PLAN GRID */
-.plan-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0.75rem;margin-bottom:1.5rem}
-@media(max-width:860px){.plan-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:540px){.plan-grid{grid-template-columns:repeat(2,1fr)}}
+.page-header{margin-bottom:2rem}
+.page-header h1{font-size:1.65rem;font-weight:800;letter-spacing:-0.035em;margin-bottom:0.3rem}
+.page-header p{font-size:0.88rem;color:var(--ink-3)}
 
-.plan-card{border:2px solid rgba(0,0,0,0.08);border-radius:14px;padding:1rem 0.75rem;cursor:pointer;transition:all 0.18s;background:var(--white);text-align:center;position:relative}
-.plan-card:hover{border-color:var(--blue);background:#f5f7ff}
-.plan-card.selected{border-color:var(--blue);background:#eef2ff;box-shadow:0 0 0 3px rgba(59,110,248,0.15)}
+/* ── CARD ── */
+.card{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.card+.card{margin-top:1.25rem}
 
-.plan-tag{font-size:0.65rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.15rem 0.5rem;border-radius:999px;display:inline-block;margin-bottom:0.5rem}
-.plan-name{font-weight:700;font-size:0.9rem;margin-bottom:0.6rem;color:var(--ink)}
-.plan-features{list-style:none;text-align:left;font-size:0.72rem;color:var(--ink-3);line-height:1.8}
-.plan-features li{display:flex;align-items:flex-start;gap:5px}
-.plan-features li .fi{flex-shrink:0;margin-top:1px}
+.card-header{
+  padding:1.4rem 1.75rem 1.1rem;border-bottom:1px solid rgba(0,0,0,0.06);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem
+}
+.card-header h2{font-size:1rem;font-weight:700;letter-spacing:-0.015em}
+.card-body{padding:1.5rem 1.75rem}
+
+/* ── STATUS BANNER ── */
+.status-banner{
+  display:flex;align-items:center;gap:1.25rem;
+  padding:1.4rem 1.75rem
+}
+.status-icon{
+  width:52px;height:52px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-size:1.5rem;flex-shrink:0
+}
+.icon-ok{background:#dcfce7}
+.icon-err{background:#fee2e2}
+.icon-wait{background:#f0f6ff}
+.status-text h2{font-size:1.05rem;font-weight:700;margin-bottom:0.2rem}
+.status-text p{font-size:0.83rem;color:var(--ink-3);line-height:1.5}
+
+/* ── BADGES ── */
+.badge{
+  display:inline-flex;align-items:center;gap:5px;padding:0.2rem 0.7rem;
+  border-radius:999px;font-size:0.72rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase
+}
+.badge-active{background:#dcfce7;color:#15803d}
+.badge-inactive{background:#fee2e2;color:#dc2626}
+.badge-free{background:#f1f5f9;color:#475569}
+.badge-starter{background:#e0f2fe;color:#0369a1}
+.badge-pro{background:#ede9fe;color:#6d28d9}
+.badge-expert{background:#fef3c7;color:#92400e}
+.badge-clinic{background:#dcfce7;color:#166534}
+
+/* ── FEATURE GRID ── */
+.feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0.5rem 2rem}
+@media(max-width:540px){.feature-grid{grid-template-columns:1fr}}
+.feature-item{display:flex;align-items:center;gap:8px;font-size:0.83rem;color:var(--ink-2);padding:0.3rem 0}
 .fi-ok{color:#16a34a}
-.fi-no{color:#d1d5db}
 .fi-lim{color:var(--amber)}
+.fi-no{color:#d1d5db}
 
+/* ── PROGRESS BAR ── */
+.prog-block{margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid rgba(0,0,0,0.06)}
+.prog-block h4{font-size:0.85rem;font-weight:700;margin-bottom:0.25rem}
+.prog-block p{font-size:0.78rem;color:var(--ink-3);margin-bottom:0.65rem}
+.prog-bar{height:7px;border-radius:999px;background:#e5e7eb;overflow:hidden}
+.prog-fill{height:100%;border-radius:999px;background:var(--grad);transition:width 0.4s}
+.prog-fill.warn{background:linear-gradient(135deg,#f59e0b,#d97706)}
+.prog-fill.danger{background:linear-gradient(135deg,#ef4444,#dc2626)}
+.prog-label{font-size:0.72rem;color:var(--ink-3);margin-top:0.35rem;display:flex;justify-content:space-between}
+
+/* ── PLAN SELECTOR ── */
+.plan-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0.6rem}
+@media(max-width:820px){.plan-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:500px){.plan-grid{grid-template-columns:repeat(2,1fr)}}
+
+.plan-card{
+  border:2px solid var(--ink-4);border-radius:12px;padding:0.85rem 0.7rem;
+  cursor:pointer;transition:all 0.16s;text-align:center;position:relative;background:var(--white)
+}
+.plan-card:hover{border-color:var(--blue);background:#f5f7ff}
+.plan-card.sel{border-color:var(--blue);background:#eef2ff;box-shadow:0 0 0 3px rgba(59,110,248,0.14)}
+
+.plan-tag{
+  font-size:0.6rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+  padding:0.12rem 0.5rem;border-radius:999px;display:inline-block;margin-bottom:0.45rem
+}
 .tag-free{background:#f1f5f9;color:#475569}
 .tag-starter{background:#e0f2fe;color:#0369a1}
 .tag-pro{background:#ede9fe;color:#6d28d9}
 .tag-expert{background:#fef3c7;color:#92400e}
 .tag-clinic{background:#dcfce7;color:#166534}
 
-/* POPULAR badge */
-.popular-badge{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--grad);color:#fff;font-size:0.6rem;font-weight:700;letter-spacing:0.05em;padding:0.15rem 0.6rem;border-radius:999px;white-space:nowrap}
+.plan-name{font-weight:700;font-size:0.82rem;color:var(--ink);margin-bottom:0.45rem}
+.plan-feats{list-style:none;text-align:left;font-size:0.68rem;color:var(--ink-3);line-height:1.75;display:flex;flex-direction:column;gap:1px}
+.plan-feats li{display:flex;align-items:flex-start;gap:4px}
 
-/* SUBSCRIBE BTN */
-.btn-subscribe{display:block;width:100%;padding:0.85rem 2rem;background:var(--grad);color:#fff;border:none;border-radius:999px;cursor:pointer;font-size:0.9rem;font-weight:700;transition:opacity 0.2s,transform 0.15s;margin-top:0.5rem}
-.btn-subscribe:hover{opacity:0.9;transform:translateY(-1px)}
-.btn-subscribe:disabled{opacity:0.5;cursor:not-allowed;transform:none}
-.btn-free{background:linear-gradient(135deg,#64748b,#475569)}
+.pop-badge{
+  position:absolute;top:-9px;left:50%;transform:translateX(-50%);
+  background:var(--grad);color:#fff;font-size:0.57rem;font-weight:800;
+  letter-spacing:0.05em;padding:0.12rem 0.55rem;border-radius:999px;white-space:nowrap
+}
 
-/* STATUS BADGE */
-.badge{display:inline-flex;align-items:center;gap:6px;padding:0.25rem 0.75rem;border-radius:999px;font-size:0.75rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase}
-.badge.active{background:#dcfce7;color:#16a34a}
-.badge.inactive{background:#fee2e2;color:#dc2626}
-.badge.canceled{background:#f3f4f6;color:#6b7280}
+/* ── BUTTONS ── */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  padding:0.8rem 1.75rem;border:none;border-radius:12px;cursor:pointer;
+  font-size:0.88rem;font-weight:700;font-family:inherit;transition:opacity 0.18s,transform 0.15s
+}
+.btn:hover{opacity:0.9;transform:translateY(-1px)}
+.btn:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+.btn-primary{background:var(--grad);color:#fff;width:100%;margin-top:1rem}
+.btn-free{background:linear-gradient(135deg,#64748b,#475569);color:#fff;width:100%;margin-top:1rem}
+.btn-outline{background:transparent;border:1.5px solid var(--ink-4);color:var(--ink-2);font-size:0.8rem;padding:0.45rem 1rem;border-radius:999px}
+.btn-outline:hover{background:var(--bg);border-color:#b0b3be;opacity:1;transform:none}
 
-/* ACTIVE FEATURES */
-.feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0.5rem 1.5rem;margin:1rem 0;font-size:0.83rem}
-@media(max-width:540px){.feature-grid{grid-template-columns:1fr}}
-.feature-row{display:flex;align-items:center;gap:8px;color:var(--ink-2)}
-.feature-row .fi{font-size:1rem}
-
-/* AI ENHANCER BAR */
-.enhancer-block{margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid rgba(0,0,0,0.07)}
-.enhancer-block h4{font-size:0.85rem;font-weight:700;margin-bottom:0.3rem}
-.enhancer-block p{font-size:0.78rem;color:var(--ink-3);margin-bottom:0.6rem}
-.progress-bar{height:8px;border-radius:999px;background:#e5e7eb;overflow:hidden}
-.progress-fill{height:100%;border-radius:999px;background:var(--grad);transition:width 0.4s}
-.progress-fill.warning{background:linear-gradient(135deg,#f59e0b,#d97706)}
-.progress-fill.danger{background:linear-gradient(135deg,#ef4444,#dc2626)}
-.enhancer-label{font-size:0.75rem;color:var(--ink-3);margin-top:0.35rem;text-align:right}
-
-/* UPGRADE LINK */
-.upgrade-row{margin-top:1.25rem;text-align:center;font-size:0.82rem;color:var(--ink-3)}
-.upgrade-row a{color:var(--blue);text-decoration:none;font-weight:600}
+/* ── MISC ── */
+.upgrade-row{text-align:center;margin-top:1.25rem;font-size:0.82rem;color:var(--ink-3)}
+.upgrade-row a{color:var(--blue);font-weight:600;text-decoration:none}
 .upgrade-row a:hover{text-decoration:underline}
-
-/* MISC */
-.spinner{display:inline-block;width:18px;height:18px;border:2.5px solid rgba(255,255,255,0.4);border-top-color:#fff;border-radius:50%;animation:spin 0.7s linear infinite;vertical-align:middle}
+.period-text{font-size:0.8rem;color:var(--ink-3);margin-top:1rem}
+.err-toast{
+  display:none;position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);
+  background:#fff;border:1px solid #fecaca;color:#b91c1c;padding:0.75rem 1.5rem;
+  border-radius:12px;font-size:0.83rem;font-weight:600;
+  box-shadow:0 4px 20px rgba(0,0,0,0.12);z-index:999;max-width:90vw;text-align:center
+}
+.spinner{display:inline-block;width:16px;height:16px;border:2.5px solid rgba(255,255,255,0.35);border-top-color:#fff;border-radius:50%;animation:spin 0.7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.msg{padding:0.7rem 1rem;border-radius:10px;font-size:0.83rem;margin-top:0.75rem;display:none}
-.msg.error{background:#fff0f0;color:#c0392b;border:1px solid #fcc;display:block}
-.msg.info{background:#f0f6ff;color:#2563eb;border:1px solid #bfdbfe;display:block}
+
+/* ── PROFILE CARD ── */
+.profile-row{display:flex;align-items:center;gap:1.25rem}
+.profile-avatar{
+  width:56px;height:56px;border-radius:50%;background:var(--grad);
+  color:#fff;font-size:1.2rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0
+}
+.profile-info{flex:1}
+.profile-name{font-size:1.05rem;font-weight:700;letter-spacing:-0.015em;margin-bottom:0.2rem}
+.profile-email{font-size:0.82rem;color:var(--ink-3)}
+.profile-plan{margin-top:0.5rem}
+
+@media(max-width:600px){
+  .nav-user-info{display:none}
+  main{padding:1.5rem 1rem 3rem}
+  .card-header,.card-body,.status-banner{padding-left:1.25rem;padding-right:1.25rem}
+}
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-  <div class="nav-logo">
+  <a class="nav-logo" href="dashboard.html">
     <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="PISUM"/>
-    PISUM
-  </div>
+    <span class="nav-logo-text">PISUM</span>
+  </a>
   <div class="nav-right">
-    <span id="user-email"></span>
+    <div class="nav-user" id="nav-user">
+      <div class="nav-avatar" id="nav-avatar">?</div>
+      <div class="nav-user-info">
+        <span class="nav-user-name" id="nav-name">—</span>
+        <span class="nav-user-email" id="nav-email">—</span>
+      </div>
+    </div>
     <button class="btn-nav" onclick="signOut()">Déconnexion</button>
   </div>
 </nav>
 
 <main>
-  <h1>Mon abonnement</h1>
-  <p class="subtitle">Gérez votre accès et votre offre PISUM.</p>
-
-  <!-- ACCESS STATUS CARD -->
-  <div class="access-card" id="access-card">
-    <div class="access-icon" id="access-icon">⏳</div>
-    <div class="access-text">
-      <h2 id="access-title">Vérification en cours…</h2>
-      <p id="access-desc">Veuillez patienter pendant la vérification de votre abonnement.</p>
-    </div>
+  <div class="page-header">
+    <h1 id="page-title">Mon espace</h1>
+    <p id="page-sub">Gérez votre abonnement et accédez à PISUM.</p>
   </div>
 
-  <!-- SUBSCRIBE CARD (no active subscription) -->
-  <div class="card" id="sub-card" style="display:none">
-    <h3>Choisissez votre offre</h3>
-    <p>Sélectionnez le plan adapté à votre pratique, puis procédez au paiement sécurisé.</p>
-
-    <div class="plan-grid" id="plan-grid"><!-- generated by JS --></div>
-
-    <button class="btn-subscribe" id="btn-subscribe" onclick="handleSubscribe()">
-      Continuer
-    </button>
-    <div class="msg" id="sub-msg"></div>
-  </div>
-
-  <!-- ACTIVE SUBSCRIPTION CARD -->
-  <div class="card" id="active-card" style="display:none">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
-      <h3 style="margin:0">Détails de l'abonnement</h3>
-      <div style="display:flex;gap:8px;align-items:center">
-        <span class="badge" id="plan-badge"></span>
-        <span class="badge active">Actif</span>
+  <!-- Profile card -->
+  <div class="card" id="profile-card" style="display:none">
+    <div class="card-body">
+      <div class="profile-row">
+        <div class="profile-avatar" id="profile-avatar">?</div>
+        <div class="profile-info">
+          <div class="profile-name" id="profile-name">—</div>
+          <div class="profile-email" id="profile-email">—</div>
+          <div class="profile-plan">
+            <span class="badge" id="profile-plan-badge"></span>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
 
-    <div class="feature-grid" id="active-features"><!-- generated by JS --></div>
-
-    <!-- AI Enhancer usage (Pro only) -->
-    <div class="enhancer-block" id="enhancer-block" style="display:none">
-      <h4>🤖 AI Enhancer</h4>
-      <p id="enhancer-desc"></p>
-      <div class="progress-bar"><div class="progress-fill" id="enhancer-fill"></div></div>
-      <div class="enhancer-label" id="enhancer-label"></div>
+  <!-- Access status card -->
+  <div class="card">
+    <div class="status-banner" id="status-banner">
+      <div class="status-icon icon-wait" id="status-icon">⏳</div>
+      <div class="status-text">
+        <h2 id="status-title">Vérification en cours…</h2>
+        <p id="status-desc">Veuillez patienter.</p>
+      </div>
     </div>
+  </div>
 
-    <p id="period-end-text" style="font-size:0.82rem;color:var(--ink-3);margin-top:1rem"></p>
+  <!-- Active subscription details -->
+  <div class="card" id="active-card" style="display:none">
+    <div class="card-header">
+      <h2>Détails de l'abonnement</h2>
+      <span class="badge badge-active">● Actif</span>
+    </div>
+    <div class="card-body">
+      <div class="feature-grid" id="feature-grid"></div>
+      <div class="prog-block" id="enhancer-block" style="display:none">
+        <h4>🤖 AI Enhancer</h4>
+        <p id="enhancer-desc"></p>
+        <div class="prog-bar"><div class="prog-fill" id="enhancer-fill"></div></div>
+        <div class="prog-label">
+          <span id="enhancer-used"></span>
+          <span id="enhancer-reset"></span>
+        </div>
+      </div>
+      <p class="period-text" id="period-text"></p>
+      <div class="upgrade-row">
+        <a href="pricing.html">Voir toutes les offres →</a>
+      </div>
+    </div>
+  </div>
 
-    <div class="upgrade-row">
-      <a href="pricing.html">Voir toutes les offres et upgrader →</a>
+  <!-- Subscribe / upgrade card -->
+  <div class="card" id="sub-card" style="display:none">
+    <div class="card-header">
+      <h2 id="sub-title">Choisissez votre offre</h2>
+    </div>
+    <div class="card-body">
+      <p style="font-size:0.85rem;color:var(--ink-3);margin-bottom:1.25rem" id="sub-desc">
+        Sélectionnez le plan adapté à votre pratique et procédez au paiement sécurisé.
+      </p>
+      <div class="plan-grid" id="plan-grid"></div>
+      <button class="btn btn-primary" id="btn-subscribe" onclick="handleSubscribe()">Continuer</button>
+      <div id="sub-err" style="display:none;margin-top:0.75rem;padding:0.75rem 1rem;border-radius:10px;background:#fef2f2;color:#b91c1c;border:1px solid #fecaca;font-size:0.83rem"></div>
     </div>
   </div>
 </main>
 
-<!-- Supabase JS client (CDN) -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
-  // ── CONFIG — replace with your actual values ──────────────────────────────
-  const SUPABASE_URL  = 'https://lepqbnhrdgfetoysedbq.supabase.co';
-  const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlcHFibmhyZGdmZXRveXNlZGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwNjQ1MDAsImV4cCI6MjA5MDY0MDUwMH0.St12IwG0_RRKzxrbH1QRolCC2OOAaSIsK4PDmlR2Loo        ';
-  const API_BASE      = 'https://pisum-backend.onrender.com';
-  // ──────────────────────────────────────────────────────────────────────────
+const SUPABASE_URL  = 'https://lepqbnhrdgfetoysedbq.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlcHFibmhyZGdmZXRveXNlZGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwNjQ1MDAsImV4cCI6MjA5MDY0MDUwMH0.St12IwG0_RRKzxrbH1QRolCC2OOAaSIsK4PDmlR2Loo';
+const API_BASE      = 'https://pisum-backend.onrender.com';
 
-  const { createClient } = supabase;
-  const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
+const { createClient } = supabase;
+const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
 
-  let currentSession = null;
-  let selectedPlan   = 'free';
+let session = null;
+let selectedPlan = 'starter';
 
-  // ── Plan definitions ──────────────────────────────────────────────────────
-  const PLANS = {
-    free: {
-      label: 'Free', tag: 'tag-free', paid: false,
-      features: [
-        { ok: true,  text: '10 templates' },
-        { ok: true,  text: '2 langues' },
-        { ok: true,  text: 'Export PDF' },
-        { ok: false, text: 'Export Word' },
-        { ok: false, text: 'Dictée AI' },
-        { ok: false, text: 'AI Enhancer' },
-        { ok: false, text: 'Worklist' },
-        { ok: false, text: 'Statistiques' },
-        { ok: 'lim', text: '20 CR / mois' },
-      ],
-    },
-    starter: {
-      label: 'Starter', tag: 'tag-starter', paid: true,
-      features: [
-        { ok: true,  text: '20 templates' },
-        { ok: true,  text: '5 langues' },
-        { ok: true,  text: 'Export PDF + Word' },
-        { ok: false, text: 'Dictée AI' },
-        { ok: false, text: 'AI Enhancer' },
-        { ok: 'lim', text: 'Worklist basique' },
-        { ok: false, text: 'Statistiques' },
-        { ok: true,  text: 'CR illimités' },
-      ],
-    },
-    pro: {
-      label: 'Pro ⭐', tag: 'tag-pro', paid: true, popular: true,
-      features: [
-        { ok: true,  text: '112+ templates' },
-        { ok: true,  text: '23 langues' },
-        { ok: true,  text: 'Export PDF + Word' },
-        { ok: true,  text: 'Dictée AI' },
-        { ok: 'lim', text: 'AI Enhancer (50/mois)' },
-        { ok: 'lim', text: 'Worklist complète' },
-        { ok: 'lim', text: 'Statistiques basiques' },
-        { ok: true,  text: 'CR illimités' },
-      ],
-    },
-    expert: {
-      label: 'Expert 🔥', tag: 'tag-expert', paid: true,
-      features: [
-        { ok: true, text: '112+ templates custom' },
-        { ok: true, text: '23 langues' },
-        { ok: true, text: 'Export PDF + Word' },
-        { ok: true, text: 'Dictée AI' },
-        { ok: true, text: 'AI Enhancer illimité' },
-        { ok: true, text: 'Worklist avancée' },
-        { ok: true, text: 'Statistiques complètes' },
-        { ok: true, text: 'CR illimités' },
-      ],
-    },
-    clinic: {
-      label: 'Clinic 🏥', tag: 'tag-clinic', paid: true,
-      features: [
-        { ok: true, text: 'Templates sur mesure' },
-        { ok: true, text: '23 langues' },
-        { ok: true, text: 'Export PDF + Word' },
-        { ok: true, text: 'Dictée AI' },
-        { ok: true, text: 'AI Enhancer illimité' },
-        { ok: true, text: 'Worklist multi-site' },
-        { ok: true, text: 'Stats avancées' },
-        { ok: true, text: '5 utilisateurs inclus' },
-        { ok: true, text: 'CR illimités' },
-      ],
-    },
-  };
+// ── Plans ─────────────────────────────────────────────────────────────────
+const PLANS = {
+  free:    { label:'Free',       tag:'tag-free',    paid:false, features:[
+    {ok:true, t:'10 templates'},{ok:true,t:'2 langues'},{ok:true,t:'Export PDF'},
+    {ok:false,t:'Export Word'},{ok:false,t:'Dictée AI'},{ok:false,t:'AI Enhancer'},
+    {ok:false,t:'Worklist'},{ok:'lim',t:'20 CR / mois'}] },
+  starter: { label:'Starter',    tag:'tag-starter', paid:true,  features:[
+    {ok:true,t:'20 templates'},{ok:true,t:'5 langues'},{ok:true,t:'Export PDF + Word'},
+    {ok:false,t:'Dictée AI'},{ok:false,t:'AI Enhancer'},{ok:'lim',t:'Worklist basique'},
+    {ok:true,t:'CR illimités'}] },
+  pro:     { label:'Pro ⭐',     tag:'tag-pro',     paid:true,  popular:true, features:[
+    {ok:true,t:'112+ templates'},{ok:true,t:'23 langues'},{ok:true,t:'Export PDF + Word'},
+    {ok:'lim',t:'Dictée AI (600 min/mois)'},{ok:'lim',t:'AI Enhancer (50/mois)'},
+    {ok:true,t:'Worklist complète'},{ok:'lim',t:'Stats basiques'},{ok:true,t:'CR illimités'}] },
+  expert:  { label:'Expert 🔥',  tag:'tag-expert',  paid:true,  features:[
+    {ok:true,t:'112+ templates custom'},{ok:true,t:'23 langues'},{ok:true,t:'Export PDF + Word'},
+    {ok:'lim',t:'Dictée AI (fair use)'},{ok:'lim',t:'AI Enhancer (400/mois)'},
+    {ok:true,t:'Worklist avancée'},{ok:true,t:'Stats complètes'},{ok:true,t:'CR illimités'}] },
+  clinic:  { label:'Clinic 🏥',  tag:'tag-clinic',  paid:true,  features:[
+    {ok:true,t:'Templates sur mesure'},{ok:true,t:'23 langues'},{ok:true,t:'Export PDF + Word'},
+    {ok:'lim',t:'Dictée AI (fair use)'},{ok:true,t:'AI Enhancer illimité'},
+    {ok:true,t:'Worklist multi-site'},{ok:true,t:'Stats avancées'},
+    {ok:true,t:'5 utilisateurs'},{ok:true,t:'CR illimités'}] },
+};
+const ORDER = ['free','starter','pro','expert','clinic'];
 
-  const PLAN_ORDER = ['free', 'starter', 'pro', 'expert', 'clinic'];
+// ── Init ──────────────────────────────────────────────────────────────────
+async function init() {
+  const { data } = await sb.auth.getSession();
+  if (!data.session) { window.location.href = 'auth.html'; return; }
+  session = data.session;
 
-  // ── Render plan selector ──────────────────────────────────────────────────
-  function renderPlanGrid() {
-    const grid = document.getElementById('plan-grid');
-    grid.innerHTML = '';
+  const user  = session.user;
+  const name  = user.user_metadata?.full_name || '';
+  const email = user.email || '';
+  const initials = name
+    ? name.split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase()
+    : email[0]?.toUpperCase() || '?';
 
-    PLAN_ORDER.forEach(key => {
-      const p = PLANS[key];
-      const card = document.createElement('div');
-      card.className = 'plan-card' + (key === selectedPlan ? ' selected' : '');
-      card.id = 'plan-' + key;
-      card.onclick = () => selectPlan(key);
+  // Nav
+  document.getElementById('nav-avatar').textContent = initials;
+  document.getElementById('nav-name').textContent   = name || email.split('@')[0];
+  document.getElementById('nav-email').textContent  = email;
 
-      const featuresHtml = p.features.map(f => {
-        const cls = f.ok === true ? 'fi-ok' : f.ok === 'lim' ? 'fi-lim' : 'fi-no';
-        const icon = f.ok === true ? '✓' : f.ok === 'lim' ? '◐' : '–';
-        return `<li><span class="fi ${cls}">${icon}</span>${f.text}</li>`;
-      }).join('');
+  // Profile card
+  document.getElementById('profile-avatar').textContent = initials;
+  document.getElementById('profile-name').textContent   = name || email.split('@')[0];
+  document.getElementById('profile-email').textContent  = email;
+  document.getElementById('profile-card').style.display = '';
 
-      card.innerHTML = `
-        ${p.popular ? '<div class="popular-badge">Recommandé</div>' : ''}
-        <div class="plan-tag ${p.tag}">${p.label.replace(/ [^\s]+$/, '').trim()}</div>
-        <div class="plan-name">${p.label}</div>
-        <ul class="plan-features">${featuresHtml}</ul>
-      `;
-      grid.appendChild(card);
-    });
-
-    updateSubscribeButton();
+  // Personalized greeting
+  if (name) {
+    document.getElementById('page-title').textContent = 'Bonjour, ' + name.split(' ')[0] + ' 👋';
   }
 
-  function selectPlan(plan) {
-    selectedPlan = plan;
-    PLAN_ORDER.forEach(p => {
-      const el = document.getElementById('plan-' + p);
-      if (el) el.classList.toggle('selected', p === plan);
-    });
-    updateSubscribeButton();
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('checkout') === 'success') {
+    pollUntilUpgraded();
+  } else {
+    loadAccess();
   }
+}
 
-  function updateSubscribeButton() {
-    const btn = document.getElementById('btn-subscribe');
-    if (!btn) return;
-    const plan = PLANS[selectedPlan];
-    if (!plan) return;
-    if (!plan.paid) {
-      btn.textContent = 'Activer gratuitement';
-      btn.className = 'btn-subscribe btn-free';
-    } else {
-      btn.textContent = 'S\'abonner à ' + plan.label;
-      btn.className = 'btn-subscribe';
-    }
-  }
+// ── Poll after Stripe checkout ────────────────────────────────────────────
+async function pollUntilUpgraded() {
+  setStatus('wait','⏳','Confirmation du paiement…',
+    'Nous attendons la confirmation de Stripe. Cela peut prendre jusqu\'à une minute.');
 
-  // ── Init ──────────────────────────────────────────────────────────────────
-  async function init() {
-    const { data } = await sb.auth.getSession();
-    if (!data.session) {
-      window.location.href = 'auth.html';
-      return;
-    }
-    currentSession = data.session;
-    document.getElementById('user-email').textContent = data.session.user.email;
-
-    const params = new URLSearchParams(window.location.search);
-    if (params.get('checkout') === 'success') {
-      // After Stripe redirect, poll until plan upgrades (webhook can take 30-60s on cold backend)
-      pollUntilUpgraded();
-    } else {
-      loadAccessStatus();
-    }
-  }
-
-  // Poll /check-access every 4s for up to 90s after checkout=success
-  async function pollUntilUpgraded() {
-    const MAX_ATTEMPTS = 22;   // ~90 seconds
-    const INTERVAL_MS  = 4000;
-    let attempts = 0;
-
-    const icon  = document.getElementById('access-icon');
-    const title = document.getElementById('access-title');
-    const desc  = document.getElementById('access-desc');
-    icon.textContent  = '⏳';
-    icon.className    = 'access-icon';
-    title.textContent = 'Confirmation du paiement…';
-    desc.textContent  = 'Nous attendons la confirmation de Stripe. Cela peut prendre jusqu\'à une minute.';
-
-    const poll = async () => {
-      attempts++;
-      try {
-        const res  = await fetch(`${API_BASE}/check-access`, {
-          headers: { Authorization: `Bearer ${currentSession.access_token}` },
-        });
-        const json = await res.json();
-
-        // Stop polling when plan is upgraded (not free) or definitely active
-        if (json.access && json.plan && json.plan !== 'free') {
-          renderAccess(json);
-          // Clean URL
-          window.history.replaceState({}, '', 'dashboard.html');
-          return;
-        }
-        // Still free or no access yet — keep polling
-        if (attempts < MAX_ATTEMPTS) {
-          setTimeout(poll, INTERVAL_MS);
-        } else {
-          // Timed out — show whatever we have
-          renderAccess(json);
-          window.history.replaceState({}, '', 'dashboard.html');
-        }
-      } catch {
-        if (attempts < MAX_ATTEMPTS) {
-          setTimeout(poll, INTERVAL_MS);
-        } else {
-          renderAccess({ access: false, reason: 'network_error' });
-        }
-      }
-    };
-
-    setTimeout(poll, 2000); // first check after 2s
-  }
-
-  // ── Check access ──────────────────────────────────────────────────────────
-  async function loadAccessStatus() {
+  const MAX = 22, INT = 4000;
+  let n = 0;
+  const poll = async () => {
+    n++;
     try {
-      const res = await fetch(`${API_BASE}/check-access`, {
-        headers: { Authorization: `Bearer ${currentSession.access_token}` },
-      });
-      const json = await res.json();
-      renderAccess(json);
-    } catch {
-      renderAccess({ access: false, reason: 'network_error' });
-    }
-  }
-
-  function renderAccess({ access, reason, plan, features }) {
-    const icon     = document.getElementById('access-icon');
-    const title    = document.getElementById('access-title');
-    const desc     = document.getElementById('access-desc');
-    const subCard  = document.getElementById('sub-card');
-    const actCard  = document.getElementById('active-card');
-
-    if (access) {
-      icon.textContent  = '✅';
-      icon.className    = 'access-icon granted';
-      title.textContent = 'Accès accordé';
-      title.style.color = 'var(--green)';
-      desc.textContent  = 'Votre abonnement est actif. Lancez l\'application de bureau pour commencer.';
-
-      // Plan badge
-      const pDef = PLANS[plan] || {};
-      const badge = document.getElementById('plan-badge');
-      badge.textContent = pDef.label || plan;
-      badge.className   = 'badge ' + (pDef.tag || 'tag-free');
-
-      // Active features grid
-      renderActiveFeatures(plan, features);
-
-      // AI Enhancer usage (Pro only)
-      if (plan === 'pro') loadEnhancerUsage();
-
-      actCard.style.display = '';
-
-      // Free plan → show upgrade section below
-      if (plan === 'free') {
-        const subTitle = document.querySelector('#sub-card h3');
-        const subDesc  = document.querySelector('#sub-card > p');
-        if (subTitle) subTitle.textContent = 'Upgrader votre offre';
-        if (subDesc)  subDesc.textContent  = 'Passez à un plan payant pour débloquer plus de fonctionnalités.';
-        // Pre-select starter as default upgrade target
-        selectedPlan = 'starter';
-        renderPlanGrid();
-        subCard.style.display = '';
-      } else {
-        subCard.style.display = 'none';
+      const r = await fetch(`${API_BASE}/check-access`,
+        { headers:{Authorization:`Bearer ${session.access_token}`} });
+      const j = await r.json();
+      if (j.access && j.plan && j.plan !== 'free') {
+        renderAccess(j);
+        window.history.replaceState({},'','dashboard.html');
+        return;
       }
-    } else {
-      icon.textContent  = '🔒';
-      icon.className    = 'access-icon denied';
-      title.textContent = 'Aucun abonnement actif';
-      title.style.color = 'var(--red)';
-      desc.textContent  =
-        reason === 'canceled' ? 'Votre abonnement a été résilié. Réabonnez-vous pour retrouver l\'accès.' :
-        reason === 'expired'  ? 'Votre abonnement a expiré. Renouvelez pour continuer.' :
-                                'Choisissez une offre pour accéder à PISUM.';
+      if (n < MAX) { setTimeout(poll, INT); return; }
+    } catch {}
+    if (n < MAX) setTimeout(poll, INT);
+    else { loadAccess(); window.history.replaceState({},'','dashboard.html'); }
+  };
+  setTimeout(poll, 2000);
+}
+
+// ── Check access ──────────────────────────────────────────────────────────
+async function loadAccess() {
+  try {
+    const r = await fetch(`${API_BASE}/check-access`,
+      { headers:{Authorization:`Bearer ${session.access_token}`} });
+    renderAccess(await r.json());
+  } catch {
+    renderAccess({ access:false, reason:'network_error' });
+  }
+}
+
+function setStatus(type, icon, title, desc) {
+  const iconEl = document.getElementById('status-icon');
+  iconEl.textContent = icon;
+  iconEl.className = 'status-icon ' + (type==='ok' ? 'icon-ok' : type==='err' ? 'icon-err' : 'icon-wait');
+  document.getElementById('status-title').textContent = title;
+  document.getElementById('status-title').style.color = type==='ok' ? 'var(--green)' : type==='err' ? 'var(--red)' : '';
+  document.getElementById('status-desc').textContent  = desc;
+}
+
+function renderAccess({ access, reason, plan, features }) {
+  const activeCard = document.getElementById('active-card');
+  const subCard    = document.getElementById('sub-card');
+
+  if (access) {
+    setStatus('ok','✅','Accès accordé','Votre abonnement est actif. Lancez l\'application PISUM pour commencer à rédiger.');
+
+    // Profile badge
+    const pb = document.getElementById('profile-plan-badge');
+    pb.textContent = (PLANS[plan]?.label || plan).toUpperCase();
+    pb.className   = 'badge badge-' + (plan || 'free');
+
+    // Features
+    renderFeatures(plan);
+    if (plan === 'pro') loadEnhancer();
+
+    activeCard.style.display = '';
+
+    if (plan === 'free') {
+      document.getElementById('sub-title').textContent = 'Upgrader votre offre';
+      document.getElementById('sub-desc').textContent  = 'Passez à un plan payant pour débloquer davantage de fonctionnalités.';
+      selectedPlan = 'starter';
       renderPlanGrid();
       subCard.style.display = '';
-      actCard.style.display = 'none';
-    }
-  }
-
-  function renderActiveFeatures(plan, features) {
-    const planDef = PLANS[plan];
-    if (!planDef) return;
-    const container = document.getElementById('active-features');
-    container.innerHTML = planDef.features.map(f => {
-      const cls  = f.ok === true ? 'fi-ok' : f.ok === 'lim' ? 'fi-lim' : 'fi-no';
-      const icon = f.ok === true ? '✅' : f.ok === 'lim' ? '🟡' : '⬜';
-      return `<div class="feature-row"><span class="fi">${icon}</span>${f.text}</div>`;
-    }).join('');
-  }
-
-  async function loadEnhancerUsage() {
-    try {
-      const res = await fetch(`${API_BASE}/check-feature?feature=ai_enhancer`, {
-        headers: { Authorization: `Bearer ${currentSession.access_token}` },
-      });
-      const { used, limit, remaining, reset_at } = await res.json();
-      const block = document.getElementById('enhancer-block');
-      const fill  = document.getElementById('enhancer-fill');
-      const label = document.getElementById('enhancer-label');
-      const desc  = document.getElementById('enhancer-desc');
-
-      block.style.display = '';
-      const pct = Math.round((used / limit) * 100);
-      fill.style.width = pct + '%';
-      fill.className   = 'progress-fill' + (pct >= 90 ? ' danger' : pct >= 70 ? ' warning' : '');
-      label.textContent = `${used} / ${limit} utilisations ce mois`;
-      desc.textContent  = `Remise à zéro le ${reset_at ? new Date(reset_at).toLocaleDateString('fr-FR') : '—'}`;
-    } catch { /* silent */ }
-  }
-
-  // ── Subscribe ─────────────────────────────────────────────────────────────
-  async function handleSubscribe() {
-    const plan = PLANS[selectedPlan];
-    if (!plan) return;
-    if (!plan.paid) {
-      await activateFree();
     } else {
-      await subscribePaid();
+      subCard.style.display = 'none';
     }
+  } else {
+    setStatus('err','🔒','Aucun abonnement actif',
+      reason === 'canceled' ? 'Votre abonnement a été résilié. Réabonnez-vous pour retrouver l\'accès.' :
+      reason === 'expired'  ? 'Votre abonnement a expiré. Renouvelez pour continuer.' :
+                              'Choisissez une offre pour accéder à PISUM.');
+    renderPlanGrid();
+    subCard.style.display = '';
+    activeCard.style.display = 'none';
+
+    const pb = document.getElementById('profile-plan-badge');
+    pb.textContent = 'AUCUN PLAN';
+    pb.className   = 'badge badge-inactive';
   }
+}
 
-  async function activateFree() {
-    const btn = document.getElementById('btn-subscribe');
-    btn.disabled = true;
-    btn.innerHTML = '<span class="spinner"></span> Activation…';
+function renderFeatures(plan) {
+  const p = PLANS[plan]; if (!p) return;
+  document.getElementById('feature-grid').innerHTML = p.features.map(f => {
+    const cls  = f.ok===true ? 'fi-ok' : f.ok==='lim' ? 'fi-lim' : 'fi-no';
+    const icon = f.ok===true ? '✓' : f.ok==='lim' ? '◐' : '–';
+    return `<div class="feature-item"><span class="${cls}" style="font-size:1rem;flex-shrink:0">${icon}</span>${f.t}</div>`;
+  }).join('');
+}
 
-    try {
-      const res = await fetch(`${API_BASE}/activate-free`, {
-        method: 'POST',
-        headers: { Authorization: `Bearer ${currentSession.access_token}` },
-      });
-      if (!res.ok) throw new Error((await res.json()).detail || 'Erreur serveur');
-      await loadAccessStatus();
-    } catch (err) {
-      showError(err.message);
-      btn.disabled = false;
-      btn.textContent = 'Activer gratuitement';
-    }
-  }
+async function loadEnhancer() {
+  try {
+    const r = await fetch(`${API_BASE}/check-feature?feature=ai_enhancer`,
+      { headers:{Authorization:`Bearer ${session.access_token}`} });
+    const { used, limit, remaining, reset_at } = await r.json();
+    const pct = Math.round((used / limit) * 100);
+    const fill = document.getElementById('enhancer-fill');
+    fill.style.width = pct + '%';
+    fill.className = 'prog-fill' + (pct>=90?' danger':pct>=70?' warn':'');
+    document.getElementById('enhancer-used').textContent  = `${used} / ${limit} prompts`;
+    document.getElementById('enhancer-reset').textContent = reset_at ? 'Reset le ' + new Date(reset_at).toLocaleDateString('fr-FR') : '';
+    document.getElementById('enhancer-desc').textContent  = `Quota mensuel d'AI Enhancer — ${remaining} restant(s).`;
+    document.getElementById('enhancer-block').style.display = '';
+  } catch {}
+}
 
-  async function subscribePaid() {
-    const btn = document.getElementById('btn-subscribe');
-    btn.disabled = true;
-    btn.innerHTML = '<span class="spinner"></span> Redirection vers Stripe…';
+// ── Plan grid ─────────────────────────────────────────────────────────────
+function renderPlanGrid() {
+  const grid = document.getElementById('plan-grid');
+  grid.innerHTML = '';
+  ORDER.forEach(k => {
+    const p = PLANS[k];
+    const card = document.createElement('div');
+    card.className = 'plan-card' + (k===selectedPlan?' sel':'');
+    card.id = 'pc-'+k;
+    card.onclick = () => selectPlan(k);
+    const feats = p.features.slice(0,5).map(f => {
+      const cls = f.ok===true?'fi-ok':f.ok==='lim'?'fi-lim':'fi-no';
+      const ico = f.ok===true?'✓':f.ok==='lim'?'◐':'–';
+      return `<li><span class="${cls}">${ico}</span>${f.t}</li>`;
+    }).join('');
+    card.innerHTML = `
+      ${p.popular?'<div class="pop-badge">Recommandé</div>':''}
+      <div class="plan-tag ${p.tag}">${p.label.replace(/\s+\S+$/,'').trim()}</div>
+      <div class="plan-name">${p.label}</div>
+      <ul class="plan-feats">${feats}</ul>`;
+    grid.appendChild(card);
+  });
+  updateSubBtn();
+}
 
-    try {
-      const res = await fetch(`${API_BASE}/create-checkout-session`, {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${currentSession.access_token}`,
-          'Content-Type': 'application/json',
-        },
+function selectPlan(k) {
+  selectedPlan = k;
+  ORDER.forEach(p => document.getElementById('pc-'+p)?.classList.toggle('sel', p===k));
+  updateSubBtn();
+}
+
+function updateSubBtn() {
+  const btn  = document.getElementById('btn-subscribe');
+  const plan = PLANS[selectedPlan];
+  if (!plan) return;
+  btn.textContent = plan.paid ? `S'abonner — ${plan.label}` : 'Activer gratuitement';
+  btn.className   = 'btn ' + (plan.paid ? 'btn-primary' : 'btn-free');
+}
+
+// ── Subscribe ─────────────────────────────────────────────────────────────
+async function handleSubscribe() {
+  const plan = PLANS[selectedPlan];
+  if (!plan) return;
+  const btn = document.getElementById('btn-subscribe');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> ' + (plan.paid ? 'Redirection vers Stripe…' : 'Activation…');
+
+  try {
+    if (!plan.paid) {
+      const r = await fetch(`${API_BASE}/activate-free`,
+        { method:'POST', headers:{Authorization:`Bearer ${session.access_token}`} });
+      if (!r.ok) throw new Error((await r.json()).detail || 'Erreur');
+      await loadAccess();
+    } else {
+      const r = await fetch(`${API_BASE}/create-checkout-session`, {
+        method:'POST',
+        headers:{Authorization:`Bearer ${session.access_token}`,'Content-Type':'application/json'},
         body: JSON.stringify({ plan: selectedPlan }),
       });
-      if (!res.ok) throw new Error((await res.json()).detail || 'Erreur serveur');
-      const { checkout_url } = await res.json();
+      if (!r.ok) throw new Error((await r.json()).detail || 'Erreur');
+      const { checkout_url } = await r.json();
       window.location.href = checkout_url;
-    } catch (err) {
-      showError(err.message);
-      btn.disabled = false;
-      updateSubscribeButton();
     }
+  } catch(err) {
+    const errEl = document.getElementById('sub-err');
+    errEl.textContent = 'Erreur : ' + err.message;
+    errEl.style.display = '';
+    btn.disabled = false;
+    updateSubBtn();
   }
+}
 
-  function showError(msg) {
-    const el = document.getElementById('sub-msg');
-    el.textContent = `Erreur : ${msg}`;
-    el.className = 'msg error';
-  }
+async function signOut() {
+  await sb.auth.signOut();
+  window.location.href = 'auth.html';
+}
 
-  // ── Sign out ──────────────────────────────────────────────────────────────
-  async function signOut() {
-    await sb.auth.signOut();
-    window.location.href = 'auth.html';
-  }
-
-  init();
+init();
 </script>
 </body>
 </html>

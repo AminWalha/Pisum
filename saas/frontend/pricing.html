@@ -10,131 +10,221 @@
 :root{
   --blue:#3b6ef8;--purple:#7c5af0;--green:#16a34a;--amber:#d97706;
   --grad:linear-gradient(135deg,#3b6ef8 0%,#7c5af0 100%);
-  --ink:#09090f;--ink-2:#3a3a4c;--ink-3:#8a8aa8;--ink-4:#bbbbd0;
-  --bg:#f2f2f6;--white:#fff;
-  --shadow:0 8px 32px rgba(0,0,0,0.08),0 2px 8px rgba(0,0,0,0.04);
+  --ink:#09090f;--ink-2:#3a3a4c;--ink-3:#6b7280;--ink-4:#d1d5db;
+  --bg:#f5f5f7;--white:#fff;
+  --shadow-sm:0 1px 3px rgba(0,0,0,0.07);
+  --shadow:0 4px 24px rgba(0,0,0,0.08),0 1px 4px rgba(0,0,0,0.04);
   --r:16px;
 }
-body{font-family:'Segoe UI',-apple-system,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
 
-/* NAV */
-nav{background:var(--white);border-bottom:1px solid rgba(0,0,0,0.06);padding:0 2rem;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.nav-logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:1rem;letter-spacing:-0.03em;text-decoration:none;color:var(--ink)}
-.nav-logo img{width:30px;height:30px;border-radius:7px}
-.btn-nav{padding:0.45rem 1.1rem;border:1.5px solid rgba(0,0,0,0.12);border-radius:999px;background:transparent;cursor:pointer;font-size:0.82rem;font-weight:600;color:var(--ink-2);transition:all 0.2s;text-decoration:none;display:inline-block}
-.btn-nav:hover{background:var(--bg);border-color:rgba(0,0,0,0.2)}
+/* ── NAV ── */
+nav{
+  background:rgba(255,255,255,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(0,0,0,0.07);padding:0 2rem;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:100
+}
+.nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
+.nav-logo img{width:32px;height:32px;border-radius:9px}
+.nav-logo-text{font-size:1.05rem;font-weight:800;letter-spacing:-0.04em;
+  background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-user{display:flex;align-items:center;gap:8px}
+.nav-avatar{
+  width:32px;height:32px;border-radius:50%;background:var(--grad);
+  color:#fff;font-size:0.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0
+}
+.nav-name{font-size:0.82rem;font-weight:600;color:var(--ink)}
+@media(max-width:580px){.nav-name{display:none}}
+
+.btn-nav{
+  padding:0.45rem 1rem;border:1.5px solid var(--ink-4);border-radius:999px;
+  background:transparent;cursor:pointer;font-size:0.8rem;font-weight:600;
+  color:var(--ink-2);transition:all 0.18s;text-decoration:none;display:inline-flex;align-items:center
+}
+.btn-nav:hover{background:var(--bg);border-color:#b0b3be}
 .btn-nav.primary{background:var(--grad);color:#fff;border-color:transparent}
 .btn-nav.primary:hover{opacity:0.9}
 
-/* HERO */
-.hero{text-align:center;padding:4rem 1.5rem 2.5rem;max-width:640px;margin:0 auto}
-.hero h1{font-size:2.4rem;font-weight:800;letter-spacing:-0.04em;line-height:1.15;margin-bottom:1rem}
+/* ── HERO ── */
+.hero{text-align:center;padding:4.5rem 1.5rem 2.5rem;max-width:600px;margin:0 auto}
+.hero-eyebrow{
+  display:inline-block;padding:0.25rem 0.85rem;border-radius:999px;
+  background:#eef2ff;color:var(--blue);font-size:0.78rem;font-weight:700;
+  letter-spacing:0.04em;margin-bottom:1.25rem
+}
+.hero h1{font-size:2.5rem;font-weight:800;letter-spacing:-0.04em;line-height:1.15;margin-bottom:1rem}
 .hero h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero p{font-size:1rem;color:var(--ink-3);line-height:1.7;max-width:480px;margin:0 auto}
+.hero p{font-size:1rem;color:var(--ink-3);line-height:1.7;max-width:480px;margin:0 auto 2rem}
+.hero-cta{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap}
+.btn-hero{
+  padding:0.8rem 1.75rem;border-radius:12px;font-size:0.9rem;font-weight:700;
+  text-decoration:none;display:inline-block;transition:opacity 0.18s,transform 0.15s;border:none;cursor:pointer;font-family:inherit
+}
+.btn-hero:hover{opacity:0.9;transform:translateY(-1px)}
+.btn-hero.primary{background:var(--grad);color:#fff}
+.btn-hero.secondary{background:var(--white);color:var(--ink-2);border:1.5px solid var(--ink-4)}
 
-/* PLAN CARDS */
-.plans-section{max-width:1100px;margin:0 auto;padding:1.5rem 1.5rem 3rem}
-.plans-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;align-items:start}
-@media(max-width:1000px){.plans-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:640px){.plans-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:420px){.plans-grid{grid-template-columns:1fr}}
+/* ── PLANS SECTION ── */
+.plans-section{max-width:1120px;margin:0 auto;padding:0.5rem 1.5rem 3rem}
 
-.plan-card{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);padding:1.5rem 1.25rem;position:relative;border:2px solid transparent;transition:transform 0.18s}
-.plan-card:hover{transform:translateY(-3px)}
-.plan-card.popular{border-color:var(--blue)}
+.plans-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:1rem;align-items:start
+}
+@media(max-width:1020px){.plans-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:660px){.plans-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:400px){.plans-grid{grid-template-columns:1fr}}
 
-.popular-ribbon{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--grad);color:#fff;font-size:0.65rem;font-weight:800;letter-spacing:0.07em;text-transform:uppercase;padding:0.2rem 0.8rem;border-radius:999px;white-space:nowrap}
+.plan-card{
+  background:var(--white);border-radius:20px;box-shadow:var(--shadow);
+  padding:1.6rem 1.3rem;position:relative;border:2px solid transparent;
+  transition:transform 0.18s,box-shadow 0.18s
+}
+.plan-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.12)}
+.plan-card.popular{border-color:var(--blue);box-shadow:0 8px 32px rgba(59,110,248,0.18)}
 
-.plan-tag{font-size:0.65rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:999px;display:inline-block;margin-bottom:0.6rem}
+.pop-ribbon{
+  position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  background:var(--grad);color:#fff;font-size:0.62rem;font-weight:800;
+  letter-spacing:0.07em;text-transform:uppercase;padding:0.18rem 0.75rem;
+  border-radius:999px;white-space:nowrap;box-shadow:0 2px 8px rgba(59,110,248,0.35)
+}
+
+.plan-tag{
+  font-size:0.62rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+  padding:0.18rem 0.6rem;border-radius:999px;display:inline-block;margin-bottom:0.6rem
+}
 .tag-free{background:#f1f5f9;color:#475569}
 .tag-starter{background:#e0f2fe;color:#0369a1}
 .tag-pro{background:#ede9fe;color:#6d28d9}
 .tag-expert{background:#fef3c7;color:#92400e}
 .tag-clinic{background:#dcfce7;color:#166534}
 
-.plan-name{font-size:1.1rem;font-weight:800;margin-bottom:0.3rem;letter-spacing:-0.02em}
-.plan-price{font-size:1.8rem;font-weight:800;letter-spacing:-0.04em;margin:0.5rem 0 0.2rem;line-height:1}
+.plan-name{font-size:1.1rem;font-weight:800;margin-bottom:0.3rem;letter-spacing:-0.025em}
+.plan-price{font-size:2rem;font-weight:800;letter-spacing:-0.045em;line-height:1;margin:0.5rem 0 0.2rem}
 .plan-price span{font-size:0.85rem;font-weight:500;color:var(--ink-3)}
-.plan-tagline{font-size:0.78rem;color:var(--ink-3);margin-bottom:1.25rem;line-height:1.5}
+.plan-tagline{font-size:0.78rem;color:var(--ink-3);margin-bottom:1.25rem;line-height:1.5;min-height:2.1em}
 
-.plan-cta{display:block;width:100%;padding:0.7rem 1rem;border-radius:999px;font-size:0.85rem;font-weight:700;text-align:center;text-decoration:none;cursor:pointer;transition:opacity 0.2s,transform 0.15s;border:none}
+.plan-cta{
+  display:block;width:100%;padding:0.72rem 1rem;border-radius:12px;
+  font-size:0.85rem;font-weight:700;font-family:inherit;text-align:center;
+  text-decoration:none;cursor:pointer;transition:opacity 0.18s,transform 0.15s;border:none
+}
 .plan-cta:hover{opacity:0.9;transform:translateY(-1px)}
+.plan-cta:disabled{opacity:0.5;cursor:not-allowed;transform:none}
 .cta-free{background:#f1f5f9;color:#475569}
 .cta-paid{background:var(--grad);color:#fff}
 .cta-popular{background:var(--grad);color:#fff;box-shadow:0 4px 14px rgba(59,110,248,0.35)}
 
-.divider{height:1px;background:rgba(0,0,0,0.06);margin:1.25rem 0}
+.divider{height:1px;background:rgba(0,0,0,0.07);margin:1.2rem 0}
 
-.feature-list{list-style:none;font-size:0.8rem;color:var(--ink-2);line-height:1;display:flex;flex-direction:column;gap:0.6rem}
-.feature-list li{display:flex;align-items:flex-start;gap:7px}
-.fi-ok{color:#16a34a;flex-shrink:0}
+.feat-list{list-style:none;font-size:0.79rem;color:var(--ink-2);display:flex;flex-direction:column;gap:0.55rem}
+.feat-list li{display:flex;align-items:flex-start;gap:7px;line-height:1.4}
+.fi-ok{color:#16a34a;flex-shrink:0;font-weight:700}
 .fi-no{color:#d1d5db;flex-shrink:0}
-.fi-lim{color:var(--amber);flex-shrink:0}
-.fi-txt{line-height:1.4}
+.fi-lim{color:var(--amber);flex-shrink:0;font-weight:700}
 
-/* COMPARISON TABLE */
-.compare-section{max-width:1100px;margin:0 auto;padding:0 1.5rem 4rem}
-.compare-section h2{font-size:1.5rem;font-weight:800;letter-spacing:-0.03em;text-align:center;margin-bottom:2rem}
-.compare-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--r);box-shadow:var(--shadow)}
-table{width:100%;border-collapse:collapse;background:var(--white);font-size:0.83rem;min-width:600px}
+/* ── COMPARISON TABLE ── */
+.compare-section{max-width:1120px;margin:0 auto;padding:0 1.5rem 5rem}
+.compare-section h2{
+  font-size:1.6rem;font-weight:800;letter-spacing:-0.035em;
+  text-align:center;margin-bottom:2.5rem
+}
+.compare-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:20px;box-shadow:var(--shadow)}
+table{width:100%;border-collapse:collapse;background:var(--white);font-size:0.82rem;min-width:580px}
 colgroup col.col-feat{width:26%}
 colgroup col{width:14.8%}
-/* Header */
 thead tr{background:var(--grad)}
-thead th{padding:1.1rem 0.75rem;font-weight:700;text-align:center;color:#fff;vertical-align:middle;white-space:nowrap;position:relative}
-thead th:first-child{text-align:left;padding-left:1.25rem}
+thead th{padding:1.15rem 0.75rem;font-weight:700;text-align:center;color:#fff;vertical-align:middle;white-space:nowrap}
+thead th:first-child{text-align:left;padding-left:1.5rem}
 thead th.col-pro{background:linear-gradient(160deg,#2550e0 0%,#6535e8 100%)}
 .th-inner{display:flex;flex-direction:column;align-items:center;gap:3px}
 thead th:first-child .th-inner{align-items:flex-start}
 .th-name{font-size:0.85rem;font-weight:800;letter-spacing:-0.01em}
-.th-price{font-size:0.68rem;font-weight:500;opacity:0.75;margin-top:1px}
-.rec-badge{display:inline-block;background:#fbbf24;color:#78350f;font-size:0.58rem;font-weight:800;letter-spacing:0.07em;text-transform:uppercase;padding:0.12rem 0.55rem;border-radius:999px;margin-bottom:3px;white-space:nowrap}
-/* Body rows */
+.th-price{font-size:0.67rem;font-weight:500;opacity:0.72;margin-top:1px}
+.rec-badge{
+  display:inline-block;background:#fbbf24;color:#78350f;
+  font-size:0.57rem;font-weight:800;letter-spacing:0.07em;text-transform:uppercase;
+  padding:0.1rem 0.55rem;border-radius:999px;margin-bottom:3px
+}
 tbody tr{border-bottom:1px solid rgba(0,0,0,0.05)}
 tbody tr:last-child{border-bottom:none}
 tbody tr:nth-child(odd){background:#fff}
-tbody tr:nth-child(even){background:#f7f8ff}
+tbody tr:nth-child(even){background:#f8f8fc}
 tbody tr:hover{background:#eef2ff}
-tbody td{padding:0.72rem 0.75rem;text-align:center;vertical-align:middle;color:var(--ink-2)}
-tbody td:first-child{text-align:left;font-weight:600;color:var(--ink);white-space:nowrap;padding-left:1.25rem}
-/* Pro column highlight */
-tbody td.col-pro{background:rgba(59,110,248,0.06)}
-tbody tr:nth-child(even) td.col-pro{background:rgba(59,110,248,0.1)}
-tbody tr:hover td.col-pro{background:rgba(59,110,248,0.15)}
-/* Value styles */
+tbody td{padding:0.72rem 0.75rem;text-align:center;vertical-align:middle;color:var(--ink-3)}
+tbody td:first-child{text-align:left;font-weight:600;color:var(--ink);padding-left:1.5rem;white-space:nowrap}
+tbody td.col-pro{background:rgba(59,110,248,0.05)}
+tbody tr:nth-child(even) td.col-pro{background:rgba(59,110,248,0.09)}
+tbody tr:hover td.col-pro{background:rgba(59,110,248,0.14)}
 .yes{color:#16a34a;font-size:1rem;font-weight:700}
-.no{color:#cbd5e1;font-size:1rem;font-weight:700}
-.lim{color:var(--amber);font-size:0.77rem;font-weight:700;white-space:nowrap}
-/* Responsive: allow horizontal scroll on small screens */
-@media(max-width:640px){
-  colgroup col.col-feat{width:140px}
-  colgroup col{width:90px}
+.no{color:#d1d5db;font-size:1rem;font-weight:700}
+.lim{color:var(--amber);font-size:0.75rem;font-weight:700}
+
+/* ── FAQ ── */
+.faq-section{max-width:720px;margin:0 auto;padding:0 1.5rem 5rem}
+.faq-section h2{font-size:1.5rem;font-weight:800;letter-spacing:-0.03em;text-align:center;margin-bottom:2rem}
+.faq-item{border-radius:14px;background:var(--white);box-shadow:var(--shadow-sm);margin-bottom:0.75rem;overflow:hidden}
+.faq-q{
+  width:100%;padding:1.1rem 1.25rem;text-align:left;background:none;border:none;
+  font-size:0.9rem;font-weight:600;font-family:inherit;color:var(--ink);
+  cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem
+}
+.faq-q .arr{transition:transform 0.22s;font-size:0.75rem;color:var(--ink-3);flex-shrink:0}
+.faq-q.open .arr{transform:rotate(180deg)}
+.faq-a{display:none;padding:0 1.25rem 1.1rem;font-size:0.85rem;color:var(--ink-3);line-height:1.7}
+.faq-a.show{display:block}
+
+/* ── FOOTER ── */
+footer{text-align:center;padding:2rem 1.5rem 3.5rem;font-size:0.82rem;color:var(--ink-3)}
+footer a{color:var(--blue);text-decoration:none;font-weight:600}
+footer a:hover{text-decoration:underline}
+footer .sep{margin:0 0.5rem;color:var(--ink-4)}
+
+/* ── ERROR TOAST ── */
+.err-toast{
+  display:none;position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);
+  background:#fff;border:1px solid #fecaca;color:#b91c1c;
+  padding:0.8rem 1.5rem;border-radius:12px;font-size:0.83rem;font-weight:600;
+  box-shadow:0 4px 20px rgba(0,0,0,0.12);z-index:999;max-width:90vw;text-align:center
 }
 
-/* FAQ / FOOTER */
-.footer-note{text-align:center;padding:2rem 1.5rem 3rem;font-size:0.82rem;color:var(--ink-3)}
-.footer-note a{color:var(--blue);text-decoration:none}
+/* ── SPINNER ── */
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,0.35);border-top-color:#fff;border-radius:50%;animation:spin 0.7s linear infinite;vertical-align:middle}
+@keyframes spin{to{transform:rotate(360deg)}}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#">
+  <a class="nav-logo" href="pricing.html">
     <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="PISUM"/>
-    PISUM
+    <span class="nav-logo-text">PISUM</span>
   </a>
-  <div style="display:flex;gap:10px;align-items:center">
-    <span id="nav-email" style="font-size:0.82rem;color:#8a8aa8"></span>
-    <a class="btn-nav" id="nav-auth-btn" href="auth.html">Se connecter</a>
-    <a class="btn-nav" href="dashboard.html" id="nav-dashboard-btn" style="display:none">Mon abonnement</a>
+  <div class="nav-right">
+    <div class="nav-user" id="nav-user" style="display:none">
+      <div class="nav-avatar" id="nav-avatar">?</div>
+      <span class="nav-name" id="nav-name"></span>
+    </div>
+    <a class="btn-nav" id="nav-login-btn" href="auth.html">Se connecter</a>
+    <a class="btn-nav primary" id="nav-dashboard-btn" href="dashboard.html" style="display:none">Mon abonnement</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
+  <div class="hero-eyebrow">Logiciel de radiologie · Cloud · IA</div>
   <h1>L'offre adaptée à<br/><span>votre pratique</span></h1>
   <p>Du radiologue indépendant à la clinique multi-sites — PISUM s'adapte à vos besoins avec des fonctionnalités pensées pour vous.</p>
+  <div class="hero-cta">
+    <a class="btn-hero primary" href="auth.html">Commencer gratuitement</a>
+    <a class="btn-hero secondary" href="#compare">Comparer les offres</a>
+  </div>
 </div>
 
 <!-- PLAN CARDS -->
@@ -149,15 +239,15 @@ tbody tr:hover td.col-pro{background:rgba(59,110,248,0.15)}
       <div class="plan-tagline">Découvrez PISUM sans engagement</div>
       <a class="plan-cta cta-free" href="auth.html">Commencer</a>
       <div class="divider"></div>
-      <ul class="feature-list">
-        <li><span class="fi-ok">✓</span><span class="fi-txt">10 templates</span></li>
-        <li><span class="fi-ok">✓</span><span class="fi-txt">2 langues</span></li>
-        <li><span class="fi-ok">✓</span><span class="fi-txt">Export PDF</span></li>
-        <li><span class="fi-no">–</span><span class="fi-txt">Export Word</span></li>
-        <li><span class="fi-no">–</span><span class="fi-txt">Dictée AI</span></li>
-        <li><span class="fi-no">–</span><span class="fi-txt">AI Enhancer</span></li>
-        <li><span class="fi-no">–</span><span class="fi-txt">Worklist</span></li>
-        <li><span class="fi-lim">◐</span><span class="fi-txt">20 CR / mois</span></li>
+      <ul class="feat-list">
+        <li><span class="fi-ok">✓</span>10 templates</li>
+        <li><span class="fi-ok">✓</span>2 langues</li>
+        <li><span class="fi-ok">✓</span>Export PDF</li>
+        <li><span class="fi-no">–</span>Export Word</li>
+        <li><span class="fi-no">–</span>Dictée AI</li>
+        <li><span class="fi-no">–</span>AI Enhancer</li>
+        <li><span class="fi-no">–</span>Worklist</li>
+        <li><span class="fi-lim">◐</span>20 CR / mois</li>
       </ul>
     </div>
 
@@ -169,34 +259,34 @@ tbody tr:hover td.col-pro{background:rgba(59,110,248,0.15)}
       <div class="plan-tagline">Radiologue indépendant</div>
       <button class="plan-cta cta-paid" onclick="subscribe('starter')">S'abonner</button>
       <div class="divider"></div>
-      <ul class="feature-list">
-        <li><span class="fi-ok">✓</span><span class="fi-txt">20 templates</span></li>
-        <li><span class="fi-ok">✓</span><span class="fi-txt">5 langues</span></li>
-        <li><span class="fi-ok">✓</span><span class="fi-txt">Export PDF + Word</span></li>
-        <li><span class="fi-no">–</span><span class="fi-txt">Dictée AI</span></li>
-        <li><span class="fi-no">–</span><span class="fi-txt">AI Enhancer</span></li>
-        <li><span class="fi-lim">◐</span><span class="fi-txt">Worklist basique</span></li>
-        <li><span class="fi-ok">✓</span><span class="fi-txt">CR illimités</span></li>
+      <ul class="feat-list">
+        <li><span class="fi-ok">✓</span>20 templates</li>
+        <li><span class="fi-ok">✓</span>5 langues</li>
+        <li><span class="fi-ok">✓</span>Export PDF + Word</li>
+        <li><span class="fi-no">–</span>Dictée AI</li>
+        <li><span class="fi-no">–</span>AI Enhancer</li>
+        <li><span class="fi-lim">◐</span>Worklist basique</li>
+        <li><span class="fi-ok">✓</span>CR illimités</li>
       </ul>
     </div>
 
     <!-- PRO -->
     <div class="plan-card popular">
-      <div class="popular-ribbon">Recommandé</div>
+      <div class="pop-ribbon">Recommandé</div>
       <div class="plan-tag tag-pro">Pro ⭐</div>
       <div class="plan-name">Pisum Pro</div>
       <div class="plan-price">59 €<span> / mois</span></div>
       <div class="plan-tagline">Praticien avancé, tout-en-un</div>
       <button class="plan-cta cta-popular" onclick="subscribe('pro')">S'abonner</button>
       <div class="divider"></div>
-      <ul class="feature-list">
-        <li><span class="fi-ok">✓</span><span class="fi-txt">112+ templates</span></li>
-        <li><span class="fi-ok">✓</span><span class="fi-txt">23 langues</span></li>
-        <li><span class="fi-ok">✓</span><span class="fi-txt">Export PDF + Word</span></li>
-        <li><span class="fi-lim">◐</span><span class="fi-txt">Dictée AI (limitée)</span></li>
-        <li><span class="fi-lim">◐</span><span class="fi-txt">AI Enhancer (50/mois)</span></li>
-        <li><span class="fi-ok">✓</span><span class="fi-txt">Worklist complète</span></li>
-        <li><span class="fi-lim">◐</span><span class="fi-txt">Statistiques basiques</span></li>
+      <ul class="feat-list">
+        <li><span class="fi-ok">✓</span>112+ templates</li>
+        <li><span class="fi-ok">✓</span>23 langues</li>
+        <li><span class="fi-ok">✓</span>Export PDF + Word</li>
+        <li><span class="fi-lim">◐</span>Dictée AI (600 min/mois)</li>
+        <li><span class="fi-lim">◐</span>AI Enhancer (50 prompts/mois)</li>
+        <li><span class="fi-ok">✓</span>Worklist complète</li>
+        <li><span class="fi-lim">◐</span>Statistiques basiques</li>
       </ul>
     </div>
 
@@ -208,14 +298,14 @@ tbody tr:hover td.col-pro{background:rgba(59,110,248,0.15)}
       <div class="plan-tagline">Radiologue expert, sans limites</div>
       <button class="plan-cta cta-paid" onclick="subscribe('expert')">S'abonner</button>
       <div class="divider"></div>
-      <ul class="feature-list">
-        <li><span class="fi-ok">✓</span><span class="fi-txt">112+ templates custom</span></li>
-        <li><span class="fi-ok">✓</span><span class="fi-txt">23 langues</span></li>
-        <li><span class="fi-ok">✓</span><span class="fi-txt">Export PDF + Word</span></li>
-        <li><span class="fi-lim">◐</span><span class="fi-txt">Dictée AI (fair use)</span></li>
-        <li><span class="fi-lim">◐</span><span class="fi-txt">AI Enhancer (400/mois)</span></li>
-        <li><span class="fi-ok">✓</span><span class="fi-txt">Worklist avancée</span></li>
-        <li><span class="fi-ok">✓</span><span class="fi-txt">Statistiques complètes</span></li>
+      <ul class="feat-list">
+        <li><span class="fi-ok">✓</span>112+ templates custom</li>
+        <li><span class="fi-ok">✓</span>23 langues</li>
+        <li><span class="fi-ok">✓</span>Export PDF + Word</li>
+        <li><span class="fi-lim">◐</span>Dictée AI (~60 min/j, fair use)</li>
+        <li><span class="fi-lim">◐</span>AI Enhancer (400 prompts/mois)</li>
+        <li><span class="fi-ok">✓</span>Worklist avancée</li>
+        <li><span class="fi-ok">✓</span>Statistiques complètes</li>
       </ul>
     </div>
 
@@ -227,230 +317,209 @@ tbody tr:hover td.col-pro{background:rgba(59,110,248,0.15)}
       <div class="plan-tagline">Cabinet multi-praticiens</div>
       <button class="plan-cta cta-paid" onclick="subscribe('clinic')">Nous contacter</button>
       <div class="divider"></div>
-      <ul class="feature-list">
-        <li><span class="fi-ok">✓</span><span class="fi-txt">Templates sur mesure</span></li>
-        <li><span class="fi-ok">✓</span><span class="fi-txt">23 langues</span></li>
-        <li><span class="fi-ok">✓</span><span class="fi-txt">Export PDF + Word</span></li>
-        <li><span class="fi-lim">◐</span><span class="fi-txt">Dictée AI (fair use)</span></li>
-        <li><span class="fi-ok">✓</span><span class="fi-txt">AI Enhancer illimité</span></li>
-        <li><span class="fi-ok">✓</span><span class="fi-txt">Worklist multi-site</span></li>
-        <li><span class="fi-ok">✓</span><span class="fi-txt">5 utilisateurs inclus</span></li>
-        <li><span class="fi-ok">✓</span><span class="fi-txt">Stats avancées</span></li>
-        <li><span class="fi-ok">✓</span><span class="fi-txt">Onboarding dédié</span></li>
+      <ul class="feat-list">
+        <li><span class="fi-ok">✓</span>Templates sur mesure</li>
+        <li><span class="fi-ok">✓</span>23 langues</li>
+        <li><span class="fi-ok">✓</span>Export PDF + Word</li>
+        <li><span class="fi-lim">◐</span>Dictée AI (~120 min/j, fair use)</li>
+        <li><span class="fi-ok">✓</span>AI Enhancer illimité (fair use)</li>
+        <li><span class="fi-ok">✓</span>Worklist multi-site</li>
+        <li><span class="fi-ok">✓</span>5 utilisateurs inclus</li>
+        <li><span class="fi-ok">✓</span>Stats avancées + onboarding</li>
       </ul>
     </div>
-
   </div>
 </section>
 
 <!-- COMPARISON TABLE -->
-<section class="compare-section">
+<section class="compare-section" id="compare">
   <h2>Comparaison détaillée</h2>
   <div class="compare-wrap">
     <table>
       <colgroup>
-        <col class="col-feat"/>
-        <col/><col/><col class="col-pro"/><col/><col/>
+        <col class="col-feat"/><col/><col/><col class="col-pro"/><col/><col/>
       </colgroup>
       <thead>
         <tr>
           <th><div class="th-inner"><span class="th-name">Fonctionnalité</span></div></th>
-          <th>
-            <div class="th-inner">
-              <span class="th-name">Free</span>
-              <span class="th-price">0 €/mois</span>
-            </div>
-          </th>
-          <th>
-            <div class="th-inner">
-              <span class="th-name">Starter</span>
-              <span class="th-price">€29/mois</span>
-            </div>
-          </th>
-          <th class="col-pro">
-            <div class="th-inner">
-              <span class="rec-badge">Recommandé</span>
-              <span class="th-name">Pro ⭐</span>
-              <span class="th-price">€59/mois</span>
-            </div>
-          </th>
-          <th>
-            <div class="th-inner">
-              <span class="th-name">Expert 🔥</span>
-              <span class="th-price">€99/mois</span>
-            </div>
-          </th>
-          <th>
-            <div class="th-inner">
-              <span class="th-name">Clinic 🏥</span>
-              <span class="th-price">€199/mois</span>
-            </div>
-          </th>
+          <th><div class="th-inner"><span class="th-name">Free</span><span class="th-price">0 €/mois</span></div></th>
+          <th><div class="th-inner"><span class="th-name">Starter</span><span class="th-price">29 €/mois</span></div></th>
+          <th class="col-pro"><div class="th-inner"><span class="rec-badge">Recommandé</span><span class="th-name">Pro ⭐</span><span class="th-price">59 €/mois</span></div></th>
+          <th><div class="th-inner"><span class="th-name">Expert 🔥</span><span class="th-price">99 €/mois</span></div></th>
+          <th><div class="th-inner"><span class="th-name">Clinic 🏥</span><span class="th-price">199 €/mois</span></div></th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Templates</td>
-          <td>10</td><td>20</td>
-          <td class="col-pro">112+</td>
-          <td>112+ custom</td><td>Sur mesure</td>
-        </tr>
-        <tr>
-          <td>Langues disponibles</td>
-          <td>2</td><td>5</td>
-          <td class="col-pro">23</td>
-          <td>23</td><td>23</td>
-        </tr>
-        <tr>
-          <td>Export PDF</td>
-          <td><span class="yes">✓</span></td>
-          <td><span class="yes">✓</span></td>
-          <td class="col-pro"><span class="yes">✓</span></td>
-          <td><span class="yes">✓</span></td>
-          <td><span class="yes">✓</span></td>
-        </tr>
-        <tr>
-          <td>Export Word</td>
-          <td><span class="no">✕</span></td>
-          <td><span class="yes">✓</span></td>
-          <td class="col-pro"><span class="yes">✓</span></td>
-          <td><span class="yes">✓</span></td>
-          <td><span class="yes">✓</span></td>
-        </tr>
-        <tr>
-          <td>Dictée AI</td>
-          <td><span class="no">✕</span></td>
-          <td><span class="no">✕</span></td>
-          <td class="col-pro"><span class="lim">✓ limité</span></td>
-          <td><span class="lim">✓ fair use</span></td>
-          <td><span class="lim">✓ fair use</span></td>
-        </tr>
-        <tr>
-          <td>AI Enhancer</td>
-          <td><span class="no">✕</span></td>
-          <td><span class="no">✕</span></td>
-          <td class="col-pro"><span class="lim">50 / mois</span></td>
-          <td><span class="lim">400 / mois</span></td>
-          <td><span class="yes">Illimité</span></td>
-        </tr>
-        <tr>
-          <td>Worklist</td>
-          <td><span class="no">✕</span></td>
-          <td><span class="lim">Basique</span></td>
-          <td class="col-pro"><span class="lim">Complète</span></td>
-          <td><span class="yes">Avancée</span></td>
-          <td><span class="yes">Multi-site</span></td>
-        </tr>
-        <tr>
-          <td>Utilisateurs</td>
-          <td>1</td><td>1</td>
-          <td class="col-pro">1</td>
-          <td>1</td><td>5+</td>
-        </tr>
-        <tr>
-          <td>Statistiques</td>
-          <td><span class="no">✕</span></td>
-          <td><span class="no">✕</span></td>
-          <td class="col-pro"><span class="lim">Basiques</span></td>
-          <td><span class="yes">✓</span></td>
-          <td><span class="yes">Avancées</span></td>
-        </tr>
-        <tr>
-          <td>Comptes-rendus / mois</td>
-          <td><span class="lim">20 max</span></td>
-          <td><span class="yes">Illimités</span></td>
-          <td class="col-pro"><span class="yes">Illimités</span></td>
-          <td><span class="yes">Illimités</span></td>
-          <td><span class="yes">Illimités</span></td>
-        </tr>
-        <tr>
-          <td>Support</td>
-          <td>—</td>
-          <td>Email</td>
-          <td class="col-pro">Email prioritaire</td>
-          <td>Chat + email</td>
-          <td>Dédié + onboarding</td>
-        </tr>
+        <tr><td>Templates</td><td>10</td><td>20</td><td class="col-pro">112+</td><td>112+ custom</td><td>Sur mesure</td></tr>
+        <tr><td>Langues disponibles</td><td>2</td><td>5</td><td class="col-pro">23</td><td>23</td><td>23</td></tr>
+        <tr><td>Export PDF</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td class="col-pro"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+        <tr><td>Export Word</td><td><span class="no">✕</span></td><td><span class="yes">✓</span></td><td class="col-pro"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+        <tr><td>Dictée AI</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="lim">600 min/mois</span></td><td><span class="lim">~60 min/j</span></td><td><span class="lim">~120 min/j</span></td></tr>
+        <tr><td>AI Enhancer</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="lim">50 prompts/mois</span></td><td><span class="lim">400 prompts/mois</span></td><td><span class="yes">Illimité</span></td></tr>
+        <tr><td>Worklist</td><td><span class="no">✕</span></td><td><span class="lim">Basique</span></td><td class="col-pro"><span class="lim">Complète</span></td><td><span class="yes">Avancée</span></td><td><span class="yes">Multi-site</span></td></tr>
+        <tr><td>Utilisateurs</td><td>1</td><td>1</td><td class="col-pro">1</td><td>1</td><td>5+</td></tr>
+        <tr><td>Statistiques</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="lim">Basiques</span></td><td><span class="yes">✓</span></td><td><span class="yes">Avancées</span></td></tr>
+        <tr><td>Comptes-rendus / mois</td><td><span class="lim">20 max</span></td><td><span class="yes">Illimités</span></td><td class="col-pro"><span class="yes">Illimités</span></td><td><span class="yes">Illimités</span></td><td><span class="yes">Illimités</span></td></tr>
+        <tr><td>Support</td><td>—</td><td>Email</td><td class="col-pro">Email prioritaire</td><td>Chat + email</td><td>Dédié + onboarding</td></tr>
       </tbody>
     </table>
   </div>
 </section>
 
-<div class="footer-note">
-  Des questions ? <a href="mailto:contact@pisum.app">Contactez-nous</a> ·
-  <a href="auth.html">Créer un compte gratuit</a>
-</div>
+<!-- FAQ -->
+<section class="faq-section">
+  <h2>Questions fréquentes</h2>
 
-<div id="subscribe-error" style="display:none;position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);background:#fff0f0;color:#c0392b;border:1px solid #fcc;padding:0.75rem 1.5rem;border-radius:12px;font-size:0.85rem;font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,0.12);z-index:999"></div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Puis-je changer de plan à tout moment ?
+      <span class="arr">▼</span>
+    </button>
+    <div class="faq-a">Oui, vous pouvez upgrader ou résilier votre abonnement à tout moment depuis votre espace. Les changements prennent effet immédiatement.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Y a-t-il un engagement minimum ?
+      <span class="arr">▼</span>
+    </button>
+    <div class="faq-a">Non, tous les plans sont sans engagement. Vous payez mois par mois et pouvez résilier quand vous le souhaitez.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Le plan Free est-il vraiment gratuit ?
+      <span class="arr">▼</span>
+    </button>
+    <div class="faq-a">Oui, le plan Free est totalement gratuit et sans carte bancaire. Il vous permet de découvrir PISUM avec 10 templates, 20 comptes-rendus par mois et l'export PDF.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Comment fonctionne l'AI Enhancer ?
+      <span class="arr">▼</span>
+    </button>
+    <div class="faq-a">L'AI Enhancer améliore automatiquement la formulation de vos comptes-rendus grâce à l'IA. Le quota mensuel se renouvelle le 1er de chaque mois.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Le paiement est-il sécurisé ?
+      <span class="arr">▼</span>
+    </button>
+    <div class="faq-a">Oui, tous les paiements sont traités par Stripe, leader mondial du paiement en ligne. PISUM ne stocke jamais vos données bancaires.</div>
+  </div>
+</section>
+
+<footer>
+  <div style="margin-bottom:0.75rem">
+    Des questions ? <a href="mailto:contact@pisum.app">contact@pisum.app</a>
+  </div>
+  <div>
+    <a href="auth.html">Créer un compte</a>
+    <span class="sep">·</span>
+    <a href="dashboard.html">Mon abonnement</a>
+    <span class="sep">·</span>
+    <a href="mailto:contact@pisum.app">Support</a>
+  </div>
+</footer>
+
+<div class="err-toast" id="err-toast"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
-  const SUPABASE_URL  = 'https://lepqbnhrdgfetoysedbq.supabase.co';
-  const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlcHFibmhyZGdmZXRveXNlZGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwNjQ1MDAsImV4cCI6MjA5MDY0MDUwMH0.St12IwG0_RRKzxrbH1QRolCC2OOAaSIsK4PDmlR2Loo';
-  const API_BASE      = 'https://pisum-backend.onrender.com';
+const SUPABASE_URL  = 'https://lepqbnhrdgfetoysedbq.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlcHFibmhyZGdmZXRveXNlZGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwNjQ1MDAsImV4cCI6MjA5MDY0MDUwMH0.St12IwG0_RRKzxrbH1QRolCC2OOAaSIsK4PDmlR2Loo';
+const API_BASE      = 'https://pisum-backend.onrender.com';
 
-  const { createClient } = supabase;
-  const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
+const { createClient } = supabase;
+const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
 
-  let currentSession = null;
+let currentSession = null;
 
-  async function init() {
-    const { data } = await sb.auth.getSession();
-    if (data.session) {
-      currentSession = data.session;
-      document.getElementById('nav-email').textContent = data.session.user.email;
-      document.getElementById('nav-auth-btn').style.display = 'none';
-      document.getElementById('nav-dashboard-btn').style.display = '';
-    }
+async function init() {
+  const { data } = await sb.auth.getSession();
+  if (data.session) {
+    currentSession = data.session;
+    const user = data.session.user;
+    const name = user.user_metadata?.full_name || user.email?.split('@')[0] || '';
+    const initials = name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase() || '?';
+
+    document.getElementById('nav-avatar').textContent = initials;
+    document.getElementById('nav-name').textContent   = name;
+    document.getElementById('nav-user').style.display = '';
+    document.getElementById('nav-login-btn').style.display = 'none';
+    document.getElementById('nav-dashboard-btn').style.display = '';
+  }
+}
+
+async function subscribe(plan) {
+  if (!currentSession) {
+    window.location.href = 'auth.html?redirect=pricing.html';
+    return;
   }
 
-  async function subscribe(plan) {
-    if (!currentSession) {
-      // Not logged in → go to auth, then come back
-      window.location.href = 'auth.html?redirect=pricing.html';
-      return;
+  document.querySelectorAll('.plan-cta').forEach(b => {
+    if (b.tagName === 'BUTTON') {
+      b.disabled = true;
+      b.innerHTML = '<span class="spinner"></span>';
     }
+  });
 
-    // Disable all buttons
-    document.querySelectorAll('.plan-cta').forEach(b => {
-      if (b.tagName === 'BUTTON') { b.disabled = true; b.textContent = '…'; }
+  try {
+    const res = await fetch(`${API_BASE}/create-checkout-session`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${currentSession.access_token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ plan }),
     });
 
-    try {
-      const res = await fetch(`${API_BASE}/create-checkout-session`, {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${currentSession.access_token}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ plan }),
-      });
-
-      if (!res.ok) {
-        const err = await res.json();
-        throw new Error(err.detail || 'Erreur serveur');
-      }
-
-      const { checkout_url } = await res.json();
-      window.location.href = checkout_url;
-
-    } catch (err) {
-      showError('Erreur : ' + err.message);
-      // Re-enable buttons
-      document.querySelectorAll('.plan-cta').forEach(b => {
-        if (b.tagName === 'BUTTON') { b.disabled = false; b.textContent = b.textContent.includes('contacter') ? 'Nous contacter' : 'S\'abonner'; }
-      });
+    if (!res.ok) {
+      const err = await res.json();
+      throw new Error(err.detail || 'Erreur serveur');
     }
-  }
 
-  function showError(msg) {
-    const el = document.getElementById('subscribe-error');
-    el.textContent = msg;
-    el.style.display = 'block';
-    setTimeout(() => { el.style.display = 'none'; }, 6000);
-  }
+    const { checkout_url } = await res.json();
+    window.location.href = checkout_url;
 
-  init();
+  } catch (err) {
+    showError('Erreur : ' + err.message);
+    document.querySelectorAll('.plan-cta').forEach(b => {
+      if (b.tagName === 'BUTTON') {
+        b.disabled = false;
+        b.textContent = b.dataset.label || 'S\'abonner';
+      }
+    });
+  }
+}
+
+// Restore button labels after error
+document.querySelectorAll('.plan-cta').forEach(b => {
+  if (b.tagName === 'BUTTON') b.dataset.label = b.textContent;
+});
+
+function showError(msg) {
+  const el = document.getElementById('err-toast');
+  el.textContent = msg;
+  el.style.display = 'block';
+  setTimeout(() => { el.style.display = 'none'; }, 6000);
+}
+
+function toggleFaq(btn) {
+  const isOpen = btn.classList.contains('open');
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.classList.remove('open');
+    q.nextElementSibling.classList.remove('show');
+  });
+  if (!isOpen) {
+    btn.classList.add('open');
+    btn.nextElementSibling.classList.add('show');
+  }
+}
+
+init();
 </script>
 </body>
 </html>
