@@ -103,8 +103,9 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--ink);font-size:
     PISUM
   </a>
   <div style="display:flex;gap:10px;align-items:center">
-    <a class="btn-nav" href="auth.html">Se connecter</a>
-    <a class="btn-nav primary" href="auth.html">Commencer gratuitement</a>
+    <span id="nav-email" style="font-size:0.82rem;color:#8a8aa8"></span>
+    <a class="btn-nav" id="nav-auth-btn" href="auth.html">Se connecter</a>
+    <a class="btn-nav" href="dashboard.html" id="nav-dashboard-btn" style="display:none">Mon abonnement</a>
   </div>
 </nav>
 
@@ -144,7 +145,7 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--ink);font-size:
       <div class="plan-name">Pisum Starter</div>
       <div class="plan-price">— €<span> / mois</span></div>
       <div class="plan-tagline">Radiologue indépendant</div>
-      <a class="plan-cta cta-paid" href="auth.html">S'abonner</a>
+      <button class="plan-cta cta-paid" onclick="subscribe('starter')">S'abonner</button>
       <div class="divider"></div>
       <ul class="feature-list">
         <li><span class="fi-ok">✓</span><span class="fi-txt">20 templates</span></li>
@@ -164,7 +165,7 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--ink);font-size:
       <div class="plan-name">Pisum Pro</div>
       <div class="plan-price">— €<span> / mois</span></div>
       <div class="plan-tagline">Praticien avancé, tout-en-un</div>
-      <a class="plan-cta cta-popular" href="auth.html">S'abonner</a>
+      <button class="plan-cta cta-popular" onclick="subscribe('pro')">S'abonner</button>
       <div class="divider"></div>
       <ul class="feature-list">
         <li><span class="fi-ok">✓</span><span class="fi-txt">112+ templates</span></li>
@@ -183,7 +184,7 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--ink);font-size:
       <div class="plan-name">Pisum Expert</div>
       <div class="plan-price">— €<span> / mois</span></div>
       <div class="plan-tagline">Radiologue expert, sans limites</div>
-      <a class="plan-cta cta-paid" href="auth.html">S'abonner</a>
+      <button class="plan-cta cta-paid" onclick="subscribe('expert')">S'abonner</button>
       <div class="divider"></div>
       <ul class="feature-list">
         <li><span class="fi-ok">✓</span><span class="fi-txt">112+ templates custom</span></li>
@@ -202,7 +203,7 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--ink);font-size:
       <div class="plan-name">Pisum Clinic</div>
       <div class="plan-price">— €<span> / mois</span></div>
       <div class="plan-tagline">Cabinet multi-praticiens</div>
-      <a class="plan-cta cta-paid" href="auth.html">Nous contacter</a>
+      <button class="plan-cta cta-paid" onclick="subscribe('clinic')">Nous contacter</button>
       <div class="divider"></div>
       <ul class="feature-list">
         <li><span class="fi-ok">✓</span><span class="fi-txt">Templates sur mesure</span></li>
@@ -334,5 +335,76 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--ink);font-size:
   <a href="auth.html">Créer un compte gratuit</a>
 </div>
 
+<div id="subscribe-error" style="display:none;position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);background:#fff0f0;color:#c0392b;border:1px solid #fcc;padding:0.75rem 1.5rem;border-radius:12px;font-size:0.85rem;font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,0.12);z-index:999"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+  const SUPABASE_URL  = 'https://lepqbnhrdgfetoysedbq.supabase.co';
+  const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlcHFibmhyZGdmZXRveXNlZGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwNjQ1MDAsImV4cCI6MjA5MDY0MDUwMH0.St12IwG0_RRKzxrbH1QRolCC2OOAaSIsK4PDmlR2Loo';
+  const API_BASE      = 'https://pisum-backend.onrender.com';
+
+  const { createClient } = supabase;
+  const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
+
+  let currentSession = null;
+
+  async function init() {
+    const { data } = await sb.auth.getSession();
+    if (data.session) {
+      currentSession = data.session;
+      document.getElementById('nav-email').textContent = data.session.user.email;
+      document.getElementById('nav-auth-btn').style.display = 'none';
+      document.getElementById('nav-dashboard-btn').style.display = '';
+    }
+  }
+
+  async function subscribe(plan) {
+    if (!currentSession) {
+      // Not logged in → go to auth, then come back
+      window.location.href = 'auth.html?redirect=pricing.html';
+      return;
+    }
+
+    // Disable all buttons
+    document.querySelectorAll('.plan-cta').forEach(b => {
+      if (b.tagName === 'BUTTON') { b.disabled = true; b.textContent = '…'; }
+    });
+
+    try {
+      const res = await fetch(`${API_BASE}/create-checkout-session`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${currentSession.access_token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ plan }),
+      });
+
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.detail || 'Erreur serveur');
+      }
+
+      const { checkout_url } = await res.json();
+      window.location.href = checkout_url;
+
+    } catch (err) {
+      showError('Erreur : ' + err.message);
+      // Re-enable buttons
+      document.querySelectorAll('.plan-cta').forEach(b => {
+        if (b.tagName === 'BUTTON') { b.disabled = false; b.textContent = b.textContent.includes('contacter') ? 'Nous contacter' : 'S\'abonner'; }
+      });
+    }
+  }
+
+  function showError(msg) {
+    const el = document.getElementById('subscribe-error');
+    el.textContent = msg;
+    el.style.display = 'block';
+    setTimeout(() => { el.style.display = 'none'; }, 6000);
+  }
+
+  init();
+</script>
 </body>
 </html>
