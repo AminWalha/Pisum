@@ -75,19 +75,41 @@ nav{background:var(--white);border-bottom:1px solid rgba(0,0,0,0.06);padding:0 2
 /* COMPARISON TABLE */
 .compare-section{max-width:1100px;margin:0 auto;padding:0 1.5rem 4rem}
 .compare-section h2{font-size:1.5rem;font-weight:800;letter-spacing:-0.03em;text-align:center;margin-bottom:2rem}
-.compare-wrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse;background:var(--white);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);font-size:0.83rem}
-thead{background:var(--grad);color:#fff}
-thead th{padding:0.9rem 1rem;font-weight:700;text-align:center}
-thead th:first-child{text-align:left}
+.compare-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--r);box-shadow:var(--shadow)}
+table{width:100%;border-collapse:collapse;background:var(--white);font-size:0.83rem;min-width:600px}
+colgroup col.col-feat{width:26%}
+colgroup col{width:14.8%}
+/* Header */
+thead tr{background:var(--grad)}
+thead th{padding:1.1rem 0.75rem;font-weight:700;text-align:center;color:#fff;vertical-align:middle;white-space:nowrap;position:relative}
+thead th:first-child{text-align:left;padding-left:1.25rem}
+thead th.col-pro{background:linear-gradient(160deg,#2550e0 0%,#6535e8 100%)}
+.th-inner{display:flex;flex-direction:column;align-items:center;gap:3px}
+thead th:first-child .th-inner{align-items:flex-start}
+.th-name{font-size:0.85rem;font-weight:800;letter-spacing:-0.01em}
+.th-price{font-size:0.68rem;font-weight:500;opacity:0.75;margin-top:1px}
+.rec-badge{display:inline-block;background:#fbbf24;color:#78350f;font-size:0.58rem;font-weight:800;letter-spacing:0.07em;text-transform:uppercase;padding:0.12rem 0.55rem;border-radius:999px;margin-bottom:3px;white-space:nowrap}
+/* Body rows */
 tbody tr{border-bottom:1px solid rgba(0,0,0,0.05)}
 tbody tr:last-child{border-bottom:none}
-tbody tr:hover{background:#f8f9ff}
-tbody td{padding:0.75rem 1rem;text-align:center;color:var(--ink-2)}
-tbody td:first-child{text-align:left;font-weight:600;color:var(--ink);font-size:0.82rem}
-.yes{color:#16a34a;font-size:1rem}
-.no{color:#d1d5db;font-size:1rem}
-.lim{color:var(--amber);font-size:0.78rem;font-weight:700}
+tbody tr:nth-child(odd){background:#fff}
+tbody tr:nth-child(even){background:#f7f8ff}
+tbody tr:hover{background:#eef2ff}
+tbody td{padding:0.72rem 0.75rem;text-align:center;vertical-align:middle;color:var(--ink-2)}
+tbody td:first-child{text-align:left;font-weight:600;color:var(--ink);white-space:nowrap;padding-left:1.25rem}
+/* Pro column highlight */
+tbody td.col-pro{background:rgba(59,110,248,0.06)}
+tbody tr:nth-child(even) td.col-pro{background:rgba(59,110,248,0.1)}
+tbody tr:hover td.col-pro{background:rgba(59,110,248,0.15)}
+/* Value styles */
+.yes{color:#16a34a;font-size:1rem;font-weight:700}
+.no{color:#cbd5e1;font-size:1rem;font-weight:700}
+.lim{color:var(--amber);font-size:0.77rem;font-weight:700;white-space:nowrap}
+/* Responsive: allow horizontal scroll on small screens */
+@media(max-width:640px){
+  colgroup col.col-feat{width:140px}
+  colgroup col{width:90px}
+}
 
 /* FAQ / FOOTER */
 .footer-note{text-align:center;padding:2rem 1.5rem 3rem;font-size:0.82rem;color:var(--ink-3)}
@@ -143,7 +165,7 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--ink);font-size:
     <div class="plan-card">
       <div class="plan-tag tag-starter">Starter</div>
       <div class="plan-name">Pisum Starter</div>
-      <div class="plan-price">— €<span> / mois</span></div>
+      <div class="plan-price">29 €<span> / mois</span></div>
       <div class="plan-tagline">Radiologue indépendant</div>
       <button class="plan-cta cta-paid" onclick="subscribe('starter')">S'abonner</button>
       <div class="divider"></div>
@@ -163,7 +185,7 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--ink);font-size:
       <div class="popular-ribbon">Recommandé</div>
       <div class="plan-tag tag-pro">Pro ⭐</div>
       <div class="plan-name">Pisum Pro</div>
-      <div class="plan-price">— €<span> / mois</span></div>
+      <div class="plan-price">59 €<span> / mois</span></div>
       <div class="plan-tagline">Praticien avancé, tout-en-un</div>
       <button class="plan-cta cta-popular" onclick="subscribe('pro')">S'abonner</button>
       <div class="divider"></div>
@@ -171,7 +193,7 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--ink);font-size:
         <li><span class="fi-ok">✓</span><span class="fi-txt">112+ templates</span></li>
         <li><span class="fi-ok">✓</span><span class="fi-txt">23 langues</span></li>
         <li><span class="fi-ok">✓</span><span class="fi-txt">Export PDF + Word</span></li>
-        <li><span class="fi-ok">✓</span><span class="fi-txt">Dictée AI</span></li>
+        <li><span class="fi-lim">◐</span><span class="fi-txt">Dictée AI (limitée)</span></li>
         <li><span class="fi-lim">◐</span><span class="fi-txt">AI Enhancer (50/mois)</span></li>
         <li><span class="fi-ok">✓</span><span class="fi-txt">Worklist complète</span></li>
         <li><span class="fi-lim">◐</span><span class="fi-txt">Statistiques basiques</span></li>
@@ -182,7 +204,7 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--ink);font-size:
     <div class="plan-card">
       <div class="plan-tag tag-expert">Expert 🔥</div>
       <div class="plan-name">Pisum Expert</div>
-      <div class="plan-price">— €<span> / mois</span></div>
+      <div class="plan-price">99 €<span> / mois</span></div>
       <div class="plan-tagline">Radiologue expert, sans limites</div>
       <button class="plan-cta cta-paid" onclick="subscribe('expert')">S'abonner</button>
       <div class="divider"></div>
@@ -190,8 +212,8 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--ink);font-size:
         <li><span class="fi-ok">✓</span><span class="fi-txt">112+ templates custom</span></li>
         <li><span class="fi-ok">✓</span><span class="fi-txt">23 langues</span></li>
         <li><span class="fi-ok">✓</span><span class="fi-txt">Export PDF + Word</span></li>
-        <li><span class="fi-ok">✓</span><span class="fi-txt">Dictée AI</span></li>
-        <li><span class="fi-ok">✓</span><span class="fi-txt">AI Enhancer illimité</span></li>
+        <li><span class="fi-lim">◐</span><span class="fi-txt">Dictée AI (fair use)</span></li>
+        <li><span class="fi-lim">◐</span><span class="fi-txt">AI Enhancer (400/mois)</span></li>
         <li><span class="fi-ok">✓</span><span class="fi-txt">Worklist avancée</span></li>
         <li><span class="fi-ok">✓</span><span class="fi-txt">Statistiques complètes</span></li>
       </ul>
@@ -201,7 +223,7 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--ink);font-size:
     <div class="plan-card">
       <div class="plan-tag tag-clinic">Clinic 🏥</div>
       <div class="plan-name">Pisum Clinic</div>
-      <div class="plan-price">— €<span> / mois</span></div>
+      <div class="plan-price">199 €<span> / mois</span></div>
       <div class="plan-tagline">Cabinet multi-praticiens</div>
       <button class="plan-cta cta-paid" onclick="subscribe('clinic')">Nous contacter</button>
       <div class="divider"></div>
@@ -209,7 +231,7 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--ink);font-size:
         <li><span class="fi-ok">✓</span><span class="fi-txt">Templates sur mesure</span></li>
         <li><span class="fi-ok">✓</span><span class="fi-txt">23 langues</span></li>
         <li><span class="fi-ok">✓</span><span class="fi-txt">Export PDF + Word</span></li>
-        <li><span class="fi-ok">✓</span><span class="fi-txt">Dictée AI</span></li>
+        <li><span class="fi-lim">◐</span><span class="fi-txt">Dictée AI (fair use)</span></li>
         <li><span class="fi-ok">✓</span><span class="fi-txt">AI Enhancer illimité</span></li>
         <li><span class="fi-ok">✓</span><span class="fi-txt">Worklist multi-site</span></li>
         <li><span class="fi-ok">✓</span><span class="fi-txt">5 utilisateurs inclus</span></li>
@@ -226,94 +248,118 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--ink);font-size:
   <h2>Comparaison détaillée</h2>
   <div class="compare-wrap">
     <table>
+      <colgroup>
+        <col class="col-feat"/>
+        <col/><col/><col class="col-pro"/><col/><col/>
+      </colgroup>
       <thead>
         <tr>
-          <th>Fonctionnalité</th>
-          <th>Free</th>
-          <th>Starter</th>
-          <th>Pro ⭐</th>
-          <th>Expert 🔥</th>
-          <th>Clinic 🏥</th>
+          <th><div class="th-inner"><span class="th-name">Fonctionnalité</span></div></th>
+          <th>
+            <div class="th-inner">
+              <span class="th-name">Free</span>
+              <span class="th-price">0 €/mois</span>
+            </div>
+          </th>
+          <th>
+            <div class="th-inner">
+              <span class="th-name">Starter</span>
+              <span class="th-price">€29/mois</span>
+            </div>
+          </th>
+          <th class="col-pro">
+            <div class="th-inner">
+              <span class="rec-badge">Recommandé</span>
+              <span class="th-name">Pro ⭐</span>
+              <span class="th-price">€59/mois</span>
+            </div>
+          </th>
+          <th>
+            <div class="th-inner">
+              <span class="th-name">Expert 🔥</span>
+              <span class="th-price">€99/mois</span>
+            </div>
+          </th>
+          <th>
+            <div class="th-inner">
+              <span class="th-name">Clinic 🏥</span>
+              <span class="th-price">€199/mois</span>
+            </div>
+          </th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>Templates</td>
-          <td>10</td>
-          <td>20</td>
-          <td>112+</td>
-          <td>112+ custom</td>
-          <td>Sur mesure</td>
+          <td>10</td><td>20</td>
+          <td class="col-pro">112+</td>
+          <td>112+ custom</td><td>Sur mesure</td>
         </tr>
         <tr>
           <td>Langues disponibles</td>
-          <td>2</td>
-          <td>5</td>
-          <td>23</td>
-          <td>23</td>
-          <td>23</td>
+          <td>2</td><td>5</td>
+          <td class="col-pro">23</td>
+          <td>23</td><td>23</td>
         </tr>
         <tr>
           <td>Export PDF</td>
           <td><span class="yes">✓</span></td>
           <td><span class="yes">✓</span></td>
-          <td><span class="yes">✓</span></td>
+          <td class="col-pro"><span class="yes">✓</span></td>
           <td><span class="yes">✓</span></td>
           <td><span class="yes">✓</span></td>
         </tr>
         <tr>
           <td>Export Word</td>
-          <td><span class="no">–</span></td>
+          <td><span class="no">✕</span></td>
           <td><span class="yes">✓</span></td>
-          <td><span class="yes">✓</span></td>
+          <td class="col-pro"><span class="yes">✓</span></td>
           <td><span class="yes">✓</span></td>
           <td><span class="yes">✓</span></td>
         </tr>
         <tr>
           <td>Dictée AI</td>
-          <td><span class="no">–</span></td>
-          <td><span class="no">–</span></td>
-          <td><span class="yes">✓</span></td>
-          <td><span class="yes">✓</span></td>
-          <td><span class="yes">✓</span></td>
+          <td><span class="no">✕</span></td>
+          <td><span class="no">✕</span></td>
+          <td class="col-pro"><span class="lim">✓ limité</span></td>
+          <td><span class="lim">✓ fair use</span></td>
+          <td><span class="lim">✓ fair use</span></td>
         </tr>
         <tr>
           <td>AI Enhancer</td>
-          <td><span class="no">–</span></td>
-          <td><span class="no">–</span></td>
-          <td><span class="lim">50 / mois</span></td>
-          <td><span class="yes">Illimité</span></td>
+          <td><span class="no">✕</span></td>
+          <td><span class="no">✕</span></td>
+          <td class="col-pro"><span class="lim">50 / mois</span></td>
+          <td><span class="lim">400 / mois</span></td>
           <td><span class="yes">Illimité</span></td>
         </tr>
         <tr>
           <td>Worklist</td>
-          <td><span class="no">–</span></td>
+          <td><span class="no">✕</span></td>
           <td><span class="lim">Basique</span></td>
-          <td><span class="lim">Complète</span></td>
+          <td class="col-pro"><span class="lim">Complète</span></td>
           <td><span class="yes">Avancée</span></td>
           <td><span class="yes">Multi-site</span></td>
         </tr>
         <tr>
           <td>Utilisateurs</td>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-          <td>5 inclus + extra</td>
+          <td>1</td><td>1</td>
+          <td class="col-pro">1</td>
+          <td>1</td><td>5+</td>
         </tr>
         <tr>
           <td>Statistiques</td>
-          <td><span class="no">–</span></td>
-          <td><span class="no">–</span></td>
-          <td><span class="lim">Basiques</span></td>
+          <td><span class="no">✕</span></td>
+          <td><span class="no">✕</span></td>
+          <td class="col-pro"><span class="lim">Basiques</span></td>
           <td><span class="yes">✓</span></td>
           <td><span class="yes">Avancées</span></td>
         </tr>
         <tr>
           <td>Comptes-rendus / mois</td>
-          <td><span class="lim">20</span></td>
+          <td><span class="lim">20 max</span></td>
           <td><span class="yes">Illimités</span></td>
-          <td><span class="yes">Illimités</span></td>
+          <td class="col-pro"><span class="yes">Illimités</span></td>
           <td><span class="yes">Illimités</span></td>
           <td><span class="yes">Illimités</span></td>
         </tr>
@@ -321,7 +367,7 @@ tbody td:first-child{text-align:left;font-weight:600;color:var(--ink);font-size:
           <td>Support</td>
           <td>—</td>
           <td>Email</td>
-          <td>Email prioritaire</td>
+          <td class="col-pro">Email prioritaire</td>
           <td>Chat + email</td>
           <td>Dédié + onboarding</td>
         </tr>
