@@ -86,14 +86,17 @@ input:focus{border-color:var(--blue)}
   const { createClient } = supabase;
   const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+  // Respect ?redirect= param so pricing.html can send users back after login
+  const _redirectTarget = new URLSearchParams(window.location.search).get('redirect') || 'dashboard.html';
+
   // Redirect if already logged in OR after email confirmation (PKCE code exchange)
   sb.auth.getSession().then(({ data }) => {
-    if (data.session) window.location.href = 'dashboard.html';
+    if (data.session) window.location.href = _redirectTarget;
   });
 
   sb.auth.onAuthStateChange((event, session) => {
     if ((event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') && session) {
-      window.location.href = 'dashboard.html';
+      window.location.href = _redirectTarget;
     }
   });
 
@@ -130,7 +133,7 @@ input:focus{border-color:var(--blue)}
     }
 
     // Store session — Supabase SDK handles this automatically in localStorage
-    window.location.href = 'dashboard.html';
+    window.location.href = _redirectTarget;
   }
 
   async function handleSignup(e) {
