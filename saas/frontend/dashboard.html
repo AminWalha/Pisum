@@ -332,10 +332,60 @@ h1{font-size:1.7rem;font-weight:700;letter-spacing:-0.03em;margin-bottom:0.4rem}
 
     const params = new URLSearchParams(window.location.search);
     if (params.get('checkout') === 'success') {
-      setTimeout(loadAccessStatus, 2500);
+      // After Stripe redirect, poll until plan upgrades (webhook can take 30-60s on cold backend)
+      pollUntilUpgraded();
     } else {
       loadAccessStatus();
     }
+  }
+
+  // Poll /check-access every 4s for up to 90s after checkout=success
+  async function pollUntilUpgraded() {
+    const MAX_ATTEMPTS = 22;   // ~90 seconds
+    const INTERVAL_MS  = 4000;
+    let attempts = 0;
+
+    const icon  = document.getElementById('access-icon');
+    const title = document.getElementById('access-title');
+    const desc  = document.getElementById('access-desc');
+    icon.textContent  = '⏳';
+    icon.className    = 'access-icon';
+    title.textContent = 'Confirmation du paiement…';
+    desc.textContent  = 'Nous attendons la confirmation de Stripe. Cela peut prendre jusqu\'à une minute.';
+
+    const poll = async () => {
+      attempts++;
+      try {
+        const res  = await fetch(`${API_BASE}/check-access`, {
+          headers: { Authorization: `Bearer ${currentSession.access_token}` },
+        });
+        const json = await res.json();
+
+        // Stop polling when plan is upgraded (not free) or definitely active
+        if (json.access && json.plan && json.plan !== 'free') {
+          renderAccess(json);
+          // Clean URL
+          window.history.replaceState({}, '', 'dashboard.html');
+          return;
+        }
+        // Still free or no access yet — keep polling
+        if (attempts < MAX_ATTEMPTS) {
+          setTimeout(poll, INTERVAL_MS);
+        } else {
+          // Timed out — show whatever we have
+          renderAccess(json);
+          window.history.replaceState({}, '', 'dashboard.html');
+        }
+      } catch {
+        if (attempts < MAX_ATTEMPTS) {
+          setTimeout(poll, INTERVAL_MS);
+        } else {
+          renderAccess({ access: false, reason: 'network_error' });
+        }
+      }
+    };
+
+    setTimeout(poll, 2000); // first check after 2s
   }
 
   // ── Check access ──────────────────────────────────────────────────────────
@@ -378,7 +428,20 @@ h1{font-size:1.7rem;font-weight:700;letter-spacing:-0.03em;margin-bottom:0.4rem}
       if (plan === 'pro') loadEnhancerUsage();
 
       actCard.style.display = '';
-      subCard.style.display = 'none';
+
+      // Free plan → show upgrade section below
+      if (plan === 'free') {
+        const subTitle = document.querySelector('#sub-card h3');
+        const subDesc  = document.querySelector('#sub-card > p');
+        if (subTitle) subTitle.textContent = 'Upgrader votre offre';
+        if (subDesc)  subDesc.textContent  = 'Passez à un plan payant pour débloquer plus de fonctionnalités.';
+        // Pre-select starter as default upgrade target
+        selectedPlan = 'starter';
+        renderPlanGrid();
+        subCard.style.display = '';
+      } else {
+        subCard.style.display = 'none';
+      }
     } else {
       icon.textContent  = '🔒';
       icon.className    = 'access-icon denied';
