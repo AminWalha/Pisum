@@ -67,6 +67,26 @@ nav{
 .btn-hero.primary{background:var(--grad);color:#fff}
 .btn-hero.secondary{background:var(--white);color:var(--ink-2);border:1.5px solid var(--ink-4)}
 
+/* ── BILLING TOGGLE ── */
+.billing-toggle{display:flex;align-items:center;justify-content:center;gap:0.85rem;margin-bottom:2rem;font-size:0.88rem;font-weight:600;color:var(--ink-2)}
+.toggle-switch{position:relative;width:46px;height:26px;flex-shrink:0}
+.toggle-switch input{opacity:0;width:0;height:0;position:absolute}
+.toggle-slider{
+  position:absolute;inset:0;background:#d1d5db;border-radius:999px;cursor:pointer;
+  transition:background 0.2s
+}
+.toggle-slider::before{
+  content:'';position:absolute;left:3px;top:3px;width:20px;height:20px;
+  background:#fff;border-radius:50%;transition:transform 0.2s;
+  box-shadow:0 1px 4px rgba(0,0,0,0.18)
+}
+.toggle-switch input:checked + .toggle-slider{background:var(--blue)}
+.toggle-switch input:checked + .toggle-slider::before{transform:translateX(20px)}
+.save-badge{
+  background:#dcfce7;color:#166534;font-size:0.65rem;font-weight:800;
+  letter-spacing:0.05em;padding:0.12rem 0.55rem;border-radius:999px;text-transform:uppercase
+}
+
 /* ── PLANS SECTION ── */
 .plans-section{max-width:1120px;margin:0 auto;padding:0.5rem 1.5rem 3rem}
 
@@ -229,6 +249,17 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
 
 <!-- PLAN CARDS -->
 <section class="plans-section">
+
+  <!-- Billing toggle -->
+  <div class="billing-toggle">
+    <span>Mensuel</span>
+    <label class="toggle-switch">
+      <input type="checkbox" id="billing-annual" onchange="setBilling(this.checked)"/>
+      <span class="toggle-slider"></span>
+    </label>
+    <span>Annuel <span class="save-badge">−20 %</span></span>
+  </div>
+
   <div class="plans-grid">
 
     <!-- FREE -->
@@ -255,7 +286,7 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
     <div class="plan-card">
       <div class="plan-tag tag-starter">Starter</div>
       <div class="plan-name">Pisum Starter</div>
-      <div class="plan-price">29 €<span> / mois</span></div>
+      <div class="plan-price" id="price-starter" data-monthly="29" data-annual="23">29 €<span id="price-starter-sub"> / mois</span></div>
       <div class="plan-tagline">Radiologue indépendant</div>
       <button class="plan-cta cta-paid" onclick="subscribe('starter')">S'abonner</button>
       <div class="divider"></div>
@@ -275,7 +306,7 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
       <div class="pop-ribbon">Recommandé</div>
       <div class="plan-tag tag-pro">Pro ⭐</div>
       <div class="plan-name">Pisum Pro</div>
-      <div class="plan-price">59 €<span> / mois</span></div>
+      <div class="plan-price" id="price-pro" data-monthly="59" data-annual="47">59 €<span id="price-pro-sub"> / mois</span></div>
       <div class="plan-tagline">Praticien avancé, tout-en-un</div>
       <button class="plan-cta cta-popular" onclick="subscribe('pro')">S'abonner</button>
       <div class="divider"></div>
@@ -294,7 +325,7 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
     <div class="plan-card">
       <div class="plan-tag tag-expert">Expert 🔥</div>
       <div class="plan-name">Pisum Expert</div>
-      <div class="plan-price">99 €<span> / mois</span></div>
+      <div class="plan-price" id="price-expert" data-monthly="99" data-annual="79">99 €<span id="price-expert-sub"> / mois</span></div>
       <div class="plan-tagline">Radiologue expert, sans limites</div>
       <button class="plan-cta cta-paid" onclick="subscribe('expert')">S'abonner</button>
       <div class="divider"></div>
@@ -313,7 +344,7 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
     <div class="plan-card">
       <div class="plan-tag tag-clinic">Clinic 🏥</div>
       <div class="plan-name">Pisum Clinic</div>
-      <div class="plan-price">199 €<span> / mois</span></div>
+      <div class="plan-price" id="price-clinic" data-monthly="199" data-annual="159">199 €<span id="price-clinic-sub"> / mois</span></div>
       <div class="plan-tagline">Cabinet multi-praticiens</div>
       <button class="plan-cta cta-paid" onclick="subscribe('clinic')">Nous contacter</button>
       <div class="divider"></div>
@@ -436,6 +467,27 @@ const { createClient } = supabase;
 const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
 
 let currentSession = null;
+let billingInterval = 'monthly'; // 'monthly' | 'annual'
+
+const PLAN_PRICES = {
+  starter: { monthly: 29, annual: 23 },
+  pro:     { monthly: 59, annual: 47 },
+  expert:  { monthly: 99, annual: 79 },
+  clinic:  { monthly: 199, annual: 159 },
+};
+
+function setBilling(isAnnual) {
+  billingInterval = isAnnual ? 'annual' : 'monthly';
+  ['starter', 'pro', 'expert', 'clinic'].forEach(plan => {
+    const el  = document.getElementById('price-' + plan);
+    const sub = document.getElementById('price-' + plan + '-sub');
+    if (!el) return;
+    const price = PLAN_PRICES[plan][billingInterval];
+    // Replace text node (the number part) before the <span>
+    el.childNodes[0].nodeValue = price + ' €';
+    sub.textContent = isAnnual ? ' / mois (facturé annuellement)' : ' / mois';
+  });
+}
 
 async function init() {
   const { data } = await sb.auth.getSession();
@@ -473,7 +525,7 @@ async function subscribe(plan) {
         Authorization: `Bearer ${currentSession.access_token}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ plan }),
+      body: JSON.stringify({ plan, interval: billingInterval }),
     });
 
     if (!res.ok) {
