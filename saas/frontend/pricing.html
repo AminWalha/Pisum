@@ -272,7 +272,7 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
       <input type="checkbox" id="billing-annual" onchange="setBilling(this.checked)"/>
       <span class="toggle-slider"></span>
     </label>
-    <span>Annual <span class="save-badge">−20 %</span></span>
+    <span>Annual <span class="save-badge">−17 %</span></span>
   </div>
 
   <div class="plans-grid">
@@ -301,7 +301,7 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
     <div class="plan-card">
       <div class="plan-tag tag-starter">Starter</div>
       <div class="plan-name">Pisum Starter</div>
-      <div class="plan-price" id="price-starter" data-monthly="29" data-annual="23">29 €<span id="price-starter-sub"> / mo</span></div>
+      <div class="plan-price" id="price-starter" data-monthly="29" data-annual="290">29 €<span id="price-starter-sub"> / mo</span></div>
       <div class="plan-tagline">Independent radiologist</div>
       <button class="plan-cta cta-paid" onclick="subscribe('starter')">Subscribe</button>
       <div class="divider"></div>
@@ -321,7 +321,7 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
       <div class="pop-ribbon">🔥 Most popular</div>
       <div class="plan-tag tag-pro">Pro ⭐</div>
       <div class="plan-name">Pisum Pro</div>
-      <div class="plan-price" id="price-pro" data-monthly="59" data-annual="47">59 €<span id="price-pro-sub"> / mo</span></div>
+      <div class="plan-price" id="price-pro" data-monthly="59" data-annual="590">59 €<span id="price-pro-sub"> / mo</span></div>
       <div class="plan-tagline">The choice of 90% of radiologists — dictate, standardize, save time</div>
       <button class="plan-cta cta-popular" onclick="subscribe('pro')">Subscribe</button>
       <div class="divider"></div>
@@ -342,7 +342,7 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
     <div class="plan-card">
       <div class="plan-tag tag-expert">Expert 🔥</div>
       <div class="plan-name">Pisum Expert</div>
-      <div class="plan-price" id="price-expert" data-monthly="99" data-annual="79">99 €<span id="price-expert-sub"> / mo</span></div>
+      <div class="plan-price" id="price-expert" data-monthly="99" data-annual="990">99 €<span id="price-expert-sub"> / mo</span></div>
       <div class="plan-tagline">High-volume use — peak performance, priority support</div>
       <button class="plan-cta cta-paid" onclick="subscribe('expert')">Subscribe</button>
       <div class="divider"></div>
@@ -363,7 +363,7 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
     <div class="plan-card">
       <div class="plan-tag tag-clinic">Clinic 🏥</div>
       <div class="plan-name">Pisum Clinic</div>
-      <div class="plan-price" id="price-clinic" data-monthly="199" data-annual="159">199 €<span id="price-clinic-sub"> / mo</span></div>
+      <div class="plan-price" id="price-clinic" data-monthly="199" data-annual="1990">199 €<span id="price-clinic-sub"> / mo</span></div>
       <div class="plan-tagline">Manage your entire team in one tool — multi-site, fully centralized</div>
       <button class="plan-cta cta-paid" onclick="subscribe('clinic')">Contact us</button>
       <div class="divider"></div>
@@ -493,10 +493,10 @@ let currentSession = null;
 let billingInterval = 'monthly'; // 'monthly' | 'annual'
 
 const PLAN_PRICES = {
-  starter: { monthly: 29, annual: 23 },
-  pro:     { monthly: 59, annual: 47 },
-  expert:  { monthly: 99, annual: 79 },
-  clinic:  { monthly: 199, annual: 159 },
+  starter: { monthly: 29,  annual: 290  },
+  pro:     { monthly: 59,  annual: 590  },
+  expert:  { monthly: 99,  annual: 990  },
+  clinic:  { monthly: 199, annual: 1990 },
 };
 
 function setBilling(isAnnual) {
@@ -506,9 +506,8 @@ function setBilling(isAnnual) {
     const sub = document.getElementById('price-' + plan + '-sub');
     if (!el) return;
     const price = PLAN_PRICES[plan][billingInterval];
-    // Replace text node (the number part) before the <span>
     el.childNodes[0].nodeValue = price + ' €';
-    sub.textContent = isAnnual ? ' / mo (billed annually)' : ' / mo';
+    sub.textContent = isAnnual ? ' / year' : ' / mo';
   });
 }
 
