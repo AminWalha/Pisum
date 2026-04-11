@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>PISUM — Connexion</title>
+<title>PISUM — Sign In</title>
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -119,99 +119,99 @@ input::placeholder{color:#b0b3be}
 
   <!-- ── TABS (hidden in reset/forgot mode) ── -->
   <div class="tabs" id="tabs">
-    <button class="tab active" id="tab-login"  onclick="switchTab('login')">Connexion</button>
-    <button class="tab"        id="tab-signup" onclick="switchTab('signup')">Créer un compte</button>
+    <button class="tab active" id="tab-login"  onclick="switchTab('login')">Sign In</button>
+    <button class="tab"        id="tab-signup" onclick="switchTab('signup')">Create Account</button>
   </div>
 
   <!-- ── LOGIN FORM ── -->
   <div id="view-login">
-    <div class="form-title">Content de vous revoir</div>
-    <div class="form-sub">Connectez-vous à votre espace PISUM.</div>
+    <div class="form-title">Welcome back</div>
+    <div class="form-sub">Sign in to your PISUM account.</div>
 
     <form onsubmit="handleLogin(event)">
       <div class="field">
-        <label for="login-email">Adresse e-mail</label>
-        <input id="login-email" type="email" placeholder="vous@exemple.com" required autocomplete="email"/>
+        <label for="login-email">Email address</label>
+        <input id="login-email" type="email" placeholder="you@example.com" required autocomplete="email"/>
       </div>
       <div class="field">
-        <label for="login-password">Mot de passe</label>
+        <label for="login-password">Password</label>
         <input id="login-password" type="password" placeholder="••••••••" required autocomplete="current-password"/>
       </div>
       <div class="forgot-row">
-        <button type="button" class="forgot-link" onclick="switchTab('forgot')">Mot de passe oublié ?</button>
+        <button type="button" class="forgot-link" onclick="switchTab('forgot')">Forgot password?</button>
       </div>
-      <button class="btn" type="submit" id="btn-login">Se connecter</button>
+      <button class="btn" type="submit" id="btn-login">Sign In</button>
       <div class="msg" id="msg-login"></div>
     </form>
   </div>
 
   <!-- ── SIGNUP FORM ── -->
   <div id="view-signup" style="display:none">
-    <div class="form-title">Créer votre compte</div>
-    <div class="form-sub">Accédez à PISUM gratuitement, sans carte bancaire.</div>
+    <div class="form-title">Create your account</div>
+    <div class="form-sub">Get started with PISUM for free — no credit card required.</div>
 
     <form onsubmit="handleSignup(event)">
       <div class="field">
-        <label for="signup-name">Nom complet</label>
-        <input id="signup-name" type="text" placeholder="Dr. Martin" required autocomplete="name"/>
-        <div class="field-hint">Votre nom apparaîtra dans l'application et sur vos comptes-rendus.</div>
+        <label for="signup-name">Full name</label>
+        <input id="signup-name" type="text" placeholder="Dr. Smith" required autocomplete="name"/>
+        <div class="field-hint">Your name will appear in the app and on your reports.</div>
       </div>
       <div class="field">
-        <label for="signup-email">Adresse e-mail</label>
-        <input id="signup-email" type="email" placeholder="vous@exemple.com" required autocomplete="email"/>
+        <label for="signup-email">Email address</label>
+        <input id="signup-email" type="email" placeholder="you@example.com" required autocomplete="email"/>
       </div>
       <div class="field">
-        <label for="signup-password">Mot de passe</label>
-        <input id="signup-password" type="password" placeholder="Min. 8 caractères" required autocomplete="new-password" minlength="8" oninput="checkStrength(this.value)"/>
+        <label for="signup-password">Password</label>
+        <input id="signup-password" type="password" placeholder="Min. 8 characters" required autocomplete="new-password" minlength="8" oninput="checkStrength(this.value)"/>
         <div class="strength-bar"><div class="strength-fill" id="strength-fill"></div></div>
       </div>
       <div class="field">
-        <label for="signup-confirm">Confirmer le mot de passe</label>
+        <label for="signup-confirm">Confirm password</label>
         <input id="signup-confirm" type="password" placeholder="••••••••" required autocomplete="new-password" minlength="8"/>
       </div>
-      <button class="btn" type="submit" id="btn-signup">Créer mon compte</button>
+      <button class="btn" type="submit" id="btn-signup">Create Account</button>
       <div class="msg" id="msg-signup"></div>
     </form>
   </div>
 
   <!-- ── FORGOT PASSWORD FORM ── -->
   <div id="view-forgot" style="display:none">
-    <div class="form-title">Réinitialiser le mot de passe</div>
-    <div class="form-sub">Saisissez votre e-mail, nous vous enverrons un lien de réinitialisation.</div>
+    <div class="form-title">Reset your password</div>
+    <div class="form-sub">Enter your email and we'll send you a reset link.</div>
 
     <form onsubmit="handleForgot(event)">
       <div class="field">
-        <label for="forgot-email">Adresse e-mail</label>
-        <input id="forgot-email" type="email" placeholder="vous@exemple.com" required autocomplete="email"/>
+        <label for="forgot-email">Email address</label>
+        <input id="forgot-email" type="email" placeholder="you@example.com" required autocomplete="email"/>
       </div>
-      <button class="btn" type="submit" id="btn-forgot">Envoyer le lien</button>
-      <button type="button" class="btn btn-secondary" onclick="switchTab('login')">← Retour à la connexion</button>
+      <button class="btn" type="submit" id="btn-forgot">Send Reset Link</button>
+      <button type="button" class="btn btn-secondary" onclick="switchTab('login')">← Back to Sign In</button>
       <div class="msg" id="msg-forgot"></div>
     </form>
   </div>
 
   <!-- ── RESET PASSWORD FORM (arrived from email link) ── -->
   <div id="view-reset" style="display:none">
-    <div class="form-title">Nouveau mot de passe</div>
-    <div class="form-sub">Choisissez un nouveau mot de passe sécurisé.</div>
+    <div class="form-title">New password</div>
+    <div class="form-sub">Choose a new secure password.</div>
 
     <form onsubmit="handleReset(event)">
       <div class="field">
-        <label for="reset-password">Nouveau mot de passe</label>
-        <input id="reset-password" type="password" placeholder="Min. 8 caractères" required minlength="8" oninput="checkStrength(this.value)"/>
+        <label for="reset-password">New password</label>
+        <input id="reset-password" type="password" placeholder="Min. 8 characters" required minlength="8" oninput="checkStrength(this.value)"/>
         <div class="strength-bar"><div class="strength-fill" id="strength-fill"></div></div>
       </div>
       <div class="field">
-        <label for="reset-confirm">Confirmer</label>
+        <label for="reset-confirm">Confirm password</label>
         <input id="reset-confirm" type="password" placeholder="••••••••" required minlength="8"/>
       </div>
-      <button class="btn" type="submit" id="btn-reset">Enregistrer le nouveau mot de passe</button>
+      <button class="btn" type="submit" id="btn-reset">Save New Password</button>
       <div class="msg" id="msg-reset"></div>
     </form>
   </div>
 
   <div class="footer-link" id="footer-link">
-    <a href="pricing.html">← Voir les offres</a>
+    <a href="pricing.html">← View plans</a>
   </div>
 </div>
 
@@ -318,7 +318,7 @@ function setLoading(btnId, loading, defaultText) {
 async function handleLogin(e) {
   e.preventDefault();
   clearMsg('msg-login');
-  setLoading('btn-login', true, 'Connexion…');
+  setLoading('btn-login', true, 'Signing in…');
 
   const email    = document.getElementById('login-email').value.trim();
   const password = document.getElementById('login-password').value;
@@ -327,10 +327,10 @@ async function handleLogin(e) {
 
   if (error) {
     const msg = error.message.includes('Invalid login') || error.message.includes('invalid')
-      ? 'Email ou mot de passe incorrect.'
+      ? 'Incorrect email or password.'
       : error.message;
     showMsg('msg-login', msg, 'error');
-    setLoading('btn-login', false, 'Se connecter');
+    setLoading('btn-login', false, 'Sign In');
     return;
   }
   window.location.href = _redirect;
@@ -347,11 +347,11 @@ async function handleSignup(e) {
   const confirm  = document.getElementById('signup-confirm').value;
 
   if (password !== confirm) {
-    showMsg('msg-signup', 'Les mots de passe ne correspondent pas.', 'error');
+    showMsg('msg-signup', 'Passwords do not match.', 'error');
     return;
   }
 
-  setLoading('btn-signup', true, 'Création du compte…');
+  setLoading('btn-signup', true, 'Creating account…');
 
   const { error } = await sb.auth.signUp({
     email,
@@ -361,21 +361,21 @@ async function handleSignup(e) {
 
   if (error) {
     showMsg('msg-signup', error.message, 'error');
-    setLoading('btn-signup', false, 'Créer mon compte');
+    setLoading('btn-signup', false, 'Create Account');
     return;
   }
 
   showMsg('msg-signup',
-    '✓ Compte créé ! Vérifiez votre boîte mail pour confirmer votre adresse, puis connectez-vous.',
+    '✓ Account created! Check your inbox to confirm your email, then sign in.',
     'success');
-  setLoading('btn-signup', false, 'Créer mon compte');
+  setLoading('btn-signup', false, 'Create Account');
 }
 
 // ── Forgot password ───────────────────────────────────────────────────────
 async function handleForgot(e) {
   e.preventDefault();
   clearMsg('msg-forgot');
-  setLoading('btn-forgot', true, 'Envoi du lien…');
+  setLoading('btn-forgot', true, 'Sending link…');
 
   const email = document.getElementById('forgot-email').value.trim();
   const resetUrl = window.location.origin + window.location.pathname + '?mode=reset';
@@ -388,10 +388,10 @@ async function handleForgot(e) {
     showMsg('msg-forgot', error.message, 'error');
   } else {
     showMsg('msg-forgot',
-      '✓ Lien envoyé ! Vérifiez votre boîte mail (vérifiez aussi les spams).',
+      '✓ Link sent! Check your inbox (and your spam folder).',
       'success');
   }
-  setLoading('btn-forgot', false, 'Envoyer le lien');
+  setLoading('btn-forgot', false, 'Send Reset Link');
 }
 
 // ── Reset password ────────────────────────────────────────────────────────
@@ -403,21 +403,21 @@ async function handleReset(e) {
   const confirm  = document.getElementById('reset-confirm').value;
 
   if (password !== confirm) {
-    showMsg('msg-reset', 'Les mots de passe ne correspondent pas.', 'error');
+    showMsg('msg-reset', 'Passwords do not match.', 'error');
     return;
   }
 
-  setLoading('btn-reset', true, 'Enregistrement…');
+  setLoading('btn-reset', true, 'Saving…');
 
   const { error } = await sb.auth.updateUser({ password });
 
   if (error) {
     showMsg('msg-reset', error.message, 'error');
-    setLoading('btn-reset', false, 'Enregistrer le nouveau mot de passe');
+    setLoading('btn-reset', false, 'Save New Password');
     return;
   }
 
-  showMsg('msg-reset', '✓ Mot de passe mis à jour ! Redirection…', 'success');
+  showMsg('msg-reset', '✓ Password updated! Redirecting…', 'success');
   setTimeout(() => { window.location.href = 'dashboard.html'; }, 1800);
 }
 </script>
