@@ -489,9 +489,9 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
     <button class="modal-x" onclick="closeModal()">✕</button>
     <div class="modal-icon">🔒</div>
     <h3>Pro Template</h3>
-    <p>Unlock all 112 expert-built radiology templates with a Pro or Clinic plan. Starting at just €39/month.</p>
+    <p>Unlock all 112 expert-built radiology templates with a Pro or higher plan. Starting at just €59/month.</p>
     <div class="modal-btns">
-      <a href="#pricing" class="btn btn-primary btn-lg" onclick="closeModal()" style="justify-content:center">Unlock Pro — from €39/mo</a>
+      <a href="#pricing" class="btn btn-primary btn-lg" onclick="closeModal()" style="justify-content:center">Unlock Pro — from €59/mo</a>
       <button onclick="closeModal()" class="btn btn-ghost btn-lg" style="justify-content:center">Maybe later</button>
     </div>
   </div>
@@ -554,7 +554,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
       </h1>
       <p class="hero-sub rv rv-d2">Stop spending hours on repetitive report writing. PISUM gives radiologists expert-built structured templates — completed, exported, and delivered in under a minute.</p>
       <div class="hero-actions rv rv-d3">
-        <a href="#" class="btn btn-primary btn-xl">Get Started Free</a>
+        <a href="../saas/frontend/auth.html" class="btn btn-primary btn-xl">Get Started Free</a>
         <a href="#templates" class="btn btn-ghost btn-xl">Browse Templates</a>
       </div>
       <p class="hero-note rv rv-d3">No credit card required &nbsp;·&nbsp; Free plan available</p>
@@ -653,12 +653,12 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
       </div>
       <div class="testi-card rv rv-d1">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"The Arabic support is flawless — clinical terminology is precise and the report structure matches our department standards. We've rolled it out across our entire radiology team."</p>
+        <p class="testi-quote">"The AI dictation feature is a game changer. I dictate directly into structured fields and PISUM formats everything perfectly. My reporting time dropped by 60% in the first week."</p>
         <div class="testi-author">
-          <div class="testi-avatar">AA</div>
+          <div class="testi-avatar">MB</div>
           <div>
-            <div class="testi-name">Dr. Ahmed Al-Rashidi</div>
-            <div class="testi-role">Head of Radiology, Dubai Medical Center</div>
+            <div class="testi-name">Dr. Marco Bellini</div>
+            <div class="testi-role">Radiologist, Ospedale San Raffaele, Milano</div>
           </div>
         </div>
       </div>
@@ -708,7 +708,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
     </div>
     <div class="feat-grid">
       <div class="feat-card rv"><div class="feat-icon">⚡</div><h3>Instant Report Generation</h3><p>Guided structured fields complete your report as you type. Average completion: 47 seconds. No learning curve.</p><span class="feat-pill pill-free">All Plans</span></div>
-      <div class="feat-card rv rv-d1"><div class="feat-icon">🌍</div><h3>23-Language Support</h3><p>Report natively in English, French, Spanish, German, Arabic, and 18 more — terminology validated by native radiologists.</p><span class="feat-pill pill-free">All Plans</span></div>
+      <div class="feat-card rv rv-d1"><div class="feat-icon">🌍</div><h3>23-Language Support</h3><p>Report natively in English, French, Spanish, German, Italian, Portuguese, and 17 more — terminology validated by native radiologists.</p><span class="feat-pill pill-free">All Plans</span></div>
       <div class="feat-card rv rv-d2"><div class="feat-icon">🧠</div><h3>112 Structured Templates</h3><p>Expert-built for CT, MRI, X-Ray, and Ultrasound across every body system. Each field has clinical validation.</p><span class="feat-pill pill-pro">Pro Templates</span></div>
       <div class="feat-card rv rv-d3"><div class="feat-icon">📄</div><h3>One-Click PDF & Word Export</h3><p>Professionally formatted output ready for PACS, EMR, or direct delivery. Your letterhead, your layout.</p><span class="feat-pill pill-free">All Plans</span></div>
       <div class="feat-card rv"><div class="feat-icon">🎙️</div><h3>Voice Dictation Ready</h3><p>Compatible with Dragon Medical and all major voice recognition tools. Dictate directly into structured fields.</p><span class="feat-pill pill-pro">Pro</span></div>
@@ -788,10 +788,10 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
               <button class="idlang-flag on" onclick="switchLang('en',this)">🇬🇧 EN</button>
               <button class="idlang-flag" onclick="switchLang('fr',this)">🇫🇷 FR</button>
               <button class="idlang-flag" onclick="switchLang('de',this)">🇩🇪 DE</button>
-              <button class="idlang-flag" onclick="switchLang('ar',this)">🇸🇦 AR</button>
               <button class="idlang-flag" onclick="switchLang('es',this)">🇪🇸 ES</button>
               <button class="idlang-flag" onclick="switchLang('pt',this)">🇧🇷 PT</button>
               <button class="idlang-flag" onclick="switchLang('it',this)">🇮🇹 IT</button>
+              <button class="idlang-flag" onclick="switchLang('nl',this)">🇳🇱 NL</button>
             </div>
             <div class="idlang-report">
               <div class="idlang-report-hd">🩻 Chest CT — <span id="langLabel">English</span></div>
@@ -977,7 +977,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
     <div class="bill-row rv">
       <span>Monthly</span>
       <label class="tog"><input type="checkbox" id="togB" onchange="toggleBill()"/><span class="tog-sl"></span></label>
-      <span>Annual <span class="save-tag">Save 25%</span></span>
+      <span>Annual <span class="save-tag">Save 17%</span></span>
     </div>
     <div class="plans">
 
@@ -985,18 +985,19 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
       <div class="plan rv">
         <div class="plan-name">Free</div>
         <div class="plan-price"><span class="psym">€</span><span class="pamt">0</span><span class="pper">/mo</span></div>
-        <p class="plan-desc">Pour découvrir PISUM sans engagement.</p>
-        <a href="#" class="plan-cta cta-ghost">Commencer gratuitement</a>
+        <p class="plan-desc">Discover PISUM with no commitment.</p>
+        <a href="../saas/frontend/auth.html" class="plan-cta cta-ghost">Get Started Free</a>
         <hr class="plan-div"/>
         <ul class="plan-list">
-          <li><span class="lchk">✓</span>10 templates</li>
-          <li><span class="lchk">✓</span>2 langues</li>
-          <li><span class="lchk">✓</span>Export PDF</li>
-          <li><span class="lx">○</span><span class="ldim">Export Word</span></li>
-          <li><span class="lx">○</span><span class="ldim">Dictée AI</span></li>
+          <li><span class="lchk">✓</span>5 templates</li>
+          <li><span class="lchk">✓</span>2 languages</li>
+          <li><span class="lchk">✓</span>PDF export</li>
+          <li><span class="lx">○</span><span class="ldim">Word export</span></li>
+          <li><span class="lx">○</span><span class="ldim">AI Dictation</span></li>
           <li><span class="lx">○</span><span class="ldim">AI Enhancer</span></li>
-          <li><span class="lx">○</span><span class="ldim">Worklist</span></li>
-          <li><span class="lx">○</span><span class="ldim">20 CR / mois</span></li>
+          <li><span class="lx">○</span><span class="ldim">Statistics</span></li>
+          <li><span class="lchk">✓</span>Worklist (up to 20 patients)</li>
+          <li><span class="lchk">✓</span>20 patients max</li>
         </ul>
       </div>
 
@@ -1004,17 +1005,19 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
       <div class="plan rv rv-d1">
         <div class="plan-name">Starter</div>
         <div class="plan-price"><span class="psym">€</span><span class="pamt" id="starterAmt">29</span><span class="pper">/mo</span></div>
-        <p class="plan-desc">Pour le radiologue indépendant.</p>
-        <a href="#" class="plan-cta cta-ghost">S'abonner</a>
+        <p class="bill-note" style="display:none;font-size:0.72rem;color:var(--green);margin-bottom:0.25rem">290€/yr — save 58€</p>
+        <p class="plan-desc">For the independent radiologist.</p>
+        <a href="../saas/frontend/auth.html" class="plan-cta cta-ghost">Subscribe</a>
         <hr class="plan-div"/>
         <ul class="plan-list">
           <li><span class="lchk">✓</span>20 templates</li>
-          <li><span class="lchk">✓</span>5 langues</li>
-          <li><span class="lchk">✓</span>PDF + Word</li>
-          <li><span class="lchk">✓</span>Worklist basique</li>
-          <li><span class="lchk">✓</span>CR illimités</li>
-          <li><span class="lx">○</span><span class="ldim">Dictée AI</span></li>
-          <li><span class="lx">○</span><span class="ldim">AI Enhancer</span></li>
+          <li><span class="lchk">✓</span>5 languages</li>
+          <li><span class="lchk">✓</span>PDF + Word export</li>
+          <li><span class="lchk">✓</span>🎙️ AI Dictation (60 min/mo)</li>
+          <li><span class="lchk">✓</span>✨ AI Enhancer (20/mo)</li>
+          <li><span class="lchk">✓</span>Basic worklist</li>
+          <li><span class="lchk">✓</span>Unlimited patients</li>
+          <li><span class="lx">○</span><span class="ldim">Statistics</span></li>
         </ul>
       </div>
 
@@ -1023,17 +1026,19 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
         <div class="hot-lbl">⭐ Recommandé</div>
         <div class="plan-name">Pro</div>
         <div class="plan-price"><span class="psym">€</span><span class="pamt" id="proAmt">59</span><span class="pper">/mo</span></div>
-        <p class="plan-desc">Le pack complet pour le praticien avancé.</p>
-        <a href="#" class="plan-cta cta-white">Essai 14 jours</a>
+        <p class="bill-note" style="display:none;font-size:0.72rem;color:rgba(255,255,255,0.55);margin-bottom:0.25rem">590€/yr — save 118€</p>
+        <p class="plan-desc">The complete pack for the advanced practitioner.</p>
+        <a href="../saas/frontend/auth.html" class="plan-cta cta-white">Get Started</a>
         <hr class="plan-div"/>
         <ul class="plan-list">
           <li><span class="lchk">✓</span>112+ templates</li>
-          <li><span class="lchk">✓</span>23 langues</li>
-          <li><span class="lchk">✓</span>PDF + Word</li>
-          <li><span class="lchk">✓</span>Dictée AI</li>
-          <li><span class="lchk">✓</span>AI Enhancer (100/mois)</li>
-          <li><span class="lchk">✓</span>Worklist complète</li>
-          <li><span class="lchk">✓</span>Statistiques</li>
+          <li><span class="lchk">✓</span>23 languages</li>
+          <li><span class="lchk">✓</span>PDF + Word export</li>
+          <li><span class="lchk">✓</span>🎙️ AI Dictation (600 min/mo)</li>
+          <li><span class="lchk">✓</span>✨ AI Enhancer (50/mo)</li>
+          <li><span class="lchk">✓</span>Full worklist</li>
+          <li><span class="lchk">✓</span>Basic statistics</li>
+          <li><span class="lchk">✓</span>Priority support</li>
         </ul>
       </div>
 
@@ -1041,17 +1046,19 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
       <div class="plan rv rv-d3">
         <div class="plan-name">Expert 🔥</div>
         <div class="plan-price"><span class="psym">€</span><span class="pamt" id="expertAmt">99</span><span class="pper">/mo</span></div>
-        <p class="plan-desc">Pour le radiologue expert, sans limites.</p>
-        <a href="#" class="plan-cta cta-ghost">S'abonner</a>
+        <p class="bill-note" style="display:none;font-size:0.72rem;color:var(--green);margin-bottom:0.25rem">990€/yr — save 198€</p>
+        <p class="plan-desc">For the high-volume expert radiologist.</p>
+        <a href="../saas/frontend/auth.html" class="plan-cta cta-ghost">Subscribe</a>
         <hr class="plan-div"/>
         <ul class="plan-list">
-          <li><span class="lchk">✓</span>112+ templates custom</li>
-          <li><span class="lchk">✓</span>23 langues</li>
-          <li><span class="lchk">✓</span>PDF + Word</li>
-          <li><span class="lchk">✓</span>Dictée AI</li>
-          <li><span class="lchk">✓</span>AI Enhancer illimité</li>
-          <li><span class="lchk">✓</span>Worklist avancée</li>
-          <li><span class="lchk">✓</span>Stats complètes</li>
+          <li><span class="lchk">✓</span>112+ custom templates</li>
+          <li><span class="lchk">✓</span>23 languages</li>
+          <li><span class="lchk">✓</span>PDF + Word export</li>
+          <li><span class="lchk">✓</span>🎙️ AI Dictation (3 000 min/mo)</li>
+          <li><span class="lchk">✓</span>✨ AI Enhancer (400/mo)</li>
+          <li><span class="lchk">✓</span>Advanced worklist</li>
+          <li><span class="lchk">✓</span>Advanced statistics</li>
+          <li><span class="lchk">✓</span>Chat + email support</li>
         </ul>
       </div>
 
@@ -1059,17 +1066,20 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
       <div class="plan rv rv-d4">
         <div class="plan-name">Clinic 🏥</div>
         <div class="plan-price"><span class="psym">€</span><span class="pamt" id="clinicAmt">199</span><span class="pper">/mo</span></div>
-        <p class="plan-desc">Pour les cabinets et structures multi-sites.</p>
-        <a href="mailto:hello@pisum.app" class="plan-cta cta-ghost">Contacter les ventes</a>
+        <p class="bill-note" style="display:none;font-size:0.72rem;color:var(--green);margin-bottom:0.25rem">1990€/yr — save 398€</p>
+        <p class="plan-desc">For multi-site clinics and radiology departments.</p>
+        <a href="mailto:MyPisum@proton.me" class="plan-cta cta-ghost">Contact Sales</a>
         <hr class="plan-div"/>
         <ul class="plan-list">
-          <li><span class="lchk">✓</span>Templates sur mesure</li>
-          <li><span class="lchk">✓</span>5 utilisateurs inclus</li>
-          <li><span class="lchk">✓</span>23 langues</li>
-          <li><span class="lchk">✓</span>Dictée AI</li>
-          <li><span class="lchk">✓</span>AI Enhancer illimité</li>
-          <li><span class="lchk">✓</span>Worklist multi-site</li>
-          <li><span class="lchk">✓</span>Onboarding dédié</li>
+          <li><span class="lchk">✓</span>Custom templates (unlimited)</li>
+          <li><span class="lchk">✓</span>5 users included</li>
+          <li><span class="lchk">✓</span>23 languages</li>
+          <li><span class="lchk">✓</span>PDF + Word export</li>
+          <li><span class="lchk">✓</span>🎙️ AI Dictation (6 000 min/mo)</li>
+          <li><span class="lchk">✓</span>✨ AI Enhancer (1 500/mo)</li>
+          <li><span class="lchk">✓</span>Multi-site worklist</li>
+          <li><span class="lchk">✓</span>Advanced statistics + export</li>
+          <li><span class="lchk">✓</span>Dedicated support + SLA</li>
         </ul>
       </div>
 
@@ -1086,7 +1096,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
       <h2 class="serif d2">Start generating reports<br><em>in seconds.</em></h2>
       <p class="cta-sub">Join 2,800+ radiologists who've already reclaimed their time. First reports are always free.</p>
       <div class="cta-acts">
-        <a href="#" class="btn btn-grad btn-xl">Get Started Free →</a>
+        <a href="../saas/frontend/auth.html" class="btn btn-grad btn-xl">Get Started Free →</a>
         <a href="#how" class="btn btn-xl" style="color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.05);backdrop-filter:blur(10px)">See how it works</a>
       </div>
       <p class="cta-fine">No credit card required &nbsp;·&nbsp; Cancel anytime &nbsp;·&nbsp; GDPR compliant</p>
@@ -1125,7 +1135,7 @@ window.addEventListener('scroll',()=>{
 },{passive:true});
 
 document.getElementById('ham').addEventListener('click',()=>{
-  document.getElementById('navLinks').classList.toggle('open');
+  document.getElementById('nav-links').classList.toggle('open');
 });
 
 const obs=new IntersectionObserver((es)=>{
@@ -1147,8 +1157,9 @@ function ftpl(mod,btn){
 
 const bill={
   m:{starter:29,pro:59,expert:99,clinic:199},
-  a:{starter:24,pro:49,expert:82,clinic:165}
+  a:{starter:24,pro:49,expert:83,clinic:166}
 };
+const billAnnual={starter:290,pro:590,expert:990,clinic:1990};
 function toggleBill(){
   const annual=document.getElementById('togB').checked;
   const p=annual?bill.a:bill.m;
@@ -1156,6 +1167,7 @@ function toggleBill(){
   document.getElementById('proAmt').textContent=p.pro;
   document.getElementById('expertAmt').textContent=p.expert;
   document.getElementById('clinicAmt').textContent=p.clinic;
+  document.querySelectorAll('.bill-note').forEach(el=>el.style.display=annual?'':'none');
 }
 
 document.querySelectorAll('.feat-card').forEach(c=>{
@@ -1284,7 +1296,7 @@ const langData={
   en:{label:'English',indication:'Pulmonary nodule follow-up.',parenchyma:'No focal consolidation. Stable 6mm GGO, right upper lobe.',impression:'Stable right upper lobe GGO. No malignant transformation.',dir:'ltr'},
   fr:{label:'Français',indication:'Suivi de nodule pulmonaire.',parenchyma:'Pas de condensation focale. GGO de 6mm stable, lobe supérieur droit.',impression:'GGO du lobe supérieur droit stable. Pas de transformation maligne.',dir:'ltr'},
   de:{label:'Deutsch',indication:'Verlaufskontrolle Lungenrundherd.',parenchyma:'Kein fokales Infiltrat. Stabiles 6mm GGO, rechter Oberlappen.',impression:'Stabiles GGO im rechten Oberlappen. Kein malignes Korrelat.',dir:'ltr'},
-  ar:{label:'العربية',indication:'متابعة عقيدة رئوية.',parenchyma:'لا يوجد تكثيف بؤري. GGO مستقر 6mm، الفص العلوي الأيمن.',impression:'GGO مستقر في الفص العلوي الأيمن. لا تحول خبيث.',dir:'rtl'},
+  nl:{label:'Nederlands',indication:'Follow-up longnodus.',parenchyma:'Geen focale consolidatie. Stabiele GGO van 6mm, rechter bovenkwab.',impression:'Stabiele GGO rechter bovenkwab. Geen maligne transformatie.',dir:'ltr'},
   es:{label:'Español',indication:'Seguimiento nódulo pulmonar.',parenchyma:'Sin consolidación focal. GGO de 6mm estable, lóbulo superior derecho.',impression:'GGO lóbulo superior derecho estable. Sin transformación maligna.',dir:'ltr'},
   pt:{label:'Português',indication:'Acompanhamento de nódulo pulmonar.',parenchyma:'Sem consolidação focal. GGO de 6mm estável, lobo superior direito.',impression:'GGO do lobo superior direito estável. Sem transformação maligna.',dir:'ltr'},
   it:{label:'Italiano',indication:'Follow-up nodulo polmonare.',parenchyma:'Nessun consolidamento focale. GGO 6mm stabile, lobo superiore destro.',impression:'GGO lobo superiore destro stabile. Nessuna trasformazione maligna.',dir:'ltr'}
