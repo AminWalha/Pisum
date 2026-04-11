@@ -253,6 +253,41 @@ main{max-width:900px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
   main{padding:1.5rem 1rem 3rem}
   .card-header,.card-body,.status-banner{padding-left:1.25rem;padding-right:1.25rem}
 }
+
+/* ── INFO GRID (billing details row) ────────────────────────────────────── */
+.info-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(0,0,0,0.06)}
+@media(max-width:640px){.info-grid{grid-template-columns:repeat(2,1fr)}}
+.info-cell{padding:1.1rem 1.75rem;border-right:1px solid rgba(0,0,0,0.06)}
+.info-cell:last-child{border-right:none}
+@media(max-width:640px){
+  .info-cell:nth-child(2n){border-right:none}
+  .info-cell:nth-child(n+3){border-top:1px solid rgba(0,0,0,0.06)}
+}
+.info-label{font-size:0.7rem;font-weight:600;color:var(--ink-3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.3rem}
+.info-value{font-size:0.93rem;font-weight:700;color:var(--ink)}
+.info-value.muted{color:var(--ink-3);font-weight:500;font-size:0.83rem}
+.info-value.warn{color:var(--amber)}
+.info-value.ok{color:var(--green)}
+
+/* ── CARD SECTION ── */
+.card-section{border-top:1px solid rgba(0,0,0,0.06);padding:1.25rem 1.75rem}
+@media(max-width:600px){.card-section{padding:1rem 1.25rem}}
+.section-title{font-size:0.72rem;font-weight:700;color:var(--ink-3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.9rem}
+
+/* ── USAGE BARS ── */
+.usage-row{margin-bottom:1rem}
+.usage-row:last-child{margin-bottom:0}
+.usage-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.38rem}
+.usage-name{font-size:0.83rem;font-weight:600;color:var(--ink-2)}
+.usage-count{font-size:0.78rem;color:var(--ink-3);font-weight:500}
+.usage-sub{font-size:0.7rem;color:var(--ink-3);margin-top:0.22rem}
+.usage-unlimited{font-size:0.75rem;color:var(--green);font-weight:600;margin-top:0.2rem}
+
+/* ── STAT CHIPS ── */
+.stat-chips{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.75rem}
+.stat-chip{display:flex;align-items:center;gap:6px;padding:0.35rem 0.75rem;background:var(--bg);border-radius:999px;font-size:0.75rem;font-weight:600;color:var(--ink-2)}
+.chip-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.chip-dot.ok{background:var(--green)}.chip-dot.lim{background:var(--amber)}.chip-dot.no{background:var(--ink-4)}
 </style>
 </head>
 <body>
@@ -315,23 +350,47 @@ main{max-width:900px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
 
   <!-- Active subscription details -->
   <div class="card" id="active-card" style="display:none">
+    <!-- Header: plan + status + action -->
     <div class="card-header">
-      <h2>Détails de l'abonnement</h2>
-      <span class="badge badge-active">● Actif</span>
-    </div>
-    <div class="card-body">
-      <div class="feature-grid" id="feature-grid"></div>
-      <div class="prog-block" id="enhancer-block" style="display:none">
-        <h4>🤖 AI Enhancer</h4>
-        <p id="enhancer-desc"></p>
-        <div class="prog-bar"><div class="prog-fill" id="enhancer-fill"></div></div>
-        <div class="prog-label">
-          <span id="enhancer-used"></span>
-          <span id="enhancer-reset"></span>
-        </div>
+      <div style="display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap">
+        <h2>Abonnement</h2>
+        <span class="badge" id="hdr-plan-badge"></span>
+        <span class="badge" id="hdr-status-badge"></span>
       </div>
-      <p class="period-text" id="period-text"></p>
-      <div class="upgrade-row">
+      <a class="btn-outline" href="pricing.html">Changer de plan →</a>
+    </div>
+
+    <!-- Billing info grid -->
+    <div class="info-grid">
+      <div class="info-cell">
+        <div class="info-label">Prochaine facturation</div>
+        <div class="info-value" id="info-next-billing">—</div>
+      </div>
+      <div class="info-cell">
+        <div class="info-label">Expiration</div>
+        <div class="info-value" id="info-expiry">—</div>
+      </div>
+      <div class="info-cell">
+        <div class="info-label">Cycle</div>
+        <div class="info-value" id="info-interval">—</div>
+      </div>
+      <div class="info-cell">
+        <div class="info-label">Membre depuis</div>
+        <div class="info-value" id="info-since">—</div>
+      </div>
+    </div>
+
+    <!-- Monthly usage bars -->
+    <div class="card-section" id="usage-section">
+      <div class="section-title">Utilisation ce mois</div>
+      <div id="usage-bars"></div>
+    </div>
+
+    <!-- Included features -->
+    <div class="card-section">
+      <div class="section-title">Fonctionnalités incluses</div>
+      <div class="feature-grid" id="feature-grid"></div>
+      <div class="upgrade-row" style="margin-top:1rem">
         <a href="pricing.html">Voir toutes les offres →</a>
       </div>
     </div>
@@ -419,26 +478,26 @@ let pendingAvatarBlob = null;
 // ── Plans ─────────────────────────────────────────────────────────────────
 const PLANS = {
   free:    { label:'Free',       tag:'tag-free',    paid:false, features:[
-    {ok:true, t:'10 templates'},{ok:true,t:'2 langues'},{ok:true,t:'Export PDF'},
+    {ok:true, t:'5 templates'},{ok:true,t:'2 langues'},{ok:true,t:'Export PDF'},
     {ok:false,t:'Export Word'},{ok:false,t:'Dictée AI'},{ok:false,t:'AI Enhancer'},
-    {ok:false,t:'Worklist'},{ok:'lim',t:'20 CR / mois'}] },
-  starter: { label:'Starter',    tag:'tag-starter', paid:true,  features:[
+    {ok:'lim',t:'Worklist limitée (20 patients)'},{ok:'lim',t:'20 patients / mois'}] },
+  starter: { label:'Starter',    tag:'tag-starter', paid:true, features:[
     {ok:true,t:'20 templates'},{ok:true,t:'5 langues'},{ok:true,t:'Export PDF + Word'},
-    {ok:false,t:'Dictée AI'},{ok:false,t:'AI Enhancer'},{ok:'lim',t:'Worklist basique'},
-    {ok:true,t:'CR illimités'}] },
-  pro:     { label:'Pro ⭐',     tag:'tag-pro',     paid:true,  popular:true, features:[
+    {ok:'lim',t:'Dictée AI (60 min/mois)'},{ok:'lim',t:'AI Enhancer (20/mois)'},
+    {ok:'lim',t:'Worklist basique'},{ok:true,t:'Patients illimités'}] },
+  pro:     { label:'Pro ⭐',     tag:'tag-pro',     paid:true, popular:true, features:[
     {ok:true,t:'112+ templates'},{ok:true,t:'23 langues'},{ok:true,t:'Export PDF + Word'},
     {ok:'lim',t:'Dictée AI (600 min/mois)'},{ok:'lim',t:'AI Enhancer (50/mois)'},
-    {ok:true,t:'Worklist complète'},{ok:'lim',t:'Stats basiques'},{ok:true,t:'CR illimités'}] },
-  expert:  { label:'Expert 🔥',  tag:'tag-expert',  paid:true,  features:[
+    {ok:true,t:'Worklist complète'},{ok:'lim',t:'Stats basiques'},{ok:true,t:'Patients illimités'}] },
+  expert:  { label:'Expert 🔥',  tag:'tag-expert',  paid:true, features:[
     {ok:true,t:'112+ templates custom'},{ok:true,t:'23 langues'},{ok:true,t:'Export PDF + Word'},
-    {ok:'lim',t:'Dictée AI (~60 min/j, fair use)'},{ok:'lim',t:'AI Enhancer (400/mois)'},
-    {ok:true,t:'Worklist avancée'},{ok:true,t:'Stats complètes'},{ok:true,t:'CR illimités'}] },
-  clinic:  { label:'Clinic 🏥',  tag:'tag-clinic',  paid:true,  features:[
+    {ok:'lim',t:'Dictée AI (3 000 min/mois)'},{ok:'lim',t:'AI Enhancer (400/mois)'},
+    {ok:true,t:'Worklist avancée'},{ok:true,t:'Stats avancées'},{ok:true,t:'Patients illimités'}] },
+  clinic:  { label:'Clinic 🏥',  tag:'tag-clinic',  paid:true, features:[
     {ok:true,t:'Templates sur mesure'},{ok:true,t:'23 langues'},{ok:true,t:'Export PDF + Word'},
-    {ok:'lim',t:'Dictée AI (~120 min/j, fair use)'},{ok:true,t:'AI Enhancer illimité (fair use)'},
-    {ok:true,t:'Worklist multi-site'},{ok:true,t:'Stats avancées'},
-    {ok:true,t:'5 utilisateurs'},{ok:true,t:'CR illimités'}] },
+    {ok:'lim',t:'Dictée AI (6 000 min/mois)'},{ok:'lim',t:'AI Enhancer (1 500/mois)'},
+    {ok:true,t:'Worklist multi-site'},{ok:true,t:'Stats avancées + export'},
+    {ok:true,t:'5 utilisateurs'},{ok:true,t:'Patients illimités'}] },
 };
 const ORDER = ['free','starter','pro','expert','clinic'];
 
@@ -494,7 +553,7 @@ async function pollUntilUpgraded() {
         { headers:{Authorization:`Bearer ${session.access_token}`} });
       const j = await r.json();
       if (j.access && j.plan && j.plan !== 'free') {
-        renderAccess(j);
+        await loadAccess();
         window.history.replaceState({},'','dashboard.html');
         return;
       }
@@ -509,11 +568,16 @@ async function pollUntilUpgraded() {
 // ── Check access ──────────────────────────────────────────────────────────
 async function loadAccess() {
   try {
-    const r = await fetch(`${API_BASE}/check-access`,
-      { headers:{Authorization:`Bearer ${session.access_token}`} });
-    renderAccess(await r.json());
+    const hdrs = { Authorization: `Bearer ${session.access_token}` };
+    const [r1, r2] = await Promise.all([
+      fetch(`${API_BASE}/check-access`,        { headers: hdrs }),
+      fetch(`${API_BASE}/subscription-info`,   { headers: hdrs }),
+    ]);
+    const accessData = await r1.json();
+    const subInfo    = r2.ok ? await r2.json() : {};
+    renderAccess(accessData, subInfo);
   } catch {
-    renderAccess({ access:false, reason:'network_error' });
+    renderAccess({ access: false, reason: 'network_error' }, {});
   }
 }
 
@@ -526,7 +590,7 @@ function setStatus(type, icon, title, desc) {
   document.getElementById('status-desc').textContent  = desc;
 }
 
-function renderAccess({ access, reason, plan, features }) {
+function renderAccess({ access, reason, plan }, subInfo = {}) {
   const activeCard = document.getElementById('active-card');
   const subCard    = document.getElementById('sub-card');
 
@@ -538,9 +602,43 @@ function renderAccess({ access, reason, plan, features }) {
     pb.textContent = (PLANS[plan]?.label || plan).toUpperCase();
     pb.className   = 'badge badge-' + (plan || 'free');
 
+    // Header plan + status badges
+    const hdrPlan = document.getElementById('hdr-plan-badge');
+    hdrPlan.textContent = (PLANS[plan]?.label || plan).toUpperCase();
+    hdrPlan.className   = 'badge badge-' + (plan || 'free');
+
+    const statusRaw = subInfo.status || 'active';
+    const statusLabels = { active:'● Actif', inactive:'● Inactif', canceled:'● Résilié', expired:'● Expiré' };
+    const hdrStatus = document.getElementById('hdr-status-badge');
+    hdrStatus.textContent = statusLabels[statusRaw] || statusRaw;
+    hdrStatus.className   = 'badge ' + (statusRaw === 'active' ? 'badge-active' : 'badge-inactive');
+
+    // Billing info grid
+    const fmt = iso => iso
+      ? new Date(iso).toLocaleDateString('fr-FR', { day:'numeric', month:'long', year:'numeric' })
+      : '—';
+    const periodEnd   = subInfo.current_period_end;
+    const periodStart = subInfo.current_period_start;
+    const createdAt   = subInfo.created_at;
+    const interval    = subInfo.billing_interval || 'monthly';
+
+    // Expiry color: red if < 7 days
+    const expiryEl = document.getElementById('info-expiry');
+    expiryEl.textContent = fmt(periodEnd);
+    if (periodEnd) {
+      const daysLeft = Math.ceil((new Date(periodEnd) - Date.now()) / 86400000);
+      expiryEl.className = 'info-value ' + (daysLeft <= 3 ? 'warn' : daysLeft <= 7 ? 'warn' : 'ok');
+    }
+
+    document.getElementById('info-next-billing').textContent = statusRaw === 'active' ? fmt(periodEnd) : '—';
+    document.getElementById('info-interval').textContent = interval === 'annual' ? '🗓 Annuel' : '📆 Mensuel';
+    document.getElementById('info-since').textContent = fmt(periodStart || createdAt);
+
+    // Usage bars
+    renderUsage(plan, subInfo);
+
     // Features
     renderFeatures(plan);
-    if (plan === 'pro') loadEnhancer();
 
     activeCard.style.display = '';
 
@@ -568,6 +666,60 @@ function renderAccess({ access, reason, plan, features }) {
   }
 }
 
+// ── Usage bars ────────────────────────────────────────────────────────────
+function renderUsage(plan, subInfo) {
+  const section   = document.getElementById('usage-section');
+  const container = document.getElementById('usage-bars');
+  const rows      = [];
+
+  // AI Enhancer
+  const enh = subInfo.usage?.ai_enhancer;
+  if (enh && enh.limit !== 0) {
+    if (enh.limit === -1) {
+      rows.push(makeUsageBar('🤖 AI Enhancer', null, -1, 'prompts', null,
+        '<span class="usage-unlimited">✓ Illimité</span>'));
+    } else {
+      const pct     = Math.min(100, Math.round(enh.used / enh.limit * 100));
+      const resetTxt = enh.reset_at
+        ? 'Reset le ' + new Date(enh.reset_at).toLocaleDateString('fr-FR')
+        : '';
+      rows.push(makeUsageBar('🤖 AI Enhancer', enh.used, enh.limit, 'prompts', pct, resetTxt));
+    }
+  }
+
+  // Dictation (limits known, local tracking — show limit only)
+  const dictLimits = { starter:60, pro:600, expert:3000, clinic:6000 };
+  const dictLimit  = dictLimits[plan];
+  if (dictLimit) {
+    rows.push(makeUsageBar('🎙️ Dictée AI', null, dictLimit, 'min', null,
+      '<span style="color:var(--ink-3);font-size:0.7rem">Suivi effectué dans l\'application</span>'));
+  }
+
+  if (rows.length === 0) { section.style.display = 'none'; return; }
+  section.style.display = '';
+  container.innerHTML = rows.join('');
+}
+
+function makeUsageBar(name, used, limit, unit, pct, sub) {
+  const limitTxt = limit === -1 ? '∞' : limit;
+  const countTxt = (used !== null ? `${used} / ` : '') + `${limitTxt} ${unit}`;
+  const barClass = pct !== null
+    ? 'prog-fill' + (pct >= 90 ? ' danger' : pct >= 70 ? ' warn' : '')
+    : 'prog-fill';
+  const barWidth = pct !== null ? pct : 0;
+  const barHtml  = limit !== -1
+    ? `<div class="prog-bar"><div class="${barClass}" style="width:${barWidth}%"></div></div>`
+    : '';
+  return `<div class="usage-row">
+    <div class="usage-top">
+      <span class="usage-name">${name}</span>
+      <span class="usage-count">${countTxt}</span>
+    </div>
+    ${barHtml}
+    ${sub ? `<div class="usage-sub">${sub}</div>` : ''}
+  </div>`;
+}
+
 function renderFeatures(plan) {
   const p = PLANS[plan]; if (!p) return;
   document.getElementById('feature-grid').innerHTML = p.features.map(f => {
@@ -577,21 +729,6 @@ function renderFeatures(plan) {
   }).join('');
 }
 
-async function loadEnhancer() {
-  try {
-    const r = await fetch(`${API_BASE}/check-feature?feature=ai_enhancer`,
-      { headers:{Authorization:`Bearer ${session.access_token}`} });
-    const { used, limit, remaining, reset_at } = await r.json();
-    const pct = Math.round((used / limit) * 100);
-    const fill = document.getElementById('enhancer-fill');
-    fill.style.width = pct + '%';
-    fill.className = 'prog-fill' + (pct>=90?' danger':pct>=70?' warn':'');
-    document.getElementById('enhancer-used').textContent  = `${used} / ${limit} prompts`;
-    document.getElementById('enhancer-reset').textContent = reset_at ? 'Reset le ' + new Date(reset_at).toLocaleDateString('fr-FR') : '';
-    document.getElementById('enhancer-desc').textContent  = `Quota mensuel d'AI Enhancer — ${remaining} restant(s).`;
-    document.getElementById('enhancer-block').style.display = '';
-  } catch {}
-}
 
 // ── Plan grid ─────────────────────────────────────────────────────────────
 function renderPlanGrid() {
