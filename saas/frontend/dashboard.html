@@ -722,10 +722,10 @@ function renderAccess({ access, reason, plan }, subInfo = {}) {
     hdrPlan.className   = 'badge badge-' + (plan || 'free');
 
     const statusRaw = subInfo.status || 'active';
-    const statusLabels = { active:'● Active', inactive:'● Inactive', canceled:'● Canceled', expired:'● Expired' };
+    const statusLabels = { active:'● Active', inactive:'● Inactive', canceled:'● Canceled', canceling:'⏳ Cancels at period end', expired:'● Expired' };
     const hdrStatus = document.getElementById('hdr-status-badge');
     hdrStatus.textContent = statusLabels[statusRaw] || statusRaw;
-    hdrStatus.className   = 'badge ' + (statusRaw === 'active' ? 'badge-active' : 'badge-inactive');
+    hdrStatus.className   = 'badge ' + (statusRaw === 'active' || statusRaw === 'canceling' ? 'badge-active' : 'badge-inactive');
 
     // Billing info grid
     const fmt = iso => iso
