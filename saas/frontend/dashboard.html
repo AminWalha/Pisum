@@ -685,7 +685,7 @@ async function init() {
 
 async function pollUntilUpgraded() {
   setStatus('wait','⏳','Confirming payment…',
-    'Waiting for Stripe confirmation. This may take up to a minute.');
+    'Waiting for payment confirmation. This may take up to a minute.');
   const MAX = 22, INT = 4000;
   let n = 0;
   const poll = async () => {
@@ -906,7 +906,7 @@ async function handleSubscribe() {
   if (!plan) return;
   const btn = document.getElementById('btn-subscribe');
   btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> ' + (plan.paid ? 'Redirecting to Stripe…' : 'Activating…');
+  btn.innerHTML = '<span class="spinner"></span> ' + (plan.paid ? 'Redirecting to Lemon Squeezy…' : 'Activating…');
 
   try {
     if (!plan.paid) {
