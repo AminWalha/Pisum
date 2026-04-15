@@ -224,6 +224,29 @@ main{max-width:860px;margin:0 auto;padding:2.5rem 1.5rem 5rem}
 .upgrade-row a{color:var(--blue);font-weight:600;text-decoration:none}
 .upgrade-row a:hover{text-decoration:underline}
 
+/* ── BILLING TOGGLE ── */
+.billing-toggle{
+  display:flex;align-items:center;justify-content:center;gap:0.75rem;
+  margin-bottom:1.25rem;font-size:0.875rem;font-weight:600;color:var(--ink-2)
+}
+.toggle-switch{position:relative;width:44px;height:24px;flex-shrink:0}
+.toggle-switch input{opacity:0;width:0;height:0;position:absolute}
+.toggle-slider{
+  position:absolute;inset:0;background:var(--ink-4);border-radius:999px;cursor:pointer;
+  transition:background var(--transition)
+}
+.toggle-slider::before{
+  content:'';position:absolute;left:2px;top:2px;width:20px;height:20px;
+  background:#fff;border-radius:50%;transition:transform 0.2s;
+  box-shadow:0 1px 3px rgba(0,0,0,0.18)
+}
+.toggle-switch input:checked + .toggle-slider{background:var(--blue)}
+.toggle-switch input:checked + .toggle-slider::before{transform:translateX(20px)}
+.save-badge{
+  background:var(--green-light);color:var(--green);font-size:0.65rem;font-weight:700;
+  letter-spacing:0.04em;padding:0.1rem 0.55rem;border-radius:999px;
+  text-transform:uppercase;border:1px solid #bbf7d0
+}
 /* ── PROFILE CARD ── */
 .profile-row{display:flex;align-items:center;gap:1.25rem}
 .profile-avatar{
@@ -493,6 +516,14 @@ main{max-width:860px;margin:0 auto;padding:2.5rem 1.5rem 5rem}
       <p style="font-size:0.85rem;color:var(--ink-3);margin-bottom:1.25rem" id="sub-desc">
         Select the plan that fits your practice and proceed to secure checkout.
       </p>
+      <div class="billing-toggle">
+        <span>Monthly</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="billing-annual" onchange="setBilling(this.checked)"/>
+          <span class="toggle-slider"></span>
+        </label>
+        <span>Annual <span class="save-badge">Save 17%</span></span>
+      </div>
       <div class="plan-grid" id="plan-grid"></div>
       <button class="btn btn-primary" id="btn-subscribe" onclick="handleSubscribe()">Continue</button>
       <div id="sub-err" style="display:none"></div>
@@ -619,10 +650,19 @@ const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
 
 let session = null;
 let selectedPlan = 'starter';
+let billingInterval = 'monthly';
 let currentProfile = null;
 let pendingAvatarBlob = null;
 
 // ── Plans ─────────────────────────────────────────────────────────────────
+const PLAN_PRICES = {
+  starter: { monthly: 29,  annual: 290  },
+  pro:     { monthly: 59,  annual: 590  },
+  expert:  { monthly: 99,  annual: 990  },
+  clinic:  { monthly: 199, annual: 1990 },
+};
+
+// Data for plan cards
 const PLANS = {
   free:    { label:'Free',       tag:'tag-free',    paid:false, features:[
     {ok:true, t:'5 templates'},{ok:true,t:'2 languages'},{ok:true,t:'PDF export'},
@@ -887,6 +927,11 @@ function renderPlanGrid() {
   updateSubBtn();
 }
 
+function setBilling(isAnnual) {
+  billingInterval = isAnnual ? 'annual' : 'monthly';
+  updateSubBtn();
+}
+
 function selectPlan(k) {
   selectedPlan = k;
   ORDER.forEach(p => document.getElementById('pc-'+p)?.classList.toggle('sel', p===k));
@@ -895,10 +940,20 @@ function selectPlan(k) {
 
 function updateSubBtn() {
   const btn  = document.getElementById('btn-subscribe');
-  const plan = PLANS[selectedPlan];
-  if (!plan) return;
-  btn.textContent = plan.paid ? `Subscribe — ${plan.label}` : 'Activate Free Plan';
-  btn.className   = 'btn ' + (plan.paid ? 'btn-primary' : 'btn-free');
+  const planInfo = PLANS[selectedPlan];
+  if (!planInfo) return;
+
+  if (planInfo.paid) {
+    const prices = PLAN_PRICES[selectedPlan];
+    const price = prices ? prices[billingInterval] : null;
+    const intervalText = billingInterval === 'annual' ? '/year' : '/mo';
+    const priceText = price ? ` — €${price}${intervalText}` : '';
+    btn.textContent = `Subscribe — ${planInfo.label}${priceText}`;
+    btn.className   = 'btn btn-primary';
+  } else {
+    btn.textContent = 'Activate Free Plan';
+    btn.className   = 'btn btn-free';
+  }
 }
 
 async function handleSubscribe() {
@@ -918,7 +973,7 @@ async function handleSubscribe() {
       const r = await fetch(`${API_BASE}/create-checkout-session`, {
         method:'POST',
         headers:{Authorization:`Bearer ${session.access_token}`,'Content-Type':'application/json'},
-        body: JSON.stringify({ plan: selectedPlan }),
+        body: JSON.stringify({ plan: selectedPlan, interval: billingInterval }),
       });
       if (!r.ok) throw new Error((await r.json()).detail || 'Error');
       const { checkout_url } = await r.json();
