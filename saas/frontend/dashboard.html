@@ -502,8 +502,12 @@ main{max-width:860px;margin:0 auto;padding:2.5rem 1.5rem 5rem}
     <div class="danger-zone" id="danger-zone" style="display:none">
       <div class="danger-title">Danger Zone</div>
       <div class="danger-actions">
+        <button class="btn-cancel-sub" id="btn-cancel-sub" onclick="openCancelModal()" style="display:none">Cancel Subscription</button>
         <button class="btn-danger-outline" onclick="openDeleteModal()">Delete Account</button>
       </div>
+      <p id="canceling-notice" style="display:none;font-size:0.775rem;color:var(--amber);margin-top:0.625rem">
+        ⏳ Your subscription is set to cancel at the end of the current billing period. You still have full access until then.
+      </p>
     </div>
   </div>
 
@@ -817,6 +821,15 @@ function renderAccess({ access, reason, plan }, subInfo = {}) {
 
     if (plan !== 'free' && (statusRaw === 'active' || statusRaw === 'canceling')) {
       document.getElementById('danger-zone').style.display = '';
+      const cancelBtn = document.getElementById('btn-cancel-sub');
+      const cancelingNotice = document.getElementById('canceling-notice');
+      if (statusRaw === 'active') {
+        cancelBtn.style.display = '';
+        cancelingNotice.style.display = 'none';
+      } else {
+        cancelBtn.style.display = 'none';
+        cancelingNotice.style.display = '';
+      }
     }
 
     if (plan === 'free') {
