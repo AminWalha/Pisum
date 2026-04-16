@@ -202,6 +202,11 @@ footer { background: var(--s1); border-top: 1px solid var(--border); padding: 2.
         <li><a href="#export" id="tl4">Export RIS/PACS</a></li>
       </ul>
 
+      <div class="toc-title" id="tg3n">Network</div>
+      <ul class="toc-list">
+        <li><a href="#lan-sync" id="tl6">LAN Network Sync</a></li>
+      </ul>
+
       <div class="toc-title" id="tg3">Dépannage</div>
       <ul class="toc-list">
         <li><a href="#support" id="tl5">Contacter le support</a></li>
@@ -258,6 +263,44 @@ footer { background: var(--s1); border-top: 1px solid var(--border); padding: 2.
         
         <h3 id="s4h3">Export Word</h3>
         <p id="s4p3">Utilisez le bouton 'Exporter en DOCX' pour enregistrer un document formaté professionnellement, idéal pour les cliniques privées remettant directement les rapports aux patients.</p>
+      </div>
+
+      <div class="prose-section" id="lan-sync">
+        <h2><span class="num">06</span> LAN Network Sync</h2>
+        <p>Available on <strong>Expert</strong> and <strong>Clinic</strong> plans. Share your patient database across multiple workstations on a local network — no internet required, no cloud storage.</p>
+
+        <h3>Plan limits</h3>
+        <ul>
+          <li><strong>Expert</strong> — 1 site, max 3 workstations (same building)</li>
+          <li><strong>Clinic</strong> — Multi-site, unlimited workstations</li>
+        </ul>
+
+        <h3>Prerequisites</h3>
+        <ul>
+          <li>A shared network folder accessible by all workstations (NAS, Windows SMB share, or mapped drive)</li>
+          <li>SMB 3.0 or higher recommended for stable WAL locking</li>
+          <li>All PCs must be on the same LAN or VPN</li>
+        </ul>
+
+        <h3>Setup</h3>
+        <ol>
+          <li>Open PISUM → <strong>Settings → Network Sync</strong></li>
+          <li>Enter the shared folder path — e.g. <code>\\NAS\PISUM</code> or <code>Z:\PISUM</code></li>
+          <li>Set a network password (min. 6 characters) — use the <strong>same password on every workstation</strong></li>
+          <li>Click <strong>Connect</strong> — PISUM registers your workstation automatically</li>
+        </ol>
+
+        <div class="info-block cyan">
+          <strong>Workstation limit reached?</strong>
+          <span>If you see "All workstations slots are in use", either upgrade to Clinic (unlimited) or remove an inactive workstation by deleting its entry in the <code>.workstations.json</code> file in your shared folder.</span>
+        </div>
+
+        <h3>Security</h3>
+        <ul>
+          <li>All data is encrypted with <strong>AES-256-GCM</strong> — the network password never leaves your LAN</li>
+          <li>The encryption key is stored in the shared folder (<code>.enc_network_key</code>), protected by your password</li>
+          <li>Never store the network password in plaintext — use the password prompt in PISUM instead</li>
+        </ul>
       </div>
 
       <div class="prose-section" id="support">
