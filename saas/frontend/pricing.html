@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>PISUM — Tarifs</title>
+<title>PISUM — Pricing</title>
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -231,19 +231,19 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
       <div class="nav-avatar" id="nav-avatar">?</div>
       <span class="nav-name" id="nav-name"></span>
     </div>
-    <a class="btn-nav" id="nav-login-btn" href="auth.html">Se connecter</a>
-    <a class="btn-nav primary" id="nav-dashboard-btn" href="dashboard.html" style="display:none">Mon abonnement</a>
+    <a class="btn-nav" id="nav-login-btn" href="auth.html">Sign in</a>
+    <a class="btn-nav primary" id="nav-dashboard-btn" href="dashboard.html" style="display:none">My subscription</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-eyebrow">Logiciel de radiologie · Cloud · IA</div>
-  <h1>L'offre adaptée à<br/><span>votre pratique</span></h1>
-  <p>Du radiologue indépendant à la clinique multi-sites — PISUM s'adapte à vos besoins avec des fonctionnalités pensées pour vous.</p>
+  <div class="hero-eyebrow">Radiology Software · Cloud · AI</div>
+  <h1>The plan that fits<br/><span>your practice</span></h1>
+  <p>From independent radiologist to multi-site clinic — PISUM adapts to your needs with features built for you.</p>
   <div class="hero-cta">
-    <a class="btn-hero primary" href="auth.html">Commencer gratuitement</a>
-    <a class="btn-hero secondary" href="#compare">Comparer les offres</a>
+    <a class="btn-hero primary" href="auth.html">Get started for free</a>
+    <a class="btn-hero secondary" href="#compare">Compare plans</a>
   </div>
 </div>
 
@@ -252,12 +252,12 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
 
   <!-- Billing toggle -->
   <div class="billing-toggle">
-    <span>Mensuel</span>
+    <span>Monthly</span>
     <label class="toggle-switch">
       <input type="checkbox" id="billing-annual" onchange="setBilling(this.checked)"/>
       <span class="toggle-slider"></span>
     </label>
-    <span>Annuel <span class="save-badge">−20 %</span></span>
+    <span>Annual <span class="save-badge">−20%</span></span>
   </div>
 
   <div class="plans-grid">
@@ -266,19 +266,19 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
     <div class="plan-card">
       <div class="plan-tag tag-free">Free</div>
       <div class="plan-name">Pisum Free</div>
-      <div class="plan-price">0 €<span> / mois</span></div>
-      <div class="plan-tagline">Découvrez PISUM sans engagement</div>
-      <a class="plan-cta cta-free" href="auth.html">Commencer</a>
+      <div class="plan-price">0 €<span> / month</span></div>
+      <div class="plan-tagline">Discover PISUM with no commitment</div>
+      <a class="plan-cta cta-free" href="auth.html">Get started</a>
       <div class="divider"></div>
       <ul class="feat-list">
         <li><span class="fi-ok">✓</span>10 templates</li>
-        <li><span class="fi-ok">✓</span>2 langues</li>
-        <li><span class="fi-ok">✓</span>Export PDF</li>
-        <li><span class="fi-no">–</span>Export Word</li>
-        <li><span class="fi-no">–</span>Dictée AI</li>
+        <li><span class="fi-ok">✓</span>2 languages</li>
+        <li><span class="fi-ok">✓</span>PDF Export</li>
+        <li><span class="fi-no">–</span>Word Export</li>
+        <li><span class="fi-no">–</span>AI Dictation</li>
         <li><span class="fi-no">–</span>AI Enhancer</li>
         <li><span class="fi-no">–</span>Worklist</li>
-        <li><span class="fi-lim">◐</span>20 CR / mois</li>
+        <li><span class="fi-lim">◐</span>20 reports / month</li>
       </ul>
     </div>
 
@@ -286,38 +286,38 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
     <div class="plan-card">
       <div class="plan-tag tag-starter">Starter</div>
       <div class="plan-name">Pisum Starter</div>
-      <div class="plan-price" id="price-starter" data-monthly="35" data-annual="28">35 €<span id="price-starter-sub"> / mois</span></div>
-      <div class="plan-tagline">Radiologue indépendant</div>
-      <button class="plan-cta cta-paid" onclick="subscribe('starter')">S'abonner</button>
+      <div class="plan-price" id="price-starter" data-monthly="35" data-annual="28">35 €<span id="price-starter-sub"> / month</span></div>
+      <div class="plan-tagline">Independent radiologist</div>
+      <button class="plan-cta cta-paid" onclick="subscribe('starter')">Subscribe</button>
       <div class="divider"></div>
       <ul class="feat-list">
         <li><span class="fi-ok">✓</span>20 templates</li>
-        <li><span class="fi-ok">✓</span>5 langues</li>
-        <li><span class="fi-ok">✓</span>Export PDF + Word</li>
-        <li><span class="fi-no">–</span>Dictée AI</li>
+        <li><span class="fi-ok">✓</span>5 languages</li>
+        <li><span class="fi-ok">✓</span>PDF + Word Export</li>
+        <li><span class="fi-no">–</span>AI Dictation</li>
         <li><span class="fi-no">–</span>AI Enhancer</li>
-        <li><span class="fi-lim">◐</span>Worklist basique</li>
-        <li><span class="fi-ok">✓</span>CR illimités</li>
+        <li><span class="fi-lim">◐</span>Basic Worklist</li>
+        <li><span class="fi-ok">✓</span>Unlimited reports</li>
       </ul>
     </div>
 
     <!-- PRO -->
     <div class="plan-card popular">
-      <div class="pop-ribbon">Recommandé</div>
+      <div class="pop-ribbon">Recommended</div>
       <div class="plan-tag tag-pro">Pro ⭐</div>
       <div class="plan-name">Pisum Pro</div>
-      <div class="plan-price" id="price-pro" data-monthly="89" data-annual="71">89 €<span id="price-pro-sub"> / mois</span></div>
-      <div class="plan-tagline">Praticien avancé, tout-en-un</div>
-      <button class="plan-cta cta-popular" onclick="subscribe('pro')">S'abonner</button>
+      <div class="plan-price" id="price-pro" data-monthly="89" data-annual="71">89 €<span id="price-pro-sub"> / month</span></div>
+      <div class="plan-tagline">Advanced practitioner, all-in-one</div>
+      <button class="plan-cta cta-popular" onclick="subscribe('pro')">Subscribe</button>
       <div class="divider"></div>
       <ul class="feat-list">
         <li><span class="fi-ok">✓</span>112+ templates</li>
-        <li><span class="fi-ok">✓</span>23 langues</li>
-        <li><span class="fi-ok">✓</span>Export PDF + Word</li>
-        <li><span class="fi-lim">◐</span>Dictée AI (600 min/mois)</li>
-        <li><span class="fi-lim">◐</span>AI Enhancer (50 prompts/mois)</li>
-        <li><span class="fi-ok">✓</span>Worklist complète</li>
-        <li><span class="fi-lim">◐</span>Statistiques basiques</li>
+        <li><span class="fi-ok">✓</span>23 languages</li>
+        <li><span class="fi-ok">✓</span>PDF + Word Export</li>
+        <li><span class="fi-lim">◐</span>AI Dictation (600 min/month)</li>
+        <li><span class="fi-lim">◐</span>AI Enhancer (50 prompts/month)</li>
+        <li><span class="fi-ok">✓</span>Full Worklist</li>
+        <li><span class="fi-lim">◐</span>Basic Statistics</li>
       </ul>
     </div>
 
@@ -325,18 +325,18 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
     <div class="plan-card">
       <div class="plan-tag tag-expert">Expert 🔥</div>
       <div class="plan-name">Pisum Expert</div>
-      <div class="plan-price" id="price-expert" data-monthly="119" data-annual="95">119 €<span id="price-expert-sub"> / mois</span></div>
-      <div class="plan-tagline">Radiologue expert, sans limites</div>
-      <button class="plan-cta cta-paid" onclick="subscribe('expert')">S'abonner</button>
+      <div class="plan-price" id="price-expert" data-monthly="119" data-annual="95">119 €<span id="price-expert-sub"> / month</span></div>
+      <div class="plan-tagline">Expert radiologist, no limits</div>
+      <button class="plan-cta cta-paid" onclick="subscribe('expert')">Subscribe</button>
       <div class="divider"></div>
       <ul class="feat-list">
-        <li><span class="fi-ok">✓</span>112+ templates custom</li>
-        <li><span class="fi-ok">✓</span>23 langues</li>
-        <li><span class="fi-ok">✓</span>Export PDF + Word</li>
-        <li><span class="fi-lim">◐</span>Dictée AI (~60 min/j, fair use)</li>
-        <li><span class="fi-lim">◐</span>AI Enhancer (400 prompts/mois)</li>
-        <li><span class="fi-ok">✓</span>Worklist avancée</li>
-        <li><span class="fi-ok">✓</span>Statistiques complètes</li>
+        <li><span class="fi-ok">✓</span>112+ custom templates</li>
+        <li><span class="fi-ok">✓</span>23 languages</li>
+        <li><span class="fi-ok">✓</span>PDF + Word Export</li>
+        <li><span class="fi-lim">◐</span>AI Dictation (~60 min/day, fair use)</li>
+        <li><span class="fi-lim">◐</span>AI Enhancer (400 prompts/month)</li>
+        <li><span class="fi-ok">✓</span>Advanced Worklist</li>
+        <li><span class="fi-ok">✓</span>Full Statistics</li>
       </ul>
     </div>
 
@@ -344,19 +344,19 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
     <div class="plan-card">
       <div class="plan-tag tag-clinic">Clinic 🏥</div>
       <div class="plan-name">Pisum Clinic</div>
-      <div class="plan-price" id="price-clinic" data-monthly="299" data-annual="239">299 €<span id="price-clinic-sub"> / mois</span></div>
-      <div class="plan-tagline">Cabinet multi-praticiens</div>
-      <button class="plan-cta cta-paid" onclick="subscribe('clinic')">Nous contacter</button>
+      <div class="plan-price" id="price-clinic" data-monthly="399" data-annual="319">399 €<span id="price-clinic-sub"> / month</span></div>
+      <div class="plan-tagline">5 users included · +€49/additional user</div>
+      <button class="plan-cta cta-paid" onclick="subscribe('clinic')">Contact us</button>
       <div class="divider"></div>
       <ul class="feat-list">
-        <li><span class="fi-ok">✓</span>Templates sur mesure</li>
-        <li><span class="fi-ok">✓</span>23 langues</li>
-        <li><span class="fi-ok">✓</span>Export PDF + Word</li>
-        <li><span class="fi-lim">◐</span>Dictée AI (~120 min/j, fair use)</li>
-        <li><span class="fi-ok">✓</span>AI Enhancer illimité (fair use)</li>
-        <li><span class="fi-ok">✓</span>Worklist multi-site</li>
-        <li><span class="fi-ok">✓</span>5 utilisateurs inclus</li>
-        <li><span class="fi-ok">✓</span>Stats avancées + onboarding</li>
+        <li><span class="fi-ok">✓</span>Custom templates</li>
+        <li><span class="fi-ok">✓</span>23 languages</li>
+        <li><span class="fi-ok">✓</span>PDF + Word Export</li>
+        <li><span class="fi-lim">◐</span>AI Dictation (~120 min/day, fair use)</li>
+        <li><span class="fi-ok">✓</span>Unlimited AI Enhancer (fair use)</li>
+        <li><span class="fi-ok">✓</span>Multi-site Worklist</li>
+        <li><span class="fi-ok">✓</span>5 users included (+€49/extra user)</li>
+        <li><span class="fi-ok">✓</span>Advanced stats + onboarding</li>
       </ul>
     </div>
   </div>
@@ -364,7 +364,7 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
 
 <!-- COMPARISON TABLE -->
 <section class="compare-section" id="compare">
-  <h2>Comparaison détaillée</h2>
+  <h2>Detailed comparison</h2>
   <div class="compare-wrap">
     <table>
       <colgroup>
@@ -372,26 +372,26 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
       </colgroup>
       <thead>
         <tr>
-          <th><div class="th-inner"><span class="th-name">Fonctionnalité</span></div></th>
-          <th><div class="th-inner"><span class="th-name">Free</span><span class="th-price">0 €/mois</span></div></th>
-          <th><div class="th-inner"><span class="th-name">Starter</span><span class="th-price">35 €/mois</span></div></th>
-          <th class="col-pro"><div class="th-inner"><span class="rec-badge">Recommandé</span><span class="th-name">Pro ⭐</span><span class="th-price">89 €/mois</span></div></th>
-          <th><div class="th-inner"><span class="th-name">Expert 🔥</span><span class="th-price">119 €/mois</span></div></th>
-          <th><div class="th-inner"><span class="th-name">Clinic 🏥</span><span class="th-price">299 €/mois</span></div></th>
+          <th><div class="th-inner"><span class="th-name">Feature</span></div></th>
+          <th><div class="th-inner"><span class="th-name">Free</span><span class="th-price">€0/month</span></div></th>
+          <th><div class="th-inner"><span class="th-name">Starter</span><span class="th-price">€35/month</span></div></th>
+          <th class="col-pro"><div class="th-inner"><span class="rec-badge">Recommended</span><span class="th-name">Pro ⭐</span><span class="th-price">€89/month</span></div></th>
+          <th><div class="th-inner"><span class="th-name">Expert 🔥</span><span class="th-price">€119/month</span></div></th>
+          <th><div class="th-inner"><span class="th-name">Clinic 🏥</span><span class="th-price">€399/month</span></div></th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>Templates</td><td>10</td><td>20</td><td class="col-pro">112+</td><td>112+ custom</td><td>Sur mesure</td></tr>
-        <tr><td>Langues disponibles</td><td>2</td><td>5</td><td class="col-pro">23</td><td>23</td><td>23</td></tr>
-        <tr><td>Export PDF</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td class="col-pro"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
-        <tr><td>Export Word</td><td><span class="no">✕</span></td><td><span class="yes">✓</span></td><td class="col-pro"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
-        <tr><td>Dictée AI</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="lim">600 min/mois</span></td><td><span class="lim">~60 min/j</span></td><td><span class="lim">~120 min/j</span></td></tr>
-        <tr><td>AI Enhancer</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="lim">50 prompts/mois</span></td><td><span class="lim">400 prompts/mois</span></td><td><span class="yes">Illimité</span></td></tr>
-        <tr><td>Worklist</td><td><span class="no">✕</span></td><td><span class="lim">Basique</span></td><td class="col-pro"><span class="lim">Complète</span></td><td><span class="yes">Avancée</span></td><td><span class="yes">Multi-site</span></td></tr>
-        <tr><td>Utilisateurs</td><td>1</td><td>1</td><td class="col-pro">1</td><td>1</td><td>5+</td></tr>
-        <tr><td>Statistiques</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="lim">Basiques</span></td><td><span class="yes">✓</span></td><td><span class="yes">Avancées</span></td></tr>
-        <tr><td>Comptes-rendus / mois</td><td><span class="lim">20 max</span></td><td><span class="yes">Illimités</span></td><td class="col-pro"><span class="yes">Illimités</span></td><td><span class="yes">Illimités</span></td><td><span class="yes">Illimités</span></td></tr>
-        <tr><td>Support</td><td>—</td><td>Email</td><td class="col-pro">Email prioritaire</td><td>Chat + email</td><td>Dédié + onboarding</td></tr>
+        <tr><td>Templates</td><td>10</td><td>20</td><td class="col-pro">112+</td><td>112+ custom</td><td>Custom</td></tr>
+        <tr><td>Available languages</td><td>2</td><td>5</td><td class="col-pro">23</td><td>23</td><td>23</td></tr>
+        <tr><td>PDF Export</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td class="col-pro"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+        <tr><td>Word Export</td><td><span class="no">✕</span></td><td><span class="yes">✓</span></td><td class="col-pro"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+        <tr><td>AI Dictation</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="lim">600 min/month</span></td><td><span class="lim">~60 min/day</span></td><td><span class="lim">~120 min/day</span></td></tr>
+        <tr><td>AI Enhancer</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="lim">50 prompts/month</span></td><td><span class="lim">400 prompts/month</span></td><td><span class="yes">Unlimited</span></td></tr>
+        <tr><td>Worklist</td><td><span class="no">✕</span></td><td><span class="lim">Basic</span></td><td class="col-pro"><span class="lim">Full</span></td><td><span class="yes">Advanced</span></td><td><span class="yes">Multi-site</span></td></tr>
+        <tr><td>Users</td><td>1</td><td>1</td><td class="col-pro">1</td><td>1</td><td>5 incl. (+€49/extra)</td></tr>
+        <tr><td>Statistics</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="lim">Basic</span></td><td><span class="yes">✓</span></td><td><span class="yes">Advanced</span></td></tr>
+        <tr><td>Reports / month</td><td><span class="lim">20 max</span></td><td><span class="yes">Unlimited</span></td><td class="col-pro"><span class="yes">Unlimited</span></td><td><span class="yes">Unlimited</span></td><td><span class="yes">Unlimited</span></td></tr>
+        <tr><td>Support</td><td>—</td><td>Email</td><td class="col-pro">Priority email</td><td>Chat + email</td><td>Dedicated + onboarding</td></tr>
       </tbody>
     </table>
   </div>
@@ -399,57 +399,57 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
 
 <!-- FAQ -->
 <section class="faq-section">
-  <h2>Questions fréquentes</h2>
+  <h2>Frequently Asked Questions</h2>
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">
-      Puis-je changer de plan à tout moment ?
+      Can I change my plan at any time?
       <span class="arr">▼</span>
     </button>
-    <div class="faq-a">Oui, vous pouvez upgrader ou résilier votre abonnement à tout moment depuis votre espace. Les changements prennent effet immédiatement.</div>
+    <div class="faq-a">Yes, you can upgrade or cancel your subscription at any time from your dashboard. Changes take effect immediately.</div>
   </div>
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">
-      Y a-t-il un engagement minimum ?
+      Is there a minimum commitment?
       <span class="arr">▼</span>
     </button>
-    <div class="faq-a">Non, tous les plans sont sans engagement. Vous payez mois par mois et pouvez résilier quand vous le souhaitez.</div>
+    <div class="faq-a">No, all plans are commitment-free. You pay month to month and can cancel whenever you want.</div>
   </div>
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">
-      Le plan Free est-il vraiment gratuit ?
+      Is the Free plan really free?
       <span class="arr">▼</span>
     </button>
-    <div class="faq-a">Oui, le plan Free est totalement gratuit et sans carte bancaire. Il vous permet de découvrir PISUM avec 10 templates, 20 comptes-rendus par mois et l'export PDF.</div>
+    <div class="faq-a">Yes, the Free plan is completely free with no credit card required. It lets you explore PISUM with 10 templates, 20 reports per month, and PDF export.</div>
   </div>
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">
-      Comment fonctionne l'AI Enhancer ?
+      How does the AI Enhancer work?
       <span class="arr">▼</span>
     </button>
-    <div class="faq-a">L'AI Enhancer améliore automatiquement la formulation de vos comptes-rendus grâce à l'IA. Le quota mensuel se renouvelle le 1er de chaque mois.</div>
+    <div class="faq-a">The AI Enhancer automatically improves the wording and clarity of your radiology reports using AI. Your monthly quota resets on the 1st of each month.</div>
   </div>
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">
-      Le paiement est-il sécurisé ?
+      Is payment secure?
       <span class="arr">▼</span>
     </button>
-    <div class="faq-a">Oui, tous les paiements sont traités par Lemon Squeezy, plateforme de paiement sécurisée. PISUM ne stocke jamais vos données bancaires.</div>
+    <div class="faq-a">Yes, all payments are processed by Lemon Squeezy, a secure payment platform. PISUM never stores your banking details.</div>
   </div>
 </section>
 
 <footer>
   <div style="margin-bottom:0.75rem">
-    Des questions ? <a href="mailto:contact@pisum.app">contact@pisum.app</a>
+    Any questions? <a href="mailto:contact@pisum.app">contact@pisum.app</a>
   </div>
   <div>
-    <a href="auth.html">Créer un compte</a>
+    <a href="auth.html">Create an account</a>
     <span class="sep">·</span>
-    <a href="dashboard.html">Mon abonnement</a>
+    <a href="dashboard.html">My subscription</a>
     <span class="sep">·</span>
     <a href="mailto:contact@pisum.app">Support</a>
   </div>
@@ -473,7 +473,7 @@ const PLAN_PRICES = {
   starter: { monthly: 35, annual: 28 },
   pro:     { monthly: 89, annual: 71 },
   expert:  { monthly: 119, annual: 95 },
-  clinic:  { monthly: 299, annual: 239 },
+  clinic:  { monthly: 399, annual: 319 },
 };
 
 function setBilling(isAnnual) {
@@ -485,7 +485,7 @@ function setBilling(isAnnual) {
     const price = PLAN_PRICES[plan][billingInterval];
     // Replace text node (the number part) before the <span>
     el.childNodes[0].nodeValue = price + ' €';
-    sub.textContent = isAnnual ? ' / mois (facturé annuellement)' : ' / mois';
+    sub.textContent = isAnnual ? ' / month (billed annually)' : ' / month';
   });
 }
 
@@ -530,18 +530,18 @@ async function subscribe(plan) {
 
     if (!res.ok) {
       const err = await res.json();
-      throw new Error(err.detail || 'Erreur serveur');
+      throw new Error(err.detail || 'Server error');
     }
 
     const { checkout_url } = await res.json();
     window.location.href = checkout_url;
 
   } catch (err) {
-    showError('Erreur : ' + err.message);
+    showError('Error: ' + err.message);
     document.querySelectorAll('.plan-cta').forEach(b => {
       if (b.tagName === 'BUTTON') {
         b.disabled = false;
-        b.textContent = b.dataset.label || 'S\'abonner';
+        b.textContent = b.dataset.label || 'Subscribe';
       }
     });
   }
