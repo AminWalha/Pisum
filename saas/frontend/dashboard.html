@@ -526,7 +526,7 @@ main{max-width:860px;margin:0 auto;padding:2.5rem 1.5rem 5rem}
           <input type="checkbox" id="billing-annual" onchange="setBilling(this.checked)"/>
           <span class="toggle-slider"></span>
         </label>
-        <span>Annual <span class="save-badge">Save 17%</span></span>
+        <span>Annual <span class="save-badge">−20%</span></span>
       </div>
       <div class="plan-grid" id="plan-grid"></div>
       <button class="btn btn-primary" id="btn-subscribe" onclick="handleSubscribe()">Continue</button>
@@ -661,18 +661,18 @@ let currentSubInfo = {};
 
 // ── Plans ─────────────────────────────────────────────────────────────────
 const PLAN_PRICES = {
-  starter: { monthly: 29,  annual: 290  },
-  pro:     { monthly: 59,  annual: 590  },
-  expert:  { monthly: 99,  annual: 990  },
-  clinic:  { monthly: 199, annual: 1990 },
+  starter: { monthly: 35,  annual: 28  },
+  pro:     { monthly: 89,  annual: 71  },
+  expert:  { monthly: 119, annual: 95  },
+  clinic:  { monthly: 399, annual: 319 },
 };
 
 // Data for plan cards
 const PLANS = {
   free:    { label:'Free',       tag:'tag-free',    paid:false, features:[
-    {ok:true, t:'5 templates'},{ok:true,t:'2 languages'},{ok:true,t:'PDF export'},
+    {ok:true, t:'10 templates'},{ok:true,t:'2 languages'},{ok:true,t:'PDF export'},
     {ok:false,t:'Word export'},{ok:false,t:'AI Dictation'},{ok:false,t:'AI Enhancer'},
-    {ok:'lim',t:'Worklist (20 patients)'},{ok:'lim',t:'20 patients / month'}] },
+    {ok:false,t:'Worklist'},{ok:'lim',t:'20 reports / month'}] },
   starter: { label:'Starter',    tag:'tag-starter', paid:true, features:[
     {ok:true,t:'20 templates'},{ok:true,t:'5 languages'},{ok:true,t:'PDF + Word export'},
     {ok:'lim',t:'AI Dictation (60 min/mo)'},{ok:'lim',t:'AI Enhancer (20/mo)'},
@@ -684,7 +684,8 @@ const PLANS = {
   expert:  { label:'Expert',     tag:'tag-expert',  paid:true, features:[
     {ok:true,t:'112+ custom templates'},{ok:true,t:'23 languages'},{ok:true,t:'PDF + Word export'},
     {ok:'lim',t:'AI Dictation (3,000 min/mo)'},{ok:'lim',t:'AI Enhancer (400/mo)'},
-    {ok:true,t:'Advanced worklist'},{ok:true,t:'Advanced stats'},{ok:true,t:'Unlimited patients'}] },
+    {ok:true,t:'Advanced worklist'},{ok:true,t:'Advanced stats'},{ok:true,t:'Unlimited patients'},
+    {ok:'lim',t:'LAN Sync (1 site · 3 workstations)'}] },
   clinic:  { label:'Clinic',     tag:'tag-clinic',  paid:true, features:null }, // built in buildClinicFeatures()
 };
 const ORDER = ['free','starter','pro','expert','clinic'];
@@ -976,7 +977,7 @@ function updateSubBtn() {
   if (planInfo.paid) {
     const prices = PLAN_PRICES[selectedPlan];
     const price = prices ? prices[billingInterval] : null;
-    const intervalText = billingInterval === 'annual' ? '/year' : '/mo';
+    const intervalText = billingInterval === 'annual' ? '/mo (annual)' : '/mo';
     const priceText = price ? ` — €${price}${intervalText}` : '';
     btn.textContent = `Subscribe — ${planInfo.label}${priceText}`;
     btn.className   = 'btn btn-primary';
