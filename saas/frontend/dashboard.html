@@ -657,6 +657,7 @@ let selectedPlan = 'starter';
 let billingInterval = 'monthly';
 let currentProfile = null;
 let pendingAvatarBlob = null;
+let currentSubInfo = {};
 
 // ── Plans ─────────────────────────────────────────────────────────────────
 const PLAN_PRICES = {
@@ -684,11 +685,7 @@ const PLANS = {
     {ok:true,t:'112+ custom templates'},{ok:true,t:'23 languages'},{ok:true,t:'PDF + Word export'},
     {ok:'lim',t:'AI Dictation (3,000 min/mo)'},{ok:'lim',t:'AI Enhancer (400/mo)'},
     {ok:true,t:'Advanced worklist'},{ok:true,t:'Advanced stats'},{ok:true,t:'Unlimited patients'}] },
-  clinic:  { label:'Clinic',     tag:'tag-clinic',  paid:true, features:[
-    {ok:true,t:'Custom templates'},{ok:true,t:'23 languages'},{ok:true,t:'PDF + Word export'},
-    {ok:'lim',t:'AI Dictation (6,000 min/mo)'},{ok:'lim',t:'AI Enhancer (1,500/mo)'},
-    {ok:true,t:'Multi-site worklist'},{ok:true,t:'Advanced stats + export'},
-    {ok:true,t:'5 users'},{ok:true,t:'Unlimited patients'}] },
+  clinic:  { label:'Clinic',     tag:'tag-clinic',  paid:true, features:null }, // built in buildClinicFeatures()
 };
 const ORDER = ['free','starter','pro','expert','clinic'];
 
@@ -759,8 +756,8 @@ async function loadAccess() {
       fetch(`${API_BASE}/subscription-info`,   { headers: hdrs }),
     ]);
     const accessData = await r1.json();
-    const subInfo    = r2.ok ? await r2.json() : {};
-    renderAccess(accessData, subInfo);
+    currentSubInfo   = r2.ok ? await r2.json() : {};
+    renderAccess(accessData, currentSubInfo);
   } catch {
     renderAccess({ access: false, reason: 'network_error' }, {});
   }
@@ -773,6 +770,23 @@ function setStatus(type, icon, title, desc) {
   document.getElementById('status-title').textContent = title;
   document.getElementById('status-title').style.color = type==='ok' ? 'var(--green)' : type==='err' ? 'var(--red)' : '';
   document.getElementById('status-desc').textContent  = desc;
+}
+
+function buildClinicFeatures(subInfo) {
+  const enhLimit  = subInfo.features?.ai_enhancer_monthly_limit ?? 1500;
+  const dictLimit = subInfo.features?.ai_dictation_minutes ?? 6000;
+  const seats     = 5 + (subInfo.extra_seats || 0);
+  return [
+    {ok:true,  t:'Custom templates'},
+    {ok:true,  t:'23 languages'},
+    {ok:true,  t:'PDF + Word export'},
+    {ok:'lim', t:`AI Dictation (${dictLimit.toLocaleString()} min/mo)`},
+    {ok:'lim', t:`AI Enhancer (${enhLimit.toLocaleString()}/mo)`},
+    {ok:true,  t:'Multi-site worklist'},
+    {ok:true,  t:'Advanced stats + export'},
+    {ok:true,  t:`${seats} users`},
+    {ok:true,  t:'Unlimited patients'},
+  ];
 }
 
 function renderAccess({ access, reason, plan }, subInfo = {}) {
@@ -875,7 +889,9 @@ function renderUsage(plan, subInfo) {
     }
   }
 
-  const dictLimits = { starter:60, pro:600, expert:3000, clinic:6000 };
+  // For Clinic, use scaled limits returned by the backend (extra_seats applied server-side)
+  const dictLimits = { starter:60, pro:600, expert:3000,
+    clinic: subInfo.features?.ai_dictation_minutes ?? 6000 };
   const dictLimit  = dictLimits[plan];
   if (dictLimit) {
     rows.push(makeUsageBar('AI Dictation', null, dictLimit, 'min', null,
@@ -909,7 +925,8 @@ function makeUsageBar(name, used, limit, unit, pct, sub) {
 
 function renderFeatures(plan) {
   const p = PLANS[plan]; if (!p) return;
-  document.getElementById('feature-grid').innerHTML = p.features.map(f => {
+  const feats = p.features || buildClinicFeatures(currentSubInfo);
+  document.getElementById('feature-grid').innerHTML = feats.map(f => {
     const cls  = f.ok===true ? 'fi-ok' : f.ok==='lim' ? 'fi-lim' : 'fi-no';
     const icon = f.ok===true ? '✓' : f.ok==='lim' ? '◐' : '–';
     return `<div class="feature-item"><span class="${cls}" style="font-size:0.9rem;flex-shrink:0">${icon}</span>${f.t}</div>`;
@@ -925,7 +942,7 @@ function renderPlanGrid() {
     card.className = 'plan-card' + (k===selectedPlan?' sel':'');
     card.id = 'pc-'+k;
     card.onclick = () => selectPlan(k);
-    const feats = p.features.slice(0,5).map(f => {
+    const feats = (p.features || buildClinicFeatures(currentSubInfo)).slice(0,5).map(f => {
       const cls = f.ok===true?'fi-ok':f.ok==='lim'?'fi-lim':'fi-no';
       const ico = f.ok===true?'✓':f.ok==='lim'?'◐':'–';
       return `<li><span class="${cls}">${ico}</span>${f.t}</li>`;
