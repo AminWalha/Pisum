@@ -266,40 +266,53 @@ footer { background: var(--s1); border-top: 1px solid var(--border); padding: 2.
       </div>
 
       <div class="prose-section" id="lan-sync">
-        <h2><span class="num">06</span> LAN Network Sync</h2>
-        <p>Available on <strong>Expert</strong> and <strong>Clinic</strong> plans. Share your patient database across multiple workstations on a local network — no internet required, no cloud storage.</p>
+        <h2><span class="num">06</span> LAN Network Sharing</h2>
+        <p>Available on <strong>Expert</strong> and <strong>Clinic</strong> plans. Share the patient database across multiple workstations in your clinic — no internet required, no cloud storage, no extra server to set up.</p>
+
+        <h3>How it works</h3>
+        <p>All workstations point to a single SQLite database file stored on a shared network folder (NAS, Windows SMB share, or mapped drive). PISUM handles concurrent access automatically using WAL locking. Patient data is encrypted end-to-end with <strong>AES-256-GCM</strong> before it ever touches the network.</p>
 
         <h3>Plan limits</h3>
         <ul>
-          <li><strong>Expert</strong> — 1 site, max 3 workstations (same building)</li>
+          <li><strong>Expert</strong> — 1 site, up to 3 workstations (same building)</li>
           <li><strong>Clinic</strong> — Multi-site, unlimited workstations</li>
         </ul>
 
         <h3>Prerequisites</h3>
         <ul>
-          <li>A shared network folder accessible by all workstations (NAS, Windows SMB share, or mapped drive)</li>
-          <li>SMB 3.0 or higher recommended for stable WAL locking</li>
+          <li>A shared network folder accessible by all workstations in read/write (NAS, Windows SMB share, or mapped drive like <code>Z:\</code>)</li>
+          <li>SMB 3.0 or higher recommended for stable file locking</li>
           <li>All PCs must be on the same LAN or VPN</li>
         </ul>
 
-        <h3>Setup</h3>
+        <h3>Setup — step by step</h3>
         <ol>
-          <li>Open PISUM → <strong>Settings → Network Sync</strong></li>
-          <li>Enter the shared folder path — e.g. <code>\\NAS\PISUM</code> or <code>Z:\PISUM</code></li>
-          <li>Set a network password (min. 6 characters) — use the <strong>same password on every workstation</strong></li>
-          <li>Click <strong>Connect</strong> — PISUM registers your workstation automatically</li>
+          <li>On your server or NAS, create a shared folder — e.g. <code>\\SERVER\PISUM</code> — and give read/write access to all workstations.</li>
+          <li>Open PISUM on the first workstation → go to <strong>Settings → Local Network (LAN)</strong>.</li>
+          <li>Fill in the <strong>Network Path</strong> (e.g. <code>\\SERVER\PISUM</code> or <code>Z:\PISUM</code>), a unique <strong>Workstation ID</strong> (e.g. <code>WORKSTATION-01</code>), and your <strong>Clinic Name</strong>.</li>
+          <li>Enter a <strong>network password</strong> (minimum 6 characters). You will use the <em>exact same password</em> on every workstation.</li>
+          <li>Click <strong>Activate</strong>. The badge turns <em>● Connected</em> and the shared database is created automatically on the network folder.</li>
+          <li>Repeat steps 2–5 on every other workstation — same path, same password, different Workstation ID.</li>
         </ol>
 
         <div class="info-block cyan">
           <strong>Workstation limit reached?</strong>
-          <span>If you see "All workstations slots are in use", either upgrade to Clinic (unlimited) or remove an inactive workstation by deleting its entry in the <code>.workstations.json</code> file in your shared folder.</span>
+          <span>If you see "Max workstations reached", either upgrade to Clinic (unlimited) or open the <code>.workstations.json</code> file in your shared folder and remove the entry for the stale workstation.</span>
         </div>
 
         <h3>Security</h3>
         <ul>
-          <li>All data is encrypted with <strong>AES-256-GCM</strong> — the network password never leaves your LAN</li>
-          <li>The encryption key is stored in the shared folder (<code>.enc_network_key</code>), protected by your password</li>
-          <li>Never store the network password in plaintext — use the password prompt in PISUM instead</li>
+          <li>All patient data is encrypted with <strong>AES-256-GCM</strong> before being written to the shared folder — the raw database file is unreadable without the key.</li>
+          <li>The encryption key (<code>.enc_network_key</code>) is stored in the shared folder and is itself protected by your network password (PBKDF2-HMAC-SHA256, 600 000 iterations).</li>
+          <li>The network password is <em>never</em> saved to disk — it is only held in memory for the duration of the session.</li>
+          <li>Every access, modification, and export is logged in a GDPR-compliant audit trail with timestamp and workstation ID.</li>
+        </ul>
+
+        <h3>Troubleshooting</h3>
+        <ul>
+          <li><strong>Badge stays "Disconnected"</strong> — verify the shared folder path is correct and accessible from this PC (try opening it in Windows Explorer first).</li>
+          <li><strong>"Wrong password" error</strong> — the network password must be identical on all workstations. Re-enter it carefully; it is case-sensitive.</li>
+          <li><strong>Slow or locked database</strong> — ensure your NAS or share supports SMB 3.0. Some older NAS firmware versions do not support SQLite WAL locking correctly; update the firmware or switch to a Windows-shared folder.</li>
         </ul>
       </div>
 
@@ -379,6 +392,7 @@ const t = {
     tg1: 'Getting Started', tl1: 'Installation',
     tg2: 'Core Features', tl2: 'Using Templates', tl3: 'AI Voice Dictation', tl4: 'Export to RIS/PACS',
     tg3: 'Troubleshooting', tl5: 'Contact Support',
+    tg3n: 'Network', tl6: 'LAN Network Sharing',
     s1h: 'Installation', s1p1: 'Pisum is a lightweight desktop application designed for Windows. It requires zero complex IT configuration.',
     s1l1: 'Download the latest installer using the link provided in your welcome email.',
     s1l2: 'Double-click the downloaded <code>.exe</code> file.',
