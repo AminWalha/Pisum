@@ -177,12 +177,14 @@ footer { background: var(--s1); border-top: 1px solid var(--border); padding: 2r
   <div class="nav-right">
     <a href="index.html#pricing" class="btn btn-primary btn-sm" id="nav-cta" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600;">Get Started Free</a>
     <div id="nav-profile" class="nav-profile" style="display:none">
-      <img id="nav-profile-img" class="nav-profile-avatar" src="" alt=""/>
-      <div id="nav-profile-initials" class="nav-profile-avatar-fallback" style="display:none">?</div>
-      <div class="nav-profile-info">
-        <span id="nav-profile-name" class="nav-profile-name"></span>
-        <span id="nav-profile-email" class="nav-profile-email"></span>
-      </div>
+      <a href="../saas/frontend/dashboard.html" class="nav-profile-link">
+        <img id="nav-profile-img" class="nav-profile-avatar" src="" alt="" style="display:none"/>
+        <div id="nav-profile-initials" class="nav-profile-avatar-fallback" style="display:none">?</div>
+        <div class="nav-profile-info">
+          <span id="nav-profile-name" class="nav-profile-name"></span>
+          <span id="nav-profile-email" class="nav-profile-email"></span>
+        </div>
+      </a>
       <button class="nav-profile-signout" id="nav-signout">Sign Out</button>
     </div>
     <button class="hamburger" id="ham" aria-label="Menu">
@@ -202,8 +204,9 @@ footer { background: var(--s1); border-top: 1px solid var(--border); padding: 2r
     document.getElementById('nav-profile-name').textContent=name;
     document.getElementById('nav-profile-email').textContent=u.email;
     const img=document.getElementById('nav-profile-img');
-    const av=u.user_metadata?.avatar_url;
-    if(av){img.src=av;}else{img.style.display='none';const el=document.getElementById('nav-profile-initials');el.textContent=name.charAt(0).toUpperCase();el.style.display='flex';}
+    const av=u.user_metadata?.avatar_url||u.user_metadata?.picture;
+    const showI=()=>{img.style.display='none';const el=document.getElementById('nav-profile-initials');el.textContent=name.charAt(0).toUpperCase();el.style.display='flex';};
+    if(av){img.onload=()=>{img.style.display='';};img.onerror=showI;img.src=av;}else{showI();}
     document.getElementById('nav-profile').style.display='flex';
     document.getElementById('nav-signout').addEventListener('click',async()=>{await sb.auth.signOut();window.location.reload();});
   });

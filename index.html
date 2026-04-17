@@ -73,6 +73,8 @@ a{text-decoration:none;color:inherit}
 .nav-profile-email{font-size:0.7rem;color:var(--ink-3);line-height:1.2}
 .nav-profile-signout{font-size:0.78rem;font-weight:500;color:var(--ink-3);background:none;border:1px solid var(--b2);border-radius:999px;padding:0.3rem 0.8rem;cursor:pointer;transition:all 0.18s;margin-left:4px;font-family:inherit}
 .nav-profile-signout:hover{color:var(--ink);border-color:var(--ink-3);background:var(--off)}
+.nav-profile-link{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.nav-profile-link:hover .nav-profile-name{color:var(--blue)}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
 .hamburger span{display:block;width:22px;height:1.5px;background:var(--ink);border-radius:2px;transition:all 0.3s}
 @media(max-width:780px){
@@ -523,12 +525,14 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
     <a href="../saas/frontend/auth.html" class="nav-login" id="nav-signin">Sign in</a>
     <a href="../saas/frontend/auth.html" class="btn btn-primary btn-sm" id="nav-subscribe" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600;">Subscribe</a>
     <div id="nav-profile" class="nav-profile" style="display:none">
-      <img id="nav-profile-img" class="nav-profile-avatar" src="" alt=""/>
-      <div id="nav-profile-initials" class="nav-profile-avatar-fallback" style="display:none">?</div>
-      <div class="nav-profile-info">
-        <span id="nav-profile-name" class="nav-profile-name"></span>
-        <span id="nav-profile-email" class="nav-profile-email"></span>
-      </div>
+      <a href="../saas/frontend/dashboard.html" class="nav-profile-link">
+        <img id="nav-profile-img" class="nav-profile-avatar" src="" alt="" style="display:none"/>
+        <div id="nav-profile-initials" class="nav-profile-avatar-fallback" style="display:none">?</div>
+        <div class="nav-profile-info">
+          <span id="nav-profile-name" class="nav-profile-name"></span>
+          <span id="nav-profile-email" class="nav-profile-email"></span>
+        </div>
+      </a>
       <button class="nav-profile-signout" id="nav-signout">Sign Out</button>
     </div>
     <button class="hamburger" id="ham" aria-label="Menu">
@@ -554,13 +558,18 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
     document.getElementById('nav-profile-name').textContent  = name;
     document.getElementById('nav-profile-email').textContent = u.email;
     const img = document.getElementById('nav-profile-img');
-    const av  = u.user_metadata?.avatar_url;
-    if (av) { img.src = av; } else {
+    const av  = u.user_metadata?.avatar_url || u.user_metadata?.picture;
+    const showInitials = () => {
       img.style.display = 'none';
       const el = document.getElementById('nav-profile-initials');
       el.textContent = name.charAt(0).toUpperCase();
       el.style.display = 'flex';
-    }
+    };
+    if (av) {
+      img.onload  = () => { img.style.display = ''; };
+      img.onerror = showInitials;
+      img.src = av;
+    } else { showInitials(); }
     document.getElementById('nav-profile').style.display = 'flex';
     document.getElementById('nav-signout').addEventListener('click', async () => {
       await sb.auth.signOut();
