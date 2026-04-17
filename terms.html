@@ -50,6 +50,8 @@ main { flex: 1; }
 .nav-profile-email{font-size:0.7rem;color:var(--ink-3);line-height:1.2}
 .nav-profile-signout{font-size:0.78rem;font-weight:500;color:var(--ink-3);background:none;border:1px solid var(--b2);border-radius:999px;padding:0.3rem 0.8rem;cursor:pointer;transition:all 0.18s;margin-left:4px;font-family:inherit}
 .nav-profile-signout:hover{color:var(--ink);border-color:var(--ink-3);background:var(--off)}
+.nav-profile-link{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.nav-profile-link:hover .nav-profile-name{color:var(--blue)}
 .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
 .nav-links a { font-size: 0.83rem; font-weight: 500; color: var(--ink-2); transition: color 0.18s; }
 .nav-links a:hover { color: var(--cyan); }
@@ -196,19 +198,20 @@ footer { background: var(--s1); border-top: 1px solid var(--border); padding: 2r
 <script>
 (function(){
   const sb=supabase.createClient('https://lepqbnhrdgfetoysedbq.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlcHFibmhyZGdmZXRveXNlZGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwNjQ1MDAsImV4cCI6MjA5MDY0MDUwMH0.St12IwG0_RRKzxrbH1QRolCC2OOAaSIsK4PDmlR2Loo');
-  sb.auth.getSession().then(({data})=>{
+  sb.auth.getSession().then(async({data})=>{
     if(!data.session)return;
     const u=data.session.user;
     const name=u.user_metadata?.full_name||u.email.split('@')[0];
     document.getElementById('nav-cta').style.display='none';
     document.getElementById('nav-profile-name').textContent=name;
     document.getElementById('nav-profile-email').textContent=u.email;
-    const img=document.getElementById('nav-profile-img');
-    const av=u.user_metadata?.avatar_url||u.user_metadata?.picture;
-    const showI=()=>{img.style.display='none';const el=document.getElementById('nav-profile-initials');el.textContent=name.charAt(0).toUpperCase();el.style.display='flex';};
-    if(av){img.onload=()=>{img.style.display='';};img.onerror=showI;img.src=av;}else{showI();}
     document.getElementById('nav-profile').style.display='flex';
     document.getElementById('nav-signout').addEventListener('click',async()=>{await sb.auth.signOut();window.location.reload();});
+    const img=document.getElementById('nav-profile-img');
+    const showI=()=>{img.style.display='none';const el=document.getElementById('nav-profile-initials');el.textContent=name.charAt(0).toUpperCase();el.style.display='flex';};
+    const{data:prof}=await sb.from('profiles').select('avatar_url').eq('user_id',u.id).maybeSingle();
+    const av=prof?.avatar_url||u.user_metadata?.avatar_url||u.user_metadata?.picture;
+    if(av){img.onload=()=>{img.style.display='';};img.onerror=showI;img.src=av;}else{showI();}
   });
 })();
 </script>
