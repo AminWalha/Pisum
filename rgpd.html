@@ -42,6 +42,14 @@ main { flex: 1; }
 .nav-logo { display: flex; align-items: center; gap: 10px; font-family: var(--fd); font-size: 1.1rem; font-weight: 600; color: var(--ink); }
 .nav-logo img { width: 30px; height: 30px; border-radius: 8px; }
 .nav-right { display: flex; align-items: center; gap: 0.75rem; }
+.nav-profile{display:flex;align-items:center;gap:10px;background:var(--white);border:1px solid var(--b2);border-radius:999px;padding:4px 12px 4px 4px;box-shadow:var(--shadow-xs)}
+.nav-profile-avatar{width:36px;height:36px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.nav-profile-avatar-fallback{width:36px;height:36px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:var(--white);flex-shrink:0}
+.nav-profile-info{display:flex;flex-direction:column;gap:1px}
+.nav-profile-name{font-size:0.8rem;font-weight:600;color:var(--ink);line-height:1.2}
+.nav-profile-email{font-size:0.7rem;color:var(--ink-3);line-height:1.2}
+.nav-profile-signout{font-size:0.78rem;font-weight:500;color:var(--ink-3);background:none;border:1px solid var(--b2);border-radius:999px;padding:0.3rem 0.8rem;cursor:pointer;transition:all 0.18s;margin-left:4px;font-family:inherit}
+.nav-profile-signout:hover{color:var(--ink);border-color:var(--ink-3);background:var(--off)}
 .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
 .nav-links a { font-size: 0.83rem; font-weight: 500; color: var(--ink-2); transition: color 0.18s; }
 .nav-links a:hover { color: var(--cyan); }
@@ -205,12 +213,40 @@ footer {
     <li><a href="contact.html">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <a href="index.html#pricing" class="btn btn-primary btn-sm" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600;">Get Started Free</a>
+    <a href="index.html#pricing" class="btn btn-primary btn-sm" id="nav-cta" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600;">Get Started Free</a>
+    <div id="nav-profile" class="nav-profile" style="display:none">
+      <img id="nav-profile-img" class="nav-profile-avatar" src="" alt=""/>
+      <div id="nav-profile-initials" class="nav-profile-avatar-fallback" style="display:none">?</div>
+      <div class="nav-profile-info">
+        <span id="nav-profile-name" class="nav-profile-name"></span>
+        <span id="nav-profile-email" class="nav-profile-email"></span>
+      </div>
+      <button class="nav-profile-signout" id="nav-signout">Sign Out</button>
+    </div>
     <button class="hamburger" id="ham" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+(function(){
+  const sb=supabase.createClient('https://lepqbnhrdgfetoysedbq.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlcHFibmhyZGdmZXRveXNlZGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwNjQ1MDAsImV4cCI6MjA5MDY0MDUwMH0.St12IwG0_RRKzxrbH1QRolCC2OOAaSIsK4PDmlR2Loo');
+  sb.auth.getSession().then(({data})=>{
+    if(!data.session)return;
+    const u=data.session.user;
+    const name=u.user_metadata?.full_name||u.email.split('@')[0];
+    document.getElementById('nav-cta').style.display='none';
+    document.getElementById('nav-profile-name').textContent=name;
+    document.getElementById('nav-profile-email').textContent=u.email;
+    const img=document.getElementById('nav-profile-img');
+    const av=u.user_metadata?.avatar_url;
+    if(av){img.src=av;}else{img.style.display='none';const el=document.getElementById('nav-profile-initials');el.textContent=name.charAt(0).toUpperCase();el.style.display='flex';}
+    document.getElementById('nav-profile').style.display='flex';
+    document.getElementById('nav-signout').addEventListener('click',async()=>{await sb.auth.signOut();window.location.reload();});
+  });
+})();
+</script>
 
 <main>
 
