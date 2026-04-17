@@ -1100,10 +1100,10 @@ function renderAccess({ access, reason, plan }, subInfo = {}) {
     renderFeatures(plan);
     activeCard.style.display = '';
 
+    document.getElementById('danger-zone').style.display = '';
+    const cancelBtn = document.getElementById('btn-cancel-sub');
+    const cancelingNotice = document.getElementById('canceling-notice');
     if (plan !== 'free' && (statusRaw === 'active' || statusRaw === 'canceling')) {
-      document.getElementById('danger-zone').style.display = '';
-      const cancelBtn = document.getElementById('btn-cancel-sub');
-      const cancelingNotice = document.getElementById('canceling-notice');
       if (statusRaw === 'active') {
         cancelBtn.style.display = '';
         cancelingNotice.style.display = 'none';
@@ -1111,6 +1111,9 @@ function renderAccess({ access, reason, plan }, subInfo = {}) {
         cancelBtn.style.display = 'none';
         cancelingNotice.style.display = '';
       }
+    } else {
+      cancelBtn.style.display = 'none';
+      cancelingNotice.style.display = 'none';
     }
 
     if (plan === 'free') {
@@ -1130,6 +1133,9 @@ function renderAccess({ access, reason, plan }, subInfo = {}) {
     renderPlanGrid();
     subCard.style.display = '';
     activeCard.style.display = 'none';
+    document.getElementById('danger-zone').style.display = '';
+    document.getElementById('btn-cancel-sub').style.display = 'none';
+    document.getElementById('canceling-notice').style.display = 'none';
 
     const pb = document.getElementById('profile-plan-badge');
     pb.textContent = 'NO PLAN';
