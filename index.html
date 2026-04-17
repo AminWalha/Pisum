@@ -522,6 +522,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
     <li><a href="faq.html">FAQ</a></li>
     <li><a href="documentation.html">Docs</a></li>
     <li><a href="contact.html">Contact</a></li>
+    <li id="nav-mobile-signout" style="display:none"><a href="#" id="nav-mobile-signout-btn" style="color:#e55;font-weight:600">Sign Out</a></li>
   </ul>
   <div class="nav-right">
     <a href="../saas/frontend/auth.html" class="nav-login" id="nav-signin">Sign in</a>
@@ -560,9 +561,10 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
     document.getElementById('nav-profile-name').textContent  = name;
     document.getElementById('nav-profile-email').textContent = u.email;
     document.getElementById('nav-profile').style.display = 'flex';
-    document.getElementById('nav-signout').addEventListener('click', async () => {
-      await sb.auth.signOut(); window.location.reload();
-    });
+    const signOut = async () => { await sb.auth.signOut(); window.location.reload(); };
+    document.getElementById('nav-signout').addEventListener('click', signOut);
+    document.getElementById('nav-mobile-signout').style.display = '';
+    document.getElementById('nav-mobile-signout-btn').addEventListener('click', async (e) => { e.preventDefault(); await signOut(); });
     const img = document.getElementById('nav-profile-img');
     const showInitials = () => {
       img.style.display = 'none';
