@@ -284,7 +284,7 @@ sb.auth.onAuthStateChange((event, session) => {
     return;
   }
   if ((event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') && session) {
-    if (!document.getElementById('view-reset').style.display === 'none') return;
+    if (document.getElementById('view-reset').style.display !== 'none') return;
     window.location.href = _redirect;
   }
 });
