@@ -219,6 +219,14 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
 .how-limit-item{display:flex;align-items:center;gap:0.6rem;background:var(--white);border:1px solid rgba(0,0,0,0.08);border-radius:999px;padding:0.4rem 1rem;font-size:0.8rem;font-weight:600;color:var(--ink-2);box-shadow:var(--shadow-sm)}
 .hl-tag{font-size:0.62rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.15rem 0.5rem;border-radius:999px}
 
+/* ── LAUNCH BANNER ── */
+.launch-banner{
+  background:linear-gradient(135deg,#1d4ed8 0%,#6d28d9 100%);
+  color:#fff;text-align:center;padding:0.75rem 1.5rem;
+  font-size:0.83rem;font-weight:600;letter-spacing:0.01em
+}
+.launch-banner a{color:#fde68a;text-decoration:underline;cursor:pointer}
+
 /* ── ERROR TOAST ── */
 .err-toast{
   display:none;position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);
@@ -233,6 +241,11 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
 </style>
 </head>
 <body>
+
+<!-- LAUNCH BANNER -->
+<div class="launch-banner">
+  🚀 Launch offer — <strong>first month free</strong> on any annual plan. <a href="auth.html">Start now</a> · No credit card required.
+</div>
 
 <!-- NAV -->
 <nav>
@@ -361,7 +374,7 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
       <div class="plan-name">Pisum Clinic</div>
       <div class="plan-price" id="price-clinic" data-monthly="299" data-annual="239">299 €<span id="price-clinic-sub"> / month</span></div>
       <div class="plan-tagline">5 users included · +€49/additional user</div>
-      <button class="plan-cta cta-paid" onclick="subscribe('clinic')">Contact us</button>
+      <button class="plan-cta cta-paid" onclick="subscribe('clinic')">Subscribe</button>
       <div class="divider"></div>
       <ul class="feat-list">
         <li><span class="fi-ok">✓</span>Custom templates</li>
@@ -489,6 +502,30 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
       <span class="arr">▼</span>
     </button>
     <div class="faq-a">Yes, all payments are processed by Lemon Squeezy, a secure payment platform. PISUM never stores your banking details.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Where is my data stored? Is PISUM GDPR-compliant?
+      <span class="arr">▼</span>
+    </button>
+    <div class="faq-a">Your patient reports are stored locally on your computer — PISUM does not upload clinical data to the cloud. Account data (name, email, subscription status) is hosted on Supabase with servers in the EU. PISUM is fully GDPR-compliant.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Can I use PISUM without an internet connection?
+      <span class="arr">▼</span>
+    </button>
+    <div class="faq-a">Yes. After signing in once, PISUM works fully offline for up to 48 hours. Your reports and templates are stored locally. An internet connection is only needed to sync your subscription status or use AI features.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Is there a free trial for paid plans?
+      <span class="arr">▼</span>
+    </button>
+    <div class="faq-a">The Free plan is a permanent free tier with no time limit — no credit card required. It lets you discover PISUM at your own pace before upgrading. You can upgrade to a paid plan at any time from your dashboard.</div>
   </div>
 </section>
 
