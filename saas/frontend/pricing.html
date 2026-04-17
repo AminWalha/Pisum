@@ -3,248 +3,404 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>PISUM — Pricing</title>
+<title>PISUM — Pricing for Medical Professionals</title>
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --blue:#3b6ef8;--purple:#7c5af0;--green:#16a34a;--amber:#d97706;
-  --grad:linear-gradient(135deg,#3b6ef8 0%,#7c5af0 100%);
-  --ink:#09090f;--ink-2:#3a3a4c;--ink-3:#6b7280;--ink-4:#d1d5db;
-  --bg:#f5f5f7;--white:#fff;
-  --shadow-sm:0 1px 3px rgba(0,0,0,0.07);
-  --shadow:0 4px 24px rgba(0,0,0,0.08),0 1px 4px rgba(0,0,0,0.04);
-  --r:16px;
+  --blue-900:#1e3a8a;--blue-800:#1e40af;--blue-700:#1d4ed8;--blue-600:#2563eb;
+  --blue-500:#3b82f6;--blue-400:#60a5fa;--blue-100:#dbeafe;--blue-50:#eff6ff;
+  --slate-900:#0f172a;--slate-800:#1e293b;--slate-700:#334155;
+  --slate-600:#475569;--slate-500:#64748b;--slate-400:#94a3b8;
+  --slate-200:#e2e8f0;--slate-100:#f1f5f9;--slate-50:#f8fafc;
+  --amber-500:#f59e0b;--amber-600:#d97706;--amber-100:#fef3c7;
+  --green-600:#16a34a;--green-100:#dcfce7;
+  --white:#fff;
+  --grad-blue:linear-gradient(135deg,#1d4ed8 0%,#2563eb 100%);
+  --grad-navy:linear-gradient(150deg,#0f172a 0%,#1e3a8a 100%);
+  --shadow-sm:0 1px 3px rgba(0,0,0,.07);
+  --shadow:0 4px 24px rgba(0,0,0,.08),0 1px 4px rgba(0,0,0,.04);
+  --r:22px;
 }
-body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--slate-50);color:var(--slate-800);min-height:100vh}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.anim-1{animation:fadeInUp .45s ease .05s both}
+.anim-2{animation:fadeInUp .45s ease .10s both}
+.anim-3{animation:fadeInUp .45s ease .15s both}
+.anim-4{animation:fadeInUp .45s ease .20s both}
+.anim-5{animation:fadeInUp .45s ease .25s both}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle}
+
+/* ── LAUNCH BANNER ── */
+.launch-banner{
+  background:var(--grad-blue);color:#fff;text-align:center;
+  padding:.65rem 1.5rem;font-size:.82rem;font-weight:600;letter-spacing:.01em
+}
+.launch-banner a{color:#bfdbfe;text-decoration:underline}
 
 /* ── NAV ── */
 nav{
-  background:rgba(255,255,255,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(0,0,0,0.07);padding:0 2rem;height:64px;
+  background:rgba(255,255,255,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(0,0,0,.07);padding:0 2rem;height:64px;
   display:flex;align-items:center;justify-content:space-between;
   position:sticky;top:0;z-index:100
 }
 .nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
 .nav-logo img{width:32px;height:32px;border-radius:9px}
-.nav-logo-text{font-size:1.05rem;font-weight:800;letter-spacing:-0.04em;
-  background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-
+.nav-logo-text{
+  font-size:1.05rem;font-weight:800;letter-spacing:-.04em;
+  background:var(--grad-blue);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text
+}
 .nav-right{display:flex;align-items:center;gap:10px}
 .nav-user{display:flex;align-items:center;gap:8px}
 .nav-avatar{
-  width:32px;height:32px;border-radius:50%;background:var(--grad);
-  color:#fff;font-size:0.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0
+  width:32px;height:32px;border-radius:50%;background:var(--grad-blue);
+  color:#fff;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center
 }
-.nav-name{font-size:0.82rem;font-weight:600;color:var(--ink)}
+.nav-name{font-size:.82rem;font-weight:600;color:var(--slate-800)}
 @media(max-width:580px){.nav-name{display:none}}
-
 .btn-nav{
-  padding:0.45rem 1rem;border:1.5px solid var(--ink-4);border-radius:999px;
-  background:transparent;cursor:pointer;font-size:0.8rem;font-weight:600;
-  color:var(--ink-2);transition:all 0.18s;text-decoration:none;display:inline-flex;align-items:center
+  padding:.45rem 1rem;border:1.5px solid var(--slate-200);border-radius:999px;
+  background:transparent;cursor:pointer;font-size:.8rem;font-weight:600;
+  color:var(--slate-600);transition:all .18s;text-decoration:none;display:inline-flex;align-items:center
 }
-.btn-nav:hover{background:var(--bg);border-color:#b0b3be}
-.btn-nav.primary{background:var(--grad);color:#fff;border-color:transparent}
-.btn-nav.primary:hover{opacity:0.9}
+.btn-nav:hover{background:var(--slate-100);border-color:#b0b3be}
+.btn-nav.primary{background:var(--grad-blue);color:#fff;border-color:transparent}
+.btn-nav.primary:hover{opacity:.9}
 
 /* ── HERO ── */
-.hero{text-align:center;padding:4.5rem 1.5rem 2.5rem;max-width:600px;margin:0 auto}
+.hero{text-align:center;padding:4.5rem 1.5rem 2.75rem;max-width:660px;margin:0 auto}
 .hero-eyebrow{
-  display:inline-block;padding:0.25rem 0.85rem;border-radius:999px;
-  background:#eef2ff;color:var(--blue);font-size:0.78rem;font-weight:700;
-  letter-spacing:0.04em;margin-bottom:1.25rem
+  display:inline-flex;align-items:center;gap:6px;
+  padding:.3rem 1rem;border-radius:999px;background:var(--blue-50);border:1px solid var(--blue-100);
+  color:var(--blue-700);font-size:.75rem;font-weight:700;letter-spacing:.05em;
+  text-transform:uppercase;margin-bottom:1.3rem
 }
-.hero h1{font-size:2.5rem;font-weight:800;letter-spacing:-0.04em;line-height:1.15;margin-bottom:1rem}
-.hero h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero p{font-size:1rem;color:var(--ink-3);line-height:1.7;max-width:480px;margin:0 auto 2rem}
-.hero-cta{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap}
-.btn-hero{
-  padding:0.8rem 1.75rem;border-radius:12px;font-size:0.9rem;font-weight:700;
-  text-decoration:none;display:inline-block;transition:opacity 0.18s,transform 0.15s;border:none;cursor:pointer;font-family:inherit
+.hero h1{
+  font-size:clamp(1.9rem,4vw,2.75rem);font-weight:800;
+  letter-spacing:-.04em;line-height:1.12;margin-bottom:1rem
 }
-.btn-hero:hover{opacity:0.9;transform:translateY(-1px)}
-.btn-hero.primary{background:var(--grad);color:#fff}
-.btn-hero.secondary{background:var(--white);color:var(--ink-2);border:1.5px solid var(--ink-4)}
+.hero h1 span{background:var(--grad-blue);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:1rem;color:var(--slate-500);line-height:1.72;max-width:520px;margin:0 auto 2rem}
+.hero-cta{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+.btn-hero-primary{
+  padding:.85rem 1.9rem;border-radius:12px;background:var(--grad-blue);color:#fff;
+  font-size:.9rem;font-weight:700;text-decoration:none;transition:opacity .18s,transform .15s;
+  border:none;cursor:pointer;font-family:inherit;
+  box-shadow:0 4px 18px rgba(37,99,235,.38)
+}
+.btn-hero-primary:hover{opacity:.92;transform:translateY(-1px)}
+.btn-hero-secondary{
+  padding:.85rem 1.9rem;border-radius:12px;background:var(--white);color:var(--slate-600);
+  font-size:.9rem;font-weight:700;text-decoration:none;border:1.5px solid var(--slate-200);
+  transition:all .18s
+}
+.btn-hero-secondary:hover{border-color:#b0b3be;background:var(--slate-50)}
+
+/* ── TRUST STRIP ── */
+.trust-strip{
+  background:linear-gradient(135deg,var(--blue-50) 0%,#f0f9ff 100%);
+  border-top:1px solid var(--blue-100);border-bottom:1px solid var(--blue-100);
+  padding:1.1rem 2rem;display:flex;align-items:center;justify-content:center;
+  flex-wrap:wrap;gap:1.75rem
+}
+.trust-item{display:flex;align-items:center;gap:.55rem;font-size:.8rem;font-weight:600;color:var(--blue-700)}
+.trust-item svg{flex-shrink:0;opacity:.85}
 
 /* ── BILLING TOGGLE ── */
-.billing-toggle{display:flex;align-items:center;justify-content:center;gap:0.85rem;margin-bottom:2rem;font-size:0.88rem;font-weight:600;color:var(--ink-2)}
-.toggle-switch{position:relative;width:46px;height:26px;flex-shrink:0}
-.toggle-switch input{opacity:0;width:0;height:0;position:absolute}
-.toggle-slider{
-  position:absolute;inset:0;background:#d1d5db;border-radius:999px;cursor:pointer;
-  transition:background 0.2s
+.billing-toggle{
+  display:flex;align-items:center;justify-content:center;gap:.9rem;
+  margin-bottom:2.75rem;font-size:.88rem;font-weight:600;color:var(--slate-600)
 }
-.toggle-slider::before{
+.toggle-sw{position:relative;width:46px;height:26px;flex-shrink:0}
+.toggle-sw input{opacity:0;width:0;height:0;position:absolute}
+.toggle-track{
+  position:absolute;inset:0;background:#cbd5e1;border-radius:999px;cursor:pointer;transition:background .2s
+}
+.toggle-track::before{
   content:'';position:absolute;left:3px;top:3px;width:20px;height:20px;
-  background:#fff;border-radius:50%;transition:transform 0.2s;
-  box-shadow:0 1px 4px rgba(0,0,0,0.18)
+  background:#fff;border-radius:50%;transition:transform .2s;box-shadow:0 1px 4px rgba(0,0,0,.15)
 }
-.toggle-switch input:checked + .toggle-slider{background:var(--blue)}
-.toggle-switch input:checked + .toggle-slider::before{transform:translateX(20px)}
+.toggle-sw input:checked + .toggle-track{background:var(--blue-600)}
+.toggle-sw input:checked + .toggle-track::before{transform:translateX(20px)}
 .save-badge{
-  background:#dcfce7;color:#166534;font-size:0.65rem;font-weight:800;
-  letter-spacing:0.05em;padding:0.12rem 0.55rem;border-radius:999px;text-transform:uppercase
+  background:var(--green-100);color:#166534;font-size:.65rem;font-weight:800;
+  letter-spacing:.05em;padding:.12rem .6rem;border-radius:999px;text-transform:uppercase;margin-left:5px
 }
 
-/* ── PLANS SECTION ── */
-.plans-section{max-width:1120px;margin:0 auto;padding:0.5rem 1.5rem 3rem}
-
+/* ── PLANS GRID ── */
+.plans-section{max-width:1180px;margin:0 auto;padding:3rem 1.5rem 3rem}
 .plans-grid{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:1rem;align-items:start
+  display:grid;grid-template-columns:repeat(5,1fr);
+  gap:1rem;align-items:center;padding-top:20px
 }
-@media(max-width:1020px){.plans-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:1040px){.plans-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:660px){.plans-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:400px){.plans-grid{grid-template-columns:1fr}}
 
+/* ── PLAN CARDS ── */
 .plan-card{
-  background:var(--white);border-radius:20px;box-shadow:var(--shadow);
-  padding:1.6rem 1.3rem;position:relative;border:2px solid transparent;
-  transition:transform 0.18s,box-shadow 0.18s
+  background:var(--white);border-radius:var(--r);
+  box-shadow:var(--shadow);padding:1.65rem 1.35rem;
+  position:relative;border:1.5px solid var(--slate-200);
+  transition:transform .15s ease,box-shadow .15s ease
 }
-.plan-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.12)}
-.plan-card.popular{border-color:var(--blue);box-shadow:0 8px 32px rgba(59,110,248,0.18)}
+.plan-card:hover{transform:translateY(-5px);box-shadow:0 14px 44px rgba(0,0,0,.1)}
 
+.plan-card.popular{
+  border:2px solid var(--blue-600);
+  box-shadow:0 0 0 4px rgba(37,99,235,.08),0 20px 55px rgba(37,99,235,.18),0 4px 16px rgba(0,0,0,.08);
+  margin-top:-16px;padding:2rem 1.4rem 2.2rem
+}
+.plan-card.popular:hover{
+  box-shadow:0 0 0 4px rgba(37,99,235,.12),0 28px 65px rgba(37,99,235,.25),0 4px 20px rgba(0,0,0,.1);
+  transform:translateY(-7px)
+}
+
+.plan-card.clinic-card{
+  background:var(--grad-navy);color:var(--white);border-color:transparent;
+  box-shadow:0 8px 36px rgba(15,23,42,.25)
+}
+.plan-card.clinic-card:hover{
+  box-shadow:0 20px 55px rgba(15,23,42,.35);transform:translateY(-5px)
+}
+
+/* ── POP RIBBON ── */
 .pop-ribbon{
-  position:absolute;top:-12px;left:50%;transform:translateX(-50%);
-  background:var(--grad);color:#fff;font-size:0.62rem;font-weight:800;
-  letter-spacing:0.07em;text-transform:uppercase;padding:0.18rem 0.75rem;
-  border-radius:999px;white-space:nowrap;box-shadow:0 2px 8px rgba(59,110,248,0.35)
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:var(--grad-blue);color:#fff;
+  font-size:.6rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
+  padding:.25rem .95rem;border-radius:999px;white-space:nowrap;
+  box-shadow:0 3px 10px rgba(37,99,235,.42)
+}
+.ent-ribbon{
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:linear-gradient(135deg,#d97706,#f59e0b);color:#fff;
+  font-size:.6rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
+  padding:.25rem .95rem;border-radius:999px;white-space:nowrap;
+  box-shadow:0 3px 10px rgba(217,119,6,.4)
 }
 
+/* ── PLAN INTERNALS ── */
 .plan-tag{
-  font-size:0.62rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
-  padding:0.18rem 0.6rem;border-radius:999px;display:inline-block;margin-bottom:0.6rem
+  font-size:.6rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
+  padding:.2rem .65rem;border-radius:999px;display:inline-block;margin-bottom:.6rem
 }
-.tag-free{background:#f1f5f9;color:#475569}
-.tag-starter{background:#e0f2fe;color:#0369a1}
+.tag-free{background:var(--slate-100);color:var(--slate-600)}
+.tag-starter{background:var(--blue-50);color:var(--blue-700)}
 .tag-pro{background:#ede9fe;color:#6d28d9}
-.tag-expert{background:#fef3c7;color:#92400e}
-.tag-clinic{background:#dcfce7;color:#166534}
+.tag-expert{background:var(--amber-100);color:#92400e}
+.tag-clinic{background:rgba(255,255,255,.14);color:#93c5fd}
 
-.plan-name{font-size:1.1rem;font-weight:800;margin-bottom:0.3rem;letter-spacing:-0.025em}
-.plan-price{font-size:2rem;font-weight:800;letter-spacing:-0.045em;line-height:1;margin:0.5rem 0 0.2rem}
-.plan-price span{font-size:0.85rem;font-weight:500;color:var(--ink-3)}
-.plan-tagline{font-size:0.78rem;color:var(--ink-3);margin-bottom:1.25rem;line-height:1.5;min-height:2.1em}
+.plan-name{font-size:1.05rem;font-weight:800;letter-spacing:-.025em;margin-bottom:.15rem}
+.plan-name.pro{font-size:1.15rem;color:var(--blue-700)}
+.plan-name.clinic{color:var(--white)}
+
+.plan-subtitle{font-size:.78rem;color:var(--slate-500);margin-bottom:.85rem;line-height:1.4}
+.plan-subtitle.clinic{color:#93c5fd}
+
+.plan-price{
+  font-size:1.95rem;font-weight:800;letter-spacing:-.04em;line-height:1;margin-bottom:.2rem
+}
+.plan-price.pro{font-size:2.15rem;color:var(--blue-700)}
+.plan-price.clinic{color:var(--white)}
+.plan-price span{font-size:.82rem;font-weight:500;color:var(--slate-400)}
+.plan-price.clinic span{color:#93c5fd}
+
+.plan-microcopy{font-size:.72rem;color:var(--slate-400);margin-bottom:1.25rem}
+.plan-microcopy.clinic{color:#93c5fd}
 
 .plan-cta{
-  display:block;width:100%;padding:0.72rem 1rem;border-radius:12px;
-  font-size:0.85rem;font-weight:700;font-family:inherit;text-align:center;
-  text-decoration:none;cursor:pointer;transition:opacity 0.18s,transform 0.15s;border:none
+  display:block;width:100%;padding:.74rem 1rem;border-radius:11px;
+  font-size:.85rem;font-weight:700;font-family:inherit;text-align:center;
+  text-decoration:none;cursor:pointer;transition:opacity .18s,transform .15s;border:none
 }
-.plan-cta:hover{opacity:0.9;transform:translateY(-1px)}
-.plan-cta:disabled{opacity:0.5;cursor:not-allowed;transform:none}
-.cta-free{background:#f1f5f9;color:#475569}
-.cta-paid{background:var(--grad);color:#fff}
-.cta-popular{background:var(--grad);color:#fff;box-shadow:0 4px 14px rgba(59,110,248,0.35)}
+.plan-cta:hover:not(:disabled){opacity:.9;transform:translateY(-1px)}
+.plan-cta:disabled{opacity:.5;cursor:not-allowed;transform:none}
 
-.divider{height:1px;background:rgba(0,0,0,0.07);margin:1.2rem 0}
+.cta-ghost{background:var(--slate-100);color:var(--slate-600)}
+.cta-blue{background:var(--grad-blue);color:#fff;box-shadow:0 3px 12px rgba(37,99,235,.28)}
+.cta-blue-glow{background:var(--grad-blue);color:#fff;box-shadow:0 4px 18px rgba(37,99,235,.4);padding:.8rem 1rem}
+.cta-amber{background:linear-gradient(135deg,#d97706,#f59e0b);color:#fff;box-shadow:0 3px 12px rgba(217,119,6,.3)}
+.cta-glass{
+  background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.28);
+  backdrop-filter:blur(4px)
+}
 
-.feat-list{list-style:none;font-size:0.79rem;color:var(--ink-2);display:flex;flex-direction:column;gap:0.55rem}
-.feat-list li{display:flex;align-items:flex-start;gap:7px;line-height:1.4}
-.fi-ok{color:#16a34a;flex-shrink:0;font-weight:700}
+.divider{height:1px;background:rgba(0,0,0,.07);margin:1.15rem 0}
+.divider.clinic{background:rgba(255,255,255,.1)}
+
+.feat-list{list-style:none;font-size:.78rem;color:var(--slate-600);display:flex;flex-direction:column;gap:.55rem}
+.feat-list li{display:flex;align-items:flex-start;gap:7px;line-height:1.42}
+.feat-list.clinic{color:#bfdbfe}
+.fi-ok{color:var(--green-600);font-weight:700;flex-shrink:0}
+.fi-ok.clinic{color:#34d399}
 .fi-no{color:#d1d5db;flex-shrink:0}
-.fi-lim{color:var(--amber);flex-shrink:0;font-weight:700}
+.fi-lim{color:var(--amber-600);font-weight:700;flex-shrink:0}
+.fi-lim.clinic{color:#fcd34d}
+
+/* ── TEAM AVATARS ── */
+.team-avatars{display:flex;align-items:center;gap:3px;margin-bottom:.85rem}
+.team-av{
+  width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,.2);
+  display:flex;align-items:center;justify-content:center;font-size:.55rem;color:#fff;font-weight:700
+}
+.team-label{font-size:.7rem;color:#93c5fd;margin-left:5px;line-height:22px}
+
+/* ── VALUE SECTION ── */
+.value-section{
+  max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4.5rem
+}
+.value-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
+@media(max-width:900px){.value-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.value-grid{grid-template-columns:1fr}}
+
+.value-card{
+  background:var(--white);border-radius:18px;padding:1.5rem;
+  border:1px solid var(--slate-200);box-shadow:var(--shadow-sm)
+}
+.value-icon{
+  width:40px;height:40px;border-radius:10px;background:var(--blue-50);
+  display:flex;align-items:center;justify-content:center;margin-bottom:.9rem;color:var(--blue-600)
+}
+.value-card h3{font-size:.9rem;font-weight:700;margin-bottom:.4rem;letter-spacing:-.015em}
+.value-card p{font-size:.78rem;color:var(--slate-500);line-height:1.6}
 
 /* ── COMPARISON TABLE ── */
 .compare-section{max-width:1120px;margin:0 auto;padding:0 1.5rem 5rem}
 .compare-section h2{
-  font-size:1.6rem;font-weight:800;letter-spacing:-0.035em;
-  text-align:center;margin-bottom:2.5rem
+  font-size:1.65rem;font-weight:800;letter-spacing:-.035em;
+  text-align:center;margin-bottom:.6rem
 }
+.compare-subtext{text-align:center;font-size:.9rem;color:var(--slate-500);margin-bottom:2.5rem}
 .compare-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:20px;box-shadow:var(--shadow)}
-table{width:100%;border-collapse:collapse;background:var(--white);font-size:0.82rem;min-width:580px}
+
+table{width:100%;border-collapse:collapse;background:var(--white);font-size:.82rem;min-width:580px}
 colgroup col.col-feat{width:26%}
 colgroup col{width:14.8%}
-thead tr{background:var(--grad)}
-thead th{padding:1.15rem 0.75rem;font-weight:700;text-align:center;color:#fff;vertical-align:middle;white-space:nowrap}
+
+thead tr{background:var(--grad-blue)}
+thead th{
+  padding:1.2rem .75rem;font-weight:700;text-align:center;
+  color:#fff;vertical-align:middle;white-space:nowrap
+}
 thead th:first-child{text-align:left;padding-left:1.5rem}
-thead th.col-pro{background:linear-gradient(160deg,#2550e0 0%,#6535e8 100%)}
+thead th.col-pro{background:linear-gradient(160deg,#1e40af 0%,#1d4ed8 100%)}
+thead th.col-clinic{background:linear-gradient(160deg,#0f172a 0%,#1e3a8a 100%)}
+
 .th-inner{display:flex;flex-direction:column;align-items:center;gap:3px}
 thead th:first-child .th-inner{align-items:flex-start}
-.th-name{font-size:0.85rem;font-weight:800;letter-spacing:-0.01em}
-.th-price{font-size:0.67rem;font-weight:500;opacity:0.72;margin-top:1px}
+.th-name{font-size:.85rem;font-weight:800;letter-spacing:-.01em}
+.th-price{font-size:.67rem;font-weight:500;opacity:.72;margin-top:1px}
 .rec-badge{
   display:inline-block;background:#fbbf24;color:#78350f;
-  font-size:0.57rem;font-weight:800;letter-spacing:0.07em;text-transform:uppercase;
-  padding:0.1rem 0.55rem;border-radius:999px;margin-bottom:3px
+  font-size:.55rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
+  padding:.1rem .55rem;border-radius:999px;margin-bottom:3px
 }
-tbody tr{border-bottom:1px solid rgba(0,0,0,0.05)}
+.ent-badge{
+  display:inline-block;background:rgba(255,255,255,.18);color:#fff;
+  font-size:.55rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
+  padding:.1rem .55rem;border-radius:999px;margin-bottom:3px;border:1px solid rgba(255,255,255,.25)
+}
+
+tbody tr{border-bottom:1px solid rgba(0,0,0,.05)}
 tbody tr:last-child{border-bottom:none}
 tbody tr:nth-child(odd){background:#fff}
-tbody tr:nth-child(even){background:#f8f8fc}
-tbody tr:hover{background:#eef2ff}
-tbody td{padding:0.72rem 0.75rem;text-align:center;vertical-align:middle;color:var(--ink-3)}
-tbody td:first-child{text-align:left;font-weight:600;color:var(--ink);padding-left:1.5rem;white-space:nowrap}
-tbody td.col-pro{background:rgba(59,110,248,0.05)}
-tbody tr:nth-child(even) td.col-pro{background:rgba(59,110,248,0.09)}
-tbody tr:hover td.col-pro{background:rgba(59,110,248,0.14)}
-.yes{color:#16a34a;font-size:1rem;font-weight:700}
+tbody tr:nth-child(even){background:#f8fafc}
+tbody tr:hover{background:#eff6ff}
+tbody td{padding:.72rem .75rem;text-align:center;vertical-align:middle;color:var(--slate-500)}
+tbody td:first-child{text-align:left;font-weight:600;color:var(--slate-800);padding-left:1.5rem;white-space:nowrap}
+tbody td.col-pro{background:rgba(37,99,235,.04)}
+tbody tr:nth-child(even) td.col-pro{background:rgba(37,99,235,.08)}
+tbody tr:hover td.col-pro{background:rgba(37,99,235,.13)}
+tbody td.col-clinic{background:rgba(15,23,42,.03)}
+tbody tr:nth-child(even) td.col-clinic{background:rgba(15,23,42,.05)}
+tbody tr:hover td.col-clinic{background:rgba(15,23,42,.08)}
+
+.cat-row td{
+  background:var(--slate-100) !important;
+  font-size:.68rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--slate-500);padding:.5rem .75rem
+}
+.cat-row td:first-child{padding-left:1.5rem;color:var(--slate-600)}
+
+.yes{color:var(--green-600);font-size:1rem;font-weight:700}
 .no{color:#d1d5db;font-size:1rem;font-weight:700}
-.lim{color:var(--amber);font-size:0.75rem;font-weight:700}
+.lim{color:var(--amber-600);font-size:.75rem;font-weight:700}
+
+/* ── LAN SYNC ── */
+.how-section{max-width:1120px;margin:0 auto;padding:0 1.5rem 4.5rem;text-align:center}
+.how-section h2{font-size:1.6rem;font-weight:800;letter-spacing:-.035em;margin-bottom:.55rem}
+.how-sub{font-size:.92rem;color:var(--slate-500);margin-bottom:2.5rem}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-bottom:2rem;text-align:left}
+@media(max-width:700px){.how-grid{grid-template-columns:1fr}}
+.how-step{
+  background:var(--white);border-radius:16px;padding:1.5rem;
+  box-shadow:var(--shadow-sm);border:1px solid rgba(0,0,0,.06)
+}
+.how-icon{
+  width:38px;height:38px;border-radius:10px;background:var(--blue-50);
+  display:flex;align-items:center;justify-content:center;margin-bottom:.8rem;font-size:1.2rem
+}
+.how-step h3{font-size:.9rem;font-weight:700;margin-bottom:.45rem;letter-spacing:-.01em}
+.how-step p{font-size:.79rem;color:var(--slate-500);line-height:1.6}
+.how-limits{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.how-limit-item{
+  display:flex;align-items:center;gap:.6rem;background:var(--white);
+  border:1px solid rgba(0,0,0,.08);border-radius:999px;
+  padding:.4rem 1rem;font-size:.8rem;font-weight:600;color:var(--slate-700);
+  box-shadow:var(--shadow-sm)
+}
+.hl-expert{background:var(--amber-100);color:#92400e;font-size:.6rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:.15rem .5rem;border-radius:999px}
+.hl-clinic{background:var(--green-100);color:#166534;font-size:.6rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:.15rem .5rem;border-radius:999px}
 
 /* ── FAQ ── */
 .faq-section{max-width:720px;margin:0 auto;padding:0 1.5rem 5rem}
-.faq-section h2{font-size:1.5rem;font-weight:800;letter-spacing:-0.03em;text-align:center;margin-bottom:2rem}
-.faq-item{border-radius:14px;background:var(--white);box-shadow:var(--shadow-sm);margin-bottom:0.75rem;overflow:hidden}
+.faq-section h2{font-size:1.55rem;font-weight:800;letter-spacing:-.03em;text-align:center;margin-bottom:.5rem}
+.faq-intro{text-align:center;font-size:.88rem;color:var(--slate-500);margin-bottom:2rem}
+.faq-item{border-radius:14px;background:var(--white);box-shadow:var(--shadow-sm);margin-bottom:.7rem;overflow:hidden}
 .faq-q{
   width:100%;padding:1.1rem 1.25rem;text-align:left;background:none;border:none;
-  font-size:0.9rem;font-weight:600;font-family:inherit;color:var(--ink);
+  font-size:.9rem;font-weight:600;font-family:inherit;color:var(--slate-800);
   cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem
 }
-.faq-q .arr{transition:transform 0.22s;font-size:0.75rem;color:var(--ink-3);flex-shrink:0}
+.faq-q .arr{transition:transform .22s;font-size:.72rem;color:var(--slate-400);flex-shrink:0}
 .faq-q.open .arr{transform:rotate(180deg)}
-.faq-a{display:none;padding:0 1.25rem 1.1rem;font-size:0.85rem;color:var(--ink-3);line-height:1.7}
+.faq-a{display:none;padding:0 1.25rem 1.1rem;font-size:.85rem;color:var(--slate-500);line-height:1.72}
 .faq-a.show{display:block}
 
 /* ── FOOTER ── */
-footer{text-align:center;padding:2rem 1.5rem 3.5rem;font-size:0.82rem;color:var(--ink-3)}
-footer a{color:var(--blue);text-decoration:none;font-weight:600}
+footer{text-align:center;padding:2rem 1.5rem 3.5rem;font-size:.82rem;color:var(--slate-500)}
+footer a{color:var(--blue-600);text-decoration:none;font-weight:600}
 footer a:hover{text-decoration:underline}
-footer .sep{margin:0 0.5rem;color:var(--ink-4)}
+footer .sep{margin:0 .5rem;color:var(--slate-200)}
 
-/* ── LAN SYNC HOW IT WORKS ── */
-.how-section{max-width:1120px;margin:0 auto;padding:0 1.5rem 4rem;text-align:center}
-.how-section h2{font-size:1.6rem;font-weight:800;letter-spacing:-0.035em;margin-bottom:0.6rem}
-.how-sub{font-size:0.92rem;color:var(--ink-3);margin-bottom:2.5rem}
-.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-bottom:2rem;text-align:left}
-@media(max-width:700px){.how-grid{grid-template-columns:1fr}}
-.how-step{background:var(--white);border-radius:16px;padding:1.5rem;box-shadow:var(--shadow-sm);border:1px solid rgba(0,0,0,0.06)}
-.how-icon{font-size:1.6rem;margin-bottom:0.75rem}
-.how-step h3{font-size:0.92rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:-0.01em}
-.how-step p{font-size:0.8rem;color:var(--ink-3);line-height:1.6}
-.how-limits{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-.how-limit-item{display:flex;align-items:center;gap:0.6rem;background:var(--white);border:1px solid rgba(0,0,0,0.08);border-radius:999px;padding:0.4rem 1rem;font-size:0.8rem;font-weight:600;color:var(--ink-2);box-shadow:var(--shadow-sm)}
-.hl-tag{font-size:0.62rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.15rem 0.5rem;border-radius:999px}
-
-/* ── LAUNCH BANNER ── */
-.launch-banner{
-  background:linear-gradient(135deg,#1d4ed8 0%,#6d28d9 100%);
-  color:#fff;text-align:center;padding:0.75rem 1.5rem;
-  font-size:0.83rem;font-weight:600;letter-spacing:0.01em
-}
-.launch-banner a{color:#fde68a;text-decoration:underline;cursor:pointer}
-
-/* ── ERROR TOAST ── */
-.err-toast{
+/* ── ERR TOAST ── */
+#err-toast{
   display:none;position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);
   background:#fff;border:1px solid #fecaca;color:#b91c1c;
-  padding:0.8rem 1.5rem;border-radius:12px;font-size:0.83rem;font-weight:600;
-  box-shadow:0 4px 20px rgba(0,0,0,0.12);z-index:999;max-width:90vw;text-align:center
+  padding:.8rem 1.5rem;border-radius:12px;font-size:.83rem;font-weight:600;
+  box-shadow:0 4px 20px rgba(0,0,0,.12);z-index:999;max-width:90vw;text-align:center
 }
 
-/* ── SPINNER ── */
-.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,0.35);border-top-color:#fff;border-radius:50%;animation:spin 0.7s linear infinite;vertical-align:middle}
-@keyframes spin{to{transform:rotate(360deg)}}
+/* ── RESPONSIVE ── */
+@media(max-width:1040px){
+  .plans-grid{grid-template-columns:repeat(3,1fr)}
+  .plan-card.popular{margin-top:0}
+}
+@media(max-width:660px){.plans-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:400px){.plans-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
 <!-- LAUNCH BANNER -->
 <div class="launch-banner">
-  🚀 Launch offer — <strong>first month free</strong> on any annual plan. <a href="auth.html">Start now</a> · No credit card required.
+  🎉 Launch offer — <strong>first month free</strong> on any annual plan.&nbsp;
+  <a href="auth.html">Activate now</a> · No credit card required.
 </div>
 
 <!-- NAV -->
@@ -265,37 +421,65 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-eyebrow">Radiology Software · Cloud · AI</div>
-  <h1>The plan that fits<br/><span>your practice</span></h1>
-  <p>From independent radiologist to multi-site clinic — PISUM adapts to your needs with features built for you.</p>
+  <div class="hero-eyebrow">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+    Radiology Software · AI-Powered · GDPR Compliant
+  </div>
+  <h1>Professional tools,<br/><span>built for radiologists</span></h1>
+  <p>From independent radiologist to multi-site clinic — PISUM adapts to your practice with structured templates, AI dictation, and local data control.</p>
   <div class="hero-cta">
-    <a class="btn-hero primary" href="auth.html">Get started for free</a>
-    <a class="btn-hero secondary" href="#compare">Compare plans</a>
+    <a class="btn-hero-primary" href="auth.html">Start for free — no card needed</a>
+    <a class="btn-hero-secondary" href="#compare">Compare plans</a>
   </div>
 </div>
 
-<!-- PLAN CARDS -->
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-item">
+    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    GDPR Compliant
+  </div>
+  <div class="trust-item">
+    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+    Data stays local — no cloud upload
+  </div>
+  <div class="trust-item">
+    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+    Built for radiologists
+  </div>
+  <div class="trust-item">
+    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+    Used in clinics across Europe
+  </div>
+  <div class="trust-item">
+    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+    Works offline · No internet needed
+  </div>
+</div>
+
+<!-- PLANS SECTION -->
 <section class="plans-section">
 
   <!-- Billing toggle -->
   <div class="billing-toggle">
-    <span>Monthly</span>
-    <label class="toggle-switch">
+    <span id="label-monthly" style="color:var(--blue-700)">Monthly</span>
+    <label class="toggle-sw">
       <input type="checkbox" id="billing-annual" onchange="setBilling(this.checked)"/>
-      <span class="toggle-slider"></span>
+      <span class="toggle-track"></span>
     </label>
-    <span>Annual <span class="save-badge">−20%</span></span>
+    <span id="label-annual">Annual<span class="save-badge">−20%</span></span>
   </div>
 
   <div class="plans-grid">
 
     <!-- FREE -->
-    <div class="plan-card">
+    <div class="plan-card anim-1">
       <div class="plan-tag tag-free">Free</div>
       <div class="plan-name">Pisum Free</div>
+      <div class="plan-subtitle">Discover PISUM</div>
       <div class="plan-price">0 €<span> / month</span></div>
-      <div class="plan-tagline">Discover PISUM with no commitment</div>
-      <a class="plan-cta cta-free" href="auth.html">Get started</a>
+      <div class="plan-microcopy">No credit card needed</div>
+      <a class="plan-cta cta-ghost" href="auth.html" data-label="Get started">Get started</a>
       <div class="divider"></div>
       <ul class="feat-list">
         <li><span class="fi-ok">✓</span>10 templates</li>
@@ -310,83 +494,135 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
     </div>
 
     <!-- STARTER -->
-    <div class="plan-card">
+    <div class="plan-card anim-2" style="border-color:#bfdbfe">
       <div class="plan-tag tag-starter">Starter</div>
       <div class="plan-name">Pisum Starter</div>
+      <div class="plan-subtitle">Solo radiologist</div>
       <div class="plan-price" id="price-starter" data-monthly="29" data-annual="23">29 €<span id="price-starter-sub"> / month</span></div>
-      <div class="plan-tagline">Independent radiologist</div>
-      <button class="plan-cta cta-paid" onclick="subscribe('starter')">Subscribe</button>
+      <div class="plan-microcopy" id="sub-starter">Billed monthly</div>
+      <button class="plan-cta cta-blue" onclick="subscribe('starter')" data-label="Start reporting">Start reporting</button>
       <div class="divider"></div>
       <ul class="feat-list">
         <li><span class="fi-ok">✓</span>20 templates</li>
         <li><span class="fi-ok">✓</span>5 languages</li>
         <li><span class="fi-ok">✓</span>PDF + Word Export</li>
-        <li><span class="fi-lim">◐</span>AI Dictation (60 min/month)</li>
-        <li><span class="fi-lim">◐</span>AI Enhancer (20 prompts/month)</li>
+        <li><span class="fi-lim">◐</span>AI Dictation (60 min/mo)</li>
+        <li><span class="fi-lim">◐</span>AI Enhancer (20/mo)</li>
         <li><span class="fi-lim">◐</span>Basic Worklist</li>
         <li><span class="fi-ok">✓</span>Unlimited reports</li>
       </ul>
     </div>
 
-    <!-- PRO -->
-    <div class="plan-card popular">
-      <div class="pop-ribbon">Recommended</div>
+    <!-- PRO — MOST POPULAR -->
+    <div class="plan-card popular anim-3">
+      <div class="pop-ribbon">Most Popular</div>
       <div class="plan-tag tag-pro">Pro ⭐</div>
-      <div class="plan-name">Pisum Pro</div>
-      <div class="plan-price" id="price-pro" data-monthly="59" data-annual="47">59 €<span id="price-pro-sub"> / month</span></div>
-      <div class="plan-tagline">Advanced practitioner, all-in-one</div>
-      <button class="plan-cta cta-popular" onclick="subscribe('pro')">Subscribe</button>
-      <div class="divider"></div>
+      <div class="plan-name pro">Pisum Pro</div>
+      <div class="plan-subtitle">Advanced practitioner, all-in-one</div>
+      <div class="plan-price pro" id="price-pro" data-monthly="59" data-annual="47">59 €<span id="price-pro-sub"> / month</span></div>
+      <div class="plan-microcopy" id="sub-pro">Billed monthly</div>
+      <button class="plan-cta cta-blue-glow" onclick="subscribe('pro')" data-label="Upgrade to Pro">Upgrade to Pro</button>
+      <div class="divider" style="background:rgba(37,99,235,.12)"></div>
       <ul class="feat-list">
         <li><span class="fi-ok">✓</span>112+ templates</li>
         <li><span class="fi-ok">✓</span>23 languages</li>
         <li><span class="fi-ok">✓</span>PDF + Word Export</li>
-        <li><span class="fi-lim">◐</span>AI Dictation (600 min/month)</li>
-        <li><span class="fi-lim">◐</span>AI Enhancer (50 prompts/month)</li>
+        <li><span class="fi-lim">◐</span>AI Dictation (600 min/mo)</li>
+        <li><span class="fi-lim">◐</span>AI Enhancer (50/mo)</li>
         <li><span class="fi-ok">✓</span>Full Worklist</li>
         <li><span class="fi-lim">◐</span>Basic Statistics</li>
       </ul>
     </div>
 
     <!-- EXPERT -->
-    <div class="plan-card">
+    <div class="plan-card anim-4" style="border-color:#fde68a">
       <div class="plan-tag tag-expert">Expert 🔥</div>
       <div class="plan-name">Pisum Expert</div>
+      <div class="plan-subtitle">No limits, full power</div>
       <div class="plan-price" id="price-expert" data-monthly="99" data-annual="79">99 €<span id="price-expert-sub"> / month</span></div>
-      <div class="plan-tagline">Expert radiologist, no limits</div>
-      <button class="plan-cta cta-paid" onclick="subscribe('expert')">Subscribe</button>
+      <div class="plan-microcopy" id="sub-expert">Billed monthly</div>
+      <button class="plan-cta cta-amber" onclick="subscribe('expert')" data-label="Get full access">Get full access</button>
       <div class="divider"></div>
       <ul class="feat-list">
         <li><span class="fi-ok">✓</span>112+ custom templates</li>
         <li><span class="fi-ok">✓</span>23 languages</li>
         <li><span class="fi-ok">✓</span>PDF + Word Export</li>
-        <li><span class="fi-lim">◐</span>AI Dictation (~100 min/day, 3,000 min/month)</li>
-        <li><span class="fi-lim">◐</span>AI Enhancer (400 prompts/month)</li>
+        <li><span class="fi-lim">◐</span>AI Dictation (~100 min/day)</li>
+        <li><span class="fi-lim">◐</span>AI Enhancer (400/mo)</li>
         <li><span class="fi-ok">✓</span>Advanced Worklist</li>
         <li><span class="fi-ok">✓</span>Full Statistics</li>
-        <li><span class="fi-lim">◐</span>LAN Sync (1 site, max 3 workstations)</li>
+        <li><span class="fi-lim">◐</span>LAN Sync (1 site · 3 PCs)</li>
       </ul>
     </div>
 
-    <!-- CLINIC -->
-    <div class="plan-card">
+    <!-- CLINIC — ENTERPRISE -->
+    <div class="plan-card clinic-card anim-5">
+      <div class="ent-ribbon">For Clinics</div>
       <div class="plan-tag tag-clinic">Clinic 🏥</div>
-      <div class="plan-name">Pisum Clinic</div>
-      <div class="plan-price" id="price-clinic" data-monthly="299" data-annual="239">299 €<span id="price-clinic-sub"> / month</span></div>
-      <div class="plan-tagline">5 users included · +€49/additional user</div>
-      <button class="plan-cta cta-paid" onclick="subscribe('clinic')">Subscribe</button>
-      <div class="divider"></div>
-      <ul class="feat-list">
-        <li><span class="fi-ok">✓</span>Custom templates</li>
-        <li><span class="fi-ok">✓</span>23 languages</li>
-        <li><span class="fi-ok">✓</span>PDF + Word Export</li>
-        <li><span class="fi-lim">◐</span>AI Dictation (~200 min/day, 6,000 min/month)</li>
-        <li><span class="fi-lim">◐</span>AI Enhancer (1,500 prompts/month)</li>
-        <li><span class="fi-ok">✓</span>Multi-site Worklist</li>
-        <li><span class="fi-ok">✓</span>5 users included (+€49/extra user)</li>
-        <li><span class="fi-ok">✓</span>Advanced stats + onboarding</li>
-        <li><span class="fi-ok">✓</span>LAN Sync (multi-site, unlimited workstations)</li>
+      <div class="plan-name clinic">Pisum Clinic</div>
+      <div class="plan-subtitle clinic">Multi-site · Team management</div>
+      <div class="plan-price clinic" id="price-clinic" data-monthly="299" data-annual="239">299 €<span id="price-clinic-sub"> / month</span></div>
+      <div class="plan-microcopy clinic" id="sub-clinic">5 users incl. · +€49/extra user</div>
+      <button class="plan-cta cta-glass" onclick="subscribe('clinic')" data-label="Contact us">Contact us</button>
+      <div class="divider clinic"></div>
+      <!-- Team avatars -->
+      <div class="team-avatars">
+        <div class="team-av" style="background:linear-gradient(135deg,#60a5fa,#3b82f6)">R</div>
+        <div class="team-av" style="background:linear-gradient(135deg,#818cf8,#6366f1)">A</div>
+        <div class="team-av" style="background:linear-gradient(135deg,#34d399,#10b981)">M</div>
+        <div class="team-av" style="background:linear-gradient(135deg,#fb923c,#f97316)">S</div>
+        <div class="team-av" style="background:rgba(255,255,255,.15)">+</div>
+        <span class="team-label">5 users</span>
+      </div>
+      <ul class="feat-list clinic">
+        <li><span class="fi-ok clinic">✓</span>Custom templates</li>
+        <li><span class="fi-ok clinic">✓</span>23 languages</li>
+        <li><span class="fi-ok clinic">✓</span>PDF + Word Export</li>
+        <li><span class="fi-lim clinic">◐</span>AI Dictation (~200 min/day)</li>
+        <li><span class="fi-lim clinic">◐</span>AI Enhancer (1,500/mo)</li>
+        <li><span class="fi-ok clinic">✓</span>Multi-site Worklist</li>
+        <li><span class="fi-ok clinic">✓</span>Advanced stats + onboarding</li>
+        <li><span class="fi-ok clinic">✓</span>LAN Sync (multi-site · unlimited)</li>
       </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- VALUE SECTION -->
+<section class="value-section">
+  <div style="text-align:center;margin-bottom:2rem">
+    <div style="display:inline-block;padding:.3rem 1rem;border-radius:999px;background:var(--blue-50);border:1px solid var(--blue-100);color:var(--blue-700);font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.9rem">Why professionals choose PISUM</div>
+    <h2 style="font-size:1.55rem;font-weight:800;letter-spacing:-.03em">A tool that respects your workflow</h2>
+  </div>
+  <div class="value-grid">
+    <div class="value-card">
+      <div class="value-icon">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+      </div>
+      <h3>Local-first privacy</h3>
+      <p>Patient reports stay on your machine. No clinical data ever leaves your computer — no cloud upload, full GDPR compliance.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      </div>
+      <h3>112+ radiology templates</h3>
+      <p>Structured reports for every modality — MRI, CT, echography, and more. In 23 languages, ready for immediate use.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8"/></svg>
+      </div>
+      <h3>AI Dictation & Enhancer</h3>
+      <p>Dictate reports hands-free and improve wording with AI — designed specifically for radiology terminology and phrasing.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <h3>LAN Network Sync</h3>
+      <p>Share the same worklist across all workstations in your clinic — no cloud, instant sync via your local network.</p>
     </div>
   </div>
 </section>
@@ -394,34 +630,43 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
 <!-- COMPARISON TABLE -->
 <section class="compare-section" id="compare">
   <h2>Detailed comparison</h2>
+  <p class="compare-subtext">See exactly what's included at each level — pick what fits your practice.</p>
   <div class="compare-wrap">
     <table>
       <colgroup>
-        <col class="col-feat"/><col/><col/><col class="col-pro"/><col/><col/>
+        <col class="col-feat"/><col/><col/><col class="col-pro"/><col/><col class="col-clinic"/>
       </colgroup>
       <thead>
         <tr>
           <th><div class="th-inner"><span class="th-name">Feature</span></div></th>
-          <th><div class="th-inner"><span class="th-name">Free</span><span class="th-price">€0/month</span></div></th>
-          <th><div class="th-inner"><span class="th-name">Starter</span><span class="th-price">€29/month</span></div></th>
-          <th class="col-pro"><div class="th-inner"><span class="rec-badge">Recommended</span><span class="th-name">Pro ⭐</span><span class="th-price">€59/month</span></div></th>
-          <th><div class="th-inner"><span class="th-name">Expert 🔥</span><span class="th-price">€99/month</span></div></th>
-          <th><div class="th-inner"><span class="th-name">Clinic 🏥</span><span class="th-price">€299/month</span></div></th>
+          <th><div class="th-inner"><span class="th-name">Free</span><span class="th-price">€0/mo</span></div></th>
+          <th><div class="th-inner"><span class="th-name">Starter</span><span class="th-price">€29/mo</span></div></th>
+          <th class="col-pro"><div class="th-inner"><span class="rec-badge">Most Popular</span><span class="th-name">Pro ⭐</span><span class="th-price">€59/mo</span></div></th>
+          <th><div class="th-inner"><span class="th-name">Expert 🔥</span><span class="th-price">€99/mo</span></div></th>
+          <th class="col-clinic"><div class="th-inner"><span class="ent-badge">Enterprise</span><span class="th-name">Clinic 🏥</span><span class="th-price">€299/mo</span></div></th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>Templates</td><td>10</td><td>20</td><td class="col-pro">112+</td><td>112+ custom</td><td>Custom</td></tr>
-        <tr><td>Available languages</td><td>2</td><td>5</td><td class="col-pro">23</td><td>23</td><td>23</td></tr>
-        <tr><td>PDF Export</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td class="col-pro"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
-        <tr><td>Word Export</td><td><span class="no">✕</span></td><td><span class="yes">✓</span></td><td class="col-pro"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
-        <tr><td>AI Dictation</td><td><span class="no">✕</span></td><td><span class="lim">60 min/month</span></td><td class="col-pro"><span class="lim">600 min/month</span></td><td><span class="lim">~100 min/day</span></td><td><span class="lim">~200 min/day</span></td></tr>
-        <tr><td>AI Enhancer</td><td><span class="no">✕</span></td><td><span class="lim">20 prompts/month</span></td><td class="col-pro"><span class="lim">50 prompts/month</span></td><td><span class="lim">400 prompts/month</span></td><td><span class="lim">1,500 prompts/month</span></td></tr>
-        <tr><td>Worklist</td><td><span class="no">✕</span></td><td><span class="lim">Basic</span></td><td class="col-pro"><span class="lim">Full</span></td><td><span class="yes">Advanced</span></td><td><span class="yes">Multi-site</span></td></tr>
-        <tr><td>LAN Network Sync</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="no">✕</span></td><td><span class="lim">1 site · 3 workstations</span></td><td><span class="yes">Multi-site · Unlimited</span></td></tr>
-        <tr><td>Users</td><td>1</td><td>1</td><td class="col-pro">1</td><td>1</td><td>5 incl. (+€49/extra)</td></tr>
-        <tr><td>Statistics</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="lim">Basic</span></td><td><span class="yes">✓</span></td><td><span class="yes">Advanced</span></td></tr>
-        <tr><td>Reports / month</td><td><span class="lim">20 max</span></td><td><span class="yes">Unlimited</span></td><td class="col-pro"><span class="yes">Unlimited</span></td><td><span class="yes">Unlimited</span></td><td><span class="yes">Unlimited</span></td></tr>
-        <tr><td>Support</td><td>—</td><td>Email</td><td class="col-pro">Priority email</td><td>Chat + email</td><td>Dedicated + onboarding</td></tr>
+        <!-- Templates & Languages -->
+        <tr class="cat-row"><td colspan="6">Templates &amp; Content</td></tr>
+        <tr><td>Templates</td><td>10</td><td>20</td><td class="col-pro"><strong>112+</strong></td><td>112+ custom</td><td class="col-clinic">Custom</td></tr>
+        <tr><td>Available languages</td><td>2</td><td>5</td><td class="col-pro"><strong>23</strong></td><td>23</td><td class="col-clinic">23</td></tr>
+        <tr><td>PDF Export</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td class="col-pro"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td class="col-clinic"><span class="yes">✓</span></td></tr>
+        <tr><td>Word Export</td><td><span class="no">✕</span></td><td><span class="yes">✓</span></td><td class="col-pro"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td class="col-clinic"><span class="yes">✓</span></td></tr>
+        <tr><td>Reports / month</td><td><span class="lim">20 max</span></td><td><span class="yes">Unlimited</span></td><td class="col-pro"><span class="yes">Unlimited</span></td><td><span class="yes">Unlimited</span></td><td class="col-clinic"><span class="yes">Unlimited</span></td></tr>
+        <!-- AI -->
+        <tr class="cat-row"><td colspan="6">AI Features</td></tr>
+        <tr><td>AI Dictation</td><td><span class="no">✕</span></td><td><span class="lim">60 min/mo</span></td><td class="col-pro"><span class="lim">600 min/mo</span></td><td><span class="lim">~100 min/day</span></td><td class="col-clinic"><span class="lim">~200 min/day</span></td></tr>
+        <tr><td>AI Enhancer</td><td><span class="no">✕</span></td><td><span class="lim">20/mo</span></td><td class="col-pro"><span class="lim">50/mo</span></td><td><span class="lim">400/mo</span></td><td class="col-clinic"><span class="lim">1,500/mo</span></td></tr>
+        <!-- Workflow -->
+        <tr class="cat-row"><td colspan="6">Workflow &amp; Clinic</td></tr>
+        <tr><td>Worklist</td><td><span class="no">✕</span></td><td><span class="lim">Basic</span></td><td class="col-pro"><span class="yes">Full</span></td><td><span class="yes">Advanced</span></td><td class="col-clinic"><span class="yes">Multi-site</span></td></tr>
+        <tr><td>Statistics</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="lim">Basic</span></td><td><span class="yes">Full</span></td><td class="col-clinic"><span class="yes">Advanced</span></td></tr>
+        <tr><td>LAN Network Sync</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="no">✕</span></td><td><span class="lim">1 site · 3 PCs</span></td><td class="col-clinic"><span class="yes">Multi-site · Unlimited</span></td></tr>
+        <tr><td>Users</td><td>1</td><td>1</td><td class="col-pro">1</td><td>1</td><td class="col-clinic"><strong>5 incl. (+€49/extra)</strong></td></tr>
+        <!-- Support -->
+        <tr class="cat-row"><td colspan="6">Support</td></tr>
+        <tr><td>Support level</td><td>—</td><td>Email</td><td class="col-pro">Priority email</td><td>Chat + email</td><td class="col-clinic"><strong>Dedicated + onboarding</strong></td></tr>
       </tbody>
     </table>
   </div>
@@ -430,7 +675,7 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
 <!-- LAN SYNC HOW IT WORKS -->
 <section class="how-section" id="lan-sync">
   <h2>How LAN Network Sync works</h2>
-  <p class="how-sub">Share patient data across workstations on your local network — no cloud, no latency.</p>
+  <p class="how-sub">Share patient data across workstations on your local network — no cloud, no latency, no GDPR risk.</p>
   <div class="how-grid">
     <div class="how-step">
       <div class="how-icon">🖥️</div>
@@ -440,21 +685,21 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
     <div class="how-step">
       <div class="how-icon">🔐</div>
       <h3>2. One shared password</h3>
-      <p>The database is AES-256 encrypted. Set one network password on the first workstation — all other PCs enter the same password to connect.</p>
+      <p>The database is AES-256 encrypted. Set one password on the first workstation — all other PCs enter the same password to connect.</p>
     </div>
     <div class="how-step">
       <div class="how-icon">⚡</div>
-      <h3>3. Instant sync</h3>
-      <p>Each workstation reads and writes directly to the shared database. Changes appear instantly across all connected PCs.</p>
+      <h3>3. Instant sync across PCs</h3>
+      <p>Each workstation reads and writes directly to the shared database. Changes appear instantly across all connected computers.</p>
     </div>
   </div>
   <div class="how-limits">
     <div class="how-limit-item">
-      <span class="hl-tag tag-expert">Expert 🔥</span>
+      <span class="hl-expert">Expert 🔥</span>
       <span>1 site · max 3 workstations</span>
     </div>
     <div class="how-limit-item">
-      <span class="hl-tag tag-clinic">Clinic 🏥</span>
+      <span class="hl-clinic">Clinic 🏥</span>
       <span>Multi-site · unlimited workstations</span>
     </div>
   </div>
@@ -463,75 +708,68 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
 <!-- FAQ -->
 <section class="faq-section">
   <h2>Frequently Asked Questions</h2>
+  <p class="faq-intro">Everything you need to know before subscribing.</p>
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">
-      Can I change my plan at any time?
-      <span class="arr">▼</span>
+      Can I change my plan at any time? <span class="arr">▼</span>
     </button>
-    <div class="faq-a">Yes, you can upgrade or cancel your subscription at any time from your dashboard. Changes take effect immediately.</div>
+    <div class="faq-a">Yes — upgrade or cancel your subscription at any time from your dashboard. Changes take effect immediately.</div>
   </div>
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">
-      Is there a minimum commitment?
-      <span class="arr">▼</span>
+      Is there a minimum commitment? <span class="arr">▼</span>
     </button>
-    <div class="faq-a">No, all plans are commitment-free. You pay month to month and can cancel whenever you want.</div>
+    <div class="faq-a">No. All plans are month-to-month with no lock-in. Annual billing saves 20% and includes a free first month during the launch period.</div>
   </div>
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">
-      Is the Free plan really free?
-      <span class="arr">▼</span>
+      Is the Free plan truly free? <span class="arr">▼</span>
     </button>
-    <div class="faq-a">Yes, the Free plan is completely free with no credit card required. It lets you explore PISUM with 10 templates, 20 reports per month, and PDF export.</div>
+    <div class="faq-a">Yes — no credit card, no time limit. The Free plan lets you explore PISUM with 10 templates, 20 reports per month, and PDF export. Upgrade whenever you're ready.</div>
   </div>
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">
-      How does the AI Enhancer work?
-      <span class="arr">▼</span>
+      How does AI Dictation work? <span class="arr">▼</span>
     </button>
-    <div class="faq-a">The AI Enhancer automatically improves the wording and clarity of your radiology reports using AI. Your monthly quota resets on the 1st of each month.</div>
+    <div class="faq-a">AI Dictation converts your voice into structured radiology report text in real time. It runs via a secure API — audio is never stored. Your monthly quota resets on the 1st of each month.</div>
   </div>
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">
-      Is payment secure?
-      <span class="arr">▼</span>
+      Is payment secure? <span class="arr">▼</span>
     </button>
-    <div class="faq-a">Yes, all payments are processed by Lemon Squeezy, a secure payment platform. PISUM never stores your banking details.</div>
+    <div class="faq-a">All payments are processed by Lemon Squeezy, a PCI-compliant payment platform. PISUM never stores your banking details.</div>
   </div>
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">
-      Where is my data stored? Is PISUM GDPR-compliant?
-      <span class="arr">▼</span>
+      Where is my data stored? Is PISUM GDPR-compliant? <span class="arr">▼</span>
     </button>
-    <div class="faq-a">Your patient reports are stored locally on your computer — PISUM does not upload clinical data to the cloud. Account data (name, email, subscription status) is hosted on Supabase with servers in the EU. PISUM is fully GDPR-compliant.</div>
+    <div class="faq-a">Your patient reports are stored locally on your machine — PISUM never uploads clinical data to the cloud. Account data (name, email, subscription status) is hosted on Supabase with EU servers. PISUM is fully GDPR-compliant.</div>
   </div>
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">
-      Can I use PISUM without an internet connection?
-      <span class="arr">▼</span>
+      Can I use PISUM without an internet connection? <span class="arr">▼</span>
     </button>
-    <div class="faq-a">Yes. After signing in once, PISUM works fully offline for up to 48 hours. Your reports and templates are stored locally. An internet connection is only needed to sync your subscription status or use AI features.</div>
+    <div class="faq-a">Yes. After signing in once, PISUM works fully offline for up to 48 hours. Your reports and templates are stored locally. Internet is only needed to sync your subscription status or use AI features.</div>
   </div>
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">
-      Is there a free trial for paid plans?
-      <span class="arr">▼</span>
+      Is there a free trial for paid plans? <span class="arr">▼</span>
     </button>
-    <div class="faq-a">The Free plan is a permanent free tier with no time limit — no credit card required. It lets you discover PISUM at your own pace before upgrading. You can upgrade to a paid plan at any time from your dashboard.</div>
+    <div class="faq-a">The Free plan is a permanent free tier — no time limit, no credit card. It lets you discover PISUM at your own pace. You can upgrade to any paid plan from your dashboard at any time.</div>
   </div>
 </section>
 
 <footer>
-  <div style="margin-bottom:0.75rem">
-    Any questions? <a href="mailto:contact@pisum.app">contact@pisum.app</a>
+  <div style="margin-bottom:.75rem">
+    Questions? <a href="mailto:contact@pisum.app">contact@pisum.app</a>
   </div>
   <div>
     <a href="auth.html">Create an account</a>
@@ -542,7 +780,7 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
   </div>
 </footer>
 
-<div class="err-toast" id="err-toast"></div>
+<div id="err-toast"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
@@ -554,25 +792,34 @@ const { createClient } = supabase;
 const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
 
 let currentSession = null;
-let billingInterval = 'monthly'; // 'monthly' | 'annual'
+let billingInterval = 'monthly';
 
 const PLAN_PRICES = {
-  starter: { monthly: 29, annual: 23 },
-  pro:     { monthly: 59, annual: 47 },
-  expert:  { monthly: 99, annual: 79 },
+  starter: { monthly: 29,  annual: 23  },
+  pro:     { monthly: 59,  annual: 47  },
+  expert:  { monthly: 99,  annual: 79  },
   clinic:  { monthly: 299, annual: 239 },
 };
 
 function setBilling(isAnnual) {
   billingInterval = isAnnual ? 'annual' : 'monthly';
-  ['starter', 'pro', 'expert', 'clinic'].forEach(plan => {
-    const el  = document.getElementById('price-' + plan);
-    const sub = document.getElementById('price-' + plan + '-sub');
-    if (!el) return;
+
+  document.getElementById('label-monthly').style.color = isAnnual ? '' : 'var(--blue-700)';
+  document.getElementById('label-annual').style.color  = isAnnual ? 'var(--blue-700)' : '';
+
+  ['starter','pro','expert','clinic'].forEach(plan => {
+    const priceEl = document.getElementById('price-' + plan);
+    const subEl   = document.getElementById('price-' + plan + '-sub');
+    const microEl = document.getElementById('sub-' + plan);
+    if (!priceEl) return;
     const price = PLAN_PRICES[plan][billingInterval];
-    // Replace text node (the number part) before the <span>
-    el.childNodes[0].nodeValue = price + ' €';
-    sub.textContent = isAnnual ? ' / month (billed annually)' : ' / month';
+    priceEl.childNodes[0].nodeValue = price + ' €';
+    if (subEl) subEl.textContent = isAnnual ? ' / month' : ' / month';
+    if (microEl && plan !== 'clinic') {
+      microEl.textContent = isAnnual
+        ? 'Billed annually · save 20%'
+        : 'Billed monthly';
+    }
   });
 }
 
@@ -582,12 +829,11 @@ async function init() {
     currentSession = data.session;
     const user = data.session.user;
     const name = user.user_metadata?.full_name || user.email?.split('@')[0] || '';
-    const initials = name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase() || '?';
-
+    const initials = name.split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase() || '?';
     document.getElementById('nav-avatar').textContent = initials;
     document.getElementById('nav-name').textContent   = name;
-    document.getElementById('nav-user').style.display = '';
-    document.getElementById('nav-login-btn').style.display = 'none';
+    document.getElementById('nav-user').style.display = 'flex';
+    document.getElementById('nav-login-btn').style.display    = 'none';
     document.getElementById('nav-dashboard-btn').style.display = '';
   }
 }
@@ -634,7 +880,7 @@ async function subscribe(plan) {
   }
 }
 
-// Restore button labels after error
+// Store button labels for error recovery
 document.querySelectorAll('.plan-cta').forEach(b => {
   if (b.tagName === 'BUTTON') b.dataset.label = b.textContent;
 });
