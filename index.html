@@ -75,6 +75,7 @@ a{text-decoration:none;color:inherit}
 .nav-profile-signout:hover{color:var(--ink);border-color:var(--ink-3);background:var(--off)}
 .nav-profile-link{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
 .nav-profile-link:hover .nav-profile-name{color:var(--blue)}
+@media(min-width:781px){#nav-mobile-signout{display:none!important}}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
 .hamburger span{display:block;width:22px;height:1.5px;background:var(--ink);border-radius:2px;transition:all 0.3s}
 @media(max-width:780px){
@@ -522,7 +523,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
     <li><a href="faq.html">FAQ</a></li>
     <li><a href="documentation.html">Docs</a></li>
     <li><a href="contact.html">Contact</a></li>
-    <li id="nav-mobile-signout" style="display:none"><a href="#" id="nav-mobile-signout-btn" style="color:#e55;font-weight:600">Sign Out</a></li>
+    <li id="nav-mobile-signout" style="display:none"><a href="#" id="nav-mobile-signout-btn">Sign Out</a></li>
   </ul>
   <div class="nav-right">
     <a href="../saas/frontend/auth.html" class="nav-login" id="nav-signin">Sign in</a>
