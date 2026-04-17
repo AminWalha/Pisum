@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>PISUM — Pricing</title>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#3b6ef8;--purple:#7c5af0;--green:#16a34a;--amber:#d97706;
+  --grad:linear-gradient(135deg,#3b6ef8 0%,#7c5af0 100%);
+  --ink:#09090f;--ink-2:#3a3a4c;--ink-3:#6b7280;--ink-4:#d1d5db;
+  --bg:#f5f5f7;--white:#fff;
+  --shadow-sm:0 1px 3px rgba(0,0,0,0.07);
+  --shadow:0 4px 24px rgba(0,0,0,0.08),0 1px 4px rgba(0,0,0,0.04);
+  --r:16px;
+}
+body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+
+/* ── NAV ── */
+nav{
+  background:rgba(255,255,255,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(0,0,0,0.07);padding:0 2rem;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:100
+}
+.nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
+.nav-logo img{width:32px;height:32px;border-radius:9px}
+.nav-logo-text{font-size:1.05rem;font-weight:800;letter-spacing:-0.04em;
+  background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-user{display:flex;align-items:center;gap:8px}
+.nav-avatar{
+  width:32px;height:32px;border-radius:50%;background:var(--grad);
+  color:#fff;font-size:0.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0
+}
+.nav-name{font-size:0.82rem;font-weight:600;color:var(--ink)}
+@media(max-width:580px){.nav-name{display:none}}
+
+.btn-nav{
+  padding:0.45rem 1rem;border:1.5px solid var(--ink-4);border-radius:999px;
+  background:transparent;cursor:pointer;font-size:0.8rem;font-weight:600;
+  color:var(--ink-2);transition:all 0.18s;text-decoration:none;display:inline-flex;align-items:center
+}
+.btn-nav:hover{background:var(--bg);border-color:#b0b3be}
+.btn-nav.primary{background:var(--grad);color:#fff;border-color:transparent}
+.btn-nav.primary:hover{opacity:0.9}
+
+/* ── HERO ── */
+.hero{text-align:center;padding:4.5rem 1.5rem 2.5rem;max-width:600px;margin:0 auto}
+.hero-eyebrow{
+  display:inline-block;padding:0.25rem 0.85rem;border-radius:999px;
+  background:#eef2ff;color:var(--blue);font-size:0.78rem;font-weight:700;
+  letter-spacing:0.04em;margin-bottom:1.25rem
+}
+.hero h1{font-size:2.5rem;font-weight:800;letter-spacing:-0.04em;line-height:1.15;margin-bottom:1rem}
+.hero h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:1rem;color:var(--ink-3);line-height:1.7;max-width:480px;margin:0 auto 2rem}
+.hero-cta{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap}
+.btn-hero{
+  padding:0.8rem 1.75rem;border-radius:12px;font-size:0.9rem;font-weight:700;
+  text-decoration:none;display:inline-block;transition:opacity 0.18s,transform 0.15s;border:none;cursor:pointer;font-family:inherit
+}
+.btn-hero:hover{opacity:0.9;transform:translateY(-1px)}
+.btn-hero.primary{background:var(--grad);color:#fff}
+.btn-hero.secondary{background:var(--white);color:var(--ink-2);border:1.5px solid var(--ink-4)}
+
+/* ── BILLING TOGGLE ── */
+.billing-toggle{display:flex;align-items:center;justify-content:center;gap:0.85rem;margin-bottom:2rem;font-size:0.88rem;font-weight:600;color:var(--ink-2)}
+.toggle-switch{position:relative;width:46px;height:26px;flex-shrink:0}
+.toggle-switch input{opacity:0;width:0;height:0;position:absolute}
+.toggle-slider{
+  position:absolute;inset:0;background:#d1d5db;border-radius:999px;cursor:pointer;
+  transition:background 0.2s
+}
+.toggle-slider::before{
+  content:'';position:absolute;left:3px;top:3px;width:20px;height:20px;
+  background:#fff;border-radius:50%;transition:transform 0.2s;
+  box-shadow:0 1px 4px rgba(0,0,0,0.18)
+}
+.toggle-switch input:checked + .toggle-slider{background:var(--blue)}
+.toggle-switch input:checked + .toggle-slider::before{transform:translateX(20px)}
+.save-badge{
+  background:#dcfce7;color:#166534;font-size:0.65rem;font-weight:800;
+  letter-spacing:0.05em;padding:0.12rem 0.55rem;border-radius:999px;text-transform:uppercase
+}
+
+/* ── PLANS SECTION ── */
+.plans-section{max-width:1120px;margin:0 auto;padding:0.5rem 1.5rem 3rem}
+
+.plans-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:1rem;align-items:start
+}
+@media(max-width:1020px){.plans-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:660px){.plans-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:400px){.plans-grid{grid-template-columns:1fr}}
+
+.plan-card{
+  background:var(--white);border-radius:20px;box-shadow:var(--shadow);
+  padding:1.6rem 1.3rem;position:relative;border:2px solid transparent;
+  transition:transform 0.18s,box-shadow 0.18s
+}
+.plan-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.12)}
+.plan-card.popular{border-color:var(--blue);box-shadow:0 8px 32px rgba(59,110,248,0.18)}
+
+.pop-ribbon{
+  position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  background:var(--grad);color:#fff;font-size:0.62rem;font-weight:800;
+  letter-spacing:0.07em;text-transform:uppercase;padding:0.18rem 0.75rem;
+  border-radius:999px;white-space:nowrap;box-shadow:0 2px 8px rgba(59,110,248,0.35)
+}
+
+.plan-tag{
+  font-size:0.62rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+  padding:0.18rem 0.6rem;border-radius:999px;display:inline-block;margin-bottom:0.6rem
+}
+.tag-free{background:#f1f5f9;color:#475569}
+.tag-starter{background:#e0f2fe;color:#0369a1}
+.tag-pro{background:#ede9fe;color:#6d28d9}
+.tag-expert{background:#fef3c7;color:#92400e}
+.tag-clinic{background:#dcfce7;color:#166534}
+
+.plan-name{font-size:1.1rem;font-weight:800;margin-bottom:0.3rem;letter-spacing:-0.025em}
+.plan-price{font-size:2rem;font-weight:800;letter-spacing:-0.045em;line-height:1;margin:0.5rem 0 0.2rem}
+.plan-price span{font-size:0.85rem;font-weight:500;color:var(--ink-3)}
+.plan-tagline{font-size:0.78rem;color:var(--ink-3);margin-bottom:1.25rem;line-height:1.5;min-height:2.1em}
+
+.plan-cta{
+  display:block;width:100%;padding:0.72rem 1rem;border-radius:12px;
+  font-size:0.85rem;font-weight:700;font-family:inherit;text-align:center;
+  text-decoration:none;cursor:pointer;transition:opacity 0.18s,transform 0.15s;border:none
+}
+.plan-cta:hover{opacity:0.9;transform:translateY(-1px)}
+.plan-cta:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+.cta-free{background:#f1f5f9;color:#475569}
+.cta-paid{background:var(--grad);color:#fff}
+.cta-popular{background:var(--grad);color:#fff;box-shadow:0 4px 14px rgba(59,110,248,0.35)}
+
+.divider{height:1px;background:rgba(0,0,0,0.07);margin:1.2rem 0}
+
+.feat-list{list-style:none;font-size:0.79rem;color:var(--ink-2);display:flex;flex-direction:column;gap:0.55rem}
+.feat-list li{display:flex;align-items:flex-start;gap:7px;line-height:1.4}
+.fi-ok{color:#16a34a;flex-shrink:0;font-weight:700}
+.fi-no{color:#d1d5db;flex-shrink:0}
+.fi-lim{color:var(--amber);flex-shrink:0;font-weight:700}
+
+/* ── COMPARISON TABLE ── */
+.compare-section{max-width:1120px;margin:0 auto;padding:0 1.5rem 5rem}
+.compare-section h2{
+  font-size:1.6rem;font-weight:800;letter-spacing:-0.035em;
+  text-align:center;margin-bottom:2.5rem
+}
+.compare-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:20px;box-shadow:var(--shadow)}
+table{width:100%;border-collapse:collapse;background:var(--white);font-size:0.82rem;min-width:580px}
+colgroup col.col-feat{width:26%}
+colgroup col{width:14.8%}
+thead tr{background:var(--grad)}
+thead th{padding:1.15rem 0.75rem;font-weight:700;text-align:center;color:#fff;vertical-align:middle;white-space:nowrap}
+thead th:first-child{text-align:left;padding-left:1.5rem}
+thead th.col-pro{background:linear-gradient(160deg,#2550e0 0%,#6535e8 100%)}
+.th-inner{display:flex;flex-direction:column;align-items:center;gap:3px}
+thead th:first-child .th-inner{align-items:flex-start}
+.th-name{font-size:0.85rem;font-weight:800;letter-spacing:-0.01em}
+.th-price{font-size:0.67rem;font-weight:500;opacity:0.72;margin-top:1px}
+.rec-badge{
+  display:inline-block;background:#fbbf24;color:#78350f;
+  font-size:0.57rem;font-weight:800;letter-spacing:0.07em;text-transform:uppercase;
+  padding:0.1rem 0.55rem;border-radius:999px;margin-bottom:3px
+}
+tbody tr{border-bottom:1px solid rgba(0,0,0,0.05)}
+tbody tr:last-child{border-bottom:none}
+tbody tr:nth-child(odd){background:#fff}
+tbody tr:nth-child(even){background:#f8f8fc}
+tbody tr:hover{background:#eef2ff}
+tbody td{padding:0.72rem 0.75rem;text-align:center;vertical-align:middle;color:var(--ink-3)}
+tbody td:first-child{text-align:left;font-weight:600;color:var(--ink);padding-left:1.5rem;white-space:nowrap}
+tbody td.col-pro{background:rgba(59,110,248,0.05)}
+tbody tr:nth-child(even) td.col-pro{background:rgba(59,110,248,0.09)}
+tbody tr:hover td.col-pro{background:rgba(59,110,248,0.14)}
+.yes{color:#16a34a;font-size:1rem;font-weight:700}
+.no{color:#d1d5db;font-size:1rem;font-weight:700}
+.lim{color:var(--amber);font-size:0.75rem;font-weight:700}
+
+/* ── FAQ ── */
+.faq-section{max-width:720px;margin:0 auto;padding:0 1.5rem 5rem}
+.faq-section h2{font-size:1.5rem;font-weight:800;letter-spacing:-0.03em;text-align:center;margin-bottom:2rem}
+.faq-item{border-radius:14px;background:var(--white);box-shadow:var(--shadow-sm);margin-bottom:0.75rem;overflow:hidden}
+.faq-q{
+  width:100%;padding:1.1rem 1.25rem;text-align:left;background:none;border:none;
+  font-size:0.9rem;font-weight:600;font-family:inherit;color:var(--ink);
+  cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem
+}
+.faq-q .arr{transition:transform 0.22s;font-size:0.75rem;color:var(--ink-3);flex-shrink:0}
+.faq-q.open .arr{transform:rotate(180deg)}
+.faq-a{display:none;padding:0 1.25rem 1.1rem;font-size:0.85rem;color:var(--ink-3);line-height:1.7}
+.faq-a.show{display:block}
+
+/* ── FOOTER ── */
+footer{text-align:center;padding:2rem 1.5rem 3.5rem;font-size:0.82rem;color:var(--ink-3)}
+footer a{color:var(--blue);text-decoration:none;font-weight:600}
+footer a:hover{text-decoration:underline}
+footer .sep{margin:0 0.5rem;color:var(--ink-4)}
+
+/* ── LAN SYNC HOW IT WORKS ── */
+.how-section{max-width:1120px;margin:0 auto;padding:0 1.5rem 4rem;text-align:center}
+.how-section h2{font-size:1.6rem;font-weight:800;letter-spacing:-0.035em;margin-bottom:0.6rem}
+.how-sub{font-size:0.92rem;color:var(--ink-3);margin-bottom:2.5rem}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-bottom:2rem;text-align:left}
+@media(max-width:700px){.how-grid{grid-template-columns:1fr}}
+.how-step{background:var(--white);border-radius:16px;padding:1.5rem;box-shadow:var(--shadow-sm);border:1px solid rgba(0,0,0,0.06)}
+.how-icon{font-size:1.6rem;margin-bottom:0.75rem}
+.how-step h3{font-size:0.92rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:-0.01em}
+.how-step p{font-size:0.8rem;color:var(--ink-3);line-height:1.6}
+.how-limits{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.how-limit-item{display:flex;align-items:center;gap:0.6rem;background:var(--white);border:1px solid rgba(0,0,0,0.08);border-radius:999px;padding:0.4rem 1rem;font-size:0.8rem;font-weight:600;color:var(--ink-2);box-shadow:var(--shadow-sm)}
+.hl-tag{font-size:0.62rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.15rem 0.5rem;border-radius:999px}
+
+/* ── ERROR TOAST ── */
+.err-toast{
+  display:none;position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);
+  background:#fff;border:1px solid #fecaca;color:#b91c1c;
+  padding:0.8rem 1.5rem;border-radius:12px;font-size:0.83rem;font-weight:600;
+  box-shadow:0 4px 20px rgba(0,0,0,0.12);z-index:999;max-width:90vw;text-align:center
+}
+
+/* ── SPINNER ── */
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,0.35);border-top-color:#fff;border-radius:50%;animation:spin 0.7s linear infinite;vertical-align:middle}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="https://pisum.app">
+    <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="PISUM"/>
+    <span class="nav-logo-text">PISUM</span>
+  </a>
+  <div class="nav-right">
+    <div class="nav-user" id="nav-user" style="display:none">
+      <div class="nav-avatar" id="nav-avatar">?</div>
+      <span class="nav-name" id="nav-name"></span>
+    </div>
+    <a class="btn-nav" id="nav-login-btn" href="auth.html">Sign in</a>
+    <a class="btn-nav primary" id="nav-dashboard-btn" href="dashboard.html" style="display:none">My subscription</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Radiology Software · Cloud · AI</div>
+  <h1>The plan that fits<br/><span>your practice</span></h1>
+  <p>From independent radiologist to multi-site clinic — PISUM adapts to your needs with features built for you.</p>
+  <div class="hero-cta">
+    <a class="btn-hero primary" href="auth.html">Get started for free</a>
+    <a class="btn-hero secondary" href="#compare">Compare plans</a>
+  </div>
+</div>
+
+<!-- PLAN CARDS -->
+<section class="plans-section">
+
+  <!-- Billing toggle -->
+  <div class="billing-toggle">
+    <span>Monthly</span>
+    <label class="toggle-switch">
+      <input type="checkbox" id="billing-annual" onchange="setBilling(this.checked)"/>
+      <span class="toggle-slider"></span>
+    </label>
+    <span>Annual <span class="save-badge">−20%</span></span>
+  </div>
+
+  <div class="plans-grid">
+
+    <!-- FREE -->
+    <div class="plan-card">
+      <div class="plan-tag tag-free">Free</div>
+      <div class="plan-name">Pisum Free</div>
+      <div class="plan-price">0 €<span> / month</span></div>
+      <div class="plan-tagline">Discover PISUM with no commitment</div>
+      <a class="plan-cta cta-free" href="auth.html">Get started</a>
+      <div class="divider"></div>
+      <ul class="feat-list">
+        <li><span class="fi-ok">✓</span>10 templates</li>
+        <li><span class="fi-ok">✓</span>2 languages</li>
+        <li><span class="fi-ok">✓</span>PDF Export</li>
+        <li><span class="fi-no">–</span>Word Export</li>
+        <li><span class="fi-no">–</span>AI Dictation</li>
+        <li><span class="fi-no">–</span>AI Enhancer</li>
+        <li><span class="fi-no">–</span>Worklist</li>
+        <li><span class="fi-lim">◐</span>20 reports / month</li>
+      </ul>
+    </div>
+
+    <!-- STARTER -->
+    <div class="plan-card">
+      <div class="plan-tag tag-starter">Starter</div>
+      <div class="plan-name">Pisum Starter</div>
+      <div class="plan-price" id="price-starter" data-monthly="29" data-annual="23">29 €<span id="price-starter-sub"> / month</span></div>
+      <div class="plan-tagline">Independent radiologist</div>
+      <button class="plan-cta cta-paid" onclick="subscribe('starter')">Subscribe</button>
+      <div class="divider"></div>
+      <ul class="feat-list">
+        <li><span class="fi-ok">✓</span>20 templates</li>
+        <li><span class="fi-ok">✓</span>5 languages</li>
+        <li><span class="fi-ok">✓</span>PDF + Word Export</li>
+        <li><span class="fi-lim">◐</span>AI Dictation (60 min/month)</li>
+        <li><span class="fi-lim">◐</span>AI Enhancer (20 prompts/month)</li>
+        <li><span class="fi-lim">◐</span>Basic Worklist</li>
+        <li><span class="fi-ok">✓</span>Unlimited reports</li>
+      </ul>
+    </div>
+
+    <!-- PRO -->
+    <div class="plan-card popular">
+      <div class="pop-ribbon">Recommended</div>
+      <div class="plan-tag tag-pro">Pro ⭐</div>
+      <div class="plan-name">Pisum Pro</div>
+      <div class="plan-price" id="price-pro" data-monthly="59" data-annual="47">59 €<span id="price-pro-sub"> / month</span></div>
+      <div class="plan-tagline">Advanced practitioner, all-in-one</div>
+      <button class="plan-cta cta-popular" onclick="subscribe('pro')">Subscribe</button>
+      <div class="divider"></div>
+      <ul class="feat-list">
+        <li><span class="fi-ok">✓</span>112+ templates</li>
+        <li><span class="fi-ok">✓</span>23 languages</li>
+        <li><span class="fi-ok">✓</span>PDF + Word Export</li>
+        <li><span class="fi-lim">◐</span>AI Dictation (600 min/month)</li>
+        <li><span class="fi-lim">◐</span>AI Enhancer (50 prompts/month)</li>
+        <li><span class="fi-ok">✓</span>Full Worklist</li>
+        <li><span class="fi-lim">◐</span>Basic Statistics</li>
+      </ul>
+    </div>
+
+    <!-- EXPERT -->
+    <div class="plan-card">
+      <div class="plan-tag tag-expert">Expert 🔥</div>
+      <div class="plan-name">Pisum Expert</div>
+      <div class="plan-price" id="price-expert" data-monthly="99" data-annual="79">99 €<span id="price-expert-sub"> / month</span></div>
+      <div class="plan-tagline">Expert radiologist, no limits</div>
+      <button class="plan-cta cta-paid" onclick="subscribe('expert')">Subscribe</button>
+      <div class="divider"></div>
+      <ul class="feat-list">
+        <li><span class="fi-ok">✓</span>112+ custom templates</li>
+        <li><span class="fi-ok">✓</span>23 languages</li>
+        <li><span class="fi-ok">✓</span>PDF + Word Export</li>
+        <li><span class="fi-lim">◐</span>AI Dictation (~100 min/day, 3,000 min/month)</li>
+        <li><span class="fi-lim">◐</span>AI Enhancer (400 prompts/month)</li>
+        <li><span class="fi-ok">✓</span>Advanced Worklist</li>
+        <li><span class="fi-ok">✓</span>Full Statistics</li>
+        <li><span class="fi-lim">◐</span>LAN Sync (1 site, max 3 workstations)</li>
+      </ul>
+    </div>
+
+    <!-- CLINIC -->
+    <div class="plan-card">
+      <div class="plan-tag tag-clinic">Clinic 🏥</div>
+      <div class="plan-name">Pisum Clinic</div>
+      <div class="plan-price" id="price-clinic" data-monthly="199" data-annual="159">199 €<span id="price-clinic-sub"> / month</span></div>
+      <div class="plan-tagline">5 users included · +€49/additional user</div>
+      <button class="plan-cta cta-paid" onclick="subscribe('clinic')">Contact us</button>
+      <div class="divider"></div>
+      <ul class="feat-list">
+        <li><span class="fi-ok">✓</span>Custom templates</li>
+        <li><span class="fi-ok">✓</span>23 languages</li>
+        <li><span class="fi-ok">✓</span>PDF + Word Export</li>
+        <li><span class="fi-lim">◐</span>AI Dictation (~200 min/day, 6,000 min/month)</li>
+        <li><span class="fi-lim">◐</span>AI Enhancer (1,500 prompts/month)</li>
+        <li><span class="fi-ok">✓</span>Multi-site Worklist</li>
+        <li><span class="fi-ok">✓</span>5 users included (+€49/extra user)</li>
+        <li><span class="fi-ok">✓</span>Advanced stats + onboarding</li>
+        <li><span class="fi-ok">✓</span>LAN Sync (multi-site, unlimited workstations)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="compare-section" id="compare">
+  <h2>Detailed comparison</h2>
+  <div class="compare-wrap">
+    <table>
+      <colgroup>
+        <col class="col-feat"/><col/><col/><col class="col-pro"/><col/><col/>
+      </colgroup>
+      <thead>
+        <tr>
+          <th><div class="th-inner"><span class="th-name">Feature</span></div></th>
+          <th><div class="th-inner"><span class="th-name">Free</span><span class="th-price">€0/month</span></div></th>
+          <th><div class="th-inner"><span class="th-name">Starter</span><span class="th-price">€29/month</span></div></th>
+          <th class="col-pro"><div class="th-inner"><span class="rec-badge">Recommended</span><span class="th-name">Pro ⭐</span><span class="th-price">€59/month</span></div></th>
+          <th><div class="th-inner"><span class="th-name">Expert 🔥</span><span class="th-price">€99/month</span></div></th>
+          <th><div class="th-inner"><span class="th-name">Clinic 🏥</span><span class="th-price">€199/month</span></div></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Templates</td><td>10</td><td>20</td><td class="col-pro">112+</td><td>112+ custom</td><td>Custom</td></tr>
+        <tr><td>Available languages</td><td>2</td><td>5</td><td class="col-pro">23</td><td>23</td><td>23</td></tr>
+        <tr><td>PDF Export</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td class="col-pro"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+        <tr><td>Word Export</td><td><span class="no">✕</span></td><td><span class="yes">✓</span></td><td class="col-pro"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+        <tr><td>AI Dictation</td><td><span class="no">✕</span></td><td><span class="lim">60 min/month</span></td><td class="col-pro"><span class="lim">600 min/month</span></td><td><span class="lim">~100 min/day</span></td><td><span class="lim">~200 min/day</span></td></tr>
+        <tr><td>AI Enhancer</td><td><span class="no">✕</span></td><td><span class="lim">20 prompts/month</span></td><td class="col-pro"><span class="lim">50 prompts/month</span></td><td><span class="lim">400 prompts/month</span></td><td><span class="lim">1,500 prompts/month</span></td></tr>
+        <tr><td>Worklist</td><td><span class="no">✕</span></td><td><span class="lim">Basic</span></td><td class="col-pro"><span class="lim">Full</span></td><td><span class="yes">Advanced</span></td><td><span class="yes">Multi-site</span></td></tr>
+        <tr><td>LAN Network Sync</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="no">✕</span></td><td><span class="lim">1 site · 3 workstations</span></td><td><span class="yes">Multi-site · Unlimited</span></td></tr>
+        <tr><td>Users</td><td>1</td><td>1</td><td class="col-pro">1</td><td>1</td><td>5 incl. (+€49/extra)</td></tr>
+        <tr><td>Statistics</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="lim">Basic</span></td><td><span class="yes">✓</span></td><td><span class="yes">Advanced</span></td></tr>
+        <tr><td>Reports / month</td><td><span class="lim">20 max</span></td><td><span class="yes">Unlimited</span></td><td class="col-pro"><span class="yes">Unlimited</span></td><td><span class="yes">Unlimited</span></td><td><span class="yes">Unlimited</span></td></tr>
+        <tr><td>Support</td><td>—</td><td>Email</td><td class="col-pro">Priority email</td><td>Chat + email</td><td>Dedicated + onboarding</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- LAN SYNC HOW IT WORKS -->
+<section class="how-section" id="lan-sync">
+  <h2>How LAN Network Sync works</h2>
+  <p class="how-sub">Share patient data across workstations on your local network — no cloud, no latency.</p>
+  <div class="how-grid">
+    <div class="how-step">
+      <div class="how-icon">🖥️</div>
+      <h3>1. Set up a shared folder</h3>
+      <p>Point PISUM to a shared network folder (NAS, SMB share, or mapped drive). All workstations on the same network access the same database.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-icon">🔐</div>
+      <h3>2. One shared password</h3>
+      <p>The database is AES-256 encrypted. Set one network password on the first workstation — all other PCs enter the same password to connect.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-icon">⚡</div>
+      <h3>3. Instant sync</h3>
+      <p>Each workstation reads and writes directly to the shared database. Changes appear instantly across all connected PCs.</p>
+    </div>
+  </div>
+  <div class="how-limits">
+    <div class="how-limit-item">
+      <span class="hl-tag tag-expert">Expert 🔥</span>
+      <span>1 site · max 3 workstations</span>
+    </div>
+    <div class="how-limit-item">
+      <span class="hl-tag tag-clinic">Clinic 🏥</span>
+      <span>Multi-site · unlimited workstations</span>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Can I change my plan at any time?
+      <span class="arr">▼</span>
+    </button>
+    <div class="faq-a">Yes, you can upgrade or cancel your subscription at any time from your dashboard. Changes take effect immediately.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Is there a minimum commitment?
+      <span class="arr">▼</span>
+    </button>
+    <div class="faq-a">No, all plans are commitment-free. You pay month to month and can cancel whenever you want.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Is the Free plan really free?
+      <span class="arr">▼</span>
+    </button>
+    <div class="faq-a">Yes, the Free plan is completely free with no credit card required. It lets you explore PISUM with 10 templates, 20 reports per month, and PDF export.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      How does the AI Enhancer work?
+      <span class="arr">▼</span>
+    </button>
+    <div class="faq-a">The AI Enhancer automatically improves the wording and clarity of your radiology reports using AI. Your monthly quota resets on the 1st of each month.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Is payment secure?
+      <span class="arr">▼</span>
+    </button>
+    <div class="faq-a">Yes, all payments are processed by Lemon Squeezy, a secure payment platform. PISUM never stores your banking details.</div>
+  </div>
+</section>
+
+<footer>
+  <div style="margin-bottom:0.75rem">
+    Any questions? <a href="mailto:contact@pisum.app">contact@pisum.app</a>
+  </div>
+  <div>
+    <a href="auth.html">Create an account</a>
+    <span class="sep">·</span>
+    <a href="dashboard.html">My subscription</a>
+    <span class="sep">·</span>
+    <a href="mailto:contact@pisum.app">Support</a>
+  </div>
+</footer>
+
+<div class="err-toast" id="err-toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+const SUPABASE_URL  = 'https://lepqbnhrdgfetoysedbq.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlcHFibmhyZGdmZXRveXNlZGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwNjQ1MDAsImV4cCI6MjA5MDY0MDUwMH0.St12IwG0_RRKzxrbH1QRolCC2OOAaSIsK4PDmlR2Loo';
+const API_BASE      = 'https://pisum-backend.onrender.com';
+
+const { createClient } = supabase;
+const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
+
+let currentSession = null;
+let billingInterval = 'monthly'; // 'monthly' | 'annual'
+
+const PLAN_PRICES = {
+  starter: { monthly: 29, annual: 23 },
+  pro:     { monthly: 59, annual: 47 },
+  expert:  { monthly: 99, annual: 79 },
+  clinic:  { monthly: 199, annual: 159 },
+};
+
+function setBilling(isAnnual) {
+  billingInterval = isAnnual ? 'annual' : 'monthly';
+  ['starter', 'pro', 'expert', 'clinic'].forEach(plan => {
+    const el  = document.getElementById('price-' + plan);
+    const sub = document.getElementById('price-' + plan + '-sub');
+    if (!el) return;
+    const price = PLAN_PRICES[plan][billingInterval];
+    // Replace text node (the number part) before the <span>
+    el.childNodes[0].nodeValue = price + ' €';
+    sub.textContent = isAnnual ? ' / month (billed annually)' : ' / month';
+  });
+}
+
+async function init() {
+  const { data } = await sb.auth.getSession();
+  if (data.session) {
+    currentSession = data.session;
+    const user = data.session.user;
+    const name = user.user_metadata?.full_name || user.email?.split('@')[0] || '';
+    const initials = name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase() || '?';
+
+    document.getElementById('nav-avatar').textContent = initials;
+    document.getElementById('nav-name').textContent   = name;
+    document.getElementById('nav-user').style.display = '';
+    document.getElementById('nav-login-btn').style.display = 'none';
+    document.getElementById('nav-dashboard-btn').style.display = '';
+  }
+}
+
+async function subscribe(plan) {
+  if (!currentSession) {
+    window.location.href = 'auth.html?redirect=pricing.html';
+    return;
+  }
+
+  document.querySelectorAll('.plan-cta').forEach(b => {
+    if (b.tagName === 'BUTTON') {
+      b.disabled = true;
+      b.innerHTML = '<span class="spinner"></span>';
+    }
+  });
+
+  try {
+    const res = await fetch(`${API_BASE}/create-checkout-session`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${currentSession.access_token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ plan, interval: billingInterval }),
+    });
+
+    if (!res.ok) {
+      const err = await res.json();
+      throw new Error(err.detail || 'Server error');
+    }
+
+    const { checkout_url } = await res.json();
+    window.location.href = checkout_url;
+
+  } catch (err) {
+    showError('Error: ' + err.message);
+    document.querySelectorAll('.plan-cta').forEach(b => {
+      if (b.tagName === 'BUTTON') {
+        b.disabled = false;
+        b.textContent = b.dataset.label || 'Subscribe';
+      }
+    });
+  }
+}
+
+// Restore button labels after error
+document.querySelectorAll('.plan-cta').forEach(b => {
+  if (b.tagName === 'BUTTON') b.dataset.label = b.textContent;
+});
+
+function showError(msg) {
+  const el = document.getElementById('err-toast');
+  el.textContent = msg;
+  el.style.display = 'block';
+  setTimeout(() => { el.style.display = 'none'; }, 6000);
+}
+
+function toggleFaq(btn) {
+  const isOpen = btn.classList.contains('open');
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.classList.remove('open');
+    q.nextElementSibling.classList.remove('show');
+  });
+  if (!isOpen) {
+    btn.classList.add('open');
+    btn.nextElementSibling.classList.add('show');
+  }
+}
+
+init();
+</script>
+</body>
+</html>
