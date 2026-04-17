@@ -830,6 +830,8 @@ function renderAccess({ access, reason, plan }, subInfo = {}) {
     document.getElementById('info-interval').textContent = interval === 'annual' ? 'Annual' : 'Monthly';
     document.getElementById('info-since').textContent = fmt(periodStart || createdAt);
 
+    document.getElementById('btn-billing-portal').style.display = subInfo.has_billing_portal ? '' : 'none';
+
     renderUsage(plan, subInfo);
     renderFeatures(plan);
     activeCard.style.display = '';
