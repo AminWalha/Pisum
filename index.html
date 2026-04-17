@@ -549,7 +549,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
   const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlcHFibmhyZGdmZXRveXNlZGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwNjQ1MDAsImV4cCI6MjA5MDY0MDUwMH0.St12IwG0_RRKzxrbH1QRolCC2OOAaSIsK4PDmlR2Loo';
   const { createClient } = supabase;
   const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
-  sb.auth.getSession().then(({ data }) => {
+  sb.auth.getSession().then(async ({ data }) => {
     if (!data.session) return;
     const u = data.session.user;
     const name = u.user_metadata?.full_name || u.email.split('@')[0];
@@ -557,24 +557,20 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
     document.getElementById('nav-subscribe').style.display = 'none';
     document.getElementById('nav-profile-name').textContent  = name;
     document.getElementById('nav-profile-email').textContent = u.email;
+    document.getElementById('nav-profile').style.display = 'flex';
+    document.getElementById('nav-signout').addEventListener('click', async () => {
+      await sb.auth.signOut(); window.location.reload();
+    });
     const img = document.getElementById('nav-profile-img');
-    const av  = u.user_metadata?.avatar_url || u.user_metadata?.picture;
     const showInitials = () => {
       img.style.display = 'none';
       const el = document.getElementById('nav-profile-initials');
-      el.textContent = name.charAt(0).toUpperCase();
-      el.style.display = 'flex';
+      el.textContent = name.charAt(0).toUpperCase(); el.style.display = 'flex';
     };
-    if (av) {
-      img.onload  = () => { img.style.display = ''; };
-      img.onerror = showInitials;
-      img.src = av;
-    } else { showInitials(); }
-    document.getElementById('nav-profile').style.display = 'flex';
-    document.getElementById('nav-signout').addEventListener('click', async () => {
-      await sb.auth.signOut();
-      window.location.reload();
-    });
+    const { data: prof } = await sb.from('profiles').select('avatar_url').eq('user_id', u.id).maybeSingle();
+    const av = prof?.avatar_url || u.user_metadata?.avatar_url || u.user_metadata?.picture;
+    if (av) { img.onload = () => { img.style.display = ''; }; img.onerror = showInitials; img.src = av; }
+    else { showInitials(); }
   });
 })();
 </script>
