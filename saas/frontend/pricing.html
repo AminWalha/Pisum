@@ -300,7 +300,7 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
     <div class="plan-card">
       <div class="plan-tag tag-starter">Starter</div>
       <div class="plan-name">Pisum Starter</div>
-      <div class="plan-price" id="price-starter" data-monthly="35" data-annual="28">35 €<span id="price-starter-sub"> / month</span></div>
+      <div class="plan-price" id="price-starter" data-monthly="29" data-annual="23">29 €<span id="price-starter-sub"> / month</span></div>
       <div class="plan-tagline">Independent radiologist</div>
       <button class="plan-cta cta-paid" onclick="subscribe('starter')">Subscribe</button>
       <div class="divider"></div>
@@ -320,7 +320,7 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
       <div class="pop-ribbon">Recommended</div>
       <div class="plan-tag tag-pro">Pro ⭐</div>
       <div class="plan-name">Pisum Pro</div>
-      <div class="plan-price" id="price-pro" data-monthly="89" data-annual="71">89 €<span id="price-pro-sub"> / month</span></div>
+      <div class="plan-price" id="price-pro" data-monthly="59" data-annual="47">59 €<span id="price-pro-sub"> / month</span></div>
       <div class="plan-tagline">Advanced practitioner, all-in-one</div>
       <button class="plan-cta cta-popular" onclick="subscribe('pro')">Subscribe</button>
       <div class="divider"></div>
@@ -339,7 +339,7 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
     <div class="plan-card">
       <div class="plan-tag tag-expert">Expert 🔥</div>
       <div class="plan-name">Pisum Expert</div>
-      <div class="plan-price" id="price-expert" data-monthly="119" data-annual="95">119 €<span id="price-expert-sub"> / month</span></div>
+      <div class="plan-price" id="price-expert" data-monthly="99" data-annual="79">99 €<span id="price-expert-sub"> / month</span></div>
       <div class="plan-tagline">Expert radiologist, no limits</div>
       <button class="plan-cta cta-paid" onclick="subscribe('expert')">Subscribe</button>
       <div class="divider"></div>
@@ -359,7 +359,7 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
     <div class="plan-card">
       <div class="plan-tag tag-clinic">Clinic 🏥</div>
       <div class="plan-name">Pisum Clinic</div>
-      <div class="plan-price" id="price-clinic" data-monthly="399" data-annual="319">399 €<span id="price-clinic-sub"> / month</span></div>
+      <div class="plan-price" id="price-clinic" data-monthly="299" data-annual="239">299 €<span id="price-clinic-sub"> / month</span></div>
       <div class="plan-tagline">5 users included · +€49/additional user</div>
       <button class="plan-cta cta-paid" onclick="subscribe('clinic')">Contact us</button>
       <div class="divider"></div>
@@ -390,10 +390,10 @@ footer .sep{margin:0 0.5rem;color:var(--ink-4)}
         <tr>
           <th><div class="th-inner"><span class="th-name">Feature</span></div></th>
           <th><div class="th-inner"><span class="th-name">Free</span><span class="th-price">€0/month</span></div></th>
-          <th><div class="th-inner"><span class="th-name">Starter</span><span class="th-price">€35/month</span></div></th>
-          <th class="col-pro"><div class="th-inner"><span class="rec-badge">Recommended</span><span class="th-name">Pro ⭐</span><span class="th-price">€89/month</span></div></th>
-          <th><div class="th-inner"><span class="th-name">Expert 🔥</span><span class="th-price">€119/month</span></div></th>
-          <th><div class="th-inner"><span class="th-name">Clinic 🏥</span><span class="th-price">€399/month</span></div></th>
+          <th><div class="th-inner"><span class="th-name">Starter</span><span class="th-price">€29/month</span></div></th>
+          <th class="col-pro"><div class="th-inner"><span class="rec-badge">Recommended</span><span class="th-name">Pro ⭐</span><span class="th-price">€59/month</span></div></th>
+          <th><div class="th-inner"><span class="th-name">Expert 🔥</span><span class="th-price">€99/month</span></div></th>
+          <th><div class="th-inner"><span class="th-name">Clinic 🏥</span><span class="th-price">€299/month</span></div></th>
         </tr>
       </thead>
       <tbody>
@@ -520,10 +520,10 @@ let currentSession = null;
 let billingInterval = 'monthly'; // 'monthly' | 'annual'
 
 const PLAN_PRICES = {
-  starter: { monthly: 35, annual: 28 },
-  pro:     { monthly: 89, annual: 71 },
-  expert:  { monthly: 119, annual: 95 },
-  clinic:  { monthly: 399, annual: 319 },
+  starter: { monthly: 29, annual: 23 },
+  pro:     { monthly: 59, annual: 47 },
+  expert:  { monthly: 99, annual: 79 },
+  clinic:  { monthly: 299, annual: 239 },
 };
 
 function setBilling(isAnnual) {
