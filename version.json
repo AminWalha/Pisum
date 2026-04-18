@@ -1,10 +1,9 @@
 {
-  "version": "2.9.3.1",
-  "release_date": "2026-04-16",
-  "download_url": "https://github.com/AminWalha/Pisum/releases/download/v2.9.3.1/PISUM_Radiology_Setup_2.9.3.1.exe",
+  "version": "2.9.3.1.1",
+  "release_date": "2026-04-18",
+  "download_url": "https://pisum-downloads.s3.eu-north-1.amazonaws.com/PISUM_Radiology_Setup_2.9.3.1.1.exe",
   "changelog": {
-    "fr": "- Dictée vocale : insertion au curseur\n- Bouton vérification mises à jour\n- Compatibilité installeur améliorée (VC++ auto)",
-    "en": "- Voice dictation: insert at cursor position\n- Check for updates button\n- Improved installer compatibility (auto VC++)"
+    "en": "Small Bug Fix"
   },
   "mandatory": false,
   "min_version_required": "1.0.0"
