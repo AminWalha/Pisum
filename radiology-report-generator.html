@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Radiology Report Generator — AI-Powered, Offline | Pisum</title>
+<meta name="description" content="Generate structured radiology reports in under 60 seconds. Pisum's AI report generator uses 112 expert templates, AI dictation, and one-click PDF export. Free plan available."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://pisum.app/radiology-report-generator.html"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://pisum.app/radiology-report-generator.html"/>
+<meta property="og:title" content="Radiology Report Generator — AI-Powered, Offline | Pisum"/>
+<meta property="og:description" content="Generate structured radiology reports in under 60 seconds with Pisum. 112 templates, AI dictation, PDF/Word export. Try free."/>
+<meta property="og:site_name" content="Pisum"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Pisum — Radiology Report Generator","applicationCategory":"MedicalApplication","operatingSystem":"Windows 10, Windows 11","description":"AI-powered radiology report generator with 112 structured templates, offline AI dictation, and PDF/Word export.","url":"https://pisum.app","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"featureList":["112 radiology report templates","AI voice dictation","PDF and Word export","Offline operation","23 language support"]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+:root{--white:#fff;--off:#f2f2f6;--ink:#09090f;--ink-2:#3a3a4c;--ink-3:#8a8aa8;--b1:rgba(0,0,0,0.06);--b2:rgba(0,0,0,0.10);--blue:#3b6ef8;--purple:#7c5af0;--grad:linear-gradient(135deg,#3b6ef8 0%,#7c5af0 100%);--shadow:0 8px 32px rgba(0,0,0,0.08);--r:16px;--r-lg:24px;--sans:'Sora',-apple-system,sans-serif;--serif:'DM Serif Display',Georgia,serif;--t:cubic-bezier(0.25,1,0.5,1)}
+body{font-family:var(--sans);background:var(--white);color:var(--ink);line-height:1.65}
+a{text-decoration:none;color:inherit}
+.container{max-width:1100px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:0.9rem;font-weight:600;border:none;cursor:pointer;border-radius:999px;transition:all 0.22s var(--t);white-space:nowrap}
+.btn-primary{background:var(--ink);color:#fff;padding:0.8rem 1.9rem}.btn-primary:hover{background:#1a1a2e;transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--ink-2);padding:0.8rem 1.9rem;border:1px solid var(--b2)}.btn-ghost:hover{background:var(--off)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.25rem,5vw,3rem);background:rgba(255,255,255,0.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--b1)}
+.nav-logo{font-weight:700;font-size:1rem;letter-spacing:-0.03em;display:flex;align-items:center;gap:8px}
+.nav-logo img{width:28px;height:28px;border-radius:7px}
+.nav-links{display:flex;align-items:center;gap:1.5rem;font-size:0.85rem;color:var(--ink-2)}
+.nav-links a:hover{color:var(--ink)}
+header.hero{padding:clamp(6rem,12vw,9rem) 0 clamp(4rem,8vw,6rem);text-align:center}
+.eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:1.25rem}
+.eyebrow-dot{width:5px;height:5px;border-radius:50%;background:var(--blue)}
+h1{font-family:var(--serif);font-size:clamp(2.8rem,6vw,5rem);line-height:1.06;letter-spacing:-0.01em;margin-bottom:1.5rem}
+h1 em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{max-width:620px;margin:0 auto 2.5rem;font-size:1.1rem;color:var(--ink-2);line-height:1.75}
+.hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+section.content{padding:clamp(3rem,6vw,5rem) 0}
+section.content.alt{background:var(--off)}
+h2{font-family:var(--serif);font-size:clamp(1.9rem,3.5vw,2.8rem);line-height:1.1;letter-spacing:-0.01em;margin-bottom:1.25rem}
+h3{font-size:1rem;font-weight:600;margin-bottom:0.5rem;color:var(--ink)}
+p{color:var(--ink-2);line-height:1.75;margin-bottom:1rem}
+p:last-child{margin-bottom:0}
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem}
+.card{background:var(--white);border:1px solid var(--b1);border-radius:var(--r-lg);padding:1.75rem;box-shadow:var(--shadow)}
+.card.accent{border-left:3px solid var(--blue)}
+.tag{display:inline-block;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0.25rem 0.65rem;border-radius:999px;background:rgba(59,110,248,0.1);color:var(--blue);margin-bottom:1rem}
+.steps{display:flex;flex-direction:column;gap:1.5rem;counter-reset:step}
+.step{display:flex;gap:1.25rem;align-items:flex-start;counter-increment:step}
+.step-num{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem}
+.cta-band{padding:clamp(3rem,6vw,5rem) 0;text-align:center;background:var(--grad);color:#fff}
+.cta-band h2{color:#fff;margin-bottom:1rem}
+.cta-band p{color:rgba(255,255,255,0.8);max-width:520px;margin:0 auto 2rem}
+.btn-white{background:#fff;color:var(--ink);padding:0.85rem 2rem;border-radius:999px;font-weight:600;font-size:0.9rem;transition:all 0.2s;display:inline-block}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.15)}
+footer{padding:2.5rem 0;background:var(--ink)}
+footer .inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
+footer .logo{font-weight:700;color:#fff}
+footer p{color:rgba(255,255,255,0.4);font-size:0.75rem;margin:0}
+footer nav{display:flex;gap:1.5rem;flex-wrap:wrap}
+footer nav a{font-size:0.75rem;color:rgba(255,255,255,0.5)}
+footer nav a:hover{color:#fff}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="Pisum logo" loading="lazy"/>
+    Pisum
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="faq.html">FAQ</a>
+    <a href="documentation.html">Docs</a>
+    <a href="contact.html">Contact</a>
+    <a href="../saas/frontend/auth.html" class="btn btn-primary" style="padding:0.55rem 1.25rem;font-size:0.82rem">Try Free</a>
+  </div>
+</nav>
+
+<main>
+
+<header class="hero">
+  <div class="container">
+    <div class="eyebrow"><span class="eyebrow-dot"></span>AI Radiology Report Generator</div>
+    <h1>The radiology report generator<br/><em>radiologists trust.</em></h1>
+    <p class="hero-sub">Pisum generates structured radiology reports in under 60 seconds. Select a template, fill guided fields, dictate with AI, and export to PDF or Word — all offline, all GDPR compliant.</p>
+    <div class="hero-actions">
+      <a href="../saas/frontend/auth.html" class="btn btn-primary">Try Pisum now →</a>
+      <a href="free-radiology-report-templates.html" class="btn btn-ghost">Browse templates</a>
+    </div>
+  </div>
+</header>
+
+<section class="content alt">
+  <div class="container">
+    <div class="tag">How it works</div>
+    <h2>Three steps to a complete radiology report.</h2>
+    <div class="steps" style="max-width:680px;margin:0 auto">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <h3>Select a radiology report template</h3>
+          <p>Choose from 112 expert-built templates covering CT, MRI, X-Ray, Ultrasound, and PET-CT across every body region. Templates are organized by modality and anatomical area so you find the right one in seconds.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <h3>Fill fields or dictate with AI</h3>
+          <p>Type findings into guided structured fields — or activate Sally AI and dictate hands-free. The AI transcribes directly into the correct section: Technique, Findings, Impression. No reformatting needed.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <h3>Export to PDF, Word, or RIS/PACS</h3>
+          <p>One click exports a professionally formatted report with your institution's header, signature field, and clinic branding. Ready for direct PACS handoff, EMR integration, or patient delivery.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="content">
+  <div class="container">
+    <div class="tag">Why Pisum is different</div>
+    <h2>What makes a great AI radiology report generator.</h2>
+    <div class="grid-2">
+      <div>
+        <p>Most "radiology report generators" are either blank text editors with speech-to-text bolted on, or expensive enterprise platforms that require months of IT setup. Neither serves the everyday radiologist well.</p>
+        <p>Pisum was built with one goal: help a radiologist generate a complete, high-quality, structured report in under 60 seconds — with no cloud dependency, no per-report fee, and no learning curve.</p>
+        <p>The key insight: a radiology report is not a document — it's a structured data set. Each section has a defined clinical purpose. The report generator needs to understand that structure, not just produce text. That's what Pisum does.</p>
+      </div>
+      <div>
+        <div class="grid-2">
+          <div class="card accent">
+            <h3>112 templates</h3>
+            <p style="font-size:0.875rem">CT, MRI, X-Ray, Ultrasound, PET-CT. Every body region. Expert-built by radiologists.</p>
+          </div>
+          <div class="card accent">
+            <h3>AI dictation</h3>
+            <p style="font-size:0.875rem">Sally AI runs offline. Radiology vocabulary. 23 languages. No cloud.</p>
+          </div>
+          <div class="card accent">
+            <h3>Instant export</h3>
+            <p style="font-size:0.875rem">PDF and Word with clinic branding. One click. No reformatting.</p>
+          </div>
+          <div class="card accent">
+            <h3>Free plan</h3>
+            <p style="font-size:0.875rem">Start generating reports immediately. No credit card required.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="content alt">
+  <div class="container">
+    <div class="tag">Template categories</div>
+    <h2>Every imaging modality. Every body region.</h2>
+    <div class="grid-3">
+      <div class="card"><h3>CT Reports</h3><p style="font-size:0.875rem">Chest CT, abdominal CT, head CT, CT angiography, CT colonoscopy, trauma CT — with contrast and without contrast variants.</p><a href="ct-scan-report-template.html" style="font-size:0.82rem;color:var(--blue);font-weight:600">Browse CT templates →</a></div>
+      <div class="card"><h3>MRI Reports</h3><p style="font-size:0.875rem">Brain MRI, spine MRI, musculoskeletal MRI, cardiac MRI, abdominal MRI, pelvis MRI — all field strengths.</p><a href="mri-report-template.html" style="font-size:0.82rem;color:var(--blue);font-weight:600">Browse MRI templates →</a></div>
+      <div class="card"><h3>X-Ray Reports</h3><p style="font-size:0.875rem">Chest X-ray, extremity X-ray, spine X-ray, abdominal X-ray — pediatric and adult variants included.</p></div>
+      <div class="card"><h3>Ultrasound Reports</h3><p style="font-size:0.875rem">Abdominal ultrasound, thyroid ultrasound, pelvic ultrasound, vascular ultrasound, obstetric ultrasound.</p></div>
+      <div class="card"><h3>PET-CT Reports</h3><p style="font-size:0.875rem">Oncology staging, treatment response, lymphoma follow-up — with Deauville and SUV field integration.</p></div>
+      <div class="card"><h3>Custom Templates</h3><p style="font-size:0.875rem">Create and save unlimited custom templates from scratch or by modifying existing ones. They travel with your user profile.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2>Start generating radiology reports now.</h2>
+    <p>Free plan. No credit card. Windows desktop. Works offline immediately.</p>
+    <a href="../saas/frontend/auth.html" class="btn-white">Try Pisum now →</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="inner">
+      <span class="logo">Pisum</span>
+      <p>© 2026 Pisum. All rights reserved.</p>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="faq.html">FAQ</a>
+        <a href="documentation.html">Docs</a>
+        <a href="contact.html">Contact</a>
+        <a href="rgpd.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
