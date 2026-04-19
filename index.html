@@ -291,8 +291,8 @@ a{text-decoration:none;color:inherit}
 .tog input:checked+.tog-sl{background:var(--grad);border-color:transparent}
 .tog input:checked+.tog-sl::before{left:23px}
 .save-tag{background:rgba(22,163,74,0.1);color:#15803d;font-size:0.7rem;font-weight:700;padding:0.18rem 0.55rem;border-radius:6px}
-.plans{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;align-items:start}
-.plan{background:var(--white);border:1px solid var(--b1);border-radius:var(--r-xl);padding:1.75rem;transition:all 0.25s var(--t)}
+.plans{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;align-items:stretch}
+.plan{background:var(--white);border:1px solid var(--b1);border-radius:var(--r-xl);padding:1.75rem;transition:all 0.25s var(--t);display:flex;flex-direction:column}
 .plan:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
 .plan.hot{background:var(--ink);border-color:transparent;box-shadow:0 24px 64px rgba(9,9,15,0.18),0 6px 18px rgba(9,9,15,0.1);transform:scale(1.02)}
 .plan.hot:hover{transform:scale(1.02) translateY(-4px)}
@@ -313,7 +313,7 @@ a{text-decoration:none;color:inherit}
 .cta-white:hover{box-shadow:0 6px 20px rgba(0,0,0,0.18);transform:translateY(-1px)}
 .plan-div{border:none;border-top:1px solid var(--b1);margin-bottom:1.5rem}
 .plan.hot .plan-div{border-color:rgba(255,255,255,0.08)}
-.plan-list{list-style:none;display:flex;flex-direction:column;gap:0.7rem}
+.plan-list{list-style:none;display:flex;flex-direction:column;gap:0.7rem;flex:1}
 .plan-list li{display:flex;align-items:center;gap:0.65rem;font-size:0.85rem;color:var(--ink-2)}
 .plan.hot .plan-list li{color:rgba(255,255,255,0.7)}
 .lchk{color:var(--green);font-size:1rem;flex-shrink:0}
