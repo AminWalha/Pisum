@@ -338,11 +338,11 @@ a { text-decoration: none; color: inherit; }
         </div>
         <div class="acc-item" data-q="What is PISUM and who is it for?">
           <button class="acc-q"><span class="acc-q-text">What is PISUM and who is it for?</span><span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></button>
-          <div class="acc-body"><div class="acc-body-inner">PISUM is a radiology reporting desktop application designed for radiologists and radiology departments. It provides 112 structured report templates, AI-assisted voice dictation, multi-language support, and one-click PDF/Word export — all running entirely offline on your workstation.</div></div>
+          <div class="acc-body"><div class="acc-body-inner">PISUM is a radiology reporting desktop application designed for radiologists and radiology departments. It provides 112 structured report templates, AI-assisted voice dictation, multi-language support, and one-click PDF/Word export — running on your Windows workstation with cloud-powered AI features.</div></div>
         </div>
         <div class="acc-item" data-q="Does PISUM require an internet connection?">
           <button class="acc-q"><span class="acc-q-text">Does PISUM require an internet connection?</span><span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></button>
-          <div class="acc-body"><div class="acc-body-inner">No. PISUM is a fully offline application. Once installed, it runs entirely on your local machine — no internet connection is needed for reporting, dictation, or export. An internet connection is only required at initial activation and for software updates.</div></div>
+          <div class="acc-body"><div class="acc-body-inner">Yes. PISUM requires an active internet connection for AI Dictation, AI Enhancer, and subscription management. Your reports and templates are stored locally on your machine, but AI features connect securely to our cloud API. Internet is always required for full functionality.</div></div>
         </div>
         <div class="acc-item" data-q="What operating systems are supported?">
           <button class="acc-q"><span class="acc-q-text">What operating systems are supported?</span><span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></button>
@@ -361,7 +361,7 @@ a { text-decoration: none; color: inherit; }
       <div class="accordion">
         <div class="acc-item" data-q="How does the voice dictation work?">
           <button class="acc-q"><span class="acc-q-text">How does the voice dictation (Sally AI) work?</span><span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></button>
-          <div class="acc-body"><div class="acc-body-inner"><strong>Sally AI</strong> is PISUM's built-in voice recognition engine. It runs <em>entirely on your local processor (CPU/GPU)</em> — no audio data is ever sent to external servers. It adapts to medical vocabulary in radiology across 23 supported languages and improves accuracy over time on your device.</div></div>
+          <div class="acc-body"><div class="acc-body-inner"><strong>Sally AI</strong> is PISUM's voice recognition engine. It converts your speech into structured radiology report text in real time via a secure cloud API — audio is never stored. It is optimized for medical vocabulary across 23 supported languages.</div></div>
         </div>
         <div class="acc-item" data-q="How many templates are available and can I add my own?">
           <button class="acc-q"><span class="acc-q-text">How many templates are available? Can I create my own?</span><span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></button>
@@ -415,11 +415,11 @@ a { text-decoration: none; color: inherit; }
         </div>
         <div class="acc-item" data-q="Where is patient data stored?">
           <button class="acc-q"><span class="acc-q-text">Where is patient data stored?</span><span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></button>
-          <div class="acc-body"><div class="acc-body-inner">All patient data stays on your local machine. PISUM never uploads patient information to any server. The application is designed to be air-gapped compatible — it can operate in fully disconnected environments. Local backups and RIS/PACS archiving remain your institution's responsibility.</div></div>
+          <div class="acc-body"><div class="acc-body-inner">Patient reports are stored locally on your machine. PISUM never uploads patient data to any server. Account data (name, email, subscription status) is hosted on Supabase with EU servers. Local backups and RIS/PACS archiving remain your institution's responsibility.</div></div>
         </div>
         <div class="acc-item" data-q="Can I use PISUM in a hospital with strict IT security policies?">
           <button class="acc-q"><span class="acc-q-text">Can PISUM be used in hospitals with strict IT security policies?</span><span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></button>
-          <div class="acc-body"><div class="acc-body-inner">Yes. Because PISUM is a fully local application with no cloud dependency, it is compatible with strict healthcare IT environments. It supports air-gapped networks and requires no outbound firewall rules for normal operation (only for license activation). Contact us for enterprise deployment documentation.</div></div>
+          <div class="acc-body"><div class="acc-body-inner">Yes. Patient reports never leave your machine, which satisfies most healthcare data-handling requirements. PISUM requires outbound internet access for AI features and subscription sync. Contact us for enterprise deployment documentation and firewall requirements.</div></div>
         </div>
       </div>
     </div>
