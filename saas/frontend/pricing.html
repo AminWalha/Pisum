@@ -463,6 +463,9 @@ footer .sep{margin:0 .5rem;color:var(--slate-200)}
     </label>
     <span id="label-annual">Annual<span class="save-badge">−20%</span></span>
   </div>
+  <div style="text-align:center;font-size:.75rem;color:var(--slate-400);margin-top:-.5rem;margin-bottom:1.5rem;letter-spacing:.01em">
+    No cloud upload of patient data &nbsp;·&nbsp; GDPR compliant &nbsp;·&nbsp; Local-first
+  </div>
 
   <div class="plans-grid">
 
@@ -492,7 +495,7 @@ footer .sep{margin:0 .5rem;color:var(--slate-200)}
       <div class="plan-tag tag-starter">Starter</div>
       <div class="plan-name">Pisum Starter</div>
       <div class="plan-subtitle">Solo radiologist</div>
-      <div class="plan-price" id="price-starter" data-monthly="29" data-annual="23">29 €<span id="price-starter-sub"> / month</span></div>
+      <div class="plan-price" id="price-starter" data-monthly="39" data-annual="31">39 €<span id="price-starter-sub"> / month</span></div>
       <div class="plan-microcopy" id="sub-starter">Billed monthly</div>
       <button class="plan-cta cta-blue" onclick="subscribe('starter')" data-label="Start reporting">Start reporting</button>
       <div class="divider"></div>
@@ -513,9 +516,9 @@ footer .sep{margin:0 .5rem;color:var(--slate-200)}
       <div class="plan-tag tag-pro">Pro ⭐</div>
       <div class="plan-name pro">Pisum Pro</div>
       <div class="plan-subtitle">Advanced practitioner, all-in-one</div>
-      <div class="plan-price pro" id="price-pro" data-monthly="59" data-annual="47">59 €<span id="price-pro-sub"> / month</span></div>
+      <div class="plan-price pro" id="price-pro" data-monthly="79" data-annual="63">79 €<span id="price-pro-sub"> / month</span></div>
       <div class="plan-microcopy" id="sub-pro">Billed monthly</div>
-      <button class="plan-cta cta-blue-glow" onclick="subscribe('pro')" data-label="Upgrade to Pro">Upgrade to Pro</button>
+      <button class="plan-cta cta-blue-glow" onclick="subscribe('pro')" data-label="Try Pro free — 7 days">Try Pro free — 7 days</button>
       <div class="divider" style="background:rgba(37,99,235,.12)"></div>
       <ul class="feat-list">
         <li><span class="fi-ok">✓</span>112+ templates</li>
@@ -530,10 +533,11 @@ footer .sep{margin:0 .5rem;color:var(--slate-200)}
 
     <!-- EXPERT -->
     <div class="plan-card anim-4" style="border-color:#fde68a">
+      <div class="pop-ribbon" style="background:linear-gradient(135deg,#059669,#10b981)">Best Value</div>
       <div class="plan-tag tag-expert">Expert 🔥</div>
       <div class="plan-name">Pisum Expert</div>
       <div class="plan-subtitle">No limits, full power</div>
-      <div class="plan-price" id="price-expert" data-monthly="99" data-annual="79">99 €<span id="price-expert-sub"> / month</span></div>
+      <div class="plan-price" id="price-expert" data-monthly="129" data-annual="103">129 €<span id="price-expert-sub"> / month</span></div>
       <div class="plan-microcopy" id="sub-expert">Billed monthly</div>
       <button class="plan-cta cta-amber" onclick="subscribe('expert')" data-label="Get full access">Get full access</button>
       <div class="divider"></div>
@@ -555,9 +559,10 @@ footer .sep{margin:0 .5rem;color:var(--slate-200)}
       <div class="plan-tag tag-clinic">Clinic 🏥</div>
       <div class="plan-name clinic">Pisum Clinic</div>
       <div class="plan-subtitle clinic">Multi-site · Team management</div>
-      <div class="plan-price clinic" id="price-clinic" data-monthly="299" data-annual="239">299 €<span id="price-clinic-sub"> / month</span></div>
-      <div class="plan-microcopy clinic" id="sub-clinic">5 users incl. · +€49/extra user</div>
+      <div class="plan-price clinic" id="price-clinic" data-monthly="399" data-annual="319">399 €<span id="price-clinic-sub"> / month</span></div>
+      <div class="plan-microcopy clinic" id="sub-clinic">5 users incl. · +€69/extra user</div>
       <button class="plan-cta cta-glass" onclick="subscribe('clinic')" data-label="Contact us">Contact us</button>
+      <div style="font-size:.68rem;color:#7dd3fc;margin-top:.6rem;text-align:center">Need more than 5 users? Add extra seats from your dashboard after subscribing.</div>
       <div class="divider clinic"></div>
       <!-- Team avatars -->
       <div class="team-avatars">
@@ -580,6 +585,12 @@ footer .sep{margin:0 .5rem;color:var(--slate-200)}
       </ul>
     </div>
 
+  </div>
+
+  <!-- Money-back guarantee -->
+  <div style="text-align:center;margin-top:2rem;font-size:.8rem;color:var(--slate-500)">
+    <span style="color:var(--green-600);font-weight:700">✓</span> 30-day money-back guarantee on all paid plans &nbsp;·&nbsp;
+    <span style="color:var(--green-600);font-weight:700">✓</span> Cancel anytime, no lock-in
   </div>
 </section>
 
@@ -634,10 +645,10 @@ footer .sep{margin:0 .5rem;color:var(--slate-200)}
         <tr>
           <th><div class="th-inner"><span class="th-name">Feature</span></div></th>
           <th><div class="th-inner"><span class="th-name">Free</span><span class="th-price">€0/mo</span></div></th>
-          <th><div class="th-inner"><span class="th-name">Starter</span><span class="th-price">€29/mo</span></div></th>
-          <th class="col-pro"><div class="th-inner"><span class="rec-badge">Most Popular</span><span class="th-name">Pro ⭐</span><span class="th-price">€59/mo</span></div></th>
-          <th><div class="th-inner"><span class="th-name">Expert 🔥</span><span class="th-price">€99/mo</span></div></th>
-          <th class="col-clinic"><div class="th-inner"><span class="ent-badge">Enterprise</span><span class="th-name">Clinic 🏥</span><span class="th-price">€299/mo</span></div></th>
+          <th><div class="th-inner"><span class="th-name">Starter</span><span class="th-price">€39/mo</span></div></th>
+          <th class="col-pro"><div class="th-inner"><span class="rec-badge">Most Popular</span><span class="th-name">Pro ⭐</span><span class="th-price">€79/mo</span></div></th>
+          <th><div class="th-inner"><span class="rec-badge" style="background:#34d399;color:#064e3b">Best Value</span><span class="th-name">Expert 🔥</span><span class="th-price">€129/mo</span></div></th>
+          <th class="col-clinic"><div class="th-inner"><span class="ent-badge">Enterprise</span><span class="th-name">Clinic 🏥</span><span class="th-price">€399/mo</span></div></th>
         </tr>
       </thead>
       <tbody>
@@ -657,7 +668,7 @@ footer .sep{margin:0 .5rem;color:var(--slate-200)}
         <tr><td>Worklist</td><td><span class="no">✕</span></td><td><span class="lim">Basic</span></td><td class="col-pro"><span class="yes">Full</span></td><td><span class="yes">Advanced</span></td><td class="col-clinic"><span class="yes">Multi-site</span></td></tr>
         <tr><td>Statistics</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="lim">Basic</span></td><td><span class="yes">Full</span></td><td class="col-clinic"><span class="yes">Advanced</span></td></tr>
         <tr><td>LAN Network Sync</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="no">✕</span></td><td><span class="lim">1 site · 3 PCs</span></td><td class="col-clinic"><span class="yes">Multi-site · Unlimited</span></td></tr>
-        <tr><td>Users</td><td>1</td><td>1</td><td class="col-pro">1</td><td>1</td><td class="col-clinic"><strong>5 incl. (+€49/extra)</strong></td></tr>
+        <tr><td>Users</td><td>1</td><td>1</td><td class="col-pro">1</td><td>1</td><td class="col-clinic"><strong>5 incl. (+€69/extra)</strong></td></tr>
         <!-- Support -->
         <tr class="cat-row"><td colspan="6">Support</td></tr>
         <tr><td>Support level</td><td>—</td><td>Email</td><td class="col-pro">Priority email</td><td>Chat + email</td><td class="col-clinic"><strong>Dedicated + onboarding</strong></td></tr>
@@ -757,7 +768,7 @@ footer .sep{margin:0 .5rem;color:var(--slate-200)}
     <button class="faq-q" onclick="toggleFaq(this)">
       Is there a free trial for paid plans? <span class="arr">▼</span>
     </button>
-    <div class="faq-a">The Free plan is a permanent free tier — no time limit, no credit card. It lets you discover PISUM at your own pace. You can upgrade to any paid plan from your dashboard at any time.</div>
+    <div class="faq-a">The Free plan is a permanent free tier — no time limit, no credit card. The Pro plan includes a 7-day free trial so you can experience the full feature set risk-free. All paid plans are backed by a 30-day money-back guarantee.</div>
   </div>
 </section>
 
@@ -789,10 +800,17 @@ let currentSession = null;
 let billingInterval = 'monthly';
 
 const PLAN_PRICES = {
-  starter: { monthly: 29,  annual: 23  },
-  pro:     { monthly: 59,  annual: 47  },
-  expert:  { monthly: 99,  annual: 79  },
-  clinic:  { monthly: 299, annual: 239 },
+  starter: { monthly: 39,  annual: 31  },
+  pro:     { monthly: 79,  annual: 63  },
+  expert:  { monthly: 129, annual: 103 },
+  clinic:  { monthly: 399, annual: 319 },
+};
+
+const ANNUAL_SAVINGS = {
+  starter: 96,
+  pro:     192,
+  expert:  312,
+  clinic:  960,
 };
 
 function setBilling(isAnnual) {
@@ -811,7 +829,7 @@ function setBilling(isAnnual) {
     if (subEl) subEl.textContent = isAnnual ? ' / month' : ' / month';
     if (microEl && plan !== 'clinic') {
       microEl.textContent = isAnnual
-        ? 'Billed annually · save 20%'
+        ? `Billed annually · save ${ANNUAL_SAVINGS[plan]}€/year`
         : 'Billed monthly';
     }
   });

@@ -404,6 +404,35 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
   text-transform:uppercase;border:1px solid rgba(24,184,116,0.22)
 }
 
+/* ── TEAM SEATS CARD ── */
+.seats-body{padding:1.25rem 1.375rem;display:flex;flex-direction:column;gap:1.25rem}
+.seats-stats{display:flex;gap:1rem;flex-wrap:wrap}
+.seats-stat{flex:1;min-width:80px;background:var(--card-2);border:1px solid var(--border);border-radius:var(--r);padding:0.875rem;text-align:center}
+.seats-stat-val{font-size:1.35rem;font-weight:800;color:var(--t1);letter-spacing:-0.04em;line-height:1;margin-bottom:0.25rem}
+.seats-stat-val.green{color:var(--green)}
+.seats-stat-lbl{font-size:0.588rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--t3)}
+.seats-add-row{display:flex;align-items:center;gap:0.875rem;flex-wrap:wrap}
+.seats-add-label{font-size:0.813rem;color:var(--t2);flex:1;min-width:160px;line-height:1.45}
+.seats-add-label strong{color:var(--t1)}
+.seats-picker{display:flex;align-items:center;gap:0.5rem}
+.seats-picker-btn{
+  width:28px;height:28px;border-radius:var(--r-sm);
+  background:rgba(255,255,255,0.06);border:1px solid var(--border-2);
+  color:var(--t1);font-size:1rem;cursor:pointer;font-family:inherit;
+  display:flex;align-items:center;justify-content:center;line-height:1;
+  transition:all var(--transition)
+}
+.seats-picker-btn:hover{background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.2)}
+.seats-qty{font-size:0.938rem;font-weight:700;color:var(--t1);min-width:22px;text-align:center}
+.btn-add-seats{
+  padding:0.5rem 1rem;border-radius:var(--r);
+  background:var(--blue);color:#fff;border:none;cursor:pointer;
+  font-size:0.813rem;font-weight:600;font-family:inherit;
+  transition:all var(--transition);white-space:nowrap
+}
+.btn-add-seats:hover:not(:disabled){background:var(--blue-hover)}
+.btn-add-seats:disabled{opacity:0.5;cursor:not-allowed}
+
 /* ── UPGRADE LINK ── */
 .upgrade-row{text-align:center;margin-top:1rem;font-size:0.8rem;color:var(--t3)}
 .upgrade-row a{color:var(--blue);font-weight:600;text-decoration:none}
@@ -714,6 +743,44 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
           </div>
           <div class="dc-body">
             <div class="feature-grid" id="feature-grid"></div>
+          </div>
+        </div>
+
+        <!-- Team & Seats (Clinic only) -->
+        <div class="dark-card anim-4" id="team-seats-card" style="display:none">
+          <div class="dc-head">
+            <span class="dc-title">Team &amp; Seats</span>
+            <span class="badge badge-clinic" id="total-seats-badge">5 users</span>
+          </div>
+          <div class="seats-body">
+            <div class="seats-stats">
+              <div class="seats-stat">
+                <div class="seats-stat-val">5</div>
+                <div class="seats-stat-lbl">Included</div>
+              </div>
+              <div class="seats-stat">
+                <div class="seats-stat-val" id="extra-seats-val">0</div>
+                <div class="seats-stat-lbl">Extra</div>
+              </div>
+              <div class="seats-stat">
+                <div class="seats-stat-val green" id="total-seats-val">5</div>
+                <div class="seats-stat-lbl">Total users</div>
+              </div>
+            </div>
+            <div class="seats-add-row">
+              <div class="seats-add-label">
+                <strong>Add extra users</strong> — €69 / user / month.<br>
+                Billed as a separate recurring add-on. Manage via billing portal.
+              </div>
+              <div class="seats-picker">
+                <button class="seats-picker-btn" onclick="changeAddSeats(-1)">−</button>
+                <span class="seats-qty" id="add-seats-qty">1</span>
+                <button class="seats-picker-btn" onclick="changeAddSeats(1)">+</button>
+              </div>
+              <button class="btn-add-seats" id="btn-add-seats" onclick="handleAddSeats()">
+                Add <span id="add-seats-label">1 seat</span>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -1095,6 +1162,19 @@ function renderAccess({ access, reason, plan }, subInfo = {}) {
     document.getElementById('info-since').textContent = fmt(periodStart || createdAt);
 
     document.getElementById('btn-billing-portal').style.display = subInfo.has_billing_portal ? '' : 'none';
+
+    // Clinic-only: Team & Seats card
+    const teamCard = document.getElementById('team-seats-card');
+    if (plan === 'clinic' && statusRaw === 'active') {
+      const extraSeats = subInfo.extra_seats || 0;
+      const totalSeats = 5 + extraSeats;
+      document.getElementById('extra-seats-val').textContent  = extraSeats;
+      document.getElementById('total-seats-val').textContent  = totalSeats;
+      document.getElementById('total-seats-badge').textContent = totalSeats + ' users';
+      teamCard.style.display = '';
+    } else {
+      teamCard.style.display = 'none';
+    }
 
     renderUsage(plan, subInfo);
     renderFeatures(plan);
@@ -1520,6 +1600,43 @@ function showSuccessToast(msg) {
   t.textContent = msg;
   t.style.display = '';
   setTimeout(() => { t.style.display = 'none'; }, 3500);
+}
+
+// ── Extra Seats ──────────────────────────────────────────────────────────────
+
+let addSeatsQty = 1;
+
+function changeAddSeats(delta) {
+  addSeatsQty = Math.max(1, addSeatsQty + delta);
+  document.getElementById('add-seats-qty').textContent = addSeatsQty;
+  const label = addSeatsQty === 1 ? '1 seat — €69/mo' : `${addSeatsQty} seats — €${addSeatsQty * 69}/mo`;
+  document.getElementById('add-seats-label').textContent = label;
+}
+
+async function handleAddSeats() {
+  const btn = document.getElementById('btn-add-seats');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Redirecting…';
+  try {
+    const r = await fetch(`${API_BASE}/create-extra-seat-checkout`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${session.access_token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ quantity: addSeatsQty }),
+    });
+    if (!r.ok) {
+      const err = await r.json().catch(() => ({}));
+      throw new Error(err.detail || 'Server error');
+    }
+    const { checkout_url } = await r.json();
+    window.location.href = checkout_url;
+  } catch (e) {
+    showSuccessToast('Error: ' + e.message);
+    btn.disabled = false;
+    btn.innerHTML = 'Add <span id="add-seats-label">' + (addSeatsQty === 1 ? '1 seat — €69/mo' : `${addSeatsQty} seats — €${addSeatsQty * 69}/mo`) + '</span>';
+  }
 }
 
 async function handleBillingPortal() {
