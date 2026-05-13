@@ -1777,5 +1777,50 @@ async function confirmDeleteAccount() {
 
 init();
 </script>
+
+<style>
+#pisum-chat-btn{position:fixed;bottom:24px;right:24px;width:56px;height:56px;background:#2563eb;border-radius:50%;border:none;cursor:pointer;box-shadow:0 4px 16px rgba(37,99,235,0.4);z-index:9999;display:flex;align-items:center;justify-content:center;transition:transform 0.2s,background 0.2s}
+#pisum-chat-btn:hover{background:#1d4ed8;transform:scale(1.08)}
+#pisum-chat-btn svg{width:26px;height:26px;fill:white}
+#pisum-chat-box{position:fixed;bottom:92px;right:24px;width:360px;background:#1e2433;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,0.4);border:1px solid #2d3748;z-index:9999;display:none;flex-direction:column;overflow:hidden;font-family:'Inter',-apple-system,sans-serif}
+#pisum-chat-header{background:#2563eb;color:#fff;padding:14px 16px;display:flex;align-items:center;justify-content:space-between}
+#pisum-chat-header span{font-weight:600;font-size:0.95rem}
+#pisum-chat-close{background:none;border:none;color:#fff;cursor:pointer;font-size:1.2rem;line-height:1;padding:0}
+#pisum-chat-messages{height:320px;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:#151929}
+.pisum-msg{max-width:82%;padding:9px 13px;border-radius:12px;font-size:0.85rem;line-height:1.5}
+.pisum-msg.bot{background:#1e2433;border:1px solid #2d3748;color:#e2e8f0;align-self:flex-start;border-bottom-left-radius:3px}
+.pisum-msg.user{background:#2563eb;color:#fff;align-self:flex-end;border-bottom-right-radius:3px}
+.pisum-msg.typing{color:#718096;font-style:italic}
+#pisum-chat-input-row{display:flex;padding:10px;gap:8px;border-top:1px solid #2d3748;background:#1e2433}
+#pisum-chat-input{flex:1;border:1px solid #2d3748;border-radius:8px;padding:8px 12px;font-size:0.85rem;font-family:inherit;outline:none;background:#151929;color:#e2e8f0}
+#pisum-chat-input:focus{border-color:#2563eb}
+#pisum-chat-send{background:#2563eb;color:#fff;border:none;border-radius:8px;padding:8px 14px;cursor:pointer;font-size:0.85rem;font-weight:600;transition:background 0.15s}
+#pisum-chat-send:hover{background:#1d4ed8}
+#pisum-chat-send:disabled{opacity:0.5;cursor:not-allowed}
+</style>
+
+<button id="pisum-chat-btn" onclick="pisumToggleChat()" title="Chat with PISUM Assistant">
+  <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+</button>
+<div id="pisum-chat-box">
+  <div id="pisum-chat-header">
+    <span>PISUM Assistant</span>
+    <button id="pisum-chat-close" onclick="pisumToggleChat()">✕</button>
+  </div>
+  <div id="pisum-chat-messages">
+    <div class="pisum-msg bot">Hi! I'm the PISUM assistant. How can I help you today?</div>
+  </div>
+  <div id="pisum-chat-input-row">
+    <input id="pisum-chat-input" placeholder="Ask a question…" onkeydown="if(event.key==='Enter'){event.preventDefault();pisumSend()}"/>
+    <button id="pisum-chat-send" onclick="pisumSend()">Send</button>
+  </div>
+</div>
+<script>
+const PISUM_CHAT_URL='https://pisum-chat-server.onrender.com';
+const pisumSessionId='sess_'+Math.random().toString(36).slice(2);
+function pisumToggleChat(){const b=document.getElementById('pisum-chat-box');b.style.display=b.style.display==='flex'?'none':'flex';if(b.style.display==='flex')document.getElementById('pisum-chat-input').focus()}
+function pisumAddMsg(t,type){const m=document.getElementById('pisum-chat-messages');const d=document.createElement('div');d.className='pisum-msg '+type;d.textContent=t;m.appendChild(d);m.scrollTop=m.scrollHeight;return d}
+async function pisumSend(){const i=document.getElementById('pisum-chat-input');const b=document.getElementById('pisum-chat-send');const msg=i.value.trim();if(!msg)return;pisumAddMsg(msg,'user');i.value='';b.disabled=true;const t=pisumAddMsg('Typing…','bot typing');try{const r=await fetch(PISUM_CHAT_URL+'/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:msg,sessionId:pisumSessionId})});const d=await r.json();t.remove();pisumAddMsg(d.reply||d.error,'bot')}catch{t.remove();pisumAddMsg('Connection error. Please try again.','bot')}b.disabled=false;i.focus()}
+</script>
 </body>
 </html>
