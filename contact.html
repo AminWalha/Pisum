@@ -262,336 +262,151 @@ ham.addEventListener('click',()=>links.classList.toggle('open'));
     });
   }
 </script>
+<!-- ── PISUM AI Agent Widget (dark theme) ─────────────────────── -->
 <style>
-@keyframes pcFadeUp{from{opacity:0;transform:translateY(16px) scale(0.97)}to{opacity:1;transform:translateY(0) scale(1)}}
-@keyframes pcFadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-@keyframes pcPulse{0%,100%{box-shadow:0 0 0 0 rgba(37,99,235,0.4)}70%{box-shadow:0 0 0 10px rgba(37,99,235,0)}}
-@keyframes pcDot{0%,80%,100%{transform:scale(0.6);opacity:0.4}40%{transform:scale(1);opacity:1}}
-
-#pc-btn{
-  position:fixed;bottom:28px;right:28px;width:60px;height:60px;
-  background:linear-gradient(135deg,#2563eb,#1d4ed8);
-  border-radius:50%;border:none;cursor:pointer;z-index:99999;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 4px 20px rgba(37,99,235,0.5);
-  transition:transform 0.25s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.2s;
-  animation:pcPulse 2.5s infinite;
-}
-#pc-btn:hover{transform:scale(1.12);box-shadow:0 6px 28px rgba(37,99,235,0.6);animation:none}
-#pc-btn svg{width:28px;height:28px;fill:white;transition:transform 0.3s}
-#pc-btn.open svg{transform:rotate(90deg)}
-#pc-notif{
-  position:absolute;top:-4px;right:-4px;width:18px;height:18px;
-  background:#ef4444;border-radius:50%;border:2px solid #fff;
-  font-size:0.65rem;font-weight:700;color:#fff;
-  display:flex;align-items:center;justify-content:center;
-}
-
-#pc-box{
-  position:fixed;bottom:104px;right:28px;width:380px;
-  background:#fff;border-radius:24px;
-  box-shadow:0 24px 64px rgba(0,0,0,0.18),0 4px 16px rgba(0,0,0,0.08);
-  z-index:99998;display:none;flex-direction:column;overflow:hidden;
-  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
-  animation:pcFadeUp 0.3s cubic-bezier(0.34,1.56,0.64,1);
-  border:1px solid rgba(255,255,255,0.8);
-}
-
-#pc-header{
-  background:linear-gradient(135deg,#1e40af 0%,#2563eb 50%,#3b82f6 100%);
-  padding:18px 20px 16px;position:relative;overflow:hidden;
-}
-#pc-header::before{
-  content:'';position:absolute;top:-30px;right:-30px;
-  width:120px;height:120px;border-radius:50%;
-  background:rgba(255,255,255,0.08);
-}
-#pc-header::after{
-  content:'';position:absolute;bottom:-20px;left:20px;
-  width:80px;height:80px;border-radius:50%;
-  background:rgba(255,255,255,0.05);
-}
-#pc-header-top{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1}
-#pc-avatar{
-  width:40px;height:40px;border-radius:50%;
-  background:rgba(255,255,255,0.2);backdrop-filter:blur(4px);
-  display:flex;align-items:center;justify-content:center;
-  border:2px solid rgba(255,255,255,0.3);flex-shrink:0;
-}
-#pc-avatar svg{width:22px;height:22px;fill:white}
-#pc-header-info{flex:1;margin-left:12px}
-#pc-header-info h4{color:#fff;font-size:0.95rem;font-weight:700;margin:0;letter-spacing:-0.01em}
-#pc-header-info p{color:rgba(255,255,255,0.75);font-size:0.75rem;margin:2px 0 0;display:flex;align-items:center;gap:5px}
-#pc-online{width:7px;height:7px;background:#4ade80;border-radius:50%;flex-shrink:0}
-#pc-close{
-  background:rgba(255,255,255,0.15);border:none;color:#fff;
-  cursor:pointer;width:30px;height:30px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:1rem;transition:background 0.2s;position:relative;z-index:1;
-  backdrop-filter:blur(4px);
-}
-#pc-close:hover{background:rgba(255,255,255,0.25)}
-
-#pc-messages{
-  height:340px;overflow-y:auto;padding:16px;
-  display:flex;flex-direction:column;gap:12px;
-  background:linear-gradient(180deg,#f8faff 0%,#f1f5ff 100%);
-  scroll-behavior:smooth;
-}
-#pc-messages::-webkit-scrollbar{width:4px}
-#pc-messages::-webkit-scrollbar-track{background:transparent}
-#pc-messages::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:4px}
-
-.pc-msg-wrap{display:flex;align-items:flex-end;gap:8px;animation:pcFadeIn 0.25s ease}
-.pc-msg-wrap.user{flex-direction:row-reverse}
-.pc-bot-icon{
-  width:28px;height:28px;border-radius:50%;flex-shrink:0;
-  background:linear-gradient(135deg,#2563eb,#3b82f6);
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 2px 8px rgba(37,99,235,0.3);
-}
-.pc-bot-icon svg{width:14px;height:14px;fill:white}
-.pc-msg{
-  max-width:78%;padding:10px 14px;font-size:0.855rem;line-height:1.55;
-  word-break:break-word;
-}
-.pc-msg.bot{
-  background:#fff;color:#1e293b;
-  border-radius:18px 18px 18px 4px;
-  box-shadow:0 2px 12px rgba(0,0,0,0.07);
-  border:1px solid rgba(0,0,0,0.06);
-}
-.pc-msg.user{
-  background:linear-gradient(135deg,#2563eb,#1d4ed8);
-  color:#fff;border-radius:18px 18px 4px 18px;
-  box-shadow:0 2px 12px rgba(37,99,235,0.35);
-}
-
-.pc-typing{display:flex;align-items:center;gap:4px;padding:12px 16px}
-.pc-typing span{width:7px;height:7px;background:#94a3b8;border-radius:50%;animation:pcDot 1.2s infinite}
-.pc-typing span:nth-child(2){animation-delay:0.15s}
-.pc-typing span:nth-child(3){animation-delay:0.3s}
-
-#pc-suggestions{
-  display:flex;gap:6px;padding:0 16px 12px;flex-wrap:wrap;
-  background:linear-gradient(180deg,#f1f5ff,#f8faff);
-}
-.pc-chip{
-  background:#fff;border:1px solid #dbeafe;color:#2563eb;
-  padding:5px 12px;border-radius:20px;font-size:0.75rem;font-weight:500;
-  cursor:pointer;transition:all 0.15s;font-family:inherit;white-space:nowrap;
-}
-.pc-chip:hover{background:#eff6ff;border-color:#93c5fd;transform:translateY(-1px)}
-
-#pc-input-row{
-  display:flex;align-items:center;gap:8px;padding:12px 14px;
-  border-top:1px solid #f1f5f9;background:#fff;
-}
-#pc-input{
-  flex:1;border:1.5px solid #e2e8f0;border-radius:14px;
-  padding:9px 14px;font-size:0.855rem;font-family:inherit;
-  outline:none;background:#f8faff;color:#1e293b;
-  transition:border-color 0.2s,background 0.2s;resize:none;
-}
-#pc-input:focus{border-color:#2563eb;background:#fff;box-shadow:0 0 0 3px rgba(37,99,235,0.08)}
-#pc-input::placeholder{color:#94a3b8}
-#pc-send{
-  width:40px;height:40px;background:linear-gradient(135deg,#2563eb,#1d4ed8);
-  border:none;border-radius:50%;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-  transition:transform 0.2s,box-shadow 0.2s;
-  box-shadow:0 2px 10px rgba(37,99,235,0.4);
-}
-#pc-send:hover{transform:scale(1.08);box-shadow:0 4px 16px rgba(37,99,235,0.5)}
-#pc-send:disabled{opacity:0.5;cursor:not-allowed;transform:none}
-#pc-send svg{width:17px;height:17px;fill:white;margin-left:1px}
-#pc-powered{
-  text-align:center;padding:6px;font-size:0.68rem;color:#94a3b8;
-  background:#fff;border-top:1px solid #f1f5f9;
-}
-@media(max-width:768px){
-  #pc-btn{
-    bottom:calc(20px + env(safe-area-inset-bottom));
-    right:20px;width:56px;height:56px;
-  }
-  #pc-backdrop{
-    display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);
-    z-index:99997;backdrop-filter:blur(2px);
-  }
-  #pc-backdrop.show{display:block}
-  #pc-box{
-    left:0;right:0;bottom:0;width:100%;
-    border-radius:20px 20px 0 0;
-    max-height:85vh;
-    padding-bottom:env(safe-area-inset-bottom);
-    bottom:0 !important;
-  }
-  #pc-close{width:44px;height:44px;font-size:1.1rem}
-  #pc-header{padding:16px 16px 14px}
-  #pc-messages{
-    height:auto;
-    flex:1;
-    min-height:200px;
-    max-height:calc(85vh - 220px);
-  }
-  #pc-suggestions{
-    padding:8px 12px;gap:8px;
-    overflow-x:auto;flex-wrap:nowrap;
-    -webkit-overflow-scrolling:touch;
-    scrollbar-width:none;
-  }
-  #pc-suggestions::-webkit-scrollbar{display:none}
-  .pc-chip{
-    padding:8px 14px;font-size:0.8rem;
-    min-height:36px;flex-shrink:0;
-  }
-  #pc-input-row{padding:10px 12px;gap:8px}
-  #pc-input{
-    font-size:16px;padding:10px 14px;
-    border-radius:12px;
-  }
-  #pc-send{width:44px;height:44px}
-  #pc-send svg{width:18px;height:18px}
-}
-@media(min-width:769px){
-  #pc-backdrop{display:none!important}
-}
+#piw{position:fixed;bottom:24px;right:24px;z-index:9500;font-family:'Plus Jakarta Sans',system-ui,sans-serif}
+#piw-trigger{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#00e5cc 0%,#3b6ef8 100%);color:#06060a;border:none;border-radius:999px;padding:12px 18px 12px 14px;font-size:.85rem;font-weight:700;cursor:pointer;box-shadow:0 8px 32px rgba(0,229,204,.35);transition:transform .2s,box-shadow .2s;position:relative}
+#piw-trigger:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,229,204,.45)}
+#piw-badge{position:absolute;top:-4px;right:-4px;width:18px;height:18px;background:#ef4444;color:#fff;border-radius:50%;font-size:.6rem;font-weight:800;display:flex;align-items:center;justify-content:center;animation:piw-pulse 2s infinite}
+@keyframes piw-pulse{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.4)}50%{box-shadow:0 0 0 6px rgba(239,68,68,0)}}
+#piw-panel{display:none;position:absolute;bottom:64px;right:0;width:360px;background:#0e0e14;border:1px solid rgba(255,255,255,.1);border-radius:20px;box-shadow:0 24px 64px rgba(0,0,0,.6);overflow:hidden;flex-direction:column;animation:piw-in .25s cubic-bezier(.25,1,.5,1)}
+#piw-panel.open{display:flex}
+@keyframes piw-in{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+#piw-head{background:linear-gradient(135deg,#00e5cc 0%,#3b6ef8 60%,#8b6ef8 100%);padding:14px 16px;display:flex;align-items:center;justify-content:space-between}
+#piw-head-info{display:flex;align-items:center;gap:10px}
+#piw-avatar{width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800;color:#fff;flex-shrink:0}
+#piw-name{font-size:.88rem;font-weight:700;color:#06060a}
+#piw-status{font-size:.7rem;color:rgba(6,6,10,.65);display:flex;align-items:center;gap:4px}
+.piw-dot{width:6px;height:6px;border-radius:50%;background:#16a34a;display:inline-block}
+#piw-close{background:rgba(0,0,0,.2);border:none;color:#fff;width:28px;height:28px;border-radius:50%;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .18s}
+#piw-close:hover{background:rgba(0,0,0,.4)}
+#piw-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;max-height:280px;min-height:160px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.1) transparent}
+.piw-msg{display:flex;flex-direction:column;gap:4px;max-width:88%}
+.piw-msg.user{align-self:flex-end;align-items:flex-end}
+.piw-msg.ai{align-self:flex-start}
+.piw-bubble{padding:10px 13px;border-radius:14px;font-size:.82rem;line-height:1.6;white-space:pre-line}
+.piw-msg.ai .piw-bubble{background:#14141e;border:1px solid rgba(255,255,255,.07);color:#d0d0e8}
+.piw-msg.user .piw-bubble{background:linear-gradient(135deg,#00e5cc,#3b6ef8);color:#06060a;font-weight:600}
+.piw-msg.ai .piw-bubble strong{color:#00e5cc}
+.piw-typing{display:flex;gap:4px;padding:10px 13px;background:#14141e;border:1px solid rgba(255,255,255,.07);border-radius:14px;width:fit-content}
+.piw-typing span{width:6px;height:6px;background:#606080;border-radius:50%;animation:piw-bounce .9s infinite}
+.piw-typing span:nth-child(2){animation-delay:.15s}
+.piw-typing span:nth-child(3){animation-delay:.3s}
+@keyframes piw-bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+#piw-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 12px}
+.piw-chip{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#a0a0c0;border-radius:999px;padding:5px 11px;font-size:.72rem;font-weight:600;cursor:pointer;transition:all .18s;font-family:inherit}
+.piw-chip:hover{background:rgba(0,229,204,.1);border-color:rgba(0,229,204,.3);color:#00e5cc}
+#piw-footer{border-top:1px solid rgba(255,255,255,.07);padding:12px 14px;display:flex;gap:8px;align-items:center;background:#0e0e14}
+#piw-input{flex:1;background:#14141e;border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:9px 15px;font-size:.82rem;color:#f0f0f8;outline:none;font-family:inherit;transition:border-color .18s}
+#piw-input::placeholder{color:#606080}
+#piw-input:focus{border-color:rgba(0,229,204,.4)}
+#piw-send{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#00e5cc,#3b6ef8);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .18s,opacity .18s}
+#piw-send:hover{transform:scale(1.08)}
+#piw-send:disabled{opacity:.4;cursor:not-allowed;transform:none}
+@media(max-width:420px){#piw-panel{width:calc(100vw - 32px);right:-8px}}
 </style>
 
-<div id="pc-backdrop" onclick="pcToggle()"></div>
-<button id="pc-btn" onclick="pcToggle()" title="Chat with PISUM Assistant">
-  <span id="pc-notif">1</span>
-  <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
-</button>
-
-<div id="pc-box">
-  <div id="pc-header">
-    <div id="pc-header-top">
-      <div id="pc-avatar">
-        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+<div id="piw">
+  <button id="piw-trigger" onclick="piwToggle()" aria-label="Ask PISUM AI">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    Ask AI
+    <span id="piw-badge">1</span>
+  </button>
+  <div id="piw-panel" role="dialog" aria-label="PISUM AI Assistant">
+    <div id="piw-head">
+      <div id="piw-head-info">
+        <div id="piw-avatar">🤖</div>
+        <div>
+          <div id="piw-name">PISUM AI</div>
+          <div id="piw-status"><span class="piw-dot"></span> Online — always here to help</div>
+        </div>
       </div>
-      <div id="pc-header-info">
-        <h4>PISUM Assistant</h4>
-        <p><span id="pc-online"></span>Online · AI-powered</p>
-      </div>
-      <button id="pc-close" onclick="pcToggle()">✕</button>
+      <button id="piw-close" onclick="piwToggle()" aria-label="Close">✕</button>
+    </div>
+    <div id="piw-msgs">
+      <div class="piw-msg ai"><div class="piw-bubble">Hi! I'm <strong>PISUM AI</strong> 👋<br/>Ask me anything about features, pricing, setup, or templates. I'll give you a straight answer.</div></div>
+    </div>
+    <div id="piw-chips">
+      <button class="piw-chip" onclick="piwAsk(this.textContent)">What plans exist?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)">Free trial?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)">How to install?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)">AI dictation?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)">GDPR compliant?</button>
+    </div>
+    <div id="piw-footer">
+      <input id="piw-input" type="text" placeholder="Ask a question…" autocomplete="off" onkeydown="if(event.key==='Enter')piwSend()"/>
+      <button id="piw-send" onclick="piwSend()" aria-label="Send">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
     </div>
   </div>
-  <div id="pc-messages">
-    <div class="pc-msg-wrap">
-      <div class="pc-bot-icon"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></div>
-      <div class="pc-msg bot">Hi! I'm the PISUM assistant 👋<br>How can I help you today?</div>
-    </div>
-  </div>
-  <div id="pc-suggestions">
-    <button class="pc-chip" onclick="pcQuick('What plans do you offer?')">Plans & pricing</button>
-    <button class="pc-chip" onclick="pcQuick('How does AI dictation work?')">AI dictation</button>
-    <button class="pc-chip" onclick="pcQuick('How do I get started?')">Get started</button>
-  </div>
-  <div id="pc-input-row">
-    <input id="pc-input" placeholder="Ask a question…" onkeydown="if(event.key==='Enter'){event.preventDefault();pcSend()}"/>
-    <button id="pc-send" onclick="pcSend()">
-      <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-    </button>
-  </div>
-  <div id="pc-powered">Powered by Gemini AI</div>
 </div>
 
 <script>
+(function(){
 const PC_URL='https://pisum-chat-server.onrender.com';
-const pcSid='sess_'+Math.random().toString(36).slice(2);
-let pcOpen=false;
+const piwSid='sess_'+Math.random().toString(36).slice(2);
 
-function pcToggle(){
-  pcOpen=!pcOpen;
-  const box=document.getElementById('pc-box');
-  const btn=document.getElementById('pc-btn');
-  const notif=document.getElementById('pc-notif');
-  const backdrop=document.getElementById('pc-backdrop');
-  box.style.display=pcOpen?'flex':'none';
-  btn.classList.toggle('open',pcOpen);
-  if(backdrop)backdrop.classList.toggle('show',pcOpen);
-  if(pcOpen){
-    notif.style.display='none';
-    document.body.style.overflow=window.innerWidth<=768?'hidden':'';
-    setTimeout(()=>document.getElementById('pc-input').focus(),100);
-  } else {
-    document.body.style.overflow='';
-  }
+function fmt(text){return text.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');}
+
+function addMsg(role,text){
+  const wrap=document.getElementById('piw-msgs');
+  const d=document.createElement('div');
+  d.className='piw-msg '+role;
+  const b=document.createElement('div');
+  b.className='piw-bubble';
+  b.innerHTML=fmt(text).replace(/\n/g,'<br>');
+  d.appendChild(b);
+  wrap.appendChild(d);
+  wrap.scrollTop=wrap.scrollHeight;
 }
 
-function pcAddMsg(text,type){
-  const msgs=document.getElementById('pc-messages');
-  const wrap=document.createElement('div');
-  wrap.className='pc-msg-wrap'+(type==='user'?' user':'');
-  if(type==='bot'){
-    const icon=document.createElement('div');
-    icon.className='pc-bot-icon';
-    icon.innerHTML='<svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>';
-    wrap.appendChild(icon);
-  }
-  const msg=document.createElement('div');
-  msg.className='pc-msg '+type;
-  msg.innerHTML=text.replace(/\n/g,'<br>');
-  wrap.appendChild(msg);
-  msgs.appendChild(wrap);
-  msgs.scrollTop=msgs.scrollHeight;
-  return wrap;
+function showTyping(){
+  const wrap=document.getElementById('piw-msgs');
+  const d=document.createElement('div');
+  d.className='piw-msg ai';d.id='piw-typing-indicator';
+  d.innerHTML='<div class="piw-typing"><span></span><span></span><span></span></div>';
+  wrap.appendChild(d);
+  wrap.scrollTop=wrap.scrollHeight;
+  return d;
 }
 
-function pcShowTyping(){
-  const msgs=document.getElementById('pc-messages');
-  const wrap=document.createElement('div');
-  wrap.className='pc-msg-wrap';
-  wrap.id='pc-typing-wrap';
-  const icon=document.createElement('div');
-  icon.className='pc-bot-icon';
-  icon.innerHTML='<svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>';
-  const dots=document.createElement('div');
-  dots.className='pc-msg bot pc-typing';
-  dots.innerHTML='<span></span><span></span><span></span>';
-  wrap.appendChild(icon);wrap.appendChild(dots);
-  msgs.appendChild(wrap);
-  msgs.scrollTop=msgs.scrollHeight;
-}
+window.piwToggle=function(){
+  const panel=document.getElementById('piw-panel');
+  const badge=document.getElementById('piw-badge');
+  const isOpen=panel.classList.contains('open');
+  panel.classList.toggle('open');
+  if(!isOpen&&badge)badge.style.display='none';
+  if(!isOpen)setTimeout(()=>document.getElementById('piw-input').focus(),100);
+};
 
-function pcHideTyping(){
-  const el=document.getElementById('pc-typing-wrap');
-  if(el)el.remove();
-}
-
-function pcHideSuggestions(){
-  document.getElementById('pc-suggestions').style.display='none';
-}
-
-function pcQuick(msg){
-  pcHideSuggestions();
-  document.getElementById('pc-input').value=msg;
-  pcSend();
-}
-
-async function pcSend(){
-  const input=document.getElementById('pc-input');
-  const btn=document.getElementById('pc-send');
-  const msg=input.value.trim();
-  if(!msg)return;
-  pcHideSuggestions();
-  pcAddMsg(msg,'user');
-  input.value='';
+window.piwAsk=async function(q){
+  document.getElementById('piw-chips').style.display='none';
+  const btn=document.getElementById('piw-send');
+  addMsg('user',q);
   btn.disabled=true;
-  pcShowTyping();
+  const t=showTyping();
   try{
-    const r=await fetch(PC_URL+'/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:msg,sessionId:pcSid})});
-    const d=await r.json();
-    pcHideTyping();
-    pcAddMsg(d.reply||d.error,'bot');
+    const r=await fetch(PC_URL+'/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q,sessionId:piwSid})});
+    const data=await r.json();
+    t.remove();
+    addMsg('ai',data.reply||data.error);
   }catch{
-    pcHideTyping();
-    pcAddMsg('Connection error. Please try again.','bot');
+    t.remove();
+    addMsg('ai','Connection error. Please try again.');
   }
   btn.disabled=false;
-  input.focus();
-}
+};
+
+window.piwSend=function(){
+  const inp=document.getElementById('piw-input');
+  const q=inp.value.trim();
+  if(!q)return;
+  inp.value='';
+  piwAsk(q);
+};
+})();
 </script>
+<!-- ── end AI Agent Widget ── -->
 </body>
 </html>
