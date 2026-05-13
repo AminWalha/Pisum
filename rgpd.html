@@ -357,13 +357,13 @@ footer {
       </div>
 
       <div class="prose-section" id="s2">
-        <h2><span class="num">02</span> <span id="s2h">Architecture 100% hors ligne</span></h2>
+        <h2><span class="num">02</span> <span id="s2h">Architecture sécurisée — données locales</span></h2>
 
-        <h3 id="s2h1">🔒 Air-Gapped Ready</h3>
-        <p id="s2p1">La sécurité la plus forte est l'absence de réseau. PISUM ne nécessite aucune connexion Internet pour la saisie des comptes rendus ou pour la dictée. Les données ne quittent jamais l'environnement physique et logique de votre établissement, neutralisant les risques Man-in-the-Middle et les fuites liées au Cloud.</p>
+        <h3 id="s2h1">🔒 Données patients toujours locales</h3>
+        <p id="s2p1">Les comptes rendus radiologiques, données patient et images médicales ne quittent jamais votre machine. PISUM ne nécessite pas de connexion Internet pour la saisie et l'export des comptes rendus. Seules les fonctionnalités IA (Dictée, Enhancer) requièrent un accès réseau vers l'API sécurisée PISUM.</p>
 
-        <h3 id="s2h2">🎙️ Dictée Vocale IA locale (Edge Computing)</h3>
-        <p id="s2p2">La reconnaissance vocale est un point de vulnérabilité majeur chez les solutions concurrentes qui envoient les flux audio vers des API externes (Google, AWS). Le moteur <strong>Sally AI</strong> de PISUM fonctionne <em>strictement en local sur le processeur (CPU/GPU) de votre machine</em>. La voix du radiologue et les données cliniques dictées ne sont jamais transmises sur Internet.</p>
+        <h3 id="s2h2">🎙️ Dictée Vocale IA — API cloud sécurisée</h3>
+        <p id="s2p2">La dictée vocale <strong>Sally AI</strong> traite l'audio en temps réel via l'API sécurisée de PISUM. <em>L'audio n'est jamais stocké</em> — seule la transcription textuelle est renvoyée à votre machine locale. Aucune donnée patient identifiable n'est incluse dans les flux audio envoyés à l'API.</p>
 
         <div class="info-block cyan" id="ib2">
           <strong>Conformité HDS.</strong> L'architecture locale de PISUM est compatible avec les exigences d'hébergement de données de santé (HDS) françaises. Aucun hébergeur tiers n'est sollicité pour le traitement des données médicales.
@@ -451,23 +451,23 @@ const t = {
     ey:'Conformité', h1:'Protection des<br/><em>données patients</em>',
     hsub:'Architecture 100% locale · Zéro cloud · RGPD Art. 25 · HDS-Ready',
     updated:'Mise à jour : Janvier 2026',
-    b1t:'Architecture Hors Ligne', b1d:'Aucune donnée médicale ne quitte votre poste de travail. Compatible réseau air-gapped.',
+    b1t:'Données locales', b1d:'Les comptes rendus et données patients ne quittent jamais votre machine. Aucun accès cloud aux données médicales.',
     b2t:'Zéro sous-traitance', b2d:'Aucun hébergeur cloud, analytics ou tiers n\'a accès aux données de santé de vos patients.',
-    b3t:'IA vocale locale', b3d:'Sally AI tourne sur votre CPU/GPU. Votre voix et vos données cliniques ne sont jamais transmises.',
+    b3t:'Dictée IA — API sécurisée', b3d:'Sally AI traite l\'audio via une API sécurisée PISUM. L\'audio n\'est jamais stocké.',
     'toc-title':'Sommaire',
-    tl1:'1. Données collectées', tl2:'2. Architecture offline', tl3:'3. Souveraineté & télémétrie', tl4:'4. Droits des patients', tl5:'5. Contact DPO',
+    tl1:'1. Données collectées', tl2:'2. Architecture sécurisée', tl3:'3. Souveraineté & télémétrie', tl4:'4. Droits des patients', tl5:'5. Contact DPO',
     s1h:'Données collectées par PISUM',
     s1p1:'PISUM est conçu selon le principe de <strong>Privacy by Design</strong> (Art. 25 RGPD). Le logiciel distingue deux catégories de données fondamentalement séparées :',
     s1h2:'Données de compte (traité par PISUM SAS)',
     th1:'Donnée', th2:'Finalité', th3:'Durée',
     td1a:'Création du compte utilisateur', td2a:'Authentification & notifications', td3a:'Activation & anti-piratage', td4a:'Compatibilité & support technique',
     ib1:'<strong>✓ Données de santé — AUCUNE collecte.</strong> Les comptes rendus radiologiques, données patient, images médicales et transcriptions vocales ne sont <em>jamais</em> transmis à PISUM SAS ni à un quelconque tiers.',
-    s2h:'Architecture 100% hors ligne',
-    s2h1:'🔒 Air-Gapped Ready',
-    s2p1:'La sécurité la plus forte est l\'absence de réseau. PISUM ne nécessite aucune connexion Internet pour la saisie des comptes rendus ou pour la dictée. Les données ne quittent jamais l\'environnement physique de votre établissement.',
-    s2h2:'🎙️ Dictée Vocale IA locale (Edge Computing)',
-    s2p2:'La reconnaissance vocale est un point de vulnérabilité majeur chez les solutions concurrentes. Le moteur <strong>Sally AI</strong> de PISUM fonctionne <em>strictement en local sur votre machine</em>. La voix du radiologue n\'est jamais transmise sur Internet.',
-    ib2:'<strong>Conformité HDS.</strong> L\'architecture locale de PISUM est compatible avec les exigences d\'hébergement de données de santé (HDS) françaises.',
+    s2h:'Architecture sécurisée — données locales',
+    s2h1:'🔒 Données patients toujours locales',
+    s2p1:'Les comptes rendus, données patient et images médicales ne quittent jamais votre machine. La saisie et l\'export des comptes rendus ne nécessitent pas d\'Internet. Seules les fonctionnalités IA (Dictée, Enhancer) requièrent un accès réseau vers l\'API sécurisée PISUM.',
+    s2h2:'🎙️ Dictée Vocale IA — API cloud sécurisée',
+    s2p2:'La dictée <strong>Sally AI</strong> traite l\'audio en temps réel via l\'API sécurisée de PISUM. <em>L\'audio n\'est jamais stocké</em> — seule la transcription textuelle est renvoyée localement. Aucune donnée patient identifiable n\'est incluse dans les flux envoyés à l\'API.',
+    ib2:'<strong>Conformité HDS.</strong> Les données médicales restent sur votre machine. L\'API IA de PISUM ne traite que l\'audio de dictée, jamais les données patient.',
     s3h:'Souveraineté et télémétrie',
     s3h1:'🛡️ Zéro sous-traitance de données de santé',
     s3p1:'Puisque le logiciel fonctionne en vase clos sur le poste de l\'utilisateur, aucun sous-traitant tiers n\'a accès aux données médicales. L\'archivage légal incombe uniquement au système RIS/PACS de l\'établissement.',
@@ -487,23 +487,23 @@ const t = {
     ey:'Compliance', h1:'Patient data<br/><em>protection</em>',
     hsub:'100% local architecture · Zero cloud · GDPR Art. 25 · HDS-Ready',
     updated:'Updated: January 2026',
-    b1t:'Offline Architecture', b1d:'No medical data ever leaves your workstation. Air-gapped network compatible.',
+    b1t:'Local patient data', b1d:'Reports and patient data never leave your machine. No cloud access to medical data.',
     b2t:'Zero sub-processing', b2d:'No cloud host, analytics service, or third party accesses your patients\' health data.',
-    b3t:'Local AI Voice', b3d:'Sally AI runs on your CPU/GPU. Your voice and clinical data are never transmitted.',
+    b3t:'AI Dictation — Secure API', b3d:'Sally AI processes audio via PISUM\'s secure cloud API. Audio is never stored.',
     'toc-title':'Contents',
-    tl1:'1. Data collected', tl2:'2. Offline architecture', tl3:'3. Sovereignty & telemetry', tl4:'4. Patient rights', tl5:'5. DPO contact',
+    tl1:'1. Data collected', tl2:'2. Secure architecture', tl3:'3. Sovereignty & telemetry', tl4:'4. Patient rights', tl5:'5. DPO contact',
     s1h:'Data collected by PISUM',
     s1p1:'PISUM is built on the <strong>Privacy by Design</strong> principle (Art. 25 GDPR). The software distinguishes two fundamentally separate data categories:',
     s1h2:'Account data (processed by PISUM SAS)',
     th1:'Data', th2:'Purpose', th3:'Duration',
     td1a:'Account creation', td2a:'Authentication & notifications', td3a:'Activation & anti-piracy', td4a:'Compatibility & technical support',
     ib1:'<strong>✓ Health data — ZERO collection.</strong> Radiology reports, patient data, medical images, and voice transcriptions are <em>never</em> transmitted to PISUM SAS or any third party.',
-    s2h:'100% offline architecture',
-    s2h1:'🔒 Air-Gapped Ready',
-    s2p1:'The strongest security is the absence of a network. PISUM requires no internet connection for report authoring or dictation. Data never leaves the physical and logical environment of your facility.',
-    s2h2:'🎙️ Local AI Voice Dictation (Edge Computing)',
-    s2p2:'Voice recognition is a major vulnerability in competing solutions that send audio streams to external APIs (Google, AWS). PISUM\'s <strong>Sally AI</strong> engine runs <em>strictly locally on your machine\'s processor (CPU/GPU)</em>. The radiologist\'s voice is never transmitted over the internet.',
-    ib2:'<strong>HDS Compliance.</strong> PISUM\'s local architecture is compatible with French healthcare data hosting (HDS) requirements. No third-party host processes medical data.',
+    s2h:'Secure architecture — local patient data',
+    s2h1:'🔒 Patient data always stays local',
+    s2p1:'Radiology reports, patient data, and medical images never leave your machine. Report authoring and export require no internet connection. Only AI features (Dictation, Enhancer) require network access to PISUM\'s secure API.',
+    s2h2:'🎙️ AI Voice Dictation — Secure Cloud API',
+    s2p2:'<strong>Sally AI</strong> dictation processes audio in real time via PISUM\'s secure cloud API. <em>Audio is never stored</em> — only the text transcription is returned to your local machine. No identifiable patient data is included in the audio streams sent to the API.',
+    ib2:'<strong>HDS Compliance.</strong> Patient data remains on your machine. PISUM\'s AI API only processes dictation audio — never patient data.',
     s3h:'Sovereignty and telemetry',
     s3h1:'🛡️ Zero health data sub-processing',
     s3p1:'Since the software runs in isolation on the user\'s workstation, no third-party processor (cloud host, analytics service) has access to medical data. Legal archiving is the sole responsibility of the facility\'s RIS/PACS system.',
@@ -523,16 +523,16 @@ const t = {
     ey:'Datenschutz', h1:'Patientendaten<br/><em>schutz</em>',
     hsub:'100% lokale Architektur · Kein Cloud · DSGVO Art. 25 · HDS-Ready',
     updated:'Aktualisiert: Januar 2026',
-    b1t:'Offline-Architektur', b1d:'Keine medizinischen Daten verlassen Ihren Arbeitsplatz. Air-Gapped-Netzwerk kompatibel.',
+    b1t:'Lokale Patientendaten', b1d:'Berichte und Patientendaten verlassen niemals Ihre Maschine. Kein Cloud-Zugriff auf medizinische Daten.',
     b2t:'Null Unterverarbeitung', b2d:'Kein Cloud-Anbieter, Analysedienst oder Dritter hat Zugriff auf die Gesundheitsdaten Ihrer Patienten.',
-    b3t:'Lokale KI-Stimme', b3d:'Sally AI läuft auf Ihrer CPU/GPU. Ihre Stimme und klinischen Daten werden nie übertragen.',
-    'toc-title':'Inhalt', tl1:'1. Erfasste Daten', tl2:'2. Offline-Architektur', tl3:'3. Souveränität & Telemetrie', tl4:'4. Patientenrechte', tl5:'5. DSB-Kontakt',
+    b3t:'KI-Diktat — Sichere API', b3d:'Sally AI verarbeitet Audio über PISUMs sichere Cloud-API. Audio wird niemals gespeichert.',
+    'toc-title':'Inhalt', tl1:'1. Erfasste Daten', tl2:'2. Sichere Architektur', tl3:'3. Souveränität & Telemetrie', tl4:'4. Patientenrechte', tl5:'5. DSB-Kontakt',
     s1h:'Von PISUM erfasste Daten', s1p1:'PISUM basiert auf dem <strong>Privacy by Design</strong> Prinzip (Art. 25 DSGVO).', s1h2:'Kontodaten (verarbeitet von PISUM SAS)', th1:'Datum', th2:'Zweck', th3:'Dauer',
     td1a:'Kontoerstellung', td2a:'Authentifizierung & Benachrichtigungen', td3a:'Aktivierung & Anti-Piraterie', td4a:'Kompatibilität & technischer Support',
     ib1:'<strong>✓ Gesundheitsdaten — KEINE Erfassung.</strong> Radiologieberichte, Patientendaten und Voicetranskriptionen werden <em>niemals</em> übertragen.',
-    s2h:'100% Offline-Architektur', s2h1:'🔒 Air-Gapped Ready', s2p1:'Die stärkste Sicherheit ist die Abwesenheit eines Netzwerks. PISUM benötigt keine Internetverbindung.',
-    s2h2:'🎙️ Lokales KI-Sprachdiktat', s2p2:'Pisums <strong>Sally AI</strong>-Engine läuft <em>ausschließlich lokal auf Ihrem Prozessor (CPU/GPU)</em>. Die Stimme wird niemals übertragen.',
-    ib2:'<strong>HDS-Konformität.</strong> Die lokale Architektur ist mit den deutschen und französischen Anforderungen für Gesundheitsdaten kompatibel.',
+    s2h:'Sichere Architektur — lokale Patientendaten', s2h1:'🔒 Patientendaten bleiben immer lokal', s2p1:'Berichte, Patientendaten und medizinische Bilder verlassen niemals Ihre Maschine. Für Berichterstellung und Export ist kein Internet erforderlich. Nur KI-Funktionen (Diktat, Enhancer) benötigen Netzwerkzugriff auf PISUMs sichere API.',
+    s2h2:'🎙️ KI-Sprachdiktat — Sichere Cloud-API', s2p2:'<strong>Sally AI</strong>-Diktat verarbeitet Audio in Echtzeit über PISUMs sichere Cloud-API. <em>Audio wird niemals gespeichert</em> — nur die Texttranskription wird an Ihre lokale Maschine zurückgegeben.',
+    ib2:'<strong>HDS-Konformität.</strong> Patientendaten verbleiben auf Ihrer Maschine. PISUMs KI-API verarbeitet nur Diktat-Audio — niemals Patientendaten.',
     s3h:'Souveränität und Telemetrie', s3h1:'🛡️ Keine Unterverarbeitung von Gesundheitsdaten', s3p1:'Da die Software isoliert auf der Workstation läuft, hat kein dritter Verarbeiter Zugriff auf medizinische Daten.',
     s3h2:'📝 Anonymisierte Anwendungsprotokolle', s3p2:'Lokale technische Protokolle erfassen <strong>keine Geschäftsdaten</strong>:',
     li1:'Kein Patientenname, Geburtsdatum oder Identifikationsnummer.', li2:'Keine medizinischen Begriffe oder Sprachtranskriptionen.', li3:'Nur Systemfehlercodes und Klickereignisse.',
@@ -544,16 +544,16 @@ const t = {
     ey:'Cumplimiento', h1:'Protección de<br/><em>datos pacientes</em>',
     hsub:'Arquitectura 100% local · Sin nube · RGPD Art. 25 · HDS-Ready',
     updated:'Actualizado: Enero 2026',
-    b1t:'Arquitectura Sin Conexión', b1d:'Ningún dato médico sale de su estación de trabajo. Compatible con redes air-gapped.',
+    b1t:'Datos locales del paciente', b1d:'Los informes y datos de pacientes nunca salen de su máquina. Sin acceso cloud a datos médicos.',
     b2t:'Cero subcontratación', b2d:'Ningún proveedor de nube, analytics o tercero accede a los datos de salud de sus pacientes.',
-    b3t:'Voz IA local', b3d:'Sally AI funciona en su CPU/GPU. Su voz y datos clínicos nunca se transmiten.',
-    'toc-title':'Contenido', tl1:'1. Datos recopilados', tl2:'2. Arquitectura sin conexión', tl3:'3. Soberanía & telemetría', tl4:'4. Derechos de pacientes', tl5:'5. Contacto DPD',
+    b3t:'Dictado IA — API segura', b3d:'Sally AI procesa el audio mediante la API cloud segura de PISUM. El audio nunca se almacena.',
+    'toc-title':'Contenido', tl1:'1. Datos recopilados', tl2:'2. Arquitectura segura', tl3:'3. Soberanía & telemetría', tl4:'4. Derechos de pacientes', tl5:'5. Contacto DPD',
     s1h:'Datos recopilados por PISUM', s1p1:'PISUM está diseñado bajo el principio de <strong>Privacy by Design</strong> (Art. 25 RGPD).', s1h2:'Datos de cuenta (procesado por PISUM SAS)', th1:'Dato', th2:'Finalidad', th3:'Duración',
     td1a:'Creación de cuenta', td2a:'Autenticación y notificaciones', td3a:'Activación y anti-piratería', td4a:'Compatibilidad y soporte técnico',
     ib1:'<strong>✓ Datos de salud — CERO recopilación.</strong> Los informes radiológicos, datos de pacientes e imágenes médicas <em>nunca</em> se transmiten a PISUM SAS ni a terceros.',
-    s2h:'Arquitectura 100% sin conexión', s2h1:'🔒 Air-Gapped Ready', s2p1:'La mayor seguridad es la ausencia de red. PISUM no requiere conexión a Internet para redactar informes o usar el dictado.',
-    s2h2:'🎙️ Dictado de Voz IA local', s2p2:'El motor <strong>Sally AI</strong> de PISUM funciona <em>estrictamente de forma local en el procesador de su máquina</em>. La voz del radiólogo nunca se transmite.',
-    ib2:'<strong>Cumplimiento HDS.</strong> La arquitectura local de PISUM es compatible con los requisitos de alojamiento de datos de salud.',
+    s2h:'Arquitectura segura — datos locales del paciente', s2h1:'🔒 Datos del paciente siempre locales', s2p1:'Los informes, datos de pacientes e imágenes médicas nunca salen de su máquina. La redacción y exportación de informes no requieren internet. Solo las funciones IA (Dictado, Enhancer) requieren acceso de red a la API segura de PISUM.',
+    s2h2:'🎙️ Dictado de Voz IA — API cloud segura', s2p2:'El dictado <strong>Sally AI</strong> procesa el audio en tiempo real mediante la API cloud segura de PISUM. <em>El audio nunca se almacena</em> — solo la transcripción textual se devuelve a su máquina local.',
+    ib2:'<strong>Cumplimiento HDS.</strong> Los datos del paciente permanecen en su máquina. La API IA de PISUM solo procesa audio de dictado, nunca datos del paciente.',
     s3h:'Soberanía y telemetría', s3h1:'🛡️ Cero subcontratación de datos de salud', s3p1:'Dado que el software funciona en aislamiento, ningún procesador externo tiene acceso a los datos médicos.',
     s3h2:'📝 Registros de aplicación anonimizados', s3p2:'Los registros técnicos locales están programados para <strong>no capturar datos de negocio</strong>:',
     li1:'Ningún nombre de paciente, fecha de nacimiento o número de identificación.', li2:'Ningún término médico, contenido de informe o transcripción de voz.', li3:'Solo códigos de error, tiempos de carga y eventos de clic.',
@@ -588,6 +588,337 @@ setLang(currentLang);
       navLinks.classList.toggle('open');
     });
   }
+</script>
+<style>
+@keyframes pcFadeUp{from{opacity:0;transform:translateY(16px) scale(0.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes pcFadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pcPulse{0%,100%{box-shadow:0 0 0 0 rgba(37,99,235,0.4)}70%{box-shadow:0 0 0 10px rgba(37,99,235,0)}}
+@keyframes pcDot{0%,80%,100%{transform:scale(0.6);opacity:0.4}40%{transform:scale(1);opacity:1}}
+
+#pc-btn{
+  position:fixed;bottom:28px;right:28px;width:60px;height:60px;
+  background:linear-gradient(135deg,#2563eb,#1d4ed8);
+  border-radius:50%;border:none;cursor:pointer;z-index:99999;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,99,235,0.5);
+  transition:transform 0.25s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.2s;
+  animation:pcPulse 2.5s infinite;
+}
+#pc-btn:hover{transform:scale(1.12);box-shadow:0 6px 28px rgba(37,99,235,0.6);animation:none}
+#pc-btn svg{width:28px;height:28px;fill:white;transition:transform 0.3s}
+#pc-btn.open svg{transform:rotate(90deg)}
+#pc-notif{
+  position:absolute;top:-4px;right:-4px;width:18px;height:18px;
+  background:#ef4444;border-radius:50%;border:2px solid #fff;
+  font-size:0.65rem;font-weight:700;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+}
+
+#pc-box{
+  position:fixed;bottom:104px;right:28px;width:380px;
+  background:#fff;border-radius:24px;
+  box-shadow:0 24px 64px rgba(0,0,0,0.18),0 4px 16px rgba(0,0,0,0.08);
+  z-index:99998;display:none;flex-direction:column;overflow:hidden;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  animation:pcFadeUp 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  border:1px solid rgba(255,255,255,0.8);
+}
+
+#pc-header{
+  background:linear-gradient(135deg,#1e40af 0%,#2563eb 50%,#3b82f6 100%);
+  padding:18px 20px 16px;position:relative;overflow:hidden;
+}
+#pc-header::before{
+  content:'';position:absolute;top:-30px;right:-30px;
+  width:120px;height:120px;border-radius:50%;
+  background:rgba(255,255,255,0.08);
+}
+#pc-header::after{
+  content:'';position:absolute;bottom:-20px;left:20px;
+  width:80px;height:80px;border-radius:50%;
+  background:rgba(255,255,255,0.05);
+}
+#pc-header-top{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1}
+#pc-avatar{
+  width:40px;height:40px;border-radius:50%;
+  background:rgba(255,255,255,0.2);backdrop-filter:blur(4px);
+  display:flex;align-items:center;justify-content:center;
+  border:2px solid rgba(255,255,255,0.3);flex-shrink:0;
+}
+#pc-avatar svg{width:22px;height:22px;fill:white}
+#pc-header-info{flex:1;margin-left:12px}
+#pc-header-info h4{color:#fff;font-size:0.95rem;font-weight:700;margin:0;letter-spacing:-0.01em}
+#pc-header-info p{color:rgba(255,255,255,0.75);font-size:0.75rem;margin:2px 0 0;display:flex;align-items:center;gap:5px}
+#pc-online{width:7px;height:7px;background:#4ade80;border-radius:50%;flex-shrink:0}
+#pc-close{
+  background:rgba(255,255,255,0.15);border:none;color:#fff;
+  cursor:pointer;width:30px;height:30px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;transition:background 0.2s;position:relative;z-index:1;
+  backdrop-filter:blur(4px);
+}
+#pc-close:hover{background:rgba(255,255,255,0.25)}
+
+#pc-messages{
+  height:340px;overflow-y:auto;padding:16px;
+  display:flex;flex-direction:column;gap:12px;
+  background:linear-gradient(180deg,#f8faff 0%,#f1f5ff 100%);
+  scroll-behavior:smooth;
+}
+#pc-messages::-webkit-scrollbar{width:4px}
+#pc-messages::-webkit-scrollbar-track{background:transparent}
+#pc-messages::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:4px}
+
+.pc-msg-wrap{display:flex;align-items:flex-end;gap:8px;animation:pcFadeIn 0.25s ease}
+.pc-msg-wrap.user{flex-direction:row-reverse}
+.pc-bot-icon{
+  width:28px;height:28px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,#2563eb,#3b82f6);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 8px rgba(37,99,235,0.3);
+}
+.pc-bot-icon svg{width:14px;height:14px;fill:white}
+.pc-msg{
+  max-width:78%;padding:10px 14px;font-size:0.855rem;line-height:1.55;
+  word-break:break-word;
+}
+.pc-msg.bot{
+  background:#fff;color:#1e293b;
+  border-radius:18px 18px 18px 4px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.07);
+  border:1px solid rgba(0,0,0,0.06);
+}
+.pc-msg.user{
+  background:linear-gradient(135deg,#2563eb,#1d4ed8);
+  color:#fff;border-radius:18px 18px 4px 18px;
+  box-shadow:0 2px 12px rgba(37,99,235,0.35);
+}
+
+.pc-typing{display:flex;align-items:center;gap:4px;padding:12px 16px}
+.pc-typing span{width:7px;height:7px;background:#94a3b8;border-radius:50%;animation:pcDot 1.2s infinite}
+.pc-typing span:nth-child(2){animation-delay:0.15s}
+.pc-typing span:nth-child(3){animation-delay:0.3s}
+
+#pc-suggestions{
+  display:flex;gap:6px;padding:0 16px 12px;flex-wrap:wrap;
+  background:linear-gradient(180deg,#f1f5ff,#f8faff);
+}
+.pc-chip{
+  background:#fff;border:1px solid #dbeafe;color:#2563eb;
+  padding:5px 12px;border-radius:20px;font-size:0.75rem;font-weight:500;
+  cursor:pointer;transition:all 0.15s;font-family:inherit;white-space:nowrap;
+}
+.pc-chip:hover{background:#eff6ff;border-color:#93c5fd;transform:translateY(-1px)}
+
+#pc-input-row{
+  display:flex;align-items:center;gap:8px;padding:12px 14px;
+  border-top:1px solid #f1f5f9;background:#fff;
+}
+#pc-input{
+  flex:1;border:1.5px solid #e2e8f0;border-radius:14px;
+  padding:9px 14px;font-size:0.855rem;font-family:inherit;
+  outline:none;background:#f8faff;color:#1e293b;
+  transition:border-color 0.2s,background 0.2s;resize:none;
+}
+#pc-input:focus{border-color:#2563eb;background:#fff;box-shadow:0 0 0 3px rgba(37,99,235,0.08)}
+#pc-input::placeholder{color:#94a3b8}
+#pc-send{
+  width:40px;height:40px;background:linear-gradient(135deg,#2563eb,#1d4ed8);
+  border:none;border-radius:50%;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  transition:transform 0.2s,box-shadow 0.2s;
+  box-shadow:0 2px 10px rgba(37,99,235,0.4);
+}
+#pc-send:hover{transform:scale(1.08);box-shadow:0 4px 16px rgba(37,99,235,0.5)}
+#pc-send:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+#pc-send svg{width:17px;height:17px;fill:white;margin-left:1px}
+#pc-powered{
+  text-align:center;padding:6px;font-size:0.68rem;color:#94a3b8;
+  background:#fff;border-top:1px solid #f1f5f9;
+}
+@media(max-width:768px){
+  #pc-btn{
+    bottom:calc(20px + env(safe-area-inset-bottom));
+    right:20px;width:56px;height:56px;
+  }
+  #pc-backdrop{
+    display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);
+    z-index:99997;backdrop-filter:blur(2px);
+  }
+  #pc-backdrop.show{display:block}
+  #pc-box{
+    left:0;right:0;bottom:0;width:100%;
+    border-radius:20px 20px 0 0;
+    max-height:85vh;
+    padding-bottom:env(safe-area-inset-bottom);
+    bottom:0 !important;
+  }
+  #pc-close{width:44px;height:44px;font-size:1.1rem}
+  #pc-header{padding:16px 16px 14px}
+  #pc-messages{
+    height:auto;
+    flex:1;
+    min-height:200px;
+    max-height:calc(85vh - 220px);
+  }
+  #pc-suggestions{
+    padding:8px 12px;gap:8px;
+    overflow-x:auto;flex-wrap:nowrap;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  #pc-suggestions::-webkit-scrollbar{display:none}
+  .pc-chip{
+    padding:8px 14px;font-size:0.8rem;
+    min-height:36px;flex-shrink:0;
+  }
+  #pc-input-row{padding:10px 12px;gap:8px}
+  #pc-input{
+    font-size:16px;padding:10px 14px;
+    border-radius:12px;
+  }
+  #pc-send{width:44px;height:44px}
+  #pc-send svg{width:18px;height:18px}
+}
+@media(min-width:769px){
+  #pc-backdrop{display:none!important}
+}
+</style>
+
+<div id="pc-backdrop" onclick="pcToggle()"></div>
+<button id="pc-btn" onclick="pcToggle()" title="Chat with PISUM Assistant">
+  <span id="pc-notif">1</span>
+  <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+</button>
+
+<div id="pc-box">
+  <div id="pc-header">
+    <div id="pc-header-top">
+      <div id="pc-avatar">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+      </div>
+      <div id="pc-header-info">
+        <h4>PISUM Assistant</h4>
+        <p><span id="pc-online"></span>Online · AI-powered</p>
+      </div>
+      <button id="pc-close" onclick="pcToggle()">✕</button>
+    </div>
+  </div>
+  <div id="pc-messages">
+    <div class="pc-msg-wrap">
+      <div class="pc-bot-icon"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></div>
+      <div class="pc-msg bot">Hi! I'm the PISUM assistant 👋<br>How can I help you today?</div>
+    </div>
+  </div>
+  <div id="pc-suggestions">
+    <button class="pc-chip" onclick="pcQuick('What plans do you offer?')">Plans & pricing</button>
+    <button class="pc-chip" onclick="pcQuick('How does AI dictation work?')">AI dictation</button>
+    <button class="pc-chip" onclick="pcQuick('How do I get started?')">Get started</button>
+  </div>
+  <div id="pc-input-row">
+    <input id="pc-input" placeholder="Ask a question…" onkeydown="if(event.key==='Enter'){event.preventDefault();pcSend()}"/>
+    <button id="pc-send" onclick="pcSend()">
+      <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
+  </div>
+  <div id="pc-powered">Powered by Gemini AI</div>
+</div>
+
+<script>
+const PC_URL='https://pisum-chat-server.onrender.com';
+const pcSid='sess_'+Math.random().toString(36).slice(2);
+let pcOpen=false;
+
+function pcToggle(){
+  pcOpen=!pcOpen;
+  const box=document.getElementById('pc-box');
+  const btn=document.getElementById('pc-btn');
+  const notif=document.getElementById('pc-notif');
+  const backdrop=document.getElementById('pc-backdrop');
+  box.style.display=pcOpen?'flex':'none';
+  btn.classList.toggle('open',pcOpen);
+  if(backdrop)backdrop.classList.toggle('show',pcOpen);
+  if(pcOpen){
+    notif.style.display='none';
+    document.body.style.overflow=window.innerWidth<=768?'hidden':'';
+    setTimeout(()=>document.getElementById('pc-input').focus(),100);
+  } else {
+    document.body.style.overflow='';
+  }
+}
+
+function pcAddMsg(text,type){
+  const msgs=document.getElementById('pc-messages');
+  const wrap=document.createElement('div');
+  wrap.className='pc-msg-wrap'+(type==='user'?' user':'');
+  if(type==='bot'){
+    const icon=document.createElement('div');
+    icon.className='pc-bot-icon';
+    icon.innerHTML='<svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>';
+    wrap.appendChild(icon);
+  }
+  const msg=document.createElement('div');
+  msg.className='pc-msg '+type;
+  msg.innerHTML=text.replace(/\n/g,'<br>');
+  wrap.appendChild(msg);
+  msgs.appendChild(wrap);
+  msgs.scrollTop=msgs.scrollHeight;
+  return wrap;
+}
+
+function pcShowTyping(){
+  const msgs=document.getElementById('pc-messages');
+  const wrap=document.createElement('div');
+  wrap.className='pc-msg-wrap';
+  wrap.id='pc-typing-wrap';
+  const icon=document.createElement('div');
+  icon.className='pc-bot-icon';
+  icon.innerHTML='<svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>';
+  const dots=document.createElement('div');
+  dots.className='pc-msg bot pc-typing';
+  dots.innerHTML='<span></span><span></span><span></span>';
+  wrap.appendChild(icon);wrap.appendChild(dots);
+  msgs.appendChild(wrap);
+  msgs.scrollTop=msgs.scrollHeight;
+}
+
+function pcHideTyping(){
+  const el=document.getElementById('pc-typing-wrap');
+  if(el)el.remove();
+}
+
+function pcHideSuggestions(){
+  document.getElementById('pc-suggestions').style.display='none';
+}
+
+function pcQuick(msg){
+  pcHideSuggestions();
+  document.getElementById('pc-input').value=msg;
+  pcSend();
+}
+
+async function pcSend(){
+  const input=document.getElementById('pc-input');
+  const btn=document.getElementById('pc-send');
+  const msg=input.value.trim();
+  if(!msg)return;
+  pcHideSuggestions();
+  pcAddMsg(msg,'user');
+  input.value='';
+  btn.disabled=true;
+  pcShowTyping();
+  try{
+    const r=await fetch(PC_URL+'/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:msg,sessionId:pcSid})});
+    const d=await r.json();
+    pcHideTyping();
+    pcAddMsg(d.reply||d.error,'bot');
+  }catch{
+    pcHideTyping();
+    pcAddMsg('Connection error. Please try again.','bot');
+  }
+  btn.disabled=false;
+  input.focus();
+}
 </script>
 </body>
 </html>
