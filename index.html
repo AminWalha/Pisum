@@ -1872,20 +1872,56 @@ function typeInto(id,text){
   text-align:center;padding:6px;font-size:0.68rem;color:#94a3b8;
   background:#fff;border-top:1px solid #f1f5f9;
 }
-@media(max-width:500px){
-  #pc-box{
-    right:0;left:0;bottom:0;width:100%;border-radius:20px 20px 0 0;
-    max-height:90vh;
+@media(max-width:768px){
+  #pc-btn{
+    bottom:calc(20px + env(safe-area-inset-bottom));
+    right:20px;width:56px;height:56px;
   }
-  #pc-btn{bottom:16px;right:16px}
-  #pc-messages{height:calc(90vh - 210px)}
-  #pc-input{font-size:1rem}
+  #pc-backdrop{
+    display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);
+    z-index:99997;backdrop-filter:blur(2px);
+  }
+  #pc-backdrop.show{display:block}
+  #pc-box{
+    left:0;right:0;bottom:0;width:100%;
+    border-radius:20px 20px 0 0;
+    max-height:85vh;
+    padding-bottom:env(safe-area-inset-bottom);
+    bottom:0 !important;
+  }
+  #pc-close{width:44px;height:44px;font-size:1.1rem}
+  #pc-header{padding:16px 16px 14px}
+  #pc-messages{
+    height:auto;
+    flex:1;
+    min-height:200px;
+    max-height:calc(85vh - 220px);
+  }
+  #pc-suggestions{
+    padding:8px 12px;gap:8px;
+    overflow-x:auto;flex-wrap:nowrap;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  #pc-suggestions::-webkit-scrollbar{display:none}
+  .pc-chip{
+    padding:8px 14px;font-size:0.8rem;
+    min-height:36px;flex-shrink:0;
+  }
+  #pc-input-row{padding:10px 12px;gap:8px}
+  #pc-input{
+    font-size:16px;padding:10px 14px;
+    border-radius:12px;
+  }
+  #pc-send{width:44px;height:44px}
+  #pc-send svg{width:18px;height:18px}
 }
-@media(min-width:501px) and (max-width:768px){
-  #pc-box{width:calc(100vw - 40px);right:20px}
+@media(min-width:769px){
+  #pc-backdrop{display:none!important}
 }
 </style>
 
+<div id="pc-backdrop" onclick="pcToggle()"></div>
 <button id="pc-btn" onclick="pcToggle()" title="Chat with PISUM Assistant">
   <span id="pc-notif">1</span>
   <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
@@ -1934,11 +1970,16 @@ function pcToggle(){
   const box=document.getElementById('pc-box');
   const btn=document.getElementById('pc-btn');
   const notif=document.getElementById('pc-notif');
+  const backdrop=document.getElementById('pc-backdrop');
   box.style.display=pcOpen?'flex':'none';
   btn.classList.toggle('open',pcOpen);
+  if(backdrop)backdrop.classList.toggle('show',pcOpen);
   if(pcOpen){
     notif.style.display='none';
-    document.getElementById('pc-input').focus();
+    document.body.style.overflow=window.innerWidth<=768?'hidden':'';
+    setTimeout(()=>document.getElementById('pc-input').focus(),100);
+  } else {
+    document.body.style.overflow='';
   }
 }
 
