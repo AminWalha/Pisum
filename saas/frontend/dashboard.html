@@ -981,7 +981,7 @@ const SVG_MINUS   = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" 
 const PLAN_PRICES = {
   starter: { monthly: 35,  annual: 28  },
   pro:     { monthly: 89,  annual: 71  },
-  expert:  { monthly: 119, annual: 95  },
+  expert:  { monthly: 129, annual: 103 },
   clinic:  { monthly: 399, annual: 319 },
 };
 
@@ -992,15 +992,15 @@ const PLANS = {
     {ok:false,t:'Worklist'},{ok:'lim',t:'20 reports / month'}] },
   starter: { label:'Starter',    tag:'tag-starter', paid:true, features:[
     {ok:true,t:'20 templates'},{ok:true,t:'5 languages'},{ok:true,t:'PDF + Word export'},
-    {ok:'lim',t:'AI Dictation (60 min/mo)'},{ok:'lim',t:'AI Enhancer (20/mo)'},
+    {ok:'lim',t:'AI Dictation (200 min/mo)'},{ok:'lim',t:'AI Enhancer (50/mo)'},
     {ok:'lim',t:'Basic worklist'},{ok:true,t:'Unlimited patients'}] },
   pro:     { label:'Pro',        tag:'tag-pro',     paid:true, popular:true, features:[
     {ok:true,t:'112+ templates'},{ok:true,t:'23 languages'},{ok:true,t:'PDF + Word export'},
-    {ok:'lim',t:'AI Dictation (600 min/mo)'},{ok:'lim',t:'AI Enhancer (50/mo)'},
+    {ok:'lim',t:'AI Dictation (2,000 min/mo)'},{ok:'lim',t:'AI Enhancer (200/mo)'},
     {ok:true,t:'Full worklist'},{ok:'lim',t:'Basic stats'},{ok:true,t:'Unlimited patients'}] },
   expert:  { label:'Expert',     tag:'tag-expert',  paid:true, features:[
     {ok:true,t:'112+ custom templates'},{ok:true,t:'23 languages'},{ok:true,t:'PDF + Word export'},
-    {ok:'lim',t:'AI Dictation (3,000 min/mo)'},{ok:'lim',t:'AI Enhancer (400/mo)'},
+    {ok:true,t:'AI Dictation (Unlimited)'},{ok:true,t:'AI Enhancer (Unlimited)'},
     {ok:true,t:'Advanced worklist'},{ok:true,t:'Advanced stats'},{ok:true,t:'Unlimited patients'},
     {ok:'lim',t:'LAN Sync (1 site · 3 workstations)'}] },
   clinic:  { label:'Clinic',     tag:'tag-clinic',  paid:true, features:null },
@@ -1105,19 +1105,21 @@ function setStatus(type, title, desc) {
 }
 
 function buildClinicFeatures(subInfo) {
-  const enhLimit  = subInfo.features?.ai_enhancer_monthly_limit ?? 1500;
-  const dictLimit = subInfo.features?.ai_dictation_minutes ?? 6000;
+  const enhRaw    = subInfo.features?.ai_enhancer_monthly_limit ?? -1;
+  const dictRaw   = subInfo.features?.ai_dictation_minutes ?? -1;
   const seats     = 5 + (subInfo.extra_seats || 0);
+  const dictLabel = dictRaw < 0 ? 'AI Dictation (Unlimited)' : `AI Dictation (${dictRaw.toLocaleString()} min/mo)`;
+  const enhLabel  = enhRaw  < 0 ? 'AI Enhancer (Unlimited)'  : `AI Enhancer (${enhRaw.toLocaleString()}/mo)`;
   return [
-    {ok:true,  t:'Custom templates'},
-    {ok:true,  t:'23 languages'},
-    {ok:true,  t:'PDF + Word export'},
-    {ok:'lim', t:`AI Dictation (${dictLimit.toLocaleString()} min/mo)`},
-    {ok:'lim', t:`AI Enhancer (${enhLimit.toLocaleString()}/mo)`},
-    {ok:true,  t:'Multi-site worklist'},
-    {ok:true,  t:'Advanced stats + export'},
-    {ok:true,  t:`${seats} users`},
-    {ok:true,  t:'Unlimited patients'},
+    {ok:true, t:'Custom templates'},
+    {ok:true, t:'23 languages'},
+    {ok:true, t:'PDF + Word export'},
+    {ok:true, t:dictLabel},
+    {ok:true, t:enhLabel},
+    {ok:true, t:'Multi-site worklist'},
+    {ok:true, t:'Advanced stats + export'},
+    {ok:true, t:`${seats} users`},
+    {ok:true, t:'Unlimited patients'},
   ];
 }
 
@@ -1242,8 +1244,8 @@ function renderUsage(plan, subInfo) {
     }
   }
 
-  const dictLimits = { starter:60, pro:600, expert:3000,
-    clinic: subInfo.features?.ai_dictation_minutes ?? 6000 };
+  const dictLimits = { starter:200, pro:2000, expert:-1,
+    clinic: subInfo.features?.ai_dictation_minutes ?? -1 };
   const dictLimit  = dictLimits[plan];
   if (dictLimit) {
     rows.push(makeUsageBar('AI Dictation', null, dictLimit, 'min', null,
