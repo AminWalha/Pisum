@@ -1836,6 +1836,15 @@ init();
 #pc-send:disabled{opacity:0.5;cursor:not-allowed;transform:none}
 #pc-send svg{width:17px;height:17px;fill:white;margin-left:1px}
 #pc-powered{text-align:center;padding:6px;font-size:0.68rem;color:#334155;background:#0f172a;border-top:1px solid rgba(255,255,255,0.05)}
+@media(max-width:500px){
+  #pc-box{right:0;left:0;bottom:0;width:100%;border-radius:20px 20px 0 0;max-height:90vh}
+  #pc-btn{bottom:16px;right:16px}
+  #pc-messages{height:calc(90vh - 210px)}
+  #pc-input{font-size:1rem}
+}
+@media(min-width:501px) and (max-width:768px){
+  #pc-box{width:calc(100vw - 40px);right:20px}
+}
 </style>
 
 <button id="pc-btn" onclick="pcToggle()" title="Chat with PISUM Assistant">
