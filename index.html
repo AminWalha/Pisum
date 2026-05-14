@@ -1508,10 +1508,14 @@ async function loadTemplates(){
   const skeleton=Array(8).fill(0).map(()=>`<div class="tpl-card" style="pointer-events:none"><div class="tpl-thumb"></div><div class="tpl-body"><div class="tpl-line" style="width:70%;height:14px;border-radius:4px;background:var(--off)"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div>`).join('');
   grid.innerHTML=skeleton;
 
-  const {data,error}=await sb.from('templates').select('id,name,exam_type,plan').eq('language','Anglais').order('plan',{ascending:true}).order('exam_type').order('name');
+  const {data,error}=await sb.from('templates').select('id,name,exam_type,plan').eq('language','Anglais').order('exam_type').order('name');
   if(error||!data){grid.innerHTML='<p style="color:var(--muted);text-align:center;grid-column:1/-1;padding:2rem">Could not load templates.</p>';return;}
 
-  grid.innerHTML=data.map(t=>{
+  const free=data.filter(t=>t.plan==='free');
+  const pro=data.filter(t=>t.plan!=='free').slice(0,4);
+  const preview=[...free,...pro];
+
+  grid.innerHTML=preview.map(t=>{
     const mod=tplModMap[t.exam_type]||{label:t.exam_type,dm:t.exam_type};
     const isPro=t.plan!=='free';
     const proOv=isPro?`<div class="pro-ov"><span class="pro-lock">🔒</span><span class="pro-lbl">Pro Template</span></div>`:'';
