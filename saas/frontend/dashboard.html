@@ -123,6 +123,31 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:
 .main-wrap::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.06);border-radius:99px}
 main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
 
+/* ── ONBOARDING ── */
+#onboarding-card{background:var(--card);border:1px solid rgba(45,128,242,0.22);border-radius:var(--r-xl);padding:1.5rem 1.75rem;margin-bottom:1.25rem;position:relative;animation:slideUp 0.35s cubic-bezier(0.4,0,0.2,1) both}
+.ob-header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1.25rem}
+.ob-title{font-size:1.05rem;font-weight:700;color:var(--t1);letter-spacing:-0.02em}
+.ob-sub{font-size:0.78rem;color:var(--t3);margin-top:3px}
+.ob-dismiss{background:none;border:none;color:var(--t3);cursor:pointer;padding:4px;border-radius:6px;transition:color var(--transition),background var(--transition);flex-shrink:0;line-height:0}
+.ob-dismiss:hover{color:var(--t1);background:rgba(255,255,255,0.06)}
+.ob-steps{display:flex;flex-direction:column;gap:0.75rem}
+.ob-step{display:flex;align-items:flex-start;gap:0.875rem;padding:0.875rem 1rem;border-radius:var(--r-lg);background:rgba(255,255,255,0.03);border:1px solid var(--border);transition:border-color var(--transition)}
+.ob-step.done{opacity:0.45}
+.ob-step-num{width:26px;height:26px;border-radius:50%;background:rgba(45,128,242,0.15);border:1px solid rgba(45,128,242,0.3);color:var(--blue);font-size:0.7rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.ob-step.done .ob-step-num{background:rgba(24,184,116,0.15);border-color:rgba(24,184,116,0.3);color:var(--green)}
+.ob-step-body{flex:1;min-width:0}
+.ob-step-title{font-size:0.83rem;font-weight:600;color:var(--t1);margin-bottom:2px}
+.ob-step-desc{font-size:0.75rem;color:var(--t3);line-height:1.55}
+.ob-step-action{margin-top:0.6rem}
+.ob-btn{display:inline-flex;align-items:center;gap:6px;font-size:0.75rem;font-weight:600;padding:0.45rem 0.9rem;border-radius:7px;background:var(--blue);color:#fff;border:none;cursor:pointer;text-decoration:none;transition:background var(--transition)}
+.ob-btn:hover{background:var(--blue-hover)}
+.ob-btn.ghost{background:rgba(255,255,255,0.07);color:var(--t2);border:1px solid var(--border-2)}
+.ob-btn.ghost:hover{background:rgba(255,255,255,0.11);color:var(--t1)}
+.ob-progress{display:flex;align-items:center;gap:8px;margin-top:1.1rem;padding-top:1.1rem;border-top:1px solid var(--border)}
+.ob-progress-bar{flex:1;height:4px;background:rgba(255,255,255,0.06);border-radius:99px;overflow:hidden}
+.ob-progress-fill{height:100%;background:var(--blue);border-radius:99px;transition:width 0.4s ease}
+.ob-progress-label{font-size:0.7rem;color:var(--t3);white-space:nowrap}
+
 /* ── HERO BANNER ── */
 .hero{
   position:relative;overflow:hidden;
@@ -690,6 +715,52 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
         </div>
       </div>
 
+      <!-- ONBOARDING -->
+      <div id="onboarding-card" style="display:none">
+        <div class="ob-header">
+          <div>
+            <div class="ob-title">👋 Get started with PISUM</div>
+            <div class="ob-sub">3 steps to your first radiology report</div>
+          </div>
+          <button class="ob-dismiss" onclick="obDismiss()" title="Dismiss">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div class="ob-steps">
+          <div class="ob-step" id="ob-step-1">
+            <div class="ob-step-num" id="ob-num-1">1</div>
+            <div class="ob-step-body">
+              <div class="ob-step-title">Download &amp; install PISUM</div>
+              <div class="ob-step-desc">One .exe installer for Windows 10/11. Takes under a minute.</div>
+              <div class="ob-step-action">
+                <a class="ob-btn" href="https://www.dropbox.com/scl/fi/rct6z94qwb3jt4r9w22xx/PISUM_Radiology_Setup_2.9.7.exe?rlkey=enlx2p8fyxa4sxansd1do0tl4&st=e5xyzn9u&dl=1" target="_blank" rel="noopener noreferrer" onclick="obComplete(1)">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  Download for Windows
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="ob-step" id="ob-step-2">
+            <div class="ob-step-num" id="ob-num-2">2</div>
+            <div class="ob-step-body">
+              <div class="ob-step-title">Open PISUM and sign in</div>
+              <div class="ob-step-desc">Launch the app after installation. Sign in with the same email and password you used here.</div>
+            </div>
+          </div>
+          <div class="ob-step" id="ob-step-3">
+            <div class="ob-step-num" id="ob-num-3">3</div>
+            <div class="ob-step-body">
+              <div class="ob-step-title">Create your first report</div>
+              <div class="ob-step-desc">Choose a template by modality — CT, MRI, X-Ray, or Ultrasound. Fill in your findings and export to PDF.</div>
+            </div>
+          </div>
+        </div>
+        <div class="ob-progress">
+          <div class="ob-progress-bar"><div class="ob-progress-fill" id="ob-progress-fill" style="width:33%"></div></div>
+          <div class="ob-progress-label" id="ob-progress-label">Step 1 of 3</div>
+        </div>
+      </div>
+
       <!-- ACTIVE SUBSCRIPTION WRAPPER -->
       <div id="active-card" style="display:none">
 
@@ -1041,6 +1112,8 @@ async function init() {
   if (name) {
     document.getElementById('page-title').textContent = 'Hello, ' + name.split(' ')[0];
   }
+
+  obInit(user.id);
 
   const params = new URLSearchParams(window.location.search);
   if (params.get('checkout') === 'success') {
@@ -1775,6 +1848,56 @@ async function confirmDeleteAccount() {
     btn.disabled = false;
     btn.textContent = 'Delete My Account';
   }
+}
+
+/* ── ONBOARDING ── */
+function obKey(uid) { return 'pisum_ob_' + uid; }
+
+function obInit(uid) {
+  const raw = localStorage.getItem(obKey(uid));
+  const state = raw ? JSON.parse(raw) : { dismissed: false, steps: [] };
+  if (state.dismissed) return;
+  const card = document.getElementById('onboarding-card');
+  card.style.display = '';
+  obRender(state.steps);
+}
+
+function obRender(steps) {
+  const total = 3;
+  const done = steps.length;
+  [1,2,3].forEach(n => {
+    const isDone = steps.includes(n);
+    document.getElementById('ob-step-' + n).classList.toggle('done', isDone);
+    const numEl = document.getElementById('ob-num-' + n);
+    numEl.innerHTML = isDone
+      ? '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
+      : n;
+  });
+  const pct = Math.round((done / total) * 100);
+  document.getElementById('ob-progress-fill').style.width = pct + '%';
+  document.getElementById('ob-progress-label').textContent =
+    done === total ? 'All done! 🎉' : `Step ${done + 1} of ${total}`;
+}
+
+function obComplete(step) {
+  if (!session) return;
+  const key = obKey(session.user.id);
+  const state = JSON.parse(localStorage.getItem(key) || '{"dismissed":false,"steps":[]}');
+  if (!state.steps.includes(step)) state.steps.push(step);
+  localStorage.setItem(key, JSON.stringify(state));
+  obRender(state.steps);
+}
+
+function obDismiss() {
+  if (!session) return;
+  const key = obKey(session.user.id);
+  const state = JSON.parse(localStorage.getItem(key) || '{"dismissed":false,"steps":[]}');
+  state.dismissed = true;
+  localStorage.setItem(key, JSON.stringify(state));
+  const card = document.getElementById('onboarding-card');
+  card.style.transition = 'opacity 0.25s';
+  card.style.opacity = '0';
+  setTimeout(() => card.style.display = 'none', 260);
 }
 
 init();
