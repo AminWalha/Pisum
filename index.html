@@ -256,7 +256,10 @@ a{text-decoration:none;color:inherit}
 .tpl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
 .tpl-card{background:var(--white);border:1px solid var(--b1);border-radius:var(--r-lg);overflow:hidden;transition:all 0.25s var(--t);cursor:pointer;position:relative}
 .tpl-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:rgba(0,0,0,0.1)}
-.tpl-thumb{height:98px;background:linear-gradient(135deg,var(--off) 0%,#eef0f8 100%);position:relative;overflow:hidden}
+.tpl-thumb{height:108px;background:linear-gradient(135deg,var(--off) 0%,#eef0f8 100%);position:relative;overflow:hidden}
+.tpl-doc{position:absolute;top:12px;left:12px;right:12px;display:flex;flex-direction:column;gap:5px;z-index:1}
+.tpl-doc-h{height:6px;border-radius:3px;background:rgba(58,58,76,0.22);width:42%}
+.tpl-doc-l{height:4px;border-radius:3px;background:rgba(58,58,76,0.12)}
 .tpl-thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(59,110,248,0.04) 0%,rgba(124,90,240,0.04) 100%)}
 .tpl-mod{position:absolute;bottom:8px;left:10px;background:var(--white);border-radius:6px;border:1px solid var(--b1);font-size:0.6rem;font-weight:700;letter-spacing:0.08em;color:var(--ink-2);padding:0.17rem 0.48rem}
 .tpl-body{padding:0.85rem 1rem}
@@ -625,16 +628,13 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
 
 <!-- TEMPLATE CONTENT MODAL -->
 <div class="modal-wrap" id="tplContentModal">
-  <div class="modal" style="max-width:680px;width:100%;max-height:82vh;display:flex;flex-direction:column;padding:2rem 2.25rem">
+  <div class="modal" style="max-width:680px;width:100%;overflow-y:auto;max-height:85vh;padding:2rem 2.25rem;box-sizing:border-box">
     <button class="modal-x" onclick="closeTplContent()">✕</button>
-    <div style="display:flex;align-items:center;gap:0.65rem;margin-bottom:0.75rem">
-      <span id="tplCMod" style="font-size:0.7rem;font-weight:700;letter-spacing:0.06em;background:var(--off);color:var(--ink-3);padding:0.2rem 0.55rem;border-radius:6px"></span>
-      <span style="font-size:0.75rem;color:var(--ink-3)">🌍 23 langs</span>
-    </div>
-    <h3 id="tplCName" style="font-family:var(--serif);font-size:1.5rem;color:var(--ink);margin-bottom:1.25rem;line-height:1.2"></h3>
-    <div id="tplCBody" style="overflow-y:auto;flex:1;background:var(--off);border-radius:12px;padding:1.25rem 1.5rem;font-size:0.82rem;line-height:1.75;color:var(--ink-2);white-space:pre-wrap;font-family:'SF Mono','Fira Mono',monospace;min-height:200px"></div>
-    <div style="margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--brd);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap">
-      <p style="font-size:0.8rem;color:var(--ink-3);margin:0">Customize this template directly inside PISUM.</p>
+    <span id="tplCMod" style="display:inline-block;font-size:0.7rem;font-weight:700;letter-spacing:0.06em;background:#eef0f8;color:#555;padding:0.2rem 0.55rem;border-radius:6px;margin-bottom:0.6rem"></span>
+    <h3 id="tplCName" style="font-family:var(--serif);font-size:1.45rem;color:#0a0a14;margin:0.5rem 0 1.1rem;line-height:1.25"></h3>
+    <div id="tplCBody" style="background:#f4f5fb;border-radius:10px;padding:1.25rem 1.5rem;font-size:0.8rem;line-height:1.8;color:#333;white-space:pre-wrap;font-family:'SF Mono','Fira Mono',Menlo,monospace;max-height:52vh;overflow-y:auto"></div>
+    <div style="margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid #e8eaf0;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+      <p style="font-size:0.8rem;color:#888;margin:0">Customize this template directly inside PISUM.</p>
       <a href="#pricing" class="btn btn-primary" onclick="closeTplContent()" style="font-size:0.85rem;padding:0.6rem 1.25rem;white-space:nowrap">Get PISUM →</a>
     </div>
   </div>
@@ -1505,16 +1505,18 @@ function openModal(){document.getElementById('modal').classList.add('open')}
 function closeModal(){document.getElementById('modal').classList.remove('open')}
 document.getElementById('modal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal();});
 
-async function openTplContent(el){
-  const id=el.dataset.id;
-  const name=el.querySelector('.tpl-name').textContent;
-  const mod=el.querySelector('.tpl-mod').textContent;
-  document.getElementById('tplCName').textContent=name;
+async function openTplContent(id,name,mod){
+  const body=document.getElementById('tplCBody');
   document.getElementById('tplCMod').textContent=mod;
-  document.getElementById('tplCBody').textContent='Loading…';
+  document.getElementById('tplCName').textContent=name;
+  body.textContent='Loading…';
   document.getElementById('tplContentModal').classList.add('open');
-  const {data,error}=await sb.from('templates').select('content').eq('id',id).single();
-  document.getElementById('tplCBody').textContent=(error||!data?.content)?'Could not load content.':data.content;
+  try{
+    const {data,error}=await window.sb.from('templates').select('content').eq('id',id).single();
+    body.textContent=(error||!data?.content)?'Could not load content.':data.content;
+  }catch(e){
+    body.textContent='Error: '+e.message;
+  }
 }
 function closeTplContent(){document.getElementById('tplContentModal').classList.remove('open')}
 document.getElementById('tplContentModal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeTplContent();});
@@ -1551,8 +1553,10 @@ async function loadTemplates(){
     const isPro=t.plan!=='free';
     const proOv=isPro?`<div class="pro-ov"><span class="pro-lock">🔒</span><span class="pro-lbl">Pro Template</span></div>`:'';
     const badge=isPro?`<span class="badge-pro">PRO</span>`:`<span class="badge-free">FREE</span>`;
-    const clickAttr=isPro?' onclick="openModal()"':` onclick="openTplContent(this)" data-id="${t.id}" style="cursor:pointer"`;
-    return `<div class="tpl-card${isPro?' pro':''}" data-m="${mod.dm}"${clickAttr}>${proOv}<div class="tpl-thumb"><span class="tpl-mod">${mod.label}</span></div><div class="tpl-body"><div class="tpl-name">${t.name}</div><div class="tpl-row"><span class="tpl-langs">🌍 23 langs</span>${badge}</div><div class="tpl-lines"><div class="tpl-line"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div></div>`;
+    const safeName=t.name.replace(/"/g,'&quot;');
+    const clickAttr=isPro?' onclick="openModal()"':` onclick="openTplContent('${t.id}','${safeName}','${mod.label}')" style="cursor:pointer"`;
+    const docLines=`<div class="tpl-doc"><div class="tpl-doc-h"></div><div class="tpl-doc-l" style="width:88%"></div><div class="tpl-doc-l" style="width:72%"></div><div class="tpl-doc-l" style="width:80%"></div><div class="tpl-doc-l" style="width:60%"></div></div>`;
+    return `<div class="tpl-card${isPro?' pro':''}" data-m="${mod.dm}"${clickAttr}>${proOv}<div class="tpl-thumb">${docLines}<span class="tpl-mod">${mod.label}</span></div><div class="tpl-body"><div class="tpl-name">${t.name}</div><div class="tpl-row"><span class="tpl-langs">🌍 23 langs</span>${badge}</div><div class="tpl-lines"><div class="tpl-line"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div></div>`;
   }).join('');
 }
 
