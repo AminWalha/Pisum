@@ -21,7 +21,7 @@
 <meta name="twitter:description" content="Generate structured radiology reports in seconds. 112 templates, AI voice dictation, 23 languages. Free trial available."/>
 <meta name="twitter:image" content="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
 <script type="application/ld+json">
-[{"@context":"https://schema.org","@type":"Organization","name":"PISUM","url":"https://pisum.app","logo":"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png","email":"Mypisum@Proton.me","description":"Radiology reporting software with AI voice dictation, 112 expert templates, and 23-language support","contactPoint":{"@type":"ContactPoint","contactType":"customer support","email":"Mypisum@Proton.me","availableLanguage":["English","French","German","Spanish"]}},{"@context":"https://schema.org","@type":"SoftwareApplication","name":"PISUM","applicationCategory":"MedicalApplication","operatingSystem":"Windows 10, Windows 11","description":"Radiology reporting desktop software with AI voice dictation, 112 structured templates, and PDF/Word export","url":"https://pisum.app","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR","description":"Free plan available, Pro from €79/month with 7-day free trial"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"2800"},"featureList":["112 radiology report templates","AI voice dictation (Sally AI)","23 language support","PDF and Word export","RIS/PACS integration","LAN network sync","GDPR compliant"]}]
+[{"@context":"https://schema.org","@type":"Organization","name":"PISUM","url":"https://pisum.app","logo":"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png","email":"Mypisum@Proton.me","description":"Radiology reporting software with AI voice dictation, 112 expert templates, and 23-language support","contactPoint":{"@type":"ContactPoint","contactType":"customer support","email":"Mypisum@Proton.me","availableLanguage":["English","French","German","Spanish"]}},{"@context":"https://schema.org","@type":"SoftwareApplication","name":"PISUM","applicationCategory":"MedicalApplication","operatingSystem":"Windows 10, Windows 11","description":"Radiology reporting desktop software with AI voice dictation, 112 structured templates, and PDF/Word export","url":"https://pisum.app","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR","description":"Free plan available, Pro from €79/month with 14-day free trial"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"2800"},"featureList":["112 radiology report templates","AI voice dictation (Sally AI)","23 language support","PDF and Word export","RIS/PACS integration","LAN network sync","GDPR compliant"]}]
 </script>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"/>
@@ -618,7 +618,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
     <button class="modal-x" onclick="closeModal()">✕</button>
     <div class="modal-icon">🔒</div>
     <h3>Pro Template</h3>
-    <p>Unlock all 112 expert-built radiology templates with a Pro or higher plan. Starting at just €79/month — with a 7-day free trial.</p>
+    <p>Unlock all 112 expert-built radiology templates with a Pro or higher plan. Starting at just €79/month — with a 14-day free trial.</p>
     <div class="modal-btns">
       <a href="#pricing" class="btn btn-primary btn-lg" onclick="closeModal()" style="justify-content:center">Try Pro free — 7 days</a>
       <button onclick="closeModal()" class="btn btn-ghost btn-lg" style="justify-content:center">Maybe later</button>
@@ -782,7 +782,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
                   <div class="rc-foot">
                     <button class="rb rb-pdf">📄 PDF</button>
                     <button class="rb rb-word">📝 Word</button>
-                    <button class="rb rb-ai">✨ AI Refine</button>
+                    <button class="rb rb-ai">✨ AI Assistant</button>
                   </div>
                 </div>
               </div>
@@ -948,7 +948,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
         </button>
         <button class="idtab" onclick="switchDemo('ai',this)">
           <div class="idtab-icon">✨</div>
-          <div><div class="idtab-name">AI Refinement</div><div class="idtab-desc">Clinical language, perfected</div></div>
+          <div><div class="idtab-name">AI Assistant</div><div class="idtab-desc">Clinical language, perfected</div></div>
         </button>
         <button class="idtab" onclick="switchDemo('voice',this)">
           <div class="idtab-icon">🎙️</div>
@@ -1044,11 +1044,11 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
           <div class="idai-layout">
             <div class="idai-compare">
               <div class="idai-box idai-before">
-                <div class="idai-box-hd">⚠️ Before AI Refine</div>
+                <div class="idai-box-hd">⚠️ Before AI Assistant</div>
                 <div class="idai-body">Lungs look ok. No big problems seen. Heart is normal size. Nothing bad found.</div>
               </div>
               <div class="idai-box idai-after">
-                <div class="idai-box-hd">✨ After AI Refine</div>
+                <div class="idai-box-hd">✨ After AI Assistant</div>
                 <div class="idai-body">
                   <span class="idai-after-text" id="aiAfterText"></span>
                   <span id="aiPlaceholder" style="color:var(--ink-4);font-style:italic">Click the button below to see AI refinement in action.</span>
@@ -1056,7 +1056,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
               </div>
             </div>
             <div class="idai-btn-row">
-              <button class="idai-btn" id="aiBtn" onclick="triggerAI()">✨ Refine with AI</button>
+              <button class="idai-btn" id="aiBtn" onclick="triggerAI()">✨ Run AI Assistant</button>
             </div>
           </div>
         </div>
@@ -1182,16 +1182,16 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
       <div class="plan rv">
         <div class="plan-name">Free</div>
         <div class="plan-price"><span class="psym">€</span><span class="pamt">0</span><span class="pper">/mo</span></div>
-        <p class="plan-desc">Try AI dictation and 20 expert templates — no commitment, no card.</p>
+        <p class="plan-desc">Try AI dictation and 10 expert templates — no commitment, no card.</p>
         <a href="https://www.dropbox.com/scl/fi/rct6z94qwb3jt4r9w22xx/PISUM_Radiology_Setup_2.9.7.exe?rlkey=enlx2p8fyxa4sxansd1do0tl4&st=e5xyzn9u&dl=1" class="plan-cta cta-ghost" target="_blank" rel="noopener noreferrer">Download Free — Windows</a>
         <hr class="plan-div"/>
         <ul class="plan-list">
-          <li><span class="lchk">✓</span>20 templates</li>
-          <li><span class="lchk">✓</span>5 languages</li>
+          <li><span class="lchk">✓</span>10 templates</li>
+          <li><span class="lchk">✓</span>2 languages</li>
           <li><span class="lchk">✓</span>PDF export</li>
           <li><span class="lx">○</span><span class="ldim">Word export</span></li>
           <li><span class="lchk">✓</span>🎙️ AI Dictation (30 min/mo)</li>
-          <li><span class="lchk">✓</span>✨ AI Enhancer (10/mo)</li>
+          <li><span class="lchk">✓</span>✨ AI Assistant (10/mo)</li>
           <li><span class="lx">○</span><span class="ldim">Statistics</span></li>
           <li><span class="lchk">✓</span>50 reports / month</li>
         </ul>
@@ -1203,17 +1203,18 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
         <div class="plan-price"><span class="psym">€</span><span class="pamt" id="starterAmt">29</span><span class="pper">/mo</span></div>
         <p class="bill-note" style="display:none;font-size:0.72rem;color:var(--green);margin-bottom:0.25rem">276€/yr — save 72€</p>
         <p class="plan-desc">For the independent radiologist.</p>
-        <p style="font-size:0.7rem;color:var(--ink-4);margin-bottom:0.75rem;margin-top:-1.5rem">7-day free trial · No card required</p>
-        <a href="../saas/frontend/auth.html" class="plan-cta cta-ghost">Try Starter free — 7 days</a>
+        <p style="font-size:0.7rem;color:var(--ink-4);margin-bottom:0.75rem;margin-top:-1.5rem">14-day free trial · No card required</p>
+        <a href="../saas/frontend/auth.html" class="plan-cta cta-ghost">Try Starter free — 14 days</a>
         <hr class="plan-div"/>
         <ul class="plan-list">
           <li><span class="lchk">✓</span>20 templates</li>
-          <li><span class="lchk">✓</span>5 languages</li>
+          <li><span class="lchk">✓</span>23 languages</li>
           <li><span class="lchk">✓</span>PDF + Word export</li>
-          <li><span class="lchk">✓</span>🎙️ AI Dictation (200 min/mo)</li>
-          <li><span class="lchk">✓</span>✨ AI Enhancer (50/mo)</li>
+          <li><span class="lchk">✓</span>🎙️ AI Dictation (500 min/mo)</li>
+          <li><span class="lchk">✓</span>✨ AI Assistant (50/mo)</li>
           <li><span class="lchk">✓</span>Basic worklist</li>
           <li><span class="lchk">✓</span>Unlimited reports</li>
+          <li><span class="lx">○</span><span class="ldim">HTML Export</span></li>
           <li><span class="lx">○</span><span class="ldim">Statistics</span></li>
         </ul>
       </div>
@@ -1225,15 +1226,15 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
         <div class="plan-price"><span class="psym">€</span><span class="pamt" id="proAmt">79</span><span class="pper">/mo</span></div>
         <p class="bill-note" style="display:none;font-size:0.72rem;color:rgba(255,255,255,0.55);margin-bottom:0.25rem">756€/yr — save 192€</p>
         <p class="plan-desc">Advanced practitioner, all-in-one.</p>
-        <p style="font-size:0.7rem;color:rgba(255,255,255,0.38);margin-bottom:0.75rem;margin-top:-1.5rem">7-day free trial · No card required</p>
-        <a href="../saas/frontend/auth.html" class="plan-cta cta-white">Try Pro free — 7 days</a>
+        <p style="font-size:0.7rem;color:rgba(255,255,255,0.38);margin-bottom:0.75rem;margin-top:-1.5rem">14-day free trial · No card required</p>
+        <a href="../saas/frontend/auth.html" class="plan-cta cta-white">Try Pro free — 14 days</a>
         <hr class="plan-div"/>
         <ul class="plan-list">
           <li><span class="lchk">✓</span>112+ templates</li>
           <li><span class="lchk">✓</span>23 languages</li>
-          <li><span class="lchk">✓</span>PDF + Word export</li>
+          <li><span class="lchk">✓</span>PDF + Word + HTML export</li>
           <li><span class="lchk">✓</span>🎙️ AI Dictation (2,000 min/mo)</li>
-          <li><span class="lchk">✓</span>✨ AI Enhancer (200/mo)</li>
+          <li><span class="lchk">✓</span>✨ AI Assistant (200/mo)</li>
           <li><span class="lchk">✓</span>Full worklist</li>
           <li><span class="lchk">✓</span>Basic statistics</li>
           <li><span class="lchk">✓</span>Priority support</li>
@@ -1247,13 +1248,13 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
         <div class="plan-price"><span class="psym">€</span><span class="pamt" id="expertAmt">129</span><span class="pper">/mo</span></div>
         <p class="bill-note" style="display:none;font-size:0.72rem;color:var(--green);margin-bottom:0.25rem">1 236€/yr — save 312€</p>
         <p class="plan-desc">No limits, full power.</p>
-        <p style="font-size:0.7rem;color:var(--ink-4);margin-bottom:0.75rem;margin-top:-1.5rem">7-day free trial · No card required</p>
-        <a href="../saas/frontend/auth.html" class="plan-cta cta-ghost">Try Expert free — 7 days</a>
+        <p style="font-size:0.7rem;color:var(--ink-4);margin-bottom:0.75rem;margin-top:-1.5rem">14-day free trial · No card required</p>
+        <a href="../saas/frontend/auth.html" class="plan-cta cta-ghost">Try Expert free — 14 days</a>
         <hr class="plan-div"/>
         <ul class="plan-list">
           <li><span class="lchk">✓</span>112+ custom templates</li>
           <li><span class="lchk">✓</span>23 languages</li>
-          <li><span class="lchk">✓</span>PDF + Word export</li>
+          <li><span class="lchk">✓</span>PDF + Word + HTML export</li>
           <li><span class="lchk">✓</span>🎙️ AI Dictation (Unlimited)</li>
           <li><span class="lchk">✓</span>✨ AI Enhancer (Unlimited)</li>
           <li><span class="lchk">✓</span>Advanced worklist</li>
@@ -1274,7 +1275,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
           <li><span class="lchk">✓</span>Custom templates</li>
           <li><span class="lchk">✓</span>5 users incl. (+€69/extra)</li>
           <li><span class="lchk">✓</span>23 languages</li>
-          <li><span class="lchk">✓</span>PDF + Word export</li>
+          <li><span class="lchk">✓</span>PDF + Word + HTML export</li>
           <li><span class="lchk">✓</span>🎙️ AI Dictation (Unlimited)</li>
           <li><span class="lchk">✓</span>✨ AI Enhancer (Unlimited)</li>
           <li><span class="lchk">✓</span>Multi-site worklist</li>
@@ -1565,10 +1566,10 @@ async function loadTemplates(){
 loadTemplates();
 
 const bill={
-  m:{starter:39,pro:79,expert:129,clinic:399},
-  a:{starter:31,pro:63,expert:103,clinic:319}
+  m:{starter:29,pro:79,expert:129,clinic:399},
+  a:{starter:23,pro:63,expert:103,clinic:319}
 };
-const billAnnual={starter:372,pro:756,expert:1236,clinic:3828};
+const billAnnual={starter:276,pro:756,expert:1236,clinic:3828};
 function toggleBill(){
   const annual=document.getElementById('togB').checked;
   const p=annual?bill.a:bill.m;
