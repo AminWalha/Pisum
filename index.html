@@ -623,6 +623,23 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
   </div>
 </div>
 
+<!-- TEMPLATE CONTENT MODAL -->
+<div class="modal-wrap" id="tplContentModal">
+  <div class="modal" style="max-width:680px;width:100%;max-height:82vh;display:flex;flex-direction:column;padding:2rem 2.25rem">
+    <button class="modal-x" onclick="closeTplContent()">✕</button>
+    <div style="display:flex;align-items:center;gap:0.65rem;margin-bottom:0.75rem">
+      <span id="tplCMod" style="font-size:0.7rem;font-weight:700;letter-spacing:0.06em;background:var(--off);color:var(--ink-3);padding:0.2rem 0.55rem;border-radius:6px"></span>
+      <span style="font-size:0.75rem;color:var(--ink-3)">🌍 23 langs</span>
+    </div>
+    <h3 id="tplCName" style="font-family:var(--serif);font-size:1.5rem;color:var(--ink);margin-bottom:1.25rem;line-height:1.2"></h3>
+    <div id="tplCBody" style="overflow-y:auto;flex:1;background:var(--off);border-radius:12px;padding:1.25rem 1.5rem;font-size:0.82rem;line-height:1.75;color:var(--ink-2);white-space:pre-wrap;font-family:'SF Mono','Fira Mono',monospace;min-height:200px"></div>
+    <div style="margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--brd);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+      <p style="font-size:0.8rem;color:var(--ink-3);margin:0">Customize this template directly inside PISUM.</p>
+      <a href="#pricing" class="btn btn-primary" onclick="closeTplContent()" style="font-size:0.85rem;padding:0.6rem 1.25rem;white-space:nowrap">Get PISUM →</a>
+    </div>
+  </div>
+</div>
+
 <!-- NAV -->
 <nav class="nav" id="nav">
   <a href="index.html" class="nav-logo">
@@ -1488,6 +1505,20 @@ function openModal(){document.getElementById('modal').classList.add('open')}
 function closeModal(){document.getElementById('modal').classList.remove('open')}
 document.getElementById('modal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal();});
 
+async function openTplContent(el){
+  const id=el.dataset.id;
+  const name=el.querySelector('.tpl-name').textContent;
+  const mod=el.querySelector('.tpl-mod').textContent;
+  document.getElementById('tplCName').textContent=name;
+  document.getElementById('tplCMod').textContent=mod;
+  document.getElementById('tplCBody').textContent='Loading…';
+  document.getElementById('tplContentModal').classList.add('open');
+  const {data,error}=await sb.from('templates').select('content').eq('id',id).single();
+  document.getElementById('tplCBody').textContent=(error||!data?.content)?'Could not load content.':data.content;
+}
+function closeTplContent(){document.getElementById('tplContentModal').classList.remove('open')}
+document.getElementById('tplContentModal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeTplContent();});
+
 const tplModMap={
   'Scanner':{label:'CT',dm:'CT'},
   'IRM':{label:'MRI',dm:'MRI'},
@@ -1520,7 +1551,8 @@ async function loadTemplates(){
     const isPro=t.plan!=='free';
     const proOv=isPro?`<div class="pro-ov"><span class="pro-lock">🔒</span><span class="pro-lbl">Pro Template</span></div>`:'';
     const badge=isPro?`<span class="badge-pro">PRO</span>`:`<span class="badge-free">FREE</span>`;
-    return `<div class="tpl-card${isPro?' pro':''}" data-m="${mod.dm}"${isPro?' onclick="openModal()"':''}>${proOv}<div class="tpl-thumb"><span class="tpl-mod">${mod.label}</span></div><div class="tpl-body"><div class="tpl-name">${t.name}</div><div class="tpl-row"><span class="tpl-langs">🌍 23 langs</span>${badge}</div><div class="tpl-lines"><div class="tpl-line"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div></div>`;
+    const clickAttr=isPro?' onclick="openModal()"':` onclick="openTplContent(this)" data-id="${t.id}" style="cursor:pointer"`;
+    return `<div class="tpl-card${isPro?' pro':''}" data-m="${mod.dm}"${clickAttr}>${proOv}<div class="tpl-thumb"><span class="tpl-mod">${mod.label}</span></div><div class="tpl-body"><div class="tpl-name">${t.name}</div><div class="tpl-row"><span class="tpl-langs">🌍 23 langs</span>${badge}</div><div class="tpl-lines"><div class="tpl-line"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div></div>`;
   }).join('');
 }
 
