@@ -3,15 +3,36 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>PISUM — Radiology Reporting, Reimagined</title>
-<meta name="description" content="PISUM turns radiology reporting from hours into seconds. 112 expert templates. 23 languages. PDF & Word export."/>
-<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
+<title>Radiology Reporting Software & AI Dictation | Pisum</title>
+<meta name="description" content="Create radiology reports faster with AI dictation and smart templates. Pisum helps radiologists save time, reduce burnout, and improve workflow. Try it free."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://pisum.app/"/>
+<link rel="alternate" hreflang="en" href="https://pisum.app/"/>
+<link rel="alternate" hreflang="fr" href="https://pisum.app/"/>
+<link rel="alternate" hreflang="x-default" href="https://pisum.app/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://pisum.app/"/>
+<meta property="og:title" content="PISUM — Radiology Reporting Software | AI-Powered Medical Reports"/>
+<meta property="og:description" content="PISUM is the radiology reporting software trusted by 2,800+ radiologists. 112 templates, AI voice dictation, PDF &amp; Word export."/>
+<meta property="og:image" content="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
+<meta property="og:site_name" content="PISUM"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="PISUM — Radiology Reporting Software | AI-Powered Medical Reports"/>
+<meta name="twitter:description" content="Generate structured radiology reports in seconds. 112 templates, AI voice dictation, 23 languages. Free trial available."/>
+<meta name="twitter:image" content="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
+<script type="application/ld+json">
+[{"@context":"https://schema.org","@type":"Organization","name":"PISUM","url":"https://pisum.app","logo":"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png","email":"Mypisum@Proton.me","description":"Radiology reporting software with AI voice dictation, 112 expert templates, and 23-language support","contactPoint":{"@type":"ContactPoint","contactType":"customer support","email":"Mypisum@Proton.me","availableLanguage":["English","French","German","Spanish"]}},{"@context":"https://schema.org","@type":"SoftwareApplication","name":"PISUM","applicationCategory":"MedicalApplication","operatingSystem":"Windows 10, Windows 11","description":"Radiology reporting desktop software with AI voice dictation, 112 structured templates, and PDF/Word export","url":"https://pisum.app","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR","description":"Free plan available, Pro from €79/month with 14-day free trial"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"2800"},"featureList":["112 radiology report templates","AI voice dictation (Sally AI)","23 language support","PDF and Word export","RIS/PACS integration","LAN network sync","GDPR compliant"]}]
+</script>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"/>
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
 :root{
   --white:#ffffff;--off:#f9f9fb;--bg:#f2f2f6;
   --ink:#09090f;--ink-2:#3a3a4c;--ink-3:#8a8aa8;--ink-4:#bbbbd0;
@@ -65,6 +86,17 @@ a{text-decoration:none;color:inherit}
 .nav-right{display:flex;align-items:center;gap:0.75rem}
 .nav-login{font-size:0.875rem;font-weight:500;color:var(--ink-2);padding:0.5rem 1rem;border-radius:999px;transition:color 0.18s}
 .nav-login:hover{color:var(--ink)}
+.nav-profile{display:flex;align-items:center;gap:10px;background:var(--white);border:1px solid var(--b2);border-radius:999px;padding:4px 12px 4px 4px;box-shadow:var(--shadow-xs)}
+.nav-profile-avatar{width:36px;height:36px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.nav-profile-avatar-fallback{width:36px;height:36px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:var(--white);flex-shrink:0}
+.nav-profile-info{display:flex;flex-direction:column;gap:1px}
+.nav-profile-name{font-size:0.8rem;font-weight:600;color:var(--ink);line-height:1.2}
+.nav-profile-email{font-size:0.7rem;color:var(--ink-3);line-height:1.2}
+.nav-profile-signout{font-size:0.78rem;font-weight:500;color:var(--ink-3);background:none;border:1px solid var(--b2);border-radius:999px;padding:0.3rem 0.8rem;cursor:pointer;transition:all 0.18s;margin-left:4px;font-family:inherit}
+.nav-profile-signout:hover{color:var(--ink);border-color:var(--ink-3);background:var(--off)}
+.nav-profile-link{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.nav-profile-link:hover .nav-profile-name{color:var(--blue)}
+@media(min-width:781px){#nav-mobile-signout{display:none!important}}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
 .hamburger span{display:block;width:22px;height:1.5px;background:var(--ink);border-radius:2px;transition:all 0.3s}
 @media(max-width:780px){
@@ -72,21 +104,46 @@ a{text-decoration:none;color:inherit}
   .hamburger{display:flex}
   .nav-links.open{display:flex;flex-direction:column;align-items:flex-start;gap:1.5rem;position:fixed;inset:64px 0 0 0;background:var(--white);padding:2rem clamp(1.25rem,5vw,3rem);z-index:997}
   .nav-links.open a{font-size:1.15rem;color:var(--ink)}
+  .nav-profile-info,.nav-profile-signout{display:none}
+  .nav-profile{padding:4px;gap:0;background:transparent;border:none;box-shadow:none}
 }
 
 /* HERO */
-.hero{position:relative;overflow:hidden;padding:clamp(130px,18vw,180px) 0 clamp(80px,12vw,120px);background:var(--white)}
+.hero{position:relative;overflow:hidden;padding:clamp(80px,10vw,100px) 0 clamp(60px,8vw,80px);background:var(--white)}
 .hero-orb{position:absolute;border-radius:50%;pointer-events:none}
 .orb1{width:900px;height:900px;top:-300px;left:50%;transform:translateX(-10%);background:radial-gradient(circle,rgba(59,110,248,0.07) 0%,transparent 65%)}
 .orb2{width:600px;height:600px;bottom:-100px;left:-150px;background:radial-gradient(circle,rgba(124,90,240,0.06) 0%,transparent 65%)}
-.hero-inner{position:relative;z-index:1;text-align:center;max-width:860px;margin:0 auto}
-.hero-pill{display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--b2);border-radius:999px;padding:0.35rem 1rem 0.35rem 0.5rem;margin-bottom:2.5rem;box-shadow:var(--shadow-xs);font-size:0.8rem;font-weight:500;color:var(--ink-2)}
+.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(2.5rem,5vw,5rem);align-items:center}
+.hero-left{max-width:580px}
+.hero-right{position:relative}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--b2);border-radius:999px;padding:0.35rem 1rem 0.35rem 0.5rem;margin-bottom:1.75rem;box-shadow:var(--shadow-xs);font-size:0.8rem;font-weight:500;color:var(--ink-2)}
 .pill-tag{background:var(--grad);color:var(--white);font-size:0.65rem;font-weight:700;letter-spacing:0.08em;padding:0.2rem 0.6rem;border-radius:999px;text-transform:uppercase}
-.hero-h{margin-bottom:1.5rem;color:var(--ink)}
-.hero-h em{font-style:italic;color:var(--blue)}
-.hero-sub{font-size:clamp(1rem,2vw,1.2rem);color:var(--ink-2);max-width:580px;margin:0 auto 3rem;line-height:1.7;font-weight:400}
-.hero-actions{display:flex;align-items:center;justify-content:center;gap:0.85rem;flex-wrap:wrap;margin-bottom:1.25rem}
-.hero-note{font-size:0.75rem;color:var(--ink-4);letter-spacing:0.02em;margin-bottom:4rem}
+.hero-h{margin-bottom:0.6rem;color:var(--ink);font-size:clamp(2.5rem,4vw,3.2rem);line-height:1.08}
+.hero-tagline{font-size:clamp(1.1rem,1.8vw,1.25rem);font-family:var(--serif);color:var(--ink-2);font-style:italic;margin-bottom:1.25rem;line-height:1.35;letter-spacing:-0.01em}
+.hero-tagline .t-accent{color:var(--blue);font-style:italic;font-weight:400}
+.hero-sub{font-size:clamp(0.875rem,1.3vw,0.975rem);color:var(--ink-3);margin:0 0 2rem;line-height:1.8;font-weight:400}
+.hero-sub strong{color:var(--ink-2);font-weight:600}
+.hero-actions{display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.9rem}
+.btn-tertiary{display:inline-flex;align-items:center;justify-content:center;gap:7px;font-family:var(--sans);font-size:0.82rem;font-weight:500;border:1px solid var(--b2);cursor:pointer;border-radius:999px;transition:all 0.22s var(--t);white-space:nowrap;background:transparent;color:var(--ink-3);padding:0.6rem 1.2rem;opacity:0.75}
+.btn-tertiary:hover{opacity:1;color:var(--ink-2);background:var(--off);border-color:rgba(0,0,0,0.14)}
+.hero-note{font-size:0.75rem;color:var(--ink-4);letter-spacing:0.02em}
+@media(max-width:920px){
+  .hero-inner{grid-template-columns:1fr;gap:3rem}
+  .hero-left{max-width:100%;text-align:center}
+  .hero-sub{margin-left:auto;margin-right:auto}
+  .hero-actions{justify-content:center}
+  .hero-right{max-width:720px;margin:0 auto}
+}
+@media(max-width:600px){
+  .hero{padding:clamp(72px,12vw,90px) 0 clamp(40px,8vw,60px)}
+  .hero-right{display:none}
+  .hero-pill{font-size:0.72rem;padding:0.3rem 0.8rem 0.3rem 0.4rem;max-width:calc(100vw - 2.5rem);flex-wrap:wrap;white-space:normal;text-align:center;justify-content:center}
+  .hero-h{font-size:clamp(2rem,8vw,2.8rem)}
+  .hero-tagline{font-size:1rem}
+  .hero-actions{flex-direction:column;align-items:stretch;gap:0.65rem}
+  .hero-actions .btn{width:100%;justify-content:center;font-size:0.9rem;padding:0.85rem 1.5rem}
+  .hero-actions .btn-tertiary{width:100%;justify-content:center;padding:0.65rem 1.2rem}
+}
 
 /* MOCKUP */
 .mockup-stage{position:relative;max-width:820px;margin:0 auto}
@@ -99,6 +156,8 @@ a{text-decoration:none;color:inherit}
 .win-url{flex:1;background:#161B22;border-radius:8px;height:26px;display:flex;align-items:center;gap:6px;padding:0 10px;font-size:0.72rem;color:#6E7681;font-weight:500}
 .win-body{display:grid;grid-template-columns:200px 1fr}
 .win-sb{background:#010409;border-right:1px solid rgba(255,255,255,0.05);padding:1.25rem 0;min-height:380px}
+@media(max-width:780px){.win-body{grid-template-columns:150px 1fr}.win-sb{min-height:240px}.sb-lbl{font-size:0.55rem}.sb-row{font-size:0.68rem;padding:0.35rem 0.75rem}}
+@media(max-width:640px){.win-sb{display:none}.win-body{grid-template-columns:1fr}}
 .sb-lbl{font-size:0.6rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#484F58;padding:0 1rem;margin-bottom:0.5rem;margin-top:1rem;display:block}
 .sb-lbl:first-child{margin-top:0}
 .sb-row{display:flex;align-items:center;gap:8px;padding:0.45rem 1rem;font-size:0.76rem;font-weight:500;color:#6E7681;cursor:pointer;transition:all 0.15s}
@@ -131,6 +190,7 @@ a{text-decoration:none;color:inherit}
 .c2{bottom:20px;left:-20px;animation-delay:1.8s}
 .chip-s{color:#14B8A6}
 @keyframes chipFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@media(max-width:780px){.chip{display:none}}
 
 /* MARQUEE */
 .mq-section{background:var(--white);border-top:1px solid var(--b1);border-bottom:1px solid var(--b1);padding:1.75rem 0;overflow:hidden}
@@ -182,8 +242,8 @@ a{text-decoration:none;color:inherit}
 .feat-pill{display:inline-block;margin-top:1rem;padding:0.2rem 0.6rem;border-radius:6px;font-size:0.66rem;font-weight:700;letter-spacing:0.06em}
 .pill-free{background:rgba(22,163,74,0.1);color:#15803d}
 .pill-pro{background:rgba(124,90,240,0.1);color:var(--purple)}
-@media(max-width:860px){.feat-grid{grid-template-columns:1fr 1fr}.feat-grid .feat-card[style*="span 3"]{grid-column:span 2}}
-@media(max-width:560px){.feat-grid{grid-template-columns:1fr}.feat-grid .feat-card[style*="span 3"]{grid-column:span 1}}
+@media(max-width:860px){.feat-grid{grid-template-columns:1fr 1fr}.feat-grid .feat-card[style*="span 3"]{grid-column:span 2!important}}
+@media(max-width:560px){.feat-grid{grid-template-columns:1fr}.feat-grid .feat-card[style*="span 3"]{grid-column:span 1!important}}
 
 /* TEMPLATES */
 .tpl-section{background:var(--white)}
@@ -196,7 +256,10 @@ a{text-decoration:none;color:inherit}
 .tpl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
 .tpl-card{background:var(--white);border:1px solid var(--b1);border-radius:var(--r-lg);overflow:hidden;transition:all 0.25s var(--t);cursor:pointer;position:relative}
 .tpl-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:rgba(0,0,0,0.1)}
-.tpl-thumb{height:98px;background:linear-gradient(135deg,var(--off) 0%,#eef0f8 100%);position:relative;overflow:hidden}
+.tpl-thumb{height:108px;background:linear-gradient(135deg,var(--off) 0%,#eef0f8 100%);position:relative;overflow:hidden}
+.tpl-doc{position:absolute;top:12px;left:12px;right:12px;display:flex;flex-direction:column;gap:5px;z-index:1}
+.tpl-doc-h{height:6px;border-radius:3px;background:rgba(58,58,76,0.22);width:42%}
+.tpl-doc-l{height:4px;border-radius:3px;background:rgba(58,58,76,0.12)}
 .tpl-thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(59,110,248,0.04) 0%,rgba(124,90,240,0.04) 100%)}
 .tpl-mod{position:absolute;bottom:8px;left:10px;background:var(--white);border-radius:6px;border:1px solid var(--b1);font-size:0.6rem;font-weight:700;letter-spacing:0.08em;color:var(--ink-2);padding:0.17rem 0.48rem}
 .tpl-body{padding:0.85rem 1rem}
@@ -244,12 +307,12 @@ a{text-decoration:none;color:inherit}
 .tog input:checked+.tog-sl{background:var(--grad);border-color:transparent}
 .tog input:checked+.tog-sl::before{left:23px}
 .save-tag{background:rgba(22,163,74,0.1);color:#15803d;font-size:0.7rem;font-weight:700;padding:0.18rem 0.55rem;border-radius:6px}
-.plans{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;align-items:start}
-.plan{background:var(--white);border:1px solid var(--b1);border-radius:var(--r-xl);padding:1.75rem;transition:all 0.25s var(--t)}
+.plans{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;align-items:stretch}
+.plan{background:var(--white);border:1px solid var(--b1);border-radius:var(--r-xl);padding:1.75rem;transition:all 0.25s var(--t);display:flex;flex-direction:column}
 .plan:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
-.plan.hot{background:var(--ink);border-color:transparent;box-shadow:0 24px 64px rgba(9,9,15,0.18),0 6px 18px rgba(9,9,15,0.1);transform:scale(1.02)}
+.plan.hot{background:var(--ink);border-color:transparent;box-shadow:0 24px 64px rgba(9,9,15,0.18),0 6px 18px rgba(9,9,15,0.1);transform:scale(1.02);position:relative;padding-top:3.25rem}
 .plan.hot:hover{transform:scale(1.02) translateY(-4px)}
-.hot-lbl{display:inline-block;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.8);font-size:0.63rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.23rem 0.65rem;border-radius:6px;margin-bottom:1.25rem}
+.hot-lbl{position:absolute;top:1.25rem;left:1.75rem;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.8);font-size:0.63rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.23rem 0.65rem;border-radius:6px}
 .plan-name{font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:0.75rem}
 .plan.hot .plan-name{color:rgba(255,255,255,0.45)}
 .plan-price{display:flex;align-items:baseline;gap:4px;margin-bottom:0.4rem}
@@ -266,7 +329,7 @@ a{text-decoration:none;color:inherit}
 .cta-white:hover{box-shadow:0 6px 20px rgba(0,0,0,0.18);transform:translateY(-1px)}
 .plan-div{border:none;border-top:1px solid var(--b1);margin-bottom:1.5rem}
 .plan.hot .plan-div{border-color:rgba(255,255,255,0.08)}
-.plan-list{list-style:none;display:flex;flex-direction:column;gap:0.7rem}
+.plan-list{list-style:none;display:flex;flex-direction:column;gap:0.7rem;flex:1}
 .plan-list li{display:flex;align-items:center;gap:0.65rem;font-size:0.85rem;color:var(--ink-2)}
 .plan.hot .plan-list li{color:rgba(255,255,255,0.7)}
 .lchk{color:var(--green);font-size:1rem;flex-shrink:0}
@@ -275,7 +338,8 @@ a{text-decoration:none;color:inherit}
 .ldim{color:var(--ink-4)}
 .plan.hot .ldim{color:rgba(255,255,255,0.25)}
 @media(max-width:1100px){.plans{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:640px){.plans{grid-template-columns:1fr}.plan.hot{transform:scale(1)}}
+@media(max-width:820px){.plans{grid-template-columns:repeat(2,1fr)}.plan.hot{transform:scale(1)}}
+@media(max-width:520px){.plans{grid-template-columns:1fr}.plan.hot{transform:scale(1)}}
 
 /* CTA */
 .cta-section{position:relative;overflow:hidden;background:var(--ink);padding:clamp(6rem,12vw,10rem) 0}
@@ -340,6 +404,53 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
 .shots-cap-text p{font-size:0.78rem;color:rgba(255,255,255,0.38);line-height:1.55}
 .shots-badge{background:rgba(20,184,166,0.12);color:#14B8A6;border:1px solid rgba(20,184,166,0.2);font-size:0.7rem;font-weight:700;padding:0.22rem 0.65rem;border-radius:6px;white-space:nowrap}
 @media(max-width:640px){.shots-img-wrap{min-height:220px}.shots-caption{flex-direction:column;align-items:flex-start}}
+
+/* BODY MENU OPEN */
+body.menu-open{overflow:hidden}
+
+/* FOOTER MOBILE */
+@media(max-width:600px){
+  .foot-in{flex-direction:column;align-items:center;text-align:center;gap:1rem}
+  .foot-links{justify-content:center;flex-wrap:wrap;gap:1rem}
+  .foot-copy{text-align:center}
+}
+
+/* CTA ACTS MOBILE */
+@media(max-width:520px){
+  .cta-acts{flex-direction:column;align-items:stretch;gap:0.75rem}
+  .cta-acts .btn{width:100%;justify-content:center}
+}
+
+/* DEMO PANEL MOBILE */
+@media(max-width:480px){
+  .idemo-panel{min-height:320px}
+  .idai-layout,.idlang-layout,.idvoice-layout,.idexport-layout{min-height:280px}
+}
+
+/* TOUCH TARGETS */
+button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action:manipulation}
+
+/* BILL ROW MOBILE */
+@media(max-width:420px){
+  .bill-row{flex-wrap:wrap;justify-content:center;gap:0.75rem}
+}
+
+/* HOW SECTION ARROWS MOBILE */
+@media(max-width:800px){
+  .how-arrow{height:32px;display:flex;align-items:center;justify-content:center}
+}
+
+/* PRICING HEADER MOBILE */
+@media(max-width:480px){
+  .pricing-header{padding:0 0.5rem}
+  .plan{padding:1.5rem}
+  .plan.hot{padding-top:3rem}
+}
+
+/* NAV MOBILE IMPROVEMENTS */
+@media(max-width:780px){
+  .nav-right .btn-sm{padding:0.45rem 0.85rem;font-size:0.78rem}
+}
 
 /* REVEAL */
 .rv{opacity:0;transform:translateY(22px);transition:opacity 0.65s ease,transform 0.65s ease}
@@ -477,6 +588,72 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
 .idemo-panel{min-height:380px}
 }
 @media(max-width:480px){.idemo-tabs{grid-template-columns:1fr}}
+
+/* ── LANGUAGES SECTION ──────────────────────────────── */
+.lang-section{background:linear-gradient(180deg,var(--white) 0%,var(--off) 40%,var(--off) 100%);position:relative;overflow:hidden}
+.lang-section::before{content:'';position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(ellipse at center,rgba(59,110,248,0.05) 0%,transparent 70%);pointer-events:none}
+.lang-hd{max-width:620px;margin:0 auto 3.5rem;text-align:center}
+.lang-hd p{font-size:1rem;color:var(--ink-2);line-height:1.7;margin-top:1.1rem;max-width:500px;margin-left:auto;margin-right:auto}
+
+/* Featured top-3 */
+.lang-featured{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-bottom:2rem}
+.lang-feat-card{background:var(--white);border:1.5px solid var(--b1);border-radius:var(--r-xl);padding:2rem 1.5rem;display:flex;flex-direction:column;align-items:center;gap:1rem;transition:all 0.28s var(--t);position:relative;overflow:hidden;box-shadow:var(--shadow-sm)}
+.lang-feat-card::after{content:'';position:absolute;inset:0;border-radius:var(--r-xl);background:var(--grad);opacity:0;transition:opacity 0.28s}
+.lang-feat-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:rgba(59,110,248,0.22)}
+.lang-feat-card.accent{border-color:rgba(59,110,248,0.28);box-shadow:0 4px 24px rgba(59,110,248,0.1),var(--shadow-sm)}
+.lang-feat-card .lang-flag-wrap{width:52px;height:38px;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.14);flex-shrink:0}
+.lang-feat-card .lang-flag-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+.lang-feat-name{font-size:1.05rem;font-weight:700;color:var(--ink);letter-spacing:-0.01em}
+.lang-feat-native{font-size:0.78rem;color:var(--ink-3);font-weight:500}
+.lang-feat-badge{font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.22rem 0.65rem;border-radius:999px;background:rgba(59,110,248,0.08);color:var(--blue);border:1px solid rgba(59,110,248,0.15)}
+
+/* Language pills grid */
+.lang-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0.7rem;margin-bottom:1.5rem}
+.lang-pill{background:var(--white);border:1px solid var(--b1);border-radius:var(--r);padding:0.75rem 1rem;display:flex;align-items:center;gap:0.75rem;transition:all 0.22s var(--t);cursor:default;box-shadow:var(--shadow-xs)}
+.lang-pill:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:rgba(59,110,248,0.2);background:rgba(59,110,248,0.02)}
+.lang-pill .lang-flag-sm{width:28px;height:20px;border-radius:4px;overflow:hidden;flex-shrink:0;box-shadow:0 1px 4px rgba(0,0,0,0.12)}
+.lang-pill .lang-flag-sm img{width:100%;height:100%;object-fit:cover;display:block}
+.lang-pill-name{font-size:0.82rem;font-weight:600;color:var(--ink-2);white-space:nowrap}
+
+/* Hidden extra languages */
+.lang-extra{display:none}
+.lang-extra.open{display:flex}
+.lang-more-wrap{text-align:center;margin-bottom:2rem}
+.lang-more-btn{display:inline-flex;align-items:center;gap:6px;padding:0.6rem 1.5rem;border:1px solid var(--b2);border-radius:999px;background:var(--white);font-size:0.84rem;font-weight:600;color:var(--ink-2);cursor:pointer;transition:all 0.2s var(--t);font-family:var(--sans);box-shadow:var(--shadow-xs)}
+.lang-more-btn:hover{border-color:rgba(59,110,248,0.3);color:var(--blue);box-shadow:var(--shadow-sm)}
+.lang-more-btn svg{transition:transform 0.25s var(--t)}
+.lang-more-btn.open svg{transform:rotate(180deg)}
+
+/* Trust + micro */
+.lang-trust{display:flex;flex-direction:column;align-items:center;gap:0.75rem;margin-top:0.5rem}
+.lang-trust-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(22,163,74,0.07);border:1px solid rgba(22,163,74,0.18);border-radius:999px;padding:0.4rem 1rem;font-size:0.78rem;font-weight:600;color:var(--green)}
+.lang-trust-badge svg{flex-shrink:0}
+.lang-micro{font-size:0.76rem;color:var(--ink-4);letter-spacing:0.02em}
+
+/* Ticker / marquee strip */
+.lang-ticker-wrap{margin-top:3rem;overflow:hidden;mask-image:linear-gradient(90deg,transparent 0%,black 10%,black 90%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,black 10%,black 90%,transparent 100%)}
+.lang-ticker{display:flex;gap:0.85rem;width:max-content;animation:langScroll 32s linear infinite}
+.lang-ticker:hover{animation-play-state:paused}
+@keyframes langScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.lang-tick-item{display:flex;align-items:center;gap:0.5rem;background:var(--white);border:1px solid var(--b1);border-radius:999px;padding:0.4rem 0.9rem;white-space:nowrap;box-shadow:var(--shadow-xs)}
+.lang-tick-item .lang-flag-xs{width:20px;height:14px;border-radius:3px;overflow:hidden;flex-shrink:0}
+.lang-tick-item .lang-flag-xs img{width:100%;height:100%;object-fit:cover;display:block}
+.lang-tick-item span{font-size:0.76rem;font-weight:600;color:var(--ink-2)}
+
+@media(max-width:900px){.lang-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:700px){.lang-featured{grid-template-columns:1fr};.lang-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:520px){.lang-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* VIDEO SECTION */
+.video-section{background:var(--off);padding:clamp(5rem,10vw,8rem) 0;border-top:1px solid var(--b1)}
+.video-hd{text-align:center;margin-bottom:3rem}
+.video-hd .eyebrow{justify-content:center;margin-bottom:1rem}
+.video-hd h2{font-size:clamp(1.9rem,3.5vw,3rem);color:var(--ink);margin-bottom:0.75rem}
+.video-hd p{font-size:clamp(0.9rem,1.4vw,1.05rem);color:var(--ink-3);max-width:540px;margin:0 auto;line-height:1.7}
+.video-wrapper{position:relative;max-width:860px;margin:0 auto;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-lg),0 0 0 1px var(--b1);background:#000}
+.video-wrapper::before{content:'';display:block;padding-top:56.25%}
+.video-wrapper iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+@media(max-width:680px){.video-wrapper{border-radius:var(--r)}}
 </style>
 </head>
 <body>
@@ -489,10 +666,24 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
     <button class="modal-x" onclick="closeModal()">✕</button>
     <div class="modal-icon">🔒</div>
     <h3>Pro Template</h3>
-    <p>Unlock all 112 expert-built radiology templates with a Pro or Clinic plan. Starting at just €39/month.</p>
+    <p>Unlock all 112 expert-built radiology templates with a Pro or higher plan. Starting at just €79/month — with a 14-day free trial.</p>
     <div class="modal-btns">
-      <a href="#pricing" class="btn btn-primary btn-lg" onclick="closeModal()" style="justify-content:center">Unlock Pro — from €39/mo</a>
+      <a href="#pricing" class="btn btn-primary btn-lg" onclick="closeModal()" style="justify-content:center">Try Pro free — 7 days</a>
       <button onclick="closeModal()" class="btn btn-ghost btn-lg" style="justify-content:center">Maybe later</button>
+    </div>
+  </div>
+</div>
+
+<!-- TEMPLATE CONTENT MODAL -->
+<div class="modal-wrap" id="tplContentModal">
+  <div class="modal" style="max-width:680px;width:100%;overflow-y:auto;max-height:85vh;padding:2rem 2.25rem;box-sizing:border-box">
+    <button class="modal-x" onclick="closeTplContent()">✕</button>
+    <span id="tplCMod" style="display:inline-block;font-size:0.7rem;font-weight:700;letter-spacing:0.06em;background:#eef0f8;color:#555;padding:0.2rem 0.55rem;border-radius:6px;margin-bottom:0.6rem"></span>
+    <h3 id="tplCName" style="font-family:var(--serif);font-size:1.45rem;color:#0a0a14;margin:0.5rem 0 1.1rem;line-height:1.25"></h3>
+    <div id="tplCBody" style="background:#f4f5fb;border-radius:10px;padding:1.25rem 1.5rem;font-size:0.8rem;line-height:1.8;color:#333;white-space:pre-wrap;font-family:'SF Mono','Fira Mono',Menlo,monospace;max-height:52vh;overflow-y:auto"></div>
+    <div style="margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid #e8eaf0;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+      <p style="font-size:0.8rem;color:#888;margin:0">Customize this template directly inside PISUM.</p>
+      <a href="#pricing" class="btn btn-primary" onclick="closeTplContent()" style="font-size:0.85rem;padding:0.6rem 1.25rem;white-space:nowrap">Get PISUM →</a>
     </div>
   </div>
 </div>
@@ -507,14 +698,26 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
     <li><a href="index.html#features">Features</a></li>
     <li><a href="index.html#templates">Templates</a></li>
     <li><a href="index.html#pricing">Pricing</a></li>
+    <li><a href="index.html#languages">Languages</a></li>
     <li><a href="faq.html">FAQ</a></li>
     <li><a href="documentation.html">Docs</a></li>
     <li><a href="contact.html">Contact</a></li>
+    <li id="nav-mobile-signout" style="display:none"><a href="#" id="nav-mobile-signout-btn">Sign Out</a></li>
   </ul>
   <div class="nav-right">
     <a href="../saas/frontend/auth.html" class="nav-login" id="nav-signin">Sign in</a>
     <a href="../saas/frontend/auth.html" class="btn btn-primary btn-sm" id="nav-subscribe" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600;">Subscribe</a>
-    <a href="../saas/frontend/dashboard.html" class="btn btn-primary btn-sm" id="nav-dashboard" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600; display:none;">My Account</a>
+    <div id="nav-profile" class="nav-profile" style="display:none">
+      <a href="../saas/frontend/dashboard.html" class="nav-profile-link">
+        <img id="nav-profile-img" class="nav-profile-avatar" src="" alt="" style="display:none"/>
+        <div id="nav-profile-initials" class="nav-profile-avatar-fallback" style="display:none">?</div>
+        <div class="nav-profile-info">
+          <span id="nav-profile-name" class="nav-profile-name"></span>
+          <span id="nav-profile-email" class="nav-profile-email"></span>
+        </div>
+      </a>
+      <button class="nav-profile-signout" id="nav-signout">Sign Out</button>
+    </div>
     <button class="hamburger" id="ham" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -525,16 +728,33 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
 (function() {
-  const SUPABASE_URL  = 'https://YOUR_PROJECT.supabase.co';
-  const SUPABASE_ANON = 'YOUR_ANON_KEY';
+  const SUPABASE_URL  = 'https://lepqbnhrdgfetoysedbq.supabase.co';
+  const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlcHFibmhyZGdmZXRveXNlZGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwNjQ1MDAsImV4cCI6MjA5MDY0MDUwMH0.St12IwG0_RRKzxrbH1QRolCC2OOAaSIsK4PDmlR2Loo';
   const { createClient } = supabase;
-  const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
-  sb.auth.getSession().then(({ data }) => {
-    if (data.session) {
-      document.getElementById('nav-signin').style.display    = 'none';
-      document.getElementById('nav-subscribe').style.display = 'none';
-      document.getElementById('nav-dashboard').style.display = '';
-    }
+  window.sb = createClient(SUPABASE_URL, SUPABASE_ANON);
+  sb.auth.getSession().then(async ({ data }) => {
+    if (!data.session) return;
+    const u = data.session.user;
+    const name = u.user_metadata?.full_name || u.email.split('@')[0];
+    document.getElementById('nav-signin').style.display    = 'none';
+    document.getElementById('nav-subscribe').style.display = 'none';
+    document.getElementById('nav-profile-name').textContent  = name;
+    document.getElementById('nav-profile-email').textContent = u.email;
+    document.getElementById('nav-profile').style.display = 'flex';
+    const signOut = async () => { await sb.auth.signOut(); window.location.reload(); };
+    document.getElementById('nav-signout').addEventListener('click', signOut);
+    document.getElementById('nav-mobile-signout').style.display = '';
+    document.getElementById('nav-mobile-signout-btn').addEventListener('click', async (e) => { e.preventDefault(); await signOut(); });
+    const img = document.getElementById('nav-profile-img');
+    const showInitials = () => {
+      img.style.display = 'none';
+      const el = document.getElementById('nav-profile-initials');
+      el.textContent = name.charAt(0).toUpperCase(); el.style.display = 'flex';
+    };
+    const { data: prof } = await sb.from('profiles').select('avatar_url').eq('user_id', u.id).maybeSingle();
+    const av = prof?.avatar_url || u.user_metadata?.avatar_url || u.user_metadata?.picture;
+    if (av) { img.onload = () => { img.style.display = ''; }; img.onerror = showInitials; img.src = av; }
+    else { showInitials(); }
   });
 })();
 </script>
@@ -545,68 +765,100 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
   <div class="hero-orb orb2"></div>
   <div class="container">
     <div class="hero-inner">
-      <div class="hero-pill rv">
-        <span class="pill-tag">New</span>
-        23 languages · 112 expert templates
+
+      <!-- LEFT: text content -->
+      <div class="hero-left">
+        <div class="hero-pill rv">
+          <span class="pill-tag">New</span>
+          23 languages · 112 templates · 7-day free trial on all paid plans
+        </div>
+        <h1 class="serif hero-h rv rv-d1">
+          Radiology reporting software
+        </h1>
+        <p class="hero-tagline rv rv-d2">Dictate naturally. Let <span class="t-accent">AI enhance your reports.</span></p>
+        <p class="hero-sub rv rv-d2">Pisum helps radiologists generate <strong>structured, accurate reports faster</strong> by enhancing dictation with intelligent correction, formatting, and medical context awareness.</p>
+        <div class="hero-actions rv rv-d3">
+          <a href="https://www.dropbox.com/scl/fi/gmvtcnvvncun536yui7c3/PISUM_Radiology_Setup_2.9.8.exe?rlkey=bw6y7aeuu9l6war112a1u5gtn&st=vo0yfr1s&dl=0" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xl" style="display:inline-flex;align-items:center;gap:7px">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Free — Windows
+          </a>
+          <a href="#features" class="btn btn-ghost btn-lg">See how it works</a>
+        </div>
+        <p class="hero-note rv rv-d3">Windows 10/11 &nbsp;·&nbsp; Free plan included &nbsp;·&nbsp; No credit card</p>
       </div>
-      <h1 class="serif d1 hero-h rv rv-d1">
-        Radiology reports,<br><em>written in seconds.</em>
-      </h1>
-      <p class="hero-sub rv rv-d2">Stop spending hours on repetitive report writing. PISUM gives radiologists expert-built structured templates — completed, exported, and delivered in under a minute.</p>
-      <div class="hero-actions rv rv-d3">
-        <a href="#" class="btn btn-primary btn-xl">Get Started Free</a>
-        <a href="#templates" class="btn btn-ghost btn-xl">Browse Templates</a>
-      </div>
-      <p class="hero-note rv rv-d3">No credit card required &nbsp;·&nbsp; Free plan available</p>
-      <!-- MOCKUP -->
-      <div class="mockup-stage rv rv-d4">
-        <div class="mockup-glow"></div>
-        <div class="chip c1"><span>⚡</span> Report in <span class="chip-s">&nbsp;47 seconds</span></div>
-        <div class="chip c2"><span>🌍</span><span class="chip-s">23 languages</span>&nbsp;supported</div>
-        <div class="mockup-win">
-          <div class="win-bar">
-            <div class="win-dots"><div class="wdot dr"></div><div class="wdot dy"></div><div class="wdot dg"></div></div>
-            <div class="win-url">
-              <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0.5" y="4.5" width="9" height="7" rx="1.5" stroke="currentColor"/><path d="M3 4.5V3a2 2 0 1 1 4 0v1.5" stroke="currentColor" stroke-linecap="round"/></svg>
-              app.pisum.app — Chest CT Report
+
+      <!-- RIGHT: product mockup -->
+      <div class="hero-right rv rv-d4">
+        <div class="mockup-stage">
+          <div class="mockup-glow"></div>
+          <div class="chip c1"><span>⚡</span> Report in <span class="chip-s">&nbsp;47 seconds</span></div>
+          <div class="chip c2"><span>🌍</span><span class="chip-s">23 languages</span>&nbsp;supported</div>
+          <div class="mockup-win">
+            <div class="win-bar">
+              <div class="win-dots"><div class="wdot dr"></div><div class="wdot dy"></div><div class="wdot dg"></div></div>
+              <div class="win-url">
+                <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0.5" y="4.5" width="9" height="7" rx="1.5" stroke="currentColor"/><path d="M3 4.5V3a2 2 0 1 1 4 0v1.5" stroke="currentColor" stroke-linecap="round"/></svg>
+                app.pisum.app — Chest CT Report
+              </div>
             </div>
-          </div>
-          <div class="win-body">
-            <div class="win-sb">
-              <span class="sb-lbl">Modalities</span>
-              <div class="sb-row on"><span class="sb-pip" style="background:var(--blue)"></span>CT Scan</div>
-              <div class="sb-row"><span class="sb-pip" style="background:var(--purple)"></span>MRI</div>
-              <div class="sb-row"><span class="sb-pip" style="background:#f59e0b"></span>X-Ray</div>
-              <div class="sb-row"><span class="sb-pip" style="background:#10b981"></span>Ultrasound</div>
-              <span class="sb-lbl">Recent</span>
-              <div class="sb-row">Brain MRI</div>
-              <div class="sb-row">Chest XR</div>
-              <span class="sb-lbl">Language</span>
-              <div class="sb-row on">🇬🇧 English</div>
-            </div>
-            <div class="win-main">
-              <div class="rc">
-                <div class="rc-hd"><h4>Chest CT — Standard Protocol</h4><span class="rc-tag">CT · THORAX</span></div>
-                <div class="rc-meta">
-                  <div class="rc-m"><label>Patient</label><span>M. Laurent, 58y</span></div>
-                  <div class="rc-m"><label>Date</label><span>04/04/2026</span></div>
-                  <div class="rc-m"><label>Referring</label><span>Dr. Moreau</span></div>
-                </div>
-                <div class="rc-body">
-                  <div class="rc-f"><label>Indication</label><div class="rc-val">Follow-up pulmonary nodule, right upper lobe. Prior CT 12 months ago.</div></div>
-                  <div class="rc-f"><label>Parenchyma</label><div class="rc-val">Known 6mm GGO, right upper lobe. Stable in size and morphology.</div></div>
-                  <div class="rc-f"><label>Impression</label><div class="rc-type">Stable RUL GGO 6mm — no malignant transformation. Annual CT follow-up recommended<span class="cursor"></span></div></div>
-                </div>
-                <div class="rc-foot">
-                  <button class="rb rb-pdf">📄 PDF</button>
-                  <button class="rb rb-word">📝 Word</button>
-                  <button class="rb rb-ai">✨ AI Refine</button>
+            <div class="win-body">
+              <div class="win-sb">
+                <span class="sb-lbl">Modalities</span>
+                <div class="sb-row on"><span class="sb-pip" style="background:var(--blue)"></span>CT Scan</div>
+                <div class="sb-row"><span class="sb-pip" style="background:var(--purple)"></span>MRI</div>
+                <div class="sb-row"><span class="sb-pip" style="background:#f59e0b"></span>X-Ray</div>
+                <div class="sb-row"><span class="sb-pip" style="background:#10b981"></span>Ultrasound</div>
+                <span class="sb-lbl">Recent</span>
+                <div class="sb-row">Brain MRI</div>
+                <div class="sb-row">Chest XR</div>
+                <span class="sb-lbl">Language</span>
+                <div class="sb-row on">🇬🇧 English</div>
+              </div>
+              <div class="win-main">
+                <div class="rc">
+                  <div class="rc-hd"><h4>Chest CT — Standard Protocol</h4><span class="rc-tag">CT · THORAX</span></div>
+                  <div class="rc-meta">
+                    <div class="rc-m"><label>Patient</label><span>M. Laurent, 58y</span></div>
+                    <div class="rc-m"><label>Date</label><span>04/04/2026</span></div>
+                    <div class="rc-m"><label>Referring</label><span>Dr. Moreau</span></div>
+                  </div>
+                  <div class="rc-body">
+                    <div class="rc-f"><label>Indication</label><div class="rc-val">Follow-up pulmonary nodule, right upper lobe. Prior CT 12 months ago.</div></div>
+                    <div class="rc-f"><label>Parenchyma</label><div class="rc-val">Known 6mm GGO, right upper lobe. Stable in size and morphology.</div></div>
+                    <div class="rc-f"><label>Impression</label><div class="rc-type">Stable RUL GGO 6mm — no malignant transformation. Annual CT follow-up recommended<span class="cursor"></span></div></div>
+                  </div>
+                  <div class="rc-foot">
+                    <button class="rb rb-pdf">📄 PDF</button>
+                    <button class="rb rb-word">📝 Word</button>
+                    <button class="rb rb-ai">✨ AI Assistant</button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="video-section">
+  <div class="container">
+    <div class="video-hd rv">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>See it in action</div>
+      <h2 class="serif">Watch Pisum in action</h2>
+      <p>See how radiologists generate structured, AI-enhanced reports in under a minute — from dictation to final PDF.</p>
+    </div>
+    <div class="video-wrapper rv rv-d1">
+      <iframe
+        src="https://www.youtube.com/embed/VfaTxPXe1qo?rel=0&modestbranding=1"
+        title="Pisum — Radiology Reporting Software Demo"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
     </div>
   </div>
 </section>
@@ -653,12 +905,12 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
       </div>
       <div class="testi-card rv rv-d1">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"The Arabic support is flawless — clinical terminology is precise and the report structure matches our department standards. We've rolled it out across our entire radiology team."</p>
+        <p class="testi-quote">"The AI dictation feature is a game changer. I dictate directly into structured fields and PISUM formats everything perfectly. My reporting time dropped by 60% in the first week."</p>
         <div class="testi-author">
-          <div class="testi-avatar">AA</div>
+          <div class="testi-avatar">MB</div>
           <div>
-            <div class="testi-name">Dr. Ahmed Al-Rashidi</div>
-            <div class="testi-role">Head of Radiology, Dubai Medical Center</div>
+            <div class="testi-name">Dr. Marco Bellini</div>
+            <div class="testi-role">Radiologist, Ospedale San Raffaele, Milano</div>
           </div>
         </div>
       </div>
@@ -708,11 +960,13 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
     </div>
     <div class="feat-grid">
       <div class="feat-card rv"><div class="feat-icon">⚡</div><h3>Instant Report Generation</h3><p>Guided structured fields complete your report as you type. Average completion: 47 seconds. No learning curve.</p><span class="feat-pill pill-free">All Plans</span></div>
-      <div class="feat-card rv rv-d1"><div class="feat-icon">🌍</div><h3>23-Language Support</h3><p>Report natively in English, French, Spanish, German, Arabic, and 18 more — terminology validated by native radiologists.</p><span class="feat-pill pill-free">All Plans</span></div>
+      <div class="feat-card rv rv-d1"><div class="feat-icon">🌍</div><h3>23-Language Support</h3><p>Report natively in English, French, Spanish, German, Italian, Portuguese, and 17 more — terminology validated by native radiologists.</p><span class="feat-pill pill-free">All Plans</span></div>
       <div class="feat-card rv rv-d2"><div class="feat-icon">🧠</div><h3>112 Structured Templates</h3><p>Expert-built for CT, MRI, X-Ray, and Ultrasound across every body system. Each field has clinical validation.</p><span class="feat-pill pill-pro">Pro Templates</span></div>
       <div class="feat-card rv rv-d3"><div class="feat-icon">📄</div><h3>One-Click PDF & Word Export</h3><p>Professionally formatted output ready for PACS, EMR, or direct delivery. Your letterhead, your layout.</p><span class="feat-pill pill-free">All Plans</span></div>
-      <div class="feat-card rv"><div class="feat-icon">🎙️</div><h3>Voice Dictation Ready</h3><p>Compatible with Dragon Medical and all major voice recognition tools. Dictate directly into structured fields.</p><span class="feat-pill pill-pro">Pro</span></div>
+      <div class="feat-card rv"><div class="feat-icon">🎙️</div><h3>Voice Dictation Ready</h3><p>Compatible with all major voice recognition tools. Dictate directly into structured fields.</p><span class="feat-pill pill-pro">Pro</span></div>
       <div class="feat-card rv rv-d1"><div class="feat-icon">🏥</div><h3>Multi-Site Clinic Mode</h3><p>Manage multiple radiologists from one admin panel. Custom branding per site. Centralized reporting dashboard.</p><span class="feat-pill pill-pro">Clinic Plan</span></div>
+      <div class="feat-card rv rv-d2"><div class="feat-icon">🔗</div><h3>LAN Network Sharing</h3><p>Share the patient database across all workstations in your clinic via a shared local network folder. One shared folder on your LAN is all it takes. AES-256 encrypted end-to-end.</p><span class="feat-pill pill-pro">Expert &amp; Clinic</span></div>
+      <div class="feat-card rv rv-d3"><div class="feat-icon">🗃️</div><h3>Patient Worklist &amp; Audit Log</h3><p>Full PACS-style worklist with accession numbers, exam status, and GDPR-compliant audit trail. Every access, modification, and export is logged with timestamp and user.</p><span class="feat-pill pill-pro">Pro+</span></div>
       <div class="feat-card rv rv-d2" style="background:linear-gradient(135deg,#0D1117 0%,#161B22 100%);border-color:rgba(20,184,166,0.18);grid-column:span 3"><div class="feat-icon" style="background:linear-gradient(135deg,#0D9488,#14B8A6)">🌙</div><h3 style="color:#E6EDF3">Dark Medical-Grade Interface</h3><p style="color:#8B949E">Designed for reading rooms. Near-black surface palette, teal accents, zero eye strain during long reporting sessions. Your eyes will thank you after shift 3.</p><span class="feat-pill" style="background:rgba(20,184,166,0.12);color:#14B8A6">All Plans</span></div>
     </div>
   </div>
@@ -742,7 +996,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
         </button>
         <button class="idtab" onclick="switchDemo('ai',this)">
           <div class="idtab-icon">✨</div>
-          <div><div class="idtab-name">AI Refinement</div><div class="idtab-desc">Clinical language, perfected</div></div>
+          <div><div class="idtab-name">AI Assistant</div><div class="idtab-desc">Clinical language, perfected</div></div>
         </button>
         <button class="idtab" onclick="switchDemo('voice',this)">
           <div class="idtab-icon">🎙️</div>
@@ -788,10 +1042,10 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
               <button class="idlang-flag on" onclick="switchLang('en',this)">🇬🇧 EN</button>
               <button class="idlang-flag" onclick="switchLang('fr',this)">🇫🇷 FR</button>
               <button class="idlang-flag" onclick="switchLang('de',this)">🇩🇪 DE</button>
-              <button class="idlang-flag" onclick="switchLang('ar',this)">🇸🇦 AR</button>
               <button class="idlang-flag" onclick="switchLang('es',this)">🇪🇸 ES</button>
               <button class="idlang-flag" onclick="switchLang('pt',this)">🇧🇷 PT</button>
               <button class="idlang-flag" onclick="switchLang('it',this)">🇮🇹 IT</button>
+              <button class="idlang-flag" onclick="switchLang('nl',this)">🇳🇱 NL</button>
             </div>
             <div class="idlang-report">
               <div class="idlang-report-hd">🩻 Chest CT — <span id="langLabel">English</span></div>
@@ -838,11 +1092,11 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
           <div class="idai-layout">
             <div class="idai-compare">
               <div class="idai-box idai-before">
-                <div class="idai-box-hd">⚠️ Before AI Refine</div>
+                <div class="idai-box-hd">⚠️ Before AI Assistant</div>
                 <div class="idai-body">Lungs look ok. No big problems seen. Heart is normal size. Nothing bad found.</div>
               </div>
               <div class="idai-box idai-after">
-                <div class="idai-box-hd">✨ After AI Refine</div>
+                <div class="idai-box-hd">✨ After AI Assistant</div>
                 <div class="idai-body">
                   <span class="idai-after-text" id="aiAfterText"></span>
                   <span id="aiPlaceholder" style="color:var(--ink-4);font-style:italic">Click the button below to see AI refinement in action.</span>
@@ -850,7 +1104,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
               </div>
             </div>
             <div class="idai-btn-row">
-              <button class="idai-btn" id="aiBtn" onclick="triggerAI()">✨ Refine with AI</button>
+              <button class="idai-btn" id="aiBtn" onclick="triggerAI()">✨ Run AI Assistant</button>
             </div>
           </div>
         </div>
@@ -891,16 +1145,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
       <button class="ttab" onclick="ftpl('XR',this)">X-Ray</button>
       <button class="ttab" onclick="ftpl('US',this)">Ultrasound</button>
     </div>
-    <div class="tpl-grid" id="tplGrid">
-      <div class="tpl-card" data-m="CT"><div class="tpl-thumb"><span class="tpl-mod">CT</span></div><div class="tpl-body"><div class="tpl-name">Chest CT Standard</div><div class="tpl-row"><span class="tpl-langs">🌍 23 langs</span><span class="badge-free">FREE</span></div><div class="tpl-lines"><div class="tpl-line"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div></div>
-      <div class="tpl-card" data-m="MRI"><div class="tpl-thumb"><span class="tpl-mod">MRI</span></div><div class="tpl-body"><div class="tpl-name">Brain MRI Protocol</div><div class="tpl-row"><span class="tpl-langs">🌍 23 langs</span><span class="badge-free">FREE</span></div><div class="tpl-lines"><div class="tpl-line"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div></div>
-      <div class="tpl-card" data-m="XR"><div class="tpl-thumb"><span class="tpl-mod">X-Ray</span></div><div class="tpl-body"><div class="tpl-name">Chest XR PA + Lateral</div><div class="tpl-row"><span class="tpl-langs">🌍 23 langs</span><span class="badge-free">FREE</span></div><div class="tpl-lines"><div class="tpl-line"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div></div>
-      <div class="tpl-card" data-m="US"><div class="tpl-thumb"><span class="tpl-mod">US</span></div><div class="tpl-body"><div class="tpl-name">Abdominal US Full</div><div class="tpl-row"><span class="tpl-langs">🌍 23 langs</span><span class="badge-free">FREE</span></div><div class="tpl-lines"><div class="tpl-line"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div></div>
-      <div class="tpl-card pro" data-m="CT" onclick="openModal()"><div class="pro-ov"><span class="pro-lock">🔒</span><span class="pro-lbl">Pro Template</span></div><div class="tpl-thumb"><span class="tpl-mod">CT</span></div><div class="tpl-body"><div class="tpl-name">Pulmonary Embolism CT-PA</div><div class="tpl-row"><span class="tpl-langs">🌍 23 langs</span><span class="badge-pro">PRO</span></div><div class="tpl-lines"><div class="tpl-line"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div></div>
-      <div class="tpl-card pro" data-m="MRI" onclick="openModal()"><div class="pro-ov"><span class="pro-lock">🔒</span><span class="pro-lbl">Pro Template</span></div><div class="tpl-thumb"><span class="tpl-mod">MRI</span></div><div class="tpl-body"><div class="tpl-name">Prostate MRI PI-RADS</div><div class="tpl-row"><span class="tpl-langs">🌍 23 langs</span><span class="badge-pro">PRO</span></div><div class="tpl-lines"><div class="tpl-line"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div></div>
-      <div class="tpl-card pro" data-m="CT" onclick="openModal()"><div class="pro-ov"><span class="pro-lock">🔒</span><span class="pro-lbl">Pro Template</span></div><div class="tpl-thumb"><span class="tpl-mod">CT</span></div><div class="tpl-body"><div class="tpl-name">Coronary CT Angiography</div><div class="tpl-row"><span class="tpl-langs">🌍 23 langs</span><span class="badge-pro">PRO</span></div><div class="tpl-lines"><div class="tpl-line"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div></div>
-      <div class="tpl-card pro" data-m="MRI" onclick="openModal()"><div class="pro-ov"><span class="pro-lock">🔒</span><span class="pro-lbl">Pro Template</span></div><div class="tpl-thumb"><span class="tpl-mod">MRI</span></div><div class="tpl-body"><div class="tpl-name">Lumbar Spine MRI</div><div class="tpl-row"><span class="tpl-langs">🌍 23 langs</span><span class="badge-pro">PRO</span></div><div class="tpl-lines"><div class="tpl-line"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div></div>
-    </div>
+    <div class="tpl-grid" id="tplGrid"></div>
     <div class="tpl-more rv"><a href="#pricing" class="btn btn-ghost btn-lg">Unlock all 112 Pro templates →</a></div>
   </div>
 </section>
@@ -953,15 +1198,15 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
   <div class="container">
     <div class="how-header">
       <div class="eyebrow rv" style="display:inline-flex"><span class="eyebrow-dot"></span>Simple Workflow</div>
-      <h2 class="serif d2 rv rv-d1" style="margin-top:1.25rem">Three steps.<br>That's the whole workflow.</h2>
-      <p class="rv rv-d2">No onboarding calls. No configuration. Open PISUM, pick a template, report.</p>
+      <h2 class="serif d2 rv rv-d1" style="margin-top:1.25rem">Up and running<br>in three steps.</h2>
+      <p class="rv rv-d2">Download once. No subscription required to start. Open PISUM and report immediately.</p>
     </div>
     <div class="how-steps">
-      <div class="how-step rv"><div class="step-ring">1</div><span class="step-emoji">📋</span><h3>Choose a Template</h3><p>Browse 112 expert templates by modality or body region. Filter by language. Start in one click.</p></div>
+      <div class="how-step rv"><div class="step-ring">1</div><span class="step-emoji">💻</span><h3>Download &amp; Install</h3><p>One .exe installer for Windows 10/11. Double-click, follow the wizard — done in under a minute. No configuration needed.</p></div>
       <div class="how-arrow rv rv-d1">→</div>
-      <div class="how-step rv rv-d2"><div class="step-ring">2</div><span class="step-emoji">✍️</span><h3>Fill in Findings</h3><p>Structured guided fields prompt exactly what's needed. Type or dictate. PISUM formats automatically.</p></div>
+      <div class="how-step rv rv-d2"><div class="step-ring">2</div><span class="step-emoji">📋</span><h3>Pick a Template</h3><p>Choose from 112 expert templates by modality or body region. Filter by language. Start in one click.</p></div>
       <div class="how-arrow rv rv-d3">→</div>
-      <div class="how-step rv rv-d4"><div class="step-ring">3</div><span class="step-emoji">🚀</span><h3>Export Instantly</h3><p>Download a professionally formatted PDF or Word document in one click — PACS and EMR ready.</p></div>
+      <div class="how-step rv rv-d4"><div class="step-ring">3</div><span class="step-emoji">🚀</span><h3>Report &amp; Export</h3><p>Dictate or type your findings. PISUM formats the report and exports a professional PDF or Word in one click.</p></div>
     </div>
   </div>
 </section>
@@ -977,7 +1222,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
     <div class="bill-row rv">
       <span>Monthly</span>
       <label class="tog"><input type="checkbox" id="togB" onchange="toggleBill()"/><span class="tog-sl"></span></label>
-      <span>Annual <span class="save-tag">Save 25%</span></span>
+      <span>Annual <span class="save-tag">Save 20%</span></span>
     </div>
     <div class="plans">
 
@@ -985,18 +1230,18 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
       <div class="plan rv">
         <div class="plan-name">Free</div>
         <div class="plan-price"><span class="psym">€</span><span class="pamt">0</span><span class="pper">/mo</span></div>
-        <p class="plan-desc">Pour découvrir PISUM sans engagement.</p>
-        <a href="#" class="plan-cta cta-ghost">Commencer gratuitement</a>
+        <p class="plan-desc">Try AI dictation and 10 expert templates — no commitment, no card.</p>
+        <a href="https://www.dropbox.com/scl/fi/gmvtcnvvncun536yui7c3/PISUM_Radiology_Setup_2.9.8.exe?rlkey=bw6y7aeuu9l6war112a1u5gtn&st=vo0yfr1s&dl=0" class="plan-cta cta-ghost" target="_blank" rel="noopener noreferrer">Download Free — Windows</a>
         <hr class="plan-div"/>
         <ul class="plan-list">
           <li><span class="lchk">✓</span>10 templates</li>
-          <li><span class="lchk">✓</span>2 langues</li>
-          <li><span class="lchk">✓</span>Export PDF</li>
-          <li><span class="lx">○</span><span class="ldim">Export Word</span></li>
-          <li><span class="lx">○</span><span class="ldim">Dictée AI</span></li>
-          <li><span class="lx">○</span><span class="ldim">AI Enhancer</span></li>
-          <li><span class="lx">○</span><span class="ldim">Worklist</span></li>
-          <li><span class="lx">○</span><span class="ldim">20 CR / mois</span></li>
+          <li><span class="lchk">✓</span>2 languages</li>
+          <li><span class="lchk">✓</span>PDF export</li>
+          <li><span class="lx">○</span><span class="ldim">Word export</span></li>
+          <li><span class="lchk">✓</span>🎙️ AI Dictation (30 min/mo)</li>
+          <li><span class="lchk">✓</span>✨ AI Assistant (10/mo)</li>
+          <li><span class="lx">○</span><span class="ldim">Statistics</span></li>
+          <li><span class="lchk">✓</span>50 reports / month</li>
         </ul>
       </div>
 
@@ -1004,76 +1249,235 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
       <div class="plan rv rv-d1">
         <div class="plan-name">Starter</div>
         <div class="plan-price"><span class="psym">€</span><span class="pamt" id="starterAmt">29</span><span class="pper">/mo</span></div>
-        <p class="plan-desc">Pour le radiologue indépendant.</p>
-        <a href="#" class="plan-cta cta-ghost">S'abonner</a>
+        <p class="bill-note" style="display:none;font-size:0.72rem;color:var(--green);margin-bottom:0.25rem">276€/yr — save 72€</p>
+        <p class="plan-desc">For the independent radiologist.</p>
+        <p style="font-size:0.7rem;color:var(--ink-4);margin-bottom:0.75rem;margin-top:-1.5rem">14-day free trial · No card required</p>
+        <a href="../saas/frontend/auth.html" class="plan-cta cta-ghost">Try Starter free — 14 days</a>
         <hr class="plan-div"/>
         <ul class="plan-list">
           <li><span class="lchk">✓</span>20 templates</li>
-          <li><span class="lchk">✓</span>5 langues</li>
-          <li><span class="lchk">✓</span>PDF + Word</li>
-          <li><span class="lchk">✓</span>Worklist basique</li>
-          <li><span class="lchk">✓</span>CR illimités</li>
-          <li><span class="lx">○</span><span class="ldim">Dictée AI</span></li>
-          <li><span class="lx">○</span><span class="ldim">AI Enhancer</span></li>
+          <li><span class="lchk">✓</span>23 languages</li>
+          <li><span class="lchk">✓</span>PDF + Word export</li>
+          <li><span class="lchk">✓</span>🎙️ AI Dictation (500 min/mo)</li>
+          <li><span class="lchk">✓</span>✨ AI Assistant (50/mo)</li>
+          <li><span class="lchk">✓</span>Basic worklist</li>
+          <li><span class="lchk">✓</span>Unlimited reports</li>
+          <li><span class="lx">○</span><span class="ldim">HTML Export</span></li>
+          <li><span class="lx">○</span><span class="ldim">Statistics</span></li>
         </ul>
       </div>
 
       <!-- PRO (featured) -->
       <div class="plan hot rv rv-d2">
-        <div class="hot-lbl">⭐ Recommandé</div>
+        <div class="hot-lbl">⭐ Most Popular</div>
         <div class="plan-name">Pro</div>
-        <div class="plan-price"><span class="psym">€</span><span class="pamt" id="proAmt">59</span><span class="pper">/mo</span></div>
-        <p class="plan-desc">Le pack complet pour le praticien avancé.</p>
-        <a href="#" class="plan-cta cta-white">Essai 14 jours</a>
+        <div class="plan-price"><span class="psym">€</span><span class="pamt" id="proAmt">79</span><span class="pper">/mo</span></div>
+        <p class="bill-note" style="display:none;font-size:0.72rem;color:rgba(255,255,255,0.55);margin-bottom:0.25rem">756€/yr — save 192€</p>
+        <p class="plan-desc">Advanced practitioner, all-in-one.</p>
+        <p style="font-size:0.7rem;color:rgba(255,255,255,0.38);margin-bottom:0.75rem;margin-top:-1.5rem">14-day free trial · No card required</p>
+        <a href="../saas/frontend/auth.html" class="plan-cta cta-white">Try Pro free — 14 days</a>
         <hr class="plan-div"/>
         <ul class="plan-list">
           <li><span class="lchk">✓</span>112+ templates</li>
-          <li><span class="lchk">✓</span>23 langues</li>
-          <li><span class="lchk">✓</span>PDF + Word</li>
-          <li><span class="lchk">✓</span>Dictée AI</li>
-          <li><span class="lchk">✓</span>AI Enhancer (100/mois)</li>
-          <li><span class="lchk">✓</span>Worklist complète</li>
-          <li><span class="lchk">✓</span>Statistiques</li>
+          <li><span class="lchk">✓</span>23 languages</li>
+          <li><span class="lchk">✓</span>PDF + Word + HTML export</li>
+          <li><span class="lchk">✓</span>🎙️ AI Dictation (2,000 min/mo)</li>
+          <li><span class="lchk">✓</span>✨ AI Assistant (200/mo)</li>
+          <li><span class="lchk">✓</span>Full worklist</li>
+          <li><span class="lchk">✓</span>Basic statistics</li>
+          <li><span class="lchk">✓</span>Priority support</li>
         </ul>
       </div>
 
       <!-- EXPERT -->
-      <div class="plan rv rv-d3">
+      <div class="plan rv rv-d3" style="position:relative">
+        <div style="position:absolute;top:1.25rem;right:1.75rem;background:rgba(22,163,74,0.12);color:#15803d;font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:6px;border:1px solid rgba(22,163,74,0.2)">Best Value</div>
         <div class="plan-name">Expert 🔥</div>
-        <div class="plan-price"><span class="psym">€</span><span class="pamt" id="expertAmt">99</span><span class="pper">/mo</span></div>
-        <p class="plan-desc">Pour le radiologue expert, sans limites.</p>
-        <a href="#" class="plan-cta cta-ghost">S'abonner</a>
+        <div class="plan-price"><span class="psym">€</span><span class="pamt" id="expertAmt">129</span><span class="pper">/mo</span></div>
+        <p class="bill-note" style="display:none;font-size:0.72rem;color:var(--green);margin-bottom:0.25rem">1 236€/yr — save 312€</p>
+        <p class="plan-desc">No limits, full power.</p>
+        <p style="font-size:0.7rem;color:var(--ink-4);margin-bottom:0.75rem;margin-top:-1.5rem">14-day free trial · No card required</p>
+        <a href="../saas/frontend/auth.html" class="plan-cta cta-ghost">Try Expert free — 14 days</a>
         <hr class="plan-div"/>
         <ul class="plan-list">
-          <li><span class="lchk">✓</span>112+ templates custom</li>
-          <li><span class="lchk">✓</span>23 langues</li>
-          <li><span class="lchk">✓</span>PDF + Word</li>
-          <li><span class="lchk">✓</span>Dictée AI</li>
-          <li><span class="lchk">✓</span>AI Enhancer illimité</li>
-          <li><span class="lchk">✓</span>Worklist avancée</li>
-          <li><span class="lchk">✓</span>Stats complètes</li>
+          <li><span class="lchk">✓</span>112+ custom templates</li>
+          <li><span class="lchk">✓</span>23 languages</li>
+          <li><span class="lchk">✓</span>PDF + Word + HTML export</li>
+          <li><span class="lchk">✓</span>🎙️ AI Dictation (Unlimited)</li>
+          <li><span class="lchk">✓</span>✨ AI Enhancer (Unlimited)</li>
+          <li><span class="lchk">✓</span>Advanced worklist</li>
+          <li><span class="lchk">✓</span>Full statistics</li>
+          <li><span class="lchk">✓</span>LAN Sync (1 site · 3 PCs)</li>
         </ul>
       </div>
 
       <!-- CLINIC -->
       <div class="plan rv rv-d4">
         <div class="plan-name">Clinic 🏥</div>
-        <div class="plan-price"><span class="psym">€</span><span class="pamt" id="clinicAmt">199</span><span class="pper">/mo</span></div>
-        <p class="plan-desc">Pour les cabinets et structures multi-sites.</p>
-        <a href="mailto:hello@pisum.app" class="plan-cta cta-ghost">Contacter les ventes</a>
+        <div class="plan-price"><span class="psym">€</span><span class="pamt" id="clinicAmt">399</span><span class="pper">/mo</span></div>
+        <p class="bill-note" style="display:none;font-size:0.72rem;color:var(--green);margin-bottom:0.25rem">3 828€/yr — save 960€</p>
+        <p class="plan-desc">Multi-site · Team management.</p>
+        <a href="../saas/frontend/auth.html" class="plan-cta cta-ghost">Contact Sales</a>
         <hr class="plan-div"/>
         <ul class="plan-list">
-          <li><span class="lchk">✓</span>Templates sur mesure</li>
-          <li><span class="lchk">✓</span>5 utilisateurs inclus</li>
-          <li><span class="lchk">✓</span>23 langues</li>
-          <li><span class="lchk">✓</span>Dictée AI</li>
-          <li><span class="lchk">✓</span>AI Enhancer illimité</li>
-          <li><span class="lchk">✓</span>Worklist multi-site</li>
-          <li><span class="lchk">✓</span>Onboarding dédié</li>
+          <li><span class="lchk">✓</span>Custom templates</li>
+          <li><span class="lchk">✓</span>5 users incl. (+€69/extra)</li>
+          <li><span class="lchk">✓</span>23 languages</li>
+          <li><span class="lchk">✓</span>PDF + Word + HTML export</li>
+          <li><span class="lchk">✓</span>🎙️ AI Dictation (Unlimited)</li>
+          <li><span class="lchk">✓</span>✨ AI Enhancer (Unlimited)</li>
+          <li><span class="lchk">✓</span>Multi-site worklist</li>
+          <li><span class="lchk">✓</span>Advanced stats + onboarding</li>
+          <li><span class="lchk">✓</span>LAN Sync (multi-site · unlimited)</li>
         </ul>
       </div>
 
     </div>
+
+    <!-- Trust line -->
+    <p style="text-align:center;margin-top:2.25rem;font-size:0.78rem;color:var(--ink-4);letter-spacing:0.01em">
+      <span style="color:var(--green);font-weight:700">✓</span> 30-day money-back guarantee &nbsp;·&nbsp;
+      <span style="color:var(--green);font-weight:700">✓</span> Cancel anytime &nbsp;·&nbsp;
+      No cloud upload of patient data &nbsp;·&nbsp; GDPR compliant
+    </p>
+  </div>
+</section>
+
+<!-- LANGUAGES -->
+<section class="section lang-section" id="languages">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="lang-hd rv">
+      <div class="eyebrow" style="display:inline-flex;justify-content:center"><span class="eyebrow-dot"></span>23 Languages</div>
+      <h2 class="serif d2" style="margin-top:1.25rem">Work in Your Language,<br><em>Anywhere.</em></h2>
+      <p>Our AI-powered radiology assistant understands and processes 23 languages with high medical accuracy — so your team reports in the language they think in.</p>
+    </div>
+
+    <!-- Featured top 3 -->
+    <div class="lang-featured rv rv-d1">
+      <div class="lang-feat-card accent rv">
+        <div class="lang-flag-wrap"><img src="https://flagcdn.com/48x36/fr.png" alt="French flag" loading="lazy"/></div>
+        <div style="text-align:center">
+          <div class="lang-feat-name">French</div>
+          <div class="lang-feat-native">Français</div>
+        </div>
+        <span class="lang-feat-badge">Default</span>
+      </div>
+      <div class="lang-feat-card accent rv rv-d1">
+        <div class="lang-flag-wrap"><img src="https://flagcdn.com/48x36/gb.png" alt="English flag" loading="lazy"/></div>
+        <div style="text-align:center">
+          <div class="lang-feat-name">English</div>
+          <div class="lang-feat-native">English</div>
+        </div>
+        <span class="lang-feat-badge">Primary</span>
+      </div>
+      <div class="lang-feat-card accent rv rv-d2">
+        <div class="lang-flag-wrap"><img src="https://flagcdn.com/48x36/de.png" alt="German flag" loading="lazy"/></div>
+        <div style="text-align:center">
+          <div class="lang-feat-name">German</div>
+          <div class="lang-feat-native">Deutsch</div>
+        </div>
+        <span class="lang-feat-badge">Primary</span>
+      </div>
+    </div>
+
+    <!-- Language pills grid — 10 visible, 10 hidden -->
+    <div class="lang-grid" id="langGrid">
+      <div class="lang-pill rv"><div class="lang-flag-sm"><img src="https://flagcdn.com/28x21/es.png" alt="Spanish" loading="lazy"/></div><span class="lang-pill-name">Español</span></div>
+      <div class="lang-pill rv rv-d1"><div class="lang-flag-sm"><img src="https://flagcdn.com/28x21/it.png" alt="Italian" loading="lazy"/></div><span class="lang-pill-name">Italiano</span></div>
+      <div class="lang-pill rv rv-d2"><div class="lang-flag-sm"><img src="https://flagcdn.com/28x21/pt.png" alt="Portuguese" loading="lazy"/></div><span class="lang-pill-name">Português</span></div>
+      <div class="lang-pill rv rv-d3"><div class="lang-flag-sm"><img src="https://flagcdn.com/28x21/nl.png" alt="Dutch" loading="lazy"/></div><span class="lang-pill-name">Nederlands</span></div>
+      <div class="lang-pill rv rv-d4"><div class="lang-flag-sm"><img src="https://flagcdn.com/28x21/ru.png" alt="Russian" loading="lazy"/></div><span class="lang-pill-name">Русский</span></div>
+      <div class="lang-pill rv"><div class="lang-flag-sm"><img src="https://flagcdn.com/28x21/tr.png" alt="Turkish" loading="lazy"/></div><span class="lang-pill-name">Türkçe</span></div>
+      <div class="lang-pill rv rv-d1"><div class="lang-flag-sm"><img src="https://flagcdn.com/28x21/se.png" alt="Swedish" loading="lazy"/></div><span class="lang-pill-name">Svenska</span></div>
+      <div class="lang-pill rv rv-d2"><div class="lang-flag-sm"><img src="https://flagcdn.com/28x21/pl.png" alt="Polish" loading="lazy"/></div><span class="lang-pill-name">Polski</span></div>
+      <div class="lang-pill rv rv-d3"><div class="lang-flag-sm"><img src="https://flagcdn.com/28x21/gr.png" alt="Greek" loading="lazy"/></div><span class="lang-pill-name">Ελληνικά</span></div>
+      <div class="lang-pill rv rv-d4"><div class="lang-flag-sm"><img src="https://flagcdn.com/28x21/cn.png" alt="Chinese" loading="lazy"/></div><span class="lang-pill-name">中文</span></div>
+      <!-- Hidden extras (shown on expand) -->
+      <div class="lang-pill lang-extra rv"><div class="lang-flag-sm"><img src="https://flagcdn.com/28x21/no.png" alt="Norwegian" loading="lazy"/></div><span class="lang-pill-name">Norsk</span></div>
+      <div class="lang-pill lang-extra rv rv-d1"><div class="lang-flag-sm"><img src="https://flagcdn.com/28x21/dk.png" alt="Danish" loading="lazy"/></div><span class="lang-pill-name">Dansk</span></div>
+      <div class="lang-pill lang-extra rv rv-d2"><div class="lang-flag-sm"><img src="https://flagcdn.com/28x21/jp.png" alt="Japanese" loading="lazy"/></div><span class="lang-pill-name">日本語</span></div>
+      <div class="lang-pill lang-extra rv rv-d3"><div class="lang-flag-sm"><img src="https://flagcdn.com/28x21/kr.png" alt="Korean" loading="lazy"/></div><span class="lang-pill-name">한국어</span></div>
+      <div class="lang-pill lang-extra rv rv-d4"><div class="lang-flag-sm"><img src="https://flagcdn.com/28x21/in.png" alt="Hindi" loading="lazy"/></div><span class="lang-pill-name">हिन्दी</span></div>
+      <div class="lang-pill lang-extra rv"><div class="lang-flag-sm"><img src="https://flagcdn.com/28x21/id.png" alt="Indonesian" loading="lazy"/></div><span class="lang-pill-name">Bahasa Indonesia</span></div>
+      <div class="lang-pill lang-extra rv rv-d1"><div class="lang-flag-sm"><img src="https://flagcdn.com/28x21/th.png" alt="Thai" loading="lazy"/></div><span class="lang-pill-name">ไทย</span></div>
+      <div class="lang-pill lang-extra rv rv-d2"><div class="lang-flag-sm"><img src="https://flagcdn.com/28x21/my.png" alt="Malay" loading="lazy"/></div><span class="lang-pill-name">Bahasa Melayu</span></div>
+      <div class="lang-pill lang-extra rv rv-d3"><div class="lang-flag-sm"><img src="https://flagcdn.com/28x21/ph.png" alt="Filipino" loading="lazy"/></div><span class="lang-pill-name">Filipino</span></div>
+      <div class="lang-pill lang-extra rv rv-d4"><div class="lang-flag-sm"><img src="https://flagcdn.com/28x21/ro.png" alt="Romanian" loading="lazy"/></div><span class="lang-pill-name">Română</span></div>
+    </div>
+
+    <!-- Expand button -->
+    <div class="lang-more-wrap rv">
+      <button class="lang-more-btn" id="langMoreBtn" onclick="toggleLangMore()">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Show 10 more languages
+      </button>
+    </div>
+
+    <!-- Trust elements -->
+    <div class="lang-trust rv">
+      <div class="lang-trust-badge">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1l1.5 4h4l-3.2 2.4 1.2 4L7 9l-3.5 2.4 1.2-4L1.5 5h4z" fill="#16a34a" opacity=".3"/><path d="M7 1.5L8.3 5.2h3.7l-3 2.2 1.1 3.6L7 9l-3.1 2 1.1-3.6-3-2.2h3.7z" stroke="#16a34a" stroke-width="1.1" stroke-linejoin="round"/></svg>
+        Optimized for medical and radiology terminology
+      </div>
+      <p class="lang-micro">More languages are continuously being added.</p>
+    </div>
+
+    <!-- Scrolling ticker -->
+    <div class="lang-ticker-wrap rv rv-d2">
+      <div class="lang-ticker" id="langTicker">
+        <!-- First set -->
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/fr.png" alt="" loading="lazy"/></div><span>Français</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/gb.png" alt="" loading="lazy"/></div><span>English</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/de.png" alt="" loading="lazy"/></div><span>Deutsch</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/es.png" alt="" loading="lazy"/></div><span>Español</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/it.png" alt="" loading="lazy"/></div><span>Italiano</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/pt.png" alt="" loading="lazy"/></div><span>Português</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/nl.png" alt="" loading="lazy"/></div><span>Nederlands</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/ru.png" alt="" loading="lazy"/></div><span>Русский</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/tr.png" alt="" loading="lazy"/></div><span>Türkçe</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/se.png" alt="" loading="lazy"/></div><span>Svenska</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/pl.png" alt="" loading="lazy"/></div><span>Polski</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/gr.png" alt="" loading="lazy"/></div><span>Ελληνικά</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/cn.png" alt="" loading="lazy"/></div><span>中文</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/no.png" alt="" loading="lazy"/></div><span>Norsk</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/dk.png" alt="" loading="lazy"/></div><span>Dansk</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/jp.png" alt="" loading="lazy"/></div><span>日本語</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/kr.png" alt="" loading="lazy"/></div><span>한국어</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/in.png" alt="" loading="lazy"/></div><span>हिन्दी</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/id.png" alt="" loading="lazy"/></div><span>Bahasa Indonesia</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/th.png" alt="" loading="lazy"/></div><span>ไทย</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/my.png" alt="" loading="lazy"/></div><span>Bahasa Melayu</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/ph.png" alt="" loading="lazy"/></div><span>Filipino</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/ro.png" alt="" loading="lazy"/></div><span>Română</span></div>
+        <!-- Duplicate set for seamless loop -->
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/fr.png" alt="" loading="lazy"/></div><span>Français</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/gb.png" alt="" loading="lazy"/></div><span>English</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/de.png" alt="" loading="lazy"/></div><span>Deutsch</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/es.png" alt="" loading="lazy"/></div><span>Español</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/it.png" alt="" loading="lazy"/></div><span>Italiano</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/pt.png" alt="" loading="lazy"/></div><span>Português</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/nl.png" alt="" loading="lazy"/></div><span>Nederlands</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/ru.png" alt="" loading="lazy"/></div><span>Русский</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/tr.png" alt="" loading="lazy"/></div><span>Türkçe</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/se.png" alt="" loading="lazy"/></div><span>Svenska</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/pl.png" alt="" loading="lazy"/></div><span>Polski</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/gr.png" alt="" loading="lazy"/></div><span>Ελληνικά</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/cn.png" alt="" loading="lazy"/></div><span>中文</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/no.png" alt="" loading="lazy"/></div><span>Norsk</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/dk.png" alt="" loading="lazy"/></div><span>Dansk</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/jp.png" alt="" loading="lazy"/></div><span>日本語</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/kr.png" alt="" loading="lazy"/></div><span>한국어</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/in.png" alt="" loading="lazy"/></div><span>हिन्दी</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/id.png" alt="" loading="lazy"/></div><span>Bahasa Indonesia</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/th.png" alt="" loading="lazy"/></div><span>ไทย</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/my.png" alt="" loading="lazy"/></div><span>Bahasa Melayu</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/ph.png" alt="" loading="lazy"/></div><span>Filipino</span></div>
+        <div class="lang-tick-item"><div class="lang-flag-xs"><img src="https://flagcdn.com/28x21/ro.png" alt="" loading="lazy"/></div><span>Română</span></div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1083,13 +1487,16 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
   <div class="cta-orb co2"></div>
   <div class="container">
     <div class="cta-inner rv">
-      <h2 class="serif d2">Start generating reports<br><em>in seconds.</em></h2>
-      <p class="cta-sub">Join 2,800+ radiologists who've already reclaimed their time. First reports are always free.</p>
+      <h2 class="serif d2">Download PISUM.<br><em>Start reporting today.</em></h2>
+      <p class="cta-sub">Join 2,800+ radiologists who've already reclaimed their time. Free plan included — no credit card.</p>
       <div class="cta-acts">
-        <a href="#" class="btn btn-grad btn-xl">Get Started Free →</a>
+        <a href="https://www.dropbox.com/scl/fi/gmvtcnvvncun536yui7c3/PISUM_Radiology_Setup_2.9.8.exe?rlkey=bw6y7aeuu9l6war112a1u5gtn&st=vo0yfr1s&dl=0" target="_blank" rel="noopener noreferrer" class="btn btn-grad btn-xl" style="display:inline-flex;align-items:center;gap:8px">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Free — Windows
+        </a>
         <a href="#how" class="btn btn-xl" style="color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.05);backdrop-filter:blur(10px)">See how it works</a>
       </div>
-      <p class="cta-fine">No credit card required &nbsp;·&nbsp; Cancel anytime &nbsp;·&nbsp; GDPR compliant</p>
+      <p class="cta-fine">Windows 10/11 &nbsp;·&nbsp; Free plan included &nbsp;·&nbsp; GDPR compliant</p>
     </div>
   </div>
 </section>
@@ -1124,8 +1531,19 @@ window.addEventListener('scroll',()=>{
   bar.style.width=Math.min(100,(s/h)*100)+'%';
 },{passive:true});
 
-document.getElementById('ham').addEventListener('click',()=>{
-  document.getElementById('navLinks').classList.toggle('open');
+const ham = document.getElementById('ham');
+const navLinks = document.getElementById('nav-links');
+function closeMenu(){
+  navLinks.classList.remove('open');
+  document.body.classList.remove('menu-open');
+}
+ham.addEventListener('click',()=>{
+  const isOpen = navLinks.classList.toggle('open');
+  document.body.classList.toggle('menu-open', isOpen);
+});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeMenu));
+document.addEventListener('click', e=>{
+  if(navLinks.classList.contains('open') && !navLinks.contains(e.target) && !ham.contains(e.target)) closeMenu();
 });
 
 const obs=new IntersectionObserver((es)=>{
@@ -1133,9 +1551,44 @@ const obs=new IntersectionObserver((es)=>{
 },{threshold:0.1,rootMargin:'0px 0px -36px 0px'});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 
+function toggleLangMore(){
+  const extras=document.querySelectorAll('.lang-extra');
+  const btn=document.getElementById('langMoreBtn');
+  const isOpen=btn.classList.toggle('open');
+  extras.forEach(el=>{
+    el.classList.toggle('open',isOpen);
+    if(isOpen){setTimeout(()=>el.classList.add('show'),10)}else{el.classList.remove('show')}
+  });
+  btn.querySelector('svg').style.transform=isOpen?'rotate(180deg)':'';
+  btn.childNodes[btn.childNodes.length-1].textContent=isOpen?' Show less':' Show 10 more languages';
+}
+
 function openModal(){document.getElementById('modal').classList.add('open')}
 function closeModal(){document.getElementById('modal').classList.remove('open')}
 document.getElementById('modal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal();});
+
+async function openTplContent(id,name,mod){
+  const body=document.getElementById('tplCBody');
+  document.getElementById('tplCMod').textContent=mod;
+  document.getElementById('tplCName').textContent=name;
+  body.textContent='Loading…';
+  document.getElementById('tplContentModal').classList.add('open');
+  try{
+    const {data,error}=await window.sb.from('templates').select('content').eq('id',id).single();
+    body.textContent=(error||!data?.content)?'Could not load content.':data.content;
+  }catch(e){
+    body.textContent='Error: '+e.message;
+  }
+}
+function closeTplContent(){document.getElementById('tplContentModal').classList.remove('open')}
+document.getElementById('tplContentModal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeTplContent();});
+
+const tplModMap={
+  'Scanner':{label:'CT',dm:'CT'},
+  'IRM':{label:'MRI',dm:'MRI'},
+  'Radiographie conventionnelle':{label:'X-Ray',dm:'XR'},
+  'Echographie':{label:'US',dm:'US'}
+};
 
 function ftpl(mod,btn){
   document.querySelectorAll('.ttab').forEach(b=>b.classList.remove('on'));
@@ -1145,10 +1598,37 @@ function ftpl(mod,btn){
   });
 }
 
+async function loadTemplates(){
+  const grid=document.getElementById('tplGrid');
+  const skeleton=Array(8).fill(0).map(()=>`<div class="tpl-card" style="pointer-events:none"><div class="tpl-thumb"></div><div class="tpl-body"><div class="tpl-line" style="width:70%;height:14px;border-radius:4px;background:var(--off)"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div>`).join('');
+  grid.innerHTML=skeleton;
+
+  const {data,error}=await sb.from('templates').select('id,name,exam_type,plan').eq('language','Anglais').order('exam_type').order('name');
+  if(error||!data){grid.innerHTML='<p style="color:var(--muted);text-align:center;grid-column:1/-1;padding:2rem">Could not load templates.</p>';return;}
+
+  const free=data.filter(t=>t.plan==='free');
+  const pro=data.filter(t=>t.plan!=='free').slice(0,4);
+  const preview=[...free,...pro];
+
+  grid.innerHTML=preview.map(t=>{
+    const mod=tplModMap[t.exam_type]||{label:t.exam_type,dm:t.exam_type};
+    const isPro=t.plan!=='free';
+    const proOv=isPro?`<div class="pro-ov"><span class="pro-lock">🔒</span><span class="pro-lbl">Pro Template</span></div>`:'';
+    const badge=isPro?`<span class="badge-pro">PRO</span>`:`<span class="badge-free">FREE</span>`;
+    const safeName=t.name.replace(/"/g,'&quot;');
+    const clickAttr=isPro?' onclick="openModal()"':` onclick="openTplContent('${t.id}','${safeName}','${mod.label}')" style="cursor:pointer"`;
+    const docLines=`<div class="tpl-doc"><div class="tpl-doc-h"></div><div class="tpl-doc-l" style="width:88%"></div><div class="tpl-doc-l" style="width:72%"></div><div class="tpl-doc-l" style="width:80%"></div><div class="tpl-doc-l" style="width:60%"></div></div>`;
+    return `<div class="tpl-card${isPro?' pro':''}" data-m="${mod.dm}"${clickAttr}>${proOv}<div class="tpl-thumb">${docLines}<span class="tpl-mod">${mod.label}</span></div><div class="tpl-body"><div class="tpl-name">${t.name}</div><div class="tpl-row"><span class="tpl-langs">🌍 23 langs</span>${badge}</div><div class="tpl-lines"><div class="tpl-line"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div></div>`;
+  }).join('');
+}
+
+loadTemplates();
+
 const bill={
-  m:{starter:29,pro:59,expert:99,clinic:199},
-  a:{starter:24,pro:49,expert:82,clinic:165}
+  m:{starter:29,pro:79,expert:129,clinic:399},
+  a:{starter:23,pro:63,expert:103,clinic:319}
 };
+const billAnnual={starter:276,pro:756,expert:1236,clinic:3828};
 function toggleBill(){
   const annual=document.getElementById('togB').checked;
   const p=annual?bill.a:bill.m;
@@ -1156,6 +1636,7 @@ function toggleBill(){
   document.getElementById('proAmt').textContent=p.pro;
   document.getElementById('expertAmt').textContent=p.expert;
   document.getElementById('clinicAmt').textContent=p.clinic;
+  document.querySelectorAll('.bill-note').forEach(el=>el.style.display=annual?'':'none');
 }
 
 document.querySelectorAll('.feat-card').forEach(c=>{
@@ -1284,7 +1765,7 @@ const langData={
   en:{label:'English',indication:'Pulmonary nodule follow-up.',parenchyma:'No focal consolidation. Stable 6mm GGO, right upper lobe.',impression:'Stable right upper lobe GGO. No malignant transformation.',dir:'ltr'},
   fr:{label:'Français',indication:'Suivi de nodule pulmonaire.',parenchyma:'Pas de condensation focale. GGO de 6mm stable, lobe supérieur droit.',impression:'GGO du lobe supérieur droit stable. Pas de transformation maligne.',dir:'ltr'},
   de:{label:'Deutsch',indication:'Verlaufskontrolle Lungenrundherd.',parenchyma:'Kein fokales Infiltrat. Stabiles 6mm GGO, rechter Oberlappen.',impression:'Stabiles GGO im rechten Oberlappen. Kein malignes Korrelat.',dir:'ltr'},
-  ar:{label:'العربية',indication:'متابعة عقيدة رئوية.',parenchyma:'لا يوجد تكثيف بؤري. GGO مستقر 6mm، الفص العلوي الأيمن.',impression:'GGO مستقر في الفص العلوي الأيمن. لا تحول خبيث.',dir:'rtl'},
+  nl:{label:'Nederlands',indication:'Follow-up longnodus.',parenchyma:'Geen focale consolidatie. Stabiele GGO van 6mm, rechter bovenkwab.',impression:'Stabiele GGO rechter bovenkwab. Geen maligne transformatie.',dir:'ltr'},
   es:{label:'Español',indication:'Seguimiento nódulo pulmonar.',parenchyma:'Sin consolidación focal. GGO de 6mm estable, lóbulo superior derecho.',impression:'GGO lóbulo superior derecho estable. Sin transformación maligna.',dir:'ltr'},
   pt:{label:'Português',indication:'Acompanhamento de nódulo pulmonar.',parenchyma:'Sem consolidação focal. GGO de 6mm estável, lobo superior direito.',impression:'GGO do lobo superior direito estável. Sem transformação maligna.',dir:'ltr'},
   it:{label:'Italiano',indication:'Follow-up nodulo polmonare.',parenchyma:'Nessun consolidamento focale. GGO 6mm stabile, lobo superiore destro.',impression:'GGO lobo superiore destro stabile. Nessuna trasformazione maligna.',dir:'ltr'}
@@ -1384,14 +1865,152 @@ function typeInto(id,text){
   },34);
 }
 </script>
+
+<!-- ── PISUM AI Agent Widget (dark theme) ─────────────────────── -->
+<style>
+#piw{position:fixed;bottom:24px;right:24px;z-index:9500;font-family:'Plus Jakarta Sans',system-ui,sans-serif}
+#piw-trigger{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#00e5cc 0%,#3b6ef8 100%);color:#06060a;border:none;border-radius:999px;padding:12px 18px 12px 14px;font-size:.85rem;font-weight:700;cursor:pointer;box-shadow:0 8px 32px rgba(0,229,204,.35);transition:transform .2s,box-shadow .2s;position:relative}
+#piw-trigger:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,229,204,.45)}
+#piw-badge{position:absolute;top:-4px;right:-4px;width:18px;height:18px;background:#ef4444;color:#fff;border-radius:50%;font-size:.6rem;font-weight:800;display:flex;align-items:center;justify-content:center;animation:piw-pulse 2s infinite}
+@keyframes piw-pulse{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.4)}50%{box-shadow:0 0 0 6px rgba(239,68,68,0)}}
+#piw-panel{display:none;position:absolute;bottom:64px;right:0;width:360px;background:#0e0e14;border:1px solid rgba(255,255,255,.1);border-radius:20px;box-shadow:0 24px 64px rgba(0,0,0,.6);overflow:hidden;flex-direction:column;animation:piw-in .25s cubic-bezier(.25,1,.5,1)}
+#piw-panel.open{display:flex}
+@keyframes piw-in{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+#piw-head{background:linear-gradient(135deg,#00e5cc 0%,#3b6ef8 60%,#8b6ef8 100%);padding:14px 16px;display:flex;align-items:center;justify-content:space-between}
+#piw-head-info{display:flex;align-items:center;gap:10px}
+#piw-avatar{width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800;color:#fff;flex-shrink:0}
+#piw-name{font-size:.88rem;font-weight:700;color:#06060a}
+#piw-status{font-size:.7rem;color:rgba(6,6,10,.65);display:flex;align-items:center;gap:4px}
+.piw-dot{width:6px;height:6px;border-radius:50%;background:#16a34a;display:inline-block}
+#piw-close{background:rgba(0,0,0,.2);border:none;color:#fff;width:28px;height:28px;border-radius:50%;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .18s}
+#piw-close:hover{background:rgba(0,0,0,.4)}
+#piw-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;max-height:280px;min-height:160px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.1) transparent}
+.piw-msg{display:flex;flex-direction:column;gap:4px;max-width:88%}
+.piw-msg.user{align-self:flex-end;align-items:flex-end}
+.piw-msg.ai{align-self:flex-start}
+.piw-bubble{padding:10px 13px;border-radius:14px;font-size:.82rem;line-height:1.6;white-space:pre-line}
+.piw-msg.ai .piw-bubble{background:#14141e;border:1px solid rgba(255,255,255,.07);color:#d0d0e8}
+.piw-msg.user .piw-bubble{background:linear-gradient(135deg,#00e5cc,#3b6ef8);color:#06060a;font-weight:600}
+.piw-msg.ai .piw-bubble strong{color:#00e5cc}
+.piw-typing{display:flex;gap:4px;padding:10px 13px;background:#14141e;border:1px solid rgba(255,255,255,.07);border-radius:14px;width:fit-content}
+.piw-typing span{width:6px;height:6px;background:#606080;border-radius:50%;animation:piw-bounce .9s infinite}
+.piw-typing span:nth-child(2){animation-delay:.15s}
+.piw-typing span:nth-child(3){animation-delay:.3s}
+@keyframes piw-bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+#piw-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 12px}
+.piw-chip{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#a0a0c0;border-radius:999px;padding:5px 11px;font-size:.72rem;font-weight:600;cursor:pointer;transition:all .18s;font-family:inherit}
+.piw-chip:hover{background:rgba(0,229,204,.1);border-color:rgba(0,229,204,.3);color:#00e5cc}
+#piw-footer{border-top:1px solid rgba(255,255,255,.07);padding:12px 14px;display:flex;gap:8px;align-items:center;background:#0e0e14}
+#piw-input{flex:1;background:#14141e;border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:9px 15px;font-size:.82rem;color:#f0f0f8;outline:none;font-family:inherit;transition:border-color .18s}
+#piw-input::placeholder{color:#606080}
+#piw-input:focus{border-color:rgba(0,229,204,.4)}
+#piw-send{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#00e5cc,#3b6ef8);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .18s,opacity .18s}
+#piw-send:hover{transform:scale(1.08)}
+#piw-send:disabled{opacity:.4;cursor:not-allowed;transform:none}
+@media(max-width:420px){#piw-panel{width:calc(100vw - 32px);right:-8px}}
+</style>
+
+<div id="piw">
+  <button id="piw-trigger" onclick="piwToggle()" aria-label="Ask PISUM AI">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    Ask AI
+    <span id="piw-badge">1</span>
+  </button>
+  <div id="piw-panel" role="dialog" aria-label="PISUM AI Assistant">
+    <div id="piw-head">
+      <div id="piw-head-info">
+        <div id="piw-avatar">🤖</div>
+        <div>
+          <div id="piw-name">PISUM AI</div>
+          <div id="piw-status"><span class="piw-dot"></span> Online — always here to help</div>
+        </div>
+      </div>
+      <button id="piw-close" onclick="piwToggle()" aria-label="Close">✕</button>
+    </div>
+    <div id="piw-msgs">
+      <div class="piw-msg ai"><div class="piw-bubble">Hi! I'm <strong>PISUM AI</strong> 👋<br/>Ask me anything about features, pricing, setup, or templates. I'll give you a straight answer.</div></div>
+    </div>
+    <div id="piw-chips">
+      <button class="piw-chip" onclick="piwAsk(this.textContent)">What plans exist?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)">Free trial?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)">How to install?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)">AI dictation?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)">GDPR compliant?</button>
+    </div>
+    <div id="piw-footer">
+      <input id="piw-input" type="text" placeholder="Ask a question…" autocomplete="off" onkeydown="if(event.key==='Enter')piwSend()"/>
+      <button id="piw-send" onclick="piwSend()" aria-label="Send">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
 <script>
-  const ham = document.getElementById('ham');
-  const navLinks = document.getElementById('nav-links');
-  if (ham && navLinks) {
-    ham.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
+(function(){
+const PC_URL='https://pisum-chat-server.onrender.com';
+const piwSid='sess_'+Math.random().toString(36).slice(2);
+
+function fmt(text){return text.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');}
+
+function addMsg(role,text){
+  const wrap=document.getElementById('piw-msgs');
+  const d=document.createElement('div');
+  d.className='piw-msg '+role;
+  const b=document.createElement('div');
+  b.className='piw-bubble';
+  b.innerHTML=fmt(text).replace(/\n/g,'<br>');
+  d.appendChild(b);
+  wrap.appendChild(d);
+  wrap.scrollTop=wrap.scrollHeight;
+}
+
+function showTyping(){
+  const wrap=document.getElementById('piw-msgs');
+  const d=document.createElement('div');
+  d.className='piw-msg ai';d.id='piw-typing-indicator';
+  d.innerHTML='<div class="piw-typing"><span></span><span></span><span></span></div>';
+  wrap.appendChild(d);
+  wrap.scrollTop=wrap.scrollHeight;
+  return d;
+}
+
+window.piwToggle=function(){
+  const panel=document.getElementById('piw-panel');
+  const badge=document.getElementById('piw-badge');
+  const isOpen=panel.classList.contains('open');
+  panel.classList.toggle('open');
+  if(!isOpen&&badge)badge.style.display='none';
+  if(!isOpen)setTimeout(()=>document.getElementById('piw-input').focus(),100);
+};
+
+window.piwAsk=async function(q){
+  document.getElementById('piw-chips').style.display='none';
+  const btn=document.getElementById('piw-send');
+  addMsg('user',q);
+  btn.disabled=true;
+  const t=showTyping();
+  try{
+    const r=await fetch(PC_URL+'/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q,sessionId:piwSid})});
+    const data=await r.json();
+    t.remove();
+    addMsg('ai',data.reply||data.error);
+  }catch{
+    t.remove();
+    addMsg('ai','Connection error. Please try again.');
   }
+  btn.disabled=false;
+};
+
+window.piwSend=function(){
+  const inp=document.getElementById('piw-input');
+  const q=inp.value.trim();
+  if(!q)return;
+  inp.value='';
+  piwAsk(q);
+};
+})();
 </script>
+<!-- ── end AI Agent Widget ── -->
 </body>
 </html>

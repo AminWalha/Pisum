@@ -3,9 +3,29 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Conditions d'Utilisation — PISUM</title>
-<meta name="robots" content="noindex, follow"/>
-<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
+<title>Terms and Conditions | Pisum Radiology Software</title>
+<meta name="description" content="Read the terms and conditions for using Pisum radiology reporting software, including user responsibilities and service policies."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://pisum.app/terms.html"/>
+<link rel="alternate" hreflang="en" href="https://pisum.app/terms.html"/>
+<link rel="alternate" hreflang="fr" href="https://pisum.app/terms.html"/>
+<link rel="alternate" hreflang="x-default" href="https://pisum.app/terms.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://pisum.app/terms.html"/>
+<meta property="og:title" content="Terms of Use — PISUM Radiology Software"/>
+<meta property="og:description" content="Terms of use for PISUM radiology reporting software: usage license, medical liability, and GDPR compliance."/>
+<meta property="og:image" content="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
+<meta property="og:site_name" content="PISUM"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Terms of Use — PISUM Radiology Software"/>
+<meta name="twitter:description" content="Terms of use for PISUM: usage license, medical liability disclaimer, and GDPR compliance."/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Terms of Use — PISUM","url":"https://pisum.app/terms.html","description":"Terms of use for PISUM radiology reporting software, including usage license, medical liability disclaimer, and data privacy conditions.","inLanguage":["en","fr","de","es"],"publisher":{"@type":"Organization","name":"PISUM","url":"https://pisum.app","logo":"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"}}
+</script>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"/>
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
@@ -42,6 +62,16 @@ main { flex: 1; }
 .nav-logo { display: flex; align-items: center; gap: 10px; font-family: var(--fd); font-size: 1.1rem; font-weight: 600; color: var(--ink); }
 .nav-logo img { width: 30px; height: 30px; border-radius: 8px; }
 .nav-right { display: flex; align-items: center; gap: 0.75rem; }
+.nav-profile{display:flex;align-items:center;gap:10px;background:var(--white);border:1px solid var(--b2);border-radius:999px;padding:4px 12px 4px 4px;box-shadow:var(--shadow-xs)}
+.nav-profile-avatar{width:36px;height:36px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.nav-profile-avatar-fallback{width:36px;height:36px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:var(--white);flex-shrink:0}
+.nav-profile-info{display:flex;flex-direction:column;gap:1px}
+.nav-profile-name{font-size:0.8rem;font-weight:600;color:var(--ink);line-height:1.2}
+.nav-profile-email{font-size:0.7rem;color:var(--ink-3);line-height:1.2}
+.nav-profile-signout{font-size:0.78rem;font-weight:500;color:var(--ink-3);background:none;border:1px solid var(--b2);border-radius:999px;padding:0.3rem 0.8rem;cursor:pointer;transition:all 0.18s;margin-left:4px;font-family:inherit}
+.nav-profile-signout:hover{color:var(--ink);border-color:var(--ink-3);background:var(--off)}
+.nav-profile-link{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.nav-profile-link:hover .nav-profile-name{color:var(--blue)}
 .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
 .nav-links a { font-size: 0.83rem; font-weight: 500; color: var(--ink-2); transition: color 0.18s; }
 .nav-links a:hover { color: var(--cyan); }
@@ -167,12 +197,44 @@ footer { background: var(--s1); border-top: 1px solid var(--border); padding: 2r
     <li><a href="contact.html">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <a href="index.html#pricing" class="btn btn-primary btn-sm" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600;">Get Started Free</a>
+    <a href="index.html#pricing" class="btn btn-primary btn-sm" id="nav-cta" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600;">Get Started Free</a>
+    <div id="nav-profile" class="nav-profile" style="display:none">
+      <a href="../saas/frontend/dashboard.html" class="nav-profile-link">
+        <img id="nav-profile-img" class="nav-profile-avatar" src="" alt="" style="display:none"/>
+        <div id="nav-profile-initials" class="nav-profile-avatar-fallback" style="display:none">?</div>
+        <div class="nav-profile-info">
+          <span id="nav-profile-name" class="nav-profile-name"></span>
+          <span id="nav-profile-email" class="nav-profile-email"></span>
+        </div>
+      </a>
+      <button class="nav-profile-signout" id="nav-signout">Sign Out</button>
+    </div>
     <button class="hamburger" id="ham" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+(function(){
+  const sb=supabase.createClient('https://lepqbnhrdgfetoysedbq.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlcHFibmhyZGdmZXRveXNlZGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwNjQ1MDAsImV4cCI6MjA5MDY0MDUwMH0.St12IwG0_RRKzxrbH1QRolCC2OOAaSIsK4PDmlR2Loo');
+  sb.auth.getSession().then(async({data})=>{
+    if(!data.session)return;
+    const u=data.session.user;
+    const name=u.user_metadata?.full_name||u.email.split('@')[0];
+    document.getElementById('nav-cta').style.display='none';
+    document.getElementById('nav-profile-name').textContent=name;
+    document.getElementById('nav-profile-email').textContent=u.email;
+    document.getElementById('nav-profile').style.display='flex';
+    document.getElementById('nav-signout').addEventListener('click',async()=>{await sb.auth.signOut();window.location.reload();});
+    const img=document.getElementById('nav-profile-img');
+    const showI=()=>{img.style.display='none';const el=document.getElementById('nav-profile-initials');el.textContent=name.charAt(0).toUpperCase();el.style.display='flex';};
+    const{data:prof}=await sb.from('profiles').select('avatar_url').eq('user_id',u.id).maybeSingle();
+    const av=prof?.avatar_url||u.user_metadata?.avatar_url||u.user_metadata?.picture;
+    if(av){img.onload=()=>{img.style.display='';};img.onerror=showI;img.src=av;}else{showI();}
+  });
+})();
+</script>
 
 <main>
 
@@ -253,12 +315,12 @@ footer { background: var(--s1); border-top: 1px solid var(--border); padding: 2r
 
       <div class="prose-section" id="s4">
         <h2><span class="num">04</span> <span id="s4h">Données & confidentialité</span></h2>
-        <p id="s4p1">PISUM est une application entièrement locale. Aucune donnée patient, aucun compte rendu, aucune image médicale ni transcription vocale n'est transmis aux serveurs de PISUM SAS.</p>
+        <p id="s4p1">Les données patients et comptes rendus sont stockés exclusivement en local sur votre machine. Aucune donnée patient, aucun compte rendu ni image médicale n'est transmis aux serveurs de PISUM SAS.</p>
         <p id="s4p2">Les seules données collectées par PISUM SAS concernent la gestion de votre compte et de votre licence (email, clé de licence, version logicielle). Pour le détail complet, consultez notre <a href="rgpd.html">Politique de confidentialité RGPD</a>.</p>
         <ul>
           <li id="s4l1">Les données de compte sont hébergées en Union Européenne.</li>
           <li id="s4l2">Les données patients restent sur votre machine locale — nous n'y avons aucun accès.</li>
-          <li id="s4l3">La dictée vocale (Sally AI) est traitée exclusivement en local sur votre processeur.</li>
+          <li id="s4l3">La dictée vocale (Sally AI) utilise une API cloud sécurisée pour le traitement en temps réel — l'audio n'est jamais stocké.</li>
         </ul>
       </div>
 
@@ -356,11 +418,11 @@ const t = {
     ib3:'<strong>⚠️ Avertissement important.</strong> L\'utilisateur demeure entièrement responsable de l\'exactitude médicale et de la conformité réglementaire de chaque compte rendu émis via PISUM. PISUM SAS décline toute responsabilité en cas d\'erreur diagnostique.',
     s3p2:'Les templates fournis sont des modèles structurels indicatifs, à adapter au contexte clinique de chaque patient.',
     s4h:'Données & confidentialité',
-    s4p1:'PISUM est une application entièrement locale. Aucune donnée patient, aucun compte rendu ni transcription vocale n\'est transmis aux serveurs de PISUM SAS.',
+    s4p1:'Les données patients et comptes rendus sont stockés exclusivement en local sur votre machine. Aucune donnée patient, compte rendu ni image médicale n\'est transmis aux serveurs de PISUM SAS.',
     s4p2:'Les seules données collectées concernent la gestion de votre compte. Consultez notre <a href="rgpd.html">Politique de confidentialité RGPD</a>.',
     s4l1:'Les données de compte sont hébergées en Union Européenne.',
     s4l2:'Les données patients restent sur votre machine locale — nous n\'y avons aucun accès.',
-    s4l3:'La dictée vocale (Sally AI) est traitée exclusivement en local sur votre processeur.',
+    s4l3:'La dictée vocale (Sally AI) utilise une API cloud sécurisée pour le traitement en temps réel — l\'audio n\'est jamais stocké.',
     s5h:'Propriété intellectuelle',
     s5p1:'PISUM, son code source, ses 112 templates, son moteur de dictée Sally AI et l\'ensemble de ses composants sont la propriété exclusive de <strong>PISUM SAS</strong>.',
     s5p2:'Les comptes rendus générés par l\'utilisateur lui appartiennent intégralement. PISUM SAS ne revendique aucun droit sur le contenu médical produit.',
@@ -402,11 +464,11 @@ const t = {
     ib3:'<strong>⚠️ Important disclaimer.</strong> The user remains fully responsible for the medical accuracy and regulatory compliance of each report issued via PISUM. PISUM SAS declines all liability for diagnostic errors.',
     s3p2:'Provided templates are structural models to be adapted to each patient\'s specific clinical context by the healthcare professional.',
     s4h:'Data & privacy',
-    s4p1:'PISUM is a fully local application. No patient data, report content, or voice transcription is transmitted to PISUM SAS servers.',
+    s4p1:'Patient data and reports are stored exclusively on your local machine. No patient data, report content, or medical image is transmitted to PISUM SAS servers.',
     s4p2:'The only data collected concerns account and license management. See our <a href="rgpd.html">GDPR Privacy Policy</a>.',
     s4l1:'Account data is hosted in the European Union.',
     s4l2:'Patient data stays on your local machine — we have no access to it.',
-    s4l3:'Voice dictation (Sally AI) is processed exclusively on your local processor.',
+    s4l3:'Voice dictation (Sally AI) is processed via a secure cloud API in real time — audio is never stored.',
     s5h:'Intellectual property',
     s5p1:'PISUM, its source code, 112 templates, Sally AI dictation engine, and all components are the exclusive property of <strong>PISUM SAS</strong>.',
     s5p2:'Reports generated by the user belong entirely to them. PISUM SAS claims no rights over the medical content produced.',
@@ -448,11 +510,11 @@ const t = {
     ib3:'<strong>⚠️ Wichtiger Haftungsausschluss.</strong> Der Nutzer bleibt vollständig verantwortlich für die medizinische Genauigkeit jedes über PISUM ausgestellten Berichts. PISUM SAS lehnt jede Haftung für diagnostische Fehler ab.',
     s3p2:'Die bereitgestellten Templates sind strukturelle Muster und müssen an den spezifischen klinischen Kontext jedes Patienten angepasst werden.',
     s4h:'Daten & Datenschutz',
-    s4p1:'PISUM ist eine vollständig lokale Anwendung. Keine Patientendaten oder Sprachtranskriptionen werden an PISUM SAS-Server übertragen.',
+    s4p1:'Patientendaten und Berichte werden ausschließlich lokal auf Ihrer Maschine gespeichert. Keine Patientendaten, Berichte oder medizinischen Bilder werden an PISUM SAS-Server übertragen.',
     s4p2:'Die einzigen erfassten Daten betreffen die Konto- und Lizenzverwaltung. Siehe unsere <a href="rgpd.html">DSGVO-Datenschutzrichtlinie</a>.',
     s4l1:'Kontodaten werden in der Europäischen Union gehostet.',
     s4l2:'Patientendaten verbleiben auf Ihrer lokalen Maschine — wir haben keinen Zugriff.',
-    s4l3:'Sprachdiktat (Sally AI) wird ausschließlich auf Ihrem lokalen Prozessor verarbeitet.',
+    s4l3:'Sprachdiktat (Sally AI) wird über eine sichere Cloud-API in Echtzeit verarbeitet — Audio wird niemals gespeichert.',
     s5h:'Geistiges Eigentum',
     s5p1:'PISUM, sein Quellcode, 112 Templates, Sally AI und alle Komponenten sind Eigentum von <strong>PISUM SAS</strong>.',
     s5p2:'Die vom Nutzer generierten Berichte gehören vollständig dem Nutzer. PISUM SAS erhebt keine Ansprüche auf produzierten medizinischen Inhalt.',
@@ -494,11 +556,11 @@ const t = {
     ib3:'<strong>⚠️ Aviso importante.</strong> El usuario es plenamente responsable de la exactitud médica de cada informe emitido a través de PISUM. PISUM SAS rechaza toda responsabilidad por errores diagnósticos.',
     s3p2:'Las plantillas proporcionadas son modelos estructurales a adaptar al contexto clínico específico de cada paciente.',
     s4h:'Datos & privacidad',
-    s4p1:'PISUM es una aplicación completamente local. Ningún dato de paciente, informe o transcripción de voz se transmite a los servidores de PISUM SAS.',
+    s4p1:'Los datos de pacientes e informes se almacenan exclusivamente en local. Ningún dato de paciente, informe ni imagen médica se transmite a los servidores de PISUM SAS.',
     s4p2:'Los únicos datos recopilados conciernen a la gestión de su cuenta. Consulte nuestra <a href="rgpd.html">Política de privacidad RGPD</a>.',
     s4l1:'Los datos de cuenta se alojan en la Unión Europea.',
     s4l2:'Los datos de pacientes permanecen en su máquina local — no tenemos acceso.',
-    s4l3:'El dictado de voz (Sally AI) se procesa exclusivamente en su procesador local.',
+    s4l3:'El dictado de voz (Sally AI) se procesa mediante una API cloud segura en tiempo real — el audio nunca se almacena.',
     s5h:'Propiedad intelectual',
     s5p1:'PISUM, su código fuente, 112 plantillas, Sally AI y todos sus componentes son propiedad exclusiva de <strong>PISUM SAS</strong>.',
     s5p2:'Los informes generados por el usuario le pertenecen íntegramente. PISUM SAS no reclama ningún derecho sobre el contenido médico producido.',
@@ -539,5 +601,151 @@ setLang(currentLang);
     });
   }
 </script>
+<!-- ── PISUM AI Agent Widget (dark theme) ─────────────────────── -->
+<style>
+#piw{position:fixed;bottom:24px;right:24px;z-index:9500;font-family:'Plus Jakarta Sans',system-ui,sans-serif}
+#piw-trigger{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#00e5cc 0%,#3b6ef8 100%);color:#06060a;border:none;border-radius:999px;padding:12px 18px 12px 14px;font-size:.85rem;font-weight:700;cursor:pointer;box-shadow:0 8px 32px rgba(0,229,204,.35);transition:transform .2s,box-shadow .2s;position:relative}
+#piw-trigger:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,229,204,.45)}
+#piw-badge{position:absolute;top:-4px;right:-4px;width:18px;height:18px;background:#ef4444;color:#fff;border-radius:50%;font-size:.6rem;font-weight:800;display:flex;align-items:center;justify-content:center;animation:piw-pulse 2s infinite}
+@keyframes piw-pulse{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.4)}50%{box-shadow:0 0 0 6px rgba(239,68,68,0)}}
+#piw-panel{display:none;position:absolute;bottom:64px;right:0;width:360px;background:#0e0e14;border:1px solid rgba(255,255,255,.1);border-radius:20px;box-shadow:0 24px 64px rgba(0,0,0,.6);overflow:hidden;flex-direction:column;animation:piw-in .25s cubic-bezier(.25,1,.5,1)}
+#piw-panel.open{display:flex}
+@keyframes piw-in{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+#piw-head{background:linear-gradient(135deg,#00e5cc 0%,#3b6ef8 60%,#8b6ef8 100%);padding:14px 16px;display:flex;align-items:center;justify-content:space-between}
+#piw-head-info{display:flex;align-items:center;gap:10px}
+#piw-avatar{width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800;color:#fff;flex-shrink:0}
+#piw-name{font-size:.88rem;font-weight:700;color:#06060a}
+#piw-status{font-size:.7rem;color:rgba(6,6,10,.65);display:flex;align-items:center;gap:4px}
+.piw-dot{width:6px;height:6px;border-radius:50%;background:#16a34a;display:inline-block}
+#piw-close{background:rgba(0,0,0,.2);border:none;color:#fff;width:28px;height:28px;border-radius:50%;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .18s}
+#piw-close:hover{background:rgba(0,0,0,.4)}
+#piw-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;max-height:280px;min-height:160px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.1) transparent}
+.piw-msg{display:flex;flex-direction:column;gap:4px;max-width:88%}
+.piw-msg.user{align-self:flex-end;align-items:flex-end}
+.piw-msg.ai{align-self:flex-start}
+.piw-bubble{padding:10px 13px;border-radius:14px;font-size:.82rem;line-height:1.6;white-space:pre-line}
+.piw-msg.ai .piw-bubble{background:#14141e;border:1px solid rgba(255,255,255,.07);color:#d0d0e8}
+.piw-msg.user .piw-bubble{background:linear-gradient(135deg,#00e5cc,#3b6ef8);color:#06060a;font-weight:600}
+.piw-msg.ai .piw-bubble strong{color:#00e5cc}
+.piw-typing{display:flex;gap:4px;padding:10px 13px;background:#14141e;border:1px solid rgba(255,255,255,.07);border-radius:14px;width:fit-content}
+.piw-typing span{width:6px;height:6px;background:#606080;border-radius:50%;animation:piw-bounce .9s infinite}
+.piw-typing span:nth-child(2){animation-delay:.15s}
+.piw-typing span:nth-child(3){animation-delay:.3s}
+@keyframes piw-bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+#piw-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 12px}
+.piw-chip{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#a0a0c0;border-radius:999px;padding:5px 11px;font-size:.72rem;font-weight:600;cursor:pointer;transition:all .18s;font-family:inherit}
+.piw-chip:hover{background:rgba(0,229,204,.1);border-color:rgba(0,229,204,.3);color:#00e5cc}
+#piw-footer{border-top:1px solid rgba(255,255,255,.07);padding:12px 14px;display:flex;gap:8px;align-items:center;background:#0e0e14}
+#piw-input{flex:1;background:#14141e;border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:9px 15px;font-size:.82rem;color:#f0f0f8;outline:none;font-family:inherit;transition:border-color .18s}
+#piw-input::placeholder{color:#606080}
+#piw-input:focus{border-color:rgba(0,229,204,.4)}
+#piw-send{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#00e5cc,#3b6ef8);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .18s,opacity .18s}
+#piw-send:hover{transform:scale(1.08)}
+#piw-send:disabled{opacity:.4;cursor:not-allowed;transform:none}
+@media(max-width:420px){#piw-panel{width:calc(100vw - 32px);right:-8px}}
+</style>
+
+<div id="piw">
+  <button id="piw-trigger" onclick="piwToggle()" aria-label="Ask PISUM AI">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    Ask AI
+    <span id="piw-badge">1</span>
+  </button>
+  <div id="piw-panel" role="dialog" aria-label="PISUM AI Assistant">
+    <div id="piw-head">
+      <div id="piw-head-info">
+        <div id="piw-avatar">🤖</div>
+        <div>
+          <div id="piw-name">PISUM AI</div>
+          <div id="piw-status"><span class="piw-dot"></span> Online — always here to help</div>
+        </div>
+      </div>
+      <button id="piw-close" onclick="piwToggle()" aria-label="Close">✕</button>
+    </div>
+    <div id="piw-msgs">
+      <div class="piw-msg ai"><div class="piw-bubble">Hi! I'm <strong>PISUM AI</strong> 👋<br/>Ask me anything about features, pricing, setup, or templates. I'll give you a straight answer.</div></div>
+    </div>
+    <div id="piw-chips">
+      <button class="piw-chip" onclick="piwAsk(this.textContent)">What plans exist?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)">Free trial?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)">How to install?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)">AI dictation?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)">GDPR compliant?</button>
+    </div>
+    <div id="piw-footer">
+      <input id="piw-input" type="text" placeholder="Ask a question…" autocomplete="off" onkeydown="if(event.key==='Enter')piwSend()"/>
+      <button id="piw-send" onclick="piwSend()" aria-label="Send">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+const PC_URL='https://pisum-chat-server.onrender.com';
+const piwSid='sess_'+Math.random().toString(36).slice(2);
+
+function fmt(text){return text.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');}
+
+function addMsg(role,text){
+  const wrap=document.getElementById('piw-msgs');
+  const d=document.createElement('div');
+  d.className='piw-msg '+role;
+  const b=document.createElement('div');
+  b.className='piw-bubble';
+  b.innerHTML=fmt(text).replace(/\n/g,'<br>');
+  d.appendChild(b);
+  wrap.appendChild(d);
+  wrap.scrollTop=wrap.scrollHeight;
+}
+
+function showTyping(){
+  const wrap=document.getElementById('piw-msgs');
+  const d=document.createElement('div');
+  d.className='piw-msg ai';d.id='piw-typing-indicator';
+  d.innerHTML='<div class="piw-typing"><span></span><span></span><span></span></div>';
+  wrap.appendChild(d);
+  wrap.scrollTop=wrap.scrollHeight;
+  return d;
+}
+
+window.piwToggle=function(){
+  const panel=document.getElementById('piw-panel');
+  const badge=document.getElementById('piw-badge');
+  const isOpen=panel.classList.contains('open');
+  panel.classList.toggle('open');
+  if(!isOpen&&badge)badge.style.display='none';
+  if(!isOpen)setTimeout(()=>document.getElementById('piw-input').focus(),100);
+};
+
+window.piwAsk=async function(q){
+  document.getElementById('piw-chips').style.display='none';
+  const btn=document.getElementById('piw-send');
+  addMsg('user',q);
+  btn.disabled=true;
+  const t=showTyping();
+  try{
+    const r=await fetch(PC_URL+'/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q,sessionId:piwSid})});
+    const data=await r.json();
+    t.remove();
+    addMsg('ai',data.reply||data.error);
+  }catch{
+    t.remove();
+    addMsg('ai','Connection error. Please try again.');
+  }
+  btn.disabled=false;
+};
+
+window.piwSend=function(){
+  const inp=document.getElementById('piw-input');
+  const q=inp.value.trim();
+  if(!q)return;
+  inp.value='';
+  piwAsk(q);
+};
+})();
+</script>
+<!-- ── end AI Agent Widget ── -->
 </body>
 </html>
