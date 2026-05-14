@@ -1081,16 +1081,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
       <button class="ttab" onclick="ftpl('XR',this)">X-Ray</button>
       <button class="ttab" onclick="ftpl('US',this)">Ultrasound</button>
     </div>
-    <div class="tpl-grid" id="tplGrid">
-      <div class="tpl-card" data-m="CT"><div class="tpl-thumb"><span class="tpl-mod">CT</span></div><div class="tpl-body"><div class="tpl-name">Chest CT Standard</div><div class="tpl-row"><span class="tpl-langs">🌍 23 langs</span><span class="badge-free">FREE</span></div><div class="tpl-lines"><div class="tpl-line"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div></div>
-      <div class="tpl-card" data-m="MRI"><div class="tpl-thumb"><span class="tpl-mod">MRI</span></div><div class="tpl-body"><div class="tpl-name">Brain MRI Protocol</div><div class="tpl-row"><span class="tpl-langs">🌍 23 langs</span><span class="badge-free">FREE</span></div><div class="tpl-lines"><div class="tpl-line"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div></div>
-      <div class="tpl-card" data-m="XR"><div class="tpl-thumb"><span class="tpl-mod">X-Ray</span></div><div class="tpl-body"><div class="tpl-name">Chest XR PA + Lateral</div><div class="tpl-row"><span class="tpl-langs">🌍 23 langs</span><span class="badge-free">FREE</span></div><div class="tpl-lines"><div class="tpl-line"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div></div>
-      <div class="tpl-card" data-m="US"><div class="tpl-thumb"><span class="tpl-mod">US</span></div><div class="tpl-body"><div class="tpl-name">Abdominal US Full</div><div class="tpl-row"><span class="tpl-langs">🌍 23 langs</span><span class="badge-free">FREE</span></div><div class="tpl-lines"><div class="tpl-line"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div></div>
-      <div class="tpl-card pro" data-m="CT" onclick="openModal()"><div class="pro-ov"><span class="pro-lock">🔒</span><span class="pro-lbl">Pro Template</span></div><div class="tpl-thumb"><span class="tpl-mod">CT</span></div><div class="tpl-body"><div class="tpl-name">Pulmonary Embolism CT-PA</div><div class="tpl-row"><span class="tpl-langs">🌍 23 langs</span><span class="badge-pro">PRO</span></div><div class="tpl-lines"><div class="tpl-line"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div></div>
-      <div class="tpl-card pro" data-m="MRI" onclick="openModal()"><div class="pro-ov"><span class="pro-lock">🔒</span><span class="pro-lbl">Pro Template</span></div><div class="tpl-thumb"><span class="tpl-mod">MRI</span></div><div class="tpl-body"><div class="tpl-name">Prostate MRI PI-RADS</div><div class="tpl-row"><span class="tpl-langs">🌍 23 langs</span><span class="badge-pro">PRO</span></div><div class="tpl-lines"><div class="tpl-line"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div></div>
-      <div class="tpl-card pro" data-m="CT" onclick="openModal()"><div class="pro-ov"><span class="pro-lock">🔒</span><span class="pro-lbl">Pro Template</span></div><div class="tpl-thumb"><span class="tpl-mod">CT</span></div><div class="tpl-body"><div class="tpl-name">Coronary CT Angiography</div><div class="tpl-row"><span class="tpl-langs">🌍 23 langs</span><span class="badge-pro">PRO</span></div><div class="tpl-lines"><div class="tpl-line"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div></div>
-      <div class="tpl-card pro" data-m="MRI" onclick="openModal()"><div class="pro-ov"><span class="pro-lock">🔒</span><span class="pro-lbl">Pro Template</span></div><div class="tpl-thumb"><span class="tpl-mod">MRI</span></div><div class="tpl-body"><div class="tpl-name">Lumbar Spine MRI</div><div class="tpl-row"><span class="tpl-langs">🌍 23 langs</span><span class="badge-pro">PRO</span></div><div class="tpl-lines"><div class="tpl-line"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div></div>
-    </div>
+    <div class="tpl-grid" id="tplGrid"></div>
     <div class="tpl-more rv"><a href="#pricing" class="btn btn-ghost btn-lg">Unlock all 112 Pro templates →</a></div>
   </div>
 </section>
@@ -1497,6 +1488,13 @@ function openModal(){document.getElementById('modal').classList.add('open')}
 function closeModal(){document.getElementById('modal').classList.remove('open')}
 document.getElementById('modal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal();});
 
+const tplModMap={
+  'Scanner':{label:'CT',dm:'CT'},
+  'IRM':{label:'MRI',dm:'MRI'},
+  'Radiographie conventionnelle':{label:'X-Ray',dm:'XR'},
+  'Echographie':{label:'US',dm:'US'}
+};
+
 function ftpl(mod,btn){
   document.querySelectorAll('.ttab').forEach(b=>b.classList.remove('on'));
   btn.classList.add('on');
@@ -1504,6 +1502,25 @@ function ftpl(mod,btn){
     c.style.display=(mod==='all'||c.dataset.m===mod)?'':'none';
   });
 }
+
+async function loadTemplates(){
+  const grid=document.getElementById('tplGrid');
+  const skeleton=Array(8).fill(0).map(()=>`<div class="tpl-card" style="pointer-events:none"><div class="tpl-thumb"></div><div class="tpl-body"><div class="tpl-line" style="width:70%;height:14px;border-radius:4px;background:var(--off)"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div>`).join('');
+  grid.innerHTML=skeleton;
+
+  const {data,error}=await sb.from('templates').select('id,name,exam_type,plan').eq('language','Anglais').order('plan',{ascending:true}).order('exam_type').order('name');
+  if(error||!data){grid.innerHTML='<p style="color:var(--muted);text-align:center;grid-column:1/-1;padding:2rem">Could not load templates.</p>';return;}
+
+  grid.innerHTML=data.map(t=>{
+    const mod=tplModMap[t.exam_type]||{label:t.exam_type,dm:t.exam_type};
+    const isPro=t.plan!=='free';
+    const proOv=isPro?`<div class="pro-ov"><span class="pro-lock">🔒</span><span class="pro-lbl">Pro Template</span></div>`:'';
+    const badge=isPro?`<span class="badge-pro">PRO</span>`:`<span class="badge-free">FREE</span>`;
+    return `<div class="tpl-card${isPro?' pro':''}" data-m="${mod.dm}"${isPro?' onclick="openModal()"':''}>${proOv}<div class="tpl-thumb"><span class="tpl-mod">${mod.label}</span></div><div class="tpl-body"><div class="tpl-name">${t.name}</div><div class="tpl-row"><span class="tpl-langs">🌍 23 langs</span>${badge}</div><div class="tpl-lines"><div class="tpl-line"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div></div>`;
+  }).join('');
+}
+
+loadTemplates();
 
 const bill={
   m:{starter:39,pro:79,expert:129,clinic:399},
