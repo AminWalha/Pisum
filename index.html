@@ -592,6 +592,17 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
 @media(max-width:900px){.lang-grid{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:700px){.lang-featured{grid-template-columns:1fr};.lang-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:520px){.lang-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* VIDEO SECTION */
+.video-section{background:var(--off);padding:clamp(5rem,10vw,8rem) 0;border-top:1px solid var(--b1)}
+.video-hd{text-align:center;margin-bottom:3rem}
+.video-hd .eyebrow{justify-content:center;margin-bottom:1rem}
+.video-hd h2{font-size:clamp(1.9rem,3.5vw,3rem);color:var(--ink);margin-bottom:0.75rem}
+.video-hd p{font-size:clamp(0.9rem,1.4vw,1.05rem);color:var(--ink-3);max-width:540px;margin:0 auto;line-height:1.7}
+.video-wrapper{position:relative;max-width:860px;margin:0 auto;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-lg),0 0 0 1px var(--b1);background:#000}
+.video-wrapper::before{content:'';display:block;padding-top:56.25%}
+.video-wrapper iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+@media(max-width:680px){.video-wrapper{border-radius:var(--r)}}
 </style>
 </head>
 <body>
@@ -764,6 +775,26 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="video-section">
+  <div class="container">
+    <div class="video-hd rv">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>See it in action</div>
+      <h2 class="serif">Watch Pisum in action</h2>
+      <p>See how radiologists generate structured, AI-enhanced reports in under a minute — from dictation to final PDF.</p>
+    </div>
+    <div class="video-wrapper rv rv-d1">
+      <iframe
+        src="https://www.youtube.com/embed/VfaTxPXe1qo?rel=0&modestbranding=1"
+        title="Pisum — Radiology Reporting Software Demo"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
     </div>
   </div>
 </section>
