@@ -338,7 +338,8 @@ a{text-decoration:none;color:inherit}
 .ldim{color:var(--ink-4)}
 .plan.hot .ldim{color:rgba(255,255,255,0.25)}
 @media(max-width:1100px){.plans{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:640px){.plans{grid-template-columns:1fr}.plan.hot{transform:scale(1)}}
+@media(max-width:820px){.plans{grid-template-columns:repeat(2,1fr)}.plan.hot{transform:scale(1)}}
+@media(max-width:520px){.plans{grid-template-columns:1fr}.plan.hot{transform:scale(1)}}
 
 /* CTA */
 .cta-section{position:relative;overflow:hidden;background:var(--ink);padding:clamp(6rem,12vw,10rem) 0}
@@ -403,6 +404,53 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
 .shots-cap-text p{font-size:0.78rem;color:rgba(255,255,255,0.38);line-height:1.55}
 .shots-badge{background:rgba(20,184,166,0.12);color:#14B8A6;border:1px solid rgba(20,184,166,0.2);font-size:0.7rem;font-weight:700;padding:0.22rem 0.65rem;border-radius:6px;white-space:nowrap}
 @media(max-width:640px){.shots-img-wrap{min-height:220px}.shots-caption{flex-direction:column;align-items:flex-start}}
+
+/* BODY MENU OPEN */
+body.menu-open{overflow:hidden}
+
+/* FOOTER MOBILE */
+@media(max-width:600px){
+  .foot-in{flex-direction:column;align-items:center;text-align:center;gap:1rem}
+  .foot-links{justify-content:center;flex-wrap:wrap;gap:1rem}
+  .foot-copy{text-align:center}
+}
+
+/* CTA ACTS MOBILE */
+@media(max-width:520px){
+  .cta-acts{flex-direction:column;align-items:stretch;gap:0.75rem}
+  .cta-acts .btn{width:100%;justify-content:center}
+}
+
+/* DEMO PANEL MOBILE */
+@media(max-width:480px){
+  .idemo-panel{min-height:320px}
+  .idai-layout,.idlang-layout,.idvoice-layout,.idexport-layout{min-height:280px}
+}
+
+/* TOUCH TARGETS */
+button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action:manipulation}
+
+/* BILL ROW MOBILE */
+@media(max-width:420px){
+  .bill-row{flex-wrap:wrap;justify-content:center;gap:0.75rem}
+}
+
+/* HOW SECTION ARROWS MOBILE */
+@media(max-width:800px){
+  .how-arrow{height:32px;display:flex;align-items:center;justify-content:center}
+}
+
+/* PRICING HEADER MOBILE */
+@media(max-width:480px){
+  .pricing-header{padding:0 0.5rem}
+  .plan{padding:1.5rem}
+  .plan.hot{padding-top:3rem}
+}
+
+/* NAV MOBILE IMPROVEMENTS */
+@media(max-width:780px){
+  .nav-right .btn-sm{padding:0.45rem 0.85rem;font-size:0.78rem}
+}
 
 /* REVEAL */
 .rv{opacity:0;transform:translateY(22px);transition:opacity 0.65s ease,transform 0.65s ease}
@@ -1483,8 +1531,19 @@ window.addEventListener('scroll',()=>{
   bar.style.width=Math.min(100,(s/h)*100)+'%';
 },{passive:true});
 
-document.getElementById('ham').addEventListener('click',()=>{
-  document.getElementById('nav-links').classList.toggle('open');
+const ham = document.getElementById('ham');
+const navLinks = document.getElementById('nav-links');
+function closeMenu(){
+  navLinks.classList.remove('open');
+  document.body.classList.remove('menu-open');
+}
+ham.addEventListener('click',()=>{
+  const isOpen = navLinks.classList.toggle('open');
+  document.body.classList.toggle('menu-open', isOpen);
+});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeMenu));
+document.addEventListener('click', e=>{
+  if(navLinks.classList.contains('open') && !navLinks.contains(e.target) && !ham.contains(e.target)) closeMenu();
 });
 
 const obs=new IntersectionObserver((es)=>{
@@ -1805,15 +1864,6 @@ function typeInto(id,text){
     else clearInterval(iv);
   },34);
 }
-</script>
-<script>
-  const ham = document.getElementById('ham');
-  const navLinks = document.getElementById('nav-links');
-  if (ham && navLinks) {
-    ham.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
-  }
 </script>
 
 <!-- ── PISUM AI Agent Widget (dark theme) ─────────────────────── -->
