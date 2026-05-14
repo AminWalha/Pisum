@@ -666,7 +666,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
   const SUPABASE_URL  = 'https://lepqbnhrdgfetoysedbq.supabase.co';
   const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlcHFibmhyZGdmZXRveXNlZGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwNjQ1MDAsImV4cCI6MjA5MDY0MDUwMH0.St12IwG0_RRKzxrbH1QRolCC2OOAaSIsK4PDmlR2Loo';
   const { createClient } = supabase;
-  const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
+  window.sb = createClient(SUPABASE_URL, SUPABASE_ANON);
   sb.auth.getSession().then(async ({ data }) => {
     if (!data.session) return;
     const u = data.session.user;
