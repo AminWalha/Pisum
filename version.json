@@ -1,0 +1,10 @@
+{
+  "version": "2.9.7",
+  "release_date": "2026-04-19",
+  "download_url": "https://www.dropbox.com/scl/fi/p5ruffda801ptyy64f653/PISUM_Radiology_Setup_2.9.7.exe?rlkey=gt19mkzz2s8i00h0t7zb67xxm&st=cy4oya7m&dl=1",
+  "changelog": {
+    "en": "Enhancement"
+  },
+  "mandatory": false,
+  "min_version_required": "1.0.0"
+}
