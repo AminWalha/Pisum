@@ -770,7 +770,7 @@ button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action
       <div class="hero-left">
         <div class="hero-pill rv">
           <span class="pill-tag">New</span>
-          23 languages · 112 templates · 7-day free trial on all paid plans
+          23 languages · 112 templates · 14-day free trial on all paid plans
         </div>
         <h1 class="serif hero-h rv rv-d1">
           Radiology reporting software
@@ -1252,7 +1252,7 @@ button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action
         <p class="bill-note" style="display:none;font-size:0.72rem;color:var(--green);margin-bottom:0.25rem">276€/yr — save 72€</p>
         <p class="plan-desc">For the independent radiologist.</p>
         <p style="font-size:0.7rem;color:var(--ink-4);margin-bottom:0.75rem;margin-top:-1.5rem">14-day free trial · No card required</p>
-        <a href="saas/frontend/auth.html" class="plan-cta cta-ghost">Try Starter free — 14 days</a>
+        <button class="plan-cta cta-ghost plan-sub-btn" onclick="subscribe('starter')">Try Starter free — 14 days</button>
         <hr class="plan-div"/>
         <ul class="plan-list">
           <li><span class="lchk">✓</span>20 templates</li>
@@ -1275,7 +1275,7 @@ button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action
         <p class="bill-note" style="display:none;font-size:0.72rem;color:rgba(255,255,255,0.55);margin-bottom:0.25rem">756€/yr — save 192€</p>
         <p class="plan-desc">Advanced practitioner, all-in-one.</p>
         <p style="font-size:0.7rem;color:rgba(255,255,255,0.38);margin-bottom:0.75rem;margin-top:-1.5rem">14-day free trial · No card required</p>
-        <a href="saas/frontend/auth.html" class="plan-cta cta-white">Try Pro free — 14 days</a>
+        <button class="plan-cta cta-white plan-sub-btn" onclick="subscribe('pro')">Try Pro free — 14 days</button>
         <hr class="plan-div"/>
         <ul class="plan-list">
           <li><span class="lchk">✓</span>112+ templates</li>
@@ -1297,7 +1297,7 @@ button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action
         <p class="bill-note" style="display:none;font-size:0.72rem;color:var(--green);margin-bottom:0.25rem">1 236€/yr — save 312€</p>
         <p class="plan-desc">No limits, full power.</p>
         <p style="font-size:0.7rem;color:var(--ink-4);margin-bottom:0.75rem;margin-top:-1.5rem">14-day free trial · No card required</p>
-        <a href="saas/frontend/auth.html" class="plan-cta cta-ghost">Try Expert free — 14 days</a>
+        <button class="plan-cta cta-ghost plan-sub-btn" onclick="subscribe('expert')">Try Expert free — 14 days</button>
         <hr class="plan-div"/>
         <ul class="plan-list">
           <li><span class="lchk">✓</span>112+ custom templates</li>
@@ -1317,7 +1317,7 @@ button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action
         <div class="plan-price"><span class="psym">€</span><span class="pamt" id="clinicAmt">399</span><span class="pper">/mo</span></div>
         <p class="bill-note" style="display:none;font-size:0.72rem;color:var(--green);margin-bottom:0.25rem">3 828€/yr — save 960€</p>
         <p class="plan-desc">Multi-site · Team management.</p>
-        <a href="saas/frontend/auth.html" class="plan-cta cta-ghost">Contact Sales</a>
+        <button class="plan-cta cta-ghost plan-sub-btn" onclick="subscribe('clinic')">Contact Sales</button>
         <hr class="plan-div"/>
         <ul class="plan-list">
           <li><span class="lchk">✓</span>Custom templates</li>
@@ -1637,6 +1637,33 @@ function toggleBill(){
   document.getElementById('expertAmt').textContent=p.expert;
   document.getElementById('clinicAmt').textContent=p.clinic;
   document.querySelectorAll('.bill-note').forEach(el=>el.style.display=annual?'':'none');
+}
+
+const API_BASE='https://pisum-backend.onrender.com';
+async function subscribe(plan){
+  const{data}=await window.sb.auth.getSession();
+  if(!data.session){
+    window.location.href='saas/frontend/auth.html?redirect=pricing.html';
+    return;
+  }
+  const btns=document.querySelectorAll('.plan-sub-btn');
+  btns.forEach(b=>{b.disabled=true;b.dataset.orig=b.textContent;b.innerHTML='<span style="display:inline-block;width:12px;height:12px;border:2px solid rgba(0,0,0,.2);border-top-color:currentColor;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle"></span>';});
+  const interval=document.getElementById('togB').checked?'annual':'monthly';
+  try{
+    const res=await fetch(`${API_BASE}/create-checkout-session`,{
+      method:'POST',
+      headers:{Authorization:`Bearer ${data.session.access_token}`,'Content-Type':'application/json'},
+      body:JSON.stringify({plan,interval})
+    });
+    if(!res.ok){const e=await res.json();throw new Error(e.detail||'Server error');}
+    const{checkout_url}=await res.json();
+    window.location.href=checkout_url;
+  }catch(err){
+    const t=document.getElementById('pisum-err-toast');
+    t.textContent='Error: '+err.message;t.style.display='block';
+    setTimeout(()=>{t.style.display='none';},6000);
+    btns.forEach(b=>{b.disabled=false;b.textContent=b.dataset.orig||'Subscribe';});
+  }
 }
 
 document.querySelectorAll('.feat-card').forEach(c=>{
@@ -2012,5 +2039,8 @@ window.piwSend=function(){
 })();
 </script>
 <!-- ── end AI Agent Widget ── -->
+
+<div id="pisum-err-toast" style="display:none;position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);background:#fff;border:1px solid #fecaca;color:#b91c1c;padding:.8rem 1.5rem;border-radius:12px;font-size:.83rem;font-weight:600;box-shadow:0 4px 20px rgba(0,0,0,.12);z-index:9999;max-width:90vw;text-align:center"></div>
+<style>@keyframes spin{to{transform:rotate(360deg)}}</style>
 </body>
 </html>
