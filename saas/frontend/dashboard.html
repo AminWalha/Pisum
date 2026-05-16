@@ -1067,7 +1067,7 @@ const PLAN_PRICES = {
 const PLANS = {
   free:    { label:'Free',       tag:'tag-free',    paid:false, features:[
     {ok:true, t:'10 templates'},{ok:true,t:'2 languages'},{ok:true,t:'PDF export'},
-    {ok:false,t:'Word export'},{ok:false,t:'AI Dictation'},{ok:false,t:'AI Enhancer'},
+    {ok:false,t:'Word export'},{ok:'lim',t:'AI Dictation (20 min trial)'},{ok:'lim',t:'AI Enhancer (5/mo trial)'},
     {ok:false,t:'Worklist'},{ok:'lim',t:'20 reports / month'}] },
   starter: { label:'Starter',    tag:'tag-starter', paid:true, features:[
     {ok:true,t:'20 templates'},{ok:true,t:'5 languages'},{ok:true,t:'PDF + Word export'},
@@ -1260,7 +1260,7 @@ function renderAccess({ access, reason, plan }, subInfo = {}) {
     }
 
     renderUsage(plan, subInfo);
-    renderFeatures(plan);
+    renderFeatures(plan, subInfo);
     activeCard.style.display = '';
 
     document.getElementById('danger-zone').style.display = '';
@@ -1325,11 +1325,15 @@ function renderUsage(plan, subInfo) {
     }
   }
 
-  const dictLimits = { starter:200, pro:2000, expert:-1,
-    clinic: subInfo.features?.ai_dictation_minutes ?? -1 };
-  const dictLimit  = dictLimits[plan];
-  if (dictLimit) {
+  const dictLimit = subInfo.features?.ai_dictation_minutes ?? null;
+  if (dictLimit !== null && dictLimit !== 0) {
     rows.push(makeUsageBar('AI Dictation', null, dictLimit, 'min', null,
+      '<span style="color:var(--t3);font-size:0.688rem">Usage tracked in the desktop app</span>'));
+  }
+
+  const crLimit = subInfo.features?.cr_monthly_limit ?? null;
+  if (crLimit !== null && crLimit !== undefined) {
+    rows.push(makeUsageBar('Reports / Month', null, crLimit, 'reports', null,
       '<span style="color:var(--t3);font-size:0.688rem">Usage tracked in the desktop app</span>'));
   }
 
@@ -1395,13 +1399,65 @@ function animateCount(el, target, suffix) {
   requestAnimationFrame(tick);
 }
 
-function renderFeatures(plan) {
-  const p = PLANS[plan]; if (!p) return;
-  const feats = p.features || buildClinicFeatures(currentSubInfo);
-  document.getElementById('feature-grid').innerHTML = feats.map(f => {
-    const cls  = f.ok===true ? 'fi-ok' : f.ok==='lim' ? 'fi-lim' : 'fi-no';
-    const icon = f.ok===true ? SVG_CHECK : f.ok==='lim' ? SVG_PARTIAL : SVG_MINUS;
-    return `<div class="feature-item ${cls}"><span class="fi-icon">${icon}</span>${f.t}</div>`;
+function renderFeatures(plan, subInfo) {
+  const f = subInfo && subInfo.features ? subInfo.features : null;
+
+  if (!f) {
+    const p = PLANS[plan]; if (!p) return;
+    const feats = p.features || buildClinicFeatures(currentSubInfo);
+    document.getElementById('feature-grid').innerHTML = feats.map(feat => {
+      const cls  = feat.ok===true ? 'fi-ok' : feat.ok==='lim' ? 'fi-lim' : 'fi-no';
+      const icon = feat.ok===true ? SVG_CHECK : feat.ok==='lim' ? SVG_PARTIAL : SVG_MINUS;
+      return `<div class="feature-item ${cls}"><span class="fi-icon">${icon}</span>${feat.t}</div>`;
+    }).join('');
+    return;
+  }
+
+  const feats = [];
+
+  const tpl = f.templates;
+  if (tpl === -1) feats.push({ok:true, t:'Unlimited custom templates'});
+  else if (tpl)   feats.push({ok:true, t:`${tpl} templates`});
+
+  const lang = f.languages;
+  if (lang === 23)      feats.push({ok:true,  t:'23 languages'});
+  else if (lang > 1)    feats.push({ok:'lim', t:`${lang} languages`});
+  else if (lang === 1)  feats.push({ok:'lim', t:'1 language'});
+
+  if (f.export_word) feats.push({ok:true,  t:'PDF + Word export'});
+  else               feats.push({ok:true,  t:'PDF export'});
+
+  const dict = f.ai_dictation_minutes;
+  if (dict === -1)      feats.push({ok:true,  t:'AI Dictation (Unlimited)'});
+  else if (dict > 0)    feats.push({ok:'lim', t:`AI Dictation (${dict.toLocaleString()} min/mo)`});
+  else                  feats.push({ok:false, t:'AI Dictation'});
+
+  const enh = f.ai_enhancer_monthly_limit;
+  if (enh === -1)       feats.push({ok:true,  t:'AI Enhancer (Unlimited)'});
+  else if (enh > 0)     feats.push({ok:'lim', t:`AI Enhancer (${enh}/mo)`});
+  else                  feats.push({ok:false, t:'AI Enhancer'});
+
+  const wlLabels = {multisite:'Multi-site worklist', advanced:'Advanced worklist', full:'Full worklist', basic:'Basic worklist'};
+  const wl = f.worklist;
+  if (wl && wlLabels[wl]) feats.push({ok: wl === 'basic' ? 'lim' : true, t: wlLabels[wl]});
+  else                    feats.push({ok:false, t:'Worklist'});
+
+  const stats = f.stats;
+  if (stats === 'advanced')    feats.push({ok:true,  t:'Advanced stats'});
+  else if (stats === 'basic')  feats.push({ok:'lim', t:'Basic stats'});
+  else                         feats.push({ok:false, t:'Statistics'});
+
+  const users = f.users;
+  if (plan === 'clinic') feats.push({ok:true, t:`${users || 5}+ users`});
+
+  const cr = f.cr_monthly_limit;
+  if (cr !== null && cr !== undefined) feats.push({ok:'lim', t:`${cr} reports / month`});
+  else                                 feats.push({ok:true,  t:'Unlimited reports'});
+
+  document.getElementById('feature-grid').innerHTML = feats.map(feat => {
+    const cls  = feat.ok===true ? 'fi-ok' : feat.ok==='lim' ? 'fi-lim' : 'fi-no';
+    const icon = feat.ok===true ? SVG_CHECK : feat.ok==='lim' ? SVG_PARTIAL : SVG_MINUS;
+    return `<div class="feature-item ${cls}"><span class="fi-icon">${icon}</span>${feat.t}</div>`;
   }).join('');
 }
 
