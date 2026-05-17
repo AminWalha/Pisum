@@ -54,8 +54,8 @@ body::before{
 
 /* Logo */
 .logo{display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:2rem}
-.logo img{width:36px;height:36px;border-radius:10px}
-.logo-text{font-size:1.2rem;font-weight:800;letter-spacing:-0.03em;color:var(--ink)}
+.logo img{width:30px;height:30px;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.12)}
+.logo-text{font-size:1rem;font-weight:700;letter-spacing:-0.03em;color:var(--ink)}
 
 /* Tabs */
 .tabs{
@@ -160,7 +160,10 @@ input::placeholder{color:#9ca3af}
 
 <div class="card">
   <div class="logo">
-    <a href="https://pisum.app" style="display:flex;align-items:center;gap:0.5rem;text-decoration:none;color:inherit;" data-i18n="auth.a_1"></a>
+    <a href="https://pisum.app" style="display:flex;align-items:center;gap:0.5rem;text-decoration:none;color:inherit;" data-i18n="auth.a_1">
+      <img src="../../logo V2.png" alt="PISUM" class="logo-img"/>
+      <span class="logo-text">PISUM</span>
+    </a>
   </div>
 
   <!-- TABS -->
