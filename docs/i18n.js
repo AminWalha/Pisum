@@ -283,15 +283,15 @@ function injectFuturisticLangPicker() {
     
     let optionsHtml = '';
     SUPPORTED_LANGUAGES.forEach(code => {
-        optionsHtml += \`
-            <button class="pisum-lang-option" data-lang="\${code}">
-                <span>\${LANGUAGE_NAMES[code]}</span>
-                <span class="lang-code">\${code}</span>
+        optionsHtml += `
+            <button class="pisum-lang-option" data-lang="${code}">
+                <span>${LANGUAGE_NAMES[code]}</span>
+                <span class="lang-code">${code}</span>
             </button>
-        \`;
+        `;
     });
 
-    wrapper.innerHTML = \`
+    wrapper.innerHTML = `
         <div class="pisum-lang-btn" id="pisum-lang-btn">
             <div style="display:flex;align-items:center;gap:8px;">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
@@ -300,9 +300,9 @@ function injectFuturisticLangPicker() {
             <svg class="icon-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </div>
         <div class="pisum-lang-dropdown">
-            \${optionsHtml}
+            ${optionsHtml}
         </div>
-    \`;
+    `;
 
     // 3. Find Insertion Point
     let target = document.querySelector('.nav-right');
@@ -351,8 +351,7 @@ function showLanguageBanner() {
         { code: 'de', label: '🇩🇪 Deutsch' },
         { code: 'es', label: '🇪🇸 Español' },
         { code: 'it', label: '🇮🇹 Italiano' },
-        { code: 'pt', label: '🇧🇷 Português' },
-        { code: 'ar', label: '🇸🇦 عربي' },
+        { code: 'pt', label: '🇧🇷 Português' }
     ];
 
     const banner = document.createElement('div');
