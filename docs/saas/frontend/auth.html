@@ -1,22 +1,21 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-6VG09X3G7F');
 </script>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>PISUM — Sign In</title>
-<link href="../../logo V2.png" rel="icon" type="image/png"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/png" href="../../logo V2.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -158,101 +157,109 @@ input::placeholder{color:#9ca3af}
 </style>
 </head>
 <body>
+
 <div class="card">
-<div class="logo">
-<a data-i18n="auth.a_1" href="https://pisum.app" style="display:flex;align-items:center;gap:0.5rem;text-decoration:none;color:inherit;">
-<img alt="PISUM" src="../../logo V2.png"/>
-<span class="logo-text">PISUM</span>
-</a>
+  <div class="logo">
+    <a href="https://pisum.app" style="display:flex;align-items:center;gap:0.5rem;text-decoration:none;color:inherit;">
+      <img src="../../logo V2.png" alt="PISUM"/>
+      <span class="logo-text">PISUM</span>
+    </a>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs" id="tabs">
+    <button class="tab active" id="tab-login"  onclick="switchTab('login')">Sign In</button>
+    <button class="tab"        id="tab-signup" onclick="switchTab('signup')">Create Account</button>
+  </div>
+
+  <!-- LOGIN -->
+  <div id="view-login">
+    <div class="form-title">Welcome back</div>
+    <div class="form-sub">Sign in to your PISUM account.</div>
+    <form onsubmit="handleLogin(event)">
+      <div class="field">
+        <label for="login-email">Email address</label>
+        <input id="login-email" type="email" placeholder="you@clinic.com" required autocomplete="email"/>
+      </div>
+      <div class="field">
+        <label for="login-password">Password</label>
+        <input id="login-password" type="password" placeholder="••••••••" required autocomplete="current-password"/>
+      </div>
+      <div class="forgot-row">
+        <button type="button" class="forgot-link" onclick="switchTab('forgot')">Forgot password?</button>
+      </div>
+      <button class="btn" type="submit" id="btn-login">Sign In</button>
+      <div class="msg" id="msg-login"></div>
+    </form>
+  </div>
+
+  <!-- SIGNUP -->
+  <div id="view-signup" style="display:none">
+    <div class="form-title">Create your account</div>
+    <div class="form-sub">Get started with PISUM — no credit card required.</div>
+    <form onsubmit="handleSignup(event)">
+      <div class="field">
+        <label for="signup-name">Full name</label>
+        <input id="signup-name" type="text" placeholder="Dr. Smith" required autocomplete="name"/>
+        <div class="field-hint">Appears on your reports and in the app.</div>
+      </div>
+      <div class="field">
+        <label for="signup-email">Email address</label>
+        <input id="signup-email" type="email" placeholder="you@clinic.com" required autocomplete="email"/>
+      </div>
+      <div class="field">
+        <label for="signup-password">Password</label>
+        <input id="signup-password" type="password" placeholder="Min. 8 characters" required autocomplete="new-password" minlength="8" oninput="checkStrength(this.value)"/>
+        <div class="strength-bar"><div class="strength-fill" id="strength-fill"></div></div>
+      </div>
+      <div class="field">
+        <label for="signup-confirm">Confirm password</label>
+        <input id="signup-confirm" type="password" placeholder="••••••••" required autocomplete="new-password" minlength="8"/>
+      </div>
+      <button class="btn" type="submit" id="btn-signup">Create Account</button>
+      <div class="msg" id="msg-signup"></div>
+    </form>
+  </div>
+
+  <!-- FORGOT -->
+  <div id="view-forgot" style="display:none">
+    <div class="form-title">Reset your password</div>
+    <div class="form-sub">Enter your email and we'll send you a reset link.</div>
+    <form onsubmit="handleForgot(event)">
+      <div class="field">
+        <label for="forgot-email">Email address</label>
+        <input id="forgot-email" type="email" placeholder="you@clinic.com" required autocomplete="email"/>
+      </div>
+      <button class="btn" type="submit" id="btn-forgot">Send Reset Link</button>
+      <button type="button" class="btn btn-secondary" onclick="switchTab('login')">← Back to Sign In</button>
+      <div class="msg" id="msg-forgot"></div>
+    </form>
+  </div>
+
+  <!-- RESET -->
+  <div id="view-reset" style="display:none">
+    <div class="form-title">New password</div>
+    <div class="form-sub">Choose a new secure password.</div>
+    <form onsubmit="handleReset(event)">
+      <div class="field">
+        <label for="reset-password">New password</label>
+        <input id="reset-password" type="password" placeholder="Min. 8 characters" required minlength="8" oninput="checkStrength(this.value)"/>
+        <div class="strength-bar"><div class="strength-fill" id="strength-fill"></div></div>
+      </div>
+      <div class="field">
+        <label for="reset-confirm">Confirm password</label>
+        <input id="reset-confirm" type="password" placeholder="••••••••" required minlength="8"/>
+      </div>
+      <button class="btn" type="submit" id="btn-reset">Save New Password</button>
+      <div class="msg" id="msg-reset"></div>
+    </form>
+  </div>
+
+  <div class="footer-link" id="footer-link">
+    <a href="pricing.html">← View plans</a>
+  </div>
 </div>
-<!-- TABS -->
-<div class="tabs" id="tabs">
-<button class="tab active" data-i18n="auth.button_1" id="tab-login" onclick="switchTab('login')">Sign In</button>
-<button class="tab" data-i18n="auth.button_2" id="tab-signup" onclick="switchTab('signup')">Create Account</button>
-</div>
-<!-- LOGIN -->
-<div id="view-login">
-<div class="form-title">Welcome back</div>
-<div class="form-sub">Sign in to your PISUM account.</div>
-<form onsubmit="handleLogin(event)">
-<div class="field">
-<label data-i18n="auth.label_1" for="login-email">Email address</label>
-<input autocomplete="email" data-i18n="auth.input_1" id="login-email" placeholder="you@clinic.com" required="" type="email"/>
-</div>
-<div class="field">
-<label data-i18n="auth.label_2" for="login-password">Password</label>
-<input autocomplete="current-password" data-i18n="auth.input_2" id="login-password" placeholder="••••••••" required="" type="password"/>
-</div>
-<div class="forgot-row">
-<button class="forgot-link" data-i18n="auth.button_3" onclick="switchTab('forgot')" type="button">Forgot password?</button>
-</div>
-<button class="btn" data-i18n="auth.button_4" id="btn-login" type="submit">Sign In</button>
-<div class="msg" id="msg-login"></div>
-</form>
-</div>
-<!-- SIGNUP -->
-<div id="view-signup" style="display:none">
-<div class="form-title">Create your account</div>
-<div class="form-sub">Get started with PISUM — no credit card required.</div>
-<form onsubmit="handleSignup(event)">
-<div class="field">
-<label data-i18n="auth.label_3" for="signup-name">Full name</label>
-<input autocomplete="name" data-i18n="auth.input_3" id="signup-name" placeholder="Dr. Smith" required="" type="text"/>
-<div class="field-hint">Appears on your reports and in the app.</div>
-</div>
-<div class="field">
-<label data-i18n="auth.label_4" for="signup-email">Email address</label>
-<input autocomplete="email" data-i18n="auth.input_4" id="signup-email" placeholder="you@clinic.com" required="" type="email"/>
-</div>
-<div class="field">
-<label data-i18n="auth.label_5" for="signup-password">Password</label>
-<input autocomplete="new-password" data-i18n="auth.input_5" id="signup-password" minlength="8" oninput="checkStrength(this.value)" placeholder="Min. 8 characters" required="" type="password"/>
-<div class="strength-bar"><div class="strength-fill" id="strength-fill"></div></div>
-</div>
-<div class="field">
-<label data-i18n="auth.label_6" for="signup-confirm">Confirm password</label>
-<input autocomplete="new-password" data-i18n="auth.input_6" id="signup-confirm" minlength="8" placeholder="••••••••" required="" type="password"/>
-</div>
-<button class="btn" data-i18n="auth.button_5" id="btn-signup" type="submit">Create Account</button>
-<div class="msg" id="msg-signup"></div>
-</form>
-</div>
-<!-- FORGOT -->
-<div id="view-forgot" style="display:none">
-<div class="form-title">Reset your password</div>
-<div class="form-sub">Enter your email and we'll send you a reset link.</div>
-<form onsubmit="handleForgot(event)">
-<div class="field">
-<label data-i18n="auth.label_7" for="forgot-email">Email address</label>
-<input autocomplete="email" data-i18n="auth.input_7" id="forgot-email" placeholder="you@clinic.com" required="" type="email"/>
-</div>
-<button class="btn" data-i18n="auth.button_6" id="btn-forgot" type="submit">Send Reset Link</button>
-<button class="btn btn-secondary" data-i18n="auth.button_7" onclick="switchTab('login')" type="button">← Back to Sign In</button>
-<div class="msg" id="msg-forgot"></div>
-</form>
-</div>
-<!-- RESET -->
-<div id="view-reset" style="display:none">
-<div class="form-title">New password</div>
-<div class="form-sub">Choose a new secure password.</div>
-<form onsubmit="handleReset(event)">
-<div class="field">
-<label data-i18n="auth.label_8" for="reset-password">New password</label>
-<input data-i18n="auth.input_8" id="reset-password" minlength="8" oninput="checkStrength(this.value)" placeholder="Min. 8 characters" required="" type="password"/>
-<div class="strength-bar"><div class="strength-fill" id="strength-fill"></div></div>
-</div>
-<div class="field">
-<label data-i18n="auth.label_9" for="reset-confirm">Confirm password</label>
-<input data-i18n="auth.input_9" id="reset-confirm" minlength="8" placeholder="••••••••" required="" type="password"/>
-</div>
-<button class="btn" data-i18n="auth.button_8" id="btn-reset" type="submit">Save New Password</button>
-<div class="msg" id="msg-reset"></div>
-</form>
-</div>
-<div class="footer-link" id="footer-link">
-<a data-i18n="auth.a_2" href="pricing.html">← View plans</a>
-</div>
-</div>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
 const SUPABASE_URL  = 'https://lepqbnhrdgfetoysedbq.supabase.co';
@@ -420,6 +427,5 @@ async function handleReset(e) {
   setTimeout(() => { window.location.href = 'dashboard.html'; }, 1800);
 }
 </script>
-<script src="i18n.js"></script>
 </body>
 </html>
