@@ -324,8 +324,9 @@ function injectFuturisticLangPicker() {
     wrapper.querySelectorAll('.pisum-lang-option').forEach(btn => {
         btn.addEventListener('click', () => {
             const lang = btn.dataset.lang;
-            window.i18n.setLanguage(lang, true); // explicit = save to localStorage
-            wrapper.classList.remove('open');
+            localStorage.setItem('preferredLanguage', lang);
+            localStorage.setItem('langExplicit', '1');
+            location.reload();
         });
     });
 }
@@ -386,8 +387,10 @@ function showLanguageBanner() {
                 : 'background:transparent;color:#3a3a4c;border:1px solid rgba(0,0,0,0.12)'
         ].join(';');
         b.addEventListener('click', () => {
-            window.i18n && window.i18n.setLanguage(l.code, true);
-            dismiss();
+            localStorage.setItem('preferredLanguage', l.code);
+            localStorage.setItem('langExplicit', '1');
+            localStorage.setItem('langBannerDismissed', '1');
+            location.reload();
         });
         banner.appendChild(b);
     });
