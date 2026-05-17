@@ -637,7 +637,7 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
   <!-- ── SIDEBAR ── -->
   <aside class="sidebar" id="sidebar">
     <div class="sb-top">
-      <a class="sb-logo" href="https://pisum.app">
+      <a class="sb-logo" href="https://pisum.app" data-i18n="dashboard.a_1">
         <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="PISUM"/>
         <span class="sb-logo-text">PISUM</span>
       </a>
@@ -693,7 +693,7 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
           <div class="hero-left">
             <div class="hero-eyebrow">
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
-              <span data-i18n="dashboard.eyebrow">My Account</span>
+              My Account
             </div>
             <h1 class="hero-title-el" id="page-title">My Account</h1>
             <p class="hero-sub-el" id="page-sub" data-i18n="dashboard.p_1">Manage your subscription and access PISUM.</p>
@@ -727,8 +727,8 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
       <div id="onboarding-card" style="display:none">
         <div class="ob-header">
           <div>
-            <div class="ob-title" data-i18n="dashboard.ob_title">👋 Get started with PISUM</div>
-            <div class="ob-sub" data-i18n="dashboard.ob_sub">3 steps to your first radiology report</div>
+            <div class="ob-title">👋 Get started with PISUM</div>
+            <div class="ob-sub">3 steps to your first radiology report</div>
           </div>
           <button class="ob-dismiss" onclick="obDismiss()" title="Dismiss">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -738,8 +738,8 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
           <div class="ob-step" id="ob-step-1">
             <div class="ob-step-num" id="ob-num-1">1</div>
             <div class="ob-step-body">
-              <div class="ob-step-title" data-i18n="dashboard.ob_step1_title">Download &amp; install PISUM</div>
-              <div class="ob-step-desc" data-i18n="dashboard.ob_step1_desc">One .exe installer for Windows 10/11. Takes under a minute.</div>
+              <div class="ob-step-title">Download &amp; install PISUM</div>
+              <div class="ob-step-desc">One .exe installer for Windows 10/11. Takes under a minute.</div>
               <div class="ob-step-action">
                 <a class="ob-btn" href="https://www.dropbox.com/scl/fi/4ekm8ni7zsbw76se4h5ue/PISUM_Radiology_Setup_2.9.8.1.exe?rlkey=8tgsbhqubhobjs57cs0yfxfvt&st=7gc04d3f&dl=1" target="_blank" rel="noopener noreferrer" onclick="obComplete(1)" data-i18n="dashboard.a_3">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -751,15 +751,15 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
           <div class="ob-step" id="ob-step-2">
             <div class="ob-step-num" id="ob-num-2">2</div>
             <div class="ob-step-body">
-              <div class="ob-step-title" data-i18n="dashboard.ob_step2_title">Open PISUM and sign in</div>
-              <div class="ob-step-desc" data-i18n="dashboard.ob_step2_desc">Launch the app after installation. Sign in with the same email and password you used here.</div>
+              <div class="ob-step-title">Open PISUM and sign in</div>
+              <div class="ob-step-desc">Launch the app after installation. Sign in with the same email and password you used here.</div>
             </div>
           </div>
           <div class="ob-step" id="ob-step-3">
             <div class="ob-step-num" id="ob-num-3">3</div>
             <div class="ob-step-body">
-              <div class="ob-step-title" data-i18n="dashboard.ob_step3_title">Create your first report</div>
-              <div class="ob-step-desc" data-i18n="dashboard.ob_step3_desc">Choose a template by modality — CT, MRI, X-Ray, or Ultrasound. Fill in your findings and export to PDF.</div>
+              <div class="ob-step-title">Create your first report</div>
+              <div class="ob-step-desc">Choose a template by modality — CT, MRI, X-Ray, or Ultrasound. Fill in your findings and export to PDF.</div>
             </div>
           </div>
         </div>
@@ -778,28 +778,28 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
             <div class="stat-icon-box blue">
               <svg viewBox="0 0 24 24" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             </div>
-            <div class="stat-label" data-i18n="dashboard.stat_next_billing">Next Billing</div>
+            <div class="stat-label">Next Billing</div>
             <div class="info-value" id="info-next-billing">—</div>
           </div>
           <div class="stat-card">
             <div class="stat-icon-box amber">
               <svg viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
             </div>
-            <div class="stat-label" data-i18n="dashboard.stat_expires">Expires</div>
+            <div class="stat-label">Expires</div>
             <div class="info-value" id="info-expiry">—</div>
           </div>
           <div class="stat-card">
             <div class="stat-icon-box t2">
               <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
             </div>
-            <div class="stat-label" data-i18n="dashboard.stat_billing_cycle">Billing Cycle</div>
+            <div class="stat-label">Billing Cycle</div>
             <div class="info-value" id="info-interval">—</div>
           </div>
           <div class="stat-card">
             <div class="stat-icon-box green">
               <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
-            <div class="stat-label" data-i18n="dashboard.stat_member_since">Member Since</div>
+            <div class="stat-label">Member Since</div>
             <div class="info-value" id="info-since">—</div>
           </div>
         </div>
@@ -817,8 +817,8 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
         <!-- Included features -->
         <div class="dark-card anim-3">
           <div class="dc-head">
-            <span class="dc-title" data-i18n="dashboard.span_3">Included Features</span>
-            <a class="upgrade-row" href="pricing.html" style="margin:0;font-size:0.738rem" data-i18n="dashboard.a_4">View all plans →</a>
+            <span class="dc-title">Included Features</span>
+            <a class="upgrade-row" href="pricing.html" style="margin:0;font-size:0.738rem">View all plans →</a>
           </div>
           <div class="dc-body">
             <div class="feature-grid" id="feature-grid"></div>
@@ -828,32 +828,32 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
         <!-- Team & Seats (Clinic only) -->
         <div class="dark-card anim-4" id="team-seats-card" style="display:none">
           <div class="dc-head">
-            <span class="dc-title" data-i18n="dashboard.span_4">Team &amp; Seats</span>
+            <span class="dc-title">Team &amp; Seats</span>
             <span class="badge badge-clinic" id="total-seats-badge" data-i18n="dashboard.span_5">5 users</span>
           </div>
           <div class="seats-body">
             <div class="seats-stats">
               <div class="seats-stat">
                 <div class="seats-stat-val">5</div>
-                <div class="seats-stat-lbl" data-i18n="dashboard.seats_included">Included</div>
+                <div class="seats-stat-lbl">Included</div>
               </div>
               <div class="seats-stat">
                 <div class="seats-stat-val" id="extra-seats-val">0</div>
-                <div class="seats-stat-lbl" data-i18n="dashboard.seats_extra">Extra</div>
+                <div class="seats-stat-lbl">Extra</div>
               </div>
               <div class="seats-stat">
                 <div class="seats-stat-val green" id="total-seats-val">5</div>
-                <div class="seats-stat-lbl" data-i18n="dashboard.seats_total">Total users</div>
+                <div class="seats-stat-lbl">Total users</div>
               </div>
             </div>
             <div class="seats-add-row">
-              <div class="seats-add-label" data-i18n="dashboard.seats_add_desc">
+              <div class="seats-add-label">
                 <strong>Add extra users</strong> — €69 / user / month.<br>
                 Billed as a separate recurring add-on. Manage via billing portal.
               </div>
               <div class="seats-picker">
                 <button class="seats-picker-btn" onclick="changeAddSeats(-1)" data-i18n="dashboard.button_7">−</button>
-                <span class="seats-qty" id="add-seats-qty">1</span>
+                <span class="seats-qty" id="add-seats-qty" data-i18n="dashboard.span_6">1</span>
                 <button class="seats-picker-btn" onclick="changeAddSeats(1)" data-i18n="dashboard.button_8">+</button>
               </div>
               <button class="btn-add-seats" id="btn-add-seats" onclick="handleAddSeats()" data-i18n="dashboard.button_9">
@@ -866,7 +866,7 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
         <!-- Danger zone -->
         <div class="dark-card anim-4" id="danger-zone" style="display:none">
           <div class="danger-zone">
-            <div class="danger-title" data-i18n="dashboard.danger_title">Danger Zone</div>
+            <div class="danger-title">Danger Zone</div>
             <div class="danger-actions">
               <button class="btn-cancel-sub" id="btn-cancel-sub" onclick="openCancelModal()" style="display:none" data-i18n="dashboard.button_10">Cancel Subscription</button>
               <button class="btn-danger-outline" onclick="openDeleteModal()" data-i18n="dashboard.button_11">Delete Account</button>
@@ -930,7 +930,7 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
 <!-- ── PROFILE EDIT MODAL ── -->
 <div class="modal-overlay" id="profile-modal-overlay" onclick="closeProfileModal()">
   <div class="modal" onclick="event.stopPropagation()">
-    <div class="modal-title" data-i18n="dashboard.modal_profile_title">Edit Profile</div>
+    <div class="modal-title">Edit Profile</div>
     <div class="modal-avatar-wrap">
       <div class="modal-avatar-btn" onclick="document.getElementById('avatar-input-modal').click()" title="Change photo">
         <div class="profile-avatar" id="modal-avatar">?</div>
@@ -976,7 +976,7 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
 <!-- ── CANCEL SUBSCRIPTION MODAL ── -->
 <div class="modal-overlay" id="cancel-modal-overlay" onclick="closeCancelModal()">
   <div class="modal" onclick="event.stopPropagation()" style="max-width:420px">
-    <div class="modal-title" style="color:var(--red)" data-i18n="dashboard.modal_cancel_title">Cancel Subscription</div>
+    <div class="modal-title" style="color:var(--red)">Cancel Subscription</div>
     <p style="font-size:0.838rem;color:var(--t2);line-height:1.65" data-i18n="dashboard.p_5">
       Your subscription will remain active until the end of the current billing period.
       After that, your account will revert to the Free plan.
@@ -995,7 +995,7 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
 <!-- ── CHANGE PASSWORD MODAL ── -->
 <div class="modal-overlay" id="pw-modal-overlay" onclick="closePwModal()">
   <div class="modal" onclick="event.stopPropagation()" style="max-width:420px">
-    <div class="modal-title" data-i18n="dashboard.modal_pw_title">Change Password</div>
+    <div class="modal-title">Change Password</div>
     <div class="form-grid" style="grid-template-columns:1fr">
       <div class="form-group">
         <label class="form-label" data-i18n="dashboard.label_7">New Password</label>
@@ -1017,7 +1017,7 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
 <!-- ── DELETE ACCOUNT MODAL ── -->
 <div class="modal-overlay" id="delete-modal-overlay" onclick="closeDeleteModal()">
   <div class="modal" onclick="event.stopPropagation()" style="max-width:420px">
-    <div class="modal-title" style="color:var(--red)" data-i18n="dashboard.modal_delete_title">Delete Account</div>
+    <div class="modal-title" style="color:var(--red)">Delete Account</div>
     <p style="font-size:0.838rem;color:var(--t2);line-height:1.65" data-i18n="dashboard.p_7">
       This action is <strong style="color:var(--t1)">permanent and irreversible</strong>. All your data, reports, and subscription will be deleted immediately.
     </p>
@@ -2012,7 +2012,7 @@ init();
 </style>
 
 <div id="piw">
-  <button id="piw-trigger" onclick="piwToggle()" aria-label="Ask PISUM AI" data-i18n="dashboard.button_23">
+  <button id="piw-trigger" onclick="piwToggle()" aria-label="Ask PISUM AI">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
     Ask AI
     <span id="piw-badge">1</span>
@@ -2023,23 +2023,23 @@ init();
         <div id="piw-avatar">🤖</div>
         <div>
           <div id="piw-name">PISUM AI</div>
-          <div id="piw-status"><span class="piw-dot"></span> <span data-i18n="dashboard.piw_status">Online — always here to help</span></div>
+          <div id="piw-status"><span class="piw-dot"></span> Online — always here to help</div>
         </div>
       </div>
-      <button id="piw-close" onclick="piwToggle()" aria-label="Close" data-i18n="dashboard.button_24">✕</button>
+      <button id="piw-close" onclick="piwToggle()" aria-label="Close">✕</button>
     </div>
     <div id="piw-msgs">
       <div class="piw-msg ai"><div class="piw-bubble">Hi! I'm <strong>PISUM AI</strong> 👋<br/>Ask me anything about features, pricing, setup, or templates. I'll give you a straight answer.</div></div>
     </div>
     <div id="piw-chips">
-      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="dashboard.button_25">What plans exist?</button>
-      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="dashboard.button_26">Free trial?</button>
-      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="dashboard.button_27">How to install?</button>
-      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="dashboard.button_28">AI dictation?</button>
-      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="dashboard.button_29">GDPR compliant?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)">What plans exist?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)">Free trial?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)">How to install?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)">AI dictation?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)">GDPR compliant?</button>
     </div>
     <div id="piw-footer">
-      <input id="piw-input" type="text" placeholder="Ask a question…" autocomplete="off" onkeydown="if(event.key==='Enter')piwSend()" data-i18n="[placeholder]dashboard.input_11"/>
+      <input id="piw-input" type="text" placeholder="Ask a question…" autocomplete="off" onkeydown="if(event.key==='Enter')piwSend()"/>
       <button id="piw-send" onclick="piwSend()" aria-label="Send">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
       </button>
