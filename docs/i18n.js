@@ -23,16 +23,26 @@ class I18n {
     }
 
     detectLanguage() {
-        // Only use saved lang if user explicitly chose it (not auto-detected)
-        const savedLang = localStorage.getItem('preferredLanguage');
-        const isExplicit = localStorage.getItem('langExplicit') === '1';
-        if (savedLang && isExplicit && SUPPORTED_LANGUAGES.includes(savedLang)) {
-            return savedLang;
-        }
-        // Check all browser preferred languages (navigator.languages is more complete)
+        // 1. URL param is the most explicit signal (set by footer/banner buttons)
+        try {
+            const urlLang = new URLSearchParams(window.location.search).get('lang');
+            if (urlLang && SUPPORTED_LANGUAGES.includes(urlLang)) {
+                localStorage.setItem('preferredLanguage', urlLang);
+                localStorage.setItem('langExplicit', '1');
+                return urlLang;
+            }
+        } catch(e) {}
+        // 2. Explicit localStorage choice
+        try {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            const isExplicit = localStorage.getItem('langExplicit') === '1';
+            if (savedLang && isExplicit && SUPPORTED_LANGUAGES.includes(savedLang)) {
+                return savedLang;
+            }
+        } catch(e) {}
+        // 3. Browser preferred languages
         const langs = (navigator.languages && navigator.languages.length)
-            ? navigator.languages
-            : [navigator.language];
+            ? navigator.languages : [navigator.language];
         for (const lang of langs) {
             const code = lang.split('-')[0].toLowerCase();
             if (SUPPORTED_LANGUAGES.includes(code)) return code;
@@ -324,9 +334,7 @@ function injectFuturisticLangPicker() {
     wrapper.querySelectorAll('.pisum-lang-option').forEach(btn => {
         btn.addEventListener('click', () => {
             const lang = btn.dataset.lang;
-            localStorage.setItem('preferredLanguage', lang);
-            localStorage.setItem('langExplicit', '1');
-            location.reload();
+            location.href = '?lang=' + lang;
         });
     });
 }
@@ -387,10 +395,7 @@ function showLanguageBanner() {
                 : 'background:transparent;color:#3a3a4c;border:1px solid rgba(0,0,0,0.12)'
         ].join(';');
         b.addEventListener('click', () => {
-            localStorage.setItem('preferredLanguage', l.code);
-            localStorage.setItem('langExplicit', '1');
-            localStorage.setItem('langBannerDismissed', '1');
-            location.reload();
+            location.href = '?lang=' + l.code;
         });
         banner.appendChild(b);
     });
