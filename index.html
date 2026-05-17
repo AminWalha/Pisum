@@ -250,6 +250,7 @@ a{text-decoration:none;color:inherit}
 .feat-pill{display:inline-block;margin-top:1rem;padding:0.2rem 0.6rem;border-radius:6px;font-size:0.66rem;font-weight:700;letter-spacing:0.06em}
 .pill-free{background:rgba(22,163,74,0.1);color:#15803d}
 .pill-pro{background:rgba(124,90,240,0.1);color:var(--purple)}
+.pill-new{background:linear-gradient(135deg,rgba(59,110,248,0.12),rgba(124,90,240,0.12));color:var(--blue);border:1px solid rgba(59,110,248,0.2)}
 @media(max-width:860px){.feat-grid{grid-template-columns:1fr 1fr}.feat-grid .feat-card[style*="span 3"]{grid-column:span 2!important}}
 @media(max-width:560px){.feat-grid{grid-template-columns:1fr}.feat-grid .feat-card[style*="span 3"]{grid-column:span 1!important}}
 
@@ -412,6 +413,33 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.05);padding
 .shots-cap-text p{font-size:0.78rem;color:rgba(255,255,255,0.38);line-height:1.55}
 .shots-badge{background:rgba(20,184,166,0.12);color:#14B8A6;border:1px solid rgba(20,184,166,0.2);font-size:0.7rem;font-weight:700;padding:0.22rem 0.65rem;border-radius:6px;white-space:nowrap}
 @media(max-width:640px){.shots-img-wrap{min-height:220px}.shots-caption{flex-direction:column;align-items:flex-start}}
+
+/* Demo: Translate */
+.idtrans-layout{display:flex;flex-direction:column;gap:0.85rem;height:406px}
+.idtrans-top{display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;padding:1rem 1.75rem 0}
+.idtrans-top-label{font-size:0.78rem;font-weight:700;color:var(--ink-2);white-space:nowrap}
+.idtrans-langs{display:flex;gap:0.38rem;flex-wrap:wrap}
+.idtrans-lang-opt{padding:0.28rem 0.65rem;border-radius:999px;border:1px solid var(--b2);background:var(--white);font-size:0.73rem;font-weight:600;cursor:pointer;transition:all 0.18s;color:var(--ink-2);font-family:var(--sans)}
+.idtrans-lang-opt:hover{border-color:rgba(59,110,248,0.3);color:var(--blue)}
+.idtrans-lang-opt.on{background:var(--ink);color:var(--white);border-color:transparent}
+.idtrans-panels{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;flex:1;overflow:hidden;padding:0 1.75rem}
+.idtrans-panel{background:var(--white);border-radius:12px;border:1px solid var(--b1);padding:0.85rem;overflow-y:auto}
+.idtrans-panel-hd{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-4);margin-bottom:0.65rem}
+.idtrans-field{margin-bottom:0.55rem}
+.idtrans-field:last-child{margin-bottom:0}
+.idtrans-field label{font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:3px}
+.idtrans-text{font-size:0.73rem;color:var(--ink-2);line-height:1.55;padding:0.3rem 0.58rem;background:var(--off);border-radius:6px;border-left:2px solid rgba(59,110,248,0.22);transition:opacity 0.35s ease}
+.idtrans-target .idtrans-text{opacity:0;border-left-color:rgba(124,90,240,0.3)}
+.idtrans-target .idtrans-text.show{opacity:1}
+.idtrans-btn-row{padding:0 1.75rem 1rem;display:flex;align-items:center;gap:0.75rem}
+.idtrans-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.52rem 1.15rem;border-radius:999px;background:var(--grad);color:var(--white);font-size:0.82rem;font-weight:700;border:none;cursor:pointer;font-family:var(--sans);transition:all 0.22s var(--t);box-shadow:var(--shadow-blue)}
+.idtrans-btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 16px 40px rgba(59,110,248,0.3)}
+.idtrans-btn:disabled{opacity:0.6;cursor:default}
+.idtrans-status{font-size:0.72rem;color:var(--ink-3);display:flex;align-items:center;gap:0.4rem}
+.idtrans-spinner{width:12px;height:12px;border:2px solid var(--b1);border-top-color:var(--blue);border-radius:50%;animation:trans-spin 0.65s linear infinite;display:none}
+.idtrans-spinner.active{display:block}
+@keyframes trans-spin{to{transform:rotate(360deg)}}
+@media(max-width:600px){.idtrans-panels{grid-template-columns:1fr}.idtrans-target{display:none}}
 
 /* BODY MENU OPEN */
 body.menu-open{overflow:hidden}
@@ -786,7 +814,7 @@ button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action
         <p class="hero-tagline rv rv-d2">Dictate naturally. Let <span class="t-accent">AI enhance your reports.</span></p>
         <p class="hero-sub rv rv-d2">Pisum helps radiologists generate <strong>structured, accurate reports faster</strong> by enhancing dictation with intelligent correction, formatting, and medical context awareness.</p>
         <div class="hero-actions rv rv-d3">
-          <a href="https://www.dropbox.com/scl/fi/gmvtcnvvncun536yui7c3/PISUM_Radiology_Setup_2.9.8.exe?rlkey=bw6y7aeuu9l6war112a1u5gtn&st=vo0yfr1s&dl=1" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xl" style="display:inline-flex;align-items:center;gap:7px">
+          <a href="https://www.dropbox.com/scl/fi/guowjnsrexd8pzf2bpjj0/PISUM_Radiology_Setup.exe?rlkey=33u6ozepmwb9fqgjrkuqmm8xy&st=9bpcdwey&dl=1" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xl" style="display:inline-flex;align-items:center;gap:7px">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Download Free — Windows
           </a>
@@ -975,6 +1003,7 @@ button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action
       <div class="feat-card rv rv-d1"><div class="feat-icon">🏥</div><h3>Multi-Site Clinic Mode</h3><p>Manage multiple radiologists from one admin panel. Custom branding per site. Centralized reporting dashboard.</p><span class="feat-pill pill-pro">Clinic Plan</span></div>
       <div class="feat-card rv rv-d2"><div class="feat-icon">🔗</div><h3>LAN Network Sharing</h3><p>Share the patient database across all workstations in your clinic via a shared local network folder. One shared folder on your LAN is all it takes. AES-256 encrypted end-to-end.</p><span class="feat-pill pill-pro">Expert &amp; Clinic</span></div>
       <div class="feat-card rv rv-d3"><div class="feat-icon">🗃️</div><h3>Patient Worklist &amp; Audit Log</h3><p>Full PACS-style worklist with accession numbers, exam status, and GDPR-compliant audit trail. Every access, modification, and export is logged with timestamp and user.</p><span class="feat-pill pill-pro">Pro+</span></div>
+      <div class="feat-card rv rv-d1"><div class="feat-icon" style="background:linear-gradient(135deg,#6d28d9,#3b6ef8)">🔄</div><h3>Report Conversion &amp; Translation <span style="font-size:0.6rem;font-weight:700;background:linear-gradient(135deg,#3b6ef8,#7c5af0);color:#fff;padding:0.15rem 0.45rem;border-radius:4px;vertical-align:middle;margin-left:4px;letter-spacing:0.05em">NEW</span></h3><p>Instantly translate any completed radiology report into another language. Clinical terminology preserved, report structure intact — one click, 23 target languages.</p><span class="feat-pill pill-new">Pro+ · New in v2.9.8</span></div>
       <div class="feat-card rv rv-d2" style="background:linear-gradient(135deg,#0D1117 0%,#161B22 100%);border-color:rgba(20,184,166,0.18);grid-column:span 3"><div class="feat-icon" style="background:linear-gradient(135deg,#0D9488,#14B8A6)">🌙</div><h3 style="color:#E6EDF3">Dark Medical-Grade Interface</h3><p style="color:#8B949E">Designed for reading rooms. Near-black surface palette, teal accents, zero eye strain during long reporting sessions. Your eyes will thank you after shift 3.</p><span class="feat-pill" style="background:rgba(20,184,166,0.12);color:#14B8A6">All Plans</span></div>
     </div>
   </div>
@@ -1009,6 +1038,10 @@ button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action
         <button class="idtab" onclick="switchDemo('voice',this)">
           <div class="idtab-icon">🎙️</div>
           <div><div class="idtab-name">Voice Dictation</div><div class="idtab-desc">Dictate into structured fields</div></div>
+        </button>
+        <button class="idtab" onclick="switchDemo('translate',this)" style="border-color:rgba(59,110,248,0.15);background:rgba(59,110,248,0.03)">
+          <div class="idtab-icon" style="background:linear-gradient(135deg,#6d28d9,#3b6ef8)">🔄</div>
+          <div><div class="idtab-name">Translate Report <span style="font-size:0.55rem;font-weight:700;background:linear-gradient(135deg,#3b6ef8,#7c5af0);color:#fff;padding:0.1rem 0.35rem;border-radius:3px;vertical-align:middle;margin-left:2px">NEW</span></div><div class="idtab-desc">Convert into 23 languages instantly</div></div>
         </button>
       </div>
       <div class="idemo-panel">
@@ -1133,6 +1166,40 @@ button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action
           </div>
         </div>
 
+        <!-- SCREEN: Translate -->
+        <div class="idemo-screen" id="idp-translate">
+          <div class="idtrans-layout">
+            <div class="idtrans-top">
+              <span class="idtrans-top-label">Translate to:</span>
+              <div class="idtrans-langs">
+                <button class="idtrans-lang-opt on" onclick="setTransLang('fr',this)">🇫🇷 French</button>
+                <button class="idtrans-lang-opt" onclick="setTransLang('es',this)">🇪🇸 Spanish</button>
+                <button class="idtrans-lang-opt" onclick="setTransLang('de',this)">🇩🇪 German</button>
+                <button class="idtrans-lang-opt" onclick="setTransLang('ar',this)">🇸🇦 Arabic</button>
+                <button class="idtrans-lang-opt" onclick="setTransLang('pt',this)">🇧🇷 Portuguese</button>
+              </div>
+            </div>
+            <div class="idtrans-panels">
+              <div class="idtrans-panel idtrans-source">
+                <div class="idtrans-panel-hd">🇬🇧 Original · English</div>
+                <div class="idtrans-field"><label>Indication</label><div class="idtrans-text">Evaluation of right lung opacity on prior CXR. Rule out pneumonia or malignancy.</div></div>
+                <div class="idtrans-field"><label>Findings</label><div class="idtrans-text">RLL consolidation with air bronchograms. No pleural effusion. Mediastinum normal.</div></div>
+                <div class="idtrans-field"><label>Impression</label><div class="idtrans-text">Right lower lobe pneumonia. Follow-up CT in 4–6 weeks recommended.</div></div>
+              </div>
+              <div class="idtrans-panel idtrans-target" id="transTarget">
+                <div class="idtrans-panel-hd" id="transTargetHd">🇫🇷 Translation · French</div>
+                <div class="idtrans-field"><label>Indication</label><div class="idtrans-text" id="tt-ind"></div></div>
+                <div class="idtrans-field"><label>Constatations</label><div class="idtrans-text" id="tt-find"></div></div>
+                <div class="idtrans-field"><label>Conclusion</label><div class="idtrans-text" id="tt-imp"></div></div>
+              </div>
+            </div>
+            <div class="idtrans-btn-row">
+              <button class="idtrans-btn" id="transBtn" onclick="triggerTranslation()">🔄 Translate Report</button>
+              <div class="idtrans-status"><div class="idtrans-spinner" id="transSpinner"></div><span id="transStatus"></span></div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -1239,7 +1306,7 @@ button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action
         <div class="plan-name">Free</div>
         <div class="plan-price"><span class="psym">€</span><span class="pamt">0</span><span class="pper">/mo</span></div>
         <p class="plan-desc">Try AI dictation and 10 expert templates — no commitment, no card.</p>
-        <a href="https://www.dropbox.com/scl/fi/gmvtcnvvncun536yui7c3/PISUM_Radiology_Setup_2.9.8.exe?rlkey=bw6y7aeuu9l6war112a1u5gtn&st=vo0yfr1s&dl=1" class="plan-cta cta-ghost" target="_blank" rel="noopener noreferrer">Download Free — Windows</a>
+        <a href="https://www.dropbox.com/scl/fi/guowjnsrexd8pzf2bpjj0/PISUM_Radiology_Setup.exe?rlkey=33u6ozepmwb9fqgjrkuqmm8xy&st=9bpcdwey&dl=1" class="plan-cta cta-ghost" target="_blank" rel="noopener noreferrer">Download Free — Windows</a>
         <hr class="plan-div"/>
         <ul class="plan-list">
           <li><span class="lchk">✓</span>10 templates</li>
@@ -1291,6 +1358,7 @@ button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action
           <li><span class="lchk">✓</span>PDF + Word + HTML export</li>
           <li><span class="lchk">✓</span>🎙️ AI Dictation (2,000 min/mo)</li>
           <li><span class="lchk">✓</span>✨ AI Assistant (200/mo)</li>
+          <li><span class="lchk">✓</span>🔄 Report Translation (100/mo)</li>
           <li><span class="lchk">✓</span>Full worklist</li>
           <li><span class="lchk">✓</span>Basic statistics</li>
           <li><span class="lchk">✓</span>Priority support</li>
@@ -1313,6 +1381,7 @@ button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action
           <li><span class="lchk">✓</span>PDF + Word + HTML export</li>
           <li><span class="lchk">✓</span>🎙️ AI Dictation (Unlimited)</li>
           <li><span class="lchk">✓</span>✨ AI Enhancer (Unlimited)</li>
+          <li><span class="lchk">✓</span>🔄 Report Translation (Unlimited)</li>
           <li><span class="lchk">✓</span>Advanced worklist</li>
           <li><span class="lchk">✓</span>Full statistics</li>
           <li><span class="lchk">✓</span>LAN Sync (1 site · 3 PCs)</li>
@@ -1334,6 +1403,7 @@ button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action
           <li><span class="lchk">✓</span>PDF + Word + HTML export</li>
           <li><span class="lchk">✓</span>🎙️ AI Dictation (Unlimited)</li>
           <li><span class="lchk">✓</span>✨ AI Enhancer (Unlimited)</li>
+          <li><span class="lchk">✓</span>🔄 Report Translation (Unlimited)</li>
           <li><span class="lchk">✓</span>Multi-site worklist</li>
           <li><span class="lchk">✓</span>Advanced stats + onboarding</li>
           <li><span class="lchk">✓</span>LAN Sync (multi-site · unlimited)</li>
@@ -1498,7 +1568,7 @@ button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action
       <h2 class="serif d2">Download PISUM.<br><em>Start reporting today.</em></h2>
       <p class="cta-sub">Join 2,800+ radiologists who've already reclaimed their time. Free plan included — no credit card.</p>
       <div class="cta-acts">
-        <a href="https://www.dropbox.com/scl/fi/gmvtcnvvncun536yui7c3/PISUM_Radiology_Setup_2.9.8.exe?rlkey=bw6y7aeuu9l6war112a1u5gtn&st=vo0yfr1s&dl=1" target="_blank" rel="noopener noreferrer" class="btn btn-grad btn-xl" style="display:inline-flex;align-items:center;gap:8px">
+        <a href="https://www.dropbox.com/scl/fi/guowjnsrexd8pzf2bpjj0/PISUM_Radiology_Setup.exe?rlkey=33u6ozepmwb9fqgjrkuqmm8xy&st=9bpcdwey&dl=1" target="_blank" rel="noopener noreferrer" class="btn btn-grad btn-xl" style="display:inline-flex;align-items:center;gap:8px">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Download Free — Windows
         </a>
@@ -1898,6 +1968,67 @@ function typeInto(id,text){
     if(i<text.length){el.textContent+=text[i++];}
     else clearInterval(iv);
   },34);
+}
+
+/* Report Translation Demo */
+const transData={
+  fr:{flag:'🇫🇷',label:'French',
+    ind:'Évaluation d\'une opacité pulmonaire droite sur la radiographie thoracique antérieure. Éliminer une pneumonie ou une malignité.',
+    find:'Consolidation du lobe inférieur droit avec bronchogrammes aériques. Pas d\'épanchement pleural. Médiastin normal.',
+    imp:'Pneumonie du lobe inférieur droit. Contrôle tomodensitométrique dans 4 à 6 semaines recommandé.'},
+  es:{flag:'🇪🇸',label:'Spanish',
+    ind:'Evaluación de opacidad pulmonar derecha en radiografía previa. Descartar neumonía o malignidad.',
+    find:'Consolidación en lóbulo inferior derecho con broncogramas aéreos. Sin derrame pleural. Mediastino normal.',
+    imp:'Neumonía del lóbulo inferior derecho. Se recomienda TC de seguimiento en 4–6 semanas.'},
+  de:{flag:'🇩🇪',label:'German',
+    ind:'Beurteilung einer rechtsseitigen Lungentrübung aus der Voraufnahme. Ausschluss einer Pneumonie oder Malignität.',
+    find:'Rechtsbasale Konsolidierung mit Luftbronchogrammen. Kein Pleuraerguss. Mediastinum unauffällig.',
+    imp:'Rechtsbasale Pneumonie. CT-Verlaufskontrolle in 4–6 Wochen empfohlen.'},
+  ar:{flag:'🇸🇦',label:'Arabic',
+    ind:'تقييم تعتم رئوي أيمن لوحظ في صورة الصدر السابقة. استبعاد الالتهاب الرئوي أو الأورام الخبيثة.',
+    find:'تكثف في الفص السفلي الأيمن مع برونشوغرامات هوائية. لا انصباب جنبي. المنصف طبيعي.',
+    imp:'التهاب رئوي في الفص السفلي الأيمن. يوصى بمتابعة بالتصوير المقطعي خلال 4–6 أسابيع.'},
+  pt:{flag:'🇧🇷',label:'Portuguese',
+    ind:'Avaliação de opacidade pulmonar direita na radiografia anterior. Excluir pneumonia ou malignidade.',
+    find:'Consolidação no lobo inferior direito com broncogramas aéreos. Sem derrame pleural. Mediastino normal.',
+    imp:'Pneumonia do lobo inferior direito. TC de acompanhamento em 4–6 semanas recomendada.'}
+};
+let currentTransLang='fr';
+function setTransLang(lang,btn){
+  currentTransLang=lang;
+  document.querySelectorAll('.idtrans-lang-opt').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  ['tt-ind','tt-find','tt-imp'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el){el.textContent='';el.classList.remove('show');}
+  });
+  document.getElementById('transStatus').textContent='';
+  document.getElementById('transTargetHd').textContent=transData[lang].flag+' Translation · '+transData[lang].label;
+}
+function triggerTranslation(){
+  const btn=document.getElementById('transBtn');
+  if(btn.disabled)return;
+  btn.disabled=true;
+  const spinner=document.getElementById('transSpinner');
+  const status=document.getElementById('transStatus');
+  spinner.classList.add('active');
+  status.textContent='Translating…';
+  ['tt-ind','tt-find','tt-imp'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el){el.textContent='';el.classList.remove('show');}
+  });
+  const d=transData[currentTransLang];
+  setTimeout(()=>{
+    spinner.classList.remove('active');
+    status.textContent='Done ✓';
+    [['tt-ind',d.ind],['tt-find',d.find],['tt-imp',d.imp]].forEach(([id,text],i)=>{
+      setTimeout(()=>{
+        const el=document.getElementById(id);
+        if(el){el.textContent=text;el.classList.add('show');}
+      },i*220);
+    });
+    setTimeout(()=>{btn.disabled=false;},700);
+  },1100);
 }
 </script>
 
