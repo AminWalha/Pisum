@@ -1069,12 +1069,14 @@ function sbNav(el, sectionId) {
 
 // ── Init ──────────────────────────────────────────────────────────────────
 async function init() {
-  // Always get a fresh token — getSession() returns from cache and may be stale
-  let { data, error } = await sb.auth.getSession();
+  const { data } = await sb.auth.getSession();
   if (!data.session) { window.location.href = 'auth.html'; return; }
-  // Try to silently refresh so the access_token sent to the backend is valid
-  const { data: refreshed } = await sb.auth.refreshSession();
-  session = refreshed?.session || data.session;
+  // Try to refresh the token with a 5s timeout — if it hangs, use the cached session
+  const refreshResult = await Promise.race([
+    sb.auth.refreshSession().catch(() => ({ data: { session: null } })),
+    new Promise(resolve => setTimeout(() => resolve({ data: { session: null } }), 5000)),
+  ]);
+  session = refreshResult?.data?.session || data.session;
 
   const user  = session.user;
   const name  = user.user_metadata?.full_name || '';
