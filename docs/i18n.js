@@ -330,9 +330,77 @@ function injectFuturisticLangPicker() {
     });
 }
 
+function showLanguageBanner() {
+    if (localStorage.getItem('langBannerDismissed') === '1') return;
+    if (localStorage.getItem('langExplicit') === '1') return;
+    if (document.getElementById('pisum-lang-banner')) return;
+
+    const current = window.i18n ? window.i18n.currentLang : 'en';
+    const picks = [
+        { code: 'fr', label: '🇫🇷 Français' },
+        { code: 'en', label: '🇬🇧 English' },
+        { code: 'de', label: '🇩🇪 Deutsch' },
+        { code: 'es', label: '🇪🇸 Español' },
+        { code: 'it', label: '🇮🇹 Italiano' },
+        { code: 'pt', label: '🇧🇷 Português' },
+        { code: 'ar', label: '🇸🇦 عربي' },
+    ];
+
+    const banner = document.createElement('div');
+    banner.id = 'pisum-lang-banner';
+    banner.style.cssText = [
+        'position:fixed', 'bottom:90px', 'left:50%', 'transform:translateX(-50%)',
+        'background:#ffffff', 'border:1px solid rgba(0,0,0,0.09)',
+        'border-radius:16px', 'padding:0.85rem 1.1rem',
+        'box-shadow:0 12px 40px rgba(0,0,0,0.13),0 2px 8px rgba(0,0,0,0.06)',
+        'z-index:9100', 'display:flex', 'align-items:center', 'gap:0.5rem',
+        'flex-wrap:wrap', 'justify-content:center',
+        'max-width:min(92vw,600px)', 'font-family:\'Sora\',-apple-system,sans-serif'
+    ].join(';');
+
+    const dismiss = () => {
+        banner.remove();
+        localStorage.setItem('langBannerDismissed', '1');
+    };
+
+    const label = document.createElement('span');
+    label.textContent = '🌐';
+    label.style.cssText = 'color:#8a8aa8;font-size:0.8rem;flex-shrink:0';
+
+    const closeBtn = document.createElement('button');
+    closeBtn.textContent = '✕';
+    closeBtn.style.cssText = 'background:none;border:none;color:#bbbbd0;cursor:pointer;font-size:0.9rem;line-height:1;padding:0 4px;flex-shrink:0';
+    closeBtn.addEventListener('click', dismiss);
+
+    banner.appendChild(label);
+    picks.forEach(l => {
+        const isActive = l.code === current;
+        const b = document.createElement('button');
+        b.textContent = l.label;
+        b.style.cssText = [
+            'border-radius:999px', 'padding:0.32rem 0.85rem', 'font-size:0.78rem',
+            'font-weight:600', 'cursor:pointer', 'font-family:inherit',
+            'white-space:nowrap',
+            isActive
+                ? 'background:#09090f;color:#fff;border:1px solid #09090f'
+                : 'background:transparent;color:#3a3a4c;border:1px solid rgba(0,0,0,0.12)'
+        ].join(';');
+        b.addEventListener('click', () => {
+            window.i18n && window.i18n.setLanguage(l.code, true);
+            dismiss();
+        });
+        banner.appendChild(b);
+    });
+    banner.appendChild(closeBtn);
+
+    document.body.appendChild(banner);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // Both SiteWeb and saas/frontend will have a 'translations' folder next to the HTML files
     window.i18n = new I18n('./translations');
     injectFuturisticLangPicker();
-    window.i18n.setLanguage(window.i18n.currentLang);
+    window.i18n.setLanguage(window.i18n.currentLang).then(() => {
+        setTimeout(showLanguageBanner, 800);
+    });
 });
