@@ -23,38 +23,49 @@ class I18n {
     }
 
     detectLanguage() {
+        // Only use saved lang if user explicitly chose it (not auto-detected)
         const savedLang = localStorage.getItem('preferredLanguage');
-        if (savedLang && SUPPORTED_LANGUAGES.includes(savedLang)) {
+        const isExplicit = localStorage.getItem('langExplicit') === '1';
+        if (savedLang && isExplicit && SUPPORTED_LANGUAGES.includes(savedLang)) {
             return savedLang;
         }
-        const browserLang = navigator.language.split('-')[0].toLowerCase();
-        if (SUPPORTED_LANGUAGES.includes(browserLang)) {
-            return browserLang;
+        // Check all browser preferred languages (navigator.languages is more complete)
+        const langs = (navigator.languages && navigator.languages.length)
+            ? navigator.languages
+            : [navigator.language];
+        for (const lang of langs) {
+            const code = lang.split('-')[0].toLowerCase();
+            if (SUPPORTED_LANGUAGES.includes(code)) return code;
         }
         return DEFAULT_LANGUAGE;
     }
 
-    async setLanguage(lang) {
+    async setLanguage(lang, explicit = false) {
         if (!SUPPORTED_LANGUAGES.includes(lang)) {
             lang = DEFAULT_LANGUAGE;
         }
         try {
             const response = await fetch(`${this.basePath}/${lang}.json`);
             if (!response.ok) throw new Error(`Could not load ${lang}.json`);
-            
+
             this.translations = await response.json();
             this.currentLang = lang;
             document.documentElement.lang = lang;
-            localStorage.setItem('preferredLanguage', lang);
-            
+
+            // Only persist to localStorage when user explicitly picks a language
+            if (explicit) {
+                localStorage.setItem('preferredLanguage', lang);
+                localStorage.setItem('langExplicit', '1');
+            }
+
             this.updateDOM();
             this.updateUI();
-            
+
             document.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
         } catch (error) {
             console.error('Translation loading failed:', error);
             if (lang !== DEFAULT_LANGUAGE) {
-                this.setLanguage(DEFAULT_LANGUAGE);
+                this.setLanguage(DEFAULT_LANGUAGE, false);
             }
         }
     }
@@ -313,7 +324,7 @@ function injectFuturisticLangPicker() {
     wrapper.querySelectorAll('.pisum-lang-option').forEach(btn => {
         btn.addEventListener('click', () => {
             const lang = btn.dataset.lang;
-            window.i18n.setLanguage(lang);
+            window.i18n.setLanguage(lang, true); // explicit = save to localStorage
             wrapper.classList.remove('open');
         });
     });
