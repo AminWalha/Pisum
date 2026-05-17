@@ -4,7 +4,7 @@
     "tagline": "Диктуйте естественно. Позвольте <span class=\"t-accent\">ИИ улучшить ваши отчеты.</span>"
   },
   "contact": {
-    "a_1": "<img alt=\"Logo\" src=\"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png\"/>\n    PISUM",
+    "a_1": "<img alt=\"Logo\" src=\"logo V2.png\"/>\n    PISUM",
     "li_1": "<a href=\"index.html#features\">Функции</a>",
     "li_2": "<a href=\"index.html#templates\">Шаблоны</a>",
     "li_3": "<a href=\"index.html#pricing\">Цены</a>",
@@ -39,7 +39,7 @@
     "input_1": "Задать вопрос…"
   },
   "documentation": {
-    "a_1": "<img alt=\"Logo\" src=\"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png\"/>\n    PISUM",
+    "a_1": "<img alt=\"Logo\" src=\"logo V2.png\"/>\n    PISUM",
     "li_1": "<a href=\"index.html#features\">Функции</a>",
     "li_2": "<a href=\"index.html#templates\">Шаблоны</a>",
     "li_3": "<a href=\"index.html#pricing\">Цены</a>",
@@ -140,7 +140,7 @@
     "input_1": "Задать вопрос…"
   },
   "faq": {
-    "a_1": "<img alt=\"Logo\" src=\"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png\"/>\n    PISUM",
+    "a_1": "<img alt=\"Logo\" src=\"logo V2.png\"/>\n    PISUM",
     "li_1": "<a href=\"index.html#features\">Функции</a>",
     "li_2": "<a href=\"index.html#templates\">Шаблоны</a>",
     "li_3": "<a href=\"index.html#pricing\">Цены</a>",
@@ -207,7 +207,7 @@
     "button_3": "✕",
     "p_2": "Настройте этот шаблон прямо внутри PISUM.",
     "a_2": "Получить PISUM →",
-    "a_3": "<img alt=\"Logo\" src=\"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png\"/>\n    PISUM",
+    "a_3": "<img alt=\"Logo\" src=\"logo V2.png\"/>\n    PISUM",
     "li_1": "<a href=\"#features\">Функции</a>",
     "li_2": "<a href=\"#templates\">Шаблоны</a>",
     "li_3": "<a href=\"#pricing\">Цены</a>",
@@ -591,7 +591,7 @@
     "input_1": "Задать вопрос…"
   },
   "rgpd": {
-    "a_1": "<img alt=\"Logo\" src=\"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png\"/>\n    PISUM",
+    "a_1": "<img alt=\"Logo\" src=\"logo V2.png\"/>\n    PISUM",
     "li_1": "<a href=\"index.html#features\">Функции</a>",
     "li_2": "<a href=\"index.html#templates\">Шаблоны</a>",
     "li_3": "<a href=\"index.html#pricing\">Цены</a>",
@@ -666,7 +666,7 @@
     "input_1": "Задать вопрос…"
   },
   "terms": {
-    "a_1": "<img alt=\"Logo\" src=\"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png\"/>\n    PISUM",
+    "a_1": "<img alt=\"Logo\" src=\"logo V2.png\"/>\n    PISUM",
     "li_1": "<a href=\"index.html#features\">Функции</a>",
     "li_2": "<a href=\"index.html#templates\">Шаблоны</a>",
     "li_3": "<a href=\"index.html#pricing\">Цены</a>",

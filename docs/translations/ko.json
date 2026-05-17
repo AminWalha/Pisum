@@ -4,7 +4,7 @@
     "tagline": "자연스럽게 받아쓰기하세요. <span class=\"t-accent\">AI가 판독문을 향상시켜 드립니다.</span>"
   },
   "contact": {
-    "a_1": "<img alt=\"Logo\" src=\"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png\"/>\n    PISUM",
+    "a_1": "<img alt=\"Logo\" src=\"logo V2.png\"/>\n    PISUM",
     "li_1": "<a href=\"index.html#features\">기능</a>",
     "li_2": "<a href=\"index.html#templates\">템플릿</a>",
     "li_3": "<a href=\"index.html#pricing\">요금제</a>",
@@ -39,7 +39,7 @@
     "input_1": "질문하기…"
   },
   "documentation": {
-    "a_1": "<img alt=\"Logo\" src=\"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png\"/>\n    PISUM",
+    "a_1": "<img alt=\"Logo\" src=\"logo V2.png\"/>\n    PISUM",
     "li_1": "<a href=\"index.html#features\">기능</a>",
     "li_2": "<a href=\"index.html#templates\">템플릿</a>",
     "li_3": "<a href=\"index.html#pricing\">요금제</a>",
@@ -140,7 +140,7 @@
     "input_1": "질문하기…"
   },
   "faq": {
-    "a_1": "<img alt=\"Logo\" src=\"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png\"/>\n    PISUM",
+    "a_1": "<img alt=\"Logo\" src=\"logo V2.png\"/>\n    PISUM",
     "li_1": "<a href=\"index.html#features\">기능</a>",
     "li_2": "<a href=\"index.html#templates\">템플릿</a>",
     "li_3": "<a href=\"index.html#pricing\">요금제</a>",
@@ -207,7 +207,7 @@
     "button_3": "✕",
     "p_2": "PISUM 내에서 직접 이 템플릿을 사용자 지정하세요.",
     "a_2": "PISUM 시작하기 →",
-    "a_3": "<img alt=\"Logo\" src=\"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png\"/>\n    PISUM",
+    "a_3": "<img alt=\"Logo\" src=\"logo V2.png\"/>\n    PISUM",
     "li_1": "<a href=\"#features\">기능</a>",
     "li_2": "<a href=\"#templates\">템플릿</a>",
     "li_3": "<a href=\"#pricing\">요금제</a>",
@@ -591,7 +591,7 @@
     "input_1": "질문하기…"
   },
   "rgpd": {
-    "a_1": "<img alt=\"Logo\" src=\"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png\"/>\n    PISUM",
+    "a_1": "<img alt=\"Logo\" src=\"logo V2.png\"/>\n    PISUM",
     "li_1": "<a href=\"index.html#features\">기능</a>",
     "li_2": "<a href=\"index.html#templates\">템플릿</a>",
     "li_3": "<a href=\"index.html#pricing\">요금제</a>",
@@ -666,7 +666,7 @@
     "input_1": "질문하기…"
   },
   "terms": {
-    "a_1": "<img alt=\"Logo\" src=\"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png\"/>\n    PISUM",
+    "a_1": "<img alt=\"Logo\" src=\"logo V2.png\"/>\n    PISUM",
     "li_1": "<a href=\"index.html#features\">기능</a>",
     "li_2": "<a href=\"index.html#templates\">템플릿</a>",
     "li_3": "<a href=\"index.html#pricing\">요금제</a>",
