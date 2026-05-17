@@ -202,6 +202,7 @@ footer { background: var(--s1); border-top: 1px solid var(--border); padding: 2.
     <li><a href="index.html#features">Features</a></li>
     <li><a href="index.html#templates">Templates</a></li>
     <li><a href="index.html#pricing">Pricing</a></li>
+    <li><a href="index.html#languages">Languages</a></li>
     <li><a href="faq.html">FAQ</a></li>
     <li><a href="documentation.html">Docs</a></li>
     <li><a href="contact.html">Contact</a></li>
@@ -209,7 +210,7 @@ footer { background: var(--s1); border-top: 1px solid var(--border); padding: 2.
   <div class="nav-right">
     <a href="index.html#pricing" class="btn btn-primary btn-sm" id="nav-cta" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600;">Get Started Free</a>
     <div id="nav-profile" class="nav-profile" style="display:none">
-      <a href="saas/frontend/dashboard.html" class="nav-profile-link">
+      <a href="#" class="nav-profile-link">
         <img id="nav-profile-img" class="nav-profile-avatar" src="" alt="" style="display:none"/>
         <div id="nav-profile-initials" class="nav-profile-avatar-fallback" style="display:none">?</div>
         <div class="nav-profile-info">
@@ -271,6 +272,7 @@ footer { background: var(--s1); border-top: 1px solid var(--border); padding: 2.
         <li><a href="#templates" id="tl2">Utiliser les modèles</a></li>
         <li><a href="#dictation" id="tl3">Dictée vocale IA</a></li>
         <li><a href="#export" id="tl4">Export RIS/PACS</a></li>
+        <li><a href="#translation" id="tl7">Traduction de rapport <span style="font-size:0.58rem;font-weight:700;background:linear-gradient(135deg,#3b6ef8,#7c5af0);color:#fff;padding:0.1rem 0.32rem;border-radius:3px;margin-left:4px;letter-spacing:0.04em">NEW</span></a></li>
       </ul>
 
       <div class="toc-title" id="tg3n">Network</div>
@@ -334,6 +336,33 @@ footer { background: var(--s1); border-top: 1px solid var(--border); padding: 2.
         
         <h3 id="s4h3">Export Word</h3>
         <p id="s4p3">Utilisez le bouton 'Exporter en DOCX' pour enregistrer un document formaté professionnellement, idéal pour les cliniques privées remettant directement les rapports aux patients.</p>
+      </div>
+
+      <div class="prose-section" id="translation">
+        <h2><span class="num">07</span> Report Translation <span style="font-size:0.6rem;font-weight:700;background:linear-gradient(135deg,#3b6ef8,#7c5af0);color:#fff;padding:0.15rem 0.45rem;border-radius:4px;vertical-align:middle;margin-left:6px;letter-spacing:0.05em">NEW · v2.9.8</span></h2>
+        <p>The Report Translation feature lets you convert any completed radiology report into another language in one click. Clinical terminology is preserved and the report structure remains intact — available on <strong>Pro</strong>, <strong>Expert</strong>, and <strong>Clinic</strong> plans.</p>
+
+        <h3>How to use it</h3>
+        <ol>
+          <li>Open a completed report from your worklist.</li>
+          <li>Click <strong>Translate Report</strong> in the toolbar (or use the keyboard shortcut <code>Ctrl+T</code>).</li>
+          <li>Select the target language from the dropdown (23 languages supported).</li>
+          <li>Click <strong>Translate</strong>. The translated report opens in a side-by-side view within seconds.</li>
+          <li>Review, then export the translated version to PDF or Word as usual.</li>
+        </ol>
+
+        <div class="info-block cyan">
+          <strong>Original preserved</strong>
+          <span>The original report is never overwritten. Translation creates a separate copy linked to the same patient exam — both versions appear in the worklist.</span>
+        </div>
+
+        <h3>Supported languages</h3>
+        <p>All 23 PISUM interface languages are available as translation targets, including French, Spanish, German, Arabic, Portuguese, Italian, Dutch, Polish, and more.</p>
+
+        <div class="info-block amber">
+          <strong style="color:var(--amber)">Plan limits</strong>
+          <span>Pro: 100 translations/month · Expert: Unlimited · Clinic: Unlimited. Translation requires an active internet connection.</span>
+        </div>
       </div>
 
       <div class="prose-section" id="lan-sync">

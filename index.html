@@ -741,10 +741,10 @@ button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action
     <li id="nav-mobile-signout" style="display:none"><a href="#" id="nav-mobile-signout-btn">Sign Out</a></li>
   </ul>
   <div class="nav-right">
-    <a href="saas/frontend/auth.html" class="nav-login" id="nav-signin">Sign in</a>
-    <a href="saas/frontend/auth.html" class="btn btn-primary btn-sm" id="nav-subscribe" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600;">Subscribe</a>
+    <a href="#pricing" class="nav-login" id="nav-signin">Sign in</a>
+    <a href="#pricing" class="btn btn-primary btn-sm" id="nav-subscribe" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600;">Subscribe</a>
     <div id="nav-profile" class="nav-profile" style="display:none">
-      <a href="saas/frontend/dashboard.html" class="nav-profile-link">
+      <a href="#" class="nav-profile-link">
         <img id="nav-profile-img" class="nav-profile-avatar" src="" alt="" style="display:none"/>
         <div id="nav-profile-initials" class="nav-profile-avatar-fallback" style="display:none">?</div>
         <div class="nav-profile-info">
@@ -1635,7 +1635,6 @@ function toggleLangMore(){
   const isOpen=btn.classList.toggle('open');
   extras.forEach(el=>{
     el.classList.toggle('open',isOpen);
-    if(isOpen){setTimeout(()=>el.classList.add('show'),10)}else{el.classList.remove('show')}
   });
   btn.querySelector('svg').style.transform=isOpen?'rotate(180deg)':'';
   btn.childNodes[btn.childNodes.length-1].textContent=isOpen?' Show less':' Show 10 more languages';
@@ -1706,7 +1705,6 @@ const bill={
   m:{starter:29,pro:79,expert:129,clinic:399},
   a:{starter:23,pro:63,expert:103,clinic:319}
 };
-const billAnnual={starter:276,pro:756,expert:1236,clinic:3828};
 function toggleBill(){
   const annual=document.getElementById('togB').checked;
   const p=annual?bill.a:bill.m;
@@ -1721,7 +1719,7 @@ const API_BASE='https://pisum-backend.onrender.com';
 async function subscribe(plan){
   const{data}=await window.sb.auth.getSession();
   if(!data.session){
-    window.location.href='saas/frontend/auth.html?redirect=pricing.html';
+    window.location.href='#pricing';
     return;
   }
   const btns=document.querySelectorAll('.plan-sub-btn');
