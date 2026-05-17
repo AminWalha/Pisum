@@ -4,7 +4,7 @@
     "tagline": "Dictez naturellement. Laissez <span class=\"t-accent\">l'IA améliorer vos comptes rendus.</span>"
   },
   "contact": {
-    "a_1": "<img alt=\"Logo\" src=\"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png\"/>\n    PISUM",
+    "a_1": "<img alt=\"Logo\" src=\"logo V2.png\"/>\n    PISUM",
     "li_1": "<a href=\"index.html#features\">Fonctionnalités</a>",
     "li_2": "<a href=\"index.html#templates\">Modèles</a>",
     "li_3": "<a href=\"index.html#pricing\">Tarifs</a>",
@@ -39,7 +39,7 @@
     "input_1": "Poser une question…"
   },
   "documentation": {
-    "a_1": "<img alt=\"Logo\" src=\"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png\"/>\n    PISUM",
+    "a_1": "<img alt=\"Logo\" src=\"logo V2.png\"/>\n    PISUM",
     "li_1": "<a href=\"index.html#features\">Fonctionnalités</a>",
     "li_2": "<a href=\"index.html#templates\">Modèles</a>",
     "li_3": "<a href=\"index.html#pricing\">Tarifs</a>",
@@ -140,7 +140,7 @@
     "input_1": "Poser une question…"
   },
   "faq": {
-    "a_1": "<img alt=\"Logo\" src=\"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png\"/>\n    PISUM",
+    "a_1": "<img alt=\"Logo\" src=\"logo V2.png\"/>\n    PISUM",
     "li_1": "<a href=\"index.html#features\">Fonctionnalités</a>",
     "li_2": "<a href=\"index.html#templates\">Modèles</a>",
     "li_3": "<a href=\"index.html#pricing\">Tarifs</a>",
@@ -207,7 +207,7 @@
     "button_3": "✕",
     "p_2": "Personnalisez ce modèle directement dans PISUM.",
     "a_2": "Obtenez PISUM →",
-    "a_3": "<img alt=\"Logo\" src=\"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png\"/>\n    PISUM",
+    "a_3": "<img alt=\"Logo\" src=\"logo V2.png\"/>\n    PISUM",
     "li_1": "<a href=\"#features\">Fonctionnalités</a>",
     "li_2": "<a href=\"#templates\">Modèles</a>",
     "li_3": "<a href=\"#pricing\">Tarifs</a>",
@@ -591,7 +591,7 @@
     "input_1": "Poser une question…"
   },
   "rgpd": {
-    "a_1": "<img alt=\"Logo\" src=\"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png\"/>\n    PISUM",
+    "a_1": "<img alt=\"Logo\" src=\"logo V2.png\"/>\n    PISUM",
     "li_1": "<a href=\"index.html#features\">Fonctionnalités</a>",
     "li_2": "<a href=\"index.html#templates\">Modèles</a>",
     "li_3": "<a href=\"index.html#pricing\">Tarifs</a>",
@@ -666,7 +666,7 @@
     "input_1": "Poser une question…"
   },
   "terms": {
-    "a_1": "<img alt=\"Logo\" src=\"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png\"/>\n    PISUM",
+    "a_1": "<img alt=\"Logo\" src=\"logo V2.png\"/>\n    PISUM",
     "li_1": "<a href=\"index.html#features\">Fonctionnalités</a>",
     "li_2": "<a href=\"index.html#templates\">Modèles</a>",
     "li_3": "<a href=\"index.html#pricing\">Tarifs</a>",
