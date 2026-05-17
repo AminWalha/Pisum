@@ -1058,8 +1058,8 @@ const SVG_MINUS   = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" 
 
 // ── Plans ─────────────────────────────────────────────────────────────────
 const PLAN_PRICES = {
-  starter: { monthly: 35,  annual: 28  },
-  pro:     { monthly: 89,  annual: 71  },
+  starter: { monthly: 29,  annual: 23  },
+  pro:     { monthly: 79,  annual: 63  },
   expert:  { monthly: 129, annual: 103 },
   clinic:  { monthly: 399, annual: 319 },
 };
@@ -1067,21 +1067,22 @@ const PLAN_PRICES = {
 const PLANS = {
   free:    { label:'Free',       tag:'tag-free',    paid:false, features:[
     {ok:true, t:'10 templates'},{ok:true,t:'2 languages'},{ok:true,t:'PDF export'},
-    {ok:false,t:'Word export'},{ok:'lim',t:'AI Dictation (20 min trial)'},{ok:'lim',t:'AI Enhancer (5/mo trial)'},
-    {ok:false,t:'Worklist'},{ok:'lim',t:'20 reports / month'}] },
+    {ok:false,t:'Word export'},{ok:'lim',t:'AI Dictation (30 min/mo)'},{ok:'lim',t:'AI Enhancer (10/mo)'},
+    {ok:'lim',t:'Limited worklist'},{ok:'lim',t:'50 reports / month'}] },
   starter: { label:'Starter',    tag:'tag-starter', paid:true, features:[
-    {ok:true,t:'20 templates'},{ok:true,t:'5 languages'},{ok:true,t:'PDF + Word export'},
-    {ok:'lim',t:'AI Dictation (200 min/mo)'},{ok:'lim',t:'AI Enhancer (50/mo)'},
-    {ok:'lim',t:'Basic worklist'},{ok:true,t:'Unlimited patients'}] },
+    {ok:true,t:'20 templates'},{ok:true,t:'23 languages'},{ok:true,t:'PDF + Word export'},
+    {ok:false,t:'HTML export'},{ok:'lim',t:'AI Dictation (500 min/mo)'},{ok:'lim',t:'AI Enhancer (50/mo)'},
+    {ok:'lim',t:'Basic worklist'},{ok:true,t:'Unlimited reports'}] },
   pro:     { label:'Pro',        tag:'tag-pro',     paid:true, popular:true, features:[
-    {ok:true,t:'112+ templates'},{ok:true,t:'23 languages'},{ok:true,t:'PDF + Word export'},
+    {ok:true,t:'112+ templates'},{ok:true,t:'23 languages'},{ok:true,t:'PDF + Word + HTML export'},
     {ok:'lim',t:'AI Dictation (2,000 min/mo)'},{ok:'lim',t:'AI Enhancer (200/mo)'},
-    {ok:true,t:'Full worklist'},{ok:'lim',t:'Basic stats'},{ok:true,t:'Unlimited patients'}] },
+    {ok:'lim',t:'Report Translation (100/mo)'},{ok:true,t:'Full worklist'},
+    {ok:'lim',t:'Basic stats'},{ok:true,t:'Priority support'}] },
   expert:  { label:'Expert',     tag:'tag-expert',  paid:true, features:[
-    {ok:true,t:'112+ custom templates'},{ok:true,t:'23 languages'},{ok:true,t:'PDF + Word export'},
+    {ok:true,t:'112+ custom templates'},{ok:true,t:'23 languages'},{ok:true,t:'PDF + Word + HTML export'},
     {ok:true,t:'AI Dictation (Unlimited)'},{ok:true,t:'AI Enhancer (Unlimited)'},
-    {ok:true,t:'Advanced worklist'},{ok:true,t:'Advanced stats'},{ok:true,t:'Unlimited patients'},
-    {ok:'lim',t:'LAN Sync (1 site · 3 workstations)'}] },
+    {ok:true,t:'Report Translation (Unlimited)'},{ok:true,t:'Advanced worklist'},
+    {ok:true,t:'Full statistics'},{ok:'lim',t:'LAN Sync (1 site · 3 PCs)'}] },
   clinic:  { label:'Clinic',     tag:'tag-clinic',  paid:true, features:null },
 };
 const ORDER = ['free','starter','pro','expert','clinic'];
