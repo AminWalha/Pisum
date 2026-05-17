@@ -11,8 +11,8 @@
 </script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title data-i18n="pricing.title">PISUM — Pricing for Medical Professionals</title>
-<link rel="icon" type="image/png" href="../../logo V2.png"/>
+<title>PISUM — Pricing for Medical Professionals</title>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -407,14 +407,17 @@ footer .sep{margin:0 .5rem;color:var(--slate-200)}
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="https://pisum.app" data-i18n="pricing.a_1"></a>
+  <a class="nav-logo" href="https://pisum.app">
+    <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="PISUM"/>
+    <span class="nav-logo-text">PISUM</span>
+  </a>
   <div class="nav-right">
     <div class="nav-user" id="nav-user" style="display:none">
       <div class="nav-avatar" id="nav-avatar">?</div>
       <span class="nav-name" id="nav-name"></span>
     </div>
-    <a class="btn-nav" id="nav-login-btn" href="auth.html" data-i18n="pricing.a_2">Sign in</a>
-    <a class="btn-nav primary" id="nav-dashboard-btn" href="dashboard.html" style="display:none" data-i18n="pricing.a_3">My subscription</a>
+    <a class="btn-nav" id="nav-login-btn" href="auth.html">Sign in</a>
+    <a class="btn-nav primary" id="nav-dashboard-btn" href="dashboard.html" style="display:none">My subscription</a>
   </div>
 </nav>
 
@@ -424,11 +427,11 @@ footer .sep{margin:0 .5rem;color:var(--slate-200)}
     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
     Radiology Software · AI-Powered · GDPR Compliant
   </div>
-  <h1 data-i18n="pricing.h1_1">Professional tools,<br/><span>built for radiologists</span></h1>
-  <p data-i18n="pricing.p_1">From independent radiologist to multi-site clinic — PISUM adapts to your practice with structured templates, AI dictation, and local data control.</p>
+  <h1>Professional tools,<br/><span>built for radiologists</span></h1>
+  <p>From independent radiologist to multi-site clinic — PISUM adapts to your practice with structured templates, AI dictation, and local data control.</p>
   <div class="hero-cta">
-    <a class="btn-hero-primary" href="auth.html" data-i18n="pricing.a_4">Start for free — no card needed</a>
-    <a class="btn-hero-secondary" href="#compare" data-i18n="pricing.a_5">Compare plans</a>
+    <a class="btn-hero-primary" href="auth.html">Start for free — no card needed</a>
+    <a class="btn-hero-secondary" href="#compare">Compare plans</a>
   </div>
 </div>
 
@@ -461,12 +464,12 @@ footer .sep{margin:0 .5rem;color:var(--slate-200)}
 
   <!-- Billing toggle -->
   <div class="billing-toggle">
-    <span id="label-monthly" style="color:var(--blue-700)" data-i18n="pricing.span_1">Monthly</span>
+    <span id="label-monthly" style="color:var(--blue-700)">Monthly</span>
     <label class="toggle-sw">
       <input type="checkbox" id="billing-annual" onchange="setBilling(this.checked)"/>
       <span class="toggle-track"></span>
     </label>
-    <span id="label-annual" data-i18n="pricing.span_2">Annual<span class="save-badge">−20%</span></span>
+    <span id="label-annual">Annual<span class="save-badge">−20%</span></span>
   </div>
   <div style="text-align:center;font-size:.75rem;color:var(--slate-400);margin-top:-.5rem;margin-bottom:1.5rem;letter-spacing:.01em">
     No cloud upload of patient data &nbsp;·&nbsp; GDPR compliant &nbsp;·&nbsp; Local-first
@@ -479,12 +482,19 @@ footer .sep{margin:0 .5rem;color:var(--slate-200)}
       <div class="plan-tag tag-free">Free</div>
       <div class="plan-name">Pisum Free</div>
       <div class="plan-subtitle">Discover PISUM</div>
-      <div class="plan-price">0 €<span data-i18n="pricing.span_3"> / month</span></div>
+      <div class="plan-price">0 €<span> / month</span></div>
       <div class="plan-microcopy">No credit card needed</div>
-      <a class="plan-cta cta-ghost" href="auth.html" data-label="Get started" data-i18n="pricing.a_6">Get started</a>
+      <a class="plan-cta cta-ghost" href="auth.html" data-label="Get started">Get started</a>
       <div class="divider"></div>
       <ul class="feat-list">
-        <li data-i18n="pricing.li_1"></li><li data-i18n="pricing.li_2"></li><li data-i18n="pricing.li_3"></li><li data-i18n="pricing.li_4"></li><li data-i18n="pricing.li_5"></li><li data-i18n="pricing.li_6"></li><li data-i18n="pricing.li_7"></li><li data-i18n="pricing.li_8"></li>
+        <li><span class="fi-ok">✓</span>10 templates</li>
+        <li><span class="fi-ok">✓</span>2 languages</li>
+        <li><span class="fi-ok">✓</span>PDF Export</li>
+        <li><span class="fi-no">–</span>Word Export</li>
+        <li><span class="fi-lim">◐</span>AI Dictation (30 min/mo)</li>
+        <li><span class="fi-lim">◐</span>AI Enhancer (10 uses/mo)</li>
+        <li><span class="fi-lim">◐</span>Limited Worklist</li>
+        <li><span class="fi-lim">◐</span>50 reports / month</li>
       </ul>
     </div>
 
@@ -493,13 +503,20 @@ footer .sep{margin:0 .5rem;color:var(--slate-200)}
       <div class="plan-tag tag-starter">Starter</div>
       <div class="plan-name">Pisum Starter</div>
       <div class="plan-subtitle">Solo radiologist</div>
-      <div class="plan-price" id="price-starter" data-monthly="29" data-annual="23">29 €<span id="price-starter-sub" data-i18n="pricing.span_4"> / month</span></div>
+      <div class="plan-price" id="price-starter" data-monthly="29" data-annual="23">29 €<span id="price-starter-sub"> / month</span></div>
       <div class="plan-microcopy" id="sub-starter">Billed monthly</div>
       <div style="font-size:.68rem;color:var(--slate-400);text-align:center;margin-bottom:.4rem">14-day free trial · No card required</div>
-      <button class="plan-cta cta-blue" onclick="subscribe('starter')" data-label="Try Starter free — 14 days" data-i18n="pricing.button_1">Try Starter free — 14 days</button>
+      <button class="plan-cta cta-blue" onclick="subscribe('starter')" data-label="Try Starter free — 14 days">Try Starter free — 14 days</button>
       <div class="divider"></div>
       <ul class="feat-list">
-        <li data-i18n="pricing.li_9"></li><li data-i18n="pricing.li_10"></li><li data-i18n="pricing.li_11"></li><li data-i18n="pricing.li_12"></li><li data-i18n="pricing.li_13"></li><li data-i18n="pricing.li_14"></li><li data-i18n="pricing.li_15"></li><li data-i18n="pricing.li_16"></li>
+        <li><span class="fi-ok">✓</span>20 templates</li>
+        <li><span class="fi-ok">✓</span>23 languages</li>
+        <li><span class="fi-ok">✓</span>PDF + Word Export</li>
+        <li><span class="fi-no">–</span>HTML Export</li>
+        <li><span class="fi-lim">◐</span>AI Dictation (500 min/mo)</li>
+        <li><span class="fi-lim">◐</span>AI Enhancer (50/mo)</li>
+        <li><span class="fi-lim">◐</span>Basic Worklist</li>
+        <li><span class="fi-ok">✓</span>Unlimited reports</li>
       </ul>
     </div>
 
@@ -509,13 +526,21 @@ footer .sep{margin:0 .5rem;color:var(--slate-200)}
       <div class="plan-tag tag-pro">Pro ⭐</div>
       <div class="plan-name pro">Pisum Pro</div>
       <div class="plan-subtitle">Advanced practitioner, all-in-one</div>
-      <div class="plan-price pro" id="price-pro" data-monthly="79" data-annual="63">79 €<span id="price-pro-sub" data-i18n="pricing.span_5"> / month</span></div>
+      <div class="plan-price pro" id="price-pro" data-monthly="79" data-annual="63">79 €<span id="price-pro-sub"> / month</span></div>
       <div class="plan-microcopy" id="sub-pro">Billed monthly</div>
       <div style="font-size:.68rem;color:var(--slate-400);text-align:center;margin-bottom:.4rem">14-day free trial · No card required</div>
-      <button class="plan-cta cta-blue-glow" onclick="subscribe('pro')" data-label="Try Pro free — 14 days" data-i18n="pricing.button_2">Try Pro free — 14 days</button>
+      <button class="plan-cta cta-blue-glow" onclick="subscribe('pro')" data-label="Try Pro free — 14 days">Try Pro free — 14 days</button>
       <div class="divider" style="background:rgba(37,99,235,.12)"></div>
       <ul class="feat-list">
-        <li data-i18n="pricing.li_17"></li><li data-i18n="pricing.li_18"></li><li data-i18n="pricing.li_19"></li><li data-i18n="pricing.li_20"></li><li data-i18n="pricing.li_21"></li><li data-i18n="pricing.li_22"></li><li data-i18n="pricing.li_23"></li><li data-i18n="pricing.li_24"></li><li data-i18n="pricing.li_25"></li>
+        <li><span class="fi-ok">✓</span>112+ templates</li>
+        <li><span class="fi-ok">✓</span>23 languages</li>
+        <li><span class="fi-ok">✓</span>PDF + Word + HTML Export</li>
+        <li><span class="fi-lim">◐</span>AI Dictation (2,000 min/mo)</li>
+        <li><span class="fi-lim">◐</span>AI Enhancer (200/mo)</li>
+        <li><span class="fi-lim">◐</span>Report Translation (100/mo)</li>
+        <li><span class="fi-ok">✓</span>Full Worklist</li>
+        <li><span class="fi-lim">◐</span>Basic Statistics</li>
+        <li><span class="fi-ok">✓</span>Priority support</li>
       </ul>
     </div>
 
@@ -525,13 +550,21 @@ footer .sep{margin:0 .5rem;color:var(--slate-200)}
       <div class="plan-tag tag-expert">Expert 🔥</div>
       <div class="plan-name">Pisum Expert</div>
       <div class="plan-subtitle">No limits, full power</div>
-      <div class="plan-price" id="price-expert" data-monthly="129" data-annual="103">129 €<span id="price-expert-sub" data-i18n="pricing.span_6"> / month</span></div>
+      <div class="plan-price" id="price-expert" data-monthly="129" data-annual="103">129 €<span id="price-expert-sub"> / month</span></div>
       <div class="plan-microcopy" id="sub-expert">Billed monthly</div>
       <div style="font-size:.68rem;color:var(--slate-400);text-align:center;margin-bottom:.4rem">14-day free trial · No card required</div>
-      <button class="plan-cta cta-amber" onclick="subscribe('expert')" data-label="Try Expert free — 14 days" data-i18n="pricing.button_3">Try Expert free — 14 days</button>
+      <button class="plan-cta cta-amber" onclick="subscribe('expert')" data-label="Try Expert free — 14 days">Try Expert free — 14 days</button>
       <div class="divider"></div>
       <ul class="feat-list">
-        <li data-i18n="pricing.li_26"></li><li data-i18n="pricing.li_27"></li><li data-i18n="pricing.li_28"></li><li data-i18n="pricing.li_29"></li><li data-i18n="pricing.li_30"></li><li data-i18n="pricing.li_31"></li><li data-i18n="pricing.li_32"></li><li data-i18n="pricing.li_33"></li><li data-i18n="pricing.li_34"></li>
+        <li><span class="fi-ok">✓</span>112+ custom templates</li>
+        <li><span class="fi-ok">✓</span>23 languages</li>
+        <li><span class="fi-ok">✓</span>PDF + Word + HTML Export</li>
+        <li><span class="fi-ok">✓</span>AI Dictation (Unlimited)</li>
+        <li><span class="fi-ok">✓</span>AI Enhancer (Unlimited)</li>
+        <li><span class="fi-ok">✓</span>Report Translation (Unlimited)</li>
+        <li><span class="fi-ok">✓</span>Advanced Worklist</li>
+        <li><span class="fi-ok">✓</span>Full Statistics</li>
+        <li><span class="fi-lim">◐</span>LAN Sync (1 site · 3 PCs)</li>
       </ul>
     </div>
 
@@ -541,9 +574,9 @@ footer .sep{margin:0 .5rem;color:var(--slate-200)}
       <div class="plan-tag tag-clinic">Clinic 🏥</div>
       <div class="plan-name clinic">Pisum Clinic</div>
       <div class="plan-subtitle clinic">Multi-site · Team management</div>
-      <div class="plan-price clinic" id="price-clinic" data-monthly="399" data-annual="319">399 €<span id="price-clinic-sub" data-i18n="pricing.span_7"> / month</span></div>
+      <div class="plan-price clinic" id="price-clinic" data-monthly="399" data-annual="319">399 €<span id="price-clinic-sub"> / month</span></div>
       <div class="plan-microcopy clinic" id="sub-clinic">5 users incl. · +€69/extra user</div>
-      <button class="plan-cta cta-glass" onclick="subscribe('clinic')" data-label="Contact us" data-i18n="pricing.button_4">Contact us</button>
+      <button class="plan-cta cta-glass" onclick="subscribe('clinic')" data-label="Contact us">Contact us</button>
       <div style="font-size:.68rem;color:#7dd3fc;margin-top:.6rem;text-align:center">Need more than 5 users? Add extra seats from your dashboard after subscribing.</div>
       <div class="divider clinic"></div>
       <!-- Team avatars -->
@@ -553,61 +586,73 @@ footer .sep{margin:0 .5rem;color:var(--slate-200)}
         <div class="team-av" style="background:linear-gradient(135deg,#34d399,#10b981)">M</div>
         <div class="team-av" style="background:linear-gradient(135deg,#fb923c,#f97316)">S</div>
         <div class="team-av" style="background:rgba(255,255,255,.15)">+</div>
-        <span class="team-label" data-i18n="pricing.span_8">5 users</span>
+        <span class="team-label">5 users</span>
       </div>
       <ul class="feat-list clinic">
-        <li data-i18n="pricing.li_35"></li><li data-i18n="pricing.li_36"></li><li data-i18n="pricing.li_37"></li><li data-i18n="pricing.li_38"></li><li data-i18n="pricing.li_39"></li><li data-i18n="pricing.li_40"></li><li data-i18n="pricing.li_41"></li><li data-i18n="pricing.li_42"></li><li data-i18n="pricing.li_43"></li><li data-i18n="pricing.li_44"></li>
+        <li><span class="fi-ok clinic">✓</span>Custom templates</li>
+        <li><span class="fi-ok clinic">✓</span>5 users incl. (+€69/extra)</li>
+        <li><span class="fi-ok clinic">✓</span>23 languages</li>
+        <li><span class="fi-ok clinic">✓</span>PDF + Word + HTML Export</li>
+        <li><span class="fi-ok clinic">✓</span>AI Dictation (Unlimited)</li>
+        <li><span class="fi-ok clinic">✓</span>AI Enhancer (Unlimited)</li>
+        <li><span class="fi-ok clinic">✓</span>Report Translation (Unlimited)</li>
+        <li><span class="fi-ok clinic">✓</span>Multi-site Worklist</li>
+        <li><span class="fi-ok clinic">✓</span>Advanced stats + onboarding</li>
+        <li><span class="fi-ok clinic">✓</span>LAN Sync (multi-site · unlimited)</li>
       </ul>
     </div>
 
   </div>
 
   <!-- Money-back guarantee -->
-  <div style="text-align:center;margin-top:2rem;font-size:.8rem;color:var(--slate-500)" data-i18n="pricing.span_9" data-i18n-2="pricing.span_10"></div>
+  <div style="text-align:center;margin-top:2rem;font-size:.8rem;color:var(--slate-500)">
+    <span style="color:var(--green-600);font-weight:700">✓</span> 30-day money-back guarantee on all paid plans &nbsp;·&nbsp;
+    <span style="color:var(--green-600);font-weight:700">✓</span> Cancel anytime, no lock-in
+  </div>
 </section>
 
 <!-- VALUE SECTION -->
 <section class="value-section">
   <div style="text-align:center;margin-bottom:2rem">
     <div style="display:inline-block;padding:.3rem 1rem;border-radius:999px;background:var(--blue-50);border:1px solid var(--blue-100);color:var(--blue-700);font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.9rem">Why professionals choose PISUM</div>
-    <h2 style="font-size:1.55rem;font-weight:800;letter-spacing:-.03em" data-i18n="pricing.h2_1">A tool that respects your workflow</h2>
+    <h2 style="font-size:1.55rem;font-weight:800;letter-spacing:-.03em">A tool that respects your workflow</h2>
   </div>
   <div class="value-grid">
     <div class="value-card">
       <div class="value-icon">
         <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
       </div>
-      <h3 data-i18n="pricing.h3_1">Local-first privacy</h3>
-      <p data-i18n="pricing.p_2">Patient reports stay on your machine. No clinical data ever leaves your computer — no cloud upload, full GDPR compliance.</p>
+      <h3>Local-first privacy</h3>
+      <p>Patient reports stay on your machine. No clinical data ever leaves your computer — no cloud upload, full GDPR compliance.</p>
     </div>
     <div class="value-card">
       <div class="value-icon">
         <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
       </div>
-      <h3 data-i18n="pricing.h3_2">112+ radiology templates</h3>
-      <p data-i18n="pricing.p_3">Structured reports for every modality — MRI, CT, echography, and more. In 23 languages, ready for immediate use.</p>
+      <h3>112+ radiology templates</h3>
+      <p>Structured reports for every modality — MRI, CT, echography, and more. In 23 languages, ready for immediate use.</p>
     </div>
     <div class="value-card">
       <div class="value-icon">
         <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8"/></svg>
       </div>
-      <h3 data-i18n="pricing.h3_3">AI Dictation &amp; Enhancer</h3>
-      <p data-i18n="pricing.p_4">Dictate reports hands-free and improve wording with AI — designed specifically for radiology terminology and phrasing.</p>
+      <h3>AI Dictation & Enhancer</h3>
+      <p>Dictate reports hands-free and improve wording with AI — designed specifically for radiology terminology and phrasing.</p>
     </div>
     <div class="value-card">
       <div class="value-icon">
         <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
       </div>
-      <h3 data-i18n="pricing.h3_4">LAN Network Sync</h3>
-      <p data-i18n="pricing.p_5">Share the same worklist across all workstations in your clinic — no cloud, instant sync via your local network.</p>
+      <h3>LAN Network Sync</h3>
+      <p>Share the same worklist across all workstations in your clinic — no cloud, instant sync via your local network.</p>
     </div>
   </div>
 </section>
 
 <!-- COMPARISON TABLE -->
 <section class="compare-section" id="compare">
-  <h2 data-i18n="pricing.h2_2">Detailed comparison</h2>
-  <p class="compare-subtext" data-i18n="pricing.p_6">See exactly what's included at each level — pick what fits your practice.</p>
+  <h2>Detailed comparison</h2>
+  <p class="compare-subtext">See exactly what's included at each level — pick what fits your practice.</p>
   <div class="compare-wrap">
     <table>
       <colgroup>
@@ -615,33 +660,37 @@ footer .sep{margin:0 .5rem;color:var(--slate-200)}
       </colgroup>
       <thead>
         <tr>
-          <th data-i18n="pricing.th_1"></th><th data-i18n="pricing.th_2"></th><th data-i18n="pricing.th_3"></th>
-          <th class="col-pro" data-i18n="pricing.th_4"></th><th data-i18n="pricing.th_5"></th><th class="col-clinic" data-i18n="pricing.th_6"></th>
+          <th><div class="th-inner"><span class="th-name">Feature</span></div></th>
+          <th><div class="th-inner"><span class="th-name">Free</span><span class="th-price">€0/mo</span></div></th>
+          <th><div class="th-inner"><span class="th-name">Starter</span><span class="th-price">€29/mo</span></div></th>
+          <th class="col-pro"><div class="th-inner"><span class="rec-badge">Most Popular</span><span class="th-name">Pro ⭐</span><span class="th-price">€79/mo</span></div></th>
+          <th><div class="th-inner"><span class="rec-badge" style="background:#34d399;color:#064e3b">Best Value</span><span class="th-name">Expert 🔥</span><span class="th-price">€129/mo</span></div></th>
+          <th class="col-clinic"><div class="th-inner"><span class="ent-badge">Enterprise</span><span class="th-name">Clinic 🏥</span><span class="th-price">€399/mo</span></div></th>
         </tr>
       </thead>
       <tbody>
         <!-- Templates & Languages -->
-        <tr class="cat-row"><td colspan="6" data-i18n="pricing.td_1"></td></tr>
-        <tr><td data-i18n="pricing.td_2"></td><td data-i18n="pricing.td_3"></td><td data-i18n="pricing.td_4"></td><td class="col-pro" data-i18n="pricing.td_5"></td><td data-i18n="pricing.td_6"></td><td class="col-clinic" data-i18n="pricing.td_7"></td></tr>
-        <tr><td data-i18n="pricing.td_8"></td><td data-i18n="pricing.td_9"></td><td data-i18n="pricing.td_10"></td><td class="col-pro" data-i18n="pricing.td_11"></td><td data-i18n="pricing.td_12"></td><td class="col-clinic" data-i18n="pricing.td_13"></td></tr>
-        <tr><td data-i18n="pricing.td_14"></td><td data-i18n="pricing.td_15"></td><td data-i18n="pricing.td_16"></td><td class="col-pro" data-i18n="pricing.td_17"></td><td data-i18n="pricing.td_18"></td><td class="col-clinic" data-i18n="pricing.td_19"></td></tr>
-        <tr><td data-i18n="pricing.td_20"></td><td data-i18n="pricing.td_21"></td><td data-i18n="pricing.td_22"></td><td class="col-pro" data-i18n="pricing.td_23"></td><td data-i18n="pricing.td_24"></td><td class="col-clinic" data-i18n="pricing.td_25"></td></tr>
-        <tr><td data-i18n="pricing.td_26"></td><td data-i18n="pricing.td_27"></td><td data-i18n="pricing.td_28"></td><td class="col-pro" data-i18n="pricing.td_29"></td><td data-i18n="pricing.td_30"></td><td class="col-clinic" data-i18n="pricing.td_31"></td></tr>
-        <tr><td data-i18n="pricing.td_32"></td><td data-i18n="pricing.td_33"></td><td data-i18n="pricing.td_34"></td><td class="col-pro" data-i18n="pricing.td_35"></td><td data-i18n="pricing.td_36"></td><td class="col-clinic" data-i18n="pricing.td_37"></td></tr>
+        <tr class="cat-row"><td colspan="6">Templates &amp; Content</td></tr>
+        <tr><td>Templates</td><td>10</td><td>20</td><td class="col-pro"><strong>112+</strong></td><td>112+ custom</td><td class="col-clinic">Custom</td></tr>
+        <tr><td>Available languages</td><td>2</td><td>23</td><td class="col-pro"><strong>23</strong></td><td>23</td><td class="col-clinic">23</td></tr>
+        <tr><td>PDF Export</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td class="col-pro"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td class="col-clinic"><span class="yes">✓</span></td></tr>
+        <tr><td>Word Export</td><td><span class="no">✕</span></td><td><span class="yes">✓</span></td><td class="col-pro"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td class="col-clinic"><span class="yes">✓</span></td></tr>
+        <tr><td>HTML Export</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td class="col-clinic"><span class="yes">✓</span></td></tr>
+        <tr><td>Reports / month</td><td><span class="lim">50 max</span></td><td><span class="yes">Unlimited</span></td><td class="col-pro"><span class="yes">Unlimited</span></td><td><span class="yes">Unlimited</span></td><td class="col-clinic"><span class="yes">Unlimited</span></td></tr>
         <!-- AI -->
-        <tr class="cat-row"><td colspan="6" data-i18n="pricing.td_38"></td></tr>
-        <tr><td data-i18n="pricing.td_39"></td><td data-i18n="pricing.td_40"></td><td data-i18n="pricing.td_41"></td><td class="col-pro" data-i18n="pricing.td_42"></td><td data-i18n="pricing.td_43"></td><td class="col-clinic" data-i18n="pricing.td_44"></td></tr>
-        <tr><td data-i18n="pricing.td_45"></td><td data-i18n="pricing.td_46"></td><td data-i18n="pricing.td_47"></td><td class="col-pro" data-i18n="pricing.td_48"></td><td data-i18n="pricing.td_49"></td><td class="col-clinic" data-i18n="pricing.td_50"></td></tr>
-        <tr><td data-i18n="pricing.td_51"></td><td data-i18n="pricing.td_52"></td><td data-i18n="pricing.td_53"></td><td class="col-pro" data-i18n="pricing.td_54"></td><td data-i18n="pricing.td_55"></td><td class="col-clinic" data-i18n="pricing.td_56"></td></tr>
+        <tr class="cat-row"><td colspan="6">AI Features</td></tr>
+        <tr><td>AI Dictation</td><td><span class="lim">30 min/mo</span></td><td><span class="lim">500 min/mo</span></td><td class="col-pro"><span class="lim">2,000 min/mo</span></td><td><span class="yes">Unlimited</span></td><td class="col-clinic"><span class="yes">Unlimited</span></td></tr>
+        <tr><td>AI Enhancer</td><td><span class="lim">10/mo</span></td><td><span class="lim">50/mo</span></td><td class="col-pro"><span class="lim">200/mo</span></td><td><span class="yes">Unlimited</span></td><td class="col-clinic"><span class="yes">Unlimited</span></td></tr>
+        <tr><td>Report Translation</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="lim">100/mo</span></td><td><span class="yes">Unlimited</span></td><td class="col-clinic"><span class="yes">Unlimited</span></td></tr>
         <!-- Workflow -->
-        <tr class="cat-row"><td colspan="6" data-i18n="pricing.td_57"></td></tr>
-        <tr><td data-i18n="pricing.td_58"></td><td data-i18n="pricing.td_59"></td><td data-i18n="pricing.td_60"></td><td class="col-pro" data-i18n="pricing.td_61"></td><td data-i18n="pricing.td_62"></td><td class="col-clinic" data-i18n="pricing.td_63"></td></tr>
-        <tr><td data-i18n="pricing.td_64"></td><td data-i18n="pricing.td_65"></td><td data-i18n="pricing.td_66"></td><td class="col-pro" data-i18n="pricing.td_67"></td><td data-i18n="pricing.td_68"></td><td class="col-clinic" data-i18n="pricing.td_69"></td></tr>
-        <tr><td data-i18n="pricing.td_70"></td><td data-i18n="pricing.td_71"></td><td data-i18n="pricing.td_72"></td><td class="col-pro" data-i18n="pricing.td_73"></td><td data-i18n="pricing.td_74"></td><td class="col-clinic" data-i18n="pricing.td_75"></td></tr>
-        <tr><td data-i18n="pricing.td_76"></td><td data-i18n="pricing.td_77"></td><td data-i18n="pricing.td_78"></td><td class="col-pro" data-i18n="pricing.td_79"></td><td data-i18n="pricing.td_80"></td><td class="col-clinic" data-i18n="pricing.td_81"></td></tr>
+        <tr class="cat-row"><td colspan="6">Workflow &amp; Clinic</td></tr>
+        <tr><td>Worklist</td><td><span class="lim">Limited</span></td><td><span class="lim">Basic</span></td><td class="col-pro"><span class="yes">Full</span></td><td><span class="yes">Advanced</span></td><td class="col-clinic"><span class="yes">Multi-site</span></td></tr>
+        <tr><td>Statistics</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="lim">Basic</span></td><td><span class="yes">Full</span></td><td class="col-clinic"><span class="yes">Advanced</span></td></tr>
+        <tr><td>LAN Network Sync</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="no">✕</span></td><td><span class="lim">1 site · 3 PCs</span></td><td class="col-clinic"><span class="yes">Multi-site · Unlimited</span></td></tr>
+        <tr><td>Users</td><td>1</td><td>1</td><td class="col-pro">1</td><td>1</td><td class="col-clinic"><strong>5 incl. (+€69/extra)</strong></td></tr>
         <!-- Support -->
-        <tr class="cat-row"><td colspan="6" data-i18n="pricing.td_82"></td></tr>
-        <tr><td data-i18n="pricing.td_83"></td><td data-i18n="pricing.td_84"></td><td data-i18n="pricing.td_85"></td><td class="col-pro" data-i18n="pricing.td_86"></td><td data-i18n="pricing.td_87"></td><td class="col-clinic" data-i18n="pricing.td_88"></td></tr>
+        <tr class="cat-row"><td colspan="6">Support</td></tr>
+        <tr><td>Support level</td><td>—</td><td>Email</td><td class="col-pro">Priority email</td><td>Chat + email</td><td class="col-clinic"><strong>Dedicated + onboarding</strong></td></tr>
       </tbody>
     </table>
   </div>
@@ -649,44 +698,46 @@ footer .sep{margin:0 .5rem;color:var(--slate-200)}
 
 <!-- LAN SYNC HOW IT WORKS -->
 <section class="how-section" id="lan-sync">
-  <h2 data-i18n="pricing.h2_3">How LAN Network Sync works</h2>
-  <p class="how-sub" data-i18n="pricing.p_7">Share patient data across workstations on your local network — no cloud, no latency, no GDPR risk.</p>
+  <h2>How LAN Network Sync works</h2>
+  <p class="how-sub">Share patient data across workstations on your local network — no cloud, no latency, no GDPR risk.</p>
   <div class="how-grid">
     <div class="how-step">
       <div class="how-icon">🖥️</div>
-      <h3 data-i18n="pricing.h3_5">1. Set up a shared folder</h3>
-      <p data-i18n="pricing.p_8">Point PISUM to a shared network folder (NAS, SMB share, or mapped drive). All workstations on the same network access the same database.</p>
+      <h3>1. Set up a shared folder</h3>
+      <p>Point PISUM to a shared network folder (NAS, SMB share, or mapped drive). All workstations on the same network access the same database.</p>
     </div>
     <div class="how-step">
       <div class="how-icon">🔐</div>
-      <h3 data-i18n="pricing.h3_6">2. One shared password</h3>
-      <p data-i18n="pricing.p_9">The database is AES-256 encrypted. Set one password on the first workstation — all other PCs enter the same password to connect.</p>
+      <h3>2. One shared password</h3>
+      <p>The database is AES-256 encrypted. Set one password on the first workstation — all other PCs enter the same password to connect.</p>
     </div>
     <div class="how-step">
       <div class="how-icon">⚡</div>
-      <h3 data-i18n="pricing.h3_7">3. Instant sync across PCs</h3>
-      <p data-i18n="pricing.p_10">Each workstation reads and writes directly to the shared database. Changes appear instantly across all connected computers.</p>
+      <h3>3. Instant sync across PCs</h3>
+      <p>Each workstation reads and writes directly to the shared database. Changes appear instantly across all connected computers.</p>
     </div>
   </div>
   <div class="how-limits">
     <div class="how-limit-item">
-      <span class="hl-expert" data-i18n="pricing.span_11">Expert 🔥</span>
-      <span data-i18n="pricing.span_12">1 site · max 3 workstations</span>
+      <span class="hl-expert">Expert 🔥</span>
+      <span>1 site · max 3 workstations</span>
     </div>
     <div class="how-limit-item">
-      <span class="hl-clinic" data-i18n="pricing.span_13">Clinic 🏥</span>
-      <span data-i18n="pricing.span_14">Multi-site · unlimited workstations</span>
+      <span class="hl-clinic">Clinic 🏥</span>
+      <span>Multi-site · unlimited workstations</span>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
 <section class="faq-section">
-  <h2 data-i18n="pricing.h2_4">Frequently Asked Questions</h2>
-  <p class="faq-intro" data-i18n="pricing.p_11">Everything you need to know before subscribing.</p>
+  <h2>Frequently Asked Questions</h2>
+  <p class="faq-intro">Everything you need to know before subscribing.</p>
 
   <div class="faq-item">
-    <button class="faq-q" onclick="toggleFaq(this)" data-i18n="pricing.button_5"></button>
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Can I change my plan at any time? <span class="arr">▼</span>
+    </button>
     <div class="faq-a">Yes — upgrade or cancel your subscription at any time from your dashboard. Changes take effect immediately.</div>
   </div>
 
@@ -742,14 +793,14 @@ footer .sep{margin:0 .5rem;color:var(--slate-200)}
 
 <footer>
   <div style="margin-bottom:.75rem">
-    Questions? <a href="mailto:MyPisum@Proton.me" data-i18n="pricing.a_7">MyPisum@Proton.me</a>
+    Questions? <a href="mailto:MyPisum@Proton.me">MyPisum@Proton.me</a>
   </div>
   <div>
-    <a href="auth.html" data-i18n="pricing.a_8">Create an account</a>
-    <span class="sep" data-i18n="pricing.span_15">·</span>
-    <a href="dashboard.html" data-i18n="pricing.a_9">My subscription</a>
-    <span class="sep" data-i18n="pricing.span_16">·</span>
-    <a href="mailto:MyPisum@Proton.me" data-i18n="pricing.a_10">Support</a>
+    <a href="auth.html">Create an account</a>
+    <span class="sep">·</span>
+    <a href="dashboard.html">My subscription</a>
+    <span class="sep">·</span>
+    <a href="mailto:MyPisum@Proton.me">Support</a>
   </div>
 </footer>
 
@@ -931,7 +982,11 @@ init();
 </style>
 
 <div id="piw">
-  <button id="piw-trigger" onclick="piwToggle()" aria-label="Ask PISUM AI" data-i18n="pricing.button_13"></button>
+  <button id="piw-trigger" onclick="piwToggle()" aria-label="Ask PISUM AI">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    Ask AI
+    <span id="piw-badge">1</span>
+  </button>
   <div id="piw-panel" role="dialog" aria-label="PISUM AI Assistant">
     <div id="piw-head">
       <div id="piw-head-info">
@@ -941,20 +996,20 @@ init();
           <div id="piw-status"><span class="piw-dot"></span> Online — always here to help</div>
         </div>
       </div>
-      <button id="piw-close" onclick="piwToggle()" aria-label="Close" data-i18n="pricing.button_14">✕</button>
+      <button id="piw-close" onclick="piwToggle()" aria-label="Close">✕</button>
     </div>
     <div id="piw-msgs">
       <div class="piw-msg ai"><div class="piw-bubble">Hi! I'm <strong>PISUM AI</strong> 👋<br/>Ask me anything about features, pricing, setup, or templates. I'll give you a straight answer.</div></div>
     </div>
     <div id="piw-chips">
-      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="pricing.button_15">What plans exist?</button>
-      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="pricing.button_16">Free trial?</button>
-      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="pricing.button_17">How to install?</button>
-      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="pricing.button_18">AI dictation?</button>
-      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="pricing.button_19">GDPR compliant?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)">What plans exist?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)">Free trial?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)">How to install?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)">AI dictation?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)">GDPR compliant?</button>
     </div>
     <div id="piw-footer">
-      <input id="piw-input" type="text" placeholder="Ask a question…" autocomplete="off" onkeydown="if(event.key==='Enter')piwSend()" data-i18n="[placeholder]pricing.input_1"/>
+      <input id="piw-input" type="text" placeholder="Ask a question…" autocomplete="off" onkeydown="if(event.key==='Enter')piwSend()"/>
       <button id="piw-send" onclick="piwSend()" aria-label="Send">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
       </button>
@@ -1028,6 +1083,5 @@ window.piwSend=function(){
 })();
 </script>
 <!-- ── end AI Agent Widget ── -->
-<script src="../../i18n.js"></script>
 </body>
 </html>

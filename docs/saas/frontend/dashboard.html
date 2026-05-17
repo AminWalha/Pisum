@@ -11,8 +11,8 @@
 </script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title data-i18n="dashboard.title">PISUM — My Account</title>
-<link rel="icon" type="image/png" href="../../logo V2.png"/>
+<title>PISUM — My Account</title>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
@@ -637,7 +637,10 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
   <!-- ── SIDEBAR ── -->
   <aside class="sidebar" id="sidebar">
     <div class="sb-top">
-      <a class="sb-logo" href="https://pisum.app" data-i18n="dashboard.a_1"></a>
+      <a class="sb-logo" href="https://pisum.app">
+        <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="PISUM"/>
+        <span class="sb-logo-text">PISUM</span>
+      </a>
     </div>
 
     <div class="sb-divider"></div>
@@ -653,15 +656,30 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
     <div class="sb-divider"></div>
 
     <nav class="sb-nav">
-      <span class="sb-nav-label" data-i18n="dashboard.span_1">Navigation</span>
-      <button class="sb-link active" id="snav-overview" onclick="sbNav(this,'section-overview')" data-i18n="dashboard.button_1"></button>
-      <button class="sb-link" id="snav-usage" onclick="sbNav(this,'section-usage')" data-i18n="dashboard.button_2"></button>
-      <button class="sb-link" id="snav-billing" onclick="sbNav(this,'section-billing')" data-i18n="dashboard.button_3"></button>
-      <button class="sb-link" id="snav-profile" onclick="sbNav(this,'section-profile')" data-i18n="dashboard.button_4"></button>
+      <span class="sb-nav-label">Navigation</span>
+      <button class="sb-link active" id="snav-overview" onclick="sbNav(this,'section-overview')">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+        Overview
+      </button>
+      <button class="sb-link" id="snav-usage" onclick="sbNav(this,'section-usage')">
+        <svg viewBox="0 0 24 24"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg>
+        Usage
+      </button>
+      <button class="sb-link" id="snav-billing" onclick="sbNav(this,'section-billing')">
+        <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="9" x2="22" y2="9" stroke-width="1.75"/><line x1="6" y1="14" x2="10" y2="14" stroke-width="2"/></svg>
+        Billing
+      </button>
+      <button class="sb-link" id="snav-profile" onclick="sbNav(this,'section-profile')">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        Profile
+      </button>
     </nav>
 
     <div class="sb-bottom">
-      <button class="sb-signout" onclick="signOut()" data-i18n="dashboard.button_5"></button>
+      <button class="sb-signout" onclick="signOut()">
+        <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Sign Out
+      </button>
     </div>
   </aside>
 
@@ -678,7 +696,7 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
               My Account
             </div>
             <h1 class="hero-title-el" id="page-title">My Account</h1>
-            <p class="hero-sub-el" id="page-sub" data-i18n="dashboard.p_1">Manage your subscription and access PISUM.</p>
+            <p class="hero-sub-el" id="page-sub">Manage your subscription and access PISUM.</p>
 
             <div class="hero-badges-row">
               <span class="badge" id="hdr-plan-badge"></span>
@@ -690,14 +708,16 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
               </div>
               <div class="hero-status-text status-text">
-                <h2 id="status-title" data-i18n="dashboard.h2_1">Checking access…</h2>
-                <p id="status-desc" data-i18n="dashboard.p_2">Please wait.</p>
+                <h2 id="status-title">Checking access…</h2>
+                <p id="status-desc">Please wait.</p>
               </div>
             </div>
 
             <div class="hero-actions">
-              <button class="btn-hero btn-hero-primary" onclick="handleBillingPortal()" id="btn-billing-portal" style="display:none" data-i18n="dashboard.button_6"></button>
-              <a class="btn-hero btn-hero-outline" href="pricing.html" data-i18n="dashboard.a_2">Change Plan →</a>
+              <button class="btn-hero btn-hero-primary" onclick="handleBillingPortal()" id="btn-billing-portal" style="display:none">
+                Manage Billing
+              </button>
+              <a class="btn-hero btn-hero-outline" href="pricing.html">Change Plan →</a>
             </div>
           </div>
         </div>
@@ -721,7 +741,10 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
               <div class="ob-step-title">Download &amp; install PISUM</div>
               <div class="ob-step-desc">One .exe installer for Windows 10/11. Takes under a minute.</div>
               <div class="ob-step-action">
-                <a class="ob-btn" href="https://www.dropbox.com/scl/fi/4ekm8ni7zsbw76se4h5ue/PISUM_Radiology_Setup_2.9.8.1.exe?rlkey=8tgsbhqubhobjs57cs0yfxfvt&st=7gc04d3f&dl=1" target="_blank" rel="noopener noreferrer" onclick="obComplete(1)" data-i18n="dashboard.a_3"></a>
+                <a class="ob-btn" href="https://www.dropbox.com/scl/fi/4ekm8ni7zsbw76se4h5ue/PISUM_Radiology_Setup_2.9.8.1.exe?rlkey=8tgsbhqubhobjs57cs0yfxfvt&st=7gc04d3f&dl=1" target="_blank" rel="noopener noreferrer" onclick="obComplete(1)">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  Download for Windows
+                </a>
               </div>
             </div>
           </div>
@@ -784,7 +807,7 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
         <!-- Usage rings -->
         <div class="dark-card anim-2" id="section-usage">
           <div class="dc-head">
-            <span class="dc-title" data-i18n="dashboard.span_2">This Month's Usage</span>
+            <span class="dc-title">This Month's Usage</span>
           </div>
           <div id="usage-section">
             <div class="rings-row" id="usage-bars"></div>
@@ -804,9 +827,9 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
 
         <!-- Team & Seats (Clinic only) -->
         <div class="dark-card anim-4" id="team-seats-card" style="display:none">
-          <div class="dc-head" data-i18n="dashboard.span_4">
-            <span class="dc-title" >Team &amp; Seats</span>
-            <span class="badge badge-clinic" id="total-seats-badge" data-i18n="dashboard.span_5">5 users</span>
+          <div class="dc-head">
+            <span class="dc-title">Team &amp; Seats</span>
+            <span class="badge badge-clinic" id="total-seats-badge">5 users</span>
           </div>
           <div class="seats-body">
             <div class="seats-stats">
@@ -829,11 +852,13 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
                 Billed as a separate recurring add-on. Manage via billing portal.
               </div>
               <div class="seats-picker">
-                <button class="seats-picker-btn" onclick="changeAddSeats(-1)" data-i18n="dashboard.button_7">−</button>
-                <span class="seats-qty" id="add-seats-qty" data-i18n="dashboard.span_6">1</span>
-                <button class="seats-picker-btn" onclick="changeAddSeats(1)" data-i18n="dashboard.button_8">+</button>
+                <button class="seats-picker-btn" onclick="changeAddSeats(-1)">−</button>
+                <span class="seats-qty" id="add-seats-qty">1</span>
+                <button class="seats-picker-btn" onclick="changeAddSeats(1)">+</button>
               </div>
-              <button class="btn-add-seats" id="btn-add-seats" onclick="handleAddSeats()" data-i18n="dashboard.button_9"></button>
+              <button class="btn-add-seats" id="btn-add-seats" onclick="handleAddSeats()">
+                Add <span id="add-seats-label">1 seat</span>
+              </button>
             </div>
           </div>
         </div>
@@ -843,10 +868,12 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
           <div class="danger-zone">
             <div class="danger-title">Danger Zone</div>
             <div class="danger-actions">
-              <button class="btn-cancel-sub" id="btn-cancel-sub" onclick="openCancelModal()" style="display:none" data-i18n="dashboard.button_10">Cancel Subscription</button>
-              <button class="btn-danger-outline" onclick="openDeleteModal()" data-i18n="dashboard.button_11">Delete Account</button>
+              <button class="btn-cancel-sub" id="btn-cancel-sub" onclick="openCancelModal()" style="display:none">Cancel Subscription</button>
+              <button class="btn-danger-outline" onclick="openDeleteModal()">Delete Account</button>
             </div>
-            <p id="canceling-notice" style="display:none;font-size:0.763rem;color:var(--amber);margin-top:0.625rem;line-height:1.55" data-i18n="dashboard.p_3"></p>
+            <p id="canceling-notice" style="display:none;font-size:0.763rem;color:var(--amber);margin-top:0.625rem;line-height:1.55">
+              Your subscription is set to cancel at the end of the current billing period. You still have full access until then.
+            </p>
           </div>
         </div>
 
@@ -855,20 +882,20 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
       <!-- SUBSCRIBE / UPGRADE CARD -->
       <div class="dark-card" id="sub-card" style="display:none">
         <div class="dc-head">
-          <span class="dc-title" id="sub-title" data-i18n="dashboard.span_7">Choose your plan</span>
+          <span class="dc-title" id="sub-title">Choose your plan</span>
         </div>
         <div class="sub-wrapper">
-          <p class="sub-desc-el" id="sub-desc" data-i18n="dashboard.p_4">Select the plan that fits your practice and proceed to secure checkout.</p>
+          <p class="sub-desc-el" id="sub-desc">Select the plan that fits your practice and proceed to secure checkout.</p>
           <div class="billing-toggle">
-            <span data-i18n="dashboard.span_8">Monthly</span>
+            <span>Monthly</span>
             <label class="toggle-switch">
               <input type="checkbox" id="billing-annual" onchange="setBilling(this.checked)"/>
               <span class="toggle-slider"></span>
             </label>
-            <span data-i18n="dashboard.span_9">Annual <span class="save-badge">−20%</span></span>
+            <span>Annual <span class="save-badge">−20%</span></span>
           </div>
           <div class="plan-grid" id="plan-grid"></div>
-          <button class="btn btn-primary" id="btn-subscribe" onclick="handleSubscribe()" data-i18n="dashboard.button_12">Continue</button>
+          <button class="btn btn-primary" id="btn-subscribe" onclick="handleSubscribe()">Continue</button>
           <div id="sub-err" style="display:none"></div>
         </div>
       </div>
@@ -876,7 +903,7 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
       <!-- PROFILE CARD -->
       <div class="dark-card anim-5" id="profile-card" id="section-profile" style="display:none">
         <div class="dc-head">
-          <span class="dc-title" data-i18n="dashboard.span_10">Profile</span>
+          <span class="dc-title">Profile</span>
         </div>
         <div class="profile-row">
           <div class="profile-avatar-wrap" onclick="openProfileModal()" title="Edit profile">
@@ -891,8 +918,8 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
           </div>
         </div>
         <div class="profile-actions">
-          <button class="btn-edit-profile" onclick="openProfileModal()" data-i18n="dashboard.button_13">✏️ Edit Profile</button>
-          <button class="btn-edit-profile" onclick="openPwModal()" data-i18n="dashboard.button_14">🔑 Change Password</button>
+          <button class="btn-edit-profile" onclick="openProfileModal()">✏️ Edit Profile</button>
+          <button class="btn-edit-profile" onclick="openPwModal()">🔑 Change Password</button>
         </div>
       </div>
 
@@ -910,38 +937,38 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
         <div class="avatar-edit-overlay">📷</div>
       </div>
       <input type="file" id="avatar-input-modal" accept="image/*" style="display:none" onchange="handleAvatarChange(this)">
-      <span class="modal-avatar-hint" data-i18n="dashboard.span_11">Click the photo to change it (max 2 MB)</span>
+      <span class="modal-avatar-hint">Click the photo to change it (max 2 MB)</span>
     </div>
     <div class="form-grid">
       <div class="form-group full">
-        <label class="form-label" data-i18n="dashboard.label_1">Full Name</label>
-        <input class="form-input" id="f-name" type="text" placeholder="Dr. John Smith" data-i18n="[placeholder]dashboard.input_1">
+        <label class="form-label">Full Name</label>
+        <input class="form-input" id="f-name" type="text" placeholder="Dr. John Smith">
       </div>
       <div class="form-group">
-        <label class="form-label" data-i18n="dashboard.label_2">Phone</label>
-        <input class="form-input" id="f-phone" type="tel" placeholder="+1 555 000 0000" data-i18n="[placeholder]dashboard.input_2">
+        <label class="form-label">Phone</label>
+        <input class="form-input" id="f-phone" type="tel" placeholder="+1 555 000 0000">
       </div>
       <div class="form-group">
-        <label class="form-label" data-i18n="dashboard.label_3">Specialty</label>
-        <input class="form-input" id="f-specialty" type="text" placeholder="Radiology, MRI…" data-i18n="[placeholder]dashboard.input_3">
+        <label class="form-label">Specialty</label>
+        <input class="form-input" id="f-specialty" type="text" placeholder="Radiology, MRI…">
       </div>
       <div class="form-group full">
-        <label class="form-label" data-i18n="dashboard.label_4">Organization / Practice</label>
-        <input class="form-input" id="f-org" type="text" placeholder="City Imaging Center" data-i18n="[placeholder]dashboard.input_4">
+        <label class="form-label">Organization / Practice</label>
+        <input class="form-input" id="f-org" type="text" placeholder="City Imaging Center">
       </div>
       <div class="form-group">
-        <label class="form-label" data-i18n="dashboard.label_5">City</label>
-        <input class="form-input" id="f-city" type="text" placeholder="New York" data-i18n="[placeholder]dashboard.input_5">
+        <label class="form-label">City</label>
+        <input class="form-input" id="f-city" type="text" placeholder="New York">
       </div>
       <div class="form-group">
-        <label class="form-label" data-i18n="dashboard.label_6">Country</label>
-        <input class="form-input" id="f-country" type="text" placeholder="United States" data-i18n="[placeholder]dashboard.input_6">
+        <label class="form-label">Country</label>
+        <input class="form-input" id="f-country" type="text" placeholder="United States">
       </div>
     </div>
     <div class="modal-msg" id="modal-msg"></div>
     <div class="modal-actions">
-      <button class="btn-modal-cancel" onclick="closeProfileModal()" data-i18n="dashboard.button_15">Cancel</button>
-      <button class="btn-modal-save" id="btn-save-profile" onclick="saveProfile()" data-i18n="dashboard.button_16">Save</button>
+      <button class="btn-modal-cancel" onclick="closeProfileModal()">Cancel</button>
+      <button class="btn-modal-save" id="btn-save-profile" onclick="saveProfile()">Save</button>
     </div>
   </div>
 </div>
@@ -950,14 +977,17 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
 <div class="modal-overlay" id="cancel-modal-overlay" onclick="closeCancelModal()">
   <div class="modal" onclick="event.stopPropagation()" style="max-width:420px">
     <div class="modal-title" style="color:var(--red)">Cancel Subscription</div>
-    <p style="font-size:0.838rem;color:var(--t2);line-height:1.65" data-i18n="dashboard.p_5"></p>
-    <p class="confirm-hint" data-i18n="dashboard.p_6"></p>
-    <input class="confirm-input" id="cancel-confirm-input" type="text" placeholder="CANCEL" oninput="validateCancelInput()" data-i18n="[placeholder]dashboard.input_7">
+    <p style="font-size:0.838rem;color:var(--t2);line-height:1.65">
+      Your subscription will remain active until the end of the current billing period.
+      After that, your account will revert to the Free plan.
+    </p>
+    <p class="confirm-hint">Type <strong style="color:var(--t1)">CANCEL</strong> below to confirm:</p>
+    <input class="confirm-input" id="cancel-confirm-input" type="text" placeholder="CANCEL" oninput="validateCancelInput()">
     <div class="modal-msg" id="cancel-modal-msg"></div>
     <div class="modal-actions">
-      <button class="btn-modal-cancel" onclick="closeCancelModal()" data-i18n="dashboard.button_17">Keep Subscription</button>
+      <button class="btn-modal-cancel" onclick="closeCancelModal()">Keep Subscription</button>
       <button class="btn-modal-save" id="btn-confirm-cancel" onclick="confirmCancel()"
-        disabled style="background:var(--red);opacity:0.5" data-i18n="dashboard.button_18">Cancel Subscription</button>
+        disabled style="background:var(--red);opacity:0.5">Cancel Subscription</button>
     </div>
   </div>
 </div>
@@ -968,18 +998,18 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
     <div class="modal-title">Change Password</div>
     <div class="form-grid" style="grid-template-columns:1fr">
       <div class="form-group">
-        <label class="form-label" data-i18n="dashboard.label_7">New Password</label>
-        <input class="form-input" id="pw-new" type="password" placeholder="Min. 8 characters" minlength="8" data-i18n="[placeholder]dashboard.input_8">
+        <label class="form-label">New Password</label>
+        <input class="form-input" id="pw-new" type="password" placeholder="Min. 8 characters" minlength="8">
       </div>
       <div class="form-group">
-        <label class="form-label" data-i18n="dashboard.label_8">Confirm New Password</label>
-        <input class="form-input" id="pw-confirm" type="password" placeholder="••••••••" minlength="8" data-i18n="[placeholder]dashboard.input_9">
+        <label class="form-label">Confirm New Password</label>
+        <input class="form-input" id="pw-confirm" type="password" placeholder="••••••••" minlength="8">
       </div>
     </div>
     <div class="modal-msg" id="pw-modal-msg"></div>
     <div class="modal-actions">
-      <button class="btn-modal-cancel" onclick="closePwModal()" data-i18n="dashboard.button_19">Cancel</button>
-      <button class="btn-modal-save" id="btn-save-pw" onclick="savePassword()" data-i18n="dashboard.button_20">Update Password</button>
+      <button class="btn-modal-cancel" onclick="closePwModal()">Cancel</button>
+      <button class="btn-modal-save" id="btn-save-pw" onclick="savePassword()">Update Password</button>
     </div>
   </div>
 </div>
@@ -988,14 +1018,16 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
 <div class="modal-overlay" id="delete-modal-overlay" onclick="closeDeleteModal()">
   <div class="modal" onclick="event.stopPropagation()" style="max-width:420px">
     <div class="modal-title" style="color:var(--red)">Delete Account</div>
-    <p style="font-size:0.838rem;color:var(--t2);line-height:1.65" data-i18n="dashboard.p_7"></p>
-    <p class="confirm-hint" data-i18n="dashboard.p_8"></p>
-    <input class="confirm-input" id="delete-confirm-input" type="text" placeholder="DELETE" oninput="validateDeleteInput()" data-i18n="[placeholder]dashboard.input_10">
+    <p style="font-size:0.838rem;color:var(--t2);line-height:1.65">
+      This action is <strong style="color:var(--t1)">permanent and irreversible</strong>. All your data, reports, and subscription will be deleted immediately.
+    </p>
+    <p class="confirm-hint">Type <strong style="color:var(--t1)">DELETE</strong> below to confirm:</p>
+    <input class="confirm-input" id="delete-confirm-input" type="text" placeholder="DELETE" oninput="validateDeleteInput()">
     <div class="modal-msg" id="delete-modal-msg"></div>
     <div class="modal-actions">
-      <button class="btn-modal-cancel" onclick="closeDeleteModal()" data-i18n="dashboard.button_21">Cancel</button>
+      <button class="btn-modal-cancel" onclick="closeDeleteModal()">Cancel</button>
       <button class="btn-modal-save" id="btn-confirm-delete" onclick="confirmDeleteAccount()"
-        disabled style="background:var(--red);opacity:0.5" data-i18n="dashboard.button_22">Delete My Account</button>
+        disabled style="background:var(--red);opacity:0.5">Delete My Account</button>
     </div>
   </div>
 </div>
@@ -2081,8 +2113,5 @@ window.piwSend=function(){
 })();
 </script>
 <!-- ── end AI Agent Widget ── -->
-<script src="../../i18n.js"></script>
-</body>
-</html>
 </body>
 </html>

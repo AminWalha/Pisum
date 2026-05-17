@@ -11,8 +11,8 @@
 </script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title data-i18n="auth.title">PISUM — Sign In</title>
-<link rel="icon" type="image/png" href="../../logo V2.png"/>
+<title>PISUM — Sign In</title>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
@@ -160,13 +160,16 @@ input::placeholder{color:#9ca3af}
 
 <div class="card">
   <div class="logo">
-    <a href="https://pisum.app" style="display:flex;align-items:center;gap:0.5rem;text-decoration:none;color:inherit;" data-i18n="auth.a_1"></a>
+    <a href="https://pisum.app" style="display:flex;align-items:center;gap:0.5rem;text-decoration:none;color:inherit;">
+      <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="PISUM"/>
+      <span class="logo-text">PISUM</span>
+    </a>
   </div>
 
   <!-- TABS -->
   <div class="tabs" id="tabs">
-    <button class="tab active" id="tab-login"  onclick="switchTab('login')" data-i18n="auth.button_1">Sign In</button>
-    <button class="tab"        id="tab-signup" onclick="switchTab('signup')" data-i18n="auth.button_2">Create Account</button>
+    <button class="tab active" id="tab-login"  onclick="switchTab('login')">Sign In</button>
+    <button class="tab"        id="tab-signup" onclick="switchTab('signup')">Create Account</button>
   </div>
 
   <!-- LOGIN -->
@@ -175,17 +178,17 @@ input::placeholder{color:#9ca3af}
     <div class="form-sub">Sign in to your PISUM account.</div>
     <form onsubmit="handleLogin(event)">
       <div class="field">
-        <label for="login-email" data-i18n="auth.label_1">Email address</label>
-        <input id="login-email" type="email" placeholder="you@clinic.com" required autocomplete="email" data-i18n="[placeholder]auth.input_1"/>
+        <label for="login-email">Email address</label>
+        <input id="login-email" type="email" placeholder="you@clinic.com" required autocomplete="email"/>
       </div>
       <div class="field">
-        <label for="login-password" data-i18n="auth.label_2">Password</label>
-        <input id="login-password" type="password" placeholder="••••••••" required autocomplete="current-password" data-i18n="[placeholder]auth.input_2"/>
+        <label for="login-password">Password</label>
+        <input id="login-password" type="password" placeholder="••••••••" required autocomplete="current-password"/>
       </div>
       <div class="forgot-row">
-        <button type="button" class="forgot-link" onclick="switchTab('forgot')" data-i18n="auth.button_3">Forgot password?</button>
+        <button type="button" class="forgot-link" onclick="switchTab('forgot')">Forgot password?</button>
       </div>
-      <button class="btn" type="submit" id="btn-login" data-i18n="auth.button_4">Sign In</button>
+      <button class="btn" type="submit" id="btn-login">Sign In</button>
       <div class="msg" id="msg-login"></div>
     </form>
   </div>
@@ -196,24 +199,24 @@ input::placeholder{color:#9ca3af}
     <div class="form-sub">Get started with PISUM — no credit card required.</div>
     <form onsubmit="handleSignup(event)">
       <div class="field">
-        <label for="signup-name" data-i18n="auth.label_3">Full name</label>
-        <input id="signup-name" type="text" placeholder="Dr. Smith" required autocomplete="name" data-i18n="[placeholder]auth.input_3"/>
+        <label for="signup-name">Full name</label>
+        <input id="signup-name" type="text" placeholder="Dr. Smith" required autocomplete="name"/>
         <div class="field-hint">Appears on your reports and in the app.</div>
       </div>
       <div class="field">
-        <label for="signup-email" data-i18n="auth.label_4">Email address</label>
-        <input id="signup-email" type="email" placeholder="you@clinic.com" required autocomplete="email" data-i18n="[placeholder]auth.input_4"/>
+        <label for="signup-email">Email address</label>
+        <input id="signup-email" type="email" placeholder="you@clinic.com" required autocomplete="email"/>
       </div>
       <div class="field">
-        <label for="signup-password" data-i18n="auth.label_5">Password</label>
-        <input id="signup-password" type="password" placeholder="Min. 8 characters" required autocomplete="new-password" minlength="8" oninput="checkStrength(this.value)" data-i18n="[placeholder]auth.input_5"/>
+        <label for="signup-password">Password</label>
+        <input id="signup-password" type="password" placeholder="Min. 8 characters" required autocomplete="new-password" minlength="8" oninput="checkStrength(this.value)"/>
         <div class="strength-bar"><div class="strength-fill" id="strength-fill"></div></div>
       </div>
       <div class="field">
-        <label for="signup-confirm" data-i18n="auth.label_6">Confirm password</label>
-        <input id="signup-confirm" type="password" placeholder="••••••••" required autocomplete="new-password" minlength="8" data-i18n="[placeholder]auth.input_6"/>
+        <label for="signup-confirm">Confirm password</label>
+        <input id="signup-confirm" type="password" placeholder="••••••••" required autocomplete="new-password" minlength="8"/>
       </div>
-      <button class="btn" type="submit" id="btn-signup" data-i18n="auth.button_5">Create Account</button>
+      <button class="btn" type="submit" id="btn-signup">Create Account</button>
       <div class="msg" id="msg-signup"></div>
     </form>
   </div>
@@ -224,11 +227,11 @@ input::placeholder{color:#9ca3af}
     <div class="form-sub">Enter your email and we'll send you a reset link.</div>
     <form onsubmit="handleForgot(event)">
       <div class="field">
-        <label for="forgot-email" data-i18n="auth.label_7">Email address</label>
-        <input id="forgot-email" type="email" placeholder="you@clinic.com" required autocomplete="email" data-i18n="[placeholder]auth.input_7"/>
+        <label for="forgot-email">Email address</label>
+        <input id="forgot-email" type="email" placeholder="you@clinic.com" required autocomplete="email"/>
       </div>
-      <button class="btn" type="submit" id="btn-forgot" data-i18n="auth.button_6">Send Reset Link</button>
-      <button type="button" class="btn btn-secondary" onclick="switchTab('login')" data-i18n="auth.button_7">← Back to Sign In</button>
+      <button class="btn" type="submit" id="btn-forgot">Send Reset Link</button>
+      <button type="button" class="btn btn-secondary" onclick="switchTab('login')">← Back to Sign In</button>
       <div class="msg" id="msg-forgot"></div>
     </form>
   </div>
@@ -239,21 +242,21 @@ input::placeholder{color:#9ca3af}
     <div class="form-sub">Choose a new secure password.</div>
     <form onsubmit="handleReset(event)">
       <div class="field">
-        <label for="reset-password" data-i18n="auth.label_8">New password</label>
-        <input id="reset-password" type="password" placeholder="Min. 8 characters" required minlength="8" oninput="checkStrength(this.value)" data-i18n="[placeholder]auth.input_8"/>
+        <label for="reset-password">New password</label>
+        <input id="reset-password" type="password" placeholder="Min. 8 characters" required minlength="8" oninput="checkStrength(this.value)"/>
         <div class="strength-bar"><div class="strength-fill" id="strength-fill"></div></div>
       </div>
       <div class="field">
-        <label for="reset-confirm" data-i18n="auth.label_9">Confirm password</label>
-        <input id="reset-confirm" type="password" placeholder="••••••••" required minlength="8" data-i18n="[placeholder]auth.input_9"/>
+        <label for="reset-confirm">Confirm password</label>
+        <input id="reset-confirm" type="password" placeholder="••••••••" required minlength="8"/>
       </div>
-      <button class="btn" type="submit" id="btn-reset" data-i18n="auth.button_8">Save New Password</button>
+      <button class="btn" type="submit" id="btn-reset">Save New Password</button>
       <div class="msg" id="msg-reset"></div>
     </form>
   </div>
 
   <div class="footer-link" id="footer-link">
-    <a href="pricing.html" data-i18n="auth.a_2">← View plans</a>
+    <a href="pricing.html">← View plans</a>
   </div>
 </div>
 
@@ -424,6 +427,5 @@ async function handleReset(e) {
   setTimeout(() => { window.location.href = 'dashboard.html'; }, 1800);
 }
 </script>
-<script src="../../i18n.js"></script>
 </body>
 </html>
