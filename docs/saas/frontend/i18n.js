@@ -321,8 +321,9 @@ function injectFuturisticLangPicker() {
     wrapper.querySelectorAll('.pisum-lang-option').forEach(btn => {
         btn.addEventListener('click', () => {
             const lang = btn.dataset.lang;
-            window.i18n.setLanguage(lang, true);
-            wrapper.classList.remove('open');
+            localStorage.setItem('preferredLanguage', lang);
+            localStorage.setItem('langExplicit', '1');
+            location.reload();
         });
     });
 }
