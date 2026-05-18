@@ -555,7 +555,7 @@ const t = {
   }
 };
 
-let currentLang = localStorage.getItem('pisum-lang') || 'fr';
+let currentLang = localStorage.getItem('pisum-lang') || document.documentElement.lang || 'fr';
 
 function setLang(lang) {
   currentLang = lang;
