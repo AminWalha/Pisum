@@ -1,7 +1,7 @@
 {
-  "version": "2.9.8.1",
-  "release_date": "2026-05-17",
-  "download_url": "https://www.pisum.app",
+  "version": "2.9.8.2",
+  "release_date": "2026-05-18",
+  "download_url": "https://github.com/AminWalha/Pisum/releases/latest/download/PISUM_Radiology_Setup.exe",
   "changelog": {
     "en": "Enhancement"
   },
