@@ -12,20 +12,20 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>GDPR &amp; Data Protection | Pisum Radiology Software</title>
-<meta name="description" content="Learn how Pisum protects your data under GDPR. Secure, compliant AI radiology reporting software designed for healthcare professionals."/>
+<meta name="description" content="Learn how Pisum protects your data under GDPR. Patient data stays local. Voice dictation via Deepgram (SCC-covered). Full sub-processor transparency."/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://pisum.app/rgpd.html"/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://pisum.app/rgpd.html"/>
 <meta property="og:title" content="GDPR Compliance — PISUM Radiology Software"/>
-<meta property="og:description" content="PISUM is 100% GDPR compliant: patient data stays local, zero cloud sub-processing, offline AI voice dictation."/>
+<meta property="og:description" content="PISUM GDPR compliance: patient data stays local, Deepgram voice dictation (SCC Art. 49(1)(a)), Supabase EU-West-1, full sub-processor transparency."/>
 <meta property="og:image" content="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
 <meta property="og:site_name" content="PISUM"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="GDPR Compliance — PISUM Radiology Software"/>
-<meta name="twitter:description" content="PISUM is 100% GDPR compliant: patient data stays local, zero cloud sub-processing, offline AI voice dictation."/>
+<meta name="twitter:description" content="PISUM GDPR compliance: patient data stays local, Deepgram voice dictation (SCC Art. 49(1)(a)), Supabase EU-West-1, full sub-processor transparency."/>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"GDPR Compliance — PISUM","url":"https://pisum.app/rgpd.html","description":"PISUM radiology software GDPR compliance: patient data stays local, zero cloud sub-processing, offline AI voice dictation, privacy by design for hospitals and clinics.","inLanguage":"en","publisher":{"@type":"Organization","name":"PISUM","url":"https://pisum.app","logo":"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"}}
+{"@context":"https://schema.org","@type":"WebPage","name":"GDPR Compliance — PISUM","url":"https://pisum.app/rgpd.html","description":"PISUM radiology software GDPR compliance: patient data stays local, voice dictation via Deepgram (Standard Contractual Clauses), Supabase EU hosting, privacy by design for hospitals and clinics.","inLanguage":"en","publisher":{"@type":"Organization","name":"PISUM","url":"https://pisum.app","logo":"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"}}
 </script>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"/>
@@ -41,7 +41,7 @@ html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
   --void: #06060a; --s1: #0e0e14; --s2: #14141e; --s3: #1c1c2a; --s4: #252535;
   --border: rgba(255,255,255,0.07); --border-b: rgba(255,255,255,0.14);
   --ink: #f0f0f8; --ink-2: #a0a0c0; --ink-3: #606080; --ink-4: #35354a;
-  --cyan: #00e5cc; --blue: #3b6ef8; --purple: #8b6ef8; --green: #10b981; --amber: #f59e0b;
+  --cyan: #00e5cc; --blue: #3b6ef8; --purple: #8b6ef8; --green: #10b981; --amber: #f59e0b; --red: #ef4444;
   --grad: linear-gradient(135deg, #00e5cc 0%, #3b6ef8 60%, #8b6ef8 100%);
   --fd: 'Clash Display', Georgia, serif; --fb: 'Plus Jakarta Sans', system-ui, sans-serif; --fm: 'JetBrains Mono', monospace;
   --r: 12px; --r-lg: 20px; --t: cubic-bezier(0.25,1,0.5,1);
@@ -67,16 +67,15 @@ main { flex: 1; }
 .nav-logo { display: flex; align-items: center; gap: 10px; font-family: var(--fd); font-size: 1.1rem; font-weight: 600; color: var(--ink); }
 .nav-logo img { width: 30px; height: 30px; border-radius: 8px; }
 .nav-right { display: flex; align-items: center; gap: 0.75rem; }
-.nav-profile{display:flex;align-items:center;gap:10px;background:var(--white);border:1px solid var(--b2);border-radius:999px;padding:4px 12px 4px 4px;box-shadow:var(--shadow-xs)}
+.nav-profile{display:flex;align-items:center;gap:10px;background:var(--s1);border:1px solid var(--border);border-radius:999px;padding:4px 12px 4px 4px;}
 .nav-profile-avatar{width:36px;height:36px;border-radius:50%;object-fit:cover;flex-shrink:0}
-.nav-profile-avatar-fallback{width:36px;height:36px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:var(--white);flex-shrink:0}
+.nav-profile-avatar-fallback{width:36px;height:36px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:#06060a;flex-shrink:0}
 .nav-profile-info{display:flex;flex-direction:column;gap:1px}
 .nav-profile-name{font-size:0.8rem;font-weight:600;color:var(--ink);line-height:1.2}
 .nav-profile-email{font-size:0.7rem;color:var(--ink-3);line-height:1.2}
-.nav-profile-signout{font-size:0.78rem;font-weight:500;color:var(--ink-3);background:none;border:1px solid var(--b2);border-radius:999px;padding:0.3rem 0.8rem;cursor:pointer;transition:all 0.18s;margin-left:4px;font-family:inherit}
-.nav-profile-signout:hover{color:var(--ink);border-color:var(--ink-3);background:var(--off)}
+.nav-profile-signout{font-size:0.78rem;font-weight:500;color:var(--ink-3);background:none;border:1px solid var(--border);border-radius:999px;padding:0.3rem 0.8rem;cursor:pointer;transition:all 0.18s;margin-left:4px;font-family:inherit}
+.nav-profile-signout:hover{color:var(--ink);border-color:var(--ink-3);}
 .nav-profile-link{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
-.nav-profile-link:hover .nav-profile-name{color:var(--blue)}
 .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
 .nav-links a { font-size: 0.83rem; font-weight: 500; color: var(--ink-2); transition: color 0.18s; }
 .nav-links a:hover { color: var(--cyan); }
@@ -105,7 +104,7 @@ main { flex: 1; }
   line-height: 1.06; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 1.2rem;
 }
 .hero h1 em { font-style: italic; color: var(--cyan); }
-.hero-sub { font-size: clamp(0.9rem,1.6vw,1rem); color: var(--ink-2); max-width: 560px; margin: 0 auto 2rem; line-height: 1.7; }
+.hero-sub { font-size: clamp(0.9rem,1.6vw,1rem); color: var(--ink-2); max-width: 620px; margin: 0 auto 2rem; line-height: 1.7; }
 .hero-meta {
   display: inline-flex; align-items: center; gap: 6px;
   font-size: 0.72rem; color: var(--ink-3); font-family: var(--fm);
@@ -187,6 +186,7 @@ main { flex: 1; }
 .info-block.cyan { border-left-color: var(--cyan); }
 .info-block.green { border-left-color: var(--green); }
 .info-block.amber { border-left-color: var(--amber); }
+.info-block.red { border-left-color: var(--red); background: rgba(239,68,68,0.06); }
 .info-block strong { color: var(--ink); }
 
 /* Data table */
@@ -201,14 +201,6 @@ footer {
   background: var(--s1); border-top: 1px solid var(--border);
   padding: 2rem 0; position: relative; z-index: 1;
 }
-.foot-in { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
-.foot-logo { display: flex; align-items: center; gap: 8px; font-family: var(--fd); font-size: 0.95rem; font-weight: 600; color: var(--ink); }
-.foot-logo img { width: 26px; height: 26px; border-radius: 6px; }
-.foot-copy { font-size: 0.72rem; color: var(--ink-3); }
-.foot-links { display: flex; align-items: center; gap: 1.5rem; }
-.foot-links a { font-size: 0.72rem; color: var(--ink-3); transition: color 0.18s; }
-.foot-links a:hover { color: var(--cyan); }
-@media(max-width:640px){.foot-in{flex-direction:column;text-align:center}.foot-links{justify-content:center;flex-wrap:wrap}}
 
 @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
 .animate-in { animation: fadeUp 0.55s cubic-bezier(0.25,1,0.5,1) both; }
@@ -232,7 +224,7 @@ footer {
     <li><a href="contact.html">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <a href="index.html#pricing" class="btn btn-primary btn-sm" id="nav-cta" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600;">Get Started Free</a>
+    <a href="index.html#pricing" class="btn btn-primary btn-sm" id="nav-cta" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600; background: var(--cyan); color: #06060a; font-size: 0.83rem;">Get Started Free</a>
     <div id="nav-profile" class="nav-profile" style="display:none">
       <a href="#" class="nav-profile-link">
         <img id="nav-profile-img" class="nav-profile-avatar" src="" alt="" style="display:none"/>
@@ -277,12 +269,12 @@ footer {
 <section class="hero">
   <div class="hero-orb"></div>
   <div class="container">
-    <div class="animate-in d1"><span class="eyebrow" id="ey">Compliance</span></div>
-    <h1 class="animate-in d2" id="h1">Patient data<br/><em>protection</em></h1>
-    <p class="hero-sub animate-in d3" id="hsub">100% local architecture · Zero cloud · GDPR Art. 25 · HDS-Ready</p>
+    <div class="animate-in d1"><span class="eyebrow">Compliance · GDPR Art. 13</span></div>
+    <h1 class="animate-in d2">Patient data<br/><em>protection</em></h1>
+    <p class="hero-sub animate-in d3">Local-first architecture · Patient data never leaves your machine · Deepgram voice (SCC/Art. 49) · Supabase EU-West-1 · Privacy by Design</p>
     <p class="hero-meta animate-in">
       <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2"/><path d="M6 4v2.5l1.5 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-      <span id="updated">Updated: January 2026</span>
+      Updated: May 2026 — v2.0
     </p>
   </div>
 </section>
@@ -292,18 +284,18 @@ footer {
   <div class="badges-row">
     <div class="badge-card">
       <div class="badge-card-icon icon-cyan">🔒</div>
-      <div class="badge-card-title" id="b1t">Local patient data</div>
-      <div class="badge-card-desc" id="b1d">Reports and patient data never leave your machine. No cloud access to medical data.</div>
+      <div class="badge-card-title">Local patient data</div>
+      <div class="badge-card-desc">Reports, patient records, and medical images never leave your machine. No cloud access to medical data.</div>
     </div>
     <div class="badge-card">
       <div class="badge-card-icon icon-green">🛡️</div>
-      <div class="badge-card-title" id="b2t">Zero sub-processing</div>
-      <div class="badge-card-desc" id="b2d">No cloud host, analytics service, or third party accesses your patients' health data.</div>
+      <div class="badge-card-title">Supabase EU-West-1</div>
+      <div class="badge-card-desc">Account data hosted in Supabase (Ireland / eu-west-1). Standard Contractual Clauses (SCC 2021/914) in place.</div>
     </div>
     <div class="badge-card">
       <div class="badge-card-icon icon-amber">🎙️</div>
-      <div class="badge-card-title" id="b3t">AI Dictation — Secure API</div>
-      <div class="badge-card-desc" id="b3d">Sally AI processes audio via PISUM's secure cloud API. Audio is never stored.</div>
+      <div class="badge-card-title">Deepgram — Explicit Consent</div>
+      <div class="badge-card-desc">Voice dictation processed by Deepgram (USA) under GDPR Art. 49(1)(a) explicit consent. Audio deleted after transcription.</div>
     </div>
   </div>
 </div>
@@ -314,91 +306,251 @@ footer {
 
     <!-- TOC -->
     <nav class="toc" aria-label="Table of contents">
-      <div class="toc-title" id="toc-title">Contents</div>
+      <div class="toc-title">Contents</div>
       <ul class="toc-list">
-        <li><a href="#s1" id="tl1">1. Data collected</a></li>
-        <li><a href="#s2" id="tl2">2. Secure architecture</a></li>
-        <li><a href="#s3" id="tl3">3. Sovereignty & telemetry</a></li>
-        <li><a href="#s4" id="tl4">4. Patient rights</a></li>
-        <li><a href="#s5" id="tl5">5. DPO contact</a></li>
+        <li><a href="#s1">1. Data collected</a></li>
+        <li><a href="#s2">2. Sub-processors</a></li>
+        <li><a href="#s3">3. Secure architecture</a></li>
+        <li><a href="#s4">4. Sovereignty &amp; telemetry</a></li>
+        <li><a href="#s5">5. Patient rights</a></li>
+        <li><a href="#s6">6. Incident notification</a></li>
+        <li><a href="#s7">7. DPIA (Art. 35)</a></li>
+        <li><a href="#s8">8. Contact &amp; DPO</a></li>
       </ul>
     </nav>
 
     <!-- PROSE -->
     <article class="prose">
 
+      <!-- ── 01 DATA COLLECTED ── -->
       <div class="prose-section" id="s1">
-        <h2><span class="num">01</span> <span id="s1h">Data collected by PISUM</span></h2>
-        <p id="s1p1">PISUM is designed according to the principle of <strong>Privacy by Design</strong> (GDPR Art. 25). The software distinguishes two fundamentally separate categories of data:</p>
+        <h2><span class="num">01</span> Data collected by PISUM</h2>
+        <p>PISUM is designed according to the principle of <strong>Privacy by Design</strong> (GDPR Art. 25). The software distinguishes two fundamentally separate categories of data:</p>
 
-        <h3 id="s1h2">Account data (processed by PISUM SAS)</h3>
+        <h3>Account data (processed by PISUM / Supabase)</h3>
         <table class="data-table">
           <thead>
             <tr>
-              <th id="th1">Data</th>
-              <th id="th2">Purpose</th>
-              <th id="th3">Duration</th>
+              <th>Data</th>
+              <th>Purpose</th>
+              <th>Legal basis</th>
+              <th>Retention</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>Last name, First name</td><td id="td1a">User account creation</td><td>Subscription duration + 12 months</td></tr>
-            <tr><td>Professional email</td><td id="td2a">Authentication &amp; notifications</td><td>Subscription duration + 12 months</td></tr>
-            <tr><td>License key</td><td id="td3a">Activation &amp; anti-piracy</td><td>Subscription duration</td></tr>
-            <tr><td>OS / app version</td><td id="td4a">Compatibility &amp; technical support</td><td>Rolling 12 months</td></tr>
+            <tr><td>Last name, First name</td><td>User account creation</td><td>Art. 6(1)(b) — contract</td><td>Subscription + 12 months</td></tr>
+            <tr><td>Professional email</td><td>Authentication &amp; notifications</td><td>Art. 6(1)(b) — contract</td><td>Subscription + 12 months</td></tr>
+            <tr><td>License key</td><td>Activation &amp; anti-piracy</td><td>Art. 6(1)(b) — contract</td><td>Subscription duration</td></tr>
+            <tr><td>OS / app version</td><td>Compatibility &amp; technical support</td><td>Art. 6(1)(f) — legitimate interest</td><td>Rolling 12 months</td></tr>
           </tbody>
         </table>
 
-        <div class="info-block green" id="ib1">
-          <strong>✓ Health data — ZERO collection.</strong> Radiology reports, patient data (name, ID, date of birth), medical images, and voice transcriptions are <em>never</em> transmitted to PISUM SAS or any third party.
+        <h3>Voice dictation data (processed by Deepgram)</h3>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Purpose</th>
+              <th>Legal basis</th>
+              <th>Retention</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Real-time audio stream</td><td>Speech-to-text transcription</td><td>Art. 49(1)(a) — explicit consent</td><td>Deleted immediately after transcription</td></tr>
+            <tr><td>Text transcription</td><td>Returned to local machine only</td><td>Art. 49(1)(a) — explicit consent</td><td>Never stored by Deepgram</td></tr>
+          </tbody>
+        </table>
+
+        <div class="info-block green">
+          <strong>✓ Health data — patient records never leave your machine.</strong> Radiology reports, patient identifiers (name, ID, date of birth), medical images, and completed transcriptions are <em>never</em> transmitted to PISUM or any third party. Voice audio is streamed to Deepgram only when you activate dictation and only with your explicit prior consent.
         </div>
       </div>
 
+      <!-- ── 02 SUB-PROCESSORS ── -->
       <div class="prose-section" id="s2">
-        <h2><span class="num">02</span> <span id="s2h">Secure architecture — local data</span></h2>
+        <h2><span class="num">02</span> Sub-processors &amp; third-party transfers</h2>
+        <p>PISUM uses two third-party sub-processors. In accordance with GDPR Art. 28 and Art. 13(1)(e), we disclose them in full below.</p>
 
-        <h3 id="s2h1">🔒 Patient data always local</h3>
-        <p id="s2p1">Radiology reports, patient data, and medical images never leave your machine. PISUM does not require an Internet connection for data entry and report export. Only AI features (Dictation, Enhancer) require network access to the secure PISUM API.</p>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Sub-processor</th>
+              <th>Country</th>
+              <th>Data processed</th>
+              <th>Legal basis for transfer</th>
+              <th>Safeguard</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Supabase, Inc.</td>
+              <td>EU (Ireland / eu-west-1)</td>
+              <td>Account data, authentication, license</td>
+              <td>GDPR Art. 6(1)(b) — no transfer outside EEA</td>
+              <td>EU hosting — no SCC required</td>
+            </tr>
+            <tr>
+              <td>Deepgram, Inc.</td>
+              <td>USA (San Francisco, CA)</td>
+              <td>Real-time voice audio stream (no patient identifiers unless dictated)</td>
+              <td>GDPR Art. 49(1)(a) — explicit consent</td>
+              <td>SCC 2021/914 + explicit consent dialog</td>
+            </tr>
+          </tbody>
+        </table>
 
-        <h3 id="s2h2">🎙️ AI Voice Dictation — secure cloud API</h3>
-        <p id="s2p2"><strong>Sally AI</strong> voice dictation processes audio in real time via PISUM's secure API. <em>Audio is never stored</em> — only the text transcription is sent back to your local machine. No identifiable patient data is included in the audio streams sent to the API.</p>
+        <div class="info-block red">
+          <strong>⚠ Deepgram benchmarking risk — disclosed.</strong> According to Deepgram's data processing policy, Deepgram may share audio recordings with third-party speech recognition providers ("industry peers" / competitors) for model benchmarking and evaluation purposes.<br/><br/>
+          <strong>Your options:</strong><br/>
+          1. Opt out of Deepgram's Model Improvement Partnership Program (contact <a href="mailto:security@deepgram.com">security@deepgram.com</a>).<br/>
+          2. Request that PISUM sign a DPA with Deepgram that explicitly limits processing to core service delivery only.<br/>
+          3. Use manual text entry — no data is transmitted to any third party.<br/><br/>
+          This risk is disclosed in PISUM's in-app consent dialog (Art. 49(1)(a)) before voice dictation is first activated. You may revoke consent at any time from Settings → Privacy.
+        </div>
 
-        <div class="info-block cyan" id="ib2">
-          <strong>HDS Compliance.</strong> Medical data remains on your machine. PISUM's AI API only processes dictation audio, never patient data.
+        <div class="info-block amber">
+          <strong>No other sub-processors.</strong> PISUM does not use any analytics service (no Mixpanel, Amplitude, Segment, etc.), advertising network, or third-party cloud that accesses patient health data. AI text enhancement (Gemini) operates on report text that you explicitly submit — it does not receive patient identifiers automatically.
         </div>
       </div>
 
+      <!-- ── 03 SECURE ARCHITECTURE ── -->
       <div class="prose-section" id="s3">
-        <h2><span class="num">03</span> <span id="s3h">Sovereignty and telemetry</span></h2>
+        <h2><span class="num">03</span> Secure architecture</h2>
 
-        <h3 id="s3h1">🛡️ Zero health data sub-processing</h3>
-        <p id="s3p1">Since the software runs isolated on the user's workstation, no third-party sub-processor (Cloud host, analytics service) has access to medical data. Legal archiving and secure storage are the sole responsibility of the institution's RIS/PACS system, ensuring full data sovereignty.</p>
+        <h3>🔒 Patient data — local only</h3>
+        <p>Radiology reports, patient data, and medical images are stored exclusively in a local SQLite database on your workstation. The database is encrypted with <strong>AES-256-GCM</strong> at rest. PISUM does not require an Internet connection for data entry, report editing, or export (PDF, DICOM SR). Only optional AI features require network access.</p>
 
-        <h3 id="s3h2">📝 Anonymized application logs</h3>
-        <p id="s3p2">To ensure software stability, PISUM generates local technical error logs. These files are strictly programmed to capture <strong>no business data</strong>:</p>
-        <ul>
-          <li id="li1">No patient names, dates of birth, or identification numbers (ID).</li>
-          <li id="li2">No medical terms, report content, or voice transcriptions.</li>
-          <li id="li3">Only system error codes, loading times, and click events.</li>
-        </ul>
+        <h3>🔑 Authentication &amp; session security</h3>
+        <p>Authentication tokens are issued by Supabase (EU) and stored locally using <strong>Fernet symmetric encryption</strong> (AES-128-CBC + HMAC-SHA256). Sessions are automatically revoked on application exit. Role-based access control (admin, radiologist, technician, secretary) is enforced at the application layer.</p>
+
+        <h3>🎙️ Voice dictation — Deepgram Nova-2 Medical</h3>
+        <p>When voice dictation is activated (and only after explicit GDPR Art. 49(1)(a) consent), PISUM streams real-time audio to <strong>Deepgram, Inc.</strong> using the Nova-2 Medical model. <em>Audio is not stored by Deepgram after transcription.</em> Only the resulting text is returned to your local machine. No patient identifiers (name, date of birth, file number) are included in the audio stream unless you dictate them explicitly.</p>
+
+        <div class="info-block cyan">
+          <strong>Consent is mandatory before first use.</strong> Voice dictation is disabled by default. A dedicated GDPR Art. 49(1)(a) consent dialog — disclosing the Deepgram benchmarking risk — must be accepted before the microphone is ever activated. You can revoke this consent independently at any time from Settings → Privacy.
+        </div>
+
+        <h3>🛡️ Encryption summary</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Layer</th><th>Technology</th><th>Standard</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Database at rest</td><td>SQLite + AES-256-GCM</td><td>FIPS 140-2 compliant cipher</td></tr>
+            <tr><td>Auth tokens (local)</td><td>Fernet (AES-128-CBC + HMAC-SHA256)</td><td>Cryptography.io</td></tr>
+            <tr><td>Transport (API calls)</td><td>TLS 1.3</td><td>HTTPS enforced</td></tr>
+            <tr><td>Voice stream (Deepgram)</td><td>WSS (WebSocket Secure / TLS 1.3)</td><td>HTTPS enforced</td></tr>
+          </tbody>
+        </table>
       </div>
 
+      <!-- ── 04 SOVEREIGNTY ── -->
       <div class="prose-section" id="s4">
-        <h2><span class="num">04</span> <span id="s4h">Patient rights (Art. 15 to 22)</span></h2>
-        <p id="s4p1">The GDPR guarantees patients the right of access, rectification, erasure, and portability of their data. Given that PISUM retains no data after the application is closed, <strong>it is technically impossible to query or delete a patient file within it</strong>.</p>
-        <div class="info-block amber" id="ib3">
-          <strong>Exercising patient rights.</strong> The exercise of these rights must be directed to the Data Controller (the DPO of the clinic or hospital) who will intervene directly on the RIS/PACS or hospital information system (HIS) where the final reports are archived.
+        <h2><span class="num">04</span> Sovereignty and telemetry</h2>
+
+        <h3>🛡️ Health data sovereignty</h3>
+        <p>Since the core application runs entirely on the user's workstation, patient health data (reports, images, identifiers) is never processed by any cloud sub-processor. Legal archiving and long-term storage remain the sole responsibility of the institution's RIS/PACS system, ensuring full data sovereignty over medical records.</p>
+        <p>Voice audio is the only health-adjacent data transmitted outside your machine, and only when dictation is explicitly enabled and consented to (see Section 2 above).</p>
+
+        <h3>📝 Local application logs</h3>
+        <p>PISUM generates local technical error logs to ensure software stability. These logs are strictly programmed to capture <strong>no business or health data</strong>:</p>
+        <ul>
+          <li>No patient names, dates of birth, or identification numbers.</li>
+          <li>No medical terms, report content, or voice transcriptions.</li>
+          <li>Only system error codes, loading times, and UI interaction events.</li>
+        </ul>
+
+        <h3>📋 Incident log (GDPR Art. 33)</h3>
+        <p>PISUM maintains a local encrypted incident log for Art. 33 compliance. Any security event (unauthorized access attempt, encryption failure, abnormal session activity) is automatically recorded with timestamp, severity, and scope. Incidents meeting the "risk to natural persons" threshold are reported to the relevant supervisory authority within 72 hours.</p>
+      </div>
+
+      <!-- ── 05 PATIENT RIGHTS ── -->
+      <div class="prose-section" id="s5">
+        <h2><span class="num">05</span> Patient rights (Art. 15–22)</h2>
+        <p>The GDPR guarantees patients the right of access, rectification, erasure, portability, restriction, and objection regarding their personal data.</p>
+
+        <h3>Rights regarding account data (PISUM users)</h3>
+        <p>Users may exercise the following rights against PISUM at any time by contacting <a href="mailto:MyPisum@Proton.me">MyPisum@Proton.me</a>:</p>
+        <ul>
+          <li><strong>Right of access (Art. 15)</strong> — obtain a copy of your account data held by PISUM / Supabase.</li>
+          <li><strong>Right to erasure (Art. 17)</strong> — request deletion of your account and all associated data. Processed within 30 days.</li>
+          <li><strong>Right to portability (Art. 20)</strong> — receive your account data in a structured, machine-readable format (JSON).</li>
+          <li><strong>Right to withdraw consent (Art. 7(3))</strong> — revoke Deepgram voice dictation consent at any time from Settings → Privacy, without affecting the lawfulness of prior processing.</li>
+          <li><strong>Right to object (Art. 21)</strong> — object to processing based on legitimate interest.</li>
+        </ul>
+
+        <h3>Rights regarding patient health data</h3>
+        <div class="info-block amber">
+          <strong>Patient records are held locally by your institution.</strong> PISUM does not retain patient data after the report is exported. Patients wishing to exercise their GDPR rights (access, erasure, portability) must contact the <strong>Data Controller</strong> of the clinic or hospital — typically the institution's DPO — who will act directly on the RIS/PACS or Hospital Information System (HIS) where final reports are archived.
         </div>
       </div>
 
-      <div class="prose-section" id="s5">
-        <h2><span class="num">05</span> <span id="s5h">Contact &amp; DPO</span></h2>
-        <p id="s5p1">For any questions regarding data protection or to exercise your rights as a user of the PISUM service:</p>
+      <!-- ── 06 INCIDENT NOTIFICATION ── -->
+      <div class="prose-section" id="s6">
+        <h2><span class="num">06</span> Breach &amp; incident notification (Art. 33–34)</h2>
+
+        <p>PISUM has implemented the following breach response protocol in accordance with GDPR Art. 33 (notification to supervisory authority) and Art. 34 (notification to data subjects):</p>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Step</th><th>Action</th><th>Deadline</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Detection</td><td>Automatic local incident log entry (severity, scope, timestamp)</td><td>Immediate (automated)</td></tr>
+            <tr><td>Assessment</td><td>DPO evaluates whether breach poses "risk to natural persons"</td><td>Within 24 hours</td></tr>
+            <tr><td>Authority notification (Art. 33)</td><td>Report to relevant supervisory authority (CNIL for France, etc.)</td><td>Within 72 hours of detection</td></tr>
+            <tr><td>Data subject notification (Art. 34)</td><td>Inform affected users if breach is "high risk"</td><td>Without undue delay</td></tr>
+            <tr><td>Documentation</td><td>Incident log retained for 3 years minimum</td><td>Ongoing</td></tr>
+          </tbody>
+        </table>
+
+        <div class="info-block cyan">
+          <strong>Incident log location.</strong> The local incident log is maintained in PISUM's encrypted SQLite database (table: <code style="font-family:var(--fm);font-size:0.8em;color:var(--cyan)">incident_log</code>). Administrators can view and manage incidents from Settings → Administration.
+        </div>
+      </div>
+
+      <!-- ── 07 DPIA ── -->
+      <div class="prose-section" id="s7">
+        <h2><span class="num">07</span> Data Protection Impact Assessment (DPIA · Art. 35)</h2>
+
+        <p>PISUM has conducted a formal Data Protection Impact Assessment as required by GDPR Art. 35, given that the software processes <strong>special category health data</strong> (Art. 9) on a large scale.</p>
+
+        <p>The DPIA covers three processing activities:</p>
         <ul>
-          <li><strong>Email:</strong> <a href="mailto:MyPisum@Proton.me">MyPisum@Proton.me</a></li>
-          <li><strong>Recommended subject:</strong> [GDPR] — your request</li>
-          <li><strong>Response time:</strong> 30 days maximum (GDPR Art. 12)</li>
+          <li><strong>Account &amp; subscription data</strong> — Supabase (EU). Risk: Low. Mitigated by EU hosting, SCC, encryption.</li>
+          <li><strong>Voice dictation audio</strong> — Deepgram (USA). Risk: Medium-High. Mitigated by explicit consent, audio deletion after transcription, opt-out options.</li>
+          <li><strong>Local patient database</strong> — SQLite on workstation. Risk: Medium. Mitigated by AES-256-GCM encryption, role-based access, secure delete, audit log.</li>
         </ul>
-        <p id="s5p2" style="margin-top:1.25rem">Created by radiologists, for radiologists. 👨‍⚕️</p>
+
+        <div class="info-block cyan">
+          <strong>Full DPIA document available.</strong> The complete Data Protection Impact Assessment, including risk matrices, mitigation measures, and DPO sign-off, is available at <a href="dpia.html">pisum.app/dpia.html</a>.
+        </div>
+      </div>
+
+      <!-- ── 08 CONTACT & DPO ── -->
+      <div class="prose-section" id="s8">
+        <h2><span class="num">08</span> Contact &amp; Data Protection Officer</h2>
+
+        <h3>Data Controller</h3>
+        <p><strong>PISUM</strong> — radiology reporting software<br/>
+        Contact: <a href="mailto:MyPisum@Proton.me">MyPisum@Proton.me</a><br/>
+        Website: <a href="https://pisum.app">pisum.app</a></p>
+
+        <h3>Data Protection Officer (DPO)</h3>
+        <p>PISUM has designated a Data Protection Officer in accordance with GDPR Art. 37. The DPO is the primary point of contact for all data protection matters.</p>
+        <ul>
+          <li><strong>DPO email:</strong> <a href="mailto:MyPisum@Proton.me">MyPisum@Proton.me</a> — subject: [DPO]</li>
+          <li><strong>Recommended subject line:</strong> [GDPR] — your request</li>
+          <li><strong>Response time:</strong> 30 days maximum (GDPR Art. 12)</li>
+          <li><strong>DPO designation document:</strong> <a href="dpo.html">pisum.app/dpo.html</a></li>
+        </ul>
+
+        <h3>Supervisory authority</h3>
+        <p>If you believe your GDPR rights have not been adequately addressed, you have the right to lodge a complaint with the supervisory authority in your country of residence. In France: <a href="https://www.cnil.fr" target="_blank" rel="noopener">CNIL — www.cnil.fr</a>. In Tunisia: <a href="https://www.inpdp.nat.tn" target="_blank" rel="noopener">INPDP — www.inpdp.nat.tn</a>.</p>
+
+        <div class="info-block green">
+          <strong>Created by radiologists, for radiologists.</strong> Every privacy decision in PISUM was made with the specific constraints of medical imaging in mind: data sovereignty, institutional compliance, and the reality that patient data must never be at risk. If you have questions or compliance concerns, contact us — we answer within 30 days.
+        </div>
       </div>
 
     </article>
@@ -418,8 +570,9 @@ footer {
       <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; font-family: 'Plus Jakarta Sans', sans-serif;">
         <a href="rgpd.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Privacy</a>
         <a href="terms.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Terms</a>
+        <a href="dpia.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">DPIA</a>
+        <a href="dpo.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">DPO</a>
         <a href="faq.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">FAQ</a>
-        <a href="documentation.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Docs</a>
         <a href="contact.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Contact</a>
       </div>
     </div>
@@ -427,11 +580,9 @@ footer {
 </footer>
 
 <script>
-// Hamburger
 const ham = document.getElementById('ham'), nl = document.getElementById('nav-links');
 if(ham) ham.addEventListener('click', () => nl.classList.toggle('open'));
 
-// TOC active
 const sections = document.querySelectorAll('.prose-section');
 const tocLinks = document.querySelectorAll('.toc-list a');
 window.addEventListener('scroll', () => {
@@ -441,18 +592,9 @@ window.addEventListener('scroll', () => {
     a.classList.toggle('toc-active', a.getAttribute('href') === '#'+current);
   });
 });
+</script>
 
-</script>
-<script>
-  const ham = document.getElementById('ham');
-  const navLinks = document.getElementById('nav-links');
-  if (ham && navLinks) {
-    ham.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
-  }
-</script>
-<!-- ── PISUM AI Agent Widget (dark theme) ─────────────────────── -->
+<!-- ── PISUM AI Agent Widget ─────────────────────── -->
 <style>
 #piw{position:fixed;bottom:24px;right:24px;z-index:9500;font-family:'Plus Jakarta Sans',system-ui,sans-serif}
 #piw-trigger{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#00e5cc 0%,#3b6ef8 100%);color:#06060a;border:none;border-radius:999px;padding:12px 18px 12px 14px;font-size:.85rem;font-weight:700;cursor:pointer;box-shadow:0 8px 32px rgba(0,229,204,.35);transition:transform .2s,box-shadow .2s;position:relative}
@@ -536,31 +678,20 @@ window.addEventListener('scroll', () => {
 (function(){
 const PC_URL='https://pisum-chat-server.onrender.com';
 const piwSid='sess_'+Math.random().toString(36).slice(2);
-
 function fmt(text){return text.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');}
-
 function addMsg(role,text){
   const wrap=document.getElementById('piw-msgs');
-  const d=document.createElement('div');
-  d.className='piw-msg '+role;
-  const b=document.createElement('div');
-  b.className='piw-bubble';
+  const d=document.createElement('div');d.className='piw-msg '+role;
+  const b=document.createElement('div');b.className='piw-bubble';
   b.innerHTML=fmt(text).replace(/\n/g,'<br>');
-  d.appendChild(b);
-  wrap.appendChild(d);
-  wrap.scrollTop=wrap.scrollHeight;
+  d.appendChild(b);wrap.appendChild(d);wrap.scrollTop=wrap.scrollHeight;
 }
-
 function showTyping(){
   const wrap=document.getElementById('piw-msgs');
-  const d=document.createElement('div');
-  d.className='piw-msg ai';d.id='piw-typing-indicator';
+  const d=document.createElement('div');d.className='piw-msg ai';d.id='piw-typing-indicator';
   d.innerHTML='<div class="piw-typing"><span></span><span></span><span></span></div>';
-  wrap.appendChild(d);
-  wrap.scrollTop=wrap.scrollHeight;
-  return d;
+  wrap.appendChild(d);wrap.scrollTop=wrap.scrollHeight;return d;
 }
-
 window.piwToggle=function(){
   const panel=document.getElementById('piw-panel');
   const badge=document.getElementById('piw-badge');
@@ -569,31 +700,19 @@ window.piwToggle=function(){
   if(!isOpen&&badge)badge.style.display='none';
   if(!isOpen)setTimeout(()=>document.getElementById('piw-input').focus(),100);
 };
-
 window.piwAsk=async function(q){
   document.getElementById('piw-chips').style.display='none';
   const btn=document.getElementById('piw-send');
-  addMsg('user',q);
-  btn.disabled=true;
-  const t=showTyping();
+  addMsg('user',q);btn.disabled=true;const t=showTyping();
   try{
     const r=await fetch(PC_URL+'/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q,sessionId:piwSid})});
-    const data=await r.json();
-    t.remove();
-    addMsg('ai',data.reply||data.error);
-  }catch{
-    t.remove();
-    addMsg('ai','Connection error. Please try again.');
-  }
+    const data=await r.json();t.remove();addMsg('ai',data.reply||data.error);
+  }catch{t.remove();addMsg('ai','Connection error. Please try again.');}
   btn.disabled=false;
 };
-
 window.piwSend=function(){
-  const inp=document.getElementById('piw-input');
-  const q=inp.value.trim();
-  if(!q)return;
-  inp.value='';
-  piwAsk(q);
+  const inp=document.getElementById('piw-input');const q=inp.value.trim();
+  if(!q)return;inp.value='';piwAsk(q);
 };
 })();
 </script>

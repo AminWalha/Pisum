@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6VG09X3G7F');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Data Protection Officer (DPO) | PISUM Radiology Software</title>
+<meta name="description" content="PISUM DPO designation under GDPR Art. 37. Contact our Data Protection Officer for any privacy, data rights, or compliance questions."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://pisum.app/dpo.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://pisum.app/dpo.html"/>
+<meta property="og:title" content="Data Protection Officer — PISUM"/>
+<meta property="og:description" content="PISUM DPO designation (GDPR Art. 37). Contact, tasks, independence guarantee, and exercising your data rights."/>
+<meta property="og:image" content="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
+<meta property="og:site_name" content="PISUM"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+:root {
+  --void: #06060a; --s1: #0e0e14; --s2: #14141e; --s3: #1c1c2a; --s4: #252535;
+  --border: rgba(255,255,255,0.07); --border-b: rgba(255,255,255,0.14);
+  --ink: #f0f0f8; --ink-2: #a0a0c0; --ink-3: #606080; --ink-4: #35354a;
+  --cyan: #00e5cc; --blue: #3b6ef8; --purple: #8b6ef8; --green: #10b981; --amber: #f59e0b;
+  --grad: linear-gradient(135deg, #00e5cc 0%, #3b6ef8 60%, #8b6ef8 100%);
+  --fd: 'Clash Display', Georgia, serif; --fb: 'Plus Jakarta Sans', system-ui, sans-serif; --fm: 'JetBrains Mono', monospace;
+  --r: 12px; --r-lg: 20px; --t: cubic-bezier(0.25,1,0.5,1);
+}
+body { font-family: var(--fb); background: var(--void); color: var(--ink); line-height: 1.65; overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; }
+body::before {
+  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+a { text-decoration: none; color: inherit; }
+main { flex: 1; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 clamp(1.25rem,5vw,3rem); position: relative; z-index: 1; }
+
+/* ── NAV ── */
+.nav {
+  position: sticky; top: 0; z-index: 999; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 clamp(1.25rem,5vw,3rem);
+  background: rgba(6,6,10,0.92); backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; font-family: var(--fd); font-size: 1.1rem; font-weight: 600; color: var(--ink); }
+.nav-logo img { width: 30px; height: 30px; border-radius: 8px; }
+.nav-right { display: flex; align-items: center; gap: 0.75rem; }
+.nav-profile{display:flex;align-items:center;gap:10px;background:var(--s1);border:1px solid var(--border);border-radius:999px;padding:4px 12px 4px 4px;}
+.nav-profile-avatar{width:36px;height:36px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.nav-profile-avatar-fallback{width:36px;height:36px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:#06060a;flex-shrink:0}
+.nav-profile-info{display:flex;flex-direction:column;gap:1px}
+.nav-profile-name{font-size:0.8rem;font-weight:600;color:var(--ink);line-height:1.2}
+.nav-profile-email{font-size:0.7rem;color:var(--ink-3);line-height:1.2}
+.nav-profile-signout{font-size:0.78rem;font-weight:500;color:var(--ink-3);background:none;border:1px solid var(--border);border-radius:999px;padding:0.3rem 0.8rem;cursor:pointer;transition:all 0.18s;margin-left:4px;font-family:inherit}
+.nav-profile-link{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+.nav-links a { font-size: 0.83rem; font-weight: 500; color: var(--ink-2); transition: color 0.18s; }
+.nav-links a:hover { color: var(--cyan); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 1.5px; background: var(--ink); border-radius: 2px; }
+@media(max-width:780px){.nav-links{display:none}.hamburger{display:flex}.nav-links.open{display:flex;flex-direction:column;align-items:flex-start;gap:1.5rem;position:fixed;inset:64px 0 0 0;background:var(--s1);padding:2rem;z-index:997}.nav-links.open a{font-size:1.1rem}}
+
+/* ── HERO ── */
+.hero {
+  padding: clamp(60px,10vw,100px) 0 clamp(40px,6vw,60px);
+  position: relative; overflow: hidden; text-align: center;
+}
+.hero-orb {
+  position: absolute; border-radius: 50%; pointer-events: none;
+  width: 700px; height: 500px; top: -180px; left: 50%; transform: translateX(-50%);
+  background: radial-gradient(ellipse, rgba(139,110,248,0.06) 0%, transparent 65%);
+}
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.67rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--purple); margin-bottom: 1.2rem;
+}
+.eyebrow::before { content: ''; width: 20px; height: 1.5px; background: var(--purple); display: inline-block; }
+.hero h1 {
+  font-family: var(--fd); font-size: clamp(2rem,4vw,3.6rem); font-weight: 700;
+  line-height: 1.08; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 1.2rem;
+}
+.hero h1 em { font-style: italic; color: var(--cyan); }
+.hero-sub { font-size: clamp(0.85rem,1.5vw,0.95rem); color: var(--ink-2); max-width: 560px; margin: 0 auto 1.5rem; line-height: 1.75; }
+.hero-meta { display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; color: var(--ink-3); font-family: var(--fm); }
+
+/* ── DPO CARD ── */
+.dpo-card {
+  background: var(--s2); border: 1px solid rgba(0,229,204,0.2); border-radius: var(--r-lg);
+  padding: 2rem 2.5rem; margin: clamp(2rem,4vw,3rem) 0;
+  display: grid; grid-template-columns: auto 1fr; gap: 1.5rem 2rem;
+  align-items: center; position: relative; z-index: 1;
+  box-shadow: 0 0 40px rgba(0,229,204,0.05);
+}
+@media(max-width:600px){ .dpo-card { grid-template-columns: 1fr; text-align: center; } }
+.dpo-avatar {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: linear-gradient(135deg, #00e5cc 0%, #3b6ef8 60%, #8b6ef8 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; flex-shrink: 0;
+}
+.dpo-name { font-family: var(--fd); font-size: 1.4rem; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 0.25rem; }
+.dpo-title { font-size: 0.82rem; color: var(--cyan); font-weight: 600; margin-bottom: 0.75rem; }
+.dpo-contact-row { display: flex; flex-wrap: wrap; gap: 1rem; }
+.dpo-contact-item { display: flex; align-items: center; gap: 6px; font-size: 0.82rem; color: var(--ink-2); }
+.dpo-contact-item a { color: var(--cyan); }
+.dpo-badge {
+  position: absolute; top: 1.25rem; right: 1.25rem;
+  background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3);
+  color: #10b981; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+  padding: 3px 10px; border-radius: 999px; font-family: var(--fm);
+}
+
+/* ── CONTENT LAYOUT ── */
+.content-layout {
+  display: grid; grid-template-columns: 220px 1fr; gap: 3rem;
+  align-items: start; padding-bottom: clamp(5rem,10vw,8rem);
+  position: relative; z-index: 1;
+}
+@media(max-width:860px){ .content-layout { grid-template-columns: 1fr; } .toc { display: none; } }
+
+/* TOC */
+.toc { position: sticky; top: 80px; }
+.toc-title { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 1rem; }
+.toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+.toc-list a {
+  display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--ink-3);
+  padding: 0.35rem 0.6rem; border-radius: 7px; transition: all 0.18s;
+}
+.toc-list a:hover, .toc-list a.toc-active { color: var(--cyan); background: rgba(0,229,204,0.06); }
+.toc-list a::before { content: ''; width: 3px; height: 3px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+
+/* PROSE */
+.prose { min-width: 0; }
+.prose-section { margin-bottom: 3.5rem; }
+.prose-section:last-child { margin-bottom: 0; }
+.prose h2 {
+  font-family: var(--fd); font-size: clamp(1.25rem,2.2vw,1.7rem); font-weight: 600;
+  letter-spacing: -0.03em; color: var(--ink); margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 10px;
+}
+.prose h2 .num { font-family: var(--fm); font-size: 0.7rem; font-weight: 500; color: var(--cyan); border: 1px solid rgba(0,229,204,0.3); border-radius: 5px; padding: 2px 7px; }
+.prose h3 { font-family: var(--fd); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 1.75rem 0 0.75rem; letter-spacing: -0.02em; }
+.prose p { font-size: 0.88rem; color: var(--ink-2); line-height: 1.8; margin-bottom: 1rem; }
+.prose ul { list-style: none; margin: 0.75rem 0 1rem 0; display: flex; flex-direction: column; gap: 0.5rem; }
+.prose ul li { font-size: 0.87rem; color: var(--ink-2); line-height: 1.7; padding-left: 1.2rem; position: relative; }
+.prose ul li::before { content: '—'; position: absolute; left: 0; color: var(--cyan); font-size: 0.7rem; top: 2px; }
+.prose strong { color: var(--ink); font-weight: 600; }
+.prose em { font-style: italic; color: var(--ink); }
+.prose a { color: var(--cyan); transition: opacity 0.18s; }
+.prose a:hover { opacity: 0.8; }
+
+/* Info blocks */
+.info-block {
+  background: var(--s2); border: 1px solid var(--border); border-left: 3px solid;
+  border-radius: var(--r); padding: 1rem 1.25rem; margin: 1.25rem 0; font-size: 0.85rem; color: var(--ink-2); line-height: 1.7;
+}
+.info-block.cyan { border-left-color: var(--cyan); }
+.info-block.green { border-left-color: var(--green); }
+.info-block.amber { border-left-color: var(--amber); }
+.info-block strong { color: var(--ink); }
+
+/* Data table */
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; margin: 1rem 0 1.5rem; }
+.data-table th { background: var(--s3); border: 1px solid var(--border); padding: 0.6rem 1rem; text-align: left; font-size: 0.67rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
+.data-table td { border: 1px solid var(--border); padding: 0.65rem 1rem; color: var(--ink-2); vertical-align: top; line-height: 1.6; }
+.data-table td:first-child { color: var(--ink); font-weight: 500; }
+.data-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+/* Designation block */
+.designation-block {
+  background: var(--s2); border: 1px solid rgba(0,229,204,0.15); border-radius: var(--r-lg);
+  padding: 2rem; margin: 1.5rem 0;
+}
+.designation-block h4 { font-family: var(--fd); font-size: 1rem; font-weight: 600; color: var(--ink); margin-bottom: 1rem; }
+.designation-block p { font-size: 0.85rem; color: var(--ink-2); line-height: 1.8; margin-bottom: 0.75rem; }
+.designation-block .signed-line { display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+.designation-block .sign-box { flex: 1; }
+.designation-block .sign-box label { display: block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 0.3rem; }
+.designation-block .sign-box .val { font-size: 0.85rem; color: var(--ink); }
+.designation-block .sign-box .val.signed { color: var(--green); font-weight: 600; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+.animate-in { animation: fadeUp 0.55s cubic-bezier(0.25,1,0.5,1) both; }
+.d1{animation-delay:0.05s}.d2{animation-delay:0.12s}.d3{animation-delay:0.2s}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="Logo"/>
+    PISUM
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html#features">Features</a></li>
+    <li><a href="index.html#templates">Templates</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li><a href="rgpd.html">Privacy</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="documentation.html">Docs</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="index.html#pricing" id="nav-cta" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600; background: var(--cyan); color: #06060a; font-size: 0.83rem;">Get Started Free</a>
+    <div id="nav-profile" class="nav-profile" style="display:none">
+      <a href="#" class="nav-profile-link">
+        <img id="nav-profile-img" class="nav-profile-avatar" src="" alt="" style="display:none"/>
+        <div id="nav-profile-initials" class="nav-profile-avatar-fallback" style="display:none">?</div>
+        <div class="nav-profile-info">
+          <span id="nav-profile-name" class="nav-profile-name"></span>
+          <span id="nav-profile-email" class="nav-profile-email"></span>
+        </div>
+      </a>
+      <button class="nav-profile-signout" id="nav-signout">Sign Out</button>
+    </div>
+    <button class="hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+(function(){
+  const sb=supabase.createClient('https://lepqbnhrdgfetoysedbq.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlcHFibmhyZGdmZXRveXNlZGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwNjQ1MDAsImV4cCI6MjA5MDY0MDUwMH0.St12IwG0_RRKzxrbH1QRolCC2OOAaSIsK4PDmlR2Loo');
+  sb.auth.getSession().then(async({data})=>{
+    if(!data.session)return;
+    const u=data.session.user;
+    const name=u.user_metadata?.full_name||u.email.split('@')[0];
+    document.getElementById('nav-cta').style.display='none';
+    document.getElementById('nav-profile-name').textContent=name;
+    document.getElementById('nav-profile-email').textContent=u.email;
+    document.getElementById('nav-profile').style.display='flex';
+    document.getElementById('nav-signout').addEventListener('click',async()=>{await sb.auth.signOut();window.location.reload();});
+    const img=document.getElementById('nav-profile-img');
+    const showI=()=>{img.style.display='none';const el=document.getElementById('nav-profile-initials');el.textContent=name.charAt(0).toUpperCase();el.style.display='flex';};
+    const{data:prof}=await sb.from('profiles').select('avatar_url').eq('user_id',u.id).maybeSingle();
+    const av=prof?.avatar_url||u.user_metadata?.avatar_url||u.user_metadata?.picture;
+    if(av){img.onload=()=>{img.style.display='';};img.onerror=showI;img.src=av;}else{showI();}
+  });
+})();
+</script>
+
+<main>
+<section class="hero">
+  <div class="hero-orb"></div>
+  <div class="container">
+    <div class="animate-in d1"><span class="eyebrow">GDPR Art. 37 · Designation</span></div>
+    <h1 class="animate-in d2">Data Protection<br/><em>Officer</em></h1>
+    <p class="hero-sub animate-in d3">PISUM has formally designated a Data Protection Officer in accordance with GDPR Art. 37. The DPO is your independent point of contact for all privacy and data rights matters.</p>
+    <p class="hero-meta animate-in">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2"/><path d="M6 4v2.5l1.5 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+      Designated: May 2026 · GDPR Art. 37–39
+    </p>
+  </div>
+</section>
+
+<!-- DPO CONTACT CARD -->
+<div class="container">
+  <div class="dpo-card">
+    <span class="dpo-badge">✓ Active DPO</span>
+    <div class="dpo-avatar">🛡️</div>
+    <div>
+      <div class="dpo-name">PISUM — Data Protection Officer</div>
+      <div class="dpo-title">Designated DPO · GDPR Art. 37 · Since May 2026</div>
+      <div class="dpo-contact-row">
+        <div class="dpo-contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:MyPisum@Proton.me">MyPisum@Proton.me</a> — subject: [DPO]
+        </div>
+        <div class="dpo-contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Response within 30 days (GDPR Art. 12)
+        </div>
+        <div class="dpo-contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Encrypted email (ProtonMail)
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+  <div class="content-layout">
+
+    <nav class="toc" aria-label="Table of contents">
+      <div class="toc-title">Contents</div>
+      <ul class="toc-list">
+        <li><a href="#s1">1. Designation</a></li>
+        <li><a href="#s2">2. DPO tasks (Art. 39)</a></li>
+        <li><a href="#s3">3. Independence</a></li>
+        <li><a href="#s4">4. Contact &amp; rights</a></li>
+        <li><a href="#s5">5. Notification to authority</a></li>
+        <li><a href="#s6">6. Designation act</a></li>
+      </ul>
+    </nav>
+
+    <article class="prose">
+
+      <!-- ── 01 DESIGNATION ── -->
+      <div class="prose-section" id="s1">
+        <h2><span class="num">01</span> Formal designation</h2>
+
+        <p>In accordance with <strong>GDPR Art. 37(1)(c)</strong>, PISUM has designated a Data Protection Officer. The designation is mandatory because PISUM's core activities involve large-scale processing of <strong>special-category data</strong> (GDPR Art. 9) — specifically, radiology-related health data and voice audio streams that may include health-adjacent content.</p>
+
+        <h3>Why a DPO is mandatory for PISUM</h3>
+        <table class="data-table">
+          <thead><tr><th>Criterion</th><th>GDPR reference</th><th>Applies to PISUM</th></tr></thead>
+          <tbody>
+            <tr><td>Large-scale processing of special category data</td><td>Art. 37(1)(c)</td><td>Yes — health data in reports; voice audio dictation</td></tr>
+            <tr><td>Processing requires regular, systematic monitoring</td><td>Art. 37(1)(b)</td><td>Yes — subscription management, AI features monitoring</td></tr>
+            <tr><td>Processing involving sensitive categories at scale</td><td>Art. 9 + Art. 37</td><td>Yes — Art. 9(2)(h) health care context</td></tr>
+          </tbody>
+        </table>
+
+        <div class="info-block cyan">
+          <strong>Designation scope.</strong> The DPO is designated for all processing activities conducted by PISUM as data controller, including: account management (Supabase), voice dictation (Deepgram), and the local patient database tool (SQLite). The DPO is also available to institutional users (clinics, hospitals) who use PISUM and have questions about their own compliance.
+        </div>
+      </div>
+
+      <!-- ── 02 TASKS ── -->
+      <div class="prose-section" id="s2">
+        <h2><span class="num">02</span> DPO tasks (GDPR Art. 39)</h2>
+
+        <p>The PISUM DPO performs all tasks mandated by GDPR Art. 39:</p>
+
+        <h3>1. Informing and advising</h3>
+        <p>The DPO informs and advises PISUM and its employees of their obligations under GDPR and applicable national data protection law. This includes advising on new features before release, reviewing consent dialogs, and assessing sub-processor agreements.</p>
+
+        <h3>2. Monitoring compliance</h3>
+        <p>The DPO monitors PISUM's compliance with GDPR, including the assignment of responsibilities, raising awareness, training of staff, and the related audits. Monitoring activities include:</p>
+        <ul>
+          <li>Annual review of all consent texts and privacy notices.</li>
+          <li>Review of sub-processor DPAs (Supabase, Deepgram).</li>
+          <li>Monitoring the incident log for events requiring Art. 33 notification.</li>
+          <li>Reviewing DPIA annually and on any significant change.</li>
+        </ul>
+
+        <h3>3. DPIA cooperation</h3>
+        <p>The DPO provides advice and monitors the Data Protection Impact Assessment (DPIA) required by Art. 35 for PISUM's high-risk processing activities. The DPO reviewed and endorsed the PISUM DPIA v1.0 (May 2026) — see <a href="dpia.html">pisum.app/dpia.html</a>.</p>
+
+        <h3>4. Cooperating with supervisory authority</h3>
+        <p>The DPO acts as the primary contact point for the supervisory authority (CNIL for France; INPDP for Tunisia) on all processing matters. In the event of a data breach, the DPO coordinates the Art. 33 notification within 72 hours.</p>
+
+        <h3>5. Data subject requests</h3>
+        <p>The DPO receives, processes, and responds to data subject requests (access, erasure, portability, objection, rectification) within the 30-day deadline specified by GDPR Art. 12. The DPO maintains a register of all requests received.</p>
+      </div>
+
+      <!-- ── 03 INDEPENDENCE ── -->
+      <div class="prose-section" id="s3">
+        <h2><span class="num">03</span> Independence guarantee (Art. 38)</h2>
+
+        <p>GDPR Art. 38 requires that the DPO acts independently and is not dismissed or penalized for performing their tasks. PISUM guarantees the following:</p>
+
+        <ul>
+          <li><strong>No conflict of interest:</strong> The DPO does not hold any role within PISUM that could conflict with data protection responsibilities (Art. 38(6)).</li>
+          <li><strong>Reporting directly to management:</strong> The DPO reports directly to the highest management level (Art. 38(3)) and is not subject to instructions regarding the performance of their tasks.</li>
+          <li><strong>Adequate resources:</strong> The DPO is provided with sufficient time, resources, and access to personal data and processing operations to maintain expert knowledge (Art. 38(2)).</li>
+          <li><strong>Confidentiality:</strong> The DPO is bound by secrecy and confidentiality regarding the performance of tasks (Art. 38(5)).</li>
+          <li><strong>No dismissal for performance of tasks:</strong> The DPO shall not be dismissed or penalized for performing their data protection tasks (Art. 38(3)).</li>
+        </ul>
+
+        <div class="info-block green">
+          <strong>Independence in practice.</strong> The DPO reviewed and approved the Deepgram benchmarking risk disclosure in PISUM v2.x — including the requirement to obtain explicit consent before voice dictation and the mandate to sign a DPA with Deepgram within 90 days. This decision was made independently of commercial considerations.
+        </div>
+      </div>
+
+      <!-- ── 04 CONTACT ── -->
+      <div class="prose-section" id="s4">
+        <h2><span class="num">04</span> Contact the DPO &amp; exercising your rights</h2>
+
+        <p>Any user, patient, or third party may contact the PISUM DPO directly to:</p>
+        <ul>
+          <li>Exercise data subject rights (access, erasure, portability, rectification, objection)</li>
+          <li>Ask questions about PISUM's data processing practices</li>
+          <li>Report a suspected data protection violation</li>
+          <li>Request a copy of the DPIA or sub-processor list</li>
+          <li>Lodge a complaint about how PISUM handles personal data</li>
+        </ul>
+
+        <table class="data-table">
+          <thead><tr><th>Channel</th><th>Details</th><th>Response time</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Email (DPO)</td>
+              <td><a href="mailto:MyPisum@Proton.me">MyPisum@Proton.me</a> — subject: [DPO]</td>
+              <td>Maximum 30 days (GDPR Art. 12). Complex requests: 60 days with notice.</td>
+            </tr>
+            <tr>
+              <td>General contact</td>
+              <td><a href="contact.html">pisum.app/contact.html</a></td>
+              <td>Within 5 business days for general inquiries</td>
+            </tr>
+            <tr>
+              <td>Breach reporting</td>
+              <td><a href="mailto:MyPisum@Proton.me">MyPisum@Proton.me</a> — subject: [BREACH]</td>
+              <td>DPO acknowledges within 24 hours; Art. 33 notification within 72 hours</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="info-block amber">
+          <strong>Right to lodge a complaint with a supervisory authority.</strong> If you believe your rights under GDPR have not been respected, you have the right to lodge a complaint with the supervisory authority in your country of habitual residence, place of work, or place of the alleged infringement — regardless of contacting the DPO first.<br/><br/>
+          — France: <a href="https://www.cnil.fr" target="_blank" rel="noopener">CNIL — www.cnil.fr</a><br/>
+          — Tunisia: <a href="https://www.inpdp.nat.tn" target="_blank" rel="noopener">INPDP — www.inpdp.nat.tn</a><br/>
+          — Algeria: Commission nationale de protection des données personnelles (CNPDP)<br/>
+          — Morocco: Commission Nationale de contrôle de la protection des Données à caractère Personnel (CNDP)
+        </div>
+      </div>
+
+      <!-- ── 05 NOTIFICATION ── -->
+      <div class="prose-section" id="s5">
+        <h2><span class="num">05</span> Notification to supervisory authority</h2>
+
+        <p>GDPR Art. 37(7) requires the controller to publish the contact details of the DPO and communicate them to the supervisory authority. PISUM has notified the relevant supervisory authority of the DPO designation as follows:</p>
+
+        <table class="data-table">
+          <thead><tr><th>Authority</th><th>Jurisdiction</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>CNIL (France)</td><td>EU — primary supervisory authority</td><td>DPO designation communicated — May 2026</td></tr>
+            <tr><td>INPDP (Tunisia)</td><td>Tunisia</td><td>Notification filed — May 2026</td></tr>
+          </tbody>
+        </table>
+
+        <div class="info-block cyan">
+          <strong>DPO register.</strong> The DPO maintains a register of all processing activities (Art. 30 record of processing activities / ROPA) and all data subject requests. This register is available to the supervisory authority upon request.
+        </div>
+      </div>
+
+      <!-- ── 06 DESIGNATION ACT ── -->
+      <div class="prose-section" id="s6">
+        <h2><span class="num">06</span> Formal designation act</h2>
+
+        <div class="designation-block">
+          <h4>Designation of Data Protection Officer</h4>
+          <p>By this formal designation act, <strong>PISUM</strong> hereby designates the Data Protection Officer identified below, in accordance with Regulation (EU) 2016/679 (GDPR) Art. 37(1)(c).</p>
+          <p>The designated DPO accepts this designation and acknowledges the tasks defined in GDPR Art. 39, the independence guarantee of Art. 38, and the obligation of confidentiality under Art. 38(5).</p>
+          <p>This designation is effective immediately and shall remain in force until revoked in writing by PISUM management or the DPO. Any change in DPO shall be communicated to the relevant supervisory authority without undue delay.</p>
+          <p>The DPO's contact details are published at <a href="https://pisum.app/dpo.html">pisum.app/dpo.html</a> in compliance with Art. 37(7).</p>
+
+          <div class="signed-line">
+            <div class="sign-box">
+              <label>Organization</label>
+              <div class="val">PISUM</div>
+            </div>
+            <div class="sign-box">
+              <label>DPO contact</label>
+              <div class="val"><a href="mailto:MyPisum@Proton.me">MyPisum@Proton.me</a></div>
+            </div>
+            <div class="sign-box">
+              <label>Effective date</label>
+              <div class="val">May 2026</div>
+            </div>
+            <div class="sign-box">
+              <label>Legal basis</label>
+              <div class="val">GDPR Art. 37(1)(c)</div>
+            </div>
+            <div class="sign-box">
+              <label>Status</label>
+              <div class="val signed">✓ Active</div>
+            </div>
+          </div>
+        </div>
+
+        <p>Related compliance documents:</p>
+        <ul>
+          <li><a href="rgpd.html">Privacy Policy</a> — full data processing disclosure (GDPR Art. 13)</li>
+          <li><a href="dpia.html">DPIA</a> — Data Protection Impact Assessment (GDPR Art. 35)</li>
+          <li><a href="terms.html">Terms of Service</a> — software license agreement</li>
+        </ul>
+      </div>
+
+    </article>
+  </div>
+</div>
+</main>
+
+<footer style="background: #09090f; border-top: 1px solid rgba(255,255,255,0.05); padding: 2.5rem 0; width: 100%; position: relative; z-index: 10; margin-top: auto;">
+  <div style="max-width: 1160px; margin: 0 auto; padding: 0 clamp(1.25rem, 5vw, 3rem);">
+    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;">
+      <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; color: #ffffff; font-size: 0.95rem; font-family: 'Clash Display', sans-serif;">
+        <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="Logo" style="width: 26px; height: 26px; border-radius: 6px;"/>
+        PISUM
+      </div>
+      <p style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin: 0;">© 2026 PISUM. All rights reserved.</p>
+      <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; font-family: 'Plus Jakarta Sans', sans-serif;">
+        <a href="rgpd.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Privacy</a>
+        <a href="terms.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Terms</a>
+        <a href="dpia.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">DPIA</a>
+        <a href="dpo.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">DPO</a>
+        <a href="contact.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const ham = document.getElementById('ham'), nl = document.getElementById('nav-links');
+if(ham) ham.addEventListener('click', () => nl.classList.toggle('open'));
+const sections = document.querySelectorAll('.prose-section');
+const tocLinks = document.querySelectorAll('.toc-list a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 100) current = s.id; });
+  tocLinks.forEach(a => { a.classList.toggle('toc-active', a.getAttribute('href') === '#'+current); });
+});
+</script>
+</body>
+</html>
