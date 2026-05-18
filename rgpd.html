@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F"></script>
@@ -15,9 +15,6 @@
 <meta name="description" content="Learn how Pisum protects your data under GDPR. Secure, compliant AI radiology reporting software designed for healthcare professionals."/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://pisum.app/rgpd.html"/>
-<link rel="alternate" hreflang="en" href="https://pisum.app/rgpd.html"/>
-<link rel="alternate" hreflang="fr" href="https://pisum.app/rgpd.html"/>
-<link rel="alternate" hreflang="x-default" href="https://pisum.app/rgpd.html"/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://pisum.app/rgpd.html"/>
 <meta property="og:title" content="GDPR Compliance — PISUM Radiology Software"/>
@@ -28,7 +25,7 @@
 <meta name="twitter:title" content="GDPR Compliance — PISUM Radiology Software"/>
 <meta name="twitter:description" content="PISUM is 100% GDPR compliant: patient data stays local, zero cloud sub-processing, offline AI voice dictation."/>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"GDPR Compliance — PISUM","url":"https://pisum.app/rgpd.html","description":"PISUM radiology software GDPR compliance: patient data stays local, zero cloud sub-processing, offline AI voice dictation, privacy by design for hospitals and clinics.","inLanguage":["en","fr","de","es"],"publisher":{"@type":"Organization","name":"PISUM","url":"https://pisum.app","logo":"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"}}
+{"@context":"https://schema.org","@type":"WebPage","name":"GDPR Compliance — PISUM","url":"https://pisum.app/rgpd.html","description":"PISUM radiology software GDPR compliance: patient data stays local, zero cloud sub-processing, offline AI voice dictation, privacy by design for hospitals and clinics.","inLanguage":"en","publisher":{"@type":"Organization","name":"PISUM","url":"https://pisum.app","logo":"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"}}
 </script>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"/>
@@ -83,15 +80,6 @@ main { flex: 1; }
 .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
 .nav-links a { font-size: 0.83rem; font-weight: 500; color: var(--ink-2); transition: color 0.18s; }
 .nav-links a:hover { color: var(--cyan); }
-.lang-switcher { display: flex; gap: 4px; }
-.lang-btn {
-  background: none; border: 1px solid var(--border);
-  border-radius: 6px; padding: 4px 8px;
-  cursor: pointer; font-size: 0.7rem; font-weight: 700;
-  color: var(--ink-3); transition: all 0.15s; font-family: var(--fm);
-  text-transform: uppercase; letter-spacing: 0.05em;
-}
-.lang-btn:hover, .lang-btn.active { border-color: var(--cyan); color: var(--cyan); background: rgba(0,229,204,0.07); }
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
 .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--ink); border-radius: 2px; }
 @media(max-width:780px){.nav-links{display:none}.hamburger{display:flex}.nav-links.open{display:flex;flex-direction:column;align-items:flex-start;gap:1.5rem;position:fixed;inset:64px 0 0 0;background:var(--s1);padding:2rem;z-index:997}.nav-links.open a{font-size:1.1rem}}
@@ -244,12 +232,6 @@ footer {
     <li><a href="contact.html">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <div class="lang-switcher">
-      <button class="lang-btn" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" onclick="setLang('fr')">FR</button>
-      <button class="lang-btn" onclick="setLang('de')">DE</button>
-      <button class="lang-btn" onclick="setLang('es')">ES</button>
-    </div>
     <a href="index.html#pricing" class="btn btn-primary btn-sm" id="nav-cta" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600;">Get Started Free</a>
     <div id="nav-profile" class="nav-profile" style="display:none">
       <a href="#" class="nav-profile-link">
@@ -295,12 +277,12 @@ footer {
 <section class="hero">
   <div class="hero-orb"></div>
   <div class="container">
-    <div class="animate-in d1"><span class="eyebrow" id="ey">Conformité</span></div>
-    <h1 class="animate-in d2" id="h1">Protection des<br/><em>données patients</em></h1>
-    <p class="hero-sub animate-in d3" id="hsub">Architecture 100% locale · Zéro cloud · RGPD Art. 25 · HDS-Ready</p>
+    <div class="animate-in d1"><span class="eyebrow" id="ey">Compliance</span></div>
+    <h1 class="animate-in d2" id="h1">Patient data<br/><em>protection</em></h1>
+    <p class="hero-sub animate-in d3" id="hsub">100% local architecture · Zero cloud · GDPR Art. 25 · HDS-Ready</p>
     <p class="hero-meta animate-in">
       <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2"/><path d="M6 4v2.5l1.5 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-      <span id="updated">Mise à jour : Janvier 2026</span>
+      <span id="updated">Updated: January 2026</span>
     </p>
   </div>
 </section>
@@ -310,18 +292,18 @@ footer {
   <div class="badges-row">
     <div class="badge-card">
       <div class="badge-card-icon icon-cyan">🔒</div>
-      <div class="badge-card-title" id="b1t">Données locales</div>
-      <div class="badge-card-desc" id="b1d">Les comptes rendus et données patients ne quittent jamais votre machine. Aucun accès cloud aux données médicales.</div>
+      <div class="badge-card-title" id="b1t">Local patient data</div>
+      <div class="badge-card-desc" id="b1d">Reports and patient data never leave your machine. No cloud access to medical data.</div>
     </div>
     <div class="badge-card">
       <div class="badge-card-icon icon-green">🛡️</div>
-      <div class="badge-card-title" id="b2t">Zéro sous-traitance</div>
-      <div class="badge-card-desc" id="b2d">Aucun hébergeur cloud, analytics ou tiers n'a accès aux données de santé de vos patients.</div>
+      <div class="badge-card-title" id="b2t">Zero sub-processing</div>
+      <div class="badge-card-desc" id="b2d">No cloud host, analytics service, or third party accesses your patients' health data.</div>
     </div>
     <div class="badge-card">
       <div class="badge-card-icon icon-amber">🎙️</div>
-      <div class="badge-card-title" id="b3t">Dictée IA — API sécurisée</div>
-      <div class="badge-card-desc" id="b3d">Sally AI traite l'audio via une API sécurisée PISUM. L'audio n'est jamais stocké.</div>
+      <div class="badge-card-title" id="b3t">AI Dictation — Secure API</div>
+      <div class="badge-card-desc" id="b3d">Sally AI processes audio via PISUM's secure cloud API. Audio is never stored.</div>
     </div>
   </div>
 </div>
@@ -332,13 +314,13 @@ footer {
 
     <!-- TOC -->
     <nav class="toc" aria-label="Table of contents">
-      <div class="toc-title" id="toc-title">Sommaire</div>
+      <div class="toc-title" id="toc-title">Contents</div>
       <ul class="toc-list">
-        <li><a href="#s1" id="tl1">1. Données collectées</a></li>
-        <li><a href="#s2" id="tl2">2. Architecture offline</a></li>
-        <li><a href="#s3" id="tl3">3. Souveraineté & télémétrie</a></li>
-        <li><a href="#s4" id="tl4">4. Droits des patients</a></li>
-        <li><a href="#s5" id="tl5">5. Contact DPO</a></li>
+        <li><a href="#s1" id="tl1">1. Data collected</a></li>
+        <li><a href="#s2" id="tl2">2. Secure architecture</a></li>
+        <li><a href="#s3" id="tl3">3. Sovereignty & telemetry</a></li>
+        <li><a href="#s4" id="tl4">4. Patient rights</a></li>
+        <li><a href="#s5" id="tl5">5. DPO contact</a></li>
       </ul>
     </nav>
 
@@ -346,77 +328,77 @@ footer {
     <article class="prose">
 
       <div class="prose-section" id="s1">
-        <h2><span class="num">01</span> <span id="s1h">Données collectées par PISUM</span></h2>
-        <p id="s1p1">PISUM est conçu selon le principe de <strong>Privacy by Design</strong> (Art. 25 RGPD). Le logiciel distingue deux catégories de données fondamentalement séparées :</p>
+        <h2><span class="num">01</span> <span id="s1h">Data collected by PISUM</span></h2>
+        <p id="s1p1">PISUM is designed according to the principle of <strong>Privacy by Design</strong> (GDPR Art. 25). The software distinguishes two fundamentally separate categories of data:</p>
 
-        <h3 id="s1h2">Données de compte (traité par PISUM SAS)</h3>
+        <h3 id="s1h2">Account data (processed by PISUM SAS)</h3>
         <table class="data-table">
           <thead>
             <tr>
-              <th id="th1">Donnée</th>
-              <th id="th2">Finalité</th>
-              <th id="th3">Durée</th>
+              <th id="th1">Data</th>
+              <th id="th2">Purpose</th>
+              <th id="th3">Duration</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>Nom, prénom</td><td id="td1a">Création du compte utilisateur</td><td>Durée de l'abonnement + 12 mois</td></tr>
-            <tr><td>Email professionnel</td><td id="td2a">Authentification &amp; notifications</td><td>Durée de l'abonnement + 12 mois</td></tr>
-            <tr><td>Clé de licence</td><td id="td3a">Activation &amp; anti-piratage</td><td>Durée de l'abonnement</td></tr>
-            <tr><td>Version OS / app</td><td id="td4a">Compatibilité &amp; support technique</td><td>12 mois glissants</td></tr>
+            <tr><td>Last name, First name</td><td id="td1a">User account creation</td><td>Subscription duration + 12 months</td></tr>
+            <tr><td>Professional email</td><td id="td2a">Authentication &amp; notifications</td><td>Subscription duration + 12 months</td></tr>
+            <tr><td>License key</td><td id="td3a">Activation &amp; anti-piracy</td><td>Subscription duration</td></tr>
+            <tr><td>OS / app version</td><td id="td4a">Compatibility &amp; technical support</td><td>Rolling 12 months</td></tr>
           </tbody>
         </table>
 
         <div class="info-block green" id="ib1">
-          <strong>✓ Données de santé — AUCUNE collecte.</strong> Les comptes rendus radiologiques, données patient (nom, IPP, date de naissance), images médicales et transcriptions vocales ne sont <em>jamais</em> transmis à PISUM SAS ni à un quelconque tiers.
+          <strong>✓ Health data — ZERO collection.</strong> Radiology reports, patient data (name, ID, date of birth), medical images, and voice transcriptions are <em>never</em> transmitted to PISUM SAS or any third party.
         </div>
       </div>
 
       <div class="prose-section" id="s2">
-        <h2><span class="num">02</span> <span id="s2h">Architecture sécurisée — données locales</span></h2>
+        <h2><span class="num">02</span> <span id="s2h">Secure architecture — local data</span></h2>
 
-        <h3 id="s2h1">🔒 Données patients toujours locales</h3>
-        <p id="s2p1">Les comptes rendus radiologiques, données patient et images médicales ne quittent jamais votre machine. PISUM ne nécessite pas de connexion Internet pour la saisie et l'export des comptes rendus. Seules les fonctionnalités IA (Dictée, Enhancer) requièrent un accès réseau vers l'API sécurisée PISUM.</p>
+        <h3 id="s2h1">🔒 Patient data always local</h3>
+        <p id="s2p1">Radiology reports, patient data, and medical images never leave your machine. PISUM does not require an Internet connection for data entry and report export. Only AI features (Dictation, Enhancer) require network access to the secure PISUM API.</p>
 
-        <h3 id="s2h2">🎙️ Dictée Vocale IA — API cloud sécurisée</h3>
-        <p id="s2p2">La dictée vocale <strong>Sally AI</strong> traite l'audio en temps réel via l'API sécurisée de PISUM. <em>L'audio n'est jamais stocké</em> — seule la transcription textuelle est renvoyée à votre machine locale. Aucune donnée patient identifiable n'est incluse dans les flux audio envoyés à l'API.</p>
+        <h3 id="s2h2">🎙️ AI Voice Dictation — secure cloud API</h3>
+        <p id="s2p2"><strong>Sally AI</strong> voice dictation processes audio in real time via PISUM's secure API. <em>Audio is never stored</em> — only the text transcription is sent back to your local machine. No identifiable patient data is included in the audio streams sent to the API.</p>
 
         <div class="info-block cyan" id="ib2">
-          <strong>Conformité HDS.</strong> Les données médicales restent sur votre machine. L'API IA de PISUM ne traite que l'audio de dictée, jamais les données patient.
+          <strong>HDS Compliance.</strong> Medical data remains on your machine. PISUM's AI API only processes dictation audio, never patient data.
         </div>
       </div>
 
       <div class="prose-section" id="s3">
-        <h2><span class="num">03</span> <span id="s3h">Souveraineté et télémétrie</span></h2>
+        <h2><span class="num">03</span> <span id="s3h">Sovereignty and telemetry</span></h2>
 
-        <h3 id="s3h1">🛡️ Zéro sous-traitance de données de santé</h3>
-        <p id="s3p1">Puisque le logiciel fonctionne en vase clos sur le poste de l'utilisateur, aucun sous-traitant tiers (hébergeur Cloud, service d'analyse) n'a accès aux données médicales. L'archivage légal et le stockage sécurisé incombent uniquement au système RIS/PACS de l'établissement, garantissant la pleine souveraineté des données.</p>
+        <h3 id="s3h1">🛡️ Zero health data sub-processing</h3>
+        <p id="s3p1">Since the software runs isolated on the user's workstation, no third-party sub-processor (Cloud host, analytics service) has access to medical data. Legal archiving and secure storage are the sole responsibility of the institution's RIS/PACS system, ensuring full data sovereignty.</p>
 
-        <h3 id="s3h2">📝 Journaux d'application anonymisés</h3>
-        <p id="s3p2">Afin d'assurer la stabilité du logiciel, PISUM génère des journaux d'erreurs techniques locaux. Ces fichiers sont programmés de manière stricte pour ne capter <strong>aucune donnée métier</strong> :</p>
+        <h3 id="s3h2">📝 Anonymized application logs</h3>
+        <p id="s3p2">To ensure software stability, PISUM generates local technical error logs. These files are strictly programmed to capture <strong>no business data</strong>:</p>
         <ul>
-          <li id="li1">Aucun nom de patient, date de naissance ou numéro d'identification (IPP).</li>
-          <li id="li2">Aucun terme médical, contenu de compte rendu ou transcription vocale.</li>
-          <li id="li3">Uniquement des codes d'erreurs système, des temps de chargement et des événements de clics.</li>
+          <li id="li1">No patient names, dates of birth, or identification numbers (ID).</li>
+          <li id="li2">No medical terms, report content, or voice transcriptions.</li>
+          <li id="li3">Only system error codes, loading times, and click events.</li>
         </ul>
       </div>
 
       <div class="prose-section" id="s4">
-        <h2><span class="num">04</span> <span id="s4h">Droits des patients (Art. 15 à 22)</span></h2>
-        <p id="s4p1">Le RGPD garantit aux patients le droit d'accès, de rectification, d'effacement et de portabilité de leurs données. Étant donné que PISUM ne conserve aucune donnée après la fermeture de l'application, <strong>il est techniquement impossible d'y interroger ou d'y supprimer un dossier patient</strong>.</p>
+        <h2><span class="num">04</span> <span id="s4h">Patient rights (Art. 15 to 22)</span></h2>
+        <p id="s4p1">The GDPR guarantees patients the right of access, rectification, erasure, and portability of their data. Given that PISUM retains no data after the application is closed, <strong>it is technically impossible to query or delete a patient file within it</strong>.</p>
         <div class="info-block amber" id="ib3">
-          <strong>Exercice des droits patients.</strong> L'exercice de ces droits doit être dirigé vers le Responsable de Traitement (le DPO de la clinique ou de l'hôpital) qui interviendra directement sur le RIS/PACS ou le système d'information hospitalier (SIH) où les comptes rendus finaux sont archivés.
+          <strong>Exercising patient rights.</strong> The exercise of these rights must be directed to the Data Controller (the DPO of the clinic or hospital) who will intervene directly on the RIS/PACS or hospital information system (HIS) where the final reports are archived.
         </div>
       </div>
 
       <div class="prose-section" id="s5">
-        <h2><span class="num">05</span> <span id="s5h">Contact & DPO</span></h2>
-        <p id="s5p1">Pour toute question relative à la protection des données ou pour exercer vos droits en tant qu'utilisateur du service PISUM :</p>
+        <h2><span class="num">05</span> <span id="s5h">Contact &amp; DPO</span></h2>
+        <p id="s5p1">For any questions regarding data protection or to exercise your rights as a user of the PISUM service:</p>
         <ul>
-          <li><strong>Email :</strong> <a href="mailto:MyPisum@Proton.me">MyPisum@Proton.me</a></li>
-          <li><strong>Objet recommandé :</strong> [RGPD] — votre demande</li>
-          <li><strong>Délai de réponse :</strong> 30 jours maximum (Art. 12 RGPD)</li>
+          <li><strong>Email:</strong> <a href="mailto:MyPisum@Proton.me">MyPisum@Proton.me</a></li>
+          <li><strong>Recommended subject:</strong> [GDPR] — your request</li>
+          <li><strong>Response time:</strong> 30 days maximum (GDPR Art. 12)</li>
         </ul>
-        <p id="s5p2" style="margin-top:1.25rem">Créé par les radiologues, pour les radiologues. 👨‍⚕️</p>
+        <p id="s5p2" style="margin-top:1.25rem">Created by radiologists, for radiologists. 👨‍⚕️</p>
       </div>
 
     </article>
@@ -460,140 +442,6 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// Language
-const t = {
-  fr: {
-    ey:'Conformité', h1:'Protection des<br/><em>données patients</em>',
-    hsub:'Architecture 100% locale · Zéro cloud · RGPD Art. 25 · HDS-Ready',
-    updated:'Mise à jour : Janvier 2026',
-    b1t:'Données locales', b1d:'Les comptes rendus et données patients ne quittent jamais votre machine. Aucun accès cloud aux données médicales.',
-    b2t:'Zéro sous-traitance', b2d:'Aucun hébergeur cloud, analytics ou tiers n\'a accès aux données de santé de vos patients.',
-    b3t:'Dictée IA — API sécurisée', b3d:'Sally AI traite l\'audio via une API sécurisée PISUM. L\'audio n\'est jamais stocké.',
-    'toc-title':'Sommaire',
-    tl1:'1. Données collectées', tl2:'2. Architecture sécurisée', tl3:'3. Souveraineté & télémétrie', tl4:'4. Droits des patients', tl5:'5. Contact DPO',
-    s1h:'Données collectées par PISUM',
-    s1p1:'PISUM est conçu selon le principe de <strong>Privacy by Design</strong> (Art. 25 RGPD). Le logiciel distingue deux catégories de données fondamentalement séparées :',
-    s1h2:'Données de compte (traité par PISUM SAS)',
-    th1:'Donnée', th2:'Finalité', th3:'Durée',
-    td1a:'Création du compte utilisateur', td2a:'Authentification & notifications', td3a:'Activation & anti-piratage', td4a:'Compatibilité & support technique',
-    ib1:'<strong>✓ Données de santé — AUCUNE collecte.</strong> Les comptes rendus radiologiques, données patient, images médicales et transcriptions vocales ne sont <em>jamais</em> transmis à PISUM SAS ni à un quelconque tiers.',
-    s2h:'Architecture sécurisée — données locales',
-    s2h1:'🔒 Données patients toujours locales',
-    s2p1:'Les comptes rendus, données patient et images médicales ne quittent jamais votre machine. La saisie et l\'export des comptes rendus ne nécessitent pas d\'Internet. Seules les fonctionnalités IA (Dictée, Enhancer) requièrent un accès réseau vers l\'API sécurisée PISUM.',
-    s2h2:'🎙️ Dictée Vocale IA — API cloud sécurisée',
-    s2p2:'La dictée <strong>Sally AI</strong> traite l\'audio en temps réel via l\'API sécurisée de PISUM. <em>L\'audio n\'est jamais stocké</em> — seule la transcription textuelle est renvoyée localement. Aucune donnée patient identifiable n\'est incluse dans les flux envoyés à l\'API.',
-    ib2:'<strong>Conformité HDS.</strong> Les données médicales restent sur votre machine. L\'API IA de PISUM ne traite que l\'audio de dictée, jamais les données patient.',
-    s3h:'Souveraineté et télémétrie',
-    s3h1:'🛡️ Zéro sous-traitance de données de santé',
-    s3p1:'Puisque le logiciel fonctionne en vase clos sur le poste de l\'utilisateur, aucun sous-traitant tiers n\'a accès aux données médicales. L\'archivage légal incombe uniquement au système RIS/PACS de l\'établissement.',
-    s3h2:'📝 Journaux d\'application anonymisés',
-    s3p2:'Les journaux techniques locaux sont programmés pour ne capter <strong>aucune donnée métier</strong> :',
-    li1:'Aucun nom de patient, date de naissance ou numéro d\'identification (IPP).',
-    li2:'Aucun terme médical, contenu de compte rendu ou transcription vocale.',
-    li3:'Uniquement des codes d\'erreurs système, des temps de chargement et des événements de clics.',
-    s4h:'Droits des patients (Art. 15 à 22)',
-    s4p1:'Le RGPD garantit aux patients le droit d\'accès, rectification, effacement et portabilité. PISUM ne conservant aucune donnée après fermeture, <strong>il est techniquement impossible d\'y interroger un dossier patient</strong>.',
-    ib3:'<strong>Exercice des droits patients.</strong> Ces droits doivent être dirigés vers le DPO de l\'établissement qui interviendra directement sur le RIS/PACS.',
-    s5h:'Contact & DPO',
-    s5p1:'Pour toute question relative à la protection des données :',
-    s5p2:'Créé par les radiologues, pour les radiologues. 👨‍⚕️',
-  },
-  en: {
-    ey:'Compliance', h1:'Patient data<br/><em>protection</em>',
-    hsub:'100% local architecture · Zero cloud · GDPR Art. 25 · HDS-Ready',
-    updated:'Updated: January 2026',
-    b1t:'Local patient data', b1d:'Reports and patient data never leave your machine. No cloud access to medical data.',
-    b2t:'Zero sub-processing', b2d:'No cloud host, analytics service, or third party accesses your patients\' health data.',
-    b3t:'AI Dictation — Secure API', b3d:'Sally AI processes audio via PISUM\'s secure cloud API. Audio is never stored.',
-    'toc-title':'Contents',
-    tl1:'1. Data collected', tl2:'2. Secure architecture', tl3:'3. Sovereignty & telemetry', tl4:'4. Patient rights', tl5:'5. DPO contact',
-    s1h:'Data collected by PISUM',
-    s1p1:'PISUM is built on the <strong>Privacy by Design</strong> principle (Art. 25 GDPR). The software distinguishes two fundamentally separate data categories:',
-    s1h2:'Account data (processed by PISUM SAS)',
-    th1:'Data', th2:'Purpose', th3:'Duration',
-    td1a:'Account creation', td2a:'Authentication & notifications', td3a:'Activation & anti-piracy', td4a:'Compatibility & technical support',
-    ib1:'<strong>✓ Health data — ZERO collection.</strong> Radiology reports, patient data, medical images, and voice transcriptions are <em>never</em> transmitted to PISUM SAS or any third party.',
-    s2h:'Secure architecture — local patient data',
-    s2h1:'🔒 Patient data always stays local',
-    s2p1:'Radiology reports, patient data, and medical images never leave your machine. Report authoring and export require no internet connection. Only AI features (Dictation, Enhancer) require network access to PISUM\'s secure API.',
-    s2h2:'🎙️ AI Voice Dictation — Secure Cloud API',
-    s2p2:'<strong>Sally AI</strong> dictation processes audio in real time via PISUM\'s secure cloud API. <em>Audio is never stored</em> — only the text transcription is returned to your local machine. No identifiable patient data is included in the audio streams sent to the API.',
-    ib2:'<strong>HDS Compliance.</strong> Patient data remains on your machine. PISUM\'s AI API only processes dictation audio — never patient data.',
-    s3h:'Sovereignty and telemetry',
-    s3h1:'🛡️ Zero health data sub-processing',
-    s3p1:'Since the software runs in isolation on the user\'s workstation, no third-party processor (cloud host, analytics service) has access to medical data. Legal archiving is the sole responsibility of the facility\'s RIS/PACS system.',
-    s3h2:'📝 Anonymized application logs',
-    s3p2:'Local technical error logs are strictly programmed to capture <strong>no business data</strong>:',
-    li1:'No patient name, date of birth, or identification number.',
-    li2:'No medical terms, report content, or voice transcriptions.',
-    li3:'Only system error codes, interface loading times, and click events.',
-    s4h:'Patient rights (Art. 15 to 22)',
-    s4p1:'GDPR guarantees patients the right of access, rectification, erasure, and portability. Since PISUM retains no data after the application is closed, <strong>it is technically impossible to query or delete a patient file within it</strong>.',
-    ib3:'<strong>Exercising patient rights.</strong> These rights must be directed to the facility\'s DPO, who will intervene directly on the RIS/PACS or hospital information system.',
-    s5h:'Contact & DPO',
-    s5p1:'For any question regarding data protection:',
-    s5p2:'Created by radiologists, for radiologists. 👨‍⚕️',
-  },
-  de: {
-    ey:'Datenschutz', h1:'Patientendaten<br/><em>schutz</em>',
-    hsub:'100% lokale Architektur · Kein Cloud · DSGVO Art. 25 · HDS-Ready',
-    updated:'Aktualisiert: Januar 2026',
-    b1t:'Lokale Patientendaten', b1d:'Berichte und Patientendaten verlassen niemals Ihre Maschine. Kein Cloud-Zugriff auf medizinische Daten.',
-    b2t:'Null Unterverarbeitung', b2d:'Kein Cloud-Anbieter, Analysedienst oder Dritter hat Zugriff auf die Gesundheitsdaten Ihrer Patienten.',
-    b3t:'KI-Diktat — Sichere API', b3d:'Sally AI verarbeitet Audio über PISUMs sichere Cloud-API. Audio wird niemals gespeichert.',
-    'toc-title':'Inhalt', tl1:'1. Erfasste Daten', tl2:'2. Sichere Architektur', tl3:'3. Souveränität & Telemetrie', tl4:'4. Patientenrechte', tl5:'5. DSB-Kontakt',
-    s1h:'Von PISUM erfasste Daten', s1p1:'PISUM basiert auf dem <strong>Privacy by Design</strong> Prinzip (Art. 25 DSGVO).', s1h2:'Kontodaten (verarbeitet von PISUM SAS)', th1:'Datum', th2:'Zweck', th3:'Dauer',
-    td1a:'Kontoerstellung', td2a:'Authentifizierung & Benachrichtigungen', td3a:'Aktivierung & Anti-Piraterie', td4a:'Kompatibilität & technischer Support',
-    ib1:'<strong>✓ Gesundheitsdaten — KEINE Erfassung.</strong> Radiologieberichte, Patientendaten und Voicetranskriptionen werden <em>niemals</em> übertragen.',
-    s2h:'Sichere Architektur — lokale Patientendaten', s2h1:'🔒 Patientendaten bleiben immer lokal', s2p1:'Berichte, Patientendaten und medizinische Bilder verlassen niemals Ihre Maschine. Für Berichterstellung und Export ist kein Internet erforderlich. Nur KI-Funktionen (Diktat, Enhancer) benötigen Netzwerkzugriff auf PISUMs sichere API.',
-    s2h2:'🎙️ KI-Sprachdiktat — Sichere Cloud-API', s2p2:'<strong>Sally AI</strong>-Diktat verarbeitet Audio in Echtzeit über PISUMs sichere Cloud-API. <em>Audio wird niemals gespeichert</em> — nur die Texttranskription wird an Ihre lokale Maschine zurückgegeben.',
-    ib2:'<strong>HDS-Konformität.</strong> Patientendaten verbleiben auf Ihrer Maschine. PISUMs KI-API verarbeitet nur Diktat-Audio — niemals Patientendaten.',
-    s3h:'Souveränität und Telemetrie', s3h1:'🛡️ Keine Unterverarbeitung von Gesundheitsdaten', s3p1:'Da die Software isoliert auf der Workstation läuft, hat kein dritter Verarbeiter Zugriff auf medizinische Daten.',
-    s3h2:'📝 Anonymisierte Anwendungsprotokolle', s3p2:'Lokale technische Protokolle erfassen <strong>keine Geschäftsdaten</strong>:',
-    li1:'Kein Patientenname, Geburtsdatum oder Identifikationsnummer.', li2:'Keine medizinischen Begriffe oder Sprachtranskriptionen.', li3:'Nur Systemfehlercodes und Klickereignisse.',
-    s4h:'Patientenrechte (Art. 15 bis 22)', s4p1:'Die DSGVO garantiert Patienten Auskunft, Berichtigung, Löschung und Übertragbarkeit. Da PISUM keine Daten speichert, ist es technisch unmöglich, eine Patientenakte abzufragen.',
-    ib3:'<strong>Ausübung von Patientenrechten.</strong> Diese Rechte sind an den DSB der Einrichtung zu richten.',
-    s5h:'Kontakt & DSB', s5p1:'Für Fragen zum Datenschutz:', s5p2:'Von Radiologen für Radiologen entwickelt. 👨‍⚕️',
-  },
-  es: {
-    ey:'Cumplimiento', h1:'Protección de<br/><em>datos pacientes</em>',
-    hsub:'Arquitectura 100% local · Sin nube · RGPD Art. 25 · HDS-Ready',
-    updated:'Actualizado: Enero 2026',
-    b1t:'Datos locales del paciente', b1d:'Los informes y datos de pacientes nunca salen de su máquina. Sin acceso cloud a datos médicos.',
-    b2t:'Cero subcontratación', b2d:'Ningún proveedor de nube, analytics o tercero accede a los datos de salud de sus pacientes.',
-    b3t:'Dictado IA — API segura', b3d:'Sally AI procesa el audio mediante la API cloud segura de PISUM. El audio nunca se almacena.',
-    'toc-title':'Contenido', tl1:'1. Datos recopilados', tl2:'2. Arquitectura segura', tl3:'3. Soberanía & telemetría', tl4:'4. Derechos de pacientes', tl5:'5. Contacto DPD',
-    s1h:'Datos recopilados por PISUM', s1p1:'PISUM está diseñado bajo el principio de <strong>Privacy by Design</strong> (Art. 25 RGPD).', s1h2:'Datos de cuenta (procesado por PISUM SAS)', th1:'Dato', th2:'Finalidad', th3:'Duración',
-    td1a:'Creación de cuenta', td2a:'Autenticación y notificaciones', td3a:'Activación y anti-piratería', td4a:'Compatibilidad y soporte técnico',
-    ib1:'<strong>✓ Datos de salud — CERO recopilación.</strong> Los informes radiológicos, datos de pacientes e imágenes médicas <em>nunca</em> se transmiten a PISUM SAS ni a terceros.',
-    s2h:'Arquitectura segura — datos locales del paciente', s2h1:'🔒 Datos del paciente siempre locales', s2p1:'Los informes, datos de pacientes e imágenes médicas nunca salen de su máquina. La redacción y exportación de informes no requieren internet. Solo las funciones IA (Dictado, Enhancer) requieren acceso de red a la API segura de PISUM.',
-    s2h2:'🎙️ Dictado de Voz IA — API cloud segura', s2p2:'El dictado <strong>Sally AI</strong> procesa el audio en tiempo real mediante la API cloud segura de PISUM. <em>El audio nunca se almacena</em> — solo la transcripción textual se devuelve a su máquina local.',
-    ib2:'<strong>Cumplimiento HDS.</strong> Los datos del paciente permanecen en su máquina. La API IA de PISUM solo procesa audio de dictado, nunca datos del paciente.',
-    s3h:'Soberanía y telemetría', s3h1:'🛡️ Cero subcontratación de datos de salud', s3p1:'Dado que el software funciona en aislamiento, ningún procesador externo tiene acceso a los datos médicos.',
-    s3h2:'📝 Registros de aplicación anonimizados', s3p2:'Los registros técnicos locales están programados para <strong>no capturar datos de negocio</strong>:',
-    li1:'Ningún nombre de paciente, fecha de nacimiento o número de identificación.', li2:'Ningún término médico, contenido de informe o transcripción de voz.', li3:'Solo códigos de error, tiempos de carga y eventos de clic.',
-    s4h:'Derechos de los pacientes (Art. 15 a 22)', s4p1:'El RGPD garantiza a los pacientes el derecho de acceso, rectificación, supresión y portabilidad. PISUM no conserva datos, por lo que es técnicamente imposible consultar un expediente de paciente.',
-    ib3:'<strong>Ejercicio de derechos.</strong> Estos derechos deben dirigirse al DPD del establecimiento, quien intervendrá directamente en el RIS/PACS.',
-    s5h:'Contacto & DPD', s5p1:'Para cualquier pregunta sobre protección de datos:', s5p2:'Creado por radiólogos, para radiólogos. 👨‍⚕️',
-  }
-};
-
-let currentLang = localStorage.getItem('pisum-lang') || document.documentElement.lang || 'fr';
-
-function setLang(lang) {
-  currentLang = lang;
-  localStorage.setItem('pisum-lang', lang);
-  document.querySelectorAll('.lang-btn').forEach(b => {
-    b.classList.toggle('active', b.textContent.toLowerCase() === lang);
-  });
-  const d = t[lang] || t.fr;
-  Object.keys(d).forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.innerHTML = d[id];
-  });
-}
-
-setLang(currentLang);
 </script>
 <script>
   const ham = document.getElementById('ham');
