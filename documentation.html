@@ -15,9 +15,6 @@
 <meta name="description" content="Learn how to use radiology reporting software to create faster, structured reports. Step-by-step guides, templates, and best practices for radiologists."/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://pisum.app/documentation.html"/>
-<link rel="alternate" hreflang="en" href="https://pisum.app/documentation.html"/>
-<link rel="alternate" hreflang="fr" href="https://pisum.app/documentation.html"/>
-<link rel="alternate" hreflang="x-default" href="https://pisum.app/documentation.html"/>
 <meta property="og:type" content="article"/>
 <meta property="og:url" content="https://pisum.app/documentation.html"/>
 <meta property="og:title" content="Documentation — PISUM Radiology Software | Installation &amp; User Guide"/>
@@ -208,12 +205,6 @@ footer { background: var(--s1); border-top: 1px solid var(--border); padding: 2.
     <li><a href="contact.html">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <div class="lang-switcher">
-      <button class="lang-btn" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" onclick="setLang('fr')">FR</button>
-      <button class="lang-btn" onclick="setLang('de')">DE</button>
-      <button class="lang-btn" onclick="setLang('es')">ES</button>
-    </div>
     <a href="index.html#pricing" class="btn btn-primary btn-sm" id="nav-cta" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600;">Get Started Free</a>
     <div id="nav-profile" class="nav-profile" style="display:none">
       <a href="#" class="nav-profile-link">
@@ -258,7 +249,7 @@ footer { background: var(--s1); border-top: 1px solid var(--border); padding: 2.
 <section class="hero">
   <div class="hero-orb"></div>
   <div class="container">
-    <div class="animate-in d1"><span class="eyebrow" id="ey">Support</span></div>
+    <div class="animate-in d1"><span class="eyebrow" id="ey">Documentation</span></div>
     <h1 class="animate-in d2" id="h1">How to use radiology<br/><em>reporting software</em></h1>
     <p class="hero-sub animate-in d3" id="hsub">Step-by-step guides on radiology report templates, AI voice dictation setup, and how to automate radiology reports with Pisum.</p>
   </div>
@@ -268,16 +259,16 @@ footer { background: var(--s1); border-top: 1px solid var(--border); padding: 2.
   <div class="content-layout">
 
     <nav class="toc" aria-label="Table of Contents">
-      <div class="toc-title" id="tg1">Démarrage</div>
+      <div class="toc-title" id="tg1">Getting Started</div>
       <ul class="toc-list">
         <li><a href="#installation" id="tl1">Installation</a></li>
       </ul>
 
-      <div class="toc-title" id="tg2">Fonctionnalités</div>
+      <div class="toc-title" id="tg2">Core Features</div>
       <ul class="toc-list">
-        <li><a href="#templates" id="tl2">Utiliser les modèles</a></li>
-        <li><a href="#dictation" id="tl3">Dictée vocale IA</a></li>
-        <li><a href="#export" id="tl4">Export RIS/PACS</a></li>
+        <li><a href="#templates" id="tl2">Using Templates</a></li>
+        <li><a href="#dictation" id="tl3">AI Voice Dictation</a></li>
+        <li><a href="#export" id="tl4">Export to RIS/PACS</a></li>
         <li><a href="#translation" id="tl7">Report Translation <span style="font-size:0.58rem;font-weight:700;background:linear-gradient(135deg,#3b6ef8,#7c5af0);color:#fff;padding:0.1rem 0.32rem;border-radius:3px;margin-left:4px;letter-spacing:0.04em">NEW</span></a></li>
       </ul>
 
@@ -286,9 +277,9 @@ footer { background: var(--s1); border-top: 1px solid var(--border); padding: 2.
         <li><a href="#lan-sync" id="tl6">LAN Network Sync</a></li>
       </ul>
 
-      <div class="toc-title" id="tg3">Dépannage</div>
+      <div class="toc-title" id="tg3">Troubleshooting</div>
       <ul class="toc-list">
-        <li><a href="#support" id="tl5">Contacter le support</a></li>
+        <li><a href="#support" id="tl5">Contact Support</a></li>
       </ul>
     </nav>
 
@@ -296,52 +287,52 @@ footer { background: var(--s1); border-top: 1px solid var(--border); padding: 2.
 
       <div class="prose-section" id="installation">
         <h2><span class="num">01</span> <span id="s1h">Installation</span></h2>
-        <p id="s1p1">Pisum est une application de bureau légère conçue pour Windows. Elle ne nécessite aucune configuration informatique complexe.</p>
+        <p id="s1p1">Pisum is a lightweight desktop application designed for Windows. It requires zero complex IT configuration.</p>
         
         <ol>
-          <li id="s1l1">Téléchargez le dernier installateur via le lien fourni dans votre e-mail de bienvenue.</li>
-          <li id="s1l2">Double-cliquez sur le fichier <code>.exe</code> téléchargé.</li>
-          <li id="s1l3">Suivez les instructions à l'écran. Les droits d'administrateur ne sont généralement pas requis.</li>
+          <li id="s1l1">Download the latest installer using the link provided in your welcome email.</li>
+          <li id="s1l2">Double-click the downloaded <code>.exe</code> file.</li>
+          <li id="s1l3">Follow the on-screen instructions. Administrator privileges are generally not required.</li>
         </ol>
 
         <div class="info-block cyan">
-          <strong id="ib1t">Note sur la confidentialité</strong>
-          <span id="ib1d">Pisum fonctionne entièrement hors ligne par défaut. Les données des patients ne sont jamais envoyées sur un serveur cloud.</span>
+          <strong id="ib1t">Note on Privacy</strong>
+          <span id="ib1d">Pisum operates completely offline by default. Patient data is never uploaded to any cloud server.</span>
         </div>
       </div>
 
       <div class="prose-section" id="templates">
-        <h2><span class="num">02</span> <span id="s2h">Utiliser les modèles</span></h2>
-        <p id="s2p1">Pisum est livré avec 112 modèles experts couvrant 5 modalités (Scanner, IRM, Échographie, Radiographie, Interventionnel).</p>
+        <h2><span class="num">02</span> <span id="s2h">Using Templates</span></h2>
+        <p id="s2p1">Pisum comes pre-loaded with 112 expert templates covering 5 modalities (CT, MRI, Ultrasound, X-Ray, Interventional).</p>
         
-        <h3 id="s2h2">Sélectionner un modèle</h3>
-        <p id="s2p2">Dans le panneau de gauche, naviguez dans les dossiers par modalité (ex: Scanner > Abdomino-Pelvien) ou utilisez la barre de recherche en haut pour trouver rapidement un protocole spécifique.</p>
+        <h3 id="s2h2">Selecting a Template</h3>
+        <p id="s2p2">On the left panel, navigate through the modality folders (e.g., CT > Abdomen-Pelvis) or use the search bar at the top to quickly find a specific protocol.</p>
 
         <div class="info-block amber">
-          <strong id="ib2t" style="color: var(--amber)">Modèles personnalisés</strong>
-          <span id="ib2d">Vous pouvez modifier n'importe quel modèle intégré ou créer le vôtre en cliquant sur 'Nouveau Modèle'. Ils sont sauvegardés localement sur votre profil.</span>
+          <strong id="ib2t" style="color: var(--amber)">Custom Templates</strong>
+          <span id="ib2d">You can edit any built-in template or create your own by clicking the 'New Template' button. These are saved locally to your profile.</span>
         </div>
       </div>
 
       <div class="prose-section" id="dictation">
-        <h2><span class="num">03</span> <span id="s3h">Dictée vocale IA</span></h2>
-        <p id="s3p1">Le moteur intégré Sally AI vous permet de dicter vos comptes rendus en mains-libres dans 23 langues, en corrigeant automatiquement les termes radiologiques.</p>
+        <h2><span class="num">03</span> <span id="s3h">AI Voice Dictation</span></h2>
+        <p id="s3p1">The built-in Sally AI engine allows you to dictate reports hands-free in 23 languages, automatically correcting radiology-specific terms.</p>
         
         <ul>
-          <li id="s3l1">Cliquez sur l'icône 🎙️ ou appuyez sur <code>F4</code> pour démarrer/arrêter l'enregistrement.</li>
-          <li id="s3l2">Sélectionnez votre langue préférée dans le menu déroulant de la barre de dictée.</li>
+          <li id="s3l1">Click the 🎙️ icon or press <code>F4</code> to start/stop recording.</li>
+          <li id="s3l2">Select your preferred language from the dropdown menu in the dictation toolbar.</li>
         </ul>
       </div>
 
       <div class="prose-section" id="export">
-        <h2><span class="num">04</span> <span id="s4h">Export RIS/PACS</span></h2>
-        <p id="s4p1">Pisum est conçu pour agir comme un outil compagnon qui alimente facilement vos systèmes existants sans intégrations complexes.</p>
+        <h2><span class="num">04</span> <span id="s4h">Export to RIS/PACS</span></h2>
+        <p id="s4p1">Pisum is designed to act as a companion tool that easily feeds your existing systems without complex integrations.</p>
         
-        <h3 id="s4h2">Copier-Coller (Recommandé)</h3>
-        <p id="s4p2">Cliquez sur 'Copier le rapport' (ou <code>Ctrl+C</code>) une fois votre rapport terminé. Le formatage du texte est préservé et prêt à être collé directement dans l'éditeur de votre RIS ou PACS.</p>
+        <h3 id="s4h2">Copy-Paste (Recommended)</h3>
+        <p id="s4p2">Click the 'Copy Report' button (or <code>Ctrl+C</code>) once your report is finished. The text formatting is preserved and ready to be pasted directly into your RIS or PACS text editor.</p>
         
-        <h3 id="s4h3">Export Word</h3>
-        <p id="s4p3">Utilisez le bouton 'Exporter en DOCX' pour enregistrer un document formaté professionnellement, idéal pour les cliniques privées remettant directement les rapports aux patients.</p>
+        <h3 id="s4h3">Word Export</h3>
+        <p id="s4p3">Use the 'Export to DOCX' button to save a professionally formatted document, ideal for private clinics handing reports directly to patients.</p>
       </div>
 
       <div class="prose-section" id="translation">
@@ -423,10 +414,10 @@ footer { background: var(--s1); border-top: 1px solid var(--border); padding: 2.
       </div>
 
       <div class="prose-section" id="support">
-        <h2><span class="num">05</span> <span id="s5h">Contacter le support</span></h2>
-        <p id="s5p1">Si vous rencontrez un problème qui n'est pas couvert dans cette documentation, notre équipe est là pour vous aider.</p>
+        <h2><span class="num">05</span> <span id="s5h">Contact Support</span></h2>
+        <p id="s5p1">If you encounter any issues not covered in this documentation, our team is here to help.</p>
         <p style="margin-top: 1.5rem;">
-          <a href="contact.html" style="font-weight: 600;" id="s5a">Ouvrir la page de contact →</a>
+          <a href="contact.html" style="font-weight: 600;" id="s5a">Open Contact Page →</a>
         </p>
       </div>
 
@@ -468,116 +459,6 @@ window.addEventListener('scroll', () => {
   tocLinks.forEach(a => a.classList.toggle('toc-active', a.getAttribute('href') === '#'+cur));
 });
 
-// Language translations
-const t = {
-  fr: {
-    ey: 'Documentation', h1: 'Documentation &<br/><em>Aide</em>',
-    hsub: 'Tout ce dont vous avez besoin pour configurer et maîtriser Pisum au quotidien.',
-    tg1: 'Démarrage', tl1: 'Installation',
-    tg2: 'Fonctionnalités', tl2: 'Utiliser les modèles', tl3: 'Dictée vocale IA', tl4: 'Export RIS/PACS', tl7: 'Traduction de rapport',
-    tg3n: 'Réseau', tl6: 'Partage réseau LAN',
-    tg3: 'Dépannage', tl5: 'Contacter le support',
-    s1h: 'Installation', s1p1: 'Pisum est une application de bureau légère conçue pour Windows. Elle ne nécessite aucune configuration informatique complexe.',
-    s1l1: 'Téléchargez le dernier installateur via le lien fourni dans votre e-mail de bienvenue.',
-    s1l2: 'Double-cliquez sur le fichier <code>.exe</code> téléchargé.',
-    s1l3: 'Suivez les instructions à l\'écran. Les droits d\'administrateur ne sont généralement pas requis.',
-    ib1t: 'Note sur la confidentialité', ib1d: 'Pisum fonctionne entièrement hors ligne par défaut. Les données des patients ne sont jamais envoyées sur un serveur cloud.',
-    s2h: 'Utiliser les modèles', s2p1: 'Pisum est livré avec 112 modèles experts couvrant 5 modalités (Scanner, IRM, Échographie, Radiographie, Interventionnel).',
-    s2h2: 'Sélectionner un modèle', s2p2: 'Dans le panneau de gauche, naviguez dans les dossiers par modalité (ex: Scanner > Abdomino-Pelvien) ou utilisez la barre de recherche en haut pour trouver rapidement un protocole spécifique.',
-    ib2t: 'Modèles personnalisés', ib2d: 'Vous pouvez modifier n\'importe quel modèle intégré ou créer le vôtre en cliquant sur \'Nouveau Modèle\'. Ils sont sauvegardés localement sur votre profil.',
-    s3h: 'Dictée vocale IA', s3p1: 'Le moteur intégré Sally AI vous permet de dicter vos comptes rendus en mains-libres dans 23 langues, en corrigeant automatiquement les termes radiologiques.',
-    s3l1: 'Cliquez sur l\'icône 🎙️ ou appuyez sur <code>F4</code> pour démarrer/arrêter l\'enregistrement.',
-    s3l2: 'Sélectionnez votre langue préférée dans le menu déroulant de la barre de dictée.',
-    s4h: 'Export RIS/PACS', s4p1: 'Pisum est conçu pour agir comme un outil compagnon qui alimente facilement vos systèmes existants sans intégrations complexes.',
-    s4h2: 'Copier-Coller (Recommandé)', s4p2: 'Cliquez sur \'Copier le rapport\' (ou <code>Ctrl+C</code>) une fois votre rapport terminé. Le formatage du texte est préservé et prêt à être collé directement dans l\'éditeur de votre RIS ou PACS.',
-    s4h3: 'Export Word', s4p3: 'Utilisez le bouton \'Exporter en DOCX\' pour enregistrer un document formaté professionnellement, idéal pour les cliniques privées remettant directement les rapports aux patients.',
-    s5h: 'Contacter le support', s5p1: 'Si vous rencontrez un problème qui n\'est pas couvert dans cette documentation, notre équipe est là pour vous aider.', s5a: 'Ouvrir la page de contact →'
-  },
-  en: {
-    ey: 'Documentation', h1: 'Documentation &<br/><em>Help</em>',
-    hsub: 'Everything you need to set up and master Pisum.',
-    tg1: 'Getting Started', tl1: 'Installation',
-    tg2: 'Core Features', tl2: 'Using Templates', tl3: 'AI Voice Dictation', tl4: 'Export to RIS/PACS', tl7: 'Report Translation',
-    tg3n: 'Network', tl6: 'LAN Network Sharing',
-    tg3: 'Troubleshooting', tl5: 'Contact Support',
-    s1h: 'Installation', s1p1: 'Pisum is a lightweight desktop application designed for Windows. It requires zero complex IT configuration.',
-    s1l1: 'Download the latest installer using the link provided in your welcome email.',
-    s1l2: 'Double-click the downloaded <code>.exe</code> file.',
-    s1l3: 'Follow the on-screen instructions. Administrator privileges are generally not required.',
-    ib1t: 'Note on Privacy', ib1d: 'Pisum operates completely offline by default. Patient data is never uploaded to any cloud server.',
-    s2h: 'Using Templates', s2p1: 'Pisum comes pre-loaded with 112 expert templates covering 5 modalities (CT, MRI, Ultrasound, X-Ray, Interventional).',
-    s2h2: 'Selecting a Template', s2p2: 'On the left panel, navigate through the modality folders (e.g., CT > Abdomen-Pelvis) or use the search bar at the top to quickly find a specific protocol.',
-    ib2t: 'Custom Templates', ib2d: 'You can edit any built-in template or create your own by clicking the \'New Template\' button. These are saved locally to your profile.',
-    s3h: 'AI Voice Dictation', s3p1: 'The built-in Sally AI engine allows you to dictate reports hands-free in 23 languages, automatically correcting radiology-specific terms.',
-    s3l1: 'Click the 🎙️ icon or press <code>F4</code> to start/stop recording.',
-    s3l2: 'Select your preferred language from the dropdown menu in the dictation toolbar.',
-    s4h: 'Export to RIS/PACS', s4p1: 'Pisum is designed to act as a companion tool that easily feeds your existing systems without complex integrations.',
-    s4h2: 'Copy-Paste (Recommended)', s4p2: 'Click the \'Copy Report\' button (or <code>Ctrl+C</code>) once your report is finished. The text formatting is preserved and ready to be pasted directly into your RIS or PACS text editor.',
-    s4h3: 'Word Export', s4p3: 'Use the \'Export to DOCX\' button to save a professionally formatted document, ideal for private clinics handing reports directly to patients.',
-    s5h: 'Contact Support', s5p1: 'If you encounter any issues not covered in this documentation, our team is here to help.', s5a: 'Open Contact Page →'
-  },
-  de: {
-    ey: 'Dokumentation', h1: 'Dokumentation &<br/><em>Hilfe</em>',
-    hsub: 'Alles, was Sie brauchen, um Pisum einzurichten und zu beherrschen.',
-    tg1: 'Erste Schritte', tl1: 'Installation',
-    tg2: 'Funktionen', tl2: 'Vorlagen Verwenden', tl3: 'KI-Sprachdiktat', tl4: 'Export in RIS/PACS', tl7: 'Berichtsübersetzung',
-    tg3n: 'Netzwerk', tl6: 'LAN-Netzwerkfreigabe',
-    tg3: 'Fehlerbehebung', tl5: 'Support Kontaktieren',
-    s1h: 'Installation', s1p1: 'Pisum ist eine leichte Desktop-Anwendung für Windows. Es erfordert keine komplexe IT-Konfiguration.',
-    s1l1: 'Laden Sie das neueste Installationsprogramm über den Link in Ihrer Willkommens-E-Mail herunter.',
-    s1l2: 'Doppelklicken Sie auf die heruntergeladene <code>.exe</code>-Datei.',
-    s1l3: 'Befolgen Sie die Anweisungen auf dem Bildschirm. Administratorrechte sind in der Regel nicht erforderlich.',
-    ib1t: 'Hinweis zum Datenschutz', ib1d: 'Pisum arbeitet standardmäßig komplett offline. Patientendaten werden niemals auf einen Cloud-Server hochgeladen.',
-    s2h: 'Vorlagen Verwenden', s2p1: 'Pisum ist mit 112 Expertenvorlagen für 5 Modalitäten (CT, MRT, Ultraschall, Röntgen, Intervention) vorinstalliert.',
-    s2h2: 'Auswählen einer Vorlage', s2p2: 'Navigieren Sie im linken Bereich durch die Modalitätsordner (z.B. CT > Abdomen-Becken) oder verwenden Sie die Suchleiste oben, um schnell ein bestimmtes Protokoll zu finden.',
-    ib2t: 'Benutzerdefinierte Vorlagen', ib2d: 'Sie können jede integrierte Vorlage bearbeiten oder Ihre eigene erstellen, indem Sie auf \'Neue Vorlage\' klicken. Diese werden lokal in Ihrem Profil gespeichert.',
-    s3h: 'KI-Sprachdiktat', s3p1: 'Mit der integrierten Sally AI-Engine können Sie Berichte in 23 Sprachen freihändig diktieren, wobei radiologiespezifische Begriffe automatisch korrigiert werden.',
-    s3l1: 'Klicken Sie auf das 🎙️-Symbol oder drücken Sie <code>F4</code>, um die Aufnahme zu starten/stoppen.',
-    s3l2: 'Wählen Sie Ihre bevorzugte Sprache aus dem Dropdown-Menü in der Diktat-Symbolleiste.',
-    s4h: 'Export in RIS/PACS', s4p1: 'Pisum ist als Begleitwerkzeug konzipiert, das Ihre vorhandenen Systeme ohne komplexe Integrationen problemlos füttert.',
-    s4h2: 'Kopieren & Einfügen (Empfohlen)', s4p2: 'Klicken Sie auf die Schaltfläche \'Bericht kopieren\' (oder <code>Strg+C</code>), sobald Ihr Bericht fertig ist. Die Textformatierung bleibt erhalten und kann direkt in Ihren RIS- oder PACS-Texteditor eingefügt werden.',
-    s4h3: 'Word-Export', s4p3: 'Verwenden Sie die Schaltfläche \'In DOCX exportieren\', um ein professionell formatiertes Dokument zu speichern, ideal für Privatkliniken, die Berichte direkt an Patienten weitergeben.',
-    s5h: 'Support Kontaktieren', s5p1: 'Wenn Sie auf Probleme stoßen, die in dieser Dokumentation nicht behandelt werden, ist unser Team hier, um zu helfen.', s5a: 'Kontaktseite öffnen →'
-  },
-  es: {
-    ey: 'Documentación', h1: 'Documentación y<br/><em>Ayuda</em>',
-    hsub: 'Todo lo que necesita para configurar y dominar Pisum.',
-    tg1: 'Primeros Pasos', tl1: 'Instalación',
-    tg2: 'Características', tl2: 'Uso de Plantillas', tl3: 'Dictado por Voz IA', tl4: 'Exportar a RIS/PACS', tl7: 'Traducción de Informes',
-    tg3n: 'Red', tl6: 'Compartir en Red LAN',
-    tg3: 'Solución de problemas', tl5: 'Contactar Soporte',
-    s1h: 'Instalación', s1p1: 'Pisum es una aplicación de escritorio ligera diseñada para Windows. No requiere configuración de TI compleja.',
-    s1l1: 'Descargue el último instalador utilizando el enlace proporcionado en su correo electrónico de bienvenida.',
-    s1l2: 'Haga doble clic en el archivo <code>.exe</code> descargado.',
-    s1l3: 'Siga las instrucciones en pantalla. Generalmente no se requieren privilegios de administrador.',
-    ib1t: 'Nota sobre Privacidad', ib1d: 'Pisum opera completamente sin conexión de forma predeterminada. Los datos del paciente nunca se suben a ningún servidor en la nube.',
-    s2h: 'Uso de Plantillas', s2p1: 'Pisum viene precargado con 112 plantillas expertas que cubren 5 modalidades (TC, RM, Ecografía, Rayos X, Intervencionismo).',
-    s2h2: 'Seleccionar una plantilla', s2p2: 'En el panel izquierdo, navegue a través de las carpetas de modalidad (por ejemplo, TC > Abdomen-Pelvis) o use la barra de búsqueda en la parte superior para encontrar rápidamente un protocolo específico.',
-    ib2t: 'Plantillas Personalizadas', ib2d: 'Puede editar cualquier plantilla incorporada o crear la suya propia haciendo clic en el botón \'Nueva plantilla\'. Estas se guardan localmente en su perfil.',
-    s3h: 'Dictado por Voz IA', s3p1: 'El motor Sally AI incorporado le permite dictar informes con manos libres en 23 idiomas, corrigiendo automáticamente los términos específicos de radiología.',
-    s3l1: 'Haga clic en el icono 🎙️ o presione <code>F4</code> para iniciar/detener la grabación.',
-    s3l2: 'Seleccione su idioma preferido en el menú desplegable de la barra de herramientas de dictado.',
-    s4h: 'Exportar a RIS/PACS', s4p1: 'Pisum está diseñado para actuar como una herramienta complementaria que alimenta fácilmente sus sistemas existentes sin integraciones complejas.',
-    s4h2: 'Copiar y Pegar (Recomendado)', s4p2: 'Haga clic en el botón \'Copiar Informe\' (o <code>Ctrl+C</code>) una vez que su informe esté terminado. El formato del texto se conserva y está listo para pegarse directamente en su editor de texto RIS o PACS.',
-    s4h3: 'Exportación a Word', s4p3: 'Use el botón \'Exportar a DOCX\' para guardar un documento formateado profesionalmente, ideal para clínicas privadas que entregan informes directamente a los pacientes.',
-    s5h: 'Contactar Soporte', s5p1: 'Si encuentra algún problema no cubierto en esta documentación, nuestro equipo está aquí para ayudar.', s5a: 'Abrir página de contacto →'
-  }
-};
-
-let currentLang = localStorage.getItem('pisum-lang') || document.documentElement.lang || 'fr';
-
-function setLang(lang) {
-  currentLang = lang;
-  localStorage.setItem('pisum-lang', lang);
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent.toLowerCase() === lang));
-  const d = t[lang] || t.fr;
-  Object.keys(d).forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.innerHTML = d[id];
-  });
-}
-
-setLang(currentLang);
 </script>
 <script>
   const ham = document.getElementById('ham');
