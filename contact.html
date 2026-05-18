@@ -80,6 +80,8 @@ main { flex: 1; }
 .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
 .nav-links a { font-size: 0.83rem; font-weight: 500; color: var(--ink-2); transition: color 0.18s; }
 .nav-links a:hover { color: var(--cyan); }
+.btn-cta { font-size: 0.83rem; font-weight: 700; color: var(--void); background: var(--cyan); padding: 0.45rem 1.1rem; border-radius: 999px; transition: all 0.2s; border: none; }
+.btn-cta:hover { transform: translateY(-1px); box-shadow: 0 0 20px rgba(0,229,204,0.3); color: var(--void); }
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
 .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--ink); border-radius: 2px; }
 @media(max-width:780px){.nav-links{display:none}.hamburger{display:flex}.nav-links.open{display:flex;flex-direction:column;align-items:flex-start;gap:1.5rem;position:fixed;inset:64px 0 0 0;background:var(--s1);padding:2rem;z-index:997}.nav-links.open a{font-size:1.1rem}}
@@ -189,7 +191,7 @@ main { flex: 1; }
     <li><a href="contact.html">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <a href="index.html#pricing" class="btn btn-primary btn-sm" id="nav-cta" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600;">Get Started Free</a>
+    <a href="index.html#pricing" class="btn-cta" id="nav-cta">Get Started Free</a>
     <div id="nav-profile" class="nav-profile" style="display:none">
       <a href="#" class="nav-profile-link">
         <img id="nav-profile-img" class="nav-profile-avatar" src="" alt="" style="display:none"/>
@@ -228,12 +230,14 @@ main { flex: 1; }
 })();
 </script>
 
+<main>
 <section class="hero">
+  <div class="hero-orb"></div>
   <div class="container">
     <div class="hero-inner">
-      <div class="eyebrow"><span class="eyebrow-dot"></span>Contact</div>
-      <h1>Contact your radiology software provider</h1>
-      <p>Contact the Pisum team for demos, support, partnerships, or clinic pricing. We're your dedicated radiology software provider — every message is read personally and answered within 24 hours.</p>
+      <div class="animate-in d1"><span class="eyebrow">Contact</span></div>
+      <h1 class="animate-in d2">Contact your radiology software provider</h1>
+      <p class="hero-sub animate-in d3">Contact the Pisum team for demos, support, partnerships, or clinic pricing. We're your dedicated radiology software provider — every message is read personally and answered within 24 hours.</p>
     </div>
   </div>
 </section>
@@ -242,36 +246,38 @@ main { flex: 1; }
   <div class="container">
     <div class="cards-grid">
 
-      <div class="contact-card">
+      <div class="contact-card animate-in d2">
         <div class="card-icon">✉️</div>
         <div class="card-title">Email Support</div>
         <div class="card-email">Mypisum@Proton.me</div>
         <div class="card-desc">For technical support, billing questions, and general inquiries. We read every message personally and aim to resolve issues quickly.</div>
-        <a href="mailto:Mypisum@Proton.me?subject=Support%20Request" class="card-btn">Send a message</a>
-        <div class="card-tag">
-          <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="4.5" stroke="#15803d" stroke-width="1.4"/><path d="M6 3.5v2.5l1.5 1.5" stroke="#15803d" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <a href="mailto:Mypisum@Proton.me?subject=Support%20Request" class="card-btn primary">Send a message</a>
+        <div class="card-tag" style="background:rgba(16,185,129,0.1);color:#10b981;border:1px solid rgba(16,185,129,0.2)">
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="4.5" stroke="currentColor" stroke-width="1.4"/><path d="M6 3.5v2.5l1.5 1.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           We reply within 24h
         </div>
       </div>
 
-      <div class="contact-card">
+      <div class="contact-card animate-in d3">
         <div class="card-icon">🏥</div>
         <div class="card-title">Clinic Sales</div>
         <div class="card-desc">Deploying PISUM across a radiology department? Let's talk. We offer volume pricing, onboarding support, and custom configurations for clinics and hospitals.</div>
+        <div style="flex:1"></div>
         <a href="mailto:Mypisum@Proton.me?subject=Clinic%20Sales%20Inquiry" class="card-btn ghost">Request a quote</a>
-        <div class="card-tag" style="background:rgba(59,110,248,0.08);color:var(--blue-d)">
-          <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><rect x="2" y="3.5" width="8" height="6.5" rx="1.5" stroke="#2952d9" stroke-width="1.4"/><path d="M4.5 3.5V2.75a1.5 1.5 0 0 1 3 0V3.5" stroke="#2952d9" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <div class="card-tag" style="background:rgba(59,110,248,0.1);color:#3b6ef8;border:1px solid rgba(59,110,248,0.2)">
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><rect x="2" y="3.5" width="8" height="6.5" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M4.5 3.5V2.75a1.5 1.5 0 0 1 3 0V3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
           Custom quote available
         </div>
       </div>
 
-      <div class="contact-card">
+      <div class="contact-card animate-in d4">
         <div class="card-icon">🐛</div>
         <div class="card-title">Report a Bug</div>
         <div class="card-desc">Found a bug or have a feature request? We want to know. Every report is reviewed by our engineering team and logged in our internal tracker.</div>
+        <div style="flex:1"></div>
         <a href="mailto:Mypisum@Proton.me?subject=Bug%20Report" class="card-btn ghost">Report an issue</a>
-        <div class="card-tag" style="background:rgba(124,90,240,0.08);color:var(--purple)">
-          <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="4.5" stroke="#7c5af0" stroke-width="1.4"/><path d="M6 4v2.5" stroke="#7c5af0" stroke-width="1.4" stroke-linecap="round"/><circle cx="6" cy="8.5" r="0.6" fill="#7c5af0"/></svg>
+        <div class="card-tag" style="background:rgba(139,110,248,0.1);color:#8b6ef8;border:1px solid rgba(139,110,248,0.2)">
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="4.5" stroke="currentColor" stroke-width="1.4"/><path d="M6 4v2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="6" cy="8.5" r="0.6" fill="currentColor"/></svg>
           Reviewed within 48h
         </div>
       </div>
@@ -282,36 +288,33 @@ main { flex: 1; }
 
 <section class="cta-row">
   <div class="container">
-    <div class="cta-inner">
+    <div class="cta-inner animate-in d4">
       <p>Have a question? Check the FAQ first — it's probably answered there.</p>
       <a href="faq.html" class="link-arrow">Browse the FAQ <span>→</span></a>
     </div>
   </div>
 </section>
+</main>
 
-<footer class="site-footer" style="background: var(--ink, #09090f); padding: 2.5rem 0; border-top: 1px solid rgba(255,255,255,0.05); color: white; width: 100%;">
-  <div class="container" style="max-width: 1160px; margin: 0 auto; padding: 0 2rem;">
-    <div class="foot-in" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;">
-      <div class="foot-logo" style="display: flex; align-items: center; gap: 8px; font-weight: 700;">
-        <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="Logo" style="width: 26px; height: 26px; border-radius: 6px;"/>
+<footer class="site-footer">
+  <div class="container">
+    <div class="foot-in">
+      <div class="foot-logo">
+        <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="Logo"/>
         <span>PISUM</span>
       </div>
-      <p class="foot-copy" style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin: 0;">© 2026 PISUM. All rights reserved.</p>
-      <div class="foot-links" style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
-        <a href="rgpd.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none;">Privacy</a>
-        <a href="terms.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none;">Terms</a>
-        <a href="faq.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none;">FAQ</a>
-        <a href="documentation.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none;">Docs</a>
-        <a href="contact.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none;">Contact</a>
+      <p class="foot-copy">© 2026 PISUM. All rights reserved.</p>
+      <div class="foot-links">
+        <a href="rgpd.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="faq.html">FAQ</a>
+        <a href="documentation.html">Docs</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
   </div>
 </footer>
 
-<script>
-const ham=document.getElementById('ham'),links=document.getElementById('nav-links');
-ham.addEventListener('click',()=>links.classList.toggle('open'));
-</script>
 <script>
   const ham = document.getElementById('ham');
   const navLinks = document.getElementById('nav-links');
@@ -320,6 +323,14 @@ ham.addEventListener('click',()=>links.classList.toggle('open'));
       navLinks.classList.toggle('open');
     });
   }
+
+  document.querySelectorAll('.contact-card').forEach(c => {
+    c.addEventListener('mousemove', e => {
+      const r = c.getBoundingClientRect();
+      c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
 </script>
 <!-- ── PISUM AI Agent Widget (dark theme) ─────────────────────── -->
 <style>
