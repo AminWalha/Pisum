@@ -256,10 +256,10 @@ nav{
   backdrop-filter:blur(4px)
 }
 
-.divider{height:1px;background:var(--app-border);margin:1.15rem 0; flex-grow: 1;}
+.divider{height:1px;background:var(--app-border);margin:1.15rem 0;}
 .divider.clinic{background:rgba(255,255,255,.1)}
 
-.feat-list{list-style:none;font-size:.78rem;color:var(--app-text-secondary);display:flex;flex-direction:column;gap:.55rem}
+.feat-list{list-style:none;font-size:.78rem;color:var(--app-text-secondary);display:flex;flex-direction:column;gap:.55rem;flex:1}
 .feat-list li{display:flex;align-items:flex-start;gap:7px;line-height:1.42}
 .feat-list.clinic{color:var(--app-text-secondary)}
 .fi-ok{color:var(--app-success);font-weight:700;flex-shrink:0}
@@ -490,7 +490,7 @@ footer .sep{margin:0 .5rem;color:var(--app-border)}
     </label>
     <span id="label-annual">Annual<span class="save-badge">−20%</span></span>
   </div>
-  <div style="text-align:center;font-size:.75rem;color:var(--slate-400);margin-top:-.5rem;margin-bottom:1.5rem;letter-spacing:.01em">
+  <div style="text-align:center;font-size:.75rem;color:var(--app-text-tertiary);margin-top:-.5rem;margin-bottom:1.5rem;letter-spacing:.01em">
     No cloud upload of patient data &nbsp;·&nbsp; GDPR compliant &nbsp;·&nbsp; Local-first
   </div>
 
@@ -524,7 +524,7 @@ footer .sep{margin:0 .5rem;color:var(--app-border)}
       <div class="plan-subtitle">Solo radiologist</div>
       <div class="plan-price" id="price-starter" data-monthly="29" data-annual="23">29 €<span id="price-starter-sub"> / month</span></div>
       <div class="plan-microcopy" id="sub-starter">Billed monthly</div>
-      <div style="font-size:.68rem;color:var(--slate-400);text-align:center;margin-bottom:.4rem">14-day free trial · No card required</div>
+      <div style="font-size:.68rem;color:var(--app-text-tertiary);text-align:center;margin-bottom:.4rem">14-day free trial · No card required</div>
       <button class="plan-cta cta-blue" onclick="subscribe('starter')" data-label="Try Starter free — 14 days">Try Starter free — 14 days</button>
       <div class="divider"></div>
       <ul class="feat-list">
@@ -547,7 +547,7 @@ footer .sep{margin:0 .5rem;color:var(--app-border)}
       <div class="plan-subtitle">Advanced practitioner, all-in-one</div>
       <div class="plan-price pro" id="price-pro" data-monthly="79" data-annual="63">79 €<span id="price-pro-sub"> / month</span></div>
       <div class="plan-microcopy" id="sub-pro">Billed monthly</div>
-      <div style="font-size:.68rem;color:var(--slate-400);text-align:center;margin-bottom:.4rem">14-day free trial · No card required</div>
+      <div style="font-size:.68rem;color:var(--app-text-tertiary);text-align:center;margin-bottom:.4rem">14-day free trial · No card required</div>
       <button class="plan-cta cta-blue-glow" onclick="subscribe('pro')" data-label="Try Pro free — 14 days">Try Pro free — 14 days</button>
       <div class="divider" style="background:rgba(37,99,235,.12)"></div>
       <ul class="feat-list">
@@ -571,7 +571,7 @@ footer .sep{margin:0 .5rem;color:var(--app-border)}
       <div class="plan-subtitle">No limits, full power</div>
       <div class="plan-price" id="price-expert" data-monthly="129" data-annual="103">129 €<span id="price-expert-sub"> / month</span></div>
       <div class="plan-microcopy" id="sub-expert">Billed monthly</div>
-      <div style="font-size:.68rem;color:var(--slate-400);text-align:center;margin-bottom:.4rem">14-day free trial · No card required</div>
+      <div style="font-size:.68rem;color:var(--app-text-tertiary);text-align:center;margin-bottom:.4rem">14-day free trial · No card required</div>
       <button class="plan-cta cta-amber" onclick="subscribe('expert')" data-label="Try Expert free — 14 days">Try Expert free — 14 days</button>
       <div class="divider"></div>
       <ul class="feat-list">
@@ -624,9 +624,9 @@ footer .sep{margin:0 .5rem;color:var(--app-border)}
   </div>
 
   <!-- Money-back guarantee -->
-  <div style="text-align:center;margin-top:2rem;font-size:.8rem;color:var(--slate-500)">
-    <span style="color:var(--green-600);font-weight:700">✓</span> 30-day money-back guarantee on all paid plans &nbsp;·&nbsp;
-    <span style="color:var(--green-600);font-weight:700">✓</span> Cancel anytime, no lock-in
+  <div style="text-align:center;margin-top:2rem;font-size:.8rem;color:var(--app-text-secondary)">
+    <span style="color:var(--app-success);font-weight:700">✓</span> 30-day money-back guarantee on all paid plans &nbsp;·&nbsp;
+    <span style="color:var(--app-success);font-weight:700">✓</span> Cancel anytime, no lock-in
   </div>
 </section>
 
@@ -681,10 +681,10 @@ footer .sep{margin:0 .5rem;color:var(--app-border)}
         <tr>
           <th><div class="th-inner"><span class="th-name">Feature</span></div></th>
           <th><div class="th-inner"><span class="th-name">Free</span><span class="th-price">€0/mo</span></div></th>
-          <th><div class="th-inner"><span class="th-name">Starter</span><span class="th-price">€29/mo</span></div></th>
-          <th class="col-pro"><div class="th-inner"><span class="rec-badge">Most Popular</span><span class="th-name">Pro ⭐</span><span class="th-price">€79/mo</span></div></th>
-          <th><div class="th-inner"><span class="rec-badge" style="background:#34d399;color:#064e3b">Best Value</span><span class="th-name">Expert 🔥</span><span class="th-price">€129/mo</span></div></th>
-          <th class="col-clinic"><div class="th-inner"><span class="ent-badge">Enterprise</span><span class="th-name">Clinic 🏥</span><span class="th-price">€399/mo</span></div></th>
+          <th><div class="th-inner"><span class="th-name">Starter</span><span class="th-price" id="table-price-starter">€29/mo</span></div></th>
+          <th class="col-pro"><div class="th-inner"><span class="rec-badge">Most Popular</span><span class="th-name">Pro ⭐</span><span class="th-price" id="table-price-pro">€79/mo</span></div></th>
+          <th><div class="th-inner"><span class="rec-badge" style="background:#34d399;color:#064e3b">Best Value</span><span class="th-name">Expert 🔥</span><span class="th-price" id="table-price-expert">€129/mo</span></div></th>
+          <th class="col-clinic"><div class="th-inner"><span class="ent-badge">Enterprise</span><span class="th-name">Clinic 🏥</span><span class="th-price" id="table-price-clinic">€399/mo</span></div></th>
         </tr>
       </thead>
       <tbody>
@@ -861,6 +861,7 @@ function setBilling(isAnnual) {
     const priceEl = document.getElementById('price-' + plan);
     const subEl   = document.getElementById('price-' + plan + '-sub');
     const microEl = document.getElementById('sub-' + plan);
+    const tablePriceEl = document.getElementById('table-price-' + plan);
     if (!priceEl) return;
     const price = PLAN_PRICES[plan][billingInterval];
     priceEl.childNodes[0].nodeValue = price + ' €';
@@ -868,6 +869,9 @@ function setBilling(isAnnual) {
       microEl.textContent = isAnnual
         ? `Billed annually · save ${ANNUAL_SAVINGS[plan]}€/year`
         : 'Billed monthly';
+    }
+    if (tablePriceEl) {
+      tablePriceEl.textContent = `€${price}/mo`;
     }
   });
 }
