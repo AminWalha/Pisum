@@ -218,9 +218,10 @@ main { flex: 1; }
     <li><a href="contact.html">Contact</a></li>
   </ul>
   <div class="nav-right">
+    <a href="saas/frontend/auth.html" id="nav-signin" style="font-size: 0.83rem; font-weight: 500; color: var(--ink-2); margin-right: 0.5rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--ink-2)'">Sign in</a>
     <a href="index.html#pricing" id="nav-cta" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600; background: var(--cyan); color: #06060a; font-size: 0.83rem;">Get Started Free</a>
     <div id="nav-profile" class="nav-profile" style="display:none">
-      <a href="#" class="nav-profile-link">
+      <a href="saas/frontend/dashboard.html" class="nav-profile-link">
         <img id="nav-profile-img" class="nav-profile-avatar" src="" alt="" style="display:none"/>
         <div id="nav-profile-initials" class="nav-profile-avatar-fallback" style="display:none">?</div>
         <div class="nav-profile-info">
@@ -242,6 +243,7 @@ main { flex: 1; }
     const u=data.session.user;
     const name=u.user_metadata?.full_name||u.email.split('@')[0];
     document.getElementById('nav-cta').style.display='none';
+    if(document.getElementById('nav-signin')) document.getElementById('nav-signin').style.display='none';
     document.getElementById('nav-profile-name').textContent=name;
     document.getElementById('nav-profile-email').textContent=u.email;
     document.getElementById('nav-profile').style.display='flex';

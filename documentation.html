@@ -198,9 +198,10 @@ footer { background: var(--s1); border-top: 1px solid var(--border); padding: 2.
     <li><a href="contact.html">Contact</a></li>
   </ul>
   <div class="nav-right">
+    <a href="saas/frontend/auth.html" id="nav-signin" style="font-size: 0.83rem; font-weight: 500; color: var(--ink-2); margin-right: 0.5rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--ink-2)'">Sign in</a>
     <a href="index.html#pricing" class="btn btn-primary btn-sm" id="nav-cta" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600;">Get Started Free</a>
     <div id="nav-profile" class="nav-profile" style="display:none">
-      <a href="#" class="nav-profile-link">
+      <a href="saas/frontend/dashboard.html" class="nav-profile-link">
         <img id="nav-profile-img" class="nav-profile-avatar" src="" alt="" style="display:none"/>
         <div id="nav-profile-initials" class="nav-profile-avatar-fallback" style="display:none">?</div>
         <div class="nav-profile-info">
@@ -224,6 +225,7 @@ footer { background: var(--s1); border-top: 1px solid var(--border); padding: 2.
     const u=data.session.user;
     const name=u.user_metadata?.full_name||u.email.split('@')[0];
     document.getElementById('nav-cta').style.display='none';
+    if(document.getElementById('nav-signin')) document.getElementById('nav-signin').style.display='none';
     document.getElementById('nav-profile-name').textContent=name;
     document.getElementById('nav-profile-email').textContent=u.email;
     document.getElementById('nav-profile').style.display='flex';
@@ -431,8 +433,6 @@ footer { background: var(--s1); border-top: 1px solid var(--border); padding: 2.
       <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; font-family: 'Plus Jakarta Sans', sans-serif;">
         <a href="rgpd.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Privacy</a>
         <a href="terms.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Terms</a>
-        <a href="dpia.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">DPIA</a>
-        <a href="dpo.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">DPO</a>
         <a href="faq.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">FAQ</a>
         <a href="documentation.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Docs</a>
         <a href="contact.html" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Contact</a>
