@@ -11,48 +11,46 @@
 </script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title data-i18n="dashboard.title">PISUM — My Account</title>
-<link rel="icon" type="image/png" href="../../logo V2.png"/>
+<title>PISUM — My Account</title>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
+/* Ultra-modern dark theme palette */
 :root{
-  --bg:        #060d1b;
-  --sidebar:   #080f1e;
-  --card:      #0c1828;
-  --card-2:    #0f1e30;
-  --border:    rgba(255,255,255,0.055);
-  --border-2:  rgba(255,255,255,0.10);
-
-  --blue:        #2d80f2;
-  --blue-hover:  #1a6de0;
-  --blue-light:  rgba(45,128,242,0.10);
-  --green:       #18b874;
-  --green-light: rgba(24,184,116,0.10);
-  --red:         #f04438;
-  --red-light:   rgba(240,68,56,0.10);
-  --amber:       #f79009;
-  --amber-light: rgba(247,144,9,0.10);
-
-  --t1: #edf2f9;
-  --t2: #7b97b7;
-  --t3: #38506a;
-
-  /* legacy compat aliases */
-  --ink:   #edf2f9;
-  --ink-2: #c6d4e3;
-  --ink-3: #7b97b7;
-  --ink-4: rgba(255,255,255,0.09);
-  --ink-5: rgba(255,255,255,0.04);
-  --white: #1e293b;
+  --app-bg: #0D1117;
+  --app-surface: #161B22;
+  --app-surface-2: #1C2128;
+  --app-border: #30363D;
+  --app-border-2: #434a53;
+  --app-text-primary: #E6EDF3;
+  --app-text-secondary: #8B949E;
+  --app-text-tertiary: #6E7681;
+  --app-primary: #14B8A6; /* Teal */
+  --app-primary-dark: #0F8A7A;
+  --app-primary-light: rgba(20, 184, 166, 0.1);
+  --app-primary-text: #0D1117;
+  --app-error: #F85149;
+  --app-success: #3FB950;
+  --app-warn: #D29922;
+  --app-blue: #388BFD;
 
   --sidebar-w: 244px;
   --r-sm: 6px; --r: 10px; --r-lg: 12px; --r-xl: 16px;
   --transition: 150ms cubic-bezier(0.4,0,0.2,1);
-  --shadow: 0 4px 24px rgba(0,0,0,0.4);
+  --shadow: 0 8px 24px rgba(0,0,0,0.3);
+
+  /* Legacy compat aliases */
+  --bg: var(--app-bg); --sidebar: var(--app-surface); --card: var(--app-surface); --card-2: var(--app-surface-2);
+  --border: var(--app-border); --border-2: var(--app-border-2);
+  --blue: var(--app-primary); --blue-hover: var(--app-primary-dark); --blue-light: var(--app-primary-light);
+  --green: var(--app-success); --red: var(--app-error); --amber: var(--app-warn);
+  --t1: var(--app-text-primary); --t2: var(--app-text-secondary); --t3: var(--app-text-tertiary);
+  --ink: var(--app-text-primary); --ink-2: var(--app-text-secondary); --ink-3: var(--app-text-tertiary);
+  --ink-4: var(--app-border); --ink-5: var(--app-surface-2);
 }
 
 html,body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;height:100%}
@@ -60,12 +58,30 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:
 
 /* ── APP SHELL ── */
 .app-shell{display:flex;height:100vh;overflow:hidden}
+.app-shell{position:relative}
+.app-shell::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y),
+    rgba(20, 184, 166, 0.08),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.app-shell:hover::before {
+  opacity: 1;
+}
 
 /* ── SIDEBAR ── */
 .sidebar{
   width:var(--sidebar-w);flex-shrink:0;
-  background:var(--sidebar);
-  border-right:1px solid var(--border);
+  background:var(--app-surface);
+  border-right:1px solid var(--app-border);
   display:flex;flex-direction:column;height:100vh;
   overflow-y:auto;overflow-x:hidden;
   position:relative;z-index:10;
@@ -80,19 +96,19 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:
   transition:background var(--transition)
 }
 .sb-logo:hover{background:rgba(255,255,255,0.04)}
-.sb-logo img{width:30px;height:30px;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.12)}
-.sb-logo-text{font-size:1rem;font-weight:700;letter-spacing:-0.03em;color:var(--t1)}
+.sb-logo img{width:27px;height:27px;border-radius:7px}
+.sb-logo-text{font-size:0.9rem;font-weight:800;letter-spacing:-0.025em;color:var(--t1)}
 
-.sb-divider{height:1px;background:var(--border);margin:1rem 1.125rem}
+.sb-divider{height:1px;background:var(--app-border);margin:1rem 1.125rem}
 
 .sb-user{padding:0 1.125rem;display:flex;align-items:center;gap:10px}
 .sb-avatar{
   width:34px;height:34px;border-radius:50%;
-  background:linear-gradient(135deg,#1a5fd4,#2d80f2);
-  color:#fff;font-size:0.7rem;font-weight:700;
+  background:linear-gradient(135deg, var(--app-primary-dark), var(--app-primary));
+  color:var(--app-primary-text);font-size:0.7rem;font-weight:700;
   display:flex;align-items:center;justify-content:center;
   flex-shrink:0;overflow:hidden;letter-spacing:0.02em;
-  box-shadow:0 0 0 2px rgba(45,128,242,0.3)
+  box-shadow:0 0 0 2px var(--app-primary-light)
 }
 .sb-user-info{overflow:hidden}
 .sb-name{font-size:0.8rem;font-weight:600;color:var(--t1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -111,10 +127,10 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:
 }
 .sb-link svg{width:15px;height:15px;flex-shrink:0;stroke:currentColor;stroke-width:1.75;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:stroke var(--transition)}
 .sb-link:hover{color:var(--t2);background:rgba(255,255,255,0.04)}
-.sb-link.active{color:var(--t1);background:rgba(45,128,242,0.12);font-weight:600}
-.sb-link.active svg{stroke:var(--blue)}
+.sb-link.active{color:var(--app-primary);background:var(--app-primary-light);font-weight:600; box-shadow: 0 0 15px var(--app-primary-light);}
+.sb-link.active svg{stroke:var(--app-primary)}
 
-.sb-bottom{padding:0.875rem 0.625rem 1.5rem;border-top:1px solid var(--border)}
+.sb-bottom{padding:0.875rem 0.625rem 1.5rem;border-top:1px solid var(--app-border)}
 .sb-signout{
   display:flex;align-items:center;gap:9px;padding:0.55rem 0.625rem;border-radius:var(--r);
   color:var(--t3);font-size:0.8rem;font-weight:500;cursor:pointer;
@@ -125,7 +141,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:
 .sb-signout:hover{color:var(--red);background:rgba(240,68,56,0.07)}
 
 /* ── MAIN WRAP ── */
-.main-wrap{flex:1;min-width:0;overflow-y:auto;height:100vh;background:var(--bg);scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.06) transparent}
+.main-wrap{flex:1;min-width:0;overflow-y:auto;height:100vh;background:transparent;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.06) transparent; position: relative; z-index: 1;}
 .main-wrap::-webkit-scrollbar{width:5px}
 .main-wrap::-webkit-scrollbar-track{background:transparent}
 .main-wrap::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.06);border-radius:99px}
@@ -201,15 +217,15 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
   border-left:3px solid var(--red)
 }
 .hero-status-line.status-wait{
-  background:rgba(45,128,242,0.07);
-  border:1px solid rgba(45,128,242,0.14);
-  border-left:3px solid var(--blue)
+  background:var(--app-primary-light);
+  border:1px solid rgba(20,184,166,0.2);
+  border-left:3px solid var(--app-primary)
 }
 .hero-status-icon{flex-shrink:0;width:16px;height:16px;margin-top:1px}
 .hero-status-icon svg{width:100%;height:100%}
 .icon-ok .hero-status-icon svg{stroke:var(--green)}
 .icon-err .hero-status-icon svg{stroke:var(--red)}
-.icon-wait .hero-status-icon svg{stroke:var(--blue)}
+.icon-wait .hero-status-icon svg{stroke:var(--app-primary)}
 .hero-status-text h2{font-size:0.838rem;font-weight:600;color:#fff;margin-bottom:0.1rem;line-height:1.3}
 .hero-status-text p{font-size:0.763rem;color:rgba(255,255,255,0.5);line-height:1.5}
 
@@ -227,12 +243,12 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
 
 /* ── DARK CARD ── */
 .dark-card{
-  background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);
+  background:var(--app-surface);border:1px solid var(--app-border);border-radius:var(--r-lg);
   overflow:hidden;margin-bottom:0.875rem
 }
-.dark-card:hover{border-color:var(--border-2);transition:border-color var(--transition)}
+.dark-card:hover{border-color:var(--app-border-2);transition:border-color var(--transition); box-shadow: 0 0 20px rgba(20, 184, 166, 0.05);}
 .dc-head{
-  padding:1.125rem 1.375rem;border-bottom:1px solid var(--border);
+  padding:1.125rem 1.375rem;border-bottom:1px solid var(--app-border);
   display:flex;align-items:center;justify-content:space-between;gap:0.75rem;flex-wrap:wrap
 }
 .dc-title{font-size:0.688rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--t3)}
@@ -245,7 +261,7 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
 }
 @media(max-width:640px){.stat-row{grid-template-columns:repeat(2,1fr)}}
 .stat-card{
-  background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);
+  background:var(--app-surface);border:1px solid var(--app-border);border-radius:var(--r-lg);
   padding:1.125rem 1.25rem;
   transition:border-color var(--transition),transform var(--transition);
   animation:slideUp 0.4s cubic-bezier(0.4,0,0.2,1) both;
@@ -255,18 +271,18 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
 .stat-card:nth-child(2){animation-delay:0.10s}
 .stat-card:nth-child(3){animation-delay:0.15s}
 .stat-card:nth-child(4){animation-delay:0.20s}
-.stat-card:hover{border-color:var(--border-2)}
+.stat-card:hover{border-color:var(--app-border-2)}
 .stat-icon-box{
   width:30px;height:30px;border-radius:8px;
   display:flex;align-items:center;justify-content:center;
   margin-bottom:0.75rem;flex-shrink:0
 }
 .stat-icon-box svg{width:14px;height:14px;stroke-width:1.75;fill:none;stroke-linecap:round;stroke-linejoin:round}
-.stat-icon-box.blue{background:rgba(45,128,242,0.12)}
-.stat-icon-box.blue svg{stroke:var(--blue)}
-.stat-icon-box.green{background:rgba(24,184,116,0.12)}
+.stat-icon-box.blue{background:var(--app-primary-light)}
+.stat-icon-box.blue svg{stroke:var(--app-primary)}
+.stat-icon-box.green{background:rgba(63, 185, 80, 0.1)}
 .stat-icon-box.green svg{stroke:var(--green)}
-.stat-icon-box.amber{background:rgba(247,144,9,0.12)}
+.stat-icon-box.amber{background:rgba(210, 153, 34, 0.1)}
 .stat-icon-box.amber svg{stroke:var(--amber)}
 .stat-icon-box.t2{background:rgba(255,255,255,0.06)}
 .stat-icon-box.t2 svg{stroke:var(--t2)}
@@ -280,11 +296,11 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
 .ring-card{
   flex:1;min-width:190px;
   display:flex;align-items:center;gap:1.25rem;
-  background:var(--card-2);border:1px solid var(--border);border-radius:var(--r-lg);
+  background:var(--app-surface-2);border:1px solid var(--app-border);border-radius:var(--r-lg);
   padding:1.25rem 1.375rem;
   transition:border-color var(--transition)
 }
-.ring-card:hover{border-color:var(--border-2)}
+.ring-card:hover{border-color:var(--app-border-2)}
 .ring-wrap{position:relative;width:88px;height:88px;flex-shrink:0}
 .ring-svg{width:100%;height:100%;transform:rotate(-90deg)}
 .ring-track{fill:none;stroke:rgba(255,255,255,0.055);stroke-width:6}
@@ -321,10 +337,10 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
 .profile-avatar-wrap{position:relative;cursor:pointer;flex-shrink:0}
 .profile-avatar{
   width:54px;height:54px;border-radius:50%;
-  background:linear-gradient(135deg,#1a5fd4,#2d80f2);
-  color:#fff;font-size:1rem;font-weight:700;
+  background:linear-gradient(135deg, var(--app-primary-dark), var(--app-primary));
+  color:var(--app-primary-text);font-size:1rem;font-weight:700;
   display:flex;align-items:center;justify-content:center;
-  overflow:hidden;box-shadow:0 0 0 3px rgba(45,128,242,0.22)
+  overflow:hidden;box-shadow:0 0 0 3px var(--app-primary-light)
 }
 .profile-avatar-wrap:hover .profile-avatar{filter:brightness(0.75)}
 .avatar-edit-overlay{
@@ -341,12 +357,12 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
 .profile-extra-item{font-size:0.75rem;color:var(--t3)}
 .profile-actions{display:flex;flex-wrap:wrap;gap:0.5rem;padding:0 1.375rem 1.375rem}
 .btn-edit-profile{
-  padding:0.375rem 0.875rem;border:1px solid var(--border-2);
+  padding:0.375rem 0.875rem;border:1px solid var(--app-border-2);
   border-radius:var(--r);background:rgba(255,255,255,0.04);cursor:pointer;
   font-size:0.763rem;font-weight:500;color:var(--t2);font-family:inherit;
   transition:all var(--transition)
 }
-.btn-edit-profile:hover{background:rgba(255,255,255,0.08);color:var(--t1);border-color:rgba(255,255,255,0.16)}
+.btn-edit-profile:hover{background:rgba(255,255,255,0.08);color:var(--t1);border-color:var(--app-border-2)}
 
 /* ── BADGES ── */
 .badge{
@@ -355,10 +371,10 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
 }
 .badge-active{background:rgba(24,184,116,0.12);color:#2dd68a;border:1px solid rgba(24,184,116,0.22)}
 .badge-inactive{background:rgba(240,68,56,0.12);color:#f87070;border:1px solid rgba(240,68,56,0.22)}
-.badge-free{background:rgba(255,255,255,0.06);color:var(--t3);border:1px solid var(--border)}
-.badge-starter{background:rgba(14,165,233,0.12);color:#38bdf8;border:1px solid rgba(14,165,233,0.22)}
-.badge-pro{background:rgba(45,128,242,0.12);color:#6baeff;border:1px solid rgba(45,128,242,0.22)}
-.badge-expert{background:rgba(247,144,9,0.12);color:#fbbf24;border:1px solid rgba(247,144,9,0.22)}
+.badge-free{background:rgba(255,255,255,0.06);color:var(--t3);border:1px solid var(--app-border)}
+.badge-starter{background:rgba(56,139,253,0.1);color:var(--app-blue);border:1px solid rgba(56,139,253,0.2)}
+.badge-pro{background:var(--app-primary-light);color:var(--app-primary);border:1px solid rgba(20,184,166,0.2)}
+.badge-expert{background:rgba(210,153,34,0.1);color:var(--app-warn);border:1px solid rgba(210,153,34,0.2)}
 .badge-clinic{background:rgba(24,184,116,0.12);color:#2dd68a;border:1px solid rgba(24,184,116,0.22)}
 
 /* ── PLAN GRID ── */
@@ -366,29 +382,29 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
 @media(max-width:780px){.plan-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:480px){.plan-grid{grid-template-columns:repeat(2,1fr)}}
 .plan-card{
-  border:1.5px solid var(--border);border-radius:var(--r);padding:0.875rem 0.75rem;
+  border:1.5px solid var(--app-border);border-radius:var(--r);padding:0.875rem 0.75rem;
   cursor:pointer;transition:all var(--transition);text-align:center;
-  position:relative;background:var(--card-2)
+  position:relative;background:var(--app-surface-2)
 }
-.plan-card:hover{border-color:rgba(45,128,242,0.4);background:rgba(45,128,242,0.06)}
-.plan-card.sel{border-color:var(--blue);background:rgba(45,128,242,0.1);box-shadow:0 0 0 3px rgba(45,128,242,0.12)}
+.plan-card:hover{border-color:var(--app-primary);background:var(--app-primary-light)}
+.plan-card.sel{border-color:var(--app-primary);background:var(--app-primary-light);box-shadow:0 0 0 3px rgba(20,184,166,0.15)}
 .plan-tag{
   font-size:0.588rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
   padding:0.125rem 0.5rem;border-radius:999px;display:inline-block;margin-bottom:0.4rem
 }
 .tag-free{background:rgba(255,255,255,0.06);color:var(--t3)}
-.tag-starter{background:rgba(14,165,233,0.12);color:#38bdf8}
-.tag-pro{background:rgba(45,128,242,0.12);color:#6baeff}
-.tag-expert{background:rgba(247,144,9,0.12);color:#fbbf24}
+.tag-starter{background:rgba(56,139,253,0.1);color:var(--app-blue)}
+.tag-pro{background:var(--app-primary-light);color:var(--app-primary)}
+.tag-expert{background:rgba(210,153,34,0.1);color:var(--app-warn)}
 .tag-clinic{background:rgba(24,184,116,0.12);color:#2dd68a}
 .plan-name{font-weight:700;font-size:0.788rem;color:var(--t1);margin-bottom:0.4rem}
 .plan-feats{list-style:none;text-align:left;font-size:0.663rem;color:var(--t2);line-height:1.8}
 .plan-feats li{display:flex;align-items:flex-start;gap:5px}
 .plan-feats li svg{width:11px;height:11px;flex-shrink:0;margin-top:2px;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
 .pop-badge{
-  position:absolute;top:-8px;left:50%;transform:translateX(-50%);
-  background:var(--blue);color:#fff;font-size:0.538rem;font-weight:700;
-  letter-spacing:0.05em;padding:0.1rem 0.5rem;border-radius:999px;white-space:nowrap
+  position:absolute;top:-8px;left:50%;transform:translateX(-50%); background:var(--app-primary);
+  color:var(--app-primary-text);font-size:0.538rem;font-weight:700;
+  letter-spacing:0.05em;padding:0.1rem 0.5rem;border-radius:999px;white-space:nowrap;
 }
 
 /* ── BUTTONS ── */
@@ -401,12 +417,12 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
 .btn:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,0.25)}
 .btn:active{transform:translateY(0);box-shadow:none}
 .btn:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
-.btn-primary{background:var(--blue);color:#fff;width:100%}
-.btn-primary:hover{background:var(--blue-hover)}
-.btn-free{background:#1e2d42;color:var(--t2);width:100%;border:1px solid var(--border-2)}
+.btn-primary{background:var(--app-primary);color:var(--app-primary-text);width:100%}
+.btn-primary:hover{background:var(--app-primary-dark)}
+.btn-free{background:#1e2d42;color:var(--t2);width:100%;border:1px solid var(--app-border-2)}
 .btn-free:hover{background:#253447;color:var(--t1)}
 .btn-outline{
-  background:rgba(255,255,255,0.05);border:1px solid var(--border-2);
+  background:rgba(255,255,255,0.05);border:1px solid var(--app-border-2);
   color:var(--t2);font-size:0.788rem;padding:0.38rem 0.875rem;
   border-radius:var(--r);cursor:pointer;font-family:inherit;
   transition:all var(--transition)
@@ -429,7 +445,7 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
   background:#fff;border-radius:50%;transition:transform 0.2s;
   box-shadow:0 1px 4px rgba(0,0,0,0.4)
 }
-.toggle-switch input:checked + .toggle-slider{background:var(--blue)}
+.toggle-switch input:checked + .toggle-slider{background:var(--app-primary)}
 .toggle-switch input:checked + .toggle-slider::before{transform:translateX(20px)}
 .save-badge{
   background:rgba(24,184,116,0.12);color:#2dd68a;font-size:0.625rem;font-weight:700;
@@ -440,7 +456,7 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
 /* ── TEAM SEATS CARD ── */
 .seats-body{padding:1.25rem 1.375rem;display:flex;flex-direction:column;gap:1.25rem}
 .seats-stats{display:flex;gap:1rem;flex-wrap:wrap}
-.seats-stat{flex:1;min-width:80px;background:var(--card-2);border:1px solid var(--border);border-radius:var(--r);padding:0.875rem;text-align:center}
+.seats-stat{flex:1;min-width:80px;background:var(--app-surface-2);border:1px solid var(--app-border);border-radius:var(--r);padding:0.875rem;text-align:center}
 .seats-stat-val{font-size:1.35rem;font-weight:800;color:var(--t1);letter-spacing:-0.04em;line-height:1;margin-bottom:0.25rem}
 .seats-stat-val.green{color:var(--green)}
 .seats-stat-lbl{font-size:0.588rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--t3)}
@@ -449,21 +465,21 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
 .seats-add-label strong{color:var(--t1)}
 .seats-picker{display:flex;align-items:center;gap:0.5rem}
 .seats-picker-btn{
-  width:28px;height:28px;border-radius:var(--r-sm);
-  background:rgba(255,255,255,0.06);border:1px solid var(--border-2);
+  width:28px;height:28px;border-radius:var(--r-sm); background:rgba(255,255,255,0.06);
+  border:1px solid var(--app-border-2);
   color:var(--t1);font-size:1rem;cursor:pointer;font-family:inherit;
   display:flex;align-items:center;justify-content:center;line-height:1;
   transition:all var(--transition)
 }
-.seats-picker-btn:hover{background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.2)}
+.seats-picker-btn:hover{background:rgba(255,255,255,0.12);border-color:var(--app-border-2)}
 .seats-qty{font-size:0.938rem;font-weight:700;color:var(--t1);min-width:22px;text-align:center}
 .btn-add-seats{
   padding:0.5rem 1rem;border-radius:var(--r);
-  background:var(--blue);color:#fff;border:none;cursor:pointer;
+  background:var(--app-primary);color:var(--app-primary-text);border:none;cursor:pointer;
   font-size:0.813rem;font-weight:600;font-family:inherit;
   transition:all var(--transition);white-space:nowrap
 }
-.btn-add-seats:hover:not(:disabled){background:var(--blue-hover)}
+.btn-add-seats:hover:not(:disabled){background:var(--app-primary-dark)}
 .btn-add-seats:disabled{opacity:0.5;cursor:not-allowed}
 
 /* ── UPGRADE LINK ── */
@@ -488,8 +504,8 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
 /* ── PROGRESS BAR ── */
 .prog-bar{height:4px;border-radius:999px;background:rgba(255,255,255,0.06);overflow:hidden}
 .prog-fill{height:100%;border-radius:999px;background:var(--blue);transition:width 0.6s ease}
-.prog-fill.warn{background:var(--amber)}
-.prog-fill.danger{background:var(--red)}
+.prog-fill.warn{background:var(--app-warn)}
+.prog-fill.danger{background:var(--app-error)}
 
 /* ── SUBSCRIBE CARD ── */
 .sub-wrapper{padding:1.375rem}
@@ -509,8 +525,8 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
 }
 .modal-overlay.open{display:flex}
 .modal{
-  background:#0e1d30;border-radius:var(--r-xl);
-  border:1px solid var(--border-2);box-shadow:0 24px 60px rgba(0,0,0,0.6);
+  background:var(--app-surface);border-radius:var(--r-xl);
+  border:1px solid var(--app-border-2);box-shadow:0 24px 60px rgba(0,0,0,0.6);
   width:100%;max-width:480px;max-height:90vh;overflow-y:auto;padding:1.75rem;
   animation:modalIn 0.2s cubic-bezier(0.4,0,0.2,1)
 }
@@ -530,26 +546,26 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
 .form-group.full{grid-column:1/-1}
 .form-label{font-size:0.725rem;font-weight:600;color:var(--t2)}
 .form-input{
-  padding:0.538rem 0.75rem;border:1px solid var(--border-2);border-radius:var(--r);
+  padding:0.538rem 0.75rem;border:1px solid var(--app-border-2);border-radius:var(--r);
   font-size:0.838rem;font-family:inherit;color:var(--t1);outline:none;
   background:rgba(255,255,255,0.04);
   transition:border-color var(--transition),box-shadow var(--transition)
 }
 .form-input:hover{border-color:rgba(255,255,255,0.18)}
-.form-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(45,128,242,0.15)}
+.form-input:focus{border-color:var(--app-primary);box-shadow:0 0 0 3px var(--app-primary-light)}
 .form-input::placeholder{color:var(--t3)}
 
 .modal-actions{display:flex;gap:0.5rem;margin-top:1.375rem;justify-content:flex-end}
 .btn-modal-save{
-  padding:0.538rem 1.125rem;background:var(--blue);color:#fff;border:none;border-radius:var(--r);
+  padding:0.538rem 1.125rem;background:var(--app-primary);color:var(--app-primary-text);border:none;border-radius:var(--r);
   font-size:0.838rem;font-weight:600;font-family:inherit;cursor:pointer;
   transition:background var(--transition);display:flex;align-items:center;gap:6px
 }
-.btn-modal-save:hover{background:var(--blue-hover)}
+.btn-modal-save:hover{background:var(--app-primary-dark)}
 .btn-modal-save:disabled{opacity:0.5;cursor:not-allowed}
 .btn-modal-cancel{
-  padding:0.538rem 1rem;background:rgba(255,255,255,0.05);color:var(--t2);
-  border:1px solid var(--border-2);border-radius:var(--r);
+  padding:0.538rem 1rem;background:var(--app-surface-2);color:var(--t2);
+  border:1px solid var(--app-border-2);border-radius:var(--r);
   font-size:0.838rem;font-weight:600;font-family:inherit;cursor:pointer;
   transition:all var(--transition)
 }
@@ -565,7 +581,7 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
   background:rgba(240,68,56,0.05);
   transition:border-color var(--transition);margin-top:0.5rem
 }
-.confirm-input:focus{border-color:var(--red)}
+.confirm-input:focus{border-color:var(--app-error)}
 .confirm-hint{font-size:0.763rem;color:var(--t3);margin-top:0.5rem;line-height:1.55}
 
 /* ── TOASTS ── */
@@ -576,8 +592,8 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
   animation:toastIn 0.2s cubic-bezier(0.4,0,0.2,1)
 }
 @keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(8px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
-.success-toast{background:#0e1d30;border:1px solid rgba(24,184,116,0.25);color:#2dd68a}
-.err-toast{background:#0e1d30;border:1px solid rgba(240,68,56,0.25);color:#f87070}
+.success-toast{background:var(--app-surface);border:1px solid rgba(63, 185, 80, 0.3);color:var(--app-success)}
+.err-toast{background:var(--app-surface);border:1px solid rgba(248, 81, 73, 0.3);color:var(--app-error)}
 
 /* ── SPINNER ── */
 .spinner{
@@ -609,8 +625,8 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
   body{overflow:auto}
   .app-shell{flex-direction:column;height:auto}
   .sidebar{
-    width:100%;height:auto;flex-direction:row;flex-shrink:0;
-    border-right:none;border-bottom:1px solid var(--border);
+    width:100%;height:auto;flex-direction:row;flex-shrink:0; z-index: 10;
+    border-right:none;border-bottom:1px solid var(--app-border);
     padding:0.75rem 1rem;align-items:center;justify-content:space-between;
     overflow:visible
   }
@@ -637,8 +653,8 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
   <!-- ── SIDEBAR ── -->
   <aside class="sidebar" id="sidebar">
     <div class="sb-top">
-      <a class="sb-logo" href="https://pisum.app" data-i18n="dashboard.a_1">
-        <img src="../../logo V2.png" alt="PISUM"/>
+      <a class="sb-logo" href="https://pisum.app">
+        <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="PISUM"/>
         <span class="sb-logo-text">PISUM</span>
       </a>
     </div>
@@ -656,27 +672,27 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
     <div class="sb-divider"></div>
 
     <nav class="sb-nav">
-      <span class="sb-nav-label" data-i18n="dashboard.span_1">Navigation</span>
-      <button class="sb-link active" id="snav-overview" onclick="sbNav(this,'section-overview')" data-i18n="dashboard.button_1">
+      <span class="sb-nav-label">Navigation</span>
+      <button class="sb-link active" id="snav-overview" onclick="sbNav(this,'section-overview')">
         <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
         Overview
       </button>
-      <button class="sb-link" id="snav-usage" onclick="sbNav(this,'section-usage')" data-i18n="dashboard.button_2">
+      <button class="sb-link" id="snav-usage" onclick="sbNav(this,'section-usage')">
         <svg viewBox="0 0 24 24"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg>
         Usage
       </button>
-      <button class="sb-link" id="snav-billing" onclick="sbNav(this,'section-billing')" data-i18n="dashboard.button_3">
+      <button class="sb-link" id="snav-billing" onclick="sbNav(this,'section-billing')">
         <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="9" x2="22" y2="9" stroke-width="1.75"/><line x1="6" y1="14" x2="10" y2="14" stroke-width="2"/></svg>
         Billing
       </button>
-      <button class="sb-link" id="snav-profile" onclick="sbNav(this,'section-profile')" data-i18n="dashboard.button_4">
+      <button class="sb-link" id="snav-profile" onclick="sbNav(this,'section-profile')">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
         Profile
       </button>
     </nav>
 
     <div class="sb-bottom">
-      <button class="sb-signout" onclick="signOut()" data-i18n="dashboard.button_5">
+      <button class="sb-signout" onclick="signOut()">
         <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
         Sign Out
       </button>
@@ -696,7 +712,7 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
               My Account
             </div>
             <h1 class="hero-title-el" id="page-title">My Account</h1>
-            <p class="hero-sub-el" id="page-sub" data-i18n="dashboard.p_1">Manage your subscription and access PISUM.</p>
+            <p class="hero-sub-el" id="page-sub">Manage your subscription and access PISUM.</p>
 
             <div class="hero-badges-row">
               <span class="badge" id="hdr-plan-badge"></span>
@@ -708,16 +724,16 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
               </div>
               <div class="hero-status-text status-text">
-                <h2 id="status-title" data-i18n="dashboard.h2_1">Checking access…</h2>
-                <p id="status-desc" data-i18n="dashboard.p_2">Please wait.</p>
+                <h2 id="status-title">Checking access…</h2>
+                <p id="status-desc">Please wait.</p>
               </div>
             </div>
 
             <div class="hero-actions">
-              <button class="btn-hero btn-hero-primary" onclick="handleBillingPortal()" id="btn-billing-portal" style="display:none" data-i18n="dashboard.button_6">
+              <button class="btn-hero btn-hero-primary" onclick="handleBillingPortal()" id="btn-billing-portal" style="display:none">
                 Manage Billing
               </button>
-              <a class="btn-hero btn-hero-outline" href="pricing.html" data-i18n="dashboard.a_2">Change Plan →</a>
+              <a class="btn-hero btn-hero-outline" href="pricing.html">Change Plan →</a>
             </div>
           </div>
         </div>
@@ -741,7 +757,7 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
               <div class="ob-step-title">Download &amp; install PISUM</div>
               <div class="ob-step-desc">One .exe installer for Windows 10/11. Takes under a minute.</div>
               <div class="ob-step-action">
-                <a class="ob-btn" href="https://github.com/AminWalha/Pisum/releases/latest/download/PISUM_Radiology_Setup.exe" target="_blank" rel="noopener noreferrer" onclick="obComplete(1)" data-i18n="dashboard.a_3">
+                <a class="ob-btn" href="https://github.com/AminWalha/Pisum/releases/latest/download/PISUM_Radiology_Setup.exe" target="_blank" rel="noopener noreferrer" onclick="obComplete(1)">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                   Download for Windows
                 </a>
@@ -807,7 +823,7 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
         <!-- Usage rings -->
         <div class="dark-card anim-2" id="section-usage">
           <div class="dc-head">
-            <span class="dc-title" data-i18n="dashboard.span_2">This Month's Usage</span>
+            <span class="dc-title">This Month's Usage</span>
           </div>
           <div id="usage-section">
             <div class="rings-row" id="usage-bars"></div>
@@ -829,7 +845,7 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
         <div class="dark-card anim-4" id="team-seats-card" style="display:none">
           <div class="dc-head">
             <span class="dc-title">Team &amp; Seats</span>
-            <span class="badge badge-clinic" id="total-seats-badge" data-i18n="dashboard.span_5">5 users</span>
+            <span class="badge badge-clinic" id="total-seats-badge">5 users</span>
           </div>
           <div class="seats-body">
             <div class="seats-stats">
@@ -852,11 +868,11 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
                 Billed as a separate recurring add-on. Manage via billing portal.
               </div>
               <div class="seats-picker">
-                <button class="seats-picker-btn" onclick="changeAddSeats(-1)" data-i18n="dashboard.button_7">−</button>
-                <span class="seats-qty" id="add-seats-qty" data-i18n="dashboard.span_6">1</span>
-                <button class="seats-picker-btn" onclick="changeAddSeats(1)" data-i18n="dashboard.button_8">+</button>
+                <button class="seats-picker-btn" onclick="changeAddSeats(-1)">−</button>
+                <span class="seats-qty" id="add-seats-qty">1</span>
+                <button class="seats-picker-btn" onclick="changeAddSeats(1)">+</button>
               </div>
-              <button class="btn-add-seats" id="btn-add-seats" onclick="handleAddSeats()" data-i18n="dashboard.button_9">
+              <button class="btn-add-seats" id="btn-add-seats" onclick="handleAddSeats()">
                 Add <span id="add-seats-label">1 seat</span>
               </button>
             </div>
@@ -868,10 +884,10 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
           <div class="danger-zone">
             <div class="danger-title">Danger Zone</div>
             <div class="danger-actions">
-              <button class="btn-cancel-sub" id="btn-cancel-sub" onclick="openCancelModal()" style="display:none" data-i18n="dashboard.button_10">Cancel Subscription</button>
-              <button class="btn-danger-outline" onclick="openDeleteModal()" data-i18n="dashboard.button_11">Delete Account</button>
+              <button class="btn-cancel-sub" id="btn-cancel-sub" onclick="openCancelModal()" style="display:none">Cancel Subscription</button>
+              <button class="btn-danger-outline" onclick="openDeleteModal()">Delete Account</button>
             </div>
-            <p id="canceling-notice" style="display:none;font-size:0.763rem;color:var(--amber);margin-top:0.625rem;line-height:1.55" data-i18n="dashboard.p_3">
+            <p id="canceling-notice" style="display:none;font-size:0.763rem;color:var(--amber);margin-top:0.625rem;line-height:1.55">
               Your subscription is set to cancel at the end of the current billing period. You still have full access until then.
             </p>
           </div>
@@ -882,20 +898,20 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
       <!-- SUBSCRIBE / UPGRADE CARD -->
       <div class="dark-card" id="sub-card" style="display:none">
         <div class="dc-head">
-          <span class="dc-title" id="sub-title" data-i18n="dashboard.span_7">Choose your plan</span>
+          <span class="dc-title" id="sub-title">Choose your plan</span>
         </div>
         <div class="sub-wrapper">
-          <p class="sub-desc-el" id="sub-desc" data-i18n="dashboard.p_4">Select the plan that fits your practice and proceed to secure checkout.</p>
+          <p class="sub-desc-el" id="sub-desc">Select the plan that fits your practice and proceed to secure checkout.</p>
           <div class="billing-toggle">
-            <span data-i18n="dashboard.span_8">Monthly</span>
+            <span>Monthly</span>
             <label class="toggle-switch">
               <input type="checkbox" id="billing-annual" onchange="setBilling(this.checked)"/>
               <span class="toggle-slider"></span>
             </label>
-            <span data-i18n="dashboard.span_9">Annual <span class="save-badge">−20%</span></span>
+            <span>Annual <span class="save-badge">−20%</span></span>
           </div>
           <div class="plan-grid" id="plan-grid"></div>
-          <button class="btn btn-primary" id="btn-subscribe" onclick="handleSubscribe()" data-i18n="dashboard.button_12">Continue</button>
+          <button class="btn btn-primary" id="btn-subscribe" onclick="handleSubscribe()">Continue</button>
           <div id="sub-err" style="display:none"></div>
         </div>
       </div>
@@ -903,7 +919,7 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
       <!-- PROFILE CARD -->
       <div class="dark-card anim-5" id="profile-card" id="section-profile" style="display:none">
         <div class="dc-head">
-          <span class="dc-title" data-i18n="dashboard.span_10">Profile</span>
+          <span class="dc-title">Profile</span>
         </div>
         <div class="profile-row">
           <div class="profile-avatar-wrap" onclick="openProfileModal()" title="Edit profile">
@@ -918,8 +934,8 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
           </div>
         </div>
         <div class="profile-actions">
-          <button class="btn-edit-profile" onclick="openProfileModal()" data-i18n="dashboard.button_13">✏️ Edit Profile</button>
-          <button class="btn-edit-profile" onclick="openPwModal()" data-i18n="dashboard.button_14">🔑 Change Password</button>
+          <button class="btn-edit-profile" onclick="openProfileModal()">✏️ Edit Profile</button>
+          <button class="btn-edit-profile" onclick="openPwModal()">🔑 Change Password</button>
         </div>
       </div>
 
@@ -937,38 +953,38 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
         <div class="avatar-edit-overlay">📷</div>
       </div>
       <input type="file" id="avatar-input-modal" accept="image/*" style="display:none" onchange="handleAvatarChange(this)">
-      <span class="modal-avatar-hint" data-i18n="dashboard.span_11">Click the photo to change it (max 2 MB)</span>
+      <span class="modal-avatar-hint">Click the photo to change it (max 2 MB)</span>
     </div>
     <div class="form-grid">
       <div class="form-group full">
-        <label class="form-label" data-i18n="dashboard.label_1">Full Name</label>
-        <input class="form-input" id="f-name" type="text" placeholder="Dr. John Smith" data-i18n="[placeholder]dashboard.input_1">
+        <label class="form-label">Full Name</label>
+        <input class="form-input" id="f-name" type="text" placeholder="Dr. John Smith">
       </div>
       <div class="form-group">
-        <label class="form-label" data-i18n="dashboard.label_2">Phone</label>
-        <input class="form-input" id="f-phone" type="tel" placeholder="+1 555 000 0000" data-i18n="[placeholder]dashboard.input_2">
+        <label class="form-label">Phone</label>
+        <input class="form-input" id="f-phone" type="tel" placeholder="+1 555 000 0000">
       </div>
       <div class="form-group">
-        <label class="form-label" data-i18n="dashboard.label_3">Specialty</label>
-        <input class="form-input" id="f-specialty" type="text" placeholder="Radiology, MRI…" data-i18n="[placeholder]dashboard.input_3">
+        <label class="form-label">Specialty</label>
+        <input class="form-input" id="f-specialty" type="text" placeholder="Radiology, MRI…">
       </div>
       <div class="form-group full">
-        <label class="form-label" data-i18n="dashboard.label_4">Organization / Practice</label>
-        <input class="form-input" id="f-org" type="text" placeholder="City Imaging Center" data-i18n="[placeholder]dashboard.input_4">
+        <label class="form-label">Organization / Practice</label>
+        <input class="form-input" id="f-org" type="text" placeholder="City Imaging Center">
       </div>
       <div class="form-group">
-        <label class="form-label" data-i18n="dashboard.label_5">City</label>
-        <input class="form-input" id="f-city" type="text" placeholder="New York" data-i18n="[placeholder]dashboard.input_5">
+        <label class="form-label">City</label>
+        <input class="form-input" id="f-city" type="text" placeholder="New York">
       </div>
       <div class="form-group">
-        <label class="form-label" data-i18n="dashboard.label_6">Country</label>
-        <input class="form-input" id="f-country" type="text" placeholder="United States" data-i18n="[placeholder]dashboard.input_6">
+        <label class="form-label">Country</label>
+        <input class="form-input" id="f-country" type="text" placeholder="United States">
       </div>
     </div>
     <div class="modal-msg" id="modal-msg"></div>
     <div class="modal-actions">
-      <button class="btn-modal-cancel" onclick="closeProfileModal()" data-i18n="dashboard.button_15">Cancel</button>
-      <button class="btn-modal-save" id="btn-save-profile" onclick="saveProfile()" data-i18n="dashboard.button_16">Save</button>
+      <button class="btn-modal-cancel" onclick="closeProfileModal()">Cancel</button>
+      <button class="btn-modal-save" id="btn-save-profile" onclick="saveProfile()">Save</button>
     </div>
   </div>
 </div>
@@ -977,17 +993,17 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
 <div class="modal-overlay" id="cancel-modal-overlay" onclick="closeCancelModal()">
   <div class="modal" onclick="event.stopPropagation()" style="max-width:420px">
     <div class="modal-title" style="color:var(--red)">Cancel Subscription</div>
-    <p style="font-size:0.838rem;color:var(--t2);line-height:1.65" data-i18n="dashboard.p_5">
+    <p style="font-size:0.838rem;color:var(--t2);line-height:1.65">
       Your subscription will remain active until the end of the current billing period.
       After that, your account will revert to the Free plan.
     </p>
-    <p class="confirm-hint" data-i18n="dashboard.p_6">Type <strong style="color:var(--t1)">CANCEL</strong> below to confirm:</p>
-    <input class="confirm-input" id="cancel-confirm-input" type="text" placeholder="CANCEL" oninput="validateCancelInput()" data-i18n="[placeholder]dashboard.input_7">
+    <p class="confirm-hint">Type <strong style="color:var(--t1)">CANCEL</strong> below to confirm:</p>
+    <input class="confirm-input" id="cancel-confirm-input" type="text" placeholder="CANCEL" oninput="validateCancelInput()">
     <div class="modal-msg" id="cancel-modal-msg"></div>
     <div class="modal-actions">
-      <button class="btn-modal-cancel" onclick="closeCancelModal()" data-i18n="dashboard.button_17">Keep Subscription</button>
+      <button class="btn-modal-cancel" onclick="closeCancelModal()">Keep Subscription</button>
       <button class="btn-modal-save" id="btn-confirm-cancel" onclick="confirmCancel()"
-        disabled style="background:var(--red);opacity:0.5" data-i18n="dashboard.button_18">Cancel Subscription</button>
+        disabled style="background:var(--red);opacity:0.5">Cancel Subscription</button>
     </div>
   </div>
 </div>
@@ -998,18 +1014,18 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
     <div class="modal-title">Change Password</div>
     <div class="form-grid" style="grid-template-columns:1fr">
       <div class="form-group">
-        <label class="form-label" data-i18n="dashboard.label_7">New Password</label>
-        <input class="form-input" id="pw-new" type="password" placeholder="Min. 8 characters" minlength="8" data-i18n="[placeholder]dashboard.input_8">
+        <label class="form-label">New Password</label>
+        <input class="form-input" id="pw-new" type="password" placeholder="Min. 8 characters" minlength="8">
       </div>
       <div class="form-group">
-        <label class="form-label" data-i18n="dashboard.label_8">Confirm New Password</label>
-        <input class="form-input" id="pw-confirm" type="password" placeholder="••••••••" minlength="8" data-i18n="[placeholder]dashboard.input_9">
+        <label class="form-label">Confirm New Password</label>
+        <input class="form-input" id="pw-confirm" type="password" placeholder="••••••••" minlength="8">
       </div>
     </div>
     <div class="modal-msg" id="pw-modal-msg"></div>
     <div class="modal-actions">
-      <button class="btn-modal-cancel" onclick="closePwModal()" data-i18n="dashboard.button_19">Cancel</button>
-      <button class="btn-modal-save" id="btn-save-pw" onclick="savePassword()" data-i18n="dashboard.button_20">Update Password</button>
+      <button class="btn-modal-cancel" onclick="closePwModal()">Cancel</button>
+      <button class="btn-modal-save" id="btn-save-pw" onclick="savePassword()">Update Password</button>
     </div>
   </div>
 </div>
@@ -1018,16 +1034,16 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
 <div class="modal-overlay" id="delete-modal-overlay" onclick="closeDeleteModal()">
   <div class="modal" onclick="event.stopPropagation()" style="max-width:420px">
     <div class="modal-title" style="color:var(--red)">Delete Account</div>
-    <p style="font-size:0.838rem;color:var(--t2);line-height:1.65" data-i18n="dashboard.p_7">
+    <p style="font-size:0.838rem;color:var(--t2);line-height:1.65">
       This action is <strong style="color:var(--t1)">permanent and irreversible</strong>. All your data, reports, and subscription will be deleted immediately.
     </p>
-    <p class="confirm-hint" data-i18n="dashboard.p_8">Type <strong style="color:var(--t1)">DELETE</strong> below to confirm:</p>
-    <input class="confirm-input" id="delete-confirm-input" type="text" placeholder="DELETE" oninput="validateDeleteInput()" data-i18n="[placeholder]dashboard.input_10">
+    <p class="confirm-hint">Type <strong style="color:var(--t1)">DELETE</strong> below to confirm:</p>
+    <input class="confirm-input" id="delete-confirm-input" type="text" placeholder="DELETE" oninput="validateDeleteInput()">
     <div class="modal-msg" id="delete-modal-msg"></div>
     <div class="modal-actions">
-      <button class="btn-modal-cancel" onclick="closeDeleteModal()" data-i18n="dashboard.button_21">Cancel</button>
+      <button class="btn-modal-cancel" onclick="closeDeleteModal()">Cancel</button>
       <button class="btn-modal-save" id="btn-confirm-delete" onclick="confirmDeleteAccount()"
-        disabled style="background:var(--red);opacity:0.5" data-i18n="dashboard.button_22">Delete My Account</button>
+        disabled style="background:var(--red);opacity:0.5">Delete My Account</button>
     </div>
   </div>
 </div>
@@ -1058,8 +1074,8 @@ const SVG_MINUS   = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" 
 
 // ── Plans ─────────────────────────────────────────────────────────────────
 const PLAN_PRICES = {
-  starter: { monthly: 35,  annual: 28  },
-  pro:     { monthly: 89,  annual: 71  },
+  starter: { monthly: 29,  annual: 23  },
+  pro:     { monthly: 79,  annual: 63  },
   expert:  { monthly: 129, annual: 103 },
   clinic:  { monthly: 399, annual: 319 },
 };
@@ -1067,21 +1083,22 @@ const PLAN_PRICES = {
 const PLANS = {
   free:    { label:'Free',       tag:'tag-free',    paid:false, features:[
     {ok:true, t:'10 templates'},{ok:true,t:'2 languages'},{ok:true,t:'PDF export'},
-    {ok:false,t:'Word export'},{ok:'lim',t:'AI Dictation (20 min trial)'},{ok:'lim',t:'AI Enhancer (5/mo trial)'},
-    {ok:false,t:'Worklist'},{ok:'lim',t:'20 reports / month'}] },
+    {ok:false,t:'Word export'},{ok:'lim',t:'AI Dictation (30 min/mo)'},{ok:'lim',t:'AI Enhancer (10/mo)'},
+    {ok:'lim',t:'Limited worklist'},{ok:'lim',t:'50 reports / month'}] },
   starter: { label:'Starter',    tag:'tag-starter', paid:true, features:[
-    {ok:true,t:'20 templates'},{ok:true,t:'5 languages'},{ok:true,t:'PDF + Word export'},
-    {ok:'lim',t:'AI Dictation (200 min/mo)'},{ok:'lim',t:'AI Enhancer (50/mo)'},
-    {ok:'lim',t:'Basic worklist'},{ok:true,t:'Unlimited patients'}] },
+    {ok:true,t:'20 templates'},{ok:true,t:'23 languages'},{ok:true,t:'PDF + Word export'},
+    {ok:false,t:'HTML export'},{ok:'lim',t:'AI Dictation (500 min/mo)'},{ok:'lim',t:'AI Enhancer (50/mo)'},
+    {ok:'lim',t:'Basic worklist'},{ok:true,t:'Unlimited reports'}] },
   pro:     { label:'Pro',        tag:'tag-pro',     paid:true, popular:true, features:[
-    {ok:true,t:'112+ templates'},{ok:true,t:'23 languages'},{ok:true,t:'PDF + Word export'},
+    {ok:true,t:'112+ templates'},{ok:true,t:'23 languages'},{ok:true,t:'PDF + Word + HTML export'},
     {ok:'lim',t:'AI Dictation (2,000 min/mo)'},{ok:'lim',t:'AI Enhancer (200/mo)'},
-    {ok:true,t:'Full worklist'},{ok:'lim',t:'Basic stats'},{ok:true,t:'Unlimited patients'}] },
+    {ok:'lim',t:'Report Translation (100/mo)'},{ok:true,t:'Full worklist'},
+    {ok:'lim',t:'Basic stats'},{ok:true,t:'Priority support'}] },
   expert:  { label:'Expert',     tag:'tag-expert',  paid:true, features:[
-    {ok:true,t:'112+ custom templates'},{ok:true,t:'23 languages'},{ok:true,t:'PDF + Word export'},
+    {ok:true,t:'112+ custom templates'},{ok:true,t:'23 languages'},{ok:true,t:'PDF + Word + HTML export'},
     {ok:true,t:'AI Dictation (Unlimited)'},{ok:true,t:'AI Enhancer (Unlimited)'},
-    {ok:true,t:'Advanced worklist'},{ok:true,t:'Advanced stats'},{ok:true,t:'Unlimited patients'},
-    {ok:'lim',t:'LAN Sync (1 site · 3 workstations)'}] },
+    {ok:true,t:'Report Translation (Unlimited)'},{ok:true,t:'Advanced worklist'},
+    {ok:true,t:'Full statistics'},{ok:'lim',t:'LAN Sync (1 site · 3 PCs)'}] },
   clinic:  { label:'Clinic',     tag:'tag-clinic',  paid:true, features:null },
 };
 const ORDER = ['free','starter','pro','expert','clinic'];
@@ -1965,6 +1982,18 @@ function obDismiss() {
 }
 
 init();
+
+// Aurora background effect
+const shell = document.querySelector('.app-shell');
+if (shell) {
+  shell.addEventListener('mousemove', e => {
+    const rect = shell.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    shell.style.setProperty('--mouse-x', `${x}px`);
+    shell.style.setProperty('--mouse-y', `${y}px`);
+  });
+}
 </script>
 
 <!-- ── PISUM AI Agent Widget (dark theme) ─────────────────────── -->
@@ -2113,6 +2142,5 @@ window.piwSend=function(){
 })();
 </script>
 <!-- ── end AI Agent Widget ── -->
-<script src="../../i18n.js"></script>
 </body>
 </html>
