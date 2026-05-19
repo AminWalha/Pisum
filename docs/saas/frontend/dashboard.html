@@ -1306,6 +1306,28 @@ function renderAccess({ access, reason, plan }, subInfo = {}) {
     } else {
       subCard.style.display = 'none';
     }
+  } else if (reason === 'no_subscription') {
+    // Auto-activate free plan — no manual step required
+    setStatus('wait', 'Activating free plan…', 'Setting up your account, please wait.');
+    try {
+      const r = await fetch(`${API_BASE}/activate-free`,
+        { method: 'POST', headers: { Authorization: `Bearer ${session.access_token}` } });
+      if (r.ok) {
+        await loadAccess();
+        return;
+      }
+    } catch {}
+    // Fallback: let the user pick manually if auto-activation failed
+    setStatus('err', 'No active subscription', 'Choose a plan to access PISUM.');
+    renderPlanGrid();
+    subCard.style.display = '';
+    activeCard.style.display = 'none';
+    document.getElementById('danger-zone').style.display = '';
+    document.getElementById('btn-cancel-sub').style.display = 'none';
+    document.getElementById('canceling-notice').style.display = 'none';
+    const pbFallback = document.getElementById('profile-plan-badge');
+    pbFallback.textContent = 'NO PLAN';
+    pbFallback.className   = 'badge badge-inactive';
   } else {
     setStatus('err','No active subscription',
       reason === 'canceled' ? 'Your subscription was canceled. Resubscribe to regain access.' :
@@ -1845,7 +1867,8 @@ function closeCancelModal() {
   document.getElementById('cancel-modal-overlay').classList.remove('open');
 }
 function validateCancelInput() {
-  const ok = document.getElementById('cancel-confirm-input').value.trim().toUpperCase() === 'CANCEL';
+  const inp = document.getElementById('cancel-confirm-input');
+  const ok = inp.value.trim().toUpperCase() === inp.placeholder.trim().toUpperCase();
   const btn = document.getElementById('btn-confirm-cancel');
   btn.disabled = !ok;
   btn.style.opacity = ok ? '1' : '0.5';
@@ -1924,7 +1947,8 @@ function closeDeleteModal() {
   document.getElementById('delete-modal-overlay').classList.remove('open');
 }
 function validateDeleteInput() {
-  const ok = document.getElementById('delete-confirm-input').value.trim().toUpperCase() === 'DELETE';
+  const inp = document.getElementById('delete-confirm-input');
+  const ok = inp.value.trim().toUpperCase() === inp.placeholder.trim().toUpperCase();
   const btn = document.getElementById('btn-confirm-delete');
   btn.disabled = !ok;
   btn.style.opacity = ok ? '1' : '0.5';
