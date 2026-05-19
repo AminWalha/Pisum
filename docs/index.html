@@ -779,15 +779,15 @@ button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action
     document.getElementById('nav-mobile-signout').style.display = '';
     document.getElementById('nav-mobile-signout-btn').addEventListener('click', async (e) => { e.preventDefault(); await signOut(); });
     const img = document.getElementById('nav-profile-img');
-    const showInitials = () => {
-      img.style.display = 'none';
-      const el = document.getElementById('nav-profile-initials');
-      el.textContent = name.charAt(0).toUpperCase(); el.style.display = 'flex';
-    };
-    const { data: prof } = await sb.from('profiles').select('avatar_url').eq('user_id', u.id).maybeSingle();
-    const av = prof?.avatar_url || u.user_metadata?.avatar_url || u.user_metadata?.picture;
-    if (av) { img.onload = () => { img.style.display = ''; }; img.onerror = showInitials; img.src = av; }
-    else { showInitials(); }
+    const initialsEl = document.getElementById('nav-profile-initials');
+    initialsEl.textContent = name.charAt(0).toUpperCase(); initialsEl.style.display = 'flex';
+    const showInitials = () => { img.style.display = 'none'; initialsEl.style.display = 'flex'; };
+    const av = u.user_metadata?.avatar_url || u.user_metadata?.picture;
+    if (av) { img.onload = () => { initialsEl.style.display = 'none'; img.style.display = ''; }; img.onerror = showInitials; img.src = av; }
+    else {
+      const { data: prof } = await sb.from('profiles').select('avatar_url').eq('user_id', u.id).maybeSingle();
+      if (prof?.avatar_url) { img.onload = () => { initialsEl.style.display = 'none'; img.style.display = ''; }; img.onerror = showInitials; img.src = prof.avatar_url; }
+    }
   });
 })();
 </script>
