@@ -1578,6 +1578,25 @@ async function loadProfile() {
   if (data) {
     currentProfile = data;
     updateProfileDisplay(data);
+  } else {
+    // First OAuth login — auto-populate from provider metadata (Google, LinkedIn…)
+    const meta = session.user.user_metadata || {};
+    const oauthName   = (meta.full_name || meta.name  || '').trim();
+    const oauthAvatar = (meta.avatar_url || meta.picture || '').trim();
+    if (oauthName || oauthAvatar) {
+      const profileData = {
+        user_id:    session.user.id,
+        full_name:  oauthName   || null,
+        avatar_url: oauthAvatar || null,
+      };
+      const { data: created } = await sb
+        .from('profiles')
+        .upsert(profileData, { onConflict: 'user_id' })
+        .select()
+        .maybeSingle();
+      currentProfile = created || profileData;
+      updateProfileDisplay(currentProfile);
+    }
   }
 }
 
