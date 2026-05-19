@@ -306,41 +306,41 @@ main { flex: 1; }
         <table class="data-table">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Activity</th>
-              <th>Controller</th>
-              <th>Processor</th>
-              <th>Location</th>
-              <th>Data category</th>
-              <th>Initial risk</th>
+              <th data-i18n="dpia.t1_th1">ID</th>
+              <th data-i18n="dpia.t1_th2">Activity</th>
+              <th data-i18n="dpia.t1_th3">Controller</th>
+              <th data-i18n="dpia.t1_th4">Processor</th>
+              <th data-i18n="dpia.t1_th5">Location</th>
+              <th data-i18n="dpia.t1_th6">Data category</th>
+              <th data-i18n="dpia.t1_th7">Initial risk</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>PA-1</td>
-              <td>Account &amp; license management</td>
+              <td data-i18n="dpia.t1_r1c2">Account &amp; license management</td>
               <td>PISUM</td>
               <td>Supabase, Inc.</td>
               <td>EU (eu-west-1)</td>
-              <td>Personal — non-health</td>
+              <td data-i18n="dpia.t1_r1c6">Personal — non-health</td>
               <td><span class="risk risk-low">LOW</span></td>
             </tr>
             <tr>
               <td>PA-2</td>
-              <td>Voice dictation transcription</td>
+              <td data-i18n="dpia.t1_r2c2">Voice dictation transcription</td>
               <td>PISUM</td>
               <td>Deepgram, Inc.</td>
-              <td>USA → EU return</td>
-              <td>Personal — potentially health-adjacent</td>
+              <td data-i18n="dpia.t1_r2c5">USA → EU return</td>
+              <td data-i18n="dpia.t1_r2c6">Personal — potentially health-adjacent</td>
               <td><span class="risk risk-high">HIGH</span></td>
             </tr>
             <tr>
               <td>PA-3</td>
-              <td>Local patient data storage</td>
-              <td>PISUM user (institution)</td>
-              <td>None (local)</td>
-              <td>On-premises workstation</td>
-              <td>Special category — health data (Art. 9)</td>
+              <td data-i18n="dpia.t1_r3c2">Local patient data storage</td>
+              <td data-i18n="dpia.t1_r3c3">PISUM user (institution)</td>
+              <td data-i18n="dpia.t1_r3c4">None (local)</td>
+              <td data-i18n="dpia.t1_r3c5">On-premises workstation</td>
+              <td data-i18n="dpia.t1_r3c6">Special category — health data (Art. 9)</td>
               <td><span class="risk risk-med">MEDIUM</span></td>
             </tr>
           </tbody>
@@ -359,28 +359,28 @@ main { flex: 1; }
 
         <h3 data-i18n="dpia.s3h3c">Risk analysis</h3>
         <table class="data-table">
-          <thead><tr><th>Threat</th><th>Likelihood</th><th>Severity</th><th>Risk level</th><th>Mitigation</th></tr></thead>
+          <thead><tr><th data-i18n="dpia.th_threat">Threat</th><th data-i18n="dpia.th_likelihood">Likelihood</th><th data-i18n="dpia.th_severity">Severity</th><th data-i18n="dpia.th_risk_level">Risk level</th><th data-i18n="dpia.th_mitigation">Mitigation</th></tr></thead>
           <tbody>
             <tr>
-              <td>Unauthorized access to Supabase database</td>
-              <td>Low (Supabase SOC 2 Type II)</td>
-              <td>Medium (professional data, no health data)</td>
+              <td data-i18n="dpia.pa1_t1">Unauthorized access to Supabase database</td>
+              <td data-i18n="dpia.pa1_l1">Low (Supabase SOC 2 Type II)</td>
+              <td data-i18n="dpia.pa1_s1">Medium (professional data, no health data)</td>
               <td><span class="risk risk-low">LOW</span></td>
-              <td>Row-level security (RLS), JWT auth, EU hosting</td>
+              <td data-i18n="dpia.pa1_m1">Row-level security (RLS), JWT auth, EU hosting</td>
             </tr>
             <tr>
-              <td>Email enumeration / account takeover</td>
-              <td>Low</td>
-              <td>Medium</td>
+              <td data-i18n="dpia.pa1_t2">Email enumeration / account takeover</td>
+              <td data-i18n="dpia.pa1_l2">Low</td>
+              <td data-i18n="dpia.pa1_s2">Medium</td>
               <td><span class="risk risk-low">LOW</span></td>
-              <td>Supabase rate limiting, email confirmation, Fernet-encrypted local token storage</td>
+              <td data-i18n="dpia.pa1_m2">Supabase rate limiting, email confirmation, Fernet-encrypted local token storage</td>
             </tr>
             <tr>
-              <td>Data breach at Supabase (sub-processor)</td>
-              <td>Very low</td>
-              <td>Medium</td>
+              <td data-i18n="dpia.pa1_t3">Data breach at Supabase (sub-processor)</td>
+              <td data-i18n="dpia.pa1_l3">Very low</td>
+              <td data-i18n="dpia.pa1_s3">Medium</td>
               <td><span class="risk risk-low">LOW</span></td>
-              <td>SCC 2021/914 in place; Supabase notifies controller within 72h per DPA</td>
+              <td data-i18n="dpia.pa1_m3">SCC 2021/914 in place; Supabase notifies controller within 72h per DPA</td>
             </tr>
           </tbody>
         </table>
@@ -417,42 +417,42 @@ main { flex: 1; }
 
         <h3 data-i18n="dpia.s4h3d">Risk analysis</h3>
         <table class="data-table">
-          <thead><tr><th>Threat</th><th>Likelihood</th><th>Severity</th><th>Risk level</th><th>Mitigation</th></tr></thead>
+          <thead><tr><th data-i18n="dpia.th_threat">Threat</th><th data-i18n="dpia.th_likelihood">Likelihood</th><th data-i18n="dpia.th_severity">Severity</th><th data-i18n="dpia.th_risk_level">Risk level</th><th data-i18n="dpia.th_mitigation">Mitigation</th></tr></thead>
           <tbody>
             <tr>
-              <td>Audio interception in transit</td>
-              <td>Very low</td>
-              <td>High (medical content)</td>
+              <td data-i18n="dpia.pa2_t1">Audio interception in transit</td>
+              <td data-i18n="dpia.pa2_l1">Very low</td>
+              <td data-i18n="dpia.pa2_s1">High (medical content)</td>
               <td><span class="risk risk-low">LOW</span></td>
-              <td>WSS/TLS 1.3 encryption for all audio streams</td>
+              <td data-i18n="dpia.pa2_m1">WSS/TLS 1.3 encryption for all audio streams</td>
             </tr>
             <tr>
-              <td>Deepgram storing audio beyond transcription</td>
-              <td>Low (per Deepgram policy)</td>
-              <td>High</td>
+              <td data-i18n="dpia.pa2_t2">Deepgram storing audio beyond transcription</td>
+              <td data-i18n="dpia.pa2_l2">Low (per Deepgram policy)</td>
+              <td data-i18n="dpia.pa2_s2">High</td>
               <td><span class="risk risk-med">MEDIUM</span></td>
-              <td>Deepgram policy: immediate deletion post-transcription. Audit via DPA.</td>
+              <td data-i18n="dpia.pa2_m2">Deepgram policy: immediate deletion post-transcription. Audit via DPA.</td>
             </tr>
             <tr>
-              <td>Deepgram sharing with industry peers (benchmarking)</td>
-              <td>Medium (policy allows it without DPA)</td>
-              <td>High (medical audio)</td>
+              <td data-i18n="dpia.pa2_t3">Deepgram sharing with industry peers (benchmarking)</td>
+              <td data-i18n="dpia.pa2_l3">Medium (policy allows it without DPA)</td>
+              <td data-i18n="dpia.pa2_s3">High (medical audio)</td>
               <td><span class="risk risk-high">HIGH</span></td>
-              <td>Explicit consent disclosure; DPA negotiation in progress; manual entry alternative provided</td>
+              <td data-i18n="dpia.pa2_m3">Explicit consent disclosure; DPA negotiation in progress; manual entry alternative provided</td>
             </tr>
             <tr>
-              <td>Patient identifiers dictated into audio</td>
-              <td>Medium (user behavior)</td>
-              <td>Very high (Art. 9 data)</td>
+              <td data-i18n="dpia.pa2_t4">Patient identifiers dictated into audio</td>
+              <td data-i18n="dpia.pa2_l4">Medium (user behavior)</td>
+              <td data-i18n="dpia.pa2_s4">Very high (Art. 9 data)</td>
               <td><span class="risk risk-high">HIGH</span></td>
-              <td>In-app warning; consent dialog explicitly warns users not to dictate identifiers; SCC in place</td>
+              <td data-i18n="dpia.pa2_m4">In-app warning; consent dialog explicitly warns users not to dictate identifiers; SCC in place</td>
             </tr>
             <tr>
-              <td>Deepgram data breach (USA)</td>
-              <td>Low</td>
-              <td>High</td>
+              <td data-i18n="dpia.pa2_t5">Deepgram data breach (USA)</td>
+              <td data-i18n="dpia.pa2_l5">Low</td>
+              <td data-i18n="dpia.pa2_s5">High</td>
               <td><span class="risk risk-med">MEDIUM</span></td>
-              <td>SCC 2021/914 + explicit consent (Art. 49(1)(a)); Deepgram deletes audio immediately</td>
+              <td data-i18n="dpia.pa2_m5">SCC 2021/914 + explicit consent (Art. 49(1)(a)); Deepgram deletes audio immediately</td>
             </tr>
           </tbody>
         </table>
@@ -485,42 +485,42 @@ main { flex: 1; }
 
         <h3 data-i18n="dpia.s5h3c">Risk analysis</h3>
         <table class="data-table">
-          <thead><tr><th>Threat</th><th>Likelihood</th><th>Severity</th><th>Risk level</th><th>Mitigation</th></tr></thead>
+          <thead><tr><th data-i18n="dpia.th_threat">Threat</th><th data-i18n="dpia.th_likelihood">Likelihood</th><th data-i18n="dpia.th_severity">Severity</th><th data-i18n="dpia.th_risk_level">Risk level</th><th data-i18n="dpia.th_mitigation">Mitigation</th></tr></thead>
           <tbody>
             <tr>
-              <td>Unauthorized local access (stolen workstation)</td>
-              <td>Medium</td>
-              <td>Very high (Art. 9 health data)</td>
+              <td data-i18n="dpia.pa3_t1">Unauthorized local access (stolen workstation)</td>
+              <td data-i18n="dpia.pa3_l1">Medium</td>
+              <td data-i18n="dpia.pa3_s1">Very high (Art. 9 health data)</td>
               <td><span class="risk risk-high">HIGH</span></td>
-              <td>AES-256-GCM database encryption; Windows login required; role-based access control</td>
+              <td data-i18n="dpia.pa3_m1">AES-256-GCM database encryption; Windows login required; role-based access control</td>
             </tr>
             <tr>
-              <td>Unauthorized network access</td>
-              <td>Low (local-only architecture)</td>
-              <td>Very high</td>
+              <td data-i18n="dpia.pa3_t2">Unauthorized network access</td>
+              <td data-i18n="dpia.pa3_l2">Low (local-only architecture)</td>
+              <td data-i18n="dpia.pa3_s2">Very high</td>
               <td><span class="risk risk-low">LOW</span></td>
-              <td>No network exposure; database never leaves local filesystem</td>
+              <td data-i18n="dpia.pa3_m2">No network exposure; database never leaves local filesystem</td>
             </tr>
             <tr>
-              <td>Insider access by unauthorized user</td>
-              <td>Medium</td>
-              <td>High</td>
+              <td data-i18n="dpia.pa3_t3">Insider access by unauthorized user</td>
+              <td data-i18n="dpia.pa3_l3">Medium</td>
+              <td data-i18n="dpia.pa3_s3">High</td>
               <td><span class="risk risk-med">MEDIUM</span></td>
-              <td>Role-based access (admin/radiologist/technician/secretary); audit log for all accesses</td>
+              <td data-i18n="dpia.pa3_m3">Role-based access (admin/radiologist/technician/secretary); audit log for all accesses</td>
             </tr>
             <tr>
-              <td>Data loss (hardware failure, ransomware)</td>
-              <td>Medium</td>
-              <td>High</td>
+              <td data-i18n="dpia.pa3_t4">Data loss (hardware failure, ransomware)</td>
+              <td data-i18n="dpia.pa3_l4">Medium</td>
+              <td data-i18n="dpia.pa3_s4">High</td>
               <td><span class="risk risk-med">MEDIUM</span></td>
-              <td>Export to PDF/DICOM SR; institution responsible for backup (HIPAA §164.308(a)(7)); PISUM does not manage backups</td>
+              <td data-i18n="dpia.pa3_m4">Export to PDF/DICOM SR; institution responsible for backup (HIPAA §164.308(a)(7)); PISUM does not manage backups</td>
             </tr>
             <tr>
-              <td>Residual data in deleted records</td>
-              <td>Low</td>
-              <td>Medium</td>
+              <td data-i18n="dpia.pa3_t5">Residual data in deleted records</td>
+              <td data-i18n="dpia.pa3_l5">Low</td>
+              <td data-i18n="dpia.pa3_s5">Medium</td>
               <td><span class="risk risk-low">LOW</span></td>
-              <td>SQLite PRAGMA secure_delete=ON; WAL journal cleared on close</td>
+              <td data-i18n="dpia.pa3_m5">SQLite PRAGMA secure_delete=ON; WAL journal cleared on close</td>
             </tr>
           </tbody>
         </table>
@@ -547,41 +547,41 @@ main { flex: 1; }
         <table class="data-table">
           <thead>
             <tr>
-              <th>Processing activity</th>
-              <th>Initial risk</th>
-              <th>Key mitigation</th>
-              <th>Residual risk</th>
-              <th>Action required</th>
+              <th data-i18n="dpia.t6_th1">Processing activity</th>
+              <th data-i18n="dpia.t6_th2">Initial risk</th>
+              <th data-i18n="dpia.t6_th3">Key mitigation</th>
+              <th data-i18n="dpia.t6_th4">Residual risk</th>
+              <th data-i18n="dpia.t6_th5">Action required</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>PA-1: Account data (Supabase EU)</td>
+              <td data-i18n="dpia.t6_r1c1">PA-1: Account data (Supabase EU)</td>
               <td><span class="risk risk-low">LOW</span></td>
-              <td>EU hosting, RLS, SCC, Fernet tokens</td>
+              <td data-i18n="dpia.t6_r1c3">EU hosting, RLS, SCC, Fernet tokens</td>
               <td><span class="risk risk-low">LOW</span></td>
-              <td>None</td>
+              <td data-i18n="dpia.t6_r1c5">None</td>
             </tr>
             <tr>
-              <td>PA-2: Voice dictation (Deepgram USA) — transit &amp; storage</td>
+              <td data-i18n="dpia.t6_r2c1">PA-2: Voice dictation (Deepgram USA) — transit &amp; storage</td>
               <td><span class="risk risk-high">HIGH</span></td>
-              <td>WSS/TLS 1.3, immediate audio deletion, explicit consent</td>
+              <td data-i18n="dpia.t6_r2c3">WSS/TLS 1.3, immediate audio deletion, explicit consent</td>
               <td><span class="risk risk-low">LOW</span></td>
-              <td>None (mitigated)</td>
+              <td data-i18n="dpia.t6_r2c5">None (mitigated)</td>
             </tr>
             <tr>
-              <td>PA-2: Voice dictation — benchmarking sharing</td>
+              <td data-i18n="dpia.t6_r3c1">PA-2: Voice dictation — benchmarking sharing</td>
               <td><span class="risk risk-high">HIGH</span></td>
-              <td>Full risk disclosure in consent dialog; manual alternative</td>
+              <td data-i18n="dpia.t6_r3c3">Full risk disclosure in consent dialog; manual alternative</td>
               <td><span class="risk risk-med">MEDIUM</span></td>
-              <td><strong>Sign DPA with Deepgram</strong> (in progress)</td>
+              <td data-i18n="dpia.t6_r3c5"><strong>Sign DPA with Deepgram</strong> (in progress)</td>
             </tr>
             <tr>
-              <td>PA-3: Local database (workstation)</td>
+              <td data-i18n="dpia.t6_r4c1">PA-3: Local database (workstation)</td>
               <td><span class="risk risk-med">MEDIUM</span></td>
-              <td>AES-256-GCM, RBAC, secure_delete, audit log</td>
+              <td data-i18n="dpia.t6_r4c3">AES-256-GCM, RBAC, secure_delete, audit log</td>
               <td><span class="risk risk-low">LOW</span></td>
-              <td>None</td>
+              <td data-i18n="dpia.t6_r4c5">None</td>
             </tr>
           </tbody>
         </table>

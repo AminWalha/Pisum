@@ -603,14 +603,14 @@ document.getElementById('search').addEventListener('input', function() {
       <div id="piw-head-info">
         <div id="piw-avatar">🤖</div>
         <div>
-          <div id="piw-name">PISUM AI</div>
-          <div id="piw-status"><span class="piw-dot"></span> Online — always here to help</div>
+          <div id="piw-name" data-i18n="faq.piw_name">PISUM AI</div>
+          <div id="piw-status"><span class="piw-dot"></span> <span data-i18n="faq.piw_status">Online — always here to help</span></div>
         </div>
       </div>
       <button id="piw-close" onclick="piwToggle()" aria-label="Close" data-i18n="faq.button_27">✕</button>
     </div>
     <div id="piw-msgs">
-      <div class="piw-msg ai"><div class="piw-bubble">Hi! I'm <strong>PISUM AI</strong> 👋<br/>Ask me anything about features, pricing, setup, or templates. I'll give you a straight answer.</div></div>
+      <div class="piw-msg ai"><div class="piw-bubble" data-i18n="faq.piw_msg">Hi! I'm <strong>PISUM AI</strong> 👋<br/>Ask me anything about features, pricing, setup, or templates. I'll give you a straight answer.</div></div>
     </div>
     <div id="piw-chips">
       <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="faq.button_28">What plans exist?</button>

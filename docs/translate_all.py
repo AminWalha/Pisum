@@ -1,159 +1,153 @@
 import json
-import os
 import time
-from bs4 import BeautifulSoup, NavigableString
-from deep_translator import GoogleTranslator
+import re
+import os
+import google.generativeai as genai
+from pathlib import Path
 
-dirs = [
-    r"c:\Users\walha\Desktop\PISUM\LOGICIEL\PISUM\Logiciel Pisum V2.9.8.2\docs\translations",
-    r"c:\Users\walha\Desktop\PISUM\LOGICIEL\PISUM\Logiciel Pisum V2.9.8.2\docs\saas\frontend\translations"
+# ── Load .env ──────────────────────────────────────────────────────────────────
+env_path = Path(__file__).parent.parent / ".env"
+if env_path.exists():
+    with open(env_path, encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, v = line.split("=", 1)
+                os.environ.setdefault(k.strip(), v.strip())
+
+API_KEY = os.environ.get("GEMINI_API_KEY")
+if not API_KEY:
+    raise SystemExit("ERROR: GEMINI_API_KEY not found in .env")
+
+genai.configure(api_key=API_KEY)
+model = genai.GenerativeModel(
+    "gemini-2.5-flash-lite",
+    generation_config=genai.GenerationConfig(max_output_tokens=65536),
+)
+
+# ── Config ─────────────────────────────────────────────────────────────────────
+BASE = Path(__file__).parent
+
+TRANSLATION_DIRS = [
+    BASE / "translations",
+    BASE / "saas" / "frontend" / "translations",
 ]
 
-TARGET_LANGUAGES = {
-    'fr': 'Français',
-    'de': 'Deutsch',
-    'es': 'Español',
-    'it': 'Italiano',
-    'pt': 'Português',
-    'nl': 'Nederlands',
-    'ru': 'Русский',
-    'tr': 'Türkçe',
-    'sv': 'Svenska',
-    'pl': 'Polski',
-    'el': 'Ελληνικά',
-    'zh': '中文',
-    'no': 'Norsk',
-    'da': 'Dansk',
-    'ja': '日本語',
-    'ko': '한국어',
-    'hi': 'हिन्दी',
-    'id': 'Bahasa Indonesia',
-    'th': 'ไทย',
-    'ms': 'Bahasa Melayu',
-    'tl': 'Filipino',
-    'ro': 'Română',
+LANGUAGES = {
+    "fr": "French",
+    "de": "German",
+    "es": "Spanish",
+    "it": "Italian",
+    "pt": "Portuguese",
+    "nl": "Dutch",
+    "ru": "Russian",
+    "tr": "Turkish",
+    "sv": "Swedish",
+    "pl": "Polish",
+    "el": "Greek",
+    "zh": "Chinese (Simplified)",
+    "no": "Norwegian",
+    "da": "Danish",
+    "ja": "Japanese",
+    "ko": "Korean",
+    "hi": "Hindi",
+    "id": "Indonesian",
+    "th": "Thai",
+    "ms": "Malay",
+    "tl": "Filipino (Tagalog)",
+    "ro": "Romanian",
 }
 
-def extract_strings(d, path=[]):
-    strings = []
-    for k, v in d.items():
-        if isinstance(v, dict):
-            strings.extend(extract_strings(v, path + [k]))
-        elif isinstance(v, str):
-            strings.append((path + [k], v))
-    return strings
+PROMPT = """\
+You are a professional medical software translator specializing in radiology.
 
-def set_value(d, path, value):
-    for key in path[:-1]:
-        d = d[key]
-    d[path[-1]] = value
+Translate the JSON values below from English into {lang_name} ({lang_code}).
 
-def process_directory(d):
-    print(f"\nProcessing directory: {d}", flush=True)
-    en_file = os.path.join(d, 'en.json')
-    if not os.path.exists(en_file):
-        print("en.json not found, skipping.", flush=True)
-        return
+STRICT RULES:
+1. Translate VALUES only — never touch the keys.
+2. Keep ALL HTML tags verbatim: <strong>, <br/>, <span style="...">, etc.
+3. Keep ALL HTML entities verbatim: &amp; &lt; &gt; &#x27; etc.
+4. Do NOT translate: PISUM, PDF, MRI, CT, AI, GDPR, LAN, NAS, SMB, AES-256, PCI, Windows.
+5. Do NOT translate: email addresses (you@clinic.com), prices (€79/mo), domain names.
+6. Keep symbols exactly as-is: ✕ ✓ — · ← ▼ 👋 ⭐ 🔥 🏥 🖥️ 🔐 ⚡
+7. Keep "••••••••" exactly as-is.
+8. The values "CANCEL" and "DELETE" (confirmation words users must type) \
+— translate to the natural {lang_name} uppercase equivalent.
+9. Return ONLY raw valid JSON. No markdown, no code fences, no explanation.
 
-    with open(en_file, 'r', encoding='utf-8') as f:
-        en_data = json.load(f)
+JSON to translate:
+{json_content}"""
 
-    strings_with_paths = extract_strings(en_data)
 
-    for target_lang, lang_label in TARGET_LANGUAGES.items():
-        target_file = os.path.join(d, f'{target_lang}.json')
-
-        print(f"Translating to {lang_label} ({target_lang})...", flush=True)
-
-        lang_code = target_lang
-        if lang_code == 'zh':
-            lang_code = 'zh-CN'
-
+def call_gemini(chunk: dict, lang_code: str, lang_name: str, retries: int = 3) -> dict:
+    prompt = PROMPT.format(
+        lang_name=lang_name,
+        lang_code=lang_code,
+        json_content=json.dumps(chunk, ensure_ascii=False, indent=2),
+    )
+    for attempt in range(1, retries + 1):
         try:
-            translator = GoogleTranslator(source='en', target=lang_code)
+            response = model.generate_content(prompt)
+            raw = response.text.strip()
+            raw = re.sub(r"^```(?:json)?\s*", "", raw, flags=re.MULTILINE)
+            raw = re.sub(r"\s*```\s*$", "", raw, flags=re.MULTILINE)
+            return json.loads(raw.strip())
+        except json.JSONDecodeError as e:
+            print(f"\n      JSON parse error (attempt {attempt}/{retries}): {e}")
+            if attempt == retries:
+                raise
+            time.sleep(3 * attempt)
         except Exception as e:
-            print(f"Skipping {target_lang} due to initialization error: {e}", flush=True)
+            print(f"\n      API error (attempt {attempt}/{retries}): {e}")
+            if attempt == retries:
+                raise
+            time.sleep(5 * attempt)
+
+
+def main():
+    for trans_dir in TRANSLATION_DIRS:
+        en_path = trans_dir / "en.json"
+        if not en_path.exists():
+            print(f"\nSKIP — no en.json in: {trans_dir}")
             continue
 
-        # 1. Extraction Phase
-        texts_to_translate = []
-        structure_map = []
+        with open(en_path, encoding="utf-8") as f:
+            en_data = json.load(f)
 
-        for path, text in strings_with_paths:
-            if not text.strip():
-                structure_map.append({'path': path, 'type': 'empty', 'original': text})
+        top_keys = list(en_data.keys())
+        print(f"\n{'='*60}")
+        print(f"Source  : {en_path}")
+        print(f"Sections: {', '.join(top_keys)}")
+        print(f"{'='*60}")
+
+        for lang_code, lang_name in LANGUAGES.items():
+            out_path = trans_dir / f"{lang_code}.json"
+
+            if out_path.exists():
+                print(f"  [{lang_code}] already exists — skipping")
                 continue
 
-            if '<' not in text and '>' not in text:
-                structure_map.append({'path': path, 'type': 'plain', 'index': len(texts_to_translate)})
-                texts_to_translate.append(text)
-            else:
-                soup = BeautifulSoup(text, 'html.parser')
-                nodes = []
-                for text_node in soup.find_all(string=True):
-                    if isinstance(text_node, NavigableString) and text_node.parent.name not in ['script', 'style']:
-                        stripped = str(text_node).strip()
-                        if stripped:
-                            nodes.append({
-                                'node': text_node,
-                                'index': len(texts_to_translate)
-                            })
-                            texts_to_translate.append(stripped)
-                structure_map.append({
-                    'path': path,
-                    'type': 'html',
-                    'soup': soup,
-                    'nodes': nodes,
-                    'original': text
-                })
+            print(f"  [{lang_code}] {lang_name}")
+            translated_data = {}
 
-        # 2. Translation Phase
-        translated_texts = []
-        batch_size = 100
-        for i in range(0, len(texts_to_translate), batch_size):
-            batch = texts_to_translate[i:i+batch_size]
-            print(f"  Translating chunk {i//batch_size + 1}/{(len(texts_to_translate) + batch_size - 1)//batch_size}...", flush=True)
-            try:
-                t_batch = translator.translate_batch(batch)
-                translated_texts.extend(t_batch)
-                time.sleep(0.5)
-            except Exception as e:
-                print(f"Batch translation failed for a chunk: {e}. Falling back to single translations.", flush=True)
-                for text in batch:
-                    try:
-                        res = translator.translate(text)
-                        translated_texts.append(res)
-                        time.sleep(0.5)
-                    except:
-                        translated_texts.append(text)
+            for i, key in enumerate(top_keys, 1):
+                print(f"      section {i}/{len(top_keys)}: {key} ...", end=" ", flush=True)
+                try:
+                    result = call_gemini({key: en_data[key]}, lang_code, lang_name)
+                    translated_data[key] = result[key]
+                    print("✓")
+                except Exception as e:
+                    print(f"✗ ({e}) — keeping original")
+                    translated_data[key] = en_data[key]
+                time.sleep(1)
 
-        # 3. Reconstruction Phase
-        new_data = json.loads(json.dumps(en_data))
+            with open(out_path, "w", encoding="utf-8") as f:
+                json.dump(translated_data, f, ensure_ascii=False, indent=2)
+            print(f"  [{lang_code}] saved ✓\n")
+            time.sleep(2)
 
-        for item in structure_map:
-            if item['type'] == 'empty':
-                set_value(new_data, item['path'], item['original'])
-            elif item['type'] == 'plain':
-                t_text = translated_texts[item['index']]
-                set_value(new_data, item['path'], t_text if t_text else "")
-            elif item['type'] == 'html':
-                soup = item['soup']
-                for node_info in item['nodes']:
-                    t_text = translated_texts[node_info['index']]
-                    if t_text is None:
-                        t_text = str(node_info['node']).strip()
-                    original_str = str(node_info['node'])
-                    prefix = original_str[:len(original_str)-len(original_str.lstrip())]
-                    suffix = original_str[len(original_str.rstrip()):]
-                    node_info['node'].replace_with(prefix + t_text + suffix)
+    print("All done.")
 
-                set_value(new_data, item['path'], str(soup))
 
-        with open(target_file, 'w', encoding='utf-8') as f:
-            json.dump(new_data, f, ensure_ascii=False, indent=2)
-        print(f"Saved {target_lang}.json", flush=True)
-
-for d in dirs:
-    process_directory(d)
-
-print("\nTranslation completed!", flush=True)
+if __name__ == "__main__":
+    main()

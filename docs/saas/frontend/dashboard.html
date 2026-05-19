@@ -958,27 +958,27 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
     <div class="form-grid">
       <div class="form-group full">
         <label class="form-label" data-i18n="dashboard.profileModal.fullName">Full Name</label>
-        <input class="form-input" id="f-name" type="text" placeholder="Dr. John Smith" data-i18n-placeholder="dashboard.profileModal.fullNamePlaceholder">
+        <input class="form-input" id="f-name" type="text" placeholder="Dr. John Smith" data-i18n="[placeholder]dashboard.profileModal.fullNamePlaceholder">
       </div>
       <div class="form-group">
         <label class="form-label" data-i18n="dashboard.profileModal.phone">Phone</label>
-        <input class="form-input" id="f-phone" type="tel" placeholder="+1 555 000 0000" data-i18n-placeholder="dashboard.profileModal.phonePlaceholder">
+        <input class="form-input" id="f-phone" type="tel" placeholder="+1 555 000 0000" data-i18n="[placeholder]dashboard.profileModal.phonePlaceholder">
       </div>
       <div class="form-group">
         <label class="form-label" data-i18n="dashboard.profileModal.specialty">Specialty</label>
-        <input class="form-input" id="f-specialty" type="text" placeholder="Radiology, MRI…" data-i18n-placeholder="dashboard.profileModal.specialtyPlaceholder">
+        <input class="form-input" id="f-specialty" type="text" placeholder="Radiology, MRI…" data-i18n="[placeholder]dashboard.profileModal.specialtyPlaceholder">
       </div>
       <div class="form-group full">
         <label class="form-label" data-i18n="dashboard.profileModal.organization">Organization / Practice</label>
-        <input class="form-input" id="f-org" type="text" placeholder="City Imaging Center" data-i18n-placeholder="dashboard.profileModal.organizationPlaceholder">
+        <input class="form-input" id="f-org" type="text" placeholder="City Imaging Center" data-i18n="[placeholder]dashboard.profileModal.organizationPlaceholder">
       </div>
       <div class="form-group">
         <label class="form-label" data-i18n="dashboard.profileModal.city">City</label>
-        <input class="form-input" id="f-city" type="text" placeholder="New York" data-i18n-placeholder="dashboard.profileModal.cityPlaceholder">
+        <input class="form-input" id="f-city" type="text" placeholder="New York" data-i18n="[placeholder]dashboard.profileModal.cityPlaceholder">
       </div>
       <div class="form-group">
         <label class="form-label" data-i18n="dashboard.profileModal.country">Country</label>
-        <input class="form-input" id="f-country" type="text" placeholder="United States" data-i18n-placeholder="dashboard.profileModal.countryPlaceholder">
+        <input class="form-input" id="f-country" type="text" placeholder="United States" data-i18n="[placeholder]dashboard.profileModal.countryPlaceholder">
       </div>
     </div>
     <div class="modal-msg" id="modal-msg"></div>
@@ -998,7 +998,7 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
       After that, your account will revert to the Free plan.
     </p>
     <p class="confirm-hint" data-i18n="dashboard.cancelModal.hint">Type <strong style="color:var(--t1)">CANCEL</strong> below to confirm:</p>
-    <input class="confirm-input" id="cancel-confirm-input" type="text" placeholder="CANCEL" oninput="validateCancelInput()" data-i18n-placeholder="dashboard.cancelModal.placeholder">
+    <input class="confirm-input" id="cancel-confirm-input" type="text" placeholder="CANCEL" oninput="validateCancelInput()" data-i18n="[placeholder]dashboard.cancelModal.placeholder">
     <div class="modal-msg" id="cancel-modal-msg"></div>
     <div class="modal-actions">
       <button class="btn-modal-cancel" onclick="closeCancelModal()" data-i18n="dashboard.cancelModal.keep">Keep Subscription</button>
@@ -1015,11 +1015,11 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
     <div class="form-grid" style="grid-template-columns:1fr">
       <div class="form-group">
         <label class="form-label" data-i18n="dashboard.pwModal.newPassword">New Password</label>
-        <input class="form-input" id="pw-new" type="password" placeholder="Min. 8 characters" minlength="8" data-i18n-placeholder="dashboard.pwModal.newPasswordPlaceholder">
+        <input class="form-input" id="pw-new" type="password" placeholder="Min. 8 characters" minlength="8" data-i18n="[placeholder]dashboard.pwModal.newPasswordPlaceholder">
       </div>
       <div class="form-group">
         <label class="form-label" data-i18n="dashboard.pwModal.confirmPassword">Confirm New Password</label>
-        <input class="form-input" id="pw-confirm" type="password" placeholder="••••••••" minlength="8" data-i18n-placeholder="dashboard.pwModal.confirmPasswordPlaceholder">
+        <input class="form-input" id="pw-confirm" type="password" placeholder="••••••••" minlength="8" data-i18n="[placeholder]dashboard.pwModal.confirmPasswordPlaceholder">
       </div>
     </div>
     <div class="modal-msg" id="pw-modal-msg"></div>
@@ -1038,7 +1038,7 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
       This action is <strong style="color:var(--t1)">permanent and irreversible</strong>. All your data, reports, and subscription will be deleted immediately.
     </p>
     <p class="confirm-hint" data-i18n="dashboard.deleteModal.hint">Type <strong style="color:var(--t1)">DELETE</strong> below to confirm:</p>
-    <input class="confirm-input" id="delete-confirm-input" type="text" placeholder="DELETE" oninput="validateDeleteInput()" data-i18n-placeholder="dashboard.deleteModal.placeholder">
+    <input class="confirm-input" id="delete-confirm-input" type="text" placeholder="DELETE" oninput="validateDeleteInput()" data-i18n="[placeholder]dashboard.deleteModal.placeholder">
     <div class="modal-msg" id="delete-modal-msg"></div>
     <div class="modal-actions">
       <button class="btn-modal-cancel" onclick="closeDeleteModal()" data-i18n="dashboard.deleteModal.cancel">Cancel</button>
@@ -2051,24 +2051,24 @@ if (shell) {
       <div id="piw-head-info">
         <div id="piw-avatar">🤖</div>
         <div>
-          <div id="piw-name">PISUM AI</div>
-          <div id="piw-status"><span class="piw-dot"></span> Online — always here to help</div>
+          <div id="piw-name" data-i18n="dashboard.piw_name">PISUM AI</div>
+          <div id="piw-status"><span class="piw-dot"></span> <span data-i18n="dashboard.piw_status">Online — always here to help</span></div>
         </div>
       </div>
-      <button id="piw-close" onclick="piwToggle()" aria-label="Close">✕</button>
+      <button id="piw-close" onclick="piwToggle()" aria-label="Close" data-i18n="dashboard.piw_close">✕</button>
     </div>
     <div id="piw-msgs">
-      <div class="piw-msg ai"><div class="piw-bubble">Hi! I'm <strong>PISUM AI</strong> 👋<br/>Ask me anything about features, pricing, setup, or templates. I'll give you a straight answer.</div></div>
+      <div class="piw-msg ai"><div class="piw-bubble" data-i18n="dashboard.piw_msg">Hi! I'm <strong>PISUM AI</strong> 👋<br/>Ask me anything about features, pricing, setup, or templates. I'll give you a straight answer.</div></div>
     </div>
     <div id="piw-chips">
-      <button class="piw-chip" onclick="piwAsk(this.textContent)">What plans exist?</button>
-      <button class="piw-chip" onclick="piwAsk(this.textContent)">Free trial?</button>
-      <button class="piw-chip" onclick="piwAsk(this.textContent)">How to install?</button>
-      <button class="piw-chip" onclick="piwAsk(this.textContent)">AI dictation?</button>
-      <button class="piw-chip" onclick="piwAsk(this.textContent)">GDPR compliant?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="dashboard.piw_chip1">What plans exist?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="dashboard.piw_chip2">Free trial?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="dashboard.piw_chip3">How to install?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="dashboard.piw_chip4">AI dictation?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="dashboard.piw_chip5">GDPR compliant?</button>
     </div>
     <div id="piw-footer">
-      <input id="piw-input" type="text" placeholder="Ask a question…" autocomplete="off" onkeydown="if(event.key==='Enter')piwSend()"/>
+      <input id="piw-input" type="text" placeholder="Ask a question…" autocomplete="off" onkeydown="if(event.key==='Enter')piwSend()" data-i18n="[placeholder]dashboard.piw_input"/>
       <button id="piw-send" onclick="piwSend()" aria-label="Send">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
       </button>

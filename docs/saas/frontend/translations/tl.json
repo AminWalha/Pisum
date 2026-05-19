@@ -1,0 +1,404 @@
+{
+  "auth": {
+    "tabs": {
+      "signIn": "Mag-sign In",
+      "createAccount": "Gumawa ng Account"
+    },
+    "login": {
+      "title": "Maligayang pagbabalik",
+      "subtitle": "Mag-sign in sa iyong PISUM account.",
+      "emailLabel": "Address ng email",
+      "passwordLabel": "Password",
+      "forgotPassword": "Nakalimutan ang password?",
+      "submit": "Mag-sign In",
+      "emailPlaceholder": "you@clinic.com",
+      "or": "o",
+      "googleBtn": "Magpatuloy gamit ang Google",
+      "linkedinBtn": "Magpatuloy gamit ang LinkedIn"
+    },
+    "signup": {
+      "title": "Gumawa ng iyong account",
+      "subtitle": "Magsimula sa PISUM — walang kinakailangang credit card.",
+      "nameLabel": "Buong pangalan",
+      "nameHint": "Lalabas sa iyong mga ulat at sa app.",
+      "emailLabel": "Address ng email",
+      "passwordLabel": "Password",
+      "confirmLabel": "Kumpirmahin ang password",
+      "submit": "Gumawa ng Account",
+      "namePlaceholder": "Dr. Smith",
+      "emailPlaceholder": "you@clinic.com",
+      "passwordPlaceholder": "Min. 8 karakter",
+      "or": "o",
+      "googleBtn": "Mag-sign up gamit ang Google",
+      "linkedinBtn": "Mag-sign up gamit ang LinkedIn"
+    },
+    "forgot": {
+      "title": "I-reset ang iyong password",
+      "subtitle": "Ilagay ang iyong email at padadalhan ka namin ng link para sa pag-reset.",
+      "emailLabel": "Address ng email",
+      "submit": "Magpadala ng Link para sa Pag-reset",
+      "back": "← Bumalik sa Mag-sign In",
+      "emailPlaceholder": "you@clinic.com"
+    },
+    "reset": {
+      "title": "Bagong password",
+      "subtitle": "Pumili ng isang bagong ligtas na password.",
+      "passwordLabel": "Bagong password",
+      "confirmLabel": "Kumpirmahin ang password",
+      "submit": "I-save ang Bagong Password",
+      "passwordPlaceholder": "Min. 8 karakter",
+      "confirmPlaceholder": "••••••••"
+    },
+    "footer": {
+      "viewPlans": "← Tingnan ang mga plano"
+    }
+  },
+  "dashboard": {
+    "nav": {
+      "label": "Pag-navigate",
+      "overview": "Pangkalahatang-ideya",
+      "usage": "Paggamit",
+      "billing": "Pagsingil",
+      "profile": "Profile",
+      "signOut": "Mag-logout"
+    },
+    "hero": {
+      "eyebrow": "Aking Account",
+      "title": "Aking Account",
+      "subtitle": "Pamahalaan ang iyong subscription at ma-access ang PISUM.",
+      "statusTitle": "Sinusuri ang access…",
+      "statusDesc": "Mangyaring maghintay.",
+      "manageBilling": "Pamahalaan ang Pagsingil",
+      "changePlan": "Baguhin ang Plano →"
+    },
+    "onboarding": {
+      "title": "👋 Magsimula sa PISUM",
+      "subtitle": "3 hakbang patungo sa iyong unang radiology report",
+      "step1": {
+        "title": "I-download at i-install ang PISUM",
+        "desc": "Isang .exe installer para sa Windows 10/11. Tatagal ng wala pang isang minuto.",
+        "download": "I-download para sa Windows"
+      },
+      "step2": {
+        "title": "Buksan ang PISUM at mag-sign in",
+        "desc": "Ilunsad ang app pagkatapos ng pag-install. Mag-sign in gamit ang parehong email at password na ginamit mo dito."
+      },
+      "step3": {
+        "title": "Lumikha ng iyong unang report",
+        "desc": "Pumili ng template ayon sa modality — CT, MRI, X-Ray, o Ultrasound. Punan ang iyong mga natuklasan at i-export sa PDF."
+      }
+    },
+    "stats": {
+      "nextBilling": "Susunod na Pagsingil",
+      "expires": "Mag-e-expire",
+      "billingCycle": "Siklo ng Pagsingil",
+      "memberSince": "Miyembro Mula Noon"
+    },
+    "usage": {
+      "title": "Paggamit Ngayong Buwan"
+    },
+    "features": {
+      "title": "Mga Kasamang Tampok",
+      "viewPlans": "Tingnan ang lahat ng plano →"
+    },
+    "team": {
+      "title": "Team at Mga Pwesto",
+      "included": "Kasama",
+      "extra": "Dagdag",
+      "total": "Kabuuang gumagamit",
+      "addInfo": "<strong>Magdagdag ng mga dagdag na gumagamit</strong> — €69 / gumagamit / buwan.<br/>\n                Sisingilin bilang hiwalay na paulit-ulit na add-on. Pamahalaan sa pamamagitan ng billing portal."
+    },
+    "danger": {
+      "title": "Danger Zone",
+      "cancelSub": "Kanselahin ang Subscription",
+      "deleteAccount": "Burahin ang Account",
+      "cancelingNotice": "Ang iyong subscription ay naka-set na makansela sa pagtatapos ng kasalukuyang siklo ng pagsingil. Mayroon ka pa ring buong access hanggang noon."
+    },
+    "subscribe": {
+      "title": "Piliin ang iyong plano",
+      "desc": "Piliin ang planong babagay sa iyong practice at magpatuloy sa secure checkout.",
+      "monthly": "Buwanan",
+      "annual": "Taunan",
+      "save20": "−20%",
+      "continue": "Magpatuloy"
+    },
+    "profile": {
+      "title": "Profile",
+      "editProfile": "I-edit ang Profile",
+      "changePassword": "Palitan ang Password"
+    },
+    "profileModal": {
+      "title": "I-edit ang Profile",
+      "avatarHint": "I-click ang larawan upang palitan ito (max 2 MB)",
+      "fullName": "Buong Pangalan",
+      "phone": "Telepono",
+      "specialty": "Espesyalisasyon",
+      "organization": "Organisasyon / Practice",
+      "city": "Lungsod",
+      "country": "Bansa",
+      "cancel": "Kanselahin",
+      "save": "I-save",
+      "fullNamePlaceholder": "Dr. Juan Dela Cruz",
+      "phonePlaceholder": "+1 555 000 0000",
+      "specialtyPlaceholder": "Radiology, MRI…",
+      "organizationPlaceholder": "City Imaging Center",
+      "cityPlaceholder": "Maynila",
+      "countryPlaceholder": "Pilipinas"
+    },
+    "cancelModal": {
+      "title": "Kanselahin ang Subscription",
+      "desc": "Ang iyong subscription ay mananatiling aktibo hanggang sa pagtatapos ng kasalukuyang siklo ng pagsingil.\n      Pagkatapos noon, ang iyong account ay babalik sa Free plan.",
+      "hint": "I-type ang <strong style=\"color:var(--t1)\">KANCELAHIN</strong> sa ibaba upang kumpirmahin:",
+      "keep": "Panatilihin ang Subscription",
+      "confirm": "Kanselahin ang Subscription",
+      "placeholder": "KANCELAHIN"
+    },
+    "pwModal": {
+      "title": "Palitan ang Password",
+      "newPassword": "Bagong Password",
+      "confirmPassword": "Kumpirmahin ang Bagong Password",
+      "cancel": "Kanselahin",
+      "submit": "I-update ang Password",
+      "newPasswordPlaceholder": "Min. 8 karakter",
+      "confirmPasswordPlaceholder": "••••••••"
+    },
+    "deleteModal": {
+      "title": "Burahin ang Account",
+      "desc": "Ang aksyon na ito ay <strong style=\"color:var(--t1)\">permanente at hindi mababawi</strong>. Lahat ng iyong data, mga report, at subscription ay mabubura kaagad.",
+      "hint": "I-type ang <strong style=\"color:var(--t1)\">BURAHIN</strong> sa ibaba upang kumpirmahin:",
+      "cancel": "Kanselahin",
+      "confirm": "Burahin ang Aking Account",
+      "placeholder": "BURAHIN"
+    },
+    "piw_name": "PISUM AI",
+    "piw_status": "Online — laging nandito upang tumulong",
+    "piw_close": "✕",
+    "piw_msg": "Hi! Ako si <strong>PISUM AI</strong> 👋<br>Itanong sa akin ang anumang tungkol sa mga tampok, presyo, pag-setup, o mga template. Bibigyan kita ng tuwirang sagot.</br>",
+    "piw_chip1": "Anong mga plano ang mayroon?",
+    "piw_chip2": "Libreng pagsubok?",
+    "piw_chip3": "Paano mag-install?",
+    "piw_chip4": "AI dictation?",
+    "piw_chip5": "Sumusunod sa GDPR?",
+    "piw_input": "Magtanong…"
+  },
+  "pricing": {
+    "pageTitle": "PISUM — Presyo para sa mga Propesyonal sa Medisina",
+    "nav": {
+      "signIn": "Mag-sign in",
+      "mySubscription": "Aking subscription"
+    },
+    "hero": {
+      "eyebrow": "Software sa Radyolohiya · Pinapagana ng AI · Sumusunod sa GDPR",
+      "title": "Mga propesyonal na kasangkapan,<br/><span>ginawa para sa mga radiologist</span>",
+      "subtitle": "Mula sa independiyenteng radiologist hanggang sa multi-site na klinika — PISUM ay umaangkop sa iyong praktis gamit ang mga structured template, AI dictation, at lokal na kontrol sa datos.",
+      "ctaPrimary": "Magsimula nang libre — walang kailangang card",
+      "ctaSecondary": "Ihambing ang mga plano"
+    },
+    "trust": {
+      "gdpr": "Sumusunod sa GDPR",
+      "local": "Nananatili sa lokal ang datos — walang pag-upload sa cloud",
+      "builtFor": "Ginawa para sa mga radiologist",
+      "clinics": "Ginagamit sa mga klinika sa buong Europa",
+      "fast": "Mga ulat na natatapos sa wala pang 60 segundo"
+    },
+    "billing": {
+      "monthly": "Buwanan",
+      "annual": "Taunan",
+      "save20": "−20%",
+      "guarantee": "Walang pag-upload sa cloud ng datos ng pasyente  ·  Sumusunod sa GDPR  ·  Lokal-muna"
+    },
+    "plans": {
+      "free": {
+        "tag": "Libre",
+        "name": "Pisum Libre",
+        "subtitle": "Tuklasin ang PISUM",
+        "period": "/ buwan",
+        "microcopy": "Hindi kailangan ng credit card",
+        "cta": "Magsimula",
+        "f1": "10 template",
+        "f2": "2 wika",
+        "f3": "Pag-export ng PDF",
+        "f4": "Pag-export ng Word",
+        "f5": "AI Dictation (30 min/buwan)",
+        "f6": "AI Enhancer (10 gamit/buwan)",
+        "f7": "Limitadong Worklist",
+        "f8": "50 ulat / buwan"
+      },
+      "starter": {
+        "tag": "Starter",
+        "name": "Pisum Starter",
+        "subtitle": "Solo radiologist",
+        "period": "/ buwan",
+        "microcopy": "Siningil buwan-buwan",
+        "trial": "14-araw na libreng pagsubok · Hindi kailangan ng card",
+        "cta": "Subukan ang Starter nang libre — 14 na araw",
+        "f1": "20 template",
+        "f2": "23 wika",
+        "f3": "Pag-export ng PDF + Word",
+        "f4": "Pag-export ng HTML",
+        "f5": "AI Dictation (500 min/buwan)",
+        "f6": "AI Enhancer (50/buwan)",
+        "f7": "Basic Worklist",
+        "f8": "Walang limitasyong ulat"
+      },
+      "pro": {
+        "ribbon": "Pinakapopular",
+        "tag": "Pro ⭐",
+        "name": "Pisum Pro",
+        "subtitle": "Advanced practitioner, all-in-one",
+        "period": "/ buwan",
+        "microcopy": "Siningil buwan-buwan",
+        "trial": "14-araw na libreng pagsubok · Hindi kailangan ng card",
+        "cta": "Subukan ang Pro nang libre — 14 na araw",
+        "f1": "112+ template",
+        "f2": "23 wika",
+        "f3": "Pag-export ng PDF + Word + HTML",
+        "f4": "AI Dictation (2,000 min/buwan)",
+        "f5": "AI Enhancer (200/buwan)",
+        "f6": "Pagsasalin ng Ulat (100/buwan)",
+        "f7": "Buong Worklist",
+        "f8": "Basic Statistics",
+        "f9": "Priyoridad na suporta"
+      },
+      "expert": {
+        "ribbon": "Pinakamahusay na Halaga",
+        "tag": "Expert 🔥",
+        "name": "Pisum Expert",
+        "subtitle": "Walang limitasyon, buong lakas",
+        "period": "/ buwan",
+        "microcopy": "Siningil buwan-buwan",
+        "trial": "14-araw na libreng pagsubok · Hindi kailangan ng card",
+        "cta": "Subukan ang Expert nang libre — 14 na araw",
+        "f1": "112+ custom template",
+        "f2": "23 wika",
+        "f3": "Pag-export ng PDF + Word + HTML",
+        "f4": "AI Dictation (Walang Limitasyon)",
+        "f5": "AI Enhancer (Walang Limitasyon)",
+        "f6": "Pagsasalin ng Ulat (Walang Limitasyon)",
+        "f7": "Advanced Worklist",
+        "f8": "Buong Statistics",
+        "f9": "LAN Sync (1 site · 3 PC)"
+      },
+      "clinic": {
+        "ribbon": "Para sa mga Klinika",
+        "tag": "Clinic 🏥",
+        "name": "Pisum Clinic",
+        "subtitle": "Multi-site · Pamamahala ng koponan",
+        "period": "/ buwan",
+        "microcopy": "5 user kasama · +€69/dagdag na user",
+        "cta": "Makipag-ugnayan sa amin",
+        "extraUsers": "Kailangan ng higit sa 5 user? Magdagdag ng mga karagdagang upuan mula sa iyong dashboard pagkatapos mag-subscribe.",
+        "usersCount": "5 user",
+        "f1": "Custom na template",
+        "f2": "5 user kasama (+€69/dagdag)",
+        "f3": "23 wika",
+        "f4": "Pag-export ng PDF + Word + HTML",
+        "f5": "AI Dictation (Walang Limitasyon)",
+        "f6": "AI Enhancer (Walang Limitasyon)",
+        "f7": "Pagsasalin ng Ulat (Walang Limitasyon)",
+        "f8": "Multi-site Worklist",
+        "f9": "Advanced stats + onboarding",
+        "f10": "LAN Sync (multi-site · walang limitasyon)"
+      }
+    },
+    "guarantee": "<span style=\"color:var(--app-success);font-weight:700\">✓</span> 30-araw na garantiya ng refund sa lahat ng bayad na plano  · \n    <span style=\"color:var(--app-success);font-weight:700\">✓</span> Kanselahin anumang oras, walang lock-in",
+    "value": {
+      "eyebrow": "Bakit pinipili ng mga propesyonal ang PISUM",
+      "heading": "Isang kasangkapan na gumagalang sa iyong workflow",
+      "card1": {
+        "title": "Lokal-muna na privacy",
+        "desc": "Nananatili sa iyong makina ang mga ulat ng pasyente. Walang datos ng klinika ang aalis sa iyong computer — walang pag-upload sa cloud, buong pagsunod sa GDPR."
+      },
+      "card2": {
+        "title": "112+ template sa radyolohiya",
+        "desc": "Mga structured na ulat para sa bawat modality — MRI, CT, echography, at higit pa. Sa 23 wika, handa nang gamitin agad."
+      },
+      "card3": {
+        "title": "AI Dictation &amp; Enhancer",
+        "desc": "Mag-dictate ng mga ulat nang hands-free at pagbutihin ang salita gamit ang AI — sadyang idinisenyo para sa terminolohiya at pagpapahayag sa radyolohiya."
+      },
+      "card4": {
+        "title": "LAN Network Sync",
+        "desc": "Ibahagi ang parehong worklist sa lahat ng workstation sa iyong klinika — walang cloud, instant sync sa pamamagitan ng iyong lokal na network."
+      }
+    },
+    "compare": {
+      "title": "Detalyadong paghahambing",
+      "subtitle": "Tingnan kung ano mismo ang kasama sa bawat antas — piliin kung ano ang akma sa iyong praktis."
+    },
+    "lansync": {
+      "title": "Paano gumagana ang LAN Network Sync",
+      "subtitle": "Ibahagi ang datos ng pasyente sa mga workstation sa iyong lokal na network — walang cloud, walang latency, walang GDPR risk.",
+      "step1": {
+        "title": "1. Mag-set up ng shared folder",
+        "desc": "Ituro ang PISUM sa isang shared network folder (NAS, SMB share, o mapped drive). Lahat ng workstation sa parehong network ay ina-access ang parehong database."
+      },
+      "step2": {
+        "title": "2. Isang shared password",
+        "desc": "Ang database ay AES-256 encrypted. Magtakda ng isang password sa unang workstation — lahat ng iba pang PC ay ilalagay ang parehong password upang kumonekta."
+      },
+      "step3": {
+        "title": "3. Instant sync sa mga PC",
+        "desc": "Bawat workstation ay nagbabasa at nagsusulat nang direkta sa shared database. Agad na lumilitaw ang mga pagbabago sa lahat ng konektadong computer."
+      }
+    },
+    "faq": {
+      "title": "Mga Madalas Itanong",
+      "intro": "Lahat ng kailangan mong malaman bago mag-subscribe.",
+      "q1": "Maaari ko bang baguhin ang aking plano anumang oras?",
+      "a1": "Oo — i-upgrade o kanselahin ang iyong subscription anumang oras mula sa iyong dashboard. Agad na nagiging epektibo ang mga pagbabago.",
+      "q2": "Mayroon bang minimum na komitment?",
+      "a2": "Hindi. Lahat ng plano ay buwan-buwan na walang lock-in. Ang taunang pagsingil ay nakakatipid ng 20% at kasama ang isang libreng unang buwan sa panahon ng paglulunsad.",
+      "q3": "Ang Libreng plano ba ay tunay na libre?",
+      "a3": "Oo — walang credit card, walang limitasyon sa oras. Hinahayaan ka ng Libreng plano na galugarin ang PISUM gamit ang 10 template, 50 ulat bawat buwan, at pag-export ng PDF. Mag-upgrade anumang oras na handa ka na.",
+      "q4": "Paano gumagana ang AI Dictation?",
+      "a4": "Kinokonvert ng AI Dictation ang iyong boses sa structured na text ng ulat sa radyolohiya sa real time. Ito ay tumatakbo sa pamamagitan ng isang secure na API — hindi kailanman iniimbak ang audio. Ang iyong buwanang quota ay nagre-reset sa ika-1 ng bawat buwan.",
+      "q5": "Ligtas ba ang pagbabayad?",
+      "a5": "Lahat ng pagbabayad ay pinoproseso ng Lemon Squeezy, isang PCI-compliant na payment platform. Hindi kailanman iniimbak ng PISUM ang iyong mga detalye sa pagbabangko.",
+      "q6": "Saan nakaimbak ang aking datos? Sumusunod ba ang PISUM sa GDPR?",
+      "a6": "Naka-imbak ang iyong mga ulat ng pasyente sa lokal sa iyong makina — hindi kailanman nag-a-upload ng datos ng klinika ang PISUM sa cloud. Ang datos ng account (pangalan, email, status ng subscription) ay naka-host sa Supabase gamit ang mga server ng EU. Ang PISUM ay ganap na sumusunod sa GDPR.",
+      "q7": "Kailangan ba ng PISUM ng koneksyon sa internet?",
+      "a7": "Oo. Kailangan ng PISUM ng aktibong koneksyon sa internet para sa AI Dictation, AI Enhancer, at pamamahala ng subscription. Ang iyong mga ulat ng pasyente at template ay naka-imbak sa lokal sa iyong makina, ngunit ang mga feature ng AI ay kumokonekta nang secure sa aming cloud API.",
+      "q8": "Mayroon bang libreng pagsubok para sa mga bayad na plano?",
+      "a8": "Ang Libreng plano ay isang permanenteng libreng tier — walang limitasyon sa oras, walang credit card. Ang Starter, Pro, at Expert ay lahat ay may kasamang 14-araw na libreng pagsubok upang maranasan mo ang buong hanay ng mga feature nang walang panganib bago ka masingil. Lahat ng bayad na plano ay may kasamang 30-araw na garantiya ng refund."
+    },
+    "footer": {
+      "questions": "Mga katanungan?",
+      "createAccount": "Gumawa ng account",
+      "mySubscription": "Aking subscription",
+      "support": "Suporta"
+    },
+    "table": {
+      "cat_templates": "Mga Template &amp; Nilalaman",
+      "feat_templates": "Mga Template",
+      "feat_languages": "Mga magagamit na wika",
+      "feat_pdf": "Pag-export ng PDF",
+      "feat_word": "Pag-export ng Word",
+      "feat_html": "Pag-export ng HTML",
+      "feat_reports": "Mga Ulat / buwan",
+      "cat_ai": "Mga Tampok ng AI",
+      "feat_dictation": "AI Dictation",
+      "feat_enhancer": "AI Enhancer",
+      "feat_translation": "Pagsasalin ng Ulat",
+      "cat_workflow": "Workflow &amp; Klinika",
+      "feat_worklist": "Worklist",
+      "feat_stats": "Statistics",
+      "feat_lan": "LAN Network Sync",
+      "feat_users": "Mga User",
+      "cat_support": "Suporta",
+      "feat_support": "Antas ng suporta",
+      "lan_expert": "1 site · max 3 workstation",
+      "lan_clinic": "Multi-site · walang limitasyong workstation"
+    },
+    "piw_name": "PISUM AI",
+    "piw_status": "Online — palaging handang tumulong",
+    "piw_close": "✕",
+    "piw_msg": "Hi! Ako si <strong>PISUM AI</strong> 👋<br/>Magtanong ka ng kahit ano tungkol sa mga tampok, presyo, pag-setup, o mga template. Bibigyan kita ng diretso na sagot.",
+    "piw_chip1": "Anong mga plano ang mayroon?",
+    "piw_chip2": "Libreng pagsubok?",
+    "piw_chip3": "Paano i-install?",
+    "piw_chip4": "AI dictation?",
+    "piw_chip5": "Sumusunod sa GDPR?",
+    "piw_input": "Magtanong ng sagot…"
+  }
+}

@@ -1,0 +1,404 @@
+{
+  "auth": {
+    "tabs": {
+      "signIn": "Anmelden",
+      "createAccount": "Konto erstellen"
+    },
+    "login": {
+      "title": "Willkommen zurück",
+      "subtitle": "Melden Sie sich bei Ihrem PISUM-Konto an.",
+      "emailLabel": "E-Mail-Adresse",
+      "passwordLabel": "Passwort",
+      "forgotPassword": "Passwort vergessen?",
+      "submit": "Anmelden",
+      "emailPlaceholder": "you@clinic.com",
+      "or": "oder",
+      "googleBtn": "Weiter mit Google",
+      "linkedinBtn": "Weiter mit LinkedIn"
+    },
+    "signup": {
+      "title": "Erstellen Sie Ihr Konto",
+      "subtitle": "Beginnen Sie mit PISUM – keine Kreditkarte erforderlich.",
+      "nameLabel": "Vollständiger Name",
+      "nameHint": "Wird auf Ihren Berichten und in der App angezeigt.",
+      "emailLabel": "E-Mail-Adresse",
+      "passwordLabel": "Passwort",
+      "confirmLabel": "Passwort bestätigen",
+      "submit": "Konto erstellen",
+      "namePlaceholder": "Dr. Mustermann",
+      "emailPlaceholder": "you@clinic.com",
+      "passwordPlaceholder": "Min. 8 Zeichen",
+      "or": "oder",
+      "googleBtn": "Mit Google registrieren",
+      "linkedinBtn": "Mit LinkedIn registrieren"
+    },
+    "forgot": {
+      "title": "Passwort zurücksetzen",
+      "subtitle": "Geben Sie Ihre E-Mail-Adresse ein und wir senden Ihnen einen Link zum Zurücksetzen.",
+      "emailLabel": "E-Mail-Adresse",
+      "submit": "Link zum Zurücksetzen senden",
+      "back": "← Zurück zur Anmeldung",
+      "emailPlaceholder": "you@clinic.com"
+    },
+    "reset": {
+      "title": "Neues Passwort",
+      "subtitle": "Wählen Sie ein neues sicheres Passwort.",
+      "passwordLabel": "Neues Passwort",
+      "confirmLabel": "Passwort bestätigen",
+      "submit": "Neues Passwort speichern",
+      "passwordPlaceholder": "Min. 8 Zeichen",
+      "confirmPlaceholder": "••••••••"
+    },
+    "footer": {
+      "viewPlans": "← Pläne anzeigen"
+    }
+  },
+  "dashboard": {
+    "nav": {
+      "label": "Navigation",
+      "overview": "Übersicht",
+      "usage": "Nutzung",
+      "billing": "Abrechnung",
+      "profile": "Profil",
+      "signOut": "Abmelden"
+    },
+    "hero": {
+      "eyebrow": "Mein Konto",
+      "title": "Mein Konto",
+      "subtitle": "Verwalten Sie Ihr Abonnement und greifen Sie auf PISUM zu.",
+      "statusTitle": "Zugriff wird geprüft…",
+      "statusDesc": "Bitte warten Sie.",
+      "manageBilling": "Abrechnung verwalten",
+      "changePlan": "Plan ändern →"
+    },
+    "onboarding": {
+      "title": "👋 Erste Schritte mit PISUM",
+      "subtitle": "3 Schritte zu Ihrem ersten Radiologiebericht",
+      "step1": {
+        "title": "PISUM herunterladen &amp; installieren",
+        "desc": "Ein .exe-Installer für Windows 10/11. Dauert weniger als eine Minute.",
+        "download": "Für Windows herunterladen"
+      },
+      "step2": {
+        "title": "PISUM öffnen und anmelden",
+        "desc": "Starten Sie die App nach der Installation. Melden Sie sich mit derselben E-Mail-Adresse und demselben Passwort an, die Sie hier verwendet haben."
+      },
+      "step3": {
+        "title": "Erstellen Sie Ihren ersten Bericht",
+        "desc": "Wählen Sie eine Vorlage nach Modalität – CT, MRI, Röntgen oder Ultraschall. Füllen Sie Ihre Befunde aus und exportieren Sie sie als PDF."
+      }
+    },
+    "stats": {
+      "nextBilling": "Nächste Abrechnung",
+      "expires": "Läuft ab",
+      "billingCycle": "Abrechnungszyklus",
+      "memberSince": "Mitglied seit"
+    },
+    "usage": {
+      "title": "Nutzung diesen Monats"
+    },
+    "features": {
+      "title": "Enthaltene Funktionen",
+      "viewPlans": "Alle Pläne ansehen →"
+    },
+    "team": {
+      "title": "Team &amp; Plätze",
+      "included": "Enthalten",
+      "extra": "Extra",
+      "total": "Gesamte Benutzer",
+      "addInfo": "<strong>Zusätzliche Benutzer hinzufügen</strong> – 69 € / Benutzer / Monat.<br/>\n                Wird als separater wiederkehrender Zusatzposten abgerechnet. Verwaltung über das Abrechnungsportal."
+    },
+    "danger": {
+      "title": "Gefahrenzone",
+      "cancelSub": "Abonnement kündigen",
+      "deleteAccount": "Konto löschen",
+      "cancelingNotice": "Ihr Abonnement wird am Ende des aktuellen Abrechnungszeitraums gekündigt. Sie haben bis dahin vollen Zugriff."
+    },
+    "subscribe": {
+      "title": "Wählen Sie Ihren Plan",
+      "desc": "Wählen Sie den Plan, der zu Ihrer Praxis passt, und fahren Sie mit der sicheren Kasse fort.",
+      "monthly": "Monatlich",
+      "annual": "Jährlich",
+      "save20": "−20%",
+      "continue": "Weiter"
+    },
+    "profile": {
+      "title": "Profil",
+      "editProfile": "Profil bearbeiten",
+      "changePassword": "Passwort ändern"
+    },
+    "profileModal": {
+      "title": "Profil bearbeiten",
+      "avatarHint": "Klicken Sie auf das Foto, um es zu ändern (max. 2 MB)",
+      "fullName": "Vollständiger Name",
+      "phone": "Telefon",
+      "specialty": "Fachrichtung",
+      "organization": "Organisation / Praxis",
+      "city": "Stadt",
+      "country": "Land",
+      "cancel": "Abbrechen",
+      "save": "Speichern",
+      "fullNamePlaceholder": "Dr. Max Mustermann",
+      "phonePlaceholder": "+49 171 1234567",
+      "specialtyPlaceholder": "Radiologie, MRT…",
+      "organizationPlaceholder": "Stadt-Diagnostikzentrum",
+      "cityPlaceholder": "Berlin",
+      "countryPlaceholder": "Deutschland"
+    },
+    "cancelModal": {
+      "title": "Abonnement kündigen",
+      "desc": "Ihr Abonnement bleibt bis zum Ende des aktuellen Abrechnungszeitraums aktiv.\n      Danach wird Ihr Konto auf den kostenlosen Plan zurückgesetzt.",
+      "hint": "Geben Sie <strong style=\"color:var(--t1)\">KÜNDIGEN</strong> unten ein, um zu bestätigen:",
+      "keep": "Abonnement behalten",
+      "confirm": "Abonnement kündigen",
+      "placeholder": "KÜNDIGEN"
+    },
+    "pwModal": {
+      "title": "Passwort ändern",
+      "newPassword": "Neues Passwort",
+      "confirmPassword": "Neues Passwort bestätigen",
+      "cancel": "Abbrechen",
+      "submit": "Passwort aktualisieren",
+      "newPasswordPlaceholder": "Min. 8 Zeichen",
+      "confirmPasswordPlaceholder": "••••••••"
+    },
+    "deleteModal": {
+      "title": "Konto löschen",
+      "desc": "Diese Aktion ist <strong style=\"color:var(--t1)\">dauerhaft und unwiderruflich</strong>. Alle Ihre Daten, Berichte und Ihr Abonnement werden sofort gelöscht.",
+      "hint": "Geben Sie <strong style=\"color:var(--t1)\">LÖSCHEN</strong> unten ein, um zu bestätigen:",
+      "cancel": "Abbrechen",
+      "confirm": "Mein Konto löschen",
+      "placeholder": "LÖSCHEN"
+    },
+    "piw_name": "PISUM AI",
+    "piw_status": "Online — immer hier, um zu helfen",
+    "piw_close": "✕",
+    "piw_msg": "Hallo! Ich bin <strong>PISUM AI</strong> 👋<br>Fragen Sie mich alles über Funktionen, Preise, Einrichtung oder Vorlagen. Ich gebe Ihnen eine ehrliche Antwort.</br>",
+    "piw_chip1": "Welche Pläne gibt es?",
+    "piw_chip2": "Kostenlose Testversion?",
+    "piw_chip3": "Wie installiere ich?",
+    "piw_chip4": "KI-Diktat?",
+    "piw_chip5": "DSGVO-konform?",
+    "piw_input": "Stellen Sie eine Frage…"
+  },
+  "pricing": {
+    "pageTitle": "PISUM — Preise für medizinisches Fachpersonal",
+    "nav": {
+      "signIn": "Anmelden",
+      "mySubscription": "Mein Abonnement"
+    },
+    "hero": {
+      "eyebrow": "Radiologie-Software · KI-gestützt · DSGVO-konform",
+      "title": "Professionelle Werkzeuge,<br/><span>entwickelt für Radiologen</span>",
+      "subtitle": "Vom niedergelassenen Radiologen bis zur Klinik mit mehreren Standorten — PISUM passt sich Ihrer Praxis mit strukturierten Vorlagen, KI-Diktat und lokaler Datenkontrolle an.",
+      "ctaPrimary": "Kostenlos starten — keine Karte erforderlich",
+      "ctaSecondary": "Pläne vergleichen"
+    },
+    "trust": {
+      "gdpr": "DSGVO-konform",
+      "local": "Daten bleiben lokal — kein Cloud-Upload",
+      "builtFor": "Entwickelt für Radiologen",
+      "clinics": "In Kliniken in ganz Europa im Einsatz",
+      "fast": "Berichte in unter 60 Sekunden fertiggestellt"
+    },
+    "billing": {
+      "monthly": "Monatlich",
+      "annual": "Jährlich",
+      "save20": "−20%",
+      "guarantee": "Kein Cloud-Upload von Patientendaten  ·  DSGVO-konform  ·  Primär lokal"
+    },
+    "plans": {
+      "free": {
+        "tag": "Kostenlos",
+        "name": "PISUM Free",
+        "subtitle": "Entdecken Sie PISUM",
+        "period": "/ Monat",
+        "microcopy": "Keine Kreditkarte erforderlich",
+        "cta": "Jetzt starten",
+        "f1": "10 Vorlagen",
+        "f2": "2 Sprachen",
+        "f3": "PDF-Export",
+        "f4": "Word-Export",
+        "f5": "KI-Diktat (30 Min./Monat)",
+        "f6": "KI-Verbesserer (10 Nutzungen/Monat)",
+        "f7": "Begrenzte Arbeitsliste",
+        "f8": "50 Berichte / Monat"
+      },
+      "starter": {
+        "tag": "Starter",
+        "name": "PISUM Starter",
+        "subtitle": "Einzelner Radiologe",
+        "period": "/ Monat",
+        "microcopy": "Monatlich abgerechnet",
+        "trial": "14 Tage kostenlos testen · Keine Karte erforderlich",
+        "cta": "Starter kostenlos testen — 14 Tage",
+        "f1": "20 Vorlagen",
+        "f2": "23 Sprachen",
+        "f3": "PDF + Word-Export",
+        "f4": "HTML-Export",
+        "f5": "KI-Diktat (500 Min./Monat)",
+        "f6": "KI-Verbesserer (50/Monat)",
+        "f7": "Grundlegende Arbeitsliste",
+        "f8": "Unbegrenzte Berichte"
+      },
+      "pro": {
+        "ribbon": "Am beliebtesten",
+        "tag": "Pro ⭐",
+        "name": "PISUM Pro",
+        "subtitle": "Fortgeschrittener Praktiker, All-in-One",
+        "period": "/ Monat",
+        "microcopy": "Monatlich abgerechnet",
+        "trial": "14 Tage kostenlos testen · Keine Karte erforderlich",
+        "cta": "Pro kostenlos testen — 14 Tage",
+        "f1": "112+ Vorlagen",
+        "f2": "23 Sprachen",
+        "f3": "PDF + Word + HTML-Export",
+        "f4": "KI-Diktat (2.000 Min./Monat)",
+        "f5": "KI-Verbesserer (200/Monat)",
+        "f6": "Berichtsübersetzung (100/Monat)",
+        "f7": "Vollständige Arbeitsliste",
+        "f8": "Grundlegende Statistiken",
+        "f9": "Priorisierter Support"
+      },
+      "expert": {
+        "ribbon": "Bestes Preis-Leistungs-Verhältnis",
+        "tag": "Expert 🔥",
+        "name": "PISUM Expert",
+        "subtitle": "Keine Grenzen, volle Leistung",
+        "period": "/ Monat",
+        "microcopy": "Monatlich abgerechnet",
+        "trial": "14 Tage kostenlos testen · Keine Karte erforderlich",
+        "cta": "Expert kostenlos testen — 14 Tage",
+        "f1": "112+ benutzerdefinierte Vorlagen",
+        "f2": "23 Sprachen",
+        "f3": "PDF + Word + HTML-Export",
+        "f4": "KI-Diktat (unbegrenzt)",
+        "f5": "KI-Verbesserer (unbegrenzt)",
+        "f6": "Berichtsübersetzung (unbegrenzt)",
+        "f7": "Erweiterte Arbeitsliste",
+        "f8": "Vollständige Statistiken",
+        "f9": "LAN-Synchronisation (1 Standort · 3 PCs)"
+      },
+      "clinic": {
+        "ribbon": "Für Kliniken",
+        "tag": "Clinic 🏥",
+        "name": "PISUM Clinic",
+        "subtitle": "Mehrere Standorte · Teammanagement",
+        "period": "/ Monat",
+        "microcopy": "5 Benutzer inkl. · +€69/zusätzlicher Benutzer",
+        "cta": "Kontaktieren Sie uns",
+        "extraUsers": "Benötigen Sie mehr als 5 Benutzer? Fügen Sie zusätzliche Plätze in Ihrem Dashboard hinzu, nachdem Sie abonniert haben.",
+        "usersCount": "5 Benutzer",
+        "f1": "Benutzerdefinierte Vorlagen",
+        "f2": "5 Benutzer inkl. (+€69/zusätzlicher)",
+        "f3": "23 Sprachen",
+        "f4": "PDF + Word + HTML-Export",
+        "f5": "KI-Diktat (unbegrenzt)",
+        "f6": "KI-Verbesserer (unbegrenzt)",
+        "f7": "Berichtsübersetzung (unbegrenzt)",
+        "f8": "Arbeitsliste für mehrere Standorte",
+        "f9": "Erweiterte Statistiken + Onboarding",
+        "f10": "LAN-Synchronisation (mehrere Standorte · unbegrenzt)"
+      }
+    },
+    "guarantee": "<span style=\"color:var(--app-success);font-weight:700\">✓</span> 30-Tage-Geld-zurück-Garantie für alle bezahlten Pläne  · \n    <span style=\"color:var(--app-success);font-weight:700\">✓</span> Jederzeit kündbar, keine Bindung",
+    "value": {
+      "eyebrow": "Warum sich Fachleute für PISUM entscheiden",
+      "heading": "Ein Werkzeug, das Ihren Arbeitsablauf respektiert",
+      "card1": {
+        "title": "Lokale Privatsphäre an erster Stelle",
+        "desc": "Patientenberichte bleiben auf Ihrem Rechner. Keine klinischen Daten verlassen jemals Ihren Computer — kein Cloud-Upload, volle DSGVO-Konformität."
+      },
+      "card2": {
+        "title": "112+ Radiologie-Vorlagen",
+        "desc": "Strukturierte Berichte für jede Modalität — MRT, CT, Echographie und mehr. In 23 Sprachen, sofort einsatzbereit."
+      },
+      "card3": {
+        "title": "KI-Diktat &amp; Verbesserer",
+        "desc": "Diktieren Sie Berichte freihändig und verbessern Sie die Formulierungen mit KI — speziell entwickelt für Radiologie-Terminologie und Formulierungen."
+      },
+      "card4": {
+        "title": "LAN-Netzwerk-Synchronisation",
+        "desc": "Teilen Sie dieselbe Arbeitsliste über alle Arbeitsplätze in Ihrer Klinik — keine Cloud, sofortige Synchronisation über Ihr lokales Netzwerk."
+      }
+    },
+    "compare": {
+      "title": "Detaillierter Vergleich",
+      "subtitle": "Sehen Sie genau, was auf jeder Ebene enthalten ist — wählen Sie das, was zu Ihrer Praxis passt."
+    },
+    "lansync": {
+      "title": "So funktioniert die LAN-Netzwerk-Synchronisation",
+      "subtitle": "Teilen Sie Patientendaten über Arbeitsplätze in Ihrem lokalen Netzwerk — keine Cloud, keine Latenz, kein DSGVO-Risiko.",
+      "step1": {
+        "title": "1. Gemeinsamen Ordner einrichten",
+        "desc": "Weisen Sie PISUM einen freigegebenen Netzwerkordner zu (NAS, SMB-Freigabe oder Netzwerklaufwerk). Alle Arbeitsplätze im selben Netzwerk greifen auf dieselbe Datenbank zu."
+      },
+      "step2": {
+        "title": "2. Ein gemeinsames Passwort",
+        "desc": "Die Datenbank ist AES-256 verschlüsselt. Legen Sie auf der ersten Arbeitsstation ein Passwort fest — alle anderen PCs geben dasselbe Passwort ein, um sich zu verbinden."
+      },
+      "step3": {
+        "title": "3. Sofortige Synchronisation über PCs",
+        "desc": "Jede Arbeitsstation liest und schreibt direkt in die freigegebene Datenbank. Änderungen erscheinen sofort auf allen verbundenen Computern."
+      }
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "intro": "Alles, was Sie wissen müssen, bevor Sie abonnieren.",
+      "q1": "Kann ich meinen Plan jederzeit ändern?",
+      "a1": "Ja — Sie können Ihr Abonnement jederzeit über Ihr Dashboard erweitern oder kündigen. Änderungen werden sofort wirksam.",
+      "q2": "Gibt es eine Mindestvertragslaufzeit?",
+      "a2": "Nein. Alle Pläne sind monatlich kündbar ohne Bindung. Die jährliche Abrechnung spart 20 % und beinhaltet einen kostenlosen ersten Monat während der Einführungsphase.",
+      "q3": "Ist der kostenlose Plan wirklich kostenlos?",
+      "a3": "Ja — keine Kreditkarte, keine Zeitbegrenzung. Der kostenlose Plan ermöglicht es Ihnen, PISUM mit 10 Vorlagen, 50 Berichten pro Monat und PDF-Export zu erkunden. Erweitern Sie jederzeit, wenn Sie bereit sind.",
+      "q4": "Wie funktioniert KI-Diktat?",
+      "a4": "KI-Diktat wandelt Ihre Stimme in Echtzeit in strukturierten Text für radiologische Berichte um. Es läuft über eine sichere API — Audio wird nie gespeichert. Ihr monatliches Kontingent wird am 1. jedes Monats zurückgesetzt.",
+      "q5": "Ist die Zahlung sicher?",
+      "a5": "Alle Zahlungen werden von Lemon Squeezy, einer PCI-konformen Zahlungsplattform, abgewickelt. PISUM speichert niemals Ihre Bankdaten.",
+      "q6": "Wo werden meine Daten gespeichert? Ist PISUM DSGVO-konform?",
+      "a6": "Ihre Patientenberichte werden lokal auf Ihrem Rechner gespeichert — PISUM lädt niemals klinische Daten in die Cloud hoch. Kontodaten (Name, E-Mail, Abonnementstatus) werden auf Supabase mit EU-Servern gehostet. PISUM ist vollständig DSGVO-konform.",
+      "q7": "Benötigt PISUM eine Internetverbindung?",
+      "a7": "Ja. PISUM benötigt eine aktive Internetverbindung für KI-Diktat, KI-Verbesserer und Abonnementverwaltung. Ihre Patientenberichte und Vorlagen werden lokal auf Ihrem Rechner gespeichert, aber KI-Funktionen verbinden sich sicher mit unserer Cloud-API.",
+      "q8": "Gibt es eine kostenlose Testversion für bezahlte Pläne?",
+      "a8": "Der kostenlose Plan ist eine permanente kostenlose Stufe — keine Zeitbegrenzung, keine Kreditkarte. Starter, Pro und Expert beinhalten alle eine 14-tägige kostenlose Testversion, damit Sie den vollen Funktionsumfang risikofrei erleben können, bevor Ihnen etwas berechnet wird. Alle bezahlten Pläne werden durch eine 30-tägige Geld-zurück-Garantie abgedeckt."
+    },
+    "footer": {
+      "questions": "Fragen?",
+      "createAccount": "Konto erstellen",
+      "mySubscription": "Mein Abonnement",
+      "support": "Support"
+    },
+    "table": {
+      "cat_templates": "Vorlagen &amp; Inhalte",
+      "feat_templates": "Vorlagen",
+      "feat_languages": "Verfügbare Sprachen",
+      "feat_pdf": "PDF-Export",
+      "feat_word": "Word-Export",
+      "feat_html": "HTML-Export",
+      "feat_reports": "Berichte / Monat",
+      "cat_ai": "KI-Funktionen",
+      "feat_dictation": "KI-Diktat",
+      "feat_enhancer": "KI-Verbesserer",
+      "feat_translation": "Berichtsübersetzung",
+      "cat_workflow": "Arbeitsablauf &amp; Klinik",
+      "feat_worklist": "Arbeitsliste",
+      "feat_stats": "Statistiken",
+      "feat_lan": "LAN-Netzwerk-Synchronisation",
+      "feat_users": "Benutzer",
+      "cat_support": "Support",
+      "feat_support": "Support-Level",
+      "lan_expert": "1 Standort · max. 3 Arbeitsplätze",
+      "lan_clinic": "Mehrere Standorte · unbegrenzte Arbeitsplätze"
+    },
+    "piw_name": "PISUM KI",
+    "piw_status": "Online — immer bereit zu helfen",
+    "piw_close": "✕",
+    "piw_msg": "Hallo! Ich bin <strong>PISUM KI</strong> 👋<br/>Fragen Sie mich alles über Funktionen, Preise, Einrichtung oder Vorlagen. Ich werde Ihnen eine klare Antwort geben.",
+    "piw_chip1": "Welche Pläne gibt es?",
+    "piw_chip2": "Kostenlose Testversion?",
+    "piw_chip3": "Wie installiere ich?",
+    "piw_chip4": "KI-Diktat?",
+    "piw_chip5": "DSGVO-konform?",
+    "piw_input": "Stellen Sie eine Frage…"
+  }
+}

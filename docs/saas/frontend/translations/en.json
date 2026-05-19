@@ -10,7 +10,11 @@
       "emailLabel": "Email address",
       "passwordLabel": "Password",
       "forgotPassword": "Forgot password?",
-      "submit": "Sign In"
+      "submit": "Sign In",
+      "emailPlaceholder": "you@clinic.com",
+      "or": "or",
+      "googleBtn": "Continue with Google",
+      "linkedinBtn": "Continue with LinkedIn"
     },
     "signup": {
       "title": "Create your account",
@@ -20,21 +24,30 @@
       "emailLabel": "Email address",
       "passwordLabel": "Password",
       "confirmLabel": "Confirm password",
-      "submit": "Create Account"
+      "submit": "Create Account",
+      "namePlaceholder": "Dr. Smith",
+      "emailPlaceholder": "you@clinic.com",
+      "passwordPlaceholder": "Min. 8 characters",
+      "or": "or",
+      "googleBtn": "Sign up with Google",
+      "linkedinBtn": "Sign up with LinkedIn"
     },
     "forgot": {
       "title": "Reset your password",
       "subtitle": "Enter your email and we'll send you a reset link.",
       "emailLabel": "Email address",
       "submit": "Send Reset Link",
-      "back": "← Back to Sign In"
+      "back": "← Back to Sign In",
+      "emailPlaceholder": "you@clinic.com"
     },
     "reset": {
       "title": "New password",
       "subtitle": "Choose a new secure password.",
       "passwordLabel": "New password",
       "confirmLabel": "Confirm password",
-      "submit": "Save New Password"
+      "submit": "Save New Password",
+      "passwordPlaceholder": "Min. 8 characters",
+      "confirmPlaceholder": "••••••••"
     },
     "footer": {
       "viewPlans": "← View plans"
@@ -124,29 +137,49 @@
       "city": "City",
       "country": "Country",
       "cancel": "Cancel",
-      "save": "Save"
+      "save": "Save",
+      "fullNamePlaceholder": "Dr. John Smith",
+      "phonePlaceholder": "+1 555 000 0000",
+      "specialtyPlaceholder": "Radiology, MRI…",
+      "organizationPlaceholder": "City Imaging Center",
+      "cityPlaceholder": "New York",
+      "countryPlaceholder": "United States"
     },
     "cancelModal": {
       "title": "Cancel Subscription",
       "desc": "Your subscription will remain active until the end of the current billing period.\n      After that, your account will revert to the Free plan.",
       "hint": "Type <strong style=\"color:var(--t1)\">CANCEL</strong> below to confirm:",
       "keep": "Keep Subscription",
-      "confirm": "Cancel Subscription"
+      "confirm": "Cancel Subscription",
+      "placeholder": "CANCEL"
     },
     "pwModal": {
       "title": "Change Password",
       "newPassword": "New Password",
       "confirmPassword": "Confirm New Password",
       "cancel": "Cancel",
-      "submit": "Update Password"
+      "submit": "Update Password",
+      "newPasswordPlaceholder": "Min. 8 characters",
+      "confirmPasswordPlaceholder": "••••••••"
     },
     "deleteModal": {
       "title": "Delete Account",
       "desc": "This action is <strong style=\"color:var(--t1)\">permanent and irreversible</strong>. All your data, reports, and subscription will be deleted immediately.",
       "hint": "Type <strong style=\"color:var(--t1)\">DELETE</strong> below to confirm:",
       "cancel": "Cancel",
-      "confirm": "Delete My Account"
-    }
+      "confirm": "Delete My Account",
+      "placeholder": "DELETE"
+    },
+    "piw_name": "PISUM AI",
+    "piw_status": "Online — always here to help",
+    "piw_close": "✕",
+    "piw_msg": "Hi! I'm <strong>PISUM AI</strong> 👋<br>Ask me anything about features, pricing, setup, or templates. I'll give you a straight answer.</br>",
+    "piw_chip1": "What plans exist?",
+    "piw_chip2": "Free trial?",
+    "piw_chip3": "How to install?",
+    "piw_chip4": "AI dictation?",
+    "piw_chip5": "GDPR compliant?",
+    "piw_input": "Ask a question…"
   },
   "pricing": {
     "pageTitle": "PISUM — Pricing for Medical Professionals",
@@ -334,6 +367,38 @@
       "createAccount": "Create an account",
       "mySubscription": "My subscription",
       "support": "Support"
-    }
+    },
+    "table": {
+      "cat_templates": "Templates &amp; Content",
+      "feat_templates": "Templates",
+      "feat_languages": "Available languages",
+      "feat_pdf": "PDF Export",
+      "feat_word": "Word Export",
+      "feat_html": "HTML Export",
+      "feat_reports": "Reports / month",
+      "cat_ai": "AI Features",
+      "feat_dictation": "AI Dictation",
+      "feat_enhancer": "AI Enhancer",
+      "feat_translation": "Report Translation",
+      "cat_workflow": "Workflow &amp; Clinic",
+      "feat_worklist": "Worklist",
+      "feat_stats": "Statistics",
+      "feat_lan": "LAN Network Sync",
+      "feat_users": "Users",
+      "cat_support": "Support",
+      "feat_support": "Support level",
+      "lan_expert": "1 site · max 3 workstations",
+      "lan_clinic": "Multi-site · unlimited workstations"
+    },
+    "piw_name": "PISUM AI",
+    "piw_status": "Online — always here to help",
+    "piw_close": "✕",
+    "piw_msg": "Hi! I'm <strong>PISUM AI</strong> 👋<br/>Ask me anything about features, pricing, setup, or templates. I'll give you a straight answer.",
+    "piw_chip1": "What plans exist?",
+    "piw_chip2": "Free trial?",
+    "piw_chip3": "How to install?",
+    "piw_chip4": "AI dictation?",
+    "piw_chip5": "GDPR compliant?",
+    "piw_input": "Ask a question…"
   }
 }
