@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6VG09X3G7F');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>DPIA — Data Protection Impact Assessment | PISUM Radiology Software</title>
+<meta name="description" content="PISUM Data Protection Impact Assessment (GDPR Art. 35). Full risk analysis for health data processing in radiology reporting software."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://pisum.app/dpia.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://pisum.app/dpia.html"/>
+<meta property="og:title" content="DPIA — Data Protection Impact Assessment | PISUM"/>
+<meta property="og:description" content="PISUM DPIA (GDPR Art. 35): risk assessment for health data processing, voice dictation via Deepgram, and Supabase account management."/>
+<meta property="og:image" content="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
+<meta property="og:site_name" content="PISUM"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+:root {
+  --void: #06060a; --s1: #0e0e14; --s2: #14141e; --s3: #1c1c2a; --s4: #252535;
+  --border: rgba(255,255,255,0.07); --border-b: rgba(255,255,255,0.14);
+  --ink: #f0f0f8; --ink-2: #a0a0c0; --ink-3: #606080; --ink-4: #35354a;
+  --cyan: #00e5cc; --blue: #3b6ef8; --purple: #8b6ef8; --green: #10b981; --amber: #f59e0b; --red: #ef4444;
+  --grad: linear-gradient(135deg, #00e5cc 0%, #3b6ef8 60%, #8b6ef8 100%);
+  --fd: 'Clash Display', Georgia, serif; --fb: 'Plus Jakarta Sans', system-ui, sans-serif; --fm: 'JetBrains Mono', monospace;
+  --r: 12px; --r-lg: 20px; --t: cubic-bezier(0.25,1,0.5,1);
+}
+body { font-family: var(--fb); background: var(--void); color: var(--ink); line-height: 1.65; overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; }
+body::before {
+  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+a { text-decoration: none; color: inherit; }
+main { flex: 1; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 clamp(1.25rem,5vw,3rem); position: relative; z-index: 1; }
+
+/* ── NAV ── */
+.nav {
+  position: sticky; top: 0; z-index: 999; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 clamp(1.25rem,5vw,3rem);
+  background: rgba(6,6,10,0.92); backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; font-family: var(--fd); font-size: 1.1rem; font-weight: 600; color: var(--ink); }
+.nav-logo img { width: 30px; height: 30px; border-radius: 8px; }
+.nav-right { display: flex; align-items: center; gap: 0.75rem; }
+.nav-profile{display:flex;align-items:center;gap:10px;background:var(--s1);border:1px solid var(--border);border-radius:999px;padding:4px 12px 4px 4px;}
+.nav-profile-avatar{width:36px;height:36px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.nav-profile-avatar-fallback{width:36px;height:36px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:#06060a;flex-shrink:0}
+.nav-profile-info{display:flex;flex-direction:column;gap:1px}
+.nav-profile-name{font-size:0.8rem;font-weight:600;color:var(--ink);line-height:1.2}
+.nav-profile-email{font-size:0.7rem;color:var(--ink-3);line-height:1.2}
+.nav-profile-signout{font-size:0.78rem;font-weight:500;color:var(--ink-3);background:none;border:1px solid var(--border);border-radius:999px;padding:0.3rem 0.8rem;cursor:pointer;transition:all 0.18s;margin-left:4px;font-family:inherit}
+.nav-profile-signout:hover{color:var(--ink);}
+.nav-profile-link{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+.nav-links a { font-size: 0.83rem; font-weight: 500; color: var(--ink-2); transition: color 0.18s; }
+.nav-links a:hover { color: var(--cyan); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 1.5px; background: var(--ink); border-radius: 2px; }
+@media(max-width:780px){.nav-links{display:none}.hamburger{display:flex}.nav-links.open{display:flex;flex-direction:column;align-items:flex-start;gap:1.5rem;position:fixed;inset:64px 0 0 0;background:var(--s1);padding:2rem;z-index:997}.nav-links.open a{font-size:1.1rem}}
+
+/* ── HERO ── */
+.hero {
+  padding: clamp(60px,10vw,100px) 0 clamp(40px,6vw,60px);
+  position: relative; overflow: hidden; text-align: center;
+}
+.hero-orb {
+  position: absolute; border-radius: 50%; pointer-events: none;
+  width: 800px; height: 600px; top: -200px; left: 50%; transform: translateX(-50%);
+  background: radial-gradient(ellipse, rgba(59,110,248,0.06) 0%, transparent 65%);
+}
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.67rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--blue); margin-bottom: 1.2rem;
+}
+.eyebrow::before { content: ''; width: 20px; height: 1.5px; background: var(--blue); display: inline-block; }
+.hero h1 {
+  font-family: var(--fd); font-size: clamp(2rem,4vw,3.6rem); font-weight: 700;
+  line-height: 1.08; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 1.2rem;
+}
+.hero h1 em { font-style: italic; color: var(--cyan); }
+.hero-sub { font-size: clamp(0.85rem,1.5vw,0.95rem); color: var(--ink-2); max-width: 640px; margin: 0 auto 1.5rem; line-height: 1.75; }
+.hero-meta { display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; color: var(--ink-3); font-family: var(--fm); }
+
+/* ── CONTENT LAYOUT ── */
+.content-layout {
+  display: grid; grid-template-columns: 240px 1fr; gap: 3rem;
+  align-items: start; padding-bottom: clamp(5rem,10vw,8rem);
+  position: relative; z-index: 1;
+}
+@media(max-width:860px){ .content-layout { grid-template-columns: 1fr; } .toc { display: none; } }
+
+/* TOC */
+.toc { position: sticky; top: 80px; }
+.toc-title { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 1rem; }
+.toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+.toc-list a {
+  display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--ink-3);
+  padding: 0.35rem 0.6rem; border-radius: 7px; transition: all 0.18s;
+}
+.toc-list a:hover, .toc-list a.toc-active { color: var(--cyan); background: rgba(0,229,204,0.06); }
+.toc-list a::before { content: ''; width: 3px; height: 3px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+
+/* PROSE */
+.prose { min-width: 0; }
+.prose-section { margin-bottom: 3.5rem; }
+.prose-section:last-child { margin-bottom: 0; }
+.prose h2 {
+  font-family: var(--fd); font-size: clamp(1.25rem,2.2vw,1.7rem); font-weight: 600;
+  letter-spacing: -0.03em; color: var(--ink); margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 10px;
+}
+.prose h2 .num {
+  font-family: var(--fm); font-size: 0.7rem; font-weight: 500; color: var(--cyan);
+  border: 1px solid rgba(0,229,204,0.3); border-radius: 5px; padding: 2px 7px;
+}
+.prose h3 { font-family: var(--fd); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 1.75rem 0 0.75rem; letter-spacing: -0.02em; }
+.prose p { font-size: 0.88rem; color: var(--ink-2); line-height: 1.8; margin-bottom: 1rem; }
+.prose ul { list-style: none; margin: 0.75rem 0 1rem 0; display: flex; flex-direction: column; gap: 0.5rem; }
+.prose ul li { font-size: 0.87rem; color: var(--ink-2); line-height: 1.7; padding-left: 1.2rem; position: relative; }
+.prose ul li::before { content: '—'; position: absolute; left: 0; color: var(--cyan); font-size: 0.7rem; top: 2px; }
+.prose strong { color: var(--ink); font-weight: 600; }
+.prose em { font-style: italic; color: var(--ink); }
+.prose a { color: var(--cyan); transition: opacity 0.18s; }
+.prose a:hover { opacity: 0.8; }
+
+/* Info blocks */
+.info-block {
+  background: var(--s2); border: 1px solid var(--border); border-left: 3px solid;
+  border-radius: var(--r); padding: 1rem 1.25rem; margin: 1.25rem 0; font-size: 0.85rem; color: var(--ink-2); line-height: 1.7;
+}
+.info-block.cyan { border-left-color: var(--cyan); }
+.info-block.green { border-left-color: var(--green); }
+.info-block.amber { border-left-color: var(--amber); }
+.info-block.red { border-left-color: var(--red); background: rgba(239,68,68,0.06); }
+.info-block.blue { border-left-color: var(--blue); background: rgba(59,110,248,0.06); }
+.info-block strong { color: var(--ink); }
+
+/* Data table */
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin: 1rem 0 1.5rem; }
+.data-table th { background: var(--s3); border: 1px solid var(--border); padding: 0.6rem 1rem; text-align: left; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
+.data-table td { border: 1px solid var(--border); padding: 0.65rem 1rem; color: var(--ink-2); vertical-align: top; line-height: 1.6; }
+.data-table td:first-child { color: var(--ink); font-weight: 500; font-size: 0.82rem; }
+.data-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+/* Risk chips */
+.risk { display: inline-block; font-size: 0.68rem; font-weight: 700; padding: 2px 8px; border-radius: 5px; font-family: var(--fm); letter-spacing: 0.05em; }
+.risk-low { background: rgba(16,185,129,0.15); color: #10b981; border: 1px solid rgba(16,185,129,0.3); }
+.risk-med { background: rgba(245,158,11,0.15); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
+.risk-high { background: rgba(239,68,68,0.15); color: #ef4444; border: 1px solid rgba(239,68,68,0.3); }
+
+/* Signature block */
+.sig-block {
+  background: var(--s2); border: 1px solid var(--border); border-radius: var(--r-lg);
+  padding: 1.5rem 2rem; margin-top: 1.5rem;
+}
+.sig-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+@media(max-width:560px){ .sig-row { grid-template-columns: 1fr; } }
+.sig-item label { display: block; font-size: 0.67rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 0.4rem; }
+.sig-item .val { font-size: 0.88rem; color: var(--ink-2); }
+.sig-item .val.signed { color: var(--green); font-weight: 600; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+.animate-in { animation: fadeUp 0.55s cubic-bezier(0.25,1,0.5,1) both; }
+.d1{animation-delay:0.05s}.d2{animation-delay:0.12s}.d3{animation-delay:0.2s}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo" data-i18n="dpia.a_1">
+    <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="Logo"/>
+    PISUM
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li data-i18n="dpia.li_1"><a href="index.html#features">Features</a></li>
+    <li data-i18n="dpia.li_2"><a href="index.html#templates">Templates</a></li>
+    <li data-i18n="dpia.li_3"><a href="index.html#pricing">Pricing</a></li>
+    <li data-i18n="dpia.li_4"><a href="rgpd.html">Privacy</a></li>
+    <li data-i18n="dpia.li_5"><a href="faq.html">FAQ</a></li>
+    <li data-i18n="dpia.li_6"><a href="documentation.html">Docs</a></li>
+    <li data-i18n="dpia.li_7"><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="saas/frontend/auth.html" id="nav-signin" data-i18n="dpia.a_signin" style="font-size: 0.83rem; font-weight: 500; color: var(--ink-2); margin-right: 0.5rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--ink-2)'">Sign in</a>
+    <a href="index.html#pricing" id="nav-cta" data-i18n="dpia.a_2" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600; background: var(--cyan); color: #06060a; font-size: 0.83rem;">Get Started Free</a>
+    <div id="nav-profile" class="nav-profile" style="display:none">
+      <a href="saas/frontend/dashboard.html" class="nav-profile-link">
+        <img id="nav-profile-img" class="nav-profile-avatar" src="" alt="" style="display:none"/>
+        <div id="nav-profile-initials" class="nav-profile-avatar-fallback" style="display:none">?</div>
+        <div class="nav-profile-info">
+          <span id="nav-profile-name" class="nav-profile-name"></span>
+          <span id="nav-profile-email" class="nav-profile-email"></span>
+        </div>
+      </a>
+      <button class="nav-profile-signout" id="nav-signout" data-i18n="dpia.button_1">Sign Out</button>
+    </div>
+    <button class="hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+(function(){
+  const sb=supabase.createClient('https://lepqbnhrdgfetoysedbq.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlcHFibmhyZGdmZXRveXNlZGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwNjQ1MDAsImV4cCI6MjA5MDY0MDUwMH0.St12IwG0_RRKzxrbH1QRolCC2OOAaSIsK4PDmlR2Loo');
+  sb.auth.getSession().then(async({data})=>{
+    if(!data.session)return;
+    const u=data.session.user;
+    const name=u.user_metadata?.full_name||u.email.split('@')[0];
+    document.getElementById('nav-cta').style.display='none';
+    if(document.getElementById('nav-signin')) document.getElementById('nav-signin').style.display='none';
+    document.getElementById('nav-profile-name').textContent=name;
+    document.getElementById('nav-profile-email').textContent=u.email;
+    document.getElementById('nav-profile').style.display='flex';
+    document.getElementById('nav-signout').addEventListener('click',async()=>{await sb.auth.signOut();window.location.reload();});
+    const img=document.getElementById('nav-profile-img');
+    const showI=()=>{img.style.display='none';const el=document.getElementById('nav-profile-initials');el.textContent=name.charAt(0).toUpperCase();el.style.display='flex';};
+    const{data:prof}=await sb.from('profiles').select('avatar_url').eq('user_id',u.id).maybeSingle();
+    const av=prof?.avatar_url||u.user_metadata?.avatar_url||u.user_metadata?.picture;
+    if(av){img.onload=()=>{img.style.display='';};img.onerror=showI;img.src=av;}else{showI();}
+  });
+})();
+</script>
+
+<main>
+<section class="hero">
+  <div class="hero-orb"></div>
+  <div class="container">
+    <div class="animate-in d1"><span class="eyebrow" data-i18n="dpia.eyebrow">GDPR Art. 35 · Internal document</span></div>
+    <h1 class="animate-in d2" data-i18n="dpia.h1_1">Data Protection<br/><em>Impact Assessment</em></h1>
+    <p class="hero-sub animate-in d3" data-i18n="dpia.p_1">Formal DPIA for PISUM radiology reporting software. Covers all processing activities involving personal and special-category health data.</p>
+    <p class="hero-meta animate-in">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2"/><path d="M6 4v2.5l1.5 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+      <span data-i18n="dpia.meta">Version 1.0 · May 2026 · GDPR Art. 35</span>
+    </p>
+  </div>
+</section>
+
+<div class="container">
+  <div class="content-layout">
+
+    <nav class="toc" aria-label="Table of contents">
+      <div class="toc-title" data-i18n="dpia.toc_title">Contents</div>
+      <ul class="toc-list">
+        <li><a href="#s1" data-i18n="dpia.tl1">1. Context &amp; necessity</a></li>
+        <li><a href="#s2" data-i18n="dpia.tl2">2. Processing activities</a></li>
+        <li><a href="#s3" data-i18n="dpia.tl3">3. PA-1: Account data</a></li>
+        <li><a href="#s4" data-i18n="dpia.tl4">4. PA-2: Voice dictation</a></li>
+        <li><a href="#s5" data-i18n="dpia.tl5">5. PA-3: Local database</a></li>
+        <li><a href="#s6" data-i18n="dpia.tl6">6. Risk summary</a></li>
+        <li><a href="#s7" data-i18n="dpia.tl7">7. Residual risk &amp; conclusion</a></li>
+        <li><a href="#s8" data-i18n="dpia.tl8">8. DPO sign-off</a></li>
+      </ul>
+    </nav>
+
+    <article class="prose">
+
+      <!-- ── 01 CONTEXT ── -->
+      <div class="prose-section" id="s1">
+        <h2><span class="num">01</span> <span data-i18n="dpia.s1h">Context &amp; necessity of DPIA</span></h2>
+        <p data-i18n="dpia.s1p1"><strong>PISUM</strong> is a Windows desktop software for radiology reporting used by radiologists, technicians, and healthcare secretaries. It processes personal data in the context of medical imaging — a field that involves <strong>special-category health data</strong> under GDPR Art. 9.</p>
+
+        <h3 data-i18n="dpia.s1h3a">Why a DPIA is mandatory</h3>
+        <p data-i18n="dpia.s1p2">A DPIA is required under GDPR Art. 35(3) when processing is "likely to result in a high risk to the rights and freedoms of natural persons." The following criteria from EDPB Guidelines 4/2019 apply to PISUM:</p>
+        <ul>
+          <li data-i18n="dpia.s1l1"><strong>Special category data (Art. 9)</strong> — voice audio streams may include dictated medical information about patients.</li>
+          <li data-i18n="dpia.s1l2"><strong>Large-scale processing</strong> — PISUM targets clinics and hospitals processing hundreds to thousands of reports per month.</li>
+          <li data-i18n="dpia.s1l3"><strong>Innovative technology</strong> — AI voice dictation (Deepgram) and AI text enhancement (Gemini) are newly deployed in a medical context.</li>
+          <li data-i18n="dpia.s1l4"><strong>Third-country transfer</strong> — voice audio is transferred to Deepgram (USA) under Art. 49(1)(a).</li>
+        </ul>
+
+        <div class="info-block blue" data-i18n="dpia.ib1">
+          <strong>Legal basis for this DPIA.</strong> GDPR Art. 35(1): "Where a type of processing in particular using new technologies, and taking into account the nature, scope, context and purposes of the processing, is likely to result in a high risk to the rights and freedoms of natural persons, the controller shall, prior to the processing, carry out an assessment."
+        </div>
+
+        <h3 data-i18n="dpia.s1h3b">Scope</h3>
+        <p data-i18n="dpia.s1p3">This DPIA covers all three processing activities (PA) identified in PISUM v2.x:</p>
+        <ul>
+          <li data-i18n="dpia.s1l5"><strong>PA-1</strong> — Account and subscription data management (Supabase)</li>
+          <li data-i18n="dpia.s1l6"><strong>PA-2</strong> — Voice dictation audio processing (Deepgram)</li>
+          <li data-i18n="dpia.s1l7"><strong>PA-3</strong> — Local patient database (SQLite, on-premises)</li>
+        </ul>
+      </div>
+
+      <!-- ── 02 PROCESSING ACTIVITIES ── -->
+      <div class="prose-section" id="s2">
+        <h2><span class="num">02</span> <span data-i18n="dpia.s2h">Processing activities overview</span></h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Activity</th>
+              <th>Controller</th>
+              <th>Processor</th>
+              <th>Location</th>
+              <th>Data category</th>
+              <th>Initial risk</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>PA-1</td>
+              <td>Account &amp; license management</td>
+              <td>PISUM</td>
+              <td>Supabase, Inc.</td>
+              <td>EU (eu-west-1)</td>
+              <td>Personal — non-health</td>
+              <td><span class="risk risk-low">LOW</span></td>
+            </tr>
+            <tr>
+              <td>PA-2</td>
+              <td>Voice dictation transcription</td>
+              <td>PISUM</td>
+              <td>Deepgram, Inc.</td>
+              <td>USA → EU return</td>
+              <td>Personal — potentially health-adjacent</td>
+              <td><span class="risk risk-high">HIGH</span></td>
+            </tr>
+            <tr>
+              <td>PA-3</td>
+              <td>Local patient data storage</td>
+              <td>PISUM user (institution)</td>
+              <td>None (local)</td>
+              <td>On-premises workstation</td>
+              <td>Special category — health data (Art. 9)</td>
+              <td><span class="risk risk-med">MEDIUM</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ── 03 PA-1 ── -->
+      <div class="prose-section" id="s3">
+        <h2><span class="num">03</span> <span data-i18n="dpia.s3h">PA-1 — Account &amp; subscription data (Supabase)</span></h2>
+
+        <h3 data-i18n="dpia.s3h3a">Description</h3>
+        <p data-i18n="dpia.s3p1">PISUM uses Supabase (PostgreSQL, hosted in eu-west-1 / Ireland) to manage user accounts, authentication tokens, license keys, and subscription status. Data stored: full name, professional email, hashed password (managed by Supabase Auth), license key, OS version, subscription tier, and last login timestamp.</p>
+
+        <h3 data-i18n="dpia.s3h3b">Legal basis</h3>
+        <p data-i18n="dpia.s3p2">GDPR Art. 6(1)(b) — processing necessary for performance of a contract (software license agreement).</p>
+
+        <h3 data-i18n="dpia.s3h3c">Risk analysis</h3>
+        <table class="data-table">
+          <thead><tr><th>Threat</th><th>Likelihood</th><th>Severity</th><th>Risk level</th><th>Mitigation</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Unauthorized access to Supabase database</td>
+              <td>Low (Supabase SOC 2 Type II)</td>
+              <td>Medium (professional data, no health data)</td>
+              <td><span class="risk risk-low">LOW</span></td>
+              <td>Row-level security (RLS), JWT auth, EU hosting</td>
+            </tr>
+            <tr>
+              <td>Email enumeration / account takeover</td>
+              <td>Low</td>
+              <td>Medium</td>
+              <td><span class="risk risk-low">LOW</span></td>
+              <td>Supabase rate limiting, email confirmation, Fernet-encrypted local token storage</td>
+            </tr>
+            <tr>
+              <td>Data breach at Supabase (sub-processor)</td>
+              <td>Very low</td>
+              <td>Medium</td>
+              <td><span class="risk risk-low">LOW</span></td>
+              <td>SCC 2021/914 in place; Supabase notifies controller within 72h per DPA</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 data-i18n="dpia.s3h3d">Mitigations implemented</h3>
+        <ul>
+          <li data-i18n="dpia.s3l1">Supabase hosted exclusively in EU (eu-west-1 / Ireland) — no third-country transfer required.</li>
+          <li data-i18n="dpia.s3l2">Row-Level Security (RLS) policies: each user can only access their own profile row.</li>
+          <li data-i18n="dpia.s3l3">Local auth tokens encrypted with Fernet (AES-128-CBC + HMAC-SHA256) in APPDATA.</li>
+          <li data-i18n="dpia.s3l4">Supabase has signed Standard Contractual Clauses (SCC 2021/914) — DPA in place.</li>
+          <li data-i18n="dpia.s3l5">Retention: account data deleted within 30 days of subscription termination upon request.</li>
+        </ul>
+
+        <div class="info-block green" data-i18n="dpia.ib3">
+          <strong>Residual risk: LOW.</strong> No health data is processed in PA-1. Supabase EU hosting eliminates cross-border transfer risk. RLS and token encryption reduce unauthorized access risk to acceptable levels.
+        </div>
+      </div>
+
+      <!-- ── 04 PA-2 ── -->
+      <div class="prose-section" id="s4">
+        <h2><span class="num">04</span> <span data-i18n="dpia.s4h">PA-2 — Voice dictation (Deepgram)</span></h2>
+
+        <h3 data-i18n="dpia.s4h3a">Description</h3>
+        <p data-i18n="dpia.s4p1">When voice dictation is activated, PISUM streams real-time audio from the user's microphone to Deepgram, Inc. (San Francisco, CA, USA) via WebSocket Secure (WSS/TLS 1.3). Deepgram processes the audio using the Nova-2 Medical model and returns a text transcription. The audio stream is not stored by Deepgram after transcription. No patient identifiers are included in the audio unless explicitly dictated by the user.</p>
+
+        <h3 data-i18n="dpia.s4h3b">Legal basis</h3>
+        <p data-i18n="dpia.s4p2">GDPR Art. 49(1)(a) — explicit consent for third-country transfer. A dedicated consent dialog discloses all risks (including the Deepgram benchmarking risk) before the first activation. Consent is stored locally with timestamp and version.</p>
+
+        <h3 data-i18n="dpia.s4h3c">The benchmarking risk — specific threat</h3>
+        <div class="info-block red" data-i18n="dpia.ib4">
+          <strong>⚠ Identified high risk: Deepgram benchmarking sharing.</strong> Deepgram's data processing policy permits sharing audio recordings with "industry peers" (competitor companies) for model benchmarking and evaluation purposes. Medical audio may include terminology that, in context, is health-adjacent. This represents a material risk that audio could be accessed by third parties outside the DPA relationship.<br/><br/>
+          <strong>Status:</strong> Risk disclosed in consent dialog (v1.1) and in this DPIA. PISUM is seeking a DPA with Deepgram (security@deepgram.com) that explicitly restricts processing to core service delivery and prohibits benchmarking sharing. Until DPA is signed, users must be warned and must actively consent.
+        </div>
+
+        <h3 data-i18n="dpia.s4h3d">Risk analysis</h3>
+        <table class="data-table">
+          <thead><tr><th>Threat</th><th>Likelihood</th><th>Severity</th><th>Risk level</th><th>Mitigation</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Audio interception in transit</td>
+              <td>Very low</td>
+              <td>High (medical content)</td>
+              <td><span class="risk risk-low">LOW</span></td>
+              <td>WSS/TLS 1.3 encryption for all audio streams</td>
+            </tr>
+            <tr>
+              <td>Deepgram storing audio beyond transcription</td>
+              <td>Low (per Deepgram policy)</td>
+              <td>High</td>
+              <td><span class="risk risk-med">MEDIUM</span></td>
+              <td>Deepgram policy: immediate deletion post-transcription. Audit via DPA.</td>
+            </tr>
+            <tr>
+              <td>Deepgram sharing with industry peers (benchmarking)</td>
+              <td>Medium (policy allows it without DPA)</td>
+              <td>High (medical audio)</td>
+              <td><span class="risk risk-high">HIGH</span></td>
+              <td>Explicit consent disclosure; DPA negotiation in progress; manual entry alternative provided</td>
+            </tr>
+            <tr>
+              <td>Patient identifiers dictated into audio</td>
+              <td>Medium (user behavior)</td>
+              <td>Very high (Art. 9 data)</td>
+              <td><span class="risk risk-high">HIGH</span></td>
+              <td>In-app warning; consent dialog explicitly warns users not to dictate identifiers; SCC in place</td>
+            </tr>
+            <tr>
+              <td>Deepgram data breach (USA)</td>
+              <td>Low</td>
+              <td>High</td>
+              <td><span class="risk risk-med">MEDIUM</span></td>
+              <td>SCC 2021/914 + explicit consent (Art. 49(1)(a)); Deepgram deletes audio immediately</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 data-i18n="dpia.s4h3e">Mitigations implemented</h3>
+        <ul>
+          <li data-i18n="dpia.s4l1">Voice dictation <strong>disabled by default</strong>. Cannot be activated without explicit Art. 49(1)(a) consent.</li>
+          <li data-i18n="dpia.s4l2">Consent dialog (v1.1) fully discloses: Deepgram (USA), SCC, benchmarking risk, right to withdraw, manual alternative.</li>
+          <li data-i18n="dpia.s4l3">Consent can be withdrawn at any time from Settings → Privacy, without affecting prior processing.</li>
+          <li data-i18n="dpia.s4l4">Audio streamed over WSS/TLS 1.3 — encrypted in transit.</li>
+          <li data-i18n="dpia.s4l5">Deepgram Nova-2 Medical model: audio deleted immediately after transcription per Deepgram policy.</li>
+          <li data-i18n="dpia.s4l6">Manual text entry available as a zero-transfer alternative.</li>
+          <li data-i18n="dpia.s4l7">DPA negotiation pending with Deepgram (security@deepgram.com) to restrict benchmarking sharing.</li>
+        </ul>
+
+        <div class="info-block amber" data-i18n="dpia.ib4b">
+          <strong>Residual risk: MEDIUM (pending DPA).</strong> The benchmarking sharing risk remains MEDIUM until a DPA is signed with Deepgram that explicitly prohibits sharing with third parties for benchmarking. Once signed, residual risk drops to LOW. Current mitigation: explicit user consent with full risk disclosure.
+        </div>
+      </div>
+
+      <!-- ── 05 PA-3 ── -->
+      <div class="prose-section" id="s5">
+        <h2><span class="num">05</span> <span data-i18n="dpia.s5h">PA-3 — Local patient database (SQLite)</span></h2>
+
+        <h3 data-i18n="dpia.s5h3a">Description</h3>
+        <p data-i18n="dpia.s5p1">PISUM stores radiology reports, patient metadata (name, date of birth, patient ID, study date, modality), and report history in a local SQLite database on the user's workstation. This database constitutes special-category health data under GDPR Art. 9. The institution (clinic/hospital) is the Data Controller for this processing; PISUM acts as a tool (data processor in the local context).</p>
+
+        <h3 data-i18n="dpia.s5h3b">Legal basis</h3>
+        <p data-i18n="dpia.s5p2">GDPR Art. 9(2)(h) — processing necessary for the provision of health care by healthcare professionals subject to professional secrecy obligations.</p>
+
+        <h3 data-i18n="dpia.s5h3c">Risk analysis</h3>
+        <table class="data-table">
+          <thead><tr><th>Threat</th><th>Likelihood</th><th>Severity</th><th>Risk level</th><th>Mitigation</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Unauthorized local access (stolen workstation)</td>
+              <td>Medium</td>
+              <td>Very high (Art. 9 health data)</td>
+              <td><span class="risk risk-high">HIGH</span></td>
+              <td>AES-256-GCM database encryption; Windows login required; role-based access control</td>
+            </tr>
+            <tr>
+              <td>Unauthorized network access</td>
+              <td>Low (local-only architecture)</td>
+              <td>Very high</td>
+              <td><span class="risk risk-low">LOW</span></td>
+              <td>No network exposure; database never leaves local filesystem</td>
+            </tr>
+            <tr>
+              <td>Insider access by unauthorized user</td>
+              <td>Medium</td>
+              <td>High</td>
+              <td><span class="risk risk-med">MEDIUM</span></td>
+              <td>Role-based access (admin/radiologist/technician/secretary); audit log for all accesses</td>
+            </tr>
+            <tr>
+              <td>Data loss (hardware failure, ransomware)</td>
+              <td>Medium</td>
+              <td>High</td>
+              <td><span class="risk risk-med">MEDIUM</span></td>
+              <td>Export to PDF/DICOM SR; institution responsible for backup (HIPAA §164.308(a)(7)); PISUM does not manage backups</td>
+            </tr>
+            <tr>
+              <td>Residual data in deleted records</td>
+              <td>Low</td>
+              <td>Medium</td>
+              <td><span class="risk risk-low">LOW</span></td>
+              <td>SQLite PRAGMA secure_delete=ON; WAL journal cleared on close</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 data-i18n="dpia.s5h3d">Mitigations implemented</h3>
+        <ul>
+          <li data-i18n="dpia.s5l1"><strong>AES-256-GCM</strong> encryption at rest for the entire SQLite database file.</li>
+          <li data-i18n="dpia.s5l2"><strong>PRAGMA secure_delete=ON</strong> — deleted rows are overwritten with zeros (no data remanence).</li>
+          <li data-i18n="dpia.s5l3"><strong>WAL mode</strong> (Write-Ahead Logging) for crash safety; journal cleared on application close.</li>
+          <li data-i18n="dpia.s5l4"><strong>Role-based access control</strong> enforced at application layer: secretary cannot access all patient records; roles are assigned by admin.</li>
+          <li data-i18n="dpia.s5l5"><strong>Audit log</strong> in encrypted database records all data access events (who, what, when).</li>
+          <li data-i18n="dpia.s5l6"><strong>Session timeout</strong>: session revoked on application exit, requiring re-authentication on next launch.</li>
+          <li data-i18n="dpia.s5l7"><strong>Foreign keys enabled</strong> (PRAGMA foreign_keys=ON) — referential integrity prevents orphaned sensitive records.</li>
+        </ul>
+
+        <div class="info-block green" data-i18n="dpia.ib5">
+          <strong>Residual risk: LOW-MEDIUM.</strong> The primary residual risk is physical theft of the workstation. This is mitigated by AES-256-GCM encryption — a stolen disk without the decryption key is unreadable. Backup responsibility lies with the institution per their own data management policy.
+        </div>
+      </div>
+
+      <!-- ── 06 RISK SUMMARY ── -->
+      <div class="prose-section" id="s6">
+        <h2><span class="num">06</span> <span data-i18n="dpia.s6h">Risk summary</span></h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Processing activity</th>
+              <th>Initial risk</th>
+              <th>Key mitigation</th>
+              <th>Residual risk</th>
+              <th>Action required</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>PA-1: Account data (Supabase EU)</td>
+              <td><span class="risk risk-low">LOW</span></td>
+              <td>EU hosting, RLS, SCC, Fernet tokens</td>
+              <td><span class="risk risk-low">LOW</span></td>
+              <td>None</td>
+            </tr>
+            <tr>
+              <td>PA-2: Voice dictation (Deepgram USA) — transit &amp; storage</td>
+              <td><span class="risk risk-high">HIGH</span></td>
+              <td>WSS/TLS 1.3, immediate audio deletion, explicit consent</td>
+              <td><span class="risk risk-low">LOW</span></td>
+              <td>None (mitigated)</td>
+            </tr>
+            <tr>
+              <td>PA-2: Voice dictation — benchmarking sharing</td>
+              <td><span class="risk risk-high">HIGH</span></td>
+              <td>Full risk disclosure in consent dialog; manual alternative</td>
+              <td><span class="risk risk-med">MEDIUM</span></td>
+              <td><strong>Sign DPA with Deepgram</strong> (in progress)</td>
+            </tr>
+            <tr>
+              <td>PA-3: Local database (workstation)</td>
+              <td><span class="risk risk-med">MEDIUM</span></td>
+              <td>AES-256-GCM, RBAC, secure_delete, audit log</td>
+              <td><span class="risk risk-low">LOW</span></td>
+              <td>None</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ── 07 RESIDUAL RISK ── -->
+      <div class="prose-section" id="s7">
+        <h2><span class="num">07</span> <span data-i18n="dpia.s7h">Residual risk &amp; conclusion</span></h2>
+        <p data-i18n="dpia.s7p1">After implementation of all identified mitigations, the overall residual risk profile of PISUM v2.x is assessed as <strong>MEDIUM</strong> — driven entirely by the Deepgram benchmarking risk (PA-2) which will be reduced to LOW once a DPA is signed with Deepgram.</p>
+
+        <h3 data-i18n="dpia.s7h3a">Outstanding action items</h3>
+        <ul>
+          <li data-i18n="dpia.s7l1"><strong>[Priority: HIGH]</strong> Sign DPA with Deepgram Inc. (contact: <a href="mailto:security@deepgram.com">security@deepgram.com</a>) — restricting processing to core service delivery and prohibiting benchmarking sharing. Target: within 60 days of this DPIA.</li>
+          <li data-i18n="dpia.s7l2"><strong>[Priority: MEDIUM]</strong> Implement in-app warning when user dictates content that appears to include patient name or ID formats (regex heuristic).</li>
+          <li data-i18n="dpia.s7l3"><strong>[Priority: LOW]</strong> Evaluate feasibility of on-device STT (Whisper.cpp) as a Deepgram alternative for users with strict data sovereignty requirements.</li>
+        </ul>
+
+        <h3 data-i18n="dpia.s7h3b">DPIA review schedule</h3>
+        <p data-i18n="dpia.s7p2">This DPIA shall be reviewed:</p>
+        <ul>
+          <li data-i18n="dpia.s7l4">Every 12 months, or</li>
+          <li data-i18n="dpia.s7l5">Upon any significant change to processing activities (new sub-processor, new data category, new feature using personal data), or</li>
+          <li data-i18n="dpia.s7l6">Following a data breach or security incident affecting personal data.</li>
+        </ul>
+
+        <div class="info-block cyan" data-i18n="dpia.ib7">
+          <strong>Conclusion:</strong> Processing by PISUM v2.x is technically and legally justified under GDPR. All high-risk processing activities are covered by appropriate legal bases (Art. 6, Art. 9, Art. 49(1)(a)) and proportionate technical safeguards. The one outstanding MEDIUM risk (Deepgram benchmarking) is managed by full disclosure and explicit consent, with an ongoing DPA negotiation to eliminate it. PISUM may proceed with processing.
+        </div>
+      </div>
+
+      <!-- ── 08 SIGN-OFF ── -->
+      <div class="prose-section" id="s8">
+        <h2><span class="num">08</span> <span data-i18n="dpia.s8h">DPO consultation &amp; sign-off</span></h2>
+
+        <p data-i18n="dpia.s8p1">In accordance with GDPR Art. 35(2), the Data Protection Officer has been consulted during the preparation of this DPIA and has provided the following assessment.</p>
+
+        <h3 data-i18n="dpia.s8h3">DPO opinion</h3>
+        <div class="info-block green" data-i18n="dpia.ib8">
+          <strong>Opinion: FAVOURABLE — subject to one condition.</strong><br/>
+          The DPO finds that PISUM v2.x processing is proportionate, lawful, and based on appropriate legal bases. The DPO endorses the mitigations implemented for PA-1 and PA-3. For PA-2, the DPO endorses proceeding with explicit consent under Art. 49(1)(a) as an interim measure, and <strong>requires that a DPA with Deepgram be signed within 90 days</strong> of this DPIA date. The DPO will re-evaluate PA-2 upon receipt of the signed DPA.
+        </div>
+
+        <div class="sig-block">
+          <div class="sig-row">
+            <div class="sig-item">
+              <label>Organization</label>
+              <div class="val">PISUM</div>
+            </div>
+            <div class="sig-item">
+              <label>DPIA version</label>
+              <div class="val">1.0</div>
+            </div>
+            <div class="sig-item">
+              <label>Date</label>
+              <div class="val">May 2026</div>
+            </div>
+            <div class="sig-item">
+              <label>DPO review</label>
+              <div class="val signed">✓ Reviewed — May 2026</div>
+            </div>
+            <div class="sig-item">
+              <label>DPO contact</label>
+              <div class="val"><a href="mailto:support@pisum.app">support@pisum.app</a></div>
+            </div>
+            <div class="sig-item">
+              <label>Next review</label>
+              <div class="val">May 2027 (or earlier if processing changes)</div>
+            </div>
+          </div>
+        </div>
+
+        <p data-i18n="dpia.s8p2" style="margin-top:1.5rem">For questions about this DPIA, contact the DPO at <a href="mailto:support@pisum.app">support@pisum.app</a> with subject line <code style="font-family:var(--fm);font-size:0.85em;color:var(--cyan)">[DPIA]</code>. The full privacy policy is available at <a href="rgpd.html">pisum.app/rgpd.html</a>. The DPO designation is available at <a href="dpo.html">pisum.app/dpo.html</a>.</p>
+      </div>
+
+    </article>
+  </div>
+</div>
+</main>
+
+<footer style="background: #09090f; border-top: 1px solid rgba(255,255,255,0.05); padding: 2.5rem 0; width: 100%; position: relative; z-index: 10; margin-top: auto;">
+  <div style="max-width: 1160px; margin: 0 auto; padding: 0 clamp(1.25rem, 5vw, 3rem);">
+    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;">
+      <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; color: #ffffff; font-size: 0.95rem; font-family: 'Clash Display', sans-serif;">
+        <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="Logo" style="width: 26px; height: 26px; border-radius: 6px;"/>
+        PISUM
+      </div>
+      <p data-i18n="dpia.p_copy" style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin: 0;">© 2026 PISUM. All rights reserved.</p>
+      <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; font-family: 'Plus Jakarta Sans', sans-serif;">
+        <a href="rgpd.html" data-i18n="dpia.a_3" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Privacy</a>
+        <a href="terms.html" data-i18n="dpia.a_4" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Terms</a>
+        <a href="dpia.html" data-i18n="dpia.a_5" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">DPIA</a>
+        <a href="dpo.html" data-i18n="dpia.a_6" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">DPO</a>
+        <a href="contact.html" data-i18n="dpia.a_7" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const ham = document.getElementById('ham'), nl = document.getElementById('nav-links');
+if(ham) ham.addEventListener('click', () => nl.classList.toggle('open'));
+const sections = document.querySelectorAll('.prose-section');
+const tocLinks = document.querySelectorAll('.toc-list a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 100) current = s.id; });
+  tocLinks.forEach(a => { a.classList.toggle('toc-active', a.getAttribute('href') === '#'+current); });
+});
+</script>
+<script src="i18n.js"></script>
+</body>
+</html>

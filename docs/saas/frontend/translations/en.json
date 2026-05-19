@@ -1,0 +1,339 @@
+{
+  "auth": {
+    "tabs": {
+      "signIn": "Sign In",
+      "createAccount": "Create Account"
+    },
+    "login": {
+      "title": "Welcome back",
+      "subtitle": "Sign in to your PISUM account.",
+      "emailLabel": "Email address",
+      "passwordLabel": "Password",
+      "forgotPassword": "Forgot password?",
+      "submit": "Sign In"
+    },
+    "signup": {
+      "title": "Create your account",
+      "subtitle": "Get started with PISUM — no credit card required.",
+      "nameLabel": "Full name",
+      "nameHint": "Appears on your reports and in the app.",
+      "emailLabel": "Email address",
+      "passwordLabel": "Password",
+      "confirmLabel": "Confirm password",
+      "submit": "Create Account"
+    },
+    "forgot": {
+      "title": "Reset your password",
+      "subtitle": "Enter your email and we'll send you a reset link.",
+      "emailLabel": "Email address",
+      "submit": "Send Reset Link",
+      "back": "← Back to Sign In"
+    },
+    "reset": {
+      "title": "New password",
+      "subtitle": "Choose a new secure password.",
+      "passwordLabel": "New password",
+      "confirmLabel": "Confirm password",
+      "submit": "Save New Password"
+    },
+    "footer": {
+      "viewPlans": "← View plans"
+    }
+  },
+  "dashboard": {
+    "nav": {
+      "label": "Navigation",
+      "overview": "Overview",
+      "usage": "Usage",
+      "billing": "Billing",
+      "profile": "Profile",
+      "signOut": "Sign Out"
+    },
+    "hero": {
+      "eyebrow": "My Account",
+      "title": "My Account",
+      "subtitle": "Manage your subscription and access PISUM.",
+      "statusTitle": "Checking access…",
+      "statusDesc": "Please wait.",
+      "manageBilling": "Manage Billing",
+      "changePlan": "Change Plan →"
+    },
+    "onboarding": {
+      "title": "👋 Get started with PISUM",
+      "subtitle": "3 steps to your first radiology report",
+      "step1": {
+        "title": "Download &amp; install PISUM",
+        "desc": "One .exe installer for Windows 10/11. Takes under a minute.",
+        "download": "Download for Windows"
+      },
+      "step2": {
+        "title": "Open PISUM and sign in",
+        "desc": "Launch the app after installation. Sign in with the same email and password you used here."
+      },
+      "step3": {
+        "title": "Create your first report",
+        "desc": "Choose a template by modality — CT, MRI, X-Ray, or Ultrasound. Fill in your findings and export to PDF."
+      }
+    },
+    "stats": {
+      "nextBilling": "Next Billing",
+      "expires": "Expires",
+      "billingCycle": "Billing Cycle",
+      "memberSince": "Member Since"
+    },
+    "usage": {
+      "title": "This Month's Usage"
+    },
+    "features": {
+      "title": "Included Features",
+      "viewPlans": "View all plans →"
+    },
+    "team": {
+      "title": "Team &amp; Seats",
+      "included": "Included",
+      "extra": "Extra",
+      "total": "Total users",
+      "addInfo": "<strong>Add extra users</strong> — €69 / user / month.<br/>\n                Billed as a separate recurring add-on. Manage via billing portal."
+    },
+    "danger": {
+      "title": "Danger Zone",
+      "cancelSub": "Cancel Subscription",
+      "deleteAccount": "Delete Account",
+      "cancelingNotice": "Your subscription is set to cancel at the end of the current billing period. You still have full access until then."
+    },
+    "subscribe": {
+      "title": "Choose your plan",
+      "desc": "Select the plan that fits your practice and proceed to secure checkout.",
+      "monthly": "Monthly",
+      "annual": "Annual",
+      "save20": "−20%",
+      "continue": "Continue"
+    },
+    "profile": {
+      "title": "Profile",
+      "editProfile": "Edit Profile",
+      "changePassword": "Change Password"
+    },
+    "profileModal": {
+      "title": "Edit Profile",
+      "avatarHint": "Click the photo to change it (max 2 MB)",
+      "fullName": "Full Name",
+      "phone": "Phone",
+      "specialty": "Specialty",
+      "organization": "Organization / Practice",
+      "city": "City",
+      "country": "Country",
+      "cancel": "Cancel",
+      "save": "Save"
+    },
+    "cancelModal": {
+      "title": "Cancel Subscription",
+      "desc": "Your subscription will remain active until the end of the current billing period.\n      After that, your account will revert to the Free plan.",
+      "hint": "Type <strong style=\"color:var(--t1)\">CANCEL</strong> below to confirm:",
+      "keep": "Keep Subscription",
+      "confirm": "Cancel Subscription"
+    },
+    "pwModal": {
+      "title": "Change Password",
+      "newPassword": "New Password",
+      "confirmPassword": "Confirm New Password",
+      "cancel": "Cancel",
+      "submit": "Update Password"
+    },
+    "deleteModal": {
+      "title": "Delete Account",
+      "desc": "This action is <strong style=\"color:var(--t1)\">permanent and irreversible</strong>. All your data, reports, and subscription will be deleted immediately.",
+      "hint": "Type <strong style=\"color:var(--t1)\">DELETE</strong> below to confirm:",
+      "cancel": "Cancel",
+      "confirm": "Delete My Account"
+    }
+  },
+  "pricing": {
+    "pageTitle": "PISUM — Pricing for Medical Professionals",
+    "nav": {
+      "signIn": "Sign in",
+      "mySubscription": "My subscription"
+    },
+    "hero": {
+      "eyebrow": "Radiology Software · AI-Powered · GDPR Compliant",
+      "title": "Professional tools,<br/><span>built for radiologists</span>",
+      "subtitle": "From independent radiologist to multi-site clinic — PISUM adapts to your practice with structured templates, AI dictation, and local data control.",
+      "ctaPrimary": "Start for free — no card needed",
+      "ctaSecondary": "Compare plans"
+    },
+    "trust": {
+      "gdpr": "GDPR Compliant",
+      "local": "Data stays local — no cloud upload",
+      "builtFor": "Built for radiologists",
+      "clinics": "Used in clinics across Europe",
+      "fast": "Reports completed in under 60 seconds"
+    },
+    "billing": {
+      "monthly": "Monthly",
+      "annual": "Annual",
+      "save20": "−20%",
+      "guarantee": "No cloud upload of patient data  ·  GDPR compliant  ·  Local-first"
+    },
+    "plans": {
+      "free": {
+        "tag": "Free",
+        "name": "Pisum Free",
+        "subtitle": "Discover PISUM",
+        "period": "/ month",
+        "microcopy": "No credit card needed",
+        "cta": "Get started",
+        "f1": "10 templates",
+        "f2": "2 languages",
+        "f3": "PDF Export",
+        "f4": "Word Export",
+        "f5": "AI Dictation (30 min/mo)",
+        "f6": "AI Enhancer (10 uses/mo)",
+        "f7": "Limited Worklist",
+        "f8": "50 reports / month"
+      },
+      "starter": {
+        "tag": "Starter",
+        "name": "Pisum Starter",
+        "subtitle": "Solo radiologist",
+        "period": "/ month",
+        "microcopy": "Billed monthly",
+        "trial": "14-day free trial · No card required",
+        "cta": "Try Starter free — 14 days",
+        "f1": "20 templates",
+        "f2": "23 languages",
+        "f3": "PDF + Word Export",
+        "f4": "HTML Export",
+        "f5": "AI Dictation (500 min/mo)",
+        "f6": "AI Enhancer (50/mo)",
+        "f7": "Basic Worklist",
+        "f8": "Unlimited reports"
+      },
+      "pro": {
+        "ribbon": "Most Popular",
+        "tag": "Pro ⭐",
+        "name": "Pisum Pro",
+        "subtitle": "Advanced practitioner, all-in-one",
+        "period": "/ month",
+        "microcopy": "Billed monthly",
+        "trial": "14-day free trial · No card required",
+        "cta": "Try Pro free — 14 days",
+        "f1": "112+ templates",
+        "f2": "23 languages",
+        "f3": "PDF + Word + HTML Export",
+        "f4": "AI Dictation (2,000 min/mo)",
+        "f5": "AI Enhancer (200/mo)",
+        "f6": "Report Translation (100/mo)",
+        "f7": "Full Worklist",
+        "f8": "Basic Statistics",
+        "f9": "Priority support"
+      },
+      "expert": {
+        "ribbon": "Best Value",
+        "tag": "Expert 🔥",
+        "name": "Pisum Expert",
+        "subtitle": "No limits, full power",
+        "period": "/ month",
+        "microcopy": "Billed monthly",
+        "trial": "14-day free trial · No card required",
+        "cta": "Try Expert free — 14 days",
+        "f1": "112+ custom templates",
+        "f2": "23 languages",
+        "f3": "PDF + Word + HTML Export",
+        "f4": "AI Dictation (Unlimited)",
+        "f5": "AI Enhancer (Unlimited)",
+        "f6": "Report Translation (Unlimited)",
+        "f7": "Advanced Worklist",
+        "f8": "Full Statistics",
+        "f9": "LAN Sync (1 site · 3 PCs)"
+      },
+      "clinic": {
+        "ribbon": "For Clinics",
+        "tag": "Clinic 🏥",
+        "name": "Pisum Clinic",
+        "subtitle": "Multi-site · Team management",
+        "period": "/ month",
+        "microcopy": "5 users incl. · +€69/extra user",
+        "cta": "Contact us",
+        "extraUsers": "Need more than 5 users? Add extra seats from your dashboard after subscribing.",
+        "usersCount": "5 users",
+        "f1": "Custom templates",
+        "f2": "5 users incl. (+€69/extra)",
+        "f3": "23 languages",
+        "f4": "PDF + Word + HTML Export",
+        "f5": "AI Dictation (Unlimited)",
+        "f6": "AI Enhancer (Unlimited)",
+        "f7": "Report Translation (Unlimited)",
+        "f8": "Multi-site Worklist",
+        "f9": "Advanced stats + onboarding",
+        "f10": "LAN Sync (multi-site · unlimited)"
+      }
+    },
+    "guarantee": "<span style=\"color:var(--app-success);font-weight:700\">✓</span> 30-day money-back guarantee on all paid plans  · \n    <span style=\"color:var(--app-success);font-weight:700\">✓</span> Cancel anytime, no lock-in",
+    "value": {
+      "eyebrow": "Why professionals choose PISUM",
+      "heading": "A tool that respects your workflow",
+      "card1": {
+        "title": "Local-first privacy",
+        "desc": "Patient reports stay on your machine. No clinical data ever leaves your computer — no cloud upload, full GDPR compliance."
+      },
+      "card2": {
+        "title": "112+ radiology templates",
+        "desc": "Structured reports for every modality — MRI, CT, echography, and more. In 23 languages, ready for immediate use."
+      },
+      "card3": {
+        "title": "AI Dictation &amp; Enhancer",
+        "desc": "Dictate reports hands-free and improve wording with AI — designed specifically for radiology terminology and phrasing."
+      },
+      "card4": {
+        "title": "LAN Network Sync",
+        "desc": "Share the same worklist across all workstations in your clinic — no cloud, instant sync via your local network."
+      }
+    },
+    "compare": {
+      "title": "Detailed comparison",
+      "subtitle": "See exactly what's included at each level — pick what fits your practice."
+    },
+    "lansync": {
+      "title": "How LAN Network Sync works",
+      "subtitle": "Share patient data across workstations on your local network — no cloud, no latency, no GDPR risk.",
+      "step1": {
+        "title": "1. Set up a shared folder",
+        "desc": "Point PISUM to a shared network folder (NAS, SMB share, or mapped drive). All workstations on the same network access the same database."
+      },
+      "step2": {
+        "title": "2. One shared password",
+        "desc": "The database is AES-256 encrypted. Set one password on the first workstation — all other PCs enter the same password to connect."
+      },
+      "step3": {
+        "title": "3. Instant sync across PCs",
+        "desc": "Each workstation reads and writes directly to the shared database. Changes appear instantly across all connected computers."
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "intro": "Everything you need to know before subscribing.",
+      "q1": "Can I change my plan at any time?",
+      "a1": "Yes — upgrade or cancel your subscription at any time from your dashboard. Changes take effect immediately.",
+      "q2": "Is there a minimum commitment?",
+      "a2": "No. All plans are month-to-month with no lock-in. Annual billing saves 20% and includes a free first month during the launch period.",
+      "q3": "Is the Free plan truly free?",
+      "a3": "Yes — no credit card, no time limit. The Free plan lets you explore PISUM with 10 templates, 50 reports per month, and PDF export. Upgrade whenever you're ready.",
+      "q4": "How does AI Dictation work?",
+      "a4": "AI Dictation converts your voice into structured radiology report text in real time. It runs via a secure API — audio is never stored. Your monthly quota resets on the 1st of each month.",
+      "q5": "Is payment secure?",
+      "a5": "All payments are processed by Lemon Squeezy, a PCI-compliant payment platform. PISUM never stores your banking details.",
+      "q6": "Where is my data stored? Is PISUM GDPR-compliant?",
+      "a6": "Your patient reports are stored locally on your machine — PISUM never uploads clinical data to the cloud. Account data (name, email, subscription status) is hosted on Supabase with EU servers. PISUM is fully GDPR-compliant.",
+      "q7": "Does PISUM require an internet connection?",
+      "a7": "Yes. PISUM requires an active internet connection for AI Dictation, AI Enhancer, and subscription management. Your patient reports and templates are stored locally on your machine, but AI features connect securely to our cloud API.",
+      "q8": "Is there a free trial for paid plans?",
+      "a8": "The Free plan is a permanent free tier — no time limit, no credit card. Starter, Pro, and Expert all include a 14-day free trial so you can experience the full feature set risk-free before being charged. All paid plans are backed by a 30-day money-back guarantee."
+    },
+    "footer": {
+      "questions": "Questions?",
+      "createAccount": "Create an account",
+      "mySubscription": "My subscription",
+      "support": "Support"
+    }
+  }
+}
