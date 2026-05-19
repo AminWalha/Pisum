@@ -1183,26 +1183,3 @@ window.piwSend=function(){
 <!-- ── end AI Agent Widget ── -->
 </body>
 </html>
-);
-    const data=await r.json();
-    t.remove();
-    addMsg('ai',data.reply||data.error);
-  }catch{
-    t.remove();
-    addMsg('ai','Connection error. Please try again.');
-  }
-  btn.disabled=false;
-};
-
-window.piwSend=function(){
-  const inp=document.getElementById('piw-input');
-  const q=inp.value.trim();
-  if(!q)return;
-  inp.value='';
-  piwAsk(q);
-};
-})();
-</script>
-<!-- ── end AI Agent Widget ── -->
-</body>
-</html>
