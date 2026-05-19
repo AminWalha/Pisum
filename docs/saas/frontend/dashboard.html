@@ -1222,7 +1222,7 @@ function buildClinicFeatures(subInfo) {
   ];
 }
 
-function renderAccess({ access, reason, plan }, subInfo = {}) {
+async function renderAccess({ access, reason, plan }, subInfo = {}) {
   const activeCard = document.getElementById('active-card');
   const subCard    = document.getElementById('sub-card');
 
