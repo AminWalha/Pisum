@@ -884,7 +884,7 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
           <div class="danger-zone">
             <div class="danger-title" data-i18n="dashboard.danger.title">Danger Zone</div>
             <div class="danger-actions">
-              <button class="btn-cancel-sub" id="btn-cancel-sub" onclick="openCancelModal()" style="display:none" data-i18n="dashboard.danger.cancelSub">Cancel Subscription</button>
+              <button class="btn-cancel-sub" id="btn-cancel-sub" onclick="openCancelModal()" style="display:none">Cancel Subscription</button>
               <button class="btn-danger-outline" onclick="openDeleteModal()" data-i18n="dashboard.danger.deleteAccount">Delete Account</button>
             </div>
             <p id="canceling-notice" style="display:none;font-size:0.763rem;color:var(--amber);margin-top:0.625rem;line-height:1.55" data-i18n="dashboard.danger.cancelingNotice">
@@ -997,7 +997,7 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
       Your subscription will remain active until the end of the current billing period.
       After that, your account will revert to the Free plan.
     </p>
-    <p class="confirm-hint" data-i18n="dashboard.cancelModal.hint">Type <strong style="color:var(--t1)">CANCEL</strong> below to confirm:</p>
+    <p class="confirm-hint">Type <strong style="color:var(--t1)">CANCEL</strong> below to confirm:</p>
     <input class="confirm-input" id="cancel-confirm-input" type="text" placeholder="CANCEL" oninput="validateCancelInput()" data-i18n="[placeholder]dashboard.cancelModal.placeholder">
     <div class="modal-msg" id="cancel-modal-msg"></div>
     <div class="modal-actions">
@@ -1037,7 +1037,7 @@ main{max-width:880px;margin:0 auto;padding:0 1.5rem 5rem}
     <p style="font-size:0.838rem;color:var(--t2);line-height:1.65" data-i18n="dashboard.deleteModal.desc">
       This action is <strong style="color:var(--t1)">permanent and irreversible</strong>. All your data, reports, and subscription will be deleted immediately.
     </p>
-    <p class="confirm-hint" data-i18n="dashboard.deleteModal.hint">Type <strong style="color:var(--t1)">DELETE</strong> below to confirm:</p>
+    <p class="confirm-hint">Type <strong style="color:var(--t1)">DELETE</strong> below to confirm:</p>
     <input class="confirm-input" id="delete-confirm-input" type="text" placeholder="DELETE" oninput="validateDeleteInput()" data-i18n="[placeholder]dashboard.deleteModal.placeholder">
     <div class="modal-msg" id="delete-modal-msg"></div>
     <div class="modal-actions">
