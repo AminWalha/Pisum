@@ -161,6 +161,13 @@ function injectFuturisticLangPicker() {
             transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.4);
         }
+        @media(max-width:640px){
+            .pisum-lang-wrapper { margin-right: 4px; margin-bottom: 0; }
+            .pisum-lang-btn { padding: 6px 10px; font-size: 0.78rem; gap: 5px; }
+            .pisum-lang-btn svg { width: 14px; height: 14px; }
+            .pisum-lang-btn .icon-chevron { display: none; }
+            .pisum-lang-dropdown { width: 190px; }
+        }
         .pisum-lang-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 12px 30px rgba(59, 110, 248, 0.2), 0 4px 10px rgba(59, 110, 248, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.6);
