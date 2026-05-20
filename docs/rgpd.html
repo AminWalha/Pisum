@@ -253,23 +253,20 @@ footer {
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
 (function(){
-  const sb=supabase.createClient('https://lepqbnhrdgfetoysedbq.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlcHFibmhyZGdmZXRveXNlZGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwNjQ1MDAsImV4cCI6MjA5MDY0MDUwMH0.St12IwG0_RRKzxrbH1QRolCC2OOAaSIsK4PDmlR2Loo');
-  sb.auth.getSession().then(async({data})=>{
-    if(!data.session)return;
-    const u=data.session.user;
-    const name=u.user_metadata?.full_name||u.email.split('@')[0];
-    document.getElementById('nav-cta').style.display='none';
-    if(document.getElementById('nav-signin')) document.getElementById('nav-signin').style.display='none';
-    document.getElementById('nav-profile-name').textContent=name;
-    document.getElementById('nav-profile-email').textContent=u.email;
-    document.getElementById('nav-profile').style.display='flex';
-    document.getElementById('nav-signout').addEventListener('click',async()=>{await sb.auth.signOut();window.location.reload();});
-    const img=document.getElementById('nav-profile-img');
-    const showI=()=>{img.style.display='none';const el=document.getElementById('nav-profile-initials');el.textContent=name.charAt(0).toUpperCase();el.style.display='flex';};
-    const{data:prof}=await sb.from('profiles').select('avatar_url').eq('user_id',u.id).maybeSingle();
-    const av=prof?.avatar_url||u.user_metadata?.avatar_url||u.user_metadata?.picture;
-    if(av){img.onload=()=>{img.style.display='';};img.onerror=showI;img.src=av;}else{showI();}
-  });
+  function getPisumUser(){var m=document.cookie.match(/(?:^|;\s*)pisum_user=([^;]+)/);if(!m)return null;try{return JSON.parse(decodeURIComponent(m[1]));}catch{return null;}}
+  var u=getPisumUser();
+  if(!u)return;
+  ['nav-cta','nav-signin','nav-subscribe'].forEach(function(id){var el=document.getElementById(id);if(el)el.style.display='none';});
+  document.getElementById('nav-profile-name').textContent=u.name;
+  document.getElementById('nav-profile-email').textContent=u.email;
+  document.getElementById('nav-profile').style.display='flex';
+  var img=document.getElementById('nav-profile-img');
+  var initEl=document.getElementById('nav-profile-initials');
+  initEl.textContent=u.name.charAt(0).toUpperCase();initEl.style.display='flex';
+  if(u.avatar){img.onload=function(){initEl.style.display='none';img.style.display='';};img.onerror=function(){};img.src=u.avatar;}
+  function signOut(){document.cookie='pisum_user=; domain=.pisum.app; path=/; max-age=0; SameSite=Lax; Secure';window.location.href='https://auth.pisum.app/?signout=1';}
+  document.getElementById('nav-signout').addEventListener('click',signOut);
+  var mob=document.getElementById('nav-mobile-signout');if(mob){mob.style.display='';document.getElementById('nav-mobile-signout-btn').addEventListener('click',function(e){e.preventDefault();signOut();});}
 })();
 </script>
 
