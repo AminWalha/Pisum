@@ -740,7 +740,7 @@ button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action
 <div class="nav-right">
 
 <a class="nav-login" data-i18n="index.a_4" href="https://auth.pisum.app/" id="nav-signin">Sign in</a>
-<a class="btn btn-primary btn-sm" data-i18n="index.a_5" href="saas/frontend/pricing.html" id="nav-subscribe" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600;">Subscribe</a>
+<a class="btn btn-primary btn-sm" data-i18n="index.a_5" href="https://auth.pisum.app/pricing.html" id="nav-subscribe" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600;">Subscribe</a>
 <div class="nav-profile" id="nav-profile" style="display:none">
 <a class="nav-profile-link" href="https://auth.pisum.app/dashboard.html">
 <img alt="" class="nav-profile-avatar" id="nav-profile-img" src="" style="display:none"/>
@@ -1667,31 +1667,9 @@ function toggleBill(){
   document.querySelectorAll('.bill-note').forEach(el=>el.style.display=annual?'':'none');
 }
 
-const API_BASE='https://pisum-backend.onrender.com';
-async function subscribe(plan){
-  const{data}=await window.sb.auth.getSession();
-  if(!data.session){
-    window.location.href='#pricing';
-    return;
-  }
-  const btns=document.querySelectorAll('.plan-sub-btn');
-  btns.forEach(b=>{b.disabled=true;b.dataset.orig=b.textContent;b.innerHTML='<span style="display:inline-block;width:12px;height:12px;border:2px solid rgba(0,0,0,.2);border-top-color:currentColor;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle"></span>';});
+function subscribe(plan){
   const interval=document.getElementById('togB').checked?'annual':'monthly';
-  try{
-    const res=await fetch(`${API_BASE}/create-checkout-session`,{
-      method:'POST',
-      headers:{Authorization:`Bearer ${data.session.access_token}`,'Content-Type':'application/json'},
-      body:JSON.stringify({plan,interval})
-    });
-    if(!res.ok){const e=await res.json();throw new Error(e.detail||'Server error');}
-    const{checkout_url}=await res.json();
-    window.location.href=checkout_url;
-  }catch(err){
-    const t=document.getElementById('pisum-err-toast');
-    t.textContent='Error: '+err.message;t.style.display='block';
-    setTimeout(()=>{t.style.display='none';},6000);
-    btns.forEach(b=>{b.disabled=false;b.textContent=b.dataset.orig||'Subscribe';});
-  }
+  window.location.href='https://auth.pisum.app/pricing.html?plan='+plan+'&interval='+interval;
 }
 
 document.querySelectorAll('.feat-card').forEach(c=>{
