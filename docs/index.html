@@ -1192,10 +1192,12 @@ button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action
 <p data-i18n="index.p_31">Dark medical-grade UI. Designed for long reporting sessions in dimly lit reading rooms.</p>
 </div>
 <div class="shots-tabs rv rv-d1">
-<button class="stab on" data-i18n="index.button_35" onclick="switchShot(0,this)">Report Editor</button>
-<button class="stab" data-i18n="index.button_36" onclick="switchShot(1,this)">Dark Mode</button>
-<button class="stab" data-i18n="index.button_37" onclick="switchShot(2,this)">Patient Worklist</button>
-<button class="stab" data-i18n="index.button_38" onclick="switchShot(3,this)">PDF Export</button>
+<button class="stab on" data-i18n="index.button_35" onclick="switchShot(0,this)">Report Section</button>
+<button class="stab" data-i18n="index.button_36" onclick="switchShot(1,this)">AI Assistant</button>
+<button class="stab" data-i18n="index.button_37" onclick="switchShot(2,this)">Medical Translation</button>
+<button class="stab" data-i18n="index.button_38" onclick="switchShot(3,this)">WorkList</button>
+<button class="stab" data-i18n="index.button_51" onclick="switchShot(4,this)">Worklist Report</button>
+<button class="stab" data-i18n="index.button_52" onclick="switchShot(5,this)">Word Print</button>
 </div>
 <div class="shots-frame rv rv-d2">
 <div class="shots-glow"></div>
@@ -1208,15 +1210,17 @@ button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action
 </div>
 </div>
 <div class="shots-img-wrap">
-<img alt="PISUM Patient's File" class="shots-img on" id="shot-0" src="screenshots/Patients File.png"/>
-<img alt="PISUM Dark Mode" class="shots-img" id="shot-1" src="screenshots/screen-report-dark.png"/>
-<img alt="PISUM Patient Worklist" class="shots-img" id="shot-2" src="screenshots/screen-worklist.png"/>
-<img alt="PISUM PDF Export" class="shots-img" id="shot-3" src="screenshots/PDF export.png"/>
+<img alt="PISUM Report Section" class="shots-img on" id="shot-0" src="screenshots/Report Section.png"/>
+<img alt="PISUM AI Assistant" class="shots-img" id="shot-1" src="screenshots/Ai Assistant.png"/>
+<img alt="PISUM Medical Translation" class="shots-img" id="shot-2" src="screenshots/Medical Translation.png"/>
+<img alt="PISUM WorkList" class="shots-img" id="shot-3" src="screenshots/WorkList.png"/>
+<img alt="PISUM Worklist Report" class="shots-img" id="shot-4" src="screenshots/Worklist report.png"/>
+<img alt="PISUM Word Print" class="shots-img" id="shot-5" src="screenshots/Word Print.png"/>
 </div>
 <div class="shots-caption">
 <div class="shots-cap-text">
-<h4 data-i18n="index.h4_8" id="shotTitle">Patient's File</h4>
-<p data-i18n="index.p_32" id="shotDesc">Selection panel + structured report content. Language switcher in the top bar.</p>
+<h4 data-i18n="index.h4_8" id="shotTitle">Report Section</h4>
+<p data-i18n="index.p_32" id="shotDesc">Structured radiology report editor with field-by-field sections, templates, and real-time dictation.</p>
 </div>
 <span class="shots-badge" data-i18n="index.span_61" id="shotBadge">All Plans</span>
 </div>
@@ -1682,10 +1686,12 @@ document.querySelectorAll('.feat-card').forEach(c=>{
 
 /* ---- SCREENSHOTS ---- */
 const shotData=[
-  {title:"Patient's File",desc:'Selection panel + structured report content. Language switcher with 23 flags in the top bar.',badge:'All Plans'},
-  {title:'Dark Mode Interface',desc:'Medical-grade dark theme — easy on the eyes during long reading room sessions.',badge:'All Plans'},
-  {title:'Patient Worklist',desc:'Full patient database with exam history. Double-click any exam to open the report.',badge:'Pro · Clinic'},
-  {title:'PDF Export',desc:'Professionally formatted output with your clinic letterhead, teal section headers, and full patient info.',badge:'All Plans'},
+  {title:'Report Section',desc:'Structured radiology report editor with field-by-field sections, templates, and real-time dictation.',badge:'All Plans'},
+  {title:'AI Assistant',desc:'Sally AI generates, refines, and completes your report text — powered by the latest large language models.',badge:'Pro'},
+  {title:'Medical Translation',desc:'Instantly translate the full report into 23 languages while preserving medical terminology and structure.',badge:'Pro'},
+  {title:'WorkList',desc:'Full patient worklist with exam queue management. Open any exam directly from the list in one click.',badge:'All Plans'},
+  {title:'Worklist Report',desc:'View and edit the linked report directly from the worklist without leaving your workflow.',badge:'All Plans'},
+  {title:'Word Print',desc:'Export a professionally formatted Word document with clinic letterhead, structured sections, and patient info.',badge:'All Plans'},
 ];
 function switchShot(i,btn){
   document.querySelectorAll('.stab').forEach(b=>b.classList.remove('on'));
