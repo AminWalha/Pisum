@@ -1630,6 +1630,15 @@ const tplModMap={
   'Echographie':{label:'US',dm:'US'}
 };
 
+const langToDbLang={
+  en:'Anglais',fr:'Francais',de:'Allemand',es:'Espagnol',
+  it:'Italien',pt:'Portugais',nl:'Neerlandais',ru:'Russe',
+  tr:'Turc',sv:'Suedois',pl:'Polonais',el:'Grec',
+  zh:'Chinois',no:'Norvegien',da:'Danois',ja:'Japonais',
+  ko:'Coreen',hi:'Hindi',id:'Indonesien',th:'Thai',
+  ms:'Malais',tl:'Filipino',ro:'Roumain'
+};
+
 function ftpl(mod,btn){
   document.querySelectorAll('.ttab').forEach(b=>b.classList.remove('on'));
   btn.classList.add('on');
@@ -1638,12 +1647,13 @@ function ftpl(mod,btn){
   });
 }
 
-async function loadTemplates(){
+async function loadTemplates(lang){
   const grid=document.getElementById('tplGrid');
   const skeleton=Array(8).fill(0).map(()=>`<div class="tpl-card" style="pointer-events:none"><div class="tpl-thumb"></div><div class="tpl-body"><div class="tpl-line" style="width:70%;height:14px;border-radius:4px;background:var(--off)"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div>`).join('');
   grid.innerHTML=skeleton;
 
-  const {data,error}=await sb.from('templates').select('id,name,exam_type,plan').eq('language','Anglais').order('exam_type').order('name');
+  const dbLang=langToDbLang[lang]||'Anglais';
+  const {data,error}=await sb.from('templates').select('id,name,exam_type,plan').eq('language',dbLang).order('exam_type').order('name');
   if(error||!data){grid.innerHTML='<p style="color:var(--muted);text-align:center;grid-column:1/-1;padding:2rem">Could not load templates.</p>';return;}
 
   const free=data.filter(t=>t.plan==='free');
@@ -1662,7 +1672,7 @@ async function loadTemplates(){
   }).join('');
 }
 
-loadTemplates();
+document.addEventListener('languageChanged',e=>loadTemplates(e.detail.lang));
 
 const bill={
   m:{starter:29,pro:79,expert:129,clinic:399},
