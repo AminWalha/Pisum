@@ -1555,6 +1555,13 @@ button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action
 </div>
 </div>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+const SUPABASE_URL  = 'https://lepqbnhrdgfetoysedbq.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlcHFibmhyZGdmZXRveXNlZGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwNjQ1MDAsImV4cCI6MjA5MDY0MDUwMH0.St12IwG0_RRKzxrbH1QRolCC2OOAaSIsK4PDmlR2Loo';
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+window.sb = sb;
+</script>
 <script>
 const nav = document.getElementById('nav');
 const bar = document.getElementById('bar');
