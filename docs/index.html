@@ -775,6 +775,10 @@ button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action
   document.getElementById('nav-signout').addEventListener('click',signOut);
   var mob=document.getElementById('nav-mobile-signout');if(mob){mob.style.display='';document.getElementById('nav-mobile-signout-btn').addEventListener('click',function(e){e.preventDefault();signOut();});}
 })();
+sb.auth.getSession().then(function(r){
+  var s=r.data&&r.data.session;
+  if(s)sb.from('subscriptions').update({last_used_at:new Date().toISOString()}).eq('user_id',s.user.id).then(function(){});
+});
 </script>
 <!-- HERO -->
 <section class="hero">
