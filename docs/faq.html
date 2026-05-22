@@ -290,6 +290,7 @@ a { text-decoration: none; color: inherit; }
   function signOut(){document.cookie='pisum_user=; domain=.pisum.app; path=/; max-age=0; SameSite=Lax; Secure';window.location.href='https://auth.pisum.app/?signout=1';}
   document.getElementById('nav-signout').addEventListener('click',signOut);
   var mob=document.getElementById('nav-mobile-signout');if(mob){mob.style.display='';document.getElementById('nav-mobile-signout-btn').addEventListener('click',function(e){e.preventDefault();signOut();});}
+  if(u.access_token&&u.user_id)fetch('https://lepqbnhrdgfetoysedbq.supabase.co/rest/v1/subscriptions?user_id=eq.'+u.user_id,{method:'PATCH',headers:{'apikey':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlcHFibmhyZGdmZXRveXNlZGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwNjQ1MDAsImV4cCI6MjA5MDY0MDUwMH0.St12IwG0_RRKzxrbH1QRolCC2OOAaSIsK4PDmlR2Loo','Authorization':'Bearer '+u.access_token,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({last_used_at:new Date().toISOString()})}).catch(function(){});
 })();
 </script>
 
