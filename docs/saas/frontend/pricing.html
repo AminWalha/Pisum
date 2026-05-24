@@ -489,7 +489,7 @@ footer .sep{margin:0 .5rem;color:var(--app-border)}
   <h1 data-i18n="pricing.hero.title">Professional tools,<br/><span>built for radiologists</span></h1>
   <p data-i18n="pricing.hero.subtitle">From independent radiologist to multi-site clinic — PISUM adapts to your practice with structured templates, AI dictation, and local data control.</p>
   <div class="hero-cta">
-    <a class="btn-hero-primary" href="./" data-i18n="pricing.hero.ctaPrimary">Start for free — no card needed</a>
+    <a class="btn-hero-primary" href="/saas/frontend/auth.html" data-i18n="pricing.hero.ctaPrimary">Start for free — no card needed</a>
     <a class="btn-hero-secondary" href="#compare" data-i18n="pricing.hero.ctaSecondary">Compare plans</a>
   </div>
 </div>
@@ -543,7 +543,7 @@ footer .sep{margin:0 .5rem;color:var(--app-border)}
       <div class="plan-subtitle" data-i18n="pricing.plans.free.subtitle">Discover PISUM</div>
       <div class="plan-price">0 €<span data-i18n="pricing.plans.free.period"> / month</span></div>
       <div class="plan-microcopy" data-i18n="pricing.plans.free.microcopy">No credit card needed</div>
-      <a class="plan-cta cta-ghost" href="./" data-label="Get started" data-i18n="pricing.plans.free.cta">Get started</a>
+      <a class="plan-cta cta-ghost" href="/saas/frontend/auth.html" data-label="Get started" data-i18n="pricing.plans.free.cta">Get started</a>
       <div class="divider"></div>
       <ul class="feat-list">
         <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.free.f1">10 templates</span></li>
@@ -978,7 +978,7 @@ async function init() {
 
 async function subscribe(plan) {
   if (!currentSession) {
-    window.location.href = './auth.html?redirect=pricing.html';
+    window.location.href = '/saas/frontend/auth.html?redirect=/saas/frontend/pricing.html';
     return;
   }
 
