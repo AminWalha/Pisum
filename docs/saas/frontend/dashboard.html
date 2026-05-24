@@ -1138,10 +1138,10 @@ async function init() {
   // This prevents mobile browsers from using a stale access_token that would
   // cause the Render backend to get 403 from Supabase /auth/v1/user.
   const { data: userData, error: userError } = await sb.auth.getUser();
-  if (!userData?.user || userError) { window.location.href = 'https://pisum.app/'; return; }
+  if (!userData?.user || userError) { window.location.href = 'https://pisum.app/saas/frontend/auth.html'; return; }
   // Re-fetch session after getUser() to pick up any auto-refreshed token
   const { data } = await sb.auth.getSession();
-  if (!data.session) { window.location.href = 'https://pisum.app/'; return; }
+  if (!data.session) { window.location.href = 'https://pisum.app/saas/frontend/auth.html'; return; }
   session = data.session;
 
   sb.from('subscriptions').update({ last_used_at: new Date().toISOString() }).eq('user_id', session.user.id).then(() => {});
@@ -1206,10 +1206,13 @@ async function loadAccess() {
     const { data: fresh } = await sb.auth.getSession();
     if (fresh?.session) session = fresh.session;
     const hdrs = { Authorization: `Bearer ${session.access_token}` };
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 15000);
     const [r1, r2] = await Promise.all([
-      fetch(`${API_BASE}/check-access`,        { headers: hdrs }),
-      fetch(`${API_BASE}/subscription-info`,   { headers: hdrs }),
+      fetch(`${API_BASE}/check-access`,      { headers: hdrs, signal: ctrl.signal }),
+      fetch(`${API_BASE}/subscription-info`, { headers: hdrs, signal: ctrl.signal }),
     ]);
+    clearTimeout(timer);
     const accessData = await r1.json();
     currentSubInfo   = r2.ok ? await r2.json() : {};
     renderAccess(accessData, currentSubInfo);

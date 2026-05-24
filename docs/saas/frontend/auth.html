@@ -334,7 +334,7 @@ const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFz
 const { createClient } = supabase;
 const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
 
-const _redirect = new URLSearchParams(window.location.search).get('redirect') || 'https://pisum.app/dashboard.html';
+const _redirect = new URLSearchParams(window.location.search).get('redirect') || 'https://pisum.app/saas/frontend/dashboard.html';
 
 function setPisumCookie(session) {
   const u = session.user;
@@ -444,7 +444,7 @@ async function handleGoogleAuth() {
   });
   const { error } = await sb.auth.signInWithOAuth({
     provider: 'google',
-    options: { redirectTo: 'https://pisum.app/dashboard.html' }
+    options: { redirectTo: 'https://pisum.app/saas/frontend/dashboard.html' }
   });
   if (error) {
     ['btn-google-login','btn-google-signup'].forEach(id => {
@@ -462,7 +462,7 @@ async function handleLinkedInAuth() {
   });
   const { error } = await sb.auth.signInWithOAuth({
     provider: 'linkedin_oidc',
-    options: { redirectTo: 'https://pisum.app/dashboard.html' }
+    options: { redirectTo: 'https://pisum.app/saas/frontend/dashboard.html' }
   });
   if (error) {
     ['btn-linkedin-login','btn-linkedin-signup'].forEach(id => {
