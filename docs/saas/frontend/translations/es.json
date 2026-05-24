@@ -1,0 +1,461 @@
+{
+  "auth": {
+    "tabs": {
+      "signIn": "Iniciar sesión",
+      "createAccount": "Crear cuenta"
+    },
+    "login": {
+      "title": "Bienvenido de nuevo",
+      "subtitle": "Inicie sesión en su cuenta PISUM.",
+      "emailLabel": "Dirección de correo electrónico",
+      "passwordLabel": "Contraseña",
+      "forgotPassword": "¿Olvidaste tu contraseña?",
+      "submit": "Iniciar sesión",
+      "emailPlaceholder": "you@clinic.com",
+      "or": "o",
+      "googleBtn": "Continuar con Google",
+      "linkedinBtn": "Continuar con LinkedIn"
+    },
+    "signup": {
+      "title": "Crea tu cuenta",
+      "subtitle": "Empieza con PISUM — no se requiere tarjeta de crédito.",
+      "nameLabel": "Nombre completo",
+      "nameHint": "Aparece en tus informes y en la aplicación.",
+      "emailLabel": "Dirección de correo electrónico",
+      "passwordLabel": "Contraseña",
+      "confirmLabel": "Confirmar contraseña",
+      "submit": "Crear cuenta",
+      "namePlaceholder": "Dr. Smith",
+      "emailPlaceholder": "you@clinic.com",
+      "passwordPlaceholder": "Mínimo 8 caracteres",
+      "or": "o",
+      "googleBtn": "Registrarse con Google",
+      "linkedinBtn": "Registrarse con LinkedIn"
+    },
+    "forgot": {
+      "title": "Restablece tu contraseña",
+      "subtitle": "Introduce tu correo electrónico y te enviaremos un enlace para restablecerla.",
+      "emailLabel": "Dirección de correo electrónico",
+      "submit": "Enviar enlace de restablecimiento",
+      "back": "← Volver a Iniciar sesión",
+      "emailPlaceholder": "you@clinic.com"
+    },
+    "reset": {
+      "title": "Nueva contraseña",
+      "subtitle": "Elige una nueva contraseña segura.",
+      "passwordLabel": "Nueva contraseña",
+      "confirmLabel": "Confirmar contraseña",
+      "submit": "Guardar nueva contraseña",
+      "passwordPlaceholder": "Mínimo 8 caracteres",
+      "confirmPlaceholder": "••••••••"
+    },
+    "footer": {
+      "viewPlans": "← Ver planes"
+    }
+  },
+  "dashboard": {
+    "nav": {
+      "label": "Navegación",
+      "overview": "Visión general",
+      "usage": "Uso",
+      "billing": "Facturación",
+      "profile": "Perfil",
+      "signOut": "Cerrar sesión"
+    },
+    "hero": {
+      "eyebrow": "Mi cuenta",
+      "title": "Mi cuenta",
+      "subtitle": "Gestiona tu suscripción y accede a PISUM.",
+      "statusTitle": "Comprobando acceso…",
+      "statusDesc": "Por favor, espera.",
+      "manageBilling": "Gestionar facturación",
+      "changePlan": "Cambiar plan →"
+    },
+    "onboarding": {
+      "title": "👋 Empieza con PISUM",
+      "subtitle": "3 pasos para tu primer informe de radiología",
+      "step1": {
+        "title": "Descarga e instala PISUM",
+        "desc": "Un instalador .exe para Windows 10/11. Tarda menos de un minuto.",
+        "download": "Descargar para Windows"
+      },
+      "step2": {
+        "title": "Abre PISUM e inicia sesión",
+        "desc": "Inicia la aplicación después de la instalación. Inicia sesión con el mismo correo electrónico y contraseña que usaste aquí."
+      },
+      "step3": {
+        "title": "Crea tu primer informe",
+        "desc": "Elige una plantilla por modalidad — CT, MRI, Rayos X o Ultrasonido. Rellena tus hallazgos y exporta a PDF."
+      }
+    },
+    "stats": {
+      "nextBilling": "Próxima facturación",
+      "expires": "Expira",
+      "billingCycle": "Ciclo de facturación",
+      "memberSince": "Miembro desde"
+    },
+    "usage": {
+      "title": "Uso de este mes"
+    },
+    "features": {
+      "title": "Funciones incluidas",
+      "viewPlans": "Ver todos los planes →"
+    },
+    "team": {
+      "title": "Equipo y asientos",
+      "included": "Incluido",
+      "extra": "Extra",
+      "total": "Usuarios totales",
+      "addInfo": "<strong>Añade usuarios extra</strong> — €69 / usuario / mes.<br/>\n                Facturado como un complemento recurrente separado. Gestiona a través del portal de facturación."
+    },
+    "danger": {
+      "title": "Zona de peligro",
+      "cancelSub": "Cancelar suscripción",
+      "deleteAccount": "Eliminar cuenta",
+      "cancelingNotice": "Tu suscripción está configurada para cancelarse al final del período de facturación actual. Todavía tienes acceso completo hasta entonces."
+    },
+    "subscribe": {
+      "title": "Elige tu plan",
+      "desc": "Selecciona el plan que se ajuste a tu práctica y procede a una compra segura.",
+      "monthly": "Mensual",
+      "annual": "Anual",
+      "save20": "−20%",
+      "continue": "Continuar"
+    },
+    "profile": {
+      "title": "Perfil",
+      "editProfile": "Editar perfil",
+      "changePassword": "Cambiar contraseña"
+    },
+    "profileModal": {
+      "title": "Editar perfil",
+      "avatarHint": "Haz clic en la foto para cambiarla (máx. 2 MB)",
+      "fullName": "Nombre completo",
+      "phone": "Teléfono",
+      "specialty": "Especialidad",
+      "organization": "Organización / Práctica",
+      "city": "Ciudad",
+      "country": "País",
+      "cancel": "Cancelar",
+      "save": "Guardar",
+      "fullNamePlaceholder": "Dr. Juan Pérez",
+      "phonePlaceholder": "+1 555 000 0000",
+      "specialtyPlaceholder": "Radiología, Resonancia Magnética…",
+      "organizationPlaceholder": "Centro de Imagen de la Ciudad",
+      "cityPlaceholder": "Madrid",
+      "countryPlaceholder": "España"
+    },
+    "cancelModal": {
+      "title": "Cancelar suscripción",
+      "desc": "Tu suscripción permanecerá activa hasta el final del período de facturación actual.\n      Después de eso, tu cuenta volverá al plan Gratuito.",
+      "hint": "Escribe <strong style=\"color:var(--t1)\">CANCELAR</strong> abajo para confirmar:",
+      "keep": "Mantener suscripción",
+      "confirm": "Cancelar suscripción",
+      "placeholder": "CANCELAR"
+    },
+    "pwModal": {
+      "title": "Cambiar contraseña",
+      "newPassword": "Nueva contraseña",
+      "confirmPassword": "Confirmar nueva contraseña",
+      "cancel": "Cancelar",
+      "submit": "Actualizar contraseña",
+      "newPasswordPlaceholder": "Mínimo 8 caracteres",
+      "confirmPasswordPlaceholder": "••••••••"
+    },
+    "deleteModal": {
+      "title": "Eliminar cuenta",
+      "desc": "Esta acción es <strong style=\"color:var(--t1)\">permanente e irreversible</strong>. Todos tus datos, informes y suscripción se eliminarán de inmediato.",
+      "hint": "Escribe <strong style=\"color:var(--t1)\">ELIMINAR</strong> abajo para confirmar:",
+      "cancel": "Cancelar",
+      "confirm": "Eliminar mi cuenta",
+      "placeholder": "ELIMINAR"
+    },
+    "piw_name": "PISUM AI",
+    "piw_status": "En línea — siempre aquí para ayudar",
+    "piw_close": "✕",
+    "piw_msg": "¡Hola! Soy <strong>PISUM AI</strong> 👋<br>Pregúntame cualquier cosa sobre funciones, precios, configuración o plantillas. Te daré una respuesta directa.</br>",
+    "piw_chip1": "¿Qué planes existen?",
+    "piw_chip2": "¿Prueba gratuita?",
+    "piw_chip3": "¿Cómo instalar?",
+    "piw_chip4": "¿Dictado por IA?",
+    "piw_chip5": "¿Cumple con GDPR?",
+    "piw_input": "Haz una pregunta…",
+    "js": {
+      "status_ok_title": "Acceso concedido",
+      "status_ok_desc": "Su suscripción está activa. Inicie la aplicación PISUM para comenzar a redactar informes.",
+      "status_wait_payment_title": "Verificando pago…",
+      "status_wait_payment_desc": "Esperando la confirmación del pago. Esto puede tardar hasta un minuto.",
+      "status_activating_title": "Activando plan gratuito…",
+      "status_activating_desc": "Configurando su cuenta, espere por favor.",
+      "status_err_title": "No hay suscripción activa",
+      "status_err_choose": "Elija un plan para acceder a PISUM.",
+      "status_canceled_desc": "Su suscripción fue cancelada. Resubscríbase para recuperar el acceso.",
+      "status_expired_desc": "Su suscripción ha expirado. Renueve para continuar.",
+      "interval_monthly": "Mensual",
+      "interval_annual": "Anual",
+      "upgrade_title": "Actualizar su plan",
+      "upgrade_desc": "Desbloquee más funciones cambiando a un plan de pago.",
+      "status_active": "Activo",
+      "status_inactive": "Inactivo",
+      "status_canceled": "Cancelado",
+      "status_canceling": "Se cancelará al final del período",
+      "status_expired_badge": "Expirado",
+      "unlimited": "Ilimitado",
+      "resets": "Se reinicia",
+      "tracked_in_app": "Uso rastreado en la aplicación de escritorio",
+      "feat_enhancer": "Mejorador de IA",
+      "feat_dictation": "Dictado de IA",
+      "feat_reports_month": "Informes / Mes",
+      "unit_prompts": "indicaciones",
+      "unit_min": "min",
+      "unit_reports": "informes",
+      "unit_templates": "plantillas",
+      "unit_languages": "idiomas",
+      "unit_language": "idioma",
+      "unit_reports_per_month": "informes / mes",
+      "users_unit": "usuarios",
+      "feat_unlimited_templates": "Plantillas personalizadas ilimitadas",
+      "feat_custom_templates": "Plantillas personalizadas",
+      "feat_23_lang": "23 idiomas",
+      "feat_pdf_word": "Exportación PDF + Word",
+      "feat_pdf": "Exportación PDF",
+      "feat_dict_unlimited": "Dictado de IA (Ilimitado)",
+      "feat_enh_unlimited": "Mejorador de IA (Ilimitado)",
+      "wl_multisite": "Lista de trabajo multi-sitio",
+      "wl_advanced": "Lista de trabajo avanzada",
+      "wl_full": "Lista de trabajo completa",
+      "wl_basic": "Lista de trabajo básica",
+      "wl_generic": "Lista de trabajo",
+      "stats_advanced": "Estadísticas avanzadas",
+      "stats_advanced_export": "Estadísticas avanzadas + exportación",
+      "stats_basic": "Estadísticas básicas",
+      "stats_generic": "Estadísticas",
+      "feat_unlimited_reports": "Informes ilimitados",
+      "feat_unlimited_patients": "Pacientes ilimitados"
+    }
+  },
+  "pricing": {
+    "pageTitle": "PISUM — Precios para Profesionales Médicos",
+    "nav": {
+      "signIn": "Iniciar sesión",
+      "mySubscription": "Mi suscripción"
+    },
+    "hero": {
+      "eyebrow": "Software de Radiología · Potenciado por IA · Cumple con GDPR",
+      "title": "Herramientas profesionales,<br/><span>diseñadas para radiólogos</span>",
+      "subtitle": "Desde radiólogos independientes hasta clínicas multisede — PISUM se adapta a su práctica con plantillas estructuradas, dictado por IA y control de datos local.",
+      "ctaPrimary": "Empieza gratis — sin tarjeta",
+      "ctaSecondary": "Comparar planes"
+    },
+    "trust": {
+      "gdpr": "Cumple con GDPR",
+      "local": "Los informes del paciente permanecen en su máquina — nunca se suben",
+      "builtFor": "Diseñado para radiólogos",
+      "clinics": "Diseñado para radiólogos de toda Europa",
+      "fast": "Informes completados en menos de 60 segundos"
+    },
+    "billing": {
+      "monthly": "Mensual",
+      "annual": "Anual",
+      "save20": "−20%",
+      "guarantee": "Sin carga de datos del paciente en la nube · Cumple con GDPR · Local primero"
+    },
+    "plans": {
+      "free": {
+        "tag": "Gratis",
+        "name": "Pisum Gratis",
+        "subtitle": "Descubre PISUM",
+        "period": "/ mes",
+        "microcopy": "No se requiere tarjeta de crédito",
+        "cta": "Empezar",
+        "f1": "10 plantillas",
+        "f2": "2 idiomas",
+        "f3": "Exportación PDF",
+        "f4": "Exportación Word",
+        "f5": "Dictado IA (30 min ≈ 10–20 CR/mes)",
+        "f6": "Mejorador IA (10 correcciones/mes)",
+        "f7": "Lista de trabajo limitada",
+        "f8": "50 informes / mes"
+      },
+      "starter": {
+        "tag": "Starter",
+        "name": "Pisum Starter",
+        "subtitle": "Tu primer paso hacia informes más rápidos",
+        "period": "/ mes",
+        "microcopy": "Facturado mensualmente",
+        "roi": "Ahorra 30 min/día desde el primer día",
+        "trial": "14 días de prueba gratuita · No se requiere tarjeta",
+        "cta": "Prueba Starter gratis — 14 días",
+        "f1": "20 plantillas",
+        "f2": "23 idiomas",
+        "f3": "Exportación PDF + Word",
+        "f4": "Exportación HTML",
+        "f5": "Dictado IA (500 min ≈ 150–300 CR/mes)",
+        "f6": "Mejorador IA (50 correcciones/mes)",
+        "f7": "Lista de trabajo básica",
+        "f8": "Informes ilimitados"
+      },
+      "pro": {
+        "ribbon": "Más Popular",
+        "tag": "Pro ⭐",
+        "name": "Pisum Pro",
+        "subtitle": "Flujo de trabajo completo para la práctica diaria",
+        "period": "/ mes",
+        "microcopy": "Facturado mensualmente",
+        "roi": "Se amortiza en < 3 días laborables",
+        "trial": "14 días de prueba gratuita · No se requiere tarjeta",
+        "cta": "Prueba Pro gratis — 14 días",
+        "f1": "112+ plantillas",
+        "f2": "23 idiomas",
+        "f3": "Exportación PDF + Word + HTML",
+        "f4": "Dictado IA (2.000 min ≈ 600–1.200 CR/mes)",
+        "f5": "Mejorador IA (200 correcciones/mes)",
+        "f6": "Traducción de informes (100/mes)",
+        "f7": "Lista de trabajo completa",
+        "f8": "Estadísticas básicas",
+        "f9": "Soporte prioritario"
+      },
+      "expert": {
+        "ribbon": "Mejor Valor",
+        "tag": "Experto 🔥",
+        "name": "Pisum Experto",
+        "subtitle": "Multiestación · IA ilimitada",
+        "period": "/ mes",
+        "microcopy": "Facturado mensualmente",
+        "trial": "14 días de prueba gratuita · No se requiere tarjeta",
+        "cta": "Prueba Experto gratis — 14 días",
+        "f1": "112+ plantillas personalizadas",
+        "f2": "23 idiomas",
+        "f3": "Exportación PDF + Word + HTML",
+        "f4": "Dictado IA (Ilimitado)",
+        "f5": "Mejorador IA (Ilimitado)",
+        "f6": "Traducción de informes (Ilimitado)",
+        "f7": "Lista de trabajo avanzada",
+        "f8": "Estadísticas completas",
+        "f9": "Sincronización LAN (1 sitio · 3 PCs)"
+      },
+      "clinic": {
+        "ribbon": "Para Clínicas",
+        "tag": "Clínica 🏥",
+        "name": "Pisum Clínica",
+        "subtitle": "Multisede · Gestión de equipos",
+        "period": "/ mes",
+        "microcopy": "5 usuarios incl. · +€69/usuario extra",
+        "cta": "Empezar",
+        "extraUsers": "¿Necesita más de 5 usuarios? Añada asientos adicionales desde su panel después de suscribirse.",
+        "usersCount": "5 usuarios",
+        "f1": "Plantillas personalizadas",
+        "f2": "5 usuarios incl. (+€69/extra)",
+        "f3": "23 idiomas",
+        "f4": "Exportación PDF + Word + HTML",
+        "f5": "Dictado IA (Ilimitado)",
+        "f6": "Mejorador IA (Ilimitado)",
+        "f7": "Traducción de informes (Ilimitado)",
+        "f8": "Lista de trabajo multisede",
+        "f9": "Estadísticas avanzadas + onboarding",
+        "f10": "Sincronización LAN (multisede · ilimitada)"
+      }
+    },
+    "guarantee": "<span style=\"color:var(--app-success);font-weight:700\">✓</span> Garantía de devolución de dinero de 30 días en todos los planes de pago · \n    <span style=\"color:var(--app-success);font-weight:700\">✓</span> Cancela en cualquier momento, sin permanencia",
+    "value": {
+      "eyebrow": "Por qué los profesionales eligen PISUM",
+      "heading": "Una herramienta que respeta tu flujo de trabajo",
+      "card1": {
+        "title": "Privacidad local primero",
+        "desc": "Los informes del paciente permanecen en su máquina. Ningún dato clínico sale de su ordenador — sin carga a la nube, total cumplimiento de GDPR."
+      },
+      "card2": {
+        "title": "112+ plantillas de radiología",
+        "desc": "Informes estructurados para cada modalidad — RM, TC, ecografía y más. En 23 idiomas, listos para su uso inmediato."
+      },
+      "card3": {
+        "title": "Dictado y Mejorador IA",
+        "desc": "Dicte informes con manos libres y mejore la redacción con IA — diseñado específicamente para la terminología y la redacción de radiología."
+      },
+      "card4": {
+        "title": "Sincronización de red LAN",
+        "desc": "Comparta la misma lista de trabajo en todas las estaciones de trabajo de su clínica — sin nube, sincronización instantánea a través de su red local."
+      }
+    },
+    "compare": {
+      "title": "Comparación detallada",
+      "subtitle": "Vea exactamente qué se incluye en cada nivel — elija lo que se adapta a su práctica."
+    },
+    "lansync": {
+      "title": "Cómo funciona la Sincronización de Red LAN",
+      "subtitle": "Comparta datos de pacientes entre estaciones de trabajo en su red local — sin nube, sin latencia, sin riesgo de GDPR.",
+      "step1": {
+        "title": "1. Configure una carpeta compartida",
+        "desc": "Apunte PISUM a una carpeta de red compartida (NAS, recurso compartido SMB o unidad mapeada). Todas las estaciones de trabajo de la misma red acceden a la misma base de datos."
+      },
+      "step2": {
+        "title": "2. Una contraseña compartida",
+        "desc": "La base de datos está encriptada con AES-256. Establezca una contraseña en la primera estación de trabajo — todos los demás PCs introducen la misma contraseña para conectarse."
+      },
+      "step3": {
+        "title": "3. Sincronización instantánea entre PCs",
+        "desc": "Cada estación de trabajo lee y escribe directamente en la base de datos compartida. Los cambios aparecen instantáneamente en todos los ordenadores conectados."
+      }
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "intro": "Todo lo que necesita saber antes de suscribirse.",
+      "q1": "¿Puedo cambiar mi plan en cualquier momento?",
+      "a1": "Sí — actualice o cancele su suscripción en cualquier momento desde su panel. Los cambios se hacen efectivos inmediatamente.",
+      "q2": "¿Hay un compromiso mínimo?",
+      "a2": "No. Todos los planes son mes a mes sin permanencia. La facturación anual ahorra un 20% en comparación con la mensual. Puede cancelar en cualquier momento desde su panel.",
+      "q3": "¿El plan Gratis es realmente gratis?",
+      "a3": "Sí — sin tarjeta de crédito, sin límite de tiempo. El plan Gratis le permite explorar PISUM con 10 plantillas, 50 informes al mes y exportación PDF. Actualice cuando esté listo.",
+      "q4": "¿Cómo funciona el Dictado IA?",
+      "a4": "El Dictado IA convierte su voz en texto de informe radiológico estructurado en tiempo real. Funciona a través de una API segura — el audio nunca se almacena. Su cuota mensual se restablece el día 1 de cada mes.",
+      "q5": "¿Es seguro el pago?",
+      "a5": "Todos los pagos son procesados por Lemon Squeezy, una plataforma de pago compatible con PCI. PISUM nunca almacena sus datos bancarios.",
+      "q6": "¿Dónde se almacenan mis datos? ¿Cumple PISUM con GDPR?",
+      "a6": "Sus informes de pacientes se almacenan localmente en su máquina — PISUM nunca sube datos clínicos a la nube. Los datos de la cuenta (nombre, correo electrónico, estado de la suscripción) se alojan en Supabase con servidores en la UE. PISUM cumple totalmente con GDPR.",
+      "q7": "¿Requiere PISUM una conexión a internet?",
+      "a7": "Sí. PISUM requiere una conexión a internet activa para el Dictado IA, el Mejorador IA y la gestión de suscripciones. Sus informes de pacientes y plantillas se almacenan localmente en su máquina, pero las funciones de IA se conectan de forma segura a nuestra API en la nube.",
+      "q8": "¿Hay una prueba gratuita para los planes de pago?",
+      "a8": "El plan Gratis es un nivel gratuito permanente — sin límite de tiempo, sin tarjeta de crédito. Starter, Pro y Expert incluyen una prueba gratuita de 14 días para que pueda experimentar el conjunto completo de funciones sin riesgos antes de que se le cobre. Todos los planes de pago están respaldados por una garantía de devolución de dinero de 30 días."
+    },
+    "footer": {
+      "questions": "¿Preguntas?",
+      "createAccount": "Crear cuenta",
+      "mySubscription": "Mi suscripción",
+      "support": "Soporte",
+      "terms": "Términos de Servicio",
+      "privacy": "Política de Privacidad"
+    },
+    "table": {
+      "cat_templates": "Plantillas y Contenido",
+      "feat_templates": "Plantillas",
+      "feat_languages": "Idiomas disponibles",
+      "feat_pdf": "Exportación PDF",
+      "feat_word": "Exportación Word",
+      "feat_html": "Exportación HTML",
+      "feat_reports": "Informes / mes",
+      "cat_ai": "Funciones IA",
+      "feat_dictation": "Dictado IA",
+      "feat_enhancer": "Mejorador IA",
+      "feat_translation": "Traducción de informes",
+      "cat_workflow": "Flujo de trabajo y Clínica",
+      "feat_worklist": "Lista de trabajo",
+      "feat_stats": "Estadísticas",
+      "feat_lan": "Sincronización de red LAN",
+      "feat_users": "Usuarios",
+      "cat_support": "Soporte",
+      "feat_support": "Nivel de soporte",
+      "lan_expert": "1 sitio · máx. 3 estaciones de trabajo",
+      "lan_clinic": "Multisede · estaciones de trabajo ilimitadas"
+    },
+    "piw_name": "PISUM IA",
+    "piw_status": "En línea — siempre aquí para ayudar",
+    "piw_close": "✕",
+    "piw_msg": "¡Hola! Soy <strong>PISUM IA</strong> 👋<br/>Pregúntame cualquier cosa sobre funciones, precios, configuración o plantillas. Te daré una respuesta directa.",
+    "piw_chip1": "¿Qué planes existen?",
+    "piw_chip2": "¿Prueba gratuita?",
+    "piw_chip3": "¿Cómo instalar?",
+    "piw_chip4": "¿Dictado IA?",
+    "piw_chip5": "¿Cumple con GDPR?",
+    "piw_input": "Haz una pregunta…"
+  }
+}

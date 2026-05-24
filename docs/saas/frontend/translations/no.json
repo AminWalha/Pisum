@@ -1,0 +1,461 @@
+{
+  "auth": {
+    "tabs": {
+      "signIn": "Logg inn",
+      "createAccount": "Opprett konto"
+    },
+    "login": {
+      "title": "Velkommen tilbake",
+      "subtitle": "Logg inn på din PISUM-konto.",
+      "emailLabel": "E-postadresse",
+      "passwordLabel": "Passord",
+      "forgotPassword": "Glemt passord?",
+      "submit": "LOGG INN",
+      "emailPlaceholder": "you@clinic.com",
+      "or": "eller",
+      "googleBtn": "Fortsett med Google",
+      "linkedinBtn": "Fortsett med LinkedIn"
+    },
+    "signup": {
+      "title": "Opprett din konto",
+      "subtitle": "Kom i gang med PISUM – ingen kredittkort kreves.",
+      "nameLabel": "Fullt navn",
+      "nameHint": "Vises på rapportene dine og i appen.",
+      "emailLabel": "E-postadresse",
+      "passwordLabel": "Passord",
+      "confirmLabel": "Bekreft passord",
+      "submit": "OPPRETT KONTO",
+      "namePlaceholder": "Dr. Smith",
+      "emailPlaceholder": "you@clinic.com",
+      "passwordPlaceholder": "Min. 8 tegn",
+      "or": "eller",
+      "googleBtn": "Registrer deg med Google",
+      "linkedinBtn": "Registrer deg med LinkedIn"
+    },
+    "forgot": {
+      "title": "Tilbakestill passordet ditt",
+      "subtitle": "Oppgi e-posten din, så sender vi deg en tilbakestillingslenke.",
+      "emailLabel": "E-postadresse",
+      "submit": "Send tilbakestillingslenke",
+      "back": "← Tilbake til Logg inn",
+      "emailPlaceholder": "you@clinic.com"
+    },
+    "reset": {
+      "title": "Nytt passord",
+      "subtitle": "Velg et nytt, sikkert passord.",
+      "passwordLabel": "Nytt passord",
+      "confirmLabel": "Bekreft passord",
+      "submit": "Lagre nytt passord",
+      "passwordPlaceholder": "Min. 8 tegn",
+      "confirmPlaceholder": "••••••••"
+    },
+    "footer": {
+      "viewPlans": "← Se priser"
+    }
+  },
+  "dashboard": {
+    "nav": {
+      "label": "Navigasjon",
+      "overview": "Oversikt",
+      "usage": "Bruk",
+      "billing": "Fakturering",
+      "profile": "Profil",
+      "signOut": "Logg ut"
+    },
+    "hero": {
+      "eyebrow": "Min konto",
+      "title": "Min konto",
+      "subtitle": "Administrer abonnementet ditt og få tilgang til PISUM.",
+      "statusTitle": "Sjekker tilgang…",
+      "statusDesc": "Vennligst vent.",
+      "manageBilling": "Administrer fakturering",
+      "changePlan": "Endre plan →"
+    },
+    "onboarding": {
+      "title": "👋 Kom i gang med PISUM",
+      "subtitle": "3 steg til din første radiologirapport",
+      "step1": {
+        "title": "Last ned og installer PISUM",
+        "desc": "Én .exe-installasjon for Windows 10/11. Tar under et minutt.",
+        "download": "Last ned for Windows"
+      },
+      "step2": {
+        "title": "Åpne PISUM og logg inn",
+        "desc": "Start appen etter installasjon. Logg inn med samme e-post og passord som du brukte her."
+      },
+      "step3": {
+        "title": "Opprett din første rapport",
+        "desc": "Velg en mal etter modalitet — CT, MRI, røntgen eller ultralyd. Fyll inn funnene dine og eksporter til PDF."
+      }
+    },
+    "stats": {
+      "nextBilling": "Neste fakturering",
+      "expires": "Utløper",
+      "billingCycle": "Faktureringssyklus",
+      "memberSince": "Medlem siden"
+    },
+    "usage": {
+      "title": "Denne månedens bruk"
+    },
+    "features": {
+      "title": "Inkluderte funksjoner",
+      "viewPlans": "Se alle planer →"
+    },
+    "team": {
+      "title": "Team og plasser",
+      "included": "Inkludert",
+      "extra": "Ekstra",
+      "total": "Totalt antall brukere",
+      "addInfo": "<strong>Legg til ekstra brukere</strong> — €69 / bruker / måned.<br/>\n                Fakturert som et separat, gjentakende tillegg. Administreres via faktureringsportalen."
+    },
+    "danger": {
+      "title": "Fare-sone",
+      "cancelSub": "Avbryt abonnement",
+      "deleteAccount": "Slett konto",
+      "cancelingNotice": "Abonnementet ditt er satt til å kanselleres ved slutten av gjeldende faktureringsperiode. Du har fortsatt full tilgang frem til da."
+    },
+    "subscribe": {
+      "title": "Velg din plan",
+      "desc": "Velg planen som passer din praksis og fortsett til sikker utsjekking.",
+      "monthly": "Månedlig",
+      "annual": "Årlig",
+      "save20": "−20%",
+      "continue": "Fortsett"
+    },
+    "profile": {
+      "title": "Profil",
+      "editProfile": "Rediger profil",
+      "changePassword": "Endre passord"
+    },
+    "profileModal": {
+      "title": "Rediger profil",
+      "avatarHint": "Klikk på bildet for å endre det (maks 2 MB)",
+      "fullName": "Fullt navn",
+      "phone": "Telefon",
+      "specialty": "Spesialitet",
+      "organization": "Organisasjon / Praksis",
+      "city": "By",
+      "country": "Land",
+      "cancel": "Avbryt",
+      "save": "Lagre",
+      "fullNamePlaceholder": "Dr. John Smith",
+      "phonePlaceholder": "+1 555 000 0000",
+      "specialtyPlaceholder": "Radiologi, MR…",
+      "organizationPlaceholder": "Byens bildesenter",
+      "cityPlaceholder": "Oslo",
+      "countryPlaceholder": "Norge"
+    },
+    "cancelModal": {
+      "title": "Avbryt abonnement",
+      "desc": "Abonnementet ditt forblir aktivt til slutten av gjeldende faktureringsperiode.\n      Etter det vil kontoen din bli tilbakestilt til gratisplanen.",
+      "hint": "Skriv <strong style=\"color:var(--t1)\">AVBRYT</strong> nedenfor for å bekrefte:",
+      "keep": "Behold abonnement",
+      "confirm": "Avbryt abonnement",
+      "placeholder": "AVBRYT"
+    },
+    "pwModal": {
+      "title": "Endre passord",
+      "newPassword": "Nytt passord",
+      "confirmPassword": "Bekreft nytt passord",
+      "cancel": "Avbryt",
+      "submit": "Oppdater passord",
+      "newPasswordPlaceholder": "Min. 8 tegn",
+      "confirmPasswordPlaceholder": "••••••••"
+    },
+    "deleteModal": {
+      "title": "Slett konto",
+      "desc": "Denne handlingen er <strong style=\"color:var(--t1)\">permanent og ugjenkallelig</strong>. Alle dine data, rapporter og abonnement vil bli slettet umiddelbart.",
+      "hint": "Skriv <strong style=\"color:var(--t1)\">SLETT</strong> nedenfor for å bekrefte:",
+      "cancel": "Avbryt",
+      "confirm": "Slett min konto",
+      "placeholder": "SLETT"
+    },
+    "piw_name": "PISUM AI",
+    "piw_status": "Online — alltid her for å hjelpe",
+    "piw_close": "✕",
+    "piw_msg": "Hei! Jeg er <strong>PISUM AI</strong> 👋<br>Spør meg om hva som helst angående funksjoner, priser, oppsett eller maler. Jeg vil gi deg et direkte svar.</br>",
+    "piw_chip1": "Hvilke planer finnes?",
+    "piw_chip2": "Gratis prøveperiode?",
+    "piw_chip3": "Hvordan installere?",
+    "piw_chip4": "AI diktering?",
+    "piw_chip5": "GDPR-kompatibel?",
+    "piw_input": "Still et spørsmål…",
+    "js": {
+      "status_ok_title": "Tilgang innvilget",
+      "status_ok_desc": "Abonnementet ditt er aktivt. Start PISUM-appen for å begynne å skrive rapporter.",
+      "status_wait_payment_title": "Sjekker betaling…",
+      "status_wait_payment_desc": "Venter på betalingsbekreftelse. Dette kan ta opptil ett minutt.",
+      "status_activating_title": "Aktiverer gratisversjon…",
+      "status_activating_desc": "Setter opp kontoen din, vennligst vent.",
+      "status_err_title": "Ingen aktivt abonnement",
+      "status_err_choose": "Velg en plan for å få tilgang til PISUM.",
+      "status_canceled_desc": "Abonnementet ditt ble kansellert. Abonner på nytt for å få tilgang igjen.",
+      "status_expired_desc": "Abonnementet ditt har utløpt. Forny for å fortsette.",
+      "interval_monthly": "Månedlig",
+      "interval_annual": "Årlig",
+      "upgrade_title": "Oppgrader planen din",
+      "upgrade_desc": "Lås opp flere funksjoner ved å bytte til en betalt plan.",
+      "status_active": "Aktiv",
+      "status_inactive": "Inaktiv",
+      "status_canceled": "Kansellert",
+      "status_canceling": "Kanselleres ved slutten av perioden",
+      "status_expired_badge": "Utløpt",
+      "unlimited": "Ubegrenset",
+      "resets": "Tilbakestilles",
+      "tracked_in_app": "Bruk spores i skrivebordsappen",
+      "feat_enhancer": "AI-forbedrer",
+      "feat_dictation": "AI-diktering",
+      "feat_reports_month": "Rapporter / Måned",
+      "unit_prompts": "prompter",
+      "unit_min": "min",
+      "unit_reports": "rapporter",
+      "unit_templates": "maler",
+      "unit_languages": "språk",
+      "unit_language": "språk",
+      "unit_reports_per_month": "rapporter / måned",
+      "users_unit": "brukere",
+      "feat_unlimited_templates": "Ubegrensede egendefinerte maler",
+      "feat_custom_templates": "Egendefinerte maler",
+      "feat_23_lang": "23 språk",
+      "feat_pdf_word": "PDF + Word-eksport",
+      "feat_pdf": "PDF-eksport",
+      "feat_dict_unlimited": "AI-diktering (ubegrenset)",
+      "feat_enh_unlimited": "AI-forbedrer (ubegrenset)",
+      "wl_multisite": "Arbeidsliste for flere lokasjoner",
+      "wl_advanced": "Avansert arbeidsliste",
+      "wl_full": "Full arbeidsliste",
+      "wl_basic": "Grunnleggende arbeidsliste",
+      "wl_generic": "Arbeidsliste",
+      "stats_advanced": "Avansert statistikk",
+      "stats_advanced_export": "Avansert statistikk + eksport",
+      "stats_basic": "Grunnleggende statistikk",
+      "stats_generic": "Statistikk",
+      "feat_unlimited_reports": "Ubegrensede rapporter",
+      "feat_unlimited_patients": "Ubegrensede pasienter"
+    }
+  },
+  "pricing": {
+    "pageTitle": "PISUM — Priser for helsepersonell",
+    "nav": {
+      "signIn": "Logg inn",
+      "mySubscription": "Mitt abonnement"
+    },
+    "hero": {
+      "eyebrow": "Radiologisprogramvare · AI-drevet · GDPR-kompatibel",
+      "title": "Profesjonelle verktøy,<br/><span>bygget for radiologer</span>",
+      "subtitle": "Fra selvstendig radiolog til klinikk med flere lokasjoner — PISUM tilpasser seg din praksis med strukturerte maler, AI-diktering og lokal datakontroll.",
+      "ctaPrimary": "Start gratis — ingen kort kreves",
+      "ctaSecondary": "Sammenlign planer"
+    },
+    "trust": {
+      "gdpr": "GDPR-kompatibel",
+      "local": "Pasientrapporter forblir på din maskin — aldri opplastet",
+      "builtFor": "Bygget for radiologer",
+      "clinics": "Designet for radiologer i hele Europa",
+      "fast": "Rapporter fullført på under 60 sekunder"
+    },
+    "billing": {
+      "monthly": "Månedlig",
+      "annual": "Årlig",
+      "save20": "−20%",
+      "guarantee": "Ingen skylagring av pasientdata  ·  GDPR-kompatibel  ·  Lokal først"
+    },
+    "plans": {
+      "free": {
+        "tag": "Gratis",
+        "name": "Pisum Gratis",
+        "subtitle": "Utforsk PISUM",
+        "period": "/ måned",
+        "microcopy": "Ingen kredittkort kreves",
+        "cta": "Kom i gang",
+        "f1": "10 maler",
+        "f2": "2 språk",
+        "f3": "PDF-eksport",
+        "f4": "Word-eksport",
+        "f5": "AI-diktering (30 min ≈ 10–20 CR/mnd)",
+        "f6": "AI-forbedrer (10 korreksjoner/mnd)",
+        "f7": "Begrenset arbeidsliste",
+        "f8": "50 rapporter / måned"
+      },
+      "starter": {
+        "tag": "Starter",
+        "name": "Pisum Starter",
+        "subtitle": "Ditt første steg mot raskere rapporter",
+        "period": "/ måned",
+        "microcopy": "Fakturert månedlig",
+        "roi": "Spar 30 min/dag fra dag én",
+        "trial": "14 dagers gratis prøveperiode · Ingen kort kreves",
+        "cta": "Prøv Starter gratis — 14 dager",
+        "f1": "20 maler",
+        "f2": "23 språk",
+        "f3": "PDF + Word-eksport",
+        "f4": "HTML-eksport",
+        "f5": "AI-diktering (500 min ≈ 150–300 CR/mnd)",
+        "f6": "AI-forbedrer (50 korreksjoner/mnd)",
+        "f7": "Grunnleggende arbeidsliste",
+        "f8": "Ubegrenset antall rapporter"
+      },
+      "pro": {
+        "ribbon": "Mest populær",
+        "tag": "Pro ⭐",
+        "name": "Pisum Pro",
+        "subtitle": "Komplett arbeidsflyt for daglig praksis",
+        "period": "/ måned",
+        "microcopy": "Fakturert månedlig",
+        "roi": "Lønner seg på under 3 arbeidsdager",
+        "trial": "14 dagers gratis prøveperiode · Ingen kort kreves",
+        "cta": "Prøv Pro gratis — 14 dager",
+        "f1": "112+ maler",
+        "f2": "23 språk",
+        "f3": "PDF + Word + HTML-eksport",
+        "f4": "AI-diktering (2 000 min ≈ 600–1 200 CR/mnd)",
+        "f5": "AI-forbedrer (200 korreksjoner/mnd)",
+        "f6": "Rapportoversettelse (100/mnd)",
+        "f7": "Full arbeidsliste",
+        "f8": "Grunnleggende statistikk",
+        "f9": "Prioritert support"
+      },
+      "expert": {
+        "ribbon": "Beste verdi",
+        "tag": "Expert 🔥",
+        "name": "Pisum Expert",
+        "subtitle": "Flere arbeidsstasjoner · Ubegrenset AI",
+        "period": "/ måned",
+        "microcopy": "Fakturert månedlig",
+        "trial": "14 dagers gratis prøveperiode · Ingen kort kreves",
+        "cta": "Prøv Expert gratis — 14 dager",
+        "f1": "112+ egendefinerte maler",
+        "f2": "23 språk",
+        "f3": "PDF + Word + HTML-eksport",
+        "f4": "AI-diktering (Ubegrenset)",
+        "f5": "AI-forbedrer (Ubegrenset)",
+        "f6": "Rapportoversettelse (Ubegrenset)",
+        "f7": "Avansert arbeidsliste",
+        "f8": "Full statistikk",
+        "f9": "LAN-synkronisering (1 lokasjon · 3 PC-er)"
+      },
+      "clinic": {
+        "ribbon": "For klinikker",
+        "tag": "Clinic 🏥",
+        "name": "Pisum Clinic",
+        "subtitle": "Flere lokasjoner · Teamadministrasjon",
+        "period": "/ måned",
+        "microcopy": "5 brukere inkludert · +€69/ekstra bruker",
+        "cta": "Kom i gang",
+        "extraUsers": "Trenger du mer enn 5 brukere? Legg til ekstra plasser fra dashbordet ditt etter abonnement.",
+        "usersCount": "5 brukere",
+        "f1": "Egendefinerte maler",
+        "f2": "5 brukere inkludert (+€69/ekstra)",
+        "f3": "23 språk",
+        "f4": "PDF + Word + HTML-eksport",
+        "f5": "AI-diktering (Ubegrenset)",
+        "f6": "AI-forbedrer (Ubegrenset)",
+        "f7": "Rapportoversettelse (Ubegrenset)",
+        "f8": "Arbeidsliste for flere lokasjoner",
+        "f9": "Avansert statistikk + onboarding",
+        "f10": "LAN-synkronisering (flere lokasjoner · ubegrenset)"
+      }
+    },
+    "guarantee": "<span style=\"color:var(--app-success);font-weight:700\">✓</span> 30-dagers pengene-tilbake-garanti på alle betalte planer  · \n    <span style=\"color:var(--app-success);font-weight:700\">✓</span> Avbryt når som helst, ingen bindingstid",
+    "value": {
+      "eyebrow": "Hvorfor fagfolk velger PISUM",
+      "heading": "Et verktøy som respekterer arbeidsflyten din",
+      "card1": {
+        "title": "Lokal-først personvern",
+        "desc": "Pasientrapporter forblir på din maskin. Ingen kliniske data forlater noensinne datamaskinen din — ingen skylagring, full GDPR-samsvar."
+      },
+      "card2": {
+        "title": "112+ radiologimaler",
+        "desc": "Strukturerte rapporter for enhver modalitet — MR, CT, ultralyd og mer. På 23 språk, klar for umiddelbar bruk."
+      },
+      "card3": {
+        "title": "AI-diktering og forbedrer",
+        "desc": "Dikter rapporter håndfritt og forbedre formuleringer med AI — spesifikt designet for radiologiterminologi og frasering."
+      },
+      "card4": {
+        "title": "LAN nettverkssynkronisering",
+        "desc": "Del den samme arbeidslisten på tvers av alle arbeidsstasjoner i klinikken din — ingen sky, umiddelbar synkronisering via ditt lokale nettverk."
+      }
+    },
+    "compare": {
+      "title": "Detaljert sammenligning",
+      "subtitle": "Se nøyaktig hva som er inkludert på hvert nivå — velg det som passer din praksis."
+    },
+    "lansync": {
+      "title": "Slik fungerer LAN nettverkssynkronisering",
+      "subtitle": "Del pasientdata på tvers av arbeidsstasjoner på ditt lokale nettverk — ingen sky, ingen forsinkelse, ingen GDPR-risiko.",
+      "step1": {
+        "title": "1. Sett opp en delt mappe",
+        "desc": "Pek PISUM til en delt nettverksmappe (NAS, SMB-deling eller tilordnet stasjon). Alle arbeidsstasjoner på samme nettverk får tilgang til den samme databasen."
+      },
+      "step2": {
+        "title": "2. Ett delt passord",
+        "desc": "Databasen er AES-256-kryptert. Angi ett passord på den første arbeidsstasjonen — alle andre PC-er skriver inn samme passord for å koble til."
+      },
+      "step3": {
+        "title": "3. Umiddelbar synkronisering på tvers av PC-er",
+        "desc": "Hver arbeidsstasjon leser og skriver direkte til den delte databasen. Endringer vises umiddelbart på alle tilkoblede datamaskiner."
+      }
+    },
+    "faq": {
+      "title": "Ofte stilte spørsmål",
+      "intro": "Alt du trenger å vite før du abonnerer.",
+      "q1": "Kan jeg endre planen min når som helst?",
+      "a1": "Ja — oppgrader eller avbryt abonnementet ditt når som helst fra dashbordet ditt. Endringer trer i kraft umiddelbart.",
+      "q2": "Er det en minimumsforpliktelse?",
+      "a2": "Nei. Alle planer er måned-til-måned uten bindingstid. Årlig fakturering sparer 20 % sammenlignet med månedlig. Du kan avbryte når som helst fra dashbordet ditt.",
+      "q3": "Er gratisplanen virkelig gratis?",
+      "a3": "Ja — ingen kredittkort, ingen tidsbegrensning. Gratisplanen lar deg utforske PISUM med 10 maler, 50 rapporter per måned og PDF-eksport. Oppgrader når du er klar.",
+      "q4": "Hvordan fungerer AI-diktering?",
+      "a4": "AI-diktering konverterer stemmen din til strukturert radiologirapporttekst i sanntid. Den kjører via en sikker API — lyd lagres aldri. Din månedlige kvote tilbakestilles den 1. i hver måned.",
+      "q5": "Er betalingen sikker?",
+      "a5": "Alle betalinger behandles av Lemon Squeezy, en PCI-kompatibel betalingsplattform. PISUM lagrer aldri dine bankdetaljer.",
+      "q6": "Hvor lagres dataene mine? Er PISUM GDPR-kompatibel?",
+      "a6": "Dine pasientrapporter lagres lokalt på din maskin — PISUM laster aldri kliniske data til skyen. Kontodata (navn, e-post, abonnementsstatus) hostes på Supabase med EU-servere. PISUM er fullt GDPR-kompatibel.",
+      "q7": "Krever PISUM internettilkobling?",
+      "a7": "Ja. PISUM krever en aktiv internettilkobling for AI-diktering, AI-forbedrer og abonnementsadministrasjon. Dine pasientrapporter og maler lagres lokalt på din maskin, men AI-funksjoner kobler seg sikkert til vår sky-API.",
+      "q8": "Finnes det en gratis prøveperiode for betalte planer?",
+      "a8": "Gratisplanen er et permanent gratis nivå — ingen tidsbegrensning, ingen kredittkort. Starter, Pro og Expert inkluderer alle en 14-dagers gratis prøveperiode slik at du kan oppleve hele funksjonssettet uten risiko før du blir belastet. Alle betalte planer støttes av en 30-dagers pengene-tilbake-garanti."
+    },
+    "footer": {
+      "questions": "Spørsmål?",
+      "createAccount": "Opprett en konto",
+      "mySubscription": "Mitt abonnement",
+      "support": "Support",
+      "terms": "Vilkår for bruk",
+      "privacy": "Personvernerklæring"
+    },
+    "table": {
+      "cat_templates": "Maler og innhold",
+      "feat_templates": "Maler",
+      "feat_languages": "Tilgjengelige språk",
+      "feat_pdf": "PDF-eksport",
+      "feat_word": "Word-eksport",
+      "feat_html": "HTML-eksport",
+      "feat_reports": "Rapporter / måned",
+      "cat_ai": "AI-funksjoner",
+      "feat_dictation": "AI-diktering",
+      "feat_enhancer": "AI-forbedrer",
+      "feat_translation": "Rapportoversettelse",
+      "cat_workflow": "Arbeidsflyt og klinikk",
+      "feat_worklist": "Arbeidsliste",
+      "feat_stats": "Statistikk",
+      "feat_lan": "LAN nettverkssynkronisering",
+      "feat_users": "Brukere",
+      "cat_support": "Support",
+      "feat_support": "Supportnivå",
+      "lan_expert": "1 lokasjon · maks 3 arbeidsstasjoner",
+      "lan_clinic": "Flere lokasjoner · ubegrenset antall arbeidsstasjoner"
+    },
+    "piw_name": "PISUM AI",
+    "piw_status": "Online — alltid her for å hjelpe",
+    "piw_close": "✕",
+    "piw_msg": "Hei! Jeg er <strong>PISUM AI</strong> 👋<br/>Spør meg om alt om funksjoner, priser, oppsett eller maler. Jeg vil gi deg et direkte svar.",
+    "piw_chip1": "Hvilke planer finnes?",
+    "piw_chip2": "Gratis prøveperiode?",
+    "piw_chip3": "Hvordan installere?",
+    "piw_chip4": "AI-diktering?",
+    "piw_chip5": "GDPR-kompatibel?",
+    "piw_input": "Still et spørsmål…"
+  }
+}

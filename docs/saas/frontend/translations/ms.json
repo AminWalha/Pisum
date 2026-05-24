@@ -1,0 +1,461 @@
+{
+  "auth": {
+    "tabs": {
+      "signIn": "Log Masuk",
+      "createAccount": "Cipta Akaun"
+    },
+    "login": {
+      "title": "Selamat kembali",
+      "subtitle": "Log masuk ke akaun PISUM anda.",
+      "emailLabel": "Alamat e-mel",
+      "passwordLabel": "Kata laluan",
+      "forgotPassword": "Terlupa kata laluan?",
+      "submit": "Log Masuk",
+      "emailPlaceholder": "you@clinic.com",
+      "or": "atau",
+      "googleBtn": "Teruskan dengan Google",
+      "linkedinBtn": "Teruskan dengan LinkedIn"
+    },
+    "signup": {
+      "title": "Cipta akaun anda",
+      "subtitle": "Mulakan dengan PISUM — tiada kad kredit diperlukan.",
+      "nameLabel": "Nama penuh",
+      "nameHint": "Dipaparkan pada laporan anda dan dalam aplikasi.",
+      "emailLabel": "Alamat e-mel",
+      "passwordLabel": "Kata laluan",
+      "confirmLabel": "Sahkan kata laluan",
+      "submit": "Cipta Akaun",
+      "namePlaceholder": "Dr. Smith",
+      "emailPlaceholder": "you@clinic.com",
+      "passwordPlaceholder": "Min. 8 aksara",
+      "or": "atau",
+      "googleBtn": "Daftar dengan Google",
+      "linkedinBtn": "Daftar dengan LinkedIn"
+    },
+    "forgot": {
+      "title": "Tetapkan semula kata laluan anda",
+      "subtitle": "Masukkan e-mel anda dan kami akan menghantar pautan tetapan semula.",
+      "emailLabel": "Alamat e-mel",
+      "submit": "Hantar Pautan Tetapan Semula",
+      "back": "← Kembali ke Log Masuk",
+      "emailPlaceholder": "you@clinic.com"
+    },
+    "reset": {
+      "title": "Kata laluan baharu",
+      "subtitle": "Pilih kata laluan selamat baharu.",
+      "passwordLabel": "Kata laluan baharu",
+      "confirmLabel": "Sahkan kata laluan",
+      "submit": "Simpan Kata Laluan Baharu",
+      "passwordPlaceholder": "Min. 8 aksara",
+      "confirmPlaceholder": "••••••••"
+    },
+    "footer": {
+      "viewPlans": "← Lihat pelan"
+    }
+  },
+  "dashboard": {
+    "nav": {
+      "label": "Navigasi",
+      "overview": "Gambaran Keseluruhan",
+      "usage": "Penggunaan",
+      "billing": "Pengebilan",
+      "profile": "Profil",
+      "signOut": "Log Keluar"
+    },
+    "hero": {
+      "eyebrow": "Akaun Saya",
+      "title": "Akaun Saya",
+      "subtitle": "Urus langganan anda dan akses PISUM.",
+      "statusTitle": "Semak akses…",
+      "statusDesc": "Sila tunggu.",
+      "manageBilling": "Urus Pengebilan",
+      "changePlan": "Tukar Pelan →"
+    },
+    "onboarding": {
+      "title": "👋 Mulakan dengan PISUM",
+      "subtitle": "3 langkah ke laporan radiologi pertama anda",
+      "step1": {
+        "title": "Muat turun & pasang PISUM",
+        "desc": "Satu pemasang .exe untuk Windows 10/11. Mengambil masa kurang dari seminit.",
+        "download": "Muat turun untuk Windows"
+      },
+      "step2": {
+        "title": "Buka PISUM dan log masuk",
+        "desc": "Lancar aplikasi selepas pemasangan. Log masuk dengan e-mel dan kata laluan yang sama seperti yang anda gunakan di sini."
+      },
+      "step3": {
+        "title": "Cipta laporan pertama anda",
+        "desc": "Pilih templat mengikut modaliti — CT, MRI, X-Ray, atau Ultrasound. Isi penemuan anda dan eksport ke PDF."
+      }
+    },
+    "stats": {
+      "nextBilling": "Pengebilan Seterusnya",
+      "expires": "Tamat Tempoh",
+      "billingCycle": "Kitaran Pengebilan",
+      "memberSince": "Ahli Sejak"
+    },
+    "usage": {
+      "title": "Penggunaan Bulan Ini"
+    },
+    "features": {
+      "title": "Ciri Termasuk",
+      "viewPlans": "Lihat semua pelan →"
+    },
+    "team": {
+      "title": "Pasukan & Kerusi",
+      "included": "Termasuk",
+      "extra": "Tambahan",
+      "total": "Jumlah pengguna",
+      "addInfo": "<strong>Tambah pengguna tambahan</strong> — €69 / pengguna / bulan.<br/>\n                Dibilkan sebagai tambahan berulang yang berasingan. Urus melalui portal pengebilan."
+    },
+    "danger": {
+      "title": "Zon Bahaya",
+      "cancelSub": "Batalkan Langganan",
+      "deleteAccount": "Padam Akaun",
+      "cancelingNotice": "Langganan anda ditetapkan untuk dibatalkan pada akhir tempoh pengebilan semasa. Anda masih mempunyai akses penuh sehingga itu."
+    },
+    "subscribe": {
+      "title": "Pilih pelan anda",
+      "desc": "Pilih pelan yang sesuai dengan amalan anda dan teruskan ke pembayaran selamat.",
+      "monthly": "Bulanan",
+      "annual": "Tahunan",
+      "save20": "−20%",
+      "continue": "Teruskan"
+    },
+    "profile": {
+      "title": "Profil",
+      "editProfile": "Edit Profil",
+      "changePassword": "Tukar Kata Laluan"
+    },
+    "profileModal": {
+      "title": "Edit Profil",
+      "avatarHint": "Klik pada foto untuk menukarnya (maks 2 MB)",
+      "fullName": "Nama Penuh",
+      "phone": "Telefon",
+      "specialty": "Kepakaran",
+      "organization": "Organisasi / Amalan",
+      "city": "Bandar",
+      "country": "Negara",
+      "cancel": "Batal",
+      "save": "Simpan",
+      "fullNamePlaceholder": "Dr. John Smith",
+      "phonePlaceholder": "+1 555 000 0000",
+      "specialtyPlaceholder": "Radiologi, MRI…",
+      "organizationPlaceholder": "Pusat Imejan Bandar",
+      "cityPlaceholder": "New York",
+      "countryPlaceholder": "United States"
+    },
+    "cancelModal": {
+      "title": "Batalkan Langganan",
+      "desc": "Langganan anda akan kekal aktif sehingga akhir tempoh pengebilan semasa.\n      Selepas itu, akaun anda akan kembali kepada pelan Percuma.",
+      "hint": "Taip <strong style=\"color:var(--t1)\">BATAL</strong> di bawah untuk mengesahkan:",
+      "keep": "Kekalkan Langganan",
+      "confirm": "Batalkan Langganan",
+      "placeholder": "BATAL"
+    },
+    "pwModal": {
+      "title": "Tukar Kata Laluan",
+      "newPassword": "Kata Laluan Baharu",
+      "confirmPassword": "Sahkan Kata Laluan Baharu",
+      "cancel": "Batal",
+      "submit": "Kemas Kini Kata Laluan",
+      "newPasswordPlaceholder": "Min. 8 aksara",
+      "confirmPasswordPlaceholder": "••••••••"
+    },
+    "deleteModal": {
+      "title": "Padam Akaun",
+      "desc": "Tindakan ini adalah <strong style=\"color:var(--t1)\">kekal dan tidak boleh dipulihkan</strong>. Semua data, laporan, dan langganan anda akan dipadam serta-merta.",
+      "hint": "Taip <strong style=\"color:var(--t1)\">PADAM</strong> di bawah untuk mengesahkan:",
+      "cancel": "Batal",
+      "confirm": "Padam Akaun Saya",
+      "placeholder": "PADAM"
+    },
+    "piw_name": "PISUM AI",
+    "piw_status": "Dalam Talian — sentiasa sedia membantu",
+    "piw_close": "✕",
+    "piw_msg": "Hai! Saya <strong>PISUM AI</strong> 👋<br>Tanya saya apa sahaja tentang ciri, harga, persediaan, atau templat. Saya akan berikan jawapan yang tepat.</br>",
+    "piw_chip1": "Pelan apa yang ada?",
+    "piw_chip2": "Cuba percuma?",
+    "piw_chip3": "Cara pasang?",
+    "piw_chip4": "Diktat AI?",
+    "piw_chip5": "Patuhi GDPR?",
+    "piw_input": "Tanya soalan…",
+    "js": {
+      "status_ok_title": "Akses diberikan",
+      "status_ok_desc": "Langganan anda aktif. Lancarkan apl PISUM untuk mula menulis laporan.",
+      "status_wait_payment_title": "Menyemak pembayaran…",
+      "status_wait_payment_desc": "Menunggu pengesahan pembayaran. Ini mungkin mengambil masa sehingga seminit.",
+      "status_activating_title": "Mengaktifkan pelan percuma…",
+      "status_activating_desc": "Menyediakan akaun anda, sila tunggu.",
+      "status_err_title": "Tiada langganan aktif",
+      "status_err_choose": "Pilih pelan untuk mengakses PISUM.",
+      "status_canceled_desc": "Langganan anda telah dibatalkan. Langgan semula untuk mendapatkan semula akses.",
+      "status_expired_desc": "Langganan anda telah tamat tempoh. Perbaharui untuk meneruskan.",
+      "interval_monthly": "Bulanan",
+      "interval_annual": "Tahunan",
+      "upgrade_title": "Tingkatkan pelan anda",
+      "upgrade_desc": "Buka kunci lebih banyak ciri dengan beralih ke pelan berbayar.",
+      "status_active": "Aktif",
+      "status_inactive": "Tidak aktif",
+      "status_canceled": "Dibatalkan",
+      "status_canceling": "Dibatalkan pada akhir tempoh",
+      "status_expired_badge": "Tamat tempoh",
+      "unlimited": "Tanpa had",
+      "resets": "Tetap semula",
+      "tracked_in_app": "Penggunaan dijejak dalam apl desktop",
+      "feat_enhancer": "Penambah AI",
+      "feat_dictation": "Dikte AI",
+      "feat_reports_month": "Laporan / Bulan",
+      "unit_prompts": "prompts",
+      "unit_min": "min",
+      "unit_reports": "laporan",
+      "unit_templates": "templat",
+      "unit_languages": "bahasa",
+      "unit_language": "bahasa",
+      "unit_reports_per_month": "laporan / bulan",
+      "users_unit": "pengguna",
+      "feat_unlimited_templates": "Templat tersuai tanpa had",
+      "feat_custom_templates": "Templat tersuai",
+      "feat_23_lang": "23 bahasa",
+      "feat_pdf_word": "Eksport PDF + Word",
+      "feat_pdf": "Eksport PDF",
+      "feat_dict_unlimited": "Dikte AI (Tanpa Had)",
+      "feat_enh_unlimited": "Penambah AI (Tanpa Had)",
+      "wl_multisite": "Senarai kerja berbilang tapak",
+      "wl_advanced": "Senarai kerja lanjutan",
+      "wl_full": "Senarai kerja penuh",
+      "wl_basic": "Senarai kerja asas",
+      "wl_generic": "Senarai kerja",
+      "stats_advanced": "Statistik lanjutan",
+      "stats_advanced_export": "Statistik lanjutan + eksport",
+      "stats_basic": "Statistik asas",
+      "stats_generic": "Statistik",
+      "feat_unlimited_reports": "Laporan tanpa had",
+      "feat_unlimited_patients": "Pesakit tanpa had"
+    }
+  },
+  "pricing": {
+    "pageTitle": "PISUM — Harga untuk Profesional Perubatan",
+    "nav": {
+      "signIn": "Log masuk",
+      "mySubscription": "Langganan saya"
+    },
+    "hero": {
+      "eyebrow": "Perisian Radiologi · Dikuasakan AI · Patuh GDPR",
+      "title": "Alat profesional,<br/><span>dibina untuk ahli radiologi</span>",
+      "subtitle": "Daripada ahli radiologi bebas kepada klinik berbilang lokasi — PISUM menyesuaikan diri dengan amalan anda dengan templat terstruktur, diktasi AI dan kawalan data tempatan.",
+      "ctaPrimary": "Mula secara percuma — tiada kad diperlukan",
+      "ctaSecondary": "Bandingkan pelan"
+    },
+    "trust": {
+      "gdpr": "Patuh GDPR",
+      "local": "Laporan pesakit kekal pada mesin anda — tidak pernah dimuat naik",
+      "builtFor": "Dibina untuk ahli radiologi",
+      "clinics": "Direka untuk ahli radiologi di seluruh Eropah",
+      "fast": "Laporan siap dalam masa kurang daripada 60 saat"
+    },
+    "billing": {
+      "monthly": "Bulanan",
+      "annual": "Tahunan",
+      "save20": "−20%",
+      "guarantee": "Tiada muat naik awan data pesakit  ·  Patuh GDPR  ·  Utama tempatan"
+    },
+    "plans": {
+      "free": {
+        "tag": "Percuma",
+        "name": "Pisum Percuma",
+        "subtitle": "Temui PISUM",
+        "period": "/ bulan",
+        "microcopy": "Tiada kad kredit diperlukan",
+        "cta": "Mulakan",
+        "f1": "10 templat",
+        "f2": "2 bahasa",
+        "f3": "Eksport PDF",
+        "f4": "Eksport Word",
+        "f5": "Diktasi AI (30 min ≈ 10–20 CR/bulan)",
+        "f6": "Penambah AI (10 pembetulan/bulan)",
+        "f7": "Senarai Kerja Terhad",
+        "f8": "50 laporan / bulan"
+      },
+      "starter": {
+        "tag": "Permulaan",
+        "name": "Pisum Permulaan",
+        "subtitle": "Langkah pertama anda kepada laporan yang lebih pantas",
+        "period": "/ bulan",
+        "microcopy": "Dibilkan setiap bulan",
+        "roi": "Jimat 30 min/hari dari hari pertama",
+        "trial": "Percubaan percuma 14 hari · Tiada kad diperlukan",
+        "cta": "Cuba Permulaan secara percuma — 14 hari",
+        "f1": "20 templat",
+        "f2": "23 bahasa",
+        "f3": "Eksport PDF + Word",
+        "f4": "Eksport HTML",
+        "f5": "Diktasi AI (500 min ≈ 150–300 CR/bulan)",
+        "f6": "Penambah AI (50 pembetulan/bulan)",
+        "f7": "Senarai Kerja Asas",
+        "f8": "Laporan tanpa had"
+      },
+      "pro": {
+        "ribbon": "Paling Popular",
+        "tag": "Pro ⭐",
+        "name": "Pisum Pro",
+        "subtitle": "Aliran kerja lengkap untuk amalan harian",
+        "period": "/ bulan",
+        "microcopy": "Dibilkan setiap bulan",
+        "roi": "Pulang modal dalam < 3 hari bekerja",
+        "trial": "Percubaan percuma 14 hari · Tiada kad diperlukan",
+        "cta": "Cuba Pro secara percuma — 14 hari",
+        "f1": "112+ templat",
+        "f2": "23 bahasa",
+        "f3": "Eksport PDF + Word + HTML",
+        "f4": "Diktasi AI (2,000 min ≈ 600–1,200 CR/bulan)",
+        "f5": "Penambah AI (200 pembetulan/bulan)",
+        "f6": "Terjemahan Laporan (100/bulan)",
+        "f7": "Senarai Kerja Penuh",
+        "f8": "Statistik Asas",
+        "f9": "Sokongan keutamaan"
+      },
+      "expert": {
+        "ribbon": "Nilai Terbaik",
+        "tag": "Pakar 🔥",
+        "name": "Pisum Pakar",
+        "subtitle": "Pelbagai stesen kerja · AI tanpa had",
+        "period": "/ bulan",
+        "microcopy": "Dibilkan setiap bulan",
+        "trial": "Percubaan percuma 14 hari · Tiada kad diperlukan",
+        "cta": "Cuba Pakar secara percuma — 14 hari",
+        "f1": "112+ templat tersuai",
+        "f2": "23 bahasa",
+        "f3": "Eksport PDF + Word + HTML",
+        "f4": "Diktasi AI (Tanpa Had)",
+        "f5": "Penambah AI (Tanpa Had)",
+        "f6": "Terjemahan Laporan (Tanpa Had)",
+        "f7": "Senarai Kerja Lanjutan",
+        "f8": "Statistik Penuh",
+        "f9": "Syar_LAN (1 tapak · 3 PC)"
+      },
+      "clinic": {
+        "ribbon": "Untuk Klinik",
+        "tag": "Klinik 🏥",
+        "name": "Pisum Klinik",
+        "subtitle": "Pelbagai lokasi · Pengurusan pasukan",
+        "period": "/ bulan",
+        "microcopy": "5 pengguna termasuk · +€69/pengguna tambahan",
+        "cta": "Mulakan",
+        "extraUsers": "Perlukan lebih 5 pengguna? Tambah tempat duduk tambahan dari papan pemuka anda selepas melanggan.",
+        "usersCount": "5 pengguna",
+        "f1": "Templat tersuai",
+        "f2": "5 pengguna termasuk (+€69/tambahan)",
+        "f3": "23 bahasa",
+        "f4": "Eksport PDF + Word + HTML",
+        "f5": "Diktasi AI (Tanpa Had)",
+        "f6": "Penambah AI (Tanpa Had)",
+        "f7": "Terjemahan Laporan (Tanpa Had)",
+        "f8": "Senarai Kerja Pelbagai Lokasi",
+        "f9": "Statistik lanjutan + pendaftaran",
+        "f10": "Syar_LAN (pelbagai lokasi · tanpa had)"
+      }
+    },
+    "guarantee": "<span style=\"color:var(--app-success);font-weight:700\">✓</span> Jaminan pemulangan wang 30 hari untuk semua pelan berbayar  · \n    <span style=\"color:var(--app-success);font-weight:700\">✓</span> Boleh dibatalkan pada bila-bila masa, tiada pengikatan",
+    "value": {
+      "eyebrow": "Mengapa profesional memilih PISUM",
+      "heading": "Alat yang menghormati aliran kerja anda",
+      "card1": {
+        "title": "Privasi utama tempatan",
+        "desc": "Laporan pesakit kekal pada mesin anda. Tiada data klinikal pernah meninggalkan komputer anda — tiada muat naik awan, pematuhan GDPR penuh."
+      },
+      "card2": {
+        "title": "112+ templat radiologi",
+        "desc": "Laporan terstruktur untuk setiap modaliti — MRI, CT, echografi, dan banyak lagi. Dalam 23 bahasa, sedia untuk kegunaan segera."
+      },
+      "card3": {
+        "title": "Diktasi &amp; Penambah AI",
+        "desc": "Diktekan laporan tanpa tangan dan perbaiki perkataan dengan AI — direka khas untuk terminologi dan frasa radiologi."
+      },
+      "card4": {
+        "title": "Syar_LAN Rangkaian",
+        "desc": "Kongsi senarai kerja yang sama di semua stesen kerja di klinik anda — tiada awan, syar_LAN segera melalui rangkaian tempatan anda."
+      }
+    },
+    "compare": {
+      "title": "Perbandingan terperinci",
+      "subtitle": "Lihat dengan tepat apa yang disertakan pada setiap peringkat — pilih apa yang sesuai dengan amalan anda."
+    },
+    "lansync": {
+      "title": "Cara Syar_LAN Rangkaian berfungsi",
+      "subtitle": "Kongsi data pesakit merentasi stesen kerja pada rangkaian tempatan anda — tiada awan, tiada kependaman, tiada risiko GDPR.",
+      "step1": {
+        "title": "1. Sediakan folder kongsi",
+        "desc": "Arahkan PISUM ke folder rangkaian kongsi (NAS, perkongsian SMB, atau pemacu dipetakan). Semua stesen kerja pada rangkaian yang sama mengakses pangkalan data yang sama."
+      },
+      "step2": {
+        "title": "2. Satu kata laluan kongsi",
+        "desc": "Pangkalan data disulitkan AES-256. Tetapkan satu kata laluan pada stesen kerja pertama — semua PC lain masukkan kata laluan yang sama untuk bersambung."
+      },
+      "step3": {
+        "title": "3. Syar_LAN segera merentasi PC",
+        "desc": "Setiap stesen kerja membaca dan menulis terus ke pangkalan data kongsi. Perubahan muncul serta-merta di semua komputer yang bersambung."
+      }
+    },
+    "faq": {
+      "title": "Soalan Lazim",
+      "intro": "Semua yang anda perlu tahu sebelum melanggan.",
+      "q1": "Bolehkah saya menukar pelan saya pada bila-bila masa?",
+      "a1": "Ya — tingkatkan atau batalkan langganan anda pada bila-bila masa dari papan pemuka anda. Perubahan berkuat kuasa serta-merta.",
+      "q2": "Adakah terdapat komitmen minimum?",
+      "a2": "Tidak. Semua pelan adalah bulan ke bulan tanpa pengikatan. Pengebilan tahunan menjimatkan 20% berbanding bulanan. Anda boleh membatalkan pada bila-bila masa dari papan pemuka anda.",
+      "q3": "Adakah pelan Percuma benar-benar percuma?",
+      "a3": "Ya — tiada kad kredit, tiada had masa. Pelan Percuma membolehkan anda meneroka PISUM dengan 10 templat, 50 laporan sebulan, dan eksport PDF. Tingkatkan pada bila-bila masa anda bersedia.",
+      "q4": "Bagaimana Diktasi AI berfungsi?",
+      "a4": "Diktasi AI menukar suara anda kepada teks laporan radiologi terstruktur dalam masa nyata. Ia berjalan melalui API selamat — audio tidak pernah disimpan. Kuota bulanan anda dikira semula pada 1hb setiap bulan.",
+      "q5": "Adakah pembayaran selamat?",
+      "a5": "Semua pembayaran diproses oleh Lemon Squeezy, platform pembayaran yang patuh PCI. PISUM tidak pernah menyimpan butiran perbankan anda.",
+      "q6": "Di mana data saya disimpan? Adakah PISUM mematuhi GDPR?",
+      "a6": "Laporan pesakit anda disimpan secara setempat pada mesin anda — PISUM tidak pernah memuat naik data klinikal ke awan. Data akaun (nama, e-mel, status langganan) dihoskan pada Supabase dengan pelayan EU. PISUM sepenuhnya mematuhi GDPR.",
+      "q7": "Adakah PISUM memerlukan sambungan internet?",
+      "a7": "Ya. PISUM memerlukan sambungan internet aktif untuk Diktasi AI, Penambah AI dan pengurusan langganan. Laporan pesakit dan templat anda disimpan secara setempat pada mesin anda, tetapi ciri AI bersambung dengan selamat ke API awan kami.",
+      "q8": "Adakah terdapat percubaan percuma untuk pelan berbayar?",
+      "a8": "Pelan Percuma ialah tahap percuma kekal — tiada had masa, tiada kad kredit. Permulaan, Pro, dan Pakar semuanya termasuk percubaan percuma 14 hari supaya anda boleh mengalami set ciri penuh tanpa risiko sebelum dikenakan bayaran. Semua pelan berbayar disokong oleh jaminan pemulangan wang 30 hari."
+    },
+    "footer": {
+      "questions": "Soalan?",
+      "createAccount": "Cipta akaun",
+      "mySubscription": "Langganan saya",
+      "support": "Sokongan",
+      "terms": "Terma Perkhidmatan",
+      "privacy": "Dasar Privasi"
+    },
+    "table": {
+      "cat_templates": "Templat &amp; Kandungan",
+      "feat_templates": "Templat",
+      "feat_languages": "Bahasa tersedia",
+      "feat_pdf": "Eksport PDF",
+      "feat_word": "Eksport Word",
+      "feat_html": "Eksport HTML",
+      "feat_reports": "Laporan / bulan",
+      "cat_ai": "Ciri AI",
+      "feat_dictation": "Diktasi AI",
+      "feat_enhancer": "Penambah AI",
+      "feat_translation": "Terjemahan Laporan",
+      "cat_workflow": "Aliran Kerja &amp; Klinik",
+      "feat_worklist": "Senarai Kerja",
+      "feat_stats": "Statistik",
+      "feat_lan": "Syar_LAN Rangkaian",
+      "feat_users": "Pengguna",
+      "cat_support": "Sokongan",
+      "feat_support": "Tahap sokongan",
+      "lan_expert": "1 tapak · maksimum 3 stesen kerja",
+      "lan_clinic": "Pelbagai lokasi · stesen kerja tanpa had"
+    },
+    "piw_name": "PISUM AI",
+    "piw_status": "Dalam talian — sentiasa sedia membantu",
+    "piw_close": "✕",
+    "piw_msg": "Hai! Saya <strong>PISUM AI</strong> 👋<br/>Tanya saya apa-apa tentang ciri, harga, persediaan, atau templat. Saya akan berikan anda jawapan yang terus terang.",
+    "piw_chip1": "Pelan apa yang wujud?",
+    "piw_chip2": "Percubaan percuma?",
+    "piw_chip3": "Cara pasang?",
+    "piw_chip4": "Diktasi AI?",
+    "piw_chip5": "Patuh GDPR?",
+    "piw_input": "Tanya soalan…"
+  }
+}
