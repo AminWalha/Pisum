@@ -22,7 +22,7 @@
 <meta content="website" property="og:type"/>
 <meta content="https://pisum.app/" property="og:url"/>
 <meta content="PISUM — Radiology Reporting Software | AI-Powered Medical Reports" property="og:title"/>
-<meta content="PISUM is the radiology reporting software trusted by 2,800+ radiologists. 112 templates, AI voice dictation, PDF &amp; Word export." property="og:description"/>
+<meta content="PISUM is radiology reporting software built for solo radiologists. 112 templates, AI voice dictation, PDF &amp; Word export." property="og:description"/>
 <meta content="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/docs/logo%20V2.png" property="og:image"/>
 <meta content="PISUM" property="og:site_name"/>
 <meta content="summary_large_image" name="twitter:card"/>
@@ -30,7 +30,7 @@
 <meta content="Generate structured radiology reports in seconds. 112 templates, AI voice dictation, 23 languages. Free trial available." name="twitter:description"/>
 <meta content="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" name="twitter:image"/>
 <script type="application/ld+json">
-[{"@context":"https://schema.org","@type":"Organization","name":"PISUM","url":"https://pisum.app","logo":"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/docs/logo%20V2.png","email":"support@pisum.app","description":"Radiology reporting software with AI voice dictation, 112 expert templates, and 23-language support","contactPoint":{"@type":"ContactPoint","contactType":"customer support","email":"support@pisum.app","availableLanguage":["English","French","German","Spanish"]}},{"@context":"https://schema.org","@type":"SoftwareApplication","name":"PISUM","applicationCategory":"MedicalApplication","operatingSystem":"Windows 10, Windows 11","description":"Radiology reporting desktop software with AI voice dictation, 112 structured templates, and PDF/Word export","url":"https://pisum.app","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR","description":"Free plan available, Pro from €79/month with 14-day free trial"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"2800"},"featureList":["112 radiology report templates","AI voice dictation (Sally AI)","23 language support","PDF and Word export","RIS/PACS integration","LAN network sync","GDPR compliant"]}]
+[{"@context":"https://schema.org","@type":"Organization","name":"PISUM","url":"https://pisum.app","logo":"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/docs/logo%20V2.png","email":"support@pisum.app","description":"Radiology reporting software with AI voice dictation, 112 expert templates, and 23-language support","contactPoint":{"@type":"ContactPoint","contactType":"customer support","email":"support@pisum.app","availableLanguage":["English","French","German","Spanish"]}},{"@context":"https://schema.org","@type":"SoftwareApplication","name":"PISUM","applicationCategory":"MedicalApplication","operatingSystem":"Windows 10, Windows 11","description":"Radiology reporting desktop software with AI voice dictation, 112 structured templates, and PDF/Word export","url":"https://pisum.app","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR","description":"Free plan available, Pro from €79/month with 14-day free trial"},"featureList":["112 radiology report templates","AI voice dictation (Sally AI)","23 language support","PDF and Word export","RIS/PACS integration","LAN network sync","GDPR compliant"]}]
 </script>
 <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="/favicon-48x48.png" rel="icon" sizes="48x48" type="image/png"/>
@@ -691,6 +691,16 @@ button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action
 .video-wrapper::before{content:'';display:block;padding-top:56.25%}
 .video-wrapper iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
 @media(max-width:680px){.video-wrapper{border-radius:var(--r)}}
+/* COMPLIANCE */
+.compliance-section{background:var(--navy,#08091a);padding:clamp(4rem,8vw,6.5rem) 0}
+.compliance-section .eyebrow,.compliance-section h2{color:#fff}
+.compliance-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.25rem;margin-top:2.5rem}
+.compliance-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--r-lg);padding:1.5rem 1.25rem}
+.compliance-card h4{font-size:0.88rem;font-weight:700;color:#fff;margin:0 0 0.5rem;display:flex;align-items:center;gap:0.45rem}
+.compliance-card p{font-size:0.8rem;color:rgba(255,255,255,0.5);line-height:1.65;margin:0}
+.compliance-badge{display:inline-block;font-size:0.66rem;font-weight:700;padding:0.12rem 0.45rem;border-radius:999px;background:rgba(56,214,166,0.12);color:#38d6a6;border:1px solid rgba(56,214,166,0.2);margin-left:0.25rem}
+.compliance-disclaimer{margin-top:2rem;padding:1.1rem 1.4rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:var(--r);font-size:0.79rem;color:rgba(255,255,255,0.42);line-height:1.7}
+.compliance-roadmap{margin-top:1rem;padding:1rem 1.25rem;background:rgba(122,121,255,0.06);border:1px solid rgba(122,121,255,0.15);border-radius:var(--r);font-size:0.79rem;color:rgba(255,255,255,0.55);line-height:1.65}
 </style>
 </head>
 <body>
@@ -739,10 +749,10 @@ button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action
 </ul>
 <div class="nav-right">
 
-<a class="nav-login" data-i18n="index.a_4" href="https://pisum.app/" id="nav-signin">Sign in</a>
+<a class="nav-login" data-i18n="index.a_4" href="https://pisum.app/saas/frontend/auth.html" id="nav-signin">Sign in</a>
 <a class="btn btn-primary btn-sm" data-i18n="index.a_5" href="https://pisum.app/pricing.html" id="nav-subscribe" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600;">Subscribe</a>
 <div class="nav-profile" id="nav-profile" style="display:none">
-<a class="nav-profile-link" href="https://pisum.app/dashboard.html">
+<a class="nav-profile-link" href="https://pisum.app/saas/frontend/dashboard.html">
 <img alt="" class="nav-profile-avatar" id="nav-profile-img" src="" style="display:none"/>
 <div class="nav-profile-avatar-fallback" id="nav-profile-initials" style="display:none">?</div>
 <div class="nav-profile-info">
@@ -795,13 +805,17 @@ button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action
 <p class="hero-tagline rv rv-d2" data-i18n="hero.tagline">Dictate naturally. Let <span class="t-accent">AI enhance your reports.</span></p>
 <p class="hero-sub rv rv-d2" data-i18n="index.p_3">Pisum helps radiologists generate <strong>structured, accurate reports faster</strong> by enhancing dictation with intelligent correction, formatting, and medical context awareness.</p>
 <div class="hero-actions rv rv-d3">
-<a class="btn btn-primary btn-xl" data-i18n="index.a_7" href="https://github.com/AminWalha/Pisum/releases/latest/download/PISUM_Radiology_Setup.exe" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:7px" target="_blank">
-<svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24" width="15"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+<a class="btn btn-primary btn-xl" id="hero-trial-cta" href="https://pisum.app/saas/frontend/auth.html" style="display:inline-flex;align-items:center;gap:7px">
+<svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24" width="15"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            Start free trial — 14 days, no card
+          </a>
+<a class="btn btn-ghost btn-lg" data-i18n="index.a_7" href="https://github.com/AminWalha/Pisum/releases/latest/download/PISUM_Radiology_Setup.exe" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px" target="_blank">
+<svg fill="none" height="13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24" width="13"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
             Download Free — Windows
           </a>
-<a class="btn btn-ghost btn-lg" data-i18n="index.a_8" href="#features">See how it works</a>
 </div>
 <p class="hero-note rv rv-d3" data-i18n="index.p_4">Windows 10/11  ·  Free plan included  ·  No credit card</p>
+<p class="rv rv-d3" style="font-size:0.8rem;color:rgba(255,255,255,0.35);margin-top:0.5rem;line-height:1.5">Built by a radiologist in a French hospital. No VC, no marketing fluff.</p>
 </div>
 <!-- RIGHT: product mockup -->
 <div class="hero-right rv rv-d4">
@@ -873,7 +887,7 @@ button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action
 </section>
 <!-- MARQUEE -->
 <div class="mq-section">
-<div class="mq-label">Used daily by radiologists worldwide</div>
+<div class="mq-label">112 modality templates · 23 languages · AI voice dictation</div>
 <div class="mq-track">
 <div class="mq-item"><span data-i18n="index.span_13">🩻</span>Chest CT</div><div class="mq-item"><span data-i18n="index.span_14">🧠</span>Brain MRI</div><div class="mq-item"><span data-i18n="index.span_15">🫀</span>Cardiac CT</div><div class="mq-item"><span data-i18n="index.span_16">🦴</span>MSK MRI</div><div class="mq-item"><span data-i18n="index.span_17">🫁</span>Pulmonary CT-PA</div><div class="mq-item"><span data-i18n="index.span_18">🔬</span>Prostate MRI</div><div class="mq-item"><span data-i18n="index.span_19">🩺</span>Abdominal US</div><div class="mq-item"><span data-i18n="index.span_20">👁</span>Orbital MRI</div><div class="mq-item"><span data-i18n="index.span_21">🦷</span>Dental CT</div><div class="mq-item"><span data-i18n="index.span_22">🔬</span>Liver MRI</div><div class="mq-item"><span data-i18n="index.span_23">🩻</span>Spine CT</div><div class="mq-item"><span data-i18n="index.span_24">🧪</span>PET-CT</div>
 <div class="mq-item"><span data-i18n="index.span_25">🩻</span>Chest CT</div><div class="mq-item"><span data-i18n="index.span_26">🧠</span>Brain MRI</div><div class="mq-item"><span data-i18n="index.span_27">🫀</span>Cardiac CT</div><div class="mq-item"><span data-i18n="index.span_28">🦴</span>MSK MRI</div><div class="mq-item"><span data-i18n="index.span_29">🫁</span>Pulmonary CT-PA</div><div class="mq-item"><span data-i18n="index.span_30">🔬</span>Prostate MRI</div><div class="mq-item"><span data-i18n="index.span_31">🩺</span>Abdominal US</div><div class="mq-item"><span data-i18n="index.span_32">👁</span>Orbital MRI</div><div class="mq-item"><span data-i18n="index.span_33">🦷</span>Dental CT</div><div class="mq-item"><span data-i18n="index.span_34">🔬</span>Liver MRI</div><div class="mq-item"><span data-i18n="index.span_35">🩻</span>Spine CT</div><div class="mq-item"><span data-i18n="index.span_36">🧪</span>PET-CT</div>
@@ -885,52 +899,22 @@ button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action
 <div class="stats-grid">
 <div class="stat-cell rv"><div class="stat-num"><span data-i18n="index.span_37">112</span></div><div class="stat-desc" data-i18n="index.stat_desc_1">Expert templates</div></div>
 <div class="stat-cell rv rv-d1"><div class="stat-num"><span data-i18n="index.span_38">23</span></div><div class="stat-desc" data-i18n="index.stat_desc_2">Languages supported</div></div>
-<div class="stat-cell rv rv-d2"><div class="stat-num"><span data-i18n="index.span_39">2.8k</span></div><div class="stat-desc" data-i18n="index.stat_desc_3">Active radiologists</div></div>
+<div class="stat-cell rv rv-d2"><div class="stat-num" style="font-size:clamp(1.6rem,3vw,2.6rem);letter-spacing:-0.01em"><span>Early</span></div><div class="stat-desc">Access</div></div>
 <div class="stat-cell rv rv-d3"><div class="stat-num" style="font-size:clamp(2rem,3.5vw,3rem)"><span data-i18n="index.span_40">&lt;60s</span></div><div class="stat-desc" data-i18n="index.stat_desc_4">Average report time</div></div>
 </div>
 </div>
 </div>
-<!-- TESTIMONIALS -->
+<!-- FOUNDER NOTE -->
 <section class="section testi-section">
 <div class="container">
 <div class="testi-hd rv">
-<div class="eyebrow" style="display:inline-flex"><span class="eyebrow-dot"></span>Trusted by Radiologists</div>
-<h2 class="serif d2 rv rv-d1" data-i18n="index.h2_2" style="margin-top:1.25rem">What radiologists<br/>are saying.</h2>
+<div class="eyebrow" style="display:inline-flex"><span class="eyebrow-dot"></span>Why PISUM Exists</div>
+<h2 class="serif d2 rv rv-d1" style="margin-top:1.25rem">Built inside a French<br/>radiology department.</h2>
 </div>
-<div class="testi-grid">
-<div class="testi-card rv">
-<div class="testi-stars">★★★★★</div>
-<p class="testi-quote" data-i18n="index.testimonial_1">"I used to spend 20 minutes per CT report. With PISUM I'm under 90 seconds. The structured templates are exactly how we were trained — nothing missing, nothing redundant."</p>
-<div class="testi-author">
-<div class="testi-avatar">SL</div>
-<div>
-<div class="testi-name" data-i18n="index.testimonial_name_1">Dr. Sophie Laurent</div>
-<div class="testi-role" data-i18n="index.testimonial_role_1">Senior Radiologist, CHU Lyon</div>
-</div>
-</div>
-</div>
-<div class="testi-card rv rv-d1">
-<div class="testi-stars">★★★★★</div>
-<p class="testi-quote" data-i18n="index.p_7">"The AI dictation feature is a game changer. I dictate directly into structured fields and PISUM formats everything perfectly. My reporting time dropped by 60% in the first week."</p>
-<div class="testi-author">
-<div class="testi-avatar">MB</div>
-<div>
-<div class="testi-name">Dr. Marco Bellini</div>
-<div class="testi-role">Radiologist, Ospedale San Raffaele, Milano</div>
-</div>
-</div>
-</div>
-<div class="testi-card rv rv-d2">
-<div class="testi-stars">★★★★★</div>
-<p class="testi-quote" data-i18n="index.p_8">"Switched from Dragon + Word macros. The PI-RADS and Lung-RADS templates alone are worth the Pro plan. PISUM actually understands radiology workflows — it shows."</p>
-<div class="testi-author">
-<div class="testi-avatar">JW</div>
-<div>
-<div class="testi-name">Dr. James Whitfield</div>
-<div class="testi-role">Consultant Radiologist, NHS London</div>
-</div>
-</div>
-</div>
+<div class="rv rv-d1" style="max-width:680px;margin:2.5rem auto 0;text-align:center">
+<p style="font-size:1.05rem;color:var(--ink-2);line-height:1.8;margin-bottom:1.25rem">PISUM was built by a radiology resident at <strong>Hôpital Nord Franche-Comté</strong> out of daily frustration with existing tools. Dragon Medical and PowerScribe are designed for large hospital IT departments — not for the solo radiologist who manages their own setup, bills their own patients, and has to meet CNIL requirements without a dedicated DPO.</p>
+<p style="font-size:1rem;color:var(--ink-3);line-height:1.7;margin-bottom:2rem">The goal was simple: a tool that works offline, encrypts locally, produces structured reports in proper French radiology vocabulary, and doesn't require a two-year enterprise contract. PISUM is early-stage and the feature set grows from real cases. If something is missing or broken, you can reach the developer directly.</p>
+<a class="btn btn-primary" href="contact.html" style="padding:0.75rem 1.75rem;border-radius:999px;text-decoration:none;font-weight:600;font-size:0.9rem">Share your feedback →</a>
 </div>
 </div>
 </section>
@@ -1246,6 +1230,38 @@ button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action
 </div>
 </div>
 </section>
+<!-- COMPLIANCE & TRUST -->
+<section class="section compliance-section" id="compliance">
+<div class="container">
+<div class="eyebrow rv" style="display:inline-flex"><span class="eyebrow-dot" style="background:#38d6a6"></span>Compliance &amp; Trust</div>
+<h2 class="serif d2 rv rv-d1" style="margin-top:1.25rem">Built for regulated<br/><em>medical practice.</em></h2>
+<p class="rv rv-d2" style="font-size:1rem;color:rgba(255,255,255,0.55);max-width:580px;margin-top:1rem;line-height:1.75">PISUM is a report formatting and dictation tool — not a diagnostic device. No CE marking required. Designed from the ground up for French and European regulatory requirements.</p>
+<div class="compliance-grid rv rv-d2">
+<div class="compliance-card">
+<h4>🔒 AES-256 Local Encryption</h4>
+<p>Patient data is encrypted on your own machine. Nothing is uploaded to the cloud. Your data never leaves your practice network.</p>
+</div>
+<div class="compliance-card">
+<h4>📋 GDPR / RGPD</h4>
+<p>Full data portability and right-to-erasure support. Every data access and export is logged in an immutable audit trail that satisfies CNIL documentation requirements.</p>
+</div>
+<div class="compliance-card">
+<h4>🗃️ Full Audit Log</h4>
+<p>PACS-style traceability for every report — creation, modification, export, and deletion events, each stamped with timestamp and user identity.</p>
+</div>
+<div class="compliance-card">
+<h4>🏥 HDS-Ready Architecture <span class="compliance-badge">Certification Q3 2026</span></h4>
+<p>Designed to meet HDS hosting requirements. Certification roadmap underway — no false claim, honest timeline.</p>
+</div>
+</div>
+<div class="compliance-disclaimer rv rv-d3">
+<strong style="color:rgba(255,255,255,0.65)">Regulatory status:</strong> PISUM is a report formatting and dictation assistance tool, not a medical device. It does not produce diagnostic output — clinical decisions remain entirely yours. No CE marking or MDR classification applies under current scope.
+</div>
+<div class="compliance-roadmap rv rv-d3">
+<strong style="color:rgba(255,255,255,0.7)">On the roadmap for French solo radiologists:</strong> CCAM/NGAP billing code suggestions integrated directly into the report workflow — the right code proposed alongside the report. <em style="color:rgba(255,255,255,0.35)">Estimated Q4 2026.</em>
+</div>
+</div>
+</section>
 <!-- PRICING -->
 <section class="section pricing-section" id="pricing">
 <div class="container">
@@ -1512,7 +1528,7 @@ button,.btn,.idtab,.ttab,.stab,.idlang-flag,.lang-more-btn,.rb,.ieb{touch-action
 <div class="container">
 <div class="cta-inner rv">
 <h2 class="serif d2" data-i18n="index.h2_11">Download PISUM.<br/><em>Start reporting today.</em></h2>
-<p class="cta-sub" data-i18n="index.p_53">Join 2,800+ radiologists who've already reclaimed their time. Free plan included — no credit card.</p>
+<p class="cta-sub" data-i18n="index.p_53">Built for solo radiologists who spend too long on reports. Free plan included — no credit card.</p>
 <div class="cta-acts">
 <a class="btn btn-grad btn-xl" data-i18n="index.a_11" href="https://github.com/AminWalha/Pisum/releases/latest/download/PISUM_Radiology_Setup.exe" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px" target="_blank">
 <svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24" width="15"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
@@ -1729,7 +1745,7 @@ function switchShot(i,btn){
 const statsCfg=[
   {end:112,fmt:v=>v},
   {end:23,fmt:v=>v},
-  {end:2800,fmt:v=>(v/1000).toFixed(1)+'k'},
+  {skip:true},
   {end:0,skip:true}
 ];
 const statObs=new IntersectionObserver(entries=>{
@@ -2132,5 +2148,70 @@ window.piwSend=function(){
 <div id="pisum-err-toast" style="display:none;position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);background:#fff;border:1px solid #fecaca;color:#b91c1c;padding:.8rem 1.5rem;border-radius:12px;font-size:.83rem;font-weight:600;box-shadow:0 4px 20px rgba(0,0,0,.12);z-index:9999;max-width:90vw;text-align:center"></div>
 <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
 <script src="i18n.js"></script>
+<script>
+/* ── GA4 Funnel Tracking ── */
+(function () {
+  function gev(name, params) {
+    if (typeof gtag === 'function') gtag('event', name, params || {});
+  }
+
+  // .exe download links (hero, free plan card, bottom CTA)
+  document.querySelectorAll('a[href*="PISUM_Radiology_Setup.exe"]').forEach(function (el) {
+    el.addEventListener('click', function () { gev('download_exe'); });
+  });
+
+  // Plan trial & contact-sales buttons
+  document.querySelectorAll('button.plan-sub-btn').forEach(function (el) {
+    var m = (el.getAttribute('onclick') || '').match(/subscribe\(['"](\w+)['"]\)/);
+    if (!m) return;
+    var plan = m[1];
+    el.addEventListener('click', function () {
+      if (plan === 'clinic') {
+        gev('contact_sales_click');
+      } else {
+        gev('start_trial_click', { plan: plan });
+      }
+    });
+  });
+
+  // Hero primary "Start free trial" CTA → start_trial_click plan=free
+  var heroTrialCta = document.getElementById('hero-trial-cta');
+  if (heroTrialCta) heroTrialCta.addEventListener('click', function () { gev('start_trial_click', { plan: 'free' }); });
+
+  // Modal "Try Pro free" link → start_trial_click plan=pro
+  var modalTrialBtn = document.querySelector('a[data-i18n="index.a_1"]');
+  if (modalTrialBtn) {
+    modalTrialBtn.addEventListener('click', function () {
+      gev('start_trial_click', { plan: 'pro' });
+    });
+  }
+
+  // Nav Sign in / Subscribe
+  var navSignin = document.getElementById('nav-signin');
+  if (navSignin) navSignin.addEventListener('click', function () { gev('signin_click'); });
+  var navSubscribe = document.getElementById('nav-subscribe');
+  if (navSubscribe) navSubscribe.addEventListener('click', function () { gev('subscribe_click'); });
+
+  // Scroll depth 25 / 50 / 75 / 100 %
+  var scrollFired = {};
+  window.addEventListener('scroll', function () {
+    var top = window.scrollY || document.documentElement.scrollTop;
+    var max = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    if (!max) return;
+    var pct = (top / max) * 100;
+    [25, 50, 75, 100].forEach(function (t) {
+      if (pct >= t && !scrollFired[t]) {
+        scrollFired[t] = true;
+        gev('scroll_' + t);
+      }
+    });
+  }, { passive: true });
+
+  // Time-on-page 30s / 60s / 120s
+  [30, 60, 120].forEach(function (sec) {
+    setTimeout(function () { gev('time_' + sec + 's'); }, sec * 1000);
+  });
+})();
+</script>
 </body>
 </html>
