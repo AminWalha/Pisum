@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6VG09X3G7F');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<title>Radiology Reporting Software &amp; AI Dictation | Pisum</title>
+<meta content="Create radiology reports faster with AI dictation and smart templates. Pisum helps radiologists save time, reduce burnout, and improve workflow. Try it free." name="description"/>
+<meta content="index, follow" name="robots"/>
+<link href="https://pisum.app/" rel="canonical"/>
+<link href="https://pisum.app/" hreflang="en" rel="alternate"/>
+<link href="https://pisum.app/" hreflang="fr" rel="alternate"/>
+<link href="https://pisum.app/" hreflang="x-default" rel="alternate"/>
+<meta content="website" property="og:type"/>
+<meta content="https://pisum.app/" property="og:url"/>
+<meta content="PISUM — Radiology Reporting Software | AI-Powered Medical Reports" property="og:title"/>
+<meta content="PISUM is radiology reporting software built for solo radiologists. 112 templates, AI voice dictation, PDF &amp; Word export." property="og:description"/>
+<meta content="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/docs/logo%20V2.png" property="og:image"/>
+<meta content="PISUM" property="og:site_name"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="PISUM — Radiology Reporting Software | AI-Powered Medical Reports" name="twitter:title"/>
+<meta content="Generate structured radiology reports in seconds. 112 templates, AI voice dictation, 23 languages. Free trial available." name="twitter:description"/>
+<meta content="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" name="twitter:image"/>
+<script type="application/ld+json">
+[{"@context":"https://schema.org","@type":"Organization","name":"PISUM","url":"https://pisum.app","logo":"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/docs/logo%20V2.png","email":"support@pisum.app","description":"Radiology reporting software with AI voice dictation, 112 expert templates, and 23-language support","contactPoint":{"@type":"ContactPoint","contactType":"customer support","email":"support@pisum.app","availableLanguage":["English","French","German","Spanish"]}},{"@context":"https://schema.org","@type":"SoftwareApplication","name":"PISUM","applicationCategory":"MedicalApplication","operatingSystem":"Windows 10, Windows 11","description":"Radiology reporting desktop software with AI voice dictation, 112 structured templates, and PDF/Word export","url":"https://pisum.app","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR","description":"Free plan available, Pro from €79/month with 14-day free trial"},"featureList":["112 radiology report templates","AI voice dictation (Sally AI)","23 language support","PDF and Word export","RIS/PACS integration","LAN network sync","GDPR compliant"]}]
+</script>
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/favicon-48x48.png" rel="icon" sizes="48x48" type="image/png"/>
+<link href="/favicon-192x192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+:root{
+  /* Ultra Modern Dark Theme Overrides */
+  --bg:#030408; 
+  --white:#0D0E15; /* Re-mapped surface colors for dark mode */
+  --off:#06070B;
+  --ink:#FFFFFF;
+  --ink-2:#E2E8F0;
+  --ink-3:#94A3B8;
+  --ink-4:#64748B;
+  --b1:rgba(255,255,255,0.08);
+  --b2:rgba(255,255,255,0.15);
+  --blue:#00E5CC; /* Neon Cyan */
+  --blue-d:#00B3A1;
+  --purple:#7C3AED; /* Neon Violet */
+  --green:#10B981;
+  --grad:linear-gradient(135deg,#00E5CC 0%,#7C3AED 100%);
+  --shadow-xs:0 1px 2px rgba(0,0,0,0.3);
+  --shadow-sm:0 4px 12px rgba(0,0,0,0.4);
+  --shadow:0 8px 32px rgba(0,0,0,0.5);
+  --shadow-lg:0 24px 64px rgba(0,0,0,0.6);
+  --shadow-blue:0 0 30px rgba(0,229,204,0.2);
+  --t:cubic-bezier(0.16,1,0.3,1);
+  --serif:'Outfit', sans-serif;
+  --sans:'Plus Jakarta Sans',-apple-system,sans-serif;
+  --r:16px;--r-lg:24px;--r-xl:32px;
+}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink-2);overflow-x:hidden;line-height:1.65}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+.container{max-width:1160px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem)}
+.section{padding:clamp(5.5rem,11vw,9rem) 0; position: relative;}
+.serif{font-family:var(--serif);line-height:1.1;letter-spacing:-0.02em}
+.d1{font-size:clamp(3rem,6.5vw,6rem); font-weight:800;}
+.d2{font-size:clamp(2.2rem,4vw,3.8rem); font-weight:700;}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:0.75rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue)}
+.eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0; box-shadow: 0 0 10px var(--blue);}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--sans);font-size:0.9rem;font-weight:600;border:none;cursor:pointer;border-radius:999px;transition:all 0.3s var(--t);white-space:nowrap;-webkit-font-smoothing:antialiased}
+.btn-primary{background:var(--ink);color:var(--bg);padding:0.75rem 1.75rem;box-shadow:0 4px 15px rgba(255,255,255,0.1)}
+.btn-primary:hover{background:#E2E8F0;transform:translateY(-2px);box-shadow:0 8px 25px rgba(255,255,255,0.2)}
+.btn-ghost{background:rgba(255,255,255,0.05);color:var(--ink);padding:0.75rem 1.75rem;border:1px solid var(--b2);backdrop-filter:blur(8px)}
+.btn-ghost:hover{background:rgba(255,255,255,0.1);color:var(--ink);border-color:var(--blue);transform:translateY(-2px);box-shadow:var(--shadow-blue)}
+.btn-grad{background:var(--grad);color:var(--ink);padding:0.8rem 2rem;box-shadow:var(--shadow-blue)}
+.btn-grad:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(0,229,204,0.4)}
+.btn-lg{padding:0.9rem 2.2rem;font-size:0.95rem}
+.btn-xl{padding:1rem 2.5rem;font-size:1rem}
+.btn-sm{padding:0.5rem 1.1rem;font-size:0.8rem}
+
+/* SCROLL BAR */
+#bar{position:fixed;top:0;left:0;height:2px;z-index:9999;background:var(--grad);width:0;transition:width 0.08s linear}
+
+/* BACKGROUND ORBS */
+.bg-elements { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.glow-orb { position: absolute; border-radius: 50%; filter: blur(140px); opacity: 0.3; }
+.glow-1 { top: -10%; left: 10%; width: 600px; height: 600px; background: var(--purple); }
+.glow-2 { bottom: 10%; right: -10%; width: 700px; height: 700px; background: var(--blue); }
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:998;height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.25rem,5vw,3rem);transition:all 0.3s var(--t)}
+.nav.solid{background:rgba(10,12,20,0.7);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--b1);box-shadow:0 4px 30px rgba(0,0,0,0.5)}
+.nav-logo{display:flex;align-items:center;gap:9px;font-size:1.2rem;font-weight:800;letter-spacing:-0.03em;color:var(--ink); font-family: var(--serif);}
+.nav-logo img{width:30px;height:30px;border-radius:8px;}
+.nav-links{display:flex;align-items:center;gap:2.2rem;list-style:none}
+.nav-links a{font-size:0.875rem;font-weight:500;color:var(--ink-3);transition:color 0.2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.nav-login{font-size:0.875rem;font-weight:600;color:var(--ink-2);transition:color 0.2s}
+.nav-login:hover{color:var(--blue)}
+.nav-profile{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.05);border:1px solid var(--b2);border-radius:999px;padding:4px 12px 4px 4px;}
+.nav-profile-avatar{width:36px;height:36px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.nav-profile-avatar-fallback{width:36px;height:36px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:var(--ink);flex-shrink:0}
+.nav-profile-info{display:flex;flex-direction:column;gap:1px}
+.nav-profile-name{font-size:0.8rem;font-weight:600;color:var(--ink);line-height:1.2}
+.nav-profile-email{font-size:0.7rem;color:var(--ink-3);line-height:1.2}
+.nav-profile-signout{font-size:0.78rem;font-weight:500;color:var(--ink-4);background:none;border:1px solid transparent;border-radius:999px;padding:0.3rem 0.8rem;cursor:pointer;transition:all 0.18s;margin-left:4px;}
+.nav-profile-signout:hover{color:var(--ink);background:rgba(255,255,255,0.1)}
+@media(min-width:1021px){#nav-mobile-signout{display:none!important}}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all 0.3s}
+@media(max-width:1020px){
+  .nav-links,.nav-login{display:none}
+  .hamburger{display:flex}
+  .nav-links.open{display:flex;flex-direction:column;align-items:flex-start;gap:1.5rem;position:fixed;inset:70px 0 0 0;background:var(--bg);padding:2rem clamp(1.25rem,5vw,3rem);z-index:997; border-bottom:1px solid var(--b1)}
+  .nav-links.open a{font-size:1.15rem;color:var(--ink)}
+  .nav-profile-info,.nav-profile-signout{display:none}
+  .nav-profile{padding:4px;gap:0;background:transparent;border:none;}
+}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:clamp(100px,12vw,140px) 0 clamp(60px,8vw,80px); z-index: 1;}
+.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(2.5rem,5vw,5rem);align-items:center}
+.hero-left{max-width:600px}
+.hero-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.03);border:1px solid var(--b2);border-radius:999px;padding:0.35rem 1rem 0.35rem 0.5rem;margin-bottom:1.75rem;font-size:0.8rem;font-weight:500;color:var(--ink-2); backdrop-filter: blur(10px);}
+.pill-tag{background:rgba(0,229,204,0.15);color:var(--blue);font-size:0.65rem;font-weight:700;letter-spacing:0.08em;padding:0.3rem 0.8rem;border-radius:999px;text-transform:uppercase}
+.hero-h{margin-bottom:1rem;color:var(--ink);font-size:clamp(3rem,5vw,4.2rem);line-height:1.1; font-weight:800; letter-spacing:-0.03em;}
+.hero-tagline{font-size:clamp(1.1rem,1.8vw,1.3rem);font-family:var(--sans);color:var(--ink-2);margin-bottom:1.25rem;line-height:1.4;}
+.hero-tagline .t-accent{background:var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-weight:700;}
+.hero-sub{font-size:clamp(0.9rem,1.3vw,1rem);color:var(--ink-3);margin:0 0 2rem;line-height:1.7;font-weight:400}
+.hero-actions{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.hero-note{font-size:0.75rem;color:var(--ink-4);letter-spacing:0.02em}
+@media(max-width:920px){
+  .hero-inner{grid-template-columns:1fr;gap:3rem}
+  .hero-left{max-width:100%;text-align:center}
+  .hero-sub{margin-left:auto;margin-right:auto}
+  .hero-actions{justify-content:center}
+}
+
+/* MOCKUP (Glassmorphic) */
+.mockup-stage{position:relative;max-width:820px;margin:0 auto}
+.mockup-glow{position:absolute;inset:-30px;background:radial-gradient(ellipse 70% 50% at 50% 60%,rgba(0,229,204,0.15) 0%,transparent 70%);border-radius:var(--r-xl);filter:blur(20px);z-index:0}
+.mockup-win{position:relative;z-index:1;background:rgba(10,12,20,0.8);backdrop-filter:blur(20px);border-radius:var(--r-xl);border:1px solid var(--b2);box-shadow:0 24px 80px rgba(0,0,0,0.6);overflow:hidden}
+.win-bar{background:rgba(0,0,0,0.4);border-bottom:1px solid var(--b1);padding:0 1.25rem;height:44px;display:flex;align-items:center;gap:0.85rem}
+.win-dots{display:flex;gap:6px}
+.wdot{width:12px;height:12px;border-radius:50%}
+.dr{background:#ff5f57}.dy{background:#febc2e}.dg{background:#28c840}
+.win-url{flex:1;background:rgba(255,255,255,0.05);border-radius:8px;height:26px;display:flex;align-items:center;gap:6px;padding:0 10px;font-size:0.72rem;color:var(--ink-3);font-weight:500}
+.win-body{display:grid;grid-template-columns:200px 1fr}
+.win-sb{background:rgba(0,0,0,0.2);border-right:1px solid var(--b1);padding:1.25rem 0;min-height:380px}
+.sb-lbl{font-size:0.6rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-4);padding:0 1rem;margin-bottom:0.5rem;margin-top:1rem;display:block}
+.sb-row{display:flex;align-items:center;gap:8px;padding:0.45rem 1rem;font-size:0.76rem;font-weight:500;color:var(--ink-3);cursor:pointer;transition:all 0.15s}
+.sb-row:hover{background:rgba(255,255,255,0.05);color:var(--ink)}
+.sb-row.on{background:rgba(0,229,204,0.1);color:var(--blue);border-right:2px solid var(--blue)}
+.sb-pip{width:7px;height:7px;border-radius:2px;flex-shrink:0}
+.win-main{padding:1.4rem;}
+.rc{background:rgba(255,255,255,0.02);border-radius:var(--r);border:1px solid var(--b1);overflow:hidden}
+.rc-hd{background:rgba(0,229,204,0.05);padding:0.85rem 1.2rem;display:flex;justify-content:space-between;align-items:center; border-bottom:1px solid var(--b1)}
+.rc-hd h4{color:var(--ink);font-size:0.85rem;font-weight:600;}
+.rc-tag{background:rgba(0,229,204,0.15);color:var(--blue);font-size:0.63rem;font-weight:700;letter-spacing:0.08em;padding:0.18rem 0.5rem;border-radius:5px}
+.rc-meta{background:rgba(0,0,0,0.2);padding:0.55rem 1.2rem;border-bottom:1px solid var(--b1);display:flex;gap:2rem}
+.rc-m label{font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-4);display:block;margin-bottom:2px}
+.rc-m span{font-size:0.76rem;font-weight:600;color:var(--ink-2)}
+.rc-body{padding:0.9rem 1.2rem;display:flex;flex-direction:column;gap:0.7rem}
+.rc-f label{font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:4px}
+.rc-val{font-size:0.76rem;color:var(--ink-3);line-height:1.55;background:rgba(0,0,0,0.3);border-radius:7px;padding:0.38rem 0.65rem;border-left:2.5px solid rgba(0,229,204,0.3)}
+.rc-type{font-size:0.76rem;color:var(--ink);border:1px solid var(--blue);border-radius:7px;padding:0.38rem 0.65rem;background:rgba(0,229,204,0.05); box-shadow: inset 0 0 10px rgba(0,229,204,0.1)}
+.cursor{display:inline-block;width:1.5px;height:0.82em;background:var(--blue);animation:blink 1s infinite;vertical-align:text-bottom;margin-left:1px}
+.rc-foot{padding:0.7rem 1.2rem;border-top:1px solid var(--b1);display:flex;gap:0.45rem;background:rgba(0,0,0,0.3)}
+.rb{display:flex;align-items:center;gap:5px;padding:0.32rem 0.7rem;border-radius:7px;font-size:0.7rem;font-weight:600;cursor:pointer;border:none;font-family:var(--sans)}
+.rb-pdf{background:rgba(239,68,68,0.15);color:#EF4444}
+.rb-word{background:rgba(59,130,246,0.15);color:#3B82F6}
+.rb-ai{background:var(--grad);color:#fff; border:none;}
+@media(max-width:780px){.win-body{grid-template-columns:150px 1fr}.win-sb{min-height:240px}}
+@media(max-width:640px){.win-sb{display:none}.win-body{grid-template-columns:1fr}}
+
+/* FLOAT CHIPS */
+.chip{position:absolute;background:rgba(10,12,20,0.9);backdrop-filter:blur(10px);border:1px solid var(--b2);border-radius:14px;padding:0.52rem 0.85rem;box-shadow:0 8px 28px rgba(0,0,0,0.4);display:flex;align-items:center;gap:0.45rem;font-size:0.74rem;font-weight:600;color:var(--ink);white-space:nowrap;z-index:2;animation:chipFloat 6s ease-in-out infinite}
+.c1{top:-16px;right:-10px;animation-delay:0s}
+.c2{bottom:20px;left:-20px;animation-delay:1.8s}
+.chip-s{color:var(--blue)}
+@keyframes chipFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@media(max-width:780px){.chip{display:none}}
+
+/* BENTO CARDS BASE */
+.bento-card { background: var(--white); backdrop-filter: blur(12px); border: 1px solid var(--b1); border-radius: var(--r-lg); transition: all 0.3s var(--t); position: relative; overflow: hidden; }
+.bento-card:hover { border-color: var(--b2); transform: translateY(-4px); box-shadow: var(--shadow); }
+.bento-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle 300px at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.03) 0%, transparent 70%); opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+.bento-card:hover::before { opacity: 1; }
+
+/* MARQUEE */
+.mq-section{background:rgba(0,0,0,0.3);border-top:1px solid var(--b1);border-bottom:1px solid var(--b1);padding:1.75rem 0;overflow:hidden; z-index: 1; position: relative;}
+.mq-label{text-align:center;font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-4);margin-bottom:1.2rem}
+.mq-track{display:flex;gap:3rem;width:max-content;animation:mq 28s linear infinite}
+.mq-track:hover{animation-play-state:paused}
+@keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.mq-item{display:flex;align-items:center;gap:0.5rem;font-size:0.85rem;font-weight:600;color:var(--ink-3);white-space:nowrap}
+
+/* STATS */
+.stats-section{padding:clamp(4rem,8vw,6.5rem) 0; position: relative; z-index: 1;}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--b1);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-sm); border: 1px solid var(--b1);}
+.stat-cell{background:var(--white);padding:2.5rem 2rem;text-align:center;transition:background 0.2s}
+.stat-cell:hover{background:var(--b1)}
+.stat-num{font-family:var(--serif);font-size:clamp(2.5rem,4vw,3.8rem); font-weight:800; line-height:1; margin-bottom:0.5rem}
+.stat-num span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-desc{font-size:0.82rem;color:var(--ink-3);font-weight:500}
+@media(max-width:640px){.stats-grid{grid-template-columns:1fr 1fr}}
+
+/* VIDEO */
+.video-section{position: relative; z-index: 1;}
+.video-wrapper{position:relative;max-width:860px;margin:0 auto;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-lg),0 0 0 1px var(--b2);background:#000}
+.video-wrapper::before{content:'';display:block;padding-top:56.25%}
+.video-wrapper iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+
+/* PROBLEM/SOL */
+.ps-section{position: relative; z-index: 1;}
+.ps-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:4rem}
+.ps-col-title{font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:1.5rem;padding-bottom:0.75rem;border-bottom:1px solid var(--b1)}
+.ps-col-title.pain{color:var(--ink-4)}
+.ps-col-title.sol{color:var(--blue)}
+.ps-card{background:var(--white);border-radius:var(--r);padding:1.2rem;margin-bottom:0.75rem;display:flex;gap:0.9rem;align-items:flex-start;transition:transform 0.2s var(--t); border: 1px solid var(--b1);}
+.ps-card:hover{transform:translateX(4px); border-color:var(--b2);}
+.pain-card{background:rgba(239,68,68,0.02);border-color:rgba(239,68,68,0.1);}
+.sol-card{background:rgba(0,229,204,0.02);border-color:rgba(0,229,204,0.1);}
+.ps-icon{font-size:1.2rem;line-height:1;flex-shrink:0;margin-top:1px}
+.ps-card h4{font-size:0.88rem;font-weight:700;margin-bottom:0.2rem; color:var(--ink);}
+.ps-card p{font-size:0.8rem;color:var(--ink-3);line-height:1.6}
+@media(max-width:800px){.ps-grid{grid-template-columns:1fr}}
+
+/* FEATURES GRID (Bento) */
+.feat-section{position: relative; z-index: 1;}
+.feat-header{max-width:620px;margin-bottom:4rem}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.feat-card{background:var(--white); border:1px solid var(--b1); border-radius:var(--r-lg); padding:2rem; transition:all 0.3s var(--t); position:relative; overflow:hidden;}
+.feat-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--b2)}
+.feat-icon{width:48px;height:48px;border-radius:14px;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;font-size:1.3rem;background:rgba(255,255,255,0.05); border:1px solid var(--b1);}
+.feat-card h3{font-family:var(--serif); font-size:1.2rem;font-weight:700;color:var(--ink);margin-bottom:0.5rem;}
+.feat-card p{font-size:0.83rem;color:var(--ink-3);line-height:1.65}
+.feat-pill{display:inline-block;margin-top:1rem;padding:0.2rem 0.6rem;border-radius:6px;font-size:0.66rem;font-weight:700;letter-spacing:0.06em}
+.pill-free{background:rgba(255,255,255,0.05);color:var(--ink-3)}
+.pill-pro{background:rgba(124,90,240,0.15);color:var(--purple)}
+.pill-new{background:rgba(0,229,204,0.15);color:var(--blue);border:1px solid rgba(0,229,204,0.2)}
+@media(max-width:860px){.feat-grid{grid-template-columns:1fr 1fr}.feat-grid .feat-card[style*="span 3"]{grid-column:span 2!important}}
+@media(max-width:560px){.feat-grid{grid-template-columns:1fr}.feat-grid .feat-card[style*="span 3"]{grid-column:span 1!important}}
+
+/* INTERACTIVE DEMO (Bento style) */
+.idemo-section{position: relative; z-index: 1;}
+.idemo-hd{max-width:600px;margin-bottom:3.5rem}
+.bento-grid-demo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; auto-rows: minmax(320px, auto); }
+.col-span-2 { grid-column: span 2; }
+.col-span-3 { grid-column: span 3; }
+.bento-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
+.mockup-ui { background: #000; border: 1px solid var(--b2); border-radius: var(--r); padding: 1.25rem; font-family: monospace; font-size: 0.8rem; color: var(--ink-3); box-shadow: inset 0 0 20px rgba(0,0,0,0.8); }
+.mockup-ui.accent-left { position: relative; overflow: hidden; }
+.mockup-ui.accent-left::after { content: ''; position: absolute; top: 0; left: 0; width: 2px; height: 100%; background: var(--blue); box-shadow: 0 0 15px var(--blue); }
+.mockup-line { display: flex; gap: 1rem; align-items: flex-start; margin-bottom:0.5rem; }
+.mockup-label { font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; width: 65px; flex-shrink: 0; color:var(--blue); }
+.mockup-text { color: var(--ink-2); line-height: 1.5; min-height: 1.5em; transition: opacity 0.3s; }
+.ai-highlight { background: rgba(0, 229, 204, 0.15); color: var(--blue); padding: 0 4px; border-radius: 4px; }
+.voice-mic { width: 64px; height: 64px; border-radius: 50%; background: var(--grad); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; cursor: pointer; margin: 0 auto 1.5rem; box-shadow: var(--shadow-blue); transition: all 0.3s var(--t); user-select: none; }
+.voice-mic:hover { transform: scale(1.08); }
+.voice-mic.active { animation: micPulse 1.5s infinite; }
+@keyframes micPulse { 0%, 100% { box-shadow: var(--shadow-blue), 0 0 0 0 rgba(0, 229, 204, 0.4); } 60% { box-shadow: var(--shadow-blue), 0 0 0 20px rgba(0, 229, 204, 0); } }
+.typing-cursor::after { content: '▋'; animation: blink 1s step-end infinite; color: var(--blue); margin-left: 4px; }
+.lang-flags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; }
+.flag-btn { background: rgba(255,255,255,0.05); border: 1px solid var(--b1); color: var(--ink-3); padding: 6px 12px; border-radius: 8px; font-weight: 600; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; }
+.flag-btn:hover { border-color: var(--b2); color: var(--ink); }
+.flag-btn.active { background: var(--ink); color: var(--bg); border-color: transparent; }
+
+/* TEMPLATES */
+.tpl-section{position: relative; z-index: 1;}
+.tpl-header{max-width:640px;margin:0 auto 1.25rem;text-align:center}
+.tpl-tabs{display:flex;align-items:center;gap:0.5rem;justify-content:center;margin:2rem 0 3rem;flex-wrap:wrap}
+.ttab{padding:0.42rem 1.1rem;border-radius:999px;border:1px solid var(--b2);background:transparent;font-size:0.8rem;font-weight:600;cursor:pointer;transition:all 0.18s;color:var(--ink-3);font-family:var(--sans)}
+.ttab:hover{background:rgba(255,255,255,0.05);color:var(--ink);}
+.ttab.on{background:var(--ink);color:var(--bg);border-color:transparent;}
+.tpl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+.tpl-card{background:var(--white);border:1px solid var(--b1);border-radius:var(--r-lg);overflow:hidden;transition:all 0.25s var(--t);cursor:pointer;position:relative}
+.tpl-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--b2)}
+.tpl-thumb{height:108px;background:linear-gradient(135deg,rgba(255,255,255,0.02) 0%,rgba(255,255,255,0.05) 100%);position:relative;overflow:hidden; border-bottom:1px solid var(--b1);}
+.tpl-doc{position:absolute;top:12px;left:12px;right:12px;display:flex;flex-direction:column;gap:5px;z-index:1}
+.tpl-doc-h{height:6px;border-radius:3px;background:rgba(255,255,255,0.2);width:42%}
+.tpl-doc-l{height:4px;border-radius:3px;background:rgba(255,255,255,0.1)}
+.tpl-mod{position:absolute;bottom:8px;left:10px;background:rgba(0,0,0,0.5);border-radius:6px;border:1px solid var(--b1);font-size:0.6rem;font-weight:700;letter-spacing:0.08em;color:var(--ink-2);padding:0.17rem 0.48rem}
+.tpl-body{padding:0.85rem 1rem}
+.tpl-name{font-size:0.83rem;font-weight:700;color:var(--ink);margin-bottom:0.32rem;}
+.tpl-row{display:flex;align-items:center;justify-content:space-between}
+.tpl-langs{font-size:0.7rem;color:var(--ink-4)}
+.badge-free{font-size:0.63rem;font-weight:700;padding:0.18rem 0.48rem;border-radius:5px;background:rgba(255,255,255,0.05);color:var(--ink-3)}
+.badge-pro{font-size:0.63rem;font-weight:700;padding:0.18rem 0.48rem;border-radius:5px;background:rgba(124,90,240,0.15);color:var(--purple)}
+.tpl-lines{margin-top:0.55rem;display:flex;flex-direction:column;gap:4px}
+.tpl-line{height:5px;background:var(--b1);border-radius:3px}
+.l2{width:72%}.l3{width:52%}
+.tpl-card.pro .tpl-thumb,.tpl-card.pro .tpl-body{filter:blur(4px); opacity:0.6;}
+.pro-ov{position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.4rem}
+.tpl-card:not(.pro) .pro-ov{display:none}
+.pro-lock{font-size:1.55rem}
+.pro-lbl{font-size:0.7rem;font-weight:700;background:var(--purple);color:#fff;padding:0.2rem 0.6rem;border-radius:6px}
+.tpl-more{text-align:center;margin-top:2.5rem}
+
+/* HOW IT WORKS */
+.how-section{position: relative; z-index: 1;}
+.how-steps{display:grid;grid-template-columns:1fr 60px 1fr 60px 1fr;align-items:center}
+.how-step{background:var(--white);border:1px solid var(--b1);border-radius:var(--r-lg);padding:2.5rem 2rem;text-align:center;transition:all 0.25s var(--t)}
+.how-step:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg); border-color:var(--b2);}
+.step-ring{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,0.05);border:1px solid var(--b2);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:800;margin:0 auto 1.25rem;}
+.how-step h3{font-size:1.1rem;font-family:var(--serif);font-weight:700;color:var(--ink);margin-bottom:0.5rem;}
+.how-step p{font-size:0.82rem;color:var(--ink-3);line-height:1.6}
+.how-arrow{display:flex;align-items:center;justify-content:center;color:var(--ink-4);font-size:1.4rem}
+@media(max-width:800px){.how-steps{grid-template-columns:1fr;gap:1rem}.how-arrow{transform:rotate(90deg);font-size:1.2rem}}
+
+/* PRICING */
+.pricing-section{position: relative; z-index: 1;}
+.bill-row{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2rem 0 3.5rem}
+.bill-row span{font-size:0.88rem;font-weight:600;color:var(--ink-2)}
+.tog{position:relative;display:inline-block;width:50px;height:28px;cursor:pointer}
+.tog input{opacity:0;width:0;height:0;position:absolute}
+.tog-sl{position:absolute;inset:0;background:rgba(255,255,255,0.1);border-radius:999px;transition:0.28s;border:1px solid var(--b2)}
+.tog-sl::before{content:'';position:absolute;width:20px;height:20px;left:3px;top:3px;background:var(--ink);border-radius:50%;transition:0.28s}
+.tog input:checked+.tog-sl{background:var(--grad);border-color:transparent}
+.tog input:checked+.tog-sl::before{left:23px; background:#fff;}
+.save-tag{background:rgba(16,185,129,0.15);color:var(--green);font-size:0.7rem;font-weight:700;padding:0.18rem 0.55rem;border-radius:6px}
+.plans{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;align-items:stretch}
+.plan{background:var(--white);border:1px solid var(--b1);border-radius:var(--r-xl);padding:1.75rem;transition:all 0.25s var(--t);display:flex;flex-direction:column}
+.plan:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg); border-color:var(--b2);}
+.plan.hot{background:linear-gradient(180deg, rgba(124,58,237,0.1) 0%, var(--white) 100%); border-color:var(--purple); box-shadow:0 0 30px rgba(124,58,237,0.15);transform:scale(1.02);position:relative;padding-top:3.25rem}
+.plan.hot:hover{transform:scale(1.02) translateY(-4px)}
+.hot-lbl{position:absolute;top:1.25rem;left:1.75rem;background:var(--purple);color:#fff;font-size:0.63rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.23rem 0.65rem;border-radius:6px}
+.plan-name{font-size:0.75rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:0.75rem}
+.plan.hot .plan-name{color:var(--ink-2)}
+.plan-price{display:flex;align-items:baseline;gap:4px;margin-bottom:0.4rem}
+.psym{font-size:1.3rem;font-weight:600;color:var(--ink-2)}
+.pamt{font-family:var(--serif);font-size:3.5rem;color:var(--ink);line-height:1; font-weight:800;}
+.pper{font-size:0.85rem;color:var(--ink-4)}
+.plan-desc{font-size:0.82rem;color:var(--ink-3);margin-bottom:2rem;line-height:1.55}
+.plan-cta{width:100%;padding:0.85rem;border-radius:999px;font-size:0.9rem;font-weight:700;font-family:var(--sans);cursor:pointer;transition:all 0.22s var(--t);border:none;display:block;text-align:center;margin-bottom:2rem}
+.cta-ghost{background:rgba(255,255,255,0.05);border:1px solid var(--b2);color:var(--ink)}
+.cta-ghost:hover{background:rgba(255,255,255,0.1);border-color:var(--blue);}
+.cta-white{background:var(--ink);color:var(--bg);box-shadow:0 2px 8px rgba(255,255,255,0.1)}
+.cta-white:hover{box-shadow:0 6px 20px rgba(255,255,255,0.2);transform:translateY(-1px)}
+.plan-div{border:none;border-top:1px solid var(--b1);margin-bottom:1.5rem}
+.plan-list{list-style:none;display:flex;flex-direction:column;gap:0.7rem;flex:1}
+.plan-list li{display:flex;align-items:center;gap:0.65rem;font-size:0.85rem;color:var(--ink-2)}
+.lchk{color:var(--blue);font-size:1rem;flex-shrink:0}
+.lx{color:var(--ink-4);font-size:1rem;flex-shrink:0}
+.ldim{color:var(--ink-4)}
+@media(max-width:1100px){.plans{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:820px){.plans{grid-template-columns:repeat(2,1fr)}.plan.hot{transform:scale(1)}}
+@media(max-width:520px){.plans{grid-template-columns:1fr}}
+
+/* COMPLIANCE */
+.compliance-section{background:var(--off); border-top:1px solid var(--b1); border-bottom:1px solid var(--b1); z-index: 1;}
+.compliance-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.25rem;margin-top:2.5rem}
+.compliance-card{background:var(--white);border:1px solid var(--b1);border-radius:var(--r-lg);padding:1.5rem 1.25rem}
+.compliance-card h4{font-size:0.88rem;font-weight:700;color:var(--ink);margin:0 0 0.5rem;display:flex;align-items:center;gap:0.45rem}
+.compliance-card p{font-size:0.8rem;color:var(--ink-3);line-height:1.65;margin:0}
+.compliance-badge{display:inline-block;font-size:0.66rem;font-weight:700;padding:0.12rem 0.45rem;border-radius:999px;background:rgba(16,185,129,0.15);color:var(--green);margin-left:0.25rem}
+.compliance-disclaimer{margin-top:2rem;padding:1.1rem 1.4rem;background:rgba(255,255,255,0.02);border:1px solid var(--b1);border-radius:var(--r);font-size:0.79rem;color:var(--ink-4);line-height:1.7}
+
+/* SCREENSHOTS */
+.shots-section{position:relative;overflow:hidden; z-index: 1;}
+.shots-hd{text-align:center;max-width:600px;margin:0 auto 3.5rem}
+.shots-tabs{display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.stab{padding:0.45rem 1.1rem;border-radius:999px;border:1px solid var(--b2);background:transparent;font-size:0.8rem;font-weight:600;cursor:pointer;transition:all 0.2s;color:var(--ink-3);font-family:var(--sans)}
+.stab:hover{border-color:var(--blue);color:var(--ink)}
+.stab.on{background:var(--blue);color:var(--bg);border-color:transparent;box-shadow:0 0 15px rgba(0,229,204,0.3)}
+.shots-frame{position:relative;max-width:900px;margin:0 auto}
+.shots-win{position:relative;background:var(--white);border-radius:var(--r-xl);border:1px solid var(--b1);box-shadow:0 32px 80px rgba(0,0,0,0.8);overflow:hidden}
+.shots-bar{background:rgba(0,0,0,0.5);height:40px;display:flex;align-items:center;padding:0 1.1rem;gap:0.75rem;border-bottom:1px solid var(--b1)}
+.shots-dots{display:flex;gap:5px}
+.shots-dot{width:11px;height:11px;border-radius:50%}
+.shots-img-wrap{position:relative;min-height:380px;overflow:hidden; background:#000;}
+.shots-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transition:opacity 0.38s ease,transform 0.38s ease;transform:translateY(6px)}
+.shots-img.on{opacity:1;transform:translateY(0)}
+.shots-caption{padding:1.25rem 1.75rem;border-top:1px solid var(--b1);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.shots-cap-text h4{font-size:0.9rem;font-weight:700;color:var(--ink);margin-bottom:0.2rem}
+.shots-cap-text p{font-size:0.78rem;color:var(--ink-3);line-height:1.55}
+
+/* LANGUAGES */
+.lang-section{position:relative;overflow:hidden; z-index: 1;}
+.lang-hd{max-width:620px;margin:0 auto 3.5rem;text-align:center}
+.lang-featured{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-bottom:2rem}
+.lang-feat-card{background:var(--white);border:1px solid var(--b2);border-radius:var(--r-xl);padding:2rem 1.5rem;display:flex;flex-direction:column;align-items:center;gap:1rem;transition:all 0.28s var(--t);position:relative;overflow:hidden;}
+.lang-feat-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--blue)}
+.lang-feat-card .lang-flag-wrap{width:52px;height:38px;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.5);flex-shrink:0}
+.lang-feat-card .lang-flag-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+.lang-feat-name{font-size:1.05rem;font-weight:700;color:var(--ink);}
+.lang-feat-native{font-size:0.78rem;color:var(--ink-4);font-weight:500}
+.lang-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0.7rem;margin-bottom:1.5rem}
+.lang-pill{background:var(--white);border:1px solid var(--b1);border-radius:var(--r);padding:0.75rem 1rem;display:flex;align-items:center;gap:0.75rem;transition:all 0.22s var(--t);cursor:default;}
+.lang-pill:hover{transform:translateY(-3px);border-color:var(--b2);background:rgba(255,255,255,0.05)}
+.lang-pill .lang-flag-sm{width:28px;height:20px;border-radius:4px;overflow:hidden;flex-shrink:0;box-shadow:0 1px 4px rgba(0,0,0,0.5)}
+.lang-pill .lang-flag-sm img{width:100%;height:100%;object-fit:cover;display:block}
+.lang-pill-name{font-size:0.82rem;font-weight:600;color:var(--ink-2);white-space:nowrap}
+.lang-extra{display:none}
+.lang-extra.open{display:flex}
+.lang-more-wrap{text-align:center;margin-bottom:2rem}
+.lang-more-btn{display:inline-flex;align-items:center;gap:6px;padding:0.6rem 1.5rem;border:1px solid var(--b2);border-radius:999px;background:var(--white);font-size:0.84rem;font-weight:600;color:var(--ink-2);cursor:pointer;transition:all 0.2s var(--t);}
+.lang-more-btn:hover{border-color:var(--blue);color:var(--ink);}
+
+/* WHY SECTION */
+.why-section{border-top:1px solid var(--b1); z-index: 1;}
+.why-pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--b1);border:1px solid var(--b1);border-radius:var(--r-lg);overflow:hidden;margin-bottom:3.5rem}
+.why-pillar{background:var(--white);padding:1.5rem 1.25rem;text-align:center;transition:background 0.2s}
+.why-pillar:hover{background:var(--b1)}
+.why-pillar-icon{font-size:1.25rem;margin-bottom:0.65rem}
+.why-pillar-name{font-size:0.84rem;font-weight:700;color:var(--ink);margin-bottom:0.3rem}
+.why-pillar-desc{font-size:0.74rem;color:var(--ink-3);line-height:1.5}
+.why-copy p{font-size:0.96rem;line-height:1.8; color:var(--ink-3)}
+
+/* CTA SECTION */
+.cta-section{background:var(--off); border-top:1px solid var(--b1); padding:clamp(6rem,12vw,10rem) 0; text-align:center; position: relative; z-index: 1;}
+.cta-sub{font-size:1.1rem;color:var(--ink-3);margin:1.25rem auto 3rem;max-width:500px;line-height:1.7}
+.cta-acts{display:flex;align-items:center;justify-content:center;gap:0.85rem;flex-wrap:wrap}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; position: relative; z-index: 1;}
+.foot-in{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
+.foot-logo{display:flex;align-items:center;gap:8px; font-family:var(--serif); font-weight:800; font-size:1.1rem; color:var(--ink);}
+.foot-logo img{width:26px;height:26px;border-radius:6px}
+.foot-copy{font-size:0.78rem;color:var(--ink-4)}
+.foot-links{display:flex;gap:1.75rem}
+.foot-links a{font-size:0.78rem;color:var(--ink-3);transition:color 0.18s}
+.foot-links a:hover{color:var(--ink)}
+
+/* MODALS */
+.modal-wrap{position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.8);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;pointer-events:none;transition:opacity 0.28s}
+.modal-wrap.open{opacity:1;pointer-events:all}
+.modal{background:var(--white);border:1px solid var(--b2);border-radius:var(--r-xl);padding:3rem 2.5rem;max-width:440px;width:100%;position:relative;box-shadow:0 48px 100px rgba(0,0,0,0.8);transform:translateY(16px) scale(0.98);transition:transform 0.28s var(--t)}
+.modal-wrap.open .modal{transform:translateY(0) scale(1)}
+.modal-x{position:absolute;top:1.25rem;right:1.25rem;background:rgba(255,255,255,0.05);border:1px solid var(--b1);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1rem;color:var(--ink-3);display:flex;align-items:center;justify-content:center;transition:all 0.18s;}
+.modal-x:hover{background:rgba(255,255,255,0.1);color:var(--ink)}
+.modal-icon{font-size:2.5rem;text-align:center;margin-bottom:1rem}
+.modal h3{font-family:var(--serif);font-size:2rem;text-align:center;margin-bottom:0.75rem;color:var(--ink);line-height:1.1}
+.modal p{font-size:0.9rem;color:var(--ink-3);text-align:center;line-height:1.65;margin-bottom:2rem}
+.modal-btns{display:flex;flex-direction:column;gap:0.7rem}
+#tplCBody { background:#000 !important; color:var(--ink-3) !important; border: 1px solid var(--b1); font-family: monospace; }
+#tplCName { color:var(--ink) !important; }
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(22px);transition:opacity 0.65s ease,transform 0.65s ease}
+.rv.show{opacity:1;transform:none}
+.rv-d1{transition-delay:0.08s}.rv-d2{transition-delay:0.16s}.rv-d3{transition-delay:0.24s}.rv-d4{transition-delay:0.32s}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<div class="bg-elements">
+  <div class="glow-orb glow-1"></div>
+  <div class="glow-orb glow-2"></div>
+</div>
+
+<div class="modal-wrap" id="modal">
+<div class="modal">
+<button class="modal-x" data-i18n="index.button_1" onclick="closeModal()">✕</button>
+<div class="modal-icon">🔒</div>
+<h3 data-i18n="index.h3_1">Pro Template</h3>
+<p data-i18n="index.p_1">Unlock all 112 expert-built radiology templates with a Pro or higher plan. Starting at just €79/month — with a 14-day free trial.</p>
+<div class="modal-btns">
+<a class="btn btn-primary btn-lg" data-i18n="index.a_1" href="#pricing" onclick="closeModal()" style="justify-content:center">Try Pro free — 14 days</a>
+<button class="btn btn-ghost btn-lg" data-i18n="index.button_2" onclick="closeModal()" style="justify-content:center">Maybe later</button>
+</div>
+</div>
+</div>
+
+<div class="modal-wrap" id="tplContentModal">
+<div class="modal" style="max-width:680px;width:100%;overflow-y:auto;max-height:85vh;padding:2rem 2.25rem;box-sizing:border-box">
+<button class="modal-x" data-i18n="index.button_3" onclick="closeTplContent()">✕</button>
+<span id="tplCMod" style="display:inline-block;font-size:0.7rem;font-weight:700;letter-spacing:0.06em;background:rgba(255,255,255,0.05);color:var(--ink-3);padding:0.2rem 0.55rem;border-radius:6px;margin-bottom:0.6rem"></span>
+<h3 id="tplCName" style="font-family:var(--serif);font-size:1.45rem;color:var(--ink);margin:0.5rem 0 1.1rem;line-height:1.25"></h3>
+<div id="tplCBody" style="background:#000;border-radius:10px;padding:1.25rem 1.5rem;font-size:0.8rem;line-height:1.8;color:var(--ink-2);white-space:pre-wrap;font-family:monospace;max-height:52vh;overflow-y:auto; border:1px solid var(--b1);"></div>
+<div style="margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--b1);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+<p data-i18n="index.p_2" style="font-size:0.8rem;color:var(--ink-4);margin:0">Customize this template directly inside PISUM.</p>
+<a class="btn btn-primary" data-i18n="index.a_2" href="#pricing" onclick="closeTplContent()" style="font-size:0.85rem;padding:0.6rem 1.25rem;white-space:nowrap">Get PISUM →</a>
+</div>
+</div>
+</div>
+
+<nav class="nav" id="nav">
+<a class="nav-logo" data-i18n="index.a_3" href="index.html">
+<img alt="Logo" src="logo V2.png"/>
+    PISUM
+  </a>
+<ul class="nav-links" id="nav-links">
+<li data-i18n="index.li_1"><a href="#features">Features</a></li>
+<li data-i18n="index.li_2"><a href="#templates">Templates</a></li>
+<li data-i18n="index.li_3"><a href="#pricing">Pricing</a></li>
+<li data-i18n="index.li_4"><a href="#languages">Languages</a></li>
+<li data-i18n="index.li_5"><a href="faq.html">FAQ</a></li>
+<li data-i18n="index.li_6"><a href="documentation.html">Docs</a></li>
+<li data-i18n="index.li_7"><a href="contact.html">Contact</a></li>
+<li data-i18n="index.li_8" id="nav-mobile-signout" style="display:none;cursor:pointer"><span id="nav-mobile-signout-btn" style="cursor:pointer;color:inherit">Sign Out</span></li>
+</ul>
+<div class="nav-right">
+<a class="nav-login" data-i18n="index.a_4" href="https://pisum.app/saas/frontend/auth.html" id="nav-signin">Sign in</a>
+<a class="btn btn-primary btn-sm" data-i18n="index.a_5" href="https://pisum.app/saas/frontend/pricing.html" id="nav-subscribe" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600;">Subscribe</a>
+<div class="nav-profile" id="nav-profile" style="display:none">
+<a class="nav-profile-link" href="https://pisum.app/saas/frontend/dashboard.html" style="display:flex; align-items:center; gap:8px;">
+<img alt="" class="nav-profile-avatar" id="nav-profile-img" src="" style="display:none"/>
+<div class="nav-profile-avatar-fallback" id="nav-profile-initials" style="display:none">?</div>
+<div class="nav-profile-info">
+<span class="nav-profile-name" id="nav-profile-name"></span>
+<span class="nav-profile-email" id="nav-profile-email"></span>
+</div>
+</a>
+<button class="nav-profile-signout" data-i18n="index.button_4" id="nav-signout">Sign Out</button>
+</div>
+<button aria-label="Menu" class="hamburger" id="ham">
+<span></span><span></span><span></span>
+</button>
+</div>
+</nav>
+
+<script>
+(function(){
+  function getPisumUser(){var m=document.cookie.match(/(?:^|;\s*)pisum_user=([^;]+)/);if(!m)return null;try{return JSON.parse(decodeURIComponent(m[1]));}catch{return null;}}
+  var u=getPisumUser();
+  if(!u)return;
+  ['nav-signin','nav-subscribe'].forEach(function(id){var el=document.getElementById(id);if(el)el.style.display='none';});
+  document.getElementById('nav-profile-name').textContent=u.name;
+  document.getElementById('nav-profile-email').textContent=u.email;
+  document.getElementById('nav-profile').style.display='flex';
+  var img=document.getElementById('nav-profile-img');
+  var initEl=document.getElementById('nav-profile-initials');
+  initEl.textContent=u.name.charAt(0).toUpperCase();initEl.style.display='flex';
+  if(u.avatar){img.onload=function(){initEl.style.display='none';img.style.display='';};img.onerror=function(){};img.src=u.avatar;}
+  function signOut(){document.cookie='pisum_user=; domain=.pisum.app; path=/; max-age=0; SameSite=Lax; Secure';try{localStorage.removeItem('sb-lepqbnhrdgfetoysedbq-auth-token');localStorage.removeItem('supabase.auth.token');}catch(e){}window.location.href='https://pisum.app/';}
+  document.getElementById('nav-signout').addEventListener('click',signOut);
+  var mob=document.getElementById('nav-mobile-signout');if(mob){mob.style.display='';mob.addEventListener('click',function(e){e.preventDefault();signOut();});}
+  if(u.access_token&&u.user_id)fetch('https://lepqbnhrdgfetoysedbq.supabase.co/rest/v1/subscriptions?user_id=eq.'+u.user_id,{method:'PATCH',headers:{'apikey':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlcHFibmhyZGdmZXRveXNlZGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwNjQ1MDAsImV4cCI6MjA5MDY0MDUwMH0.St12IwG0_RRKzxrbH1QRolCC2OOAaSIsK4PDmlR2Loo','Authorization':'Bearer '+u.access_token,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({last_used_at:new Date().toISOString()})}).catch(function(){});
+})();
+</script>
+
+<section class="hero">
+<div class="container">
+<div class="hero-inner">
+<div class="hero-left">
+<div class="hero-pill rv">
+<span class="pill-tag" data-i18n="index.span_1">New</span>
+          23 languages · 112 templates · 14-day free trial on all paid plans
+        </div>
+<h1 class="serif hero-h rv rv-d1" data-i18n="hero.title">
+          Radiology reporting software
+        </h1>
+<p class="hero-tagline rv rv-d2" data-i18n="hero.tagline">Dictate naturally. Let <span class="t-accent">AI enhance your reports.</span></p>
+<p class="hero-sub rv rv-d2" data-i18n="index.p_3">Pisum helps radiologists generate <strong style="color:var(--ink)">structured, accurate reports faster</strong> by enhancing dictation with intelligent correction, formatting, and medical context awareness.</p>
+<div class="hero-actions rv rv-d3">
+<a class="btn btn-primary btn-xl" id="hero-trial-cta" href="https://pisum.app/saas/frontend/auth.html">
+<svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24" width="15"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            Start free trial — 14 days
+          </a>
+<a class="btn btn-ghost btn-lg" data-i18n="index.a_7" href="https://github.com/AminWalha/Pisum/releases/latest/download/PISUM_Radiology_Setup.exe" rel="noopener noreferrer" target="_blank">
+<svg fill="none" height="13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24" width="13"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+            Download Free
+          </a>
+</div>
+<p class="hero-note rv rv-d3" data-i18n="index.p_4">Windows 10/11  ·  Free plan included  ·  No credit card</p>
+<p class="rv rv-d3" style="font-size:0.8rem;color:rgba(255,255,255,0.35);margin-top:0.5rem;line-height:1.5">Built by a radiologist in a French hospital. No VC, no marketing fluff.</p>
+</div>
+<div class="hero-right rv rv-d4">
+<div class="mockup-stage">
+<div class="mockup-glow"></div>
+<div class="chip c1"><span data-i18n="index.span_2">⚡</span> Report in <span class="chip-s" data-i18n="index.span_3"> 47 seconds</span></div>
+<div class="chip c2"><span data-i18n="index.span_4">🌍</span><span class="chip-s" data-i18n="index.span_5">23 languages</span> supported</div>
+<div class="mockup-win">
+<div class="win-bar">
+<div class="win-dots"><div class="wdot dr"></div><div class="wdot dy"></div><div class="wdot dg"></div></div>
+<div class="win-url">
+<svg fill="none" height="12" viewbox="0 0 10 12" width="10" xmlns="http://www.w3.org/2000/svg"><rect height="7" rx="1.5" stroke="currentColor" width="9" x="0.5" y="4.5"></rect><path d="M3 4.5V3a2 2 0 1 1 4 0v1.5" stroke="currentColor" stroke-linecap="round"></path></svg>
+                app.pisum.app — Chest CT Report
+              </div>
+</div>
+<div class="win-body">
+<div class="win-sb">
+<span class="sb-lbl" data-i18n="index.span_6">Modalities</span>
+<div class="sb-row on"><span class="sb-pip" style="background:var(--blue)"></span>CT Scan</div>
+<div class="sb-row"><span class="sb-pip" style="background:var(--purple)"></span>MRI</div>
+<div class="sb-row"><span class="sb-pip" style="background:#f59e0b"></span>X-Ray</div>
+<div class="sb-row"><span class="sb-pip" style="background:#10b981"></span>Ultrasound</div>
+<span class="sb-lbl" data-i18n="index.span_7">Recent</span>
+<div class="sb-row">Brain MRI</div>
+<div class="sb-row">Chest XR</div>
+<span class="sb-lbl" data-i18n="index.span_8">Language</span>
+<div class="sb-row on">🇬🇧 English</div>
+</div>
+<div class="win-main">
+<div class="rc">
+<div class="rc-hd"><h4 data-i18n="index.h4_1">Chest CT — Standard Protocol</h4><span class="rc-tag" data-i18n="index.span_9">CT · THORAX</span></div>
+<div class="rc-meta">
+<div class="rc-m"><label data-i18n="index.label_1">Patient</label><span data-i18n="index.span_10">M. Laurent, 58y</span></div>
+<div class="rc-m"><label data-i18n="index.label_2">Date</label><span data-i18n="index.span_11">04/04/2026</span></div>
+<div class="rc-m"><label data-i18n="index.label_3">Referring</label><span data-i18n="index.span_12">Dr. Moreau</span></div>
+</div>
+<div class="rc-body">
+<div class="rc-f"><label data-i18n="index.label_4">Indication</label><div class="rc-val">Follow-up pulmonary nodule, right upper lobe. Prior CT 12 months ago.</div></div>
+<div class="rc-f"><label data-i18n="index.label_5">Parenchyma</label><div class="rc-val">Known 6mm GGO, right upper lobe. Stable in size and morphology.</div></div>
+<div class="rc-f"><label data-i18n="index.label_6">Impression</label><div class="rc-type">Stable RUL GGO 6mm — no malignant transformation. Annual CT follow-up recommended<span class="cursor"></span></div></div>
+</div>
+<div class="rc-foot">
+<button class="rb rb-pdf" data-i18n="index.button_5">📄 PDF</button>
+<button class="rb rb-word" data-i18n="index.button_6">📝 Word</button>
+<button class="rb rb-ai" data-i18n="index.button_7">✨ AI Assistant</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="video-section section">
+<div class="container">
+<div class="video-hd rv" style="text-align:center; margin-bottom:3rem;">
+<div class="eyebrow" style="justify-content:center; margin-bottom:1rem;"><span class="eyebrow-dot"></span>See it in action</div>
+<h2 class="serif d2" data-i18n="index.h2_1" style="color:var(--ink);">Watch Pisum in action</h2>
+<p data-i18n="index.p_5" style="color:var(--ink-3); max-width:540px; margin:0 auto;">See how radiologists generate structured, AI-enhanced reports in under a minute — from dictation to final PDF.</p>
+</div>
+<div class="video-wrapper rv rv-d1">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" src="https://www.youtube.com/embed/hSjfXH0J1W0" title="Pisum — Radiology Reporting Software Demo">
+</iframe>
+</div>
+</div>
+</section>
+
+<div class="mq-section">
+<div class="mq-label">112 modality templates · 23 languages · AI Assistance and dictation</div>
+<div class="mq-track">
+<div class="mq-item"><span data-i18n="index.span_13">🩻</span>Chest CT</div><div class="mq-item"><span data-i18n="index.span_14">🧠</span>Brain MRI</div><div class="mq-item"><span data-i18n="index.span_15">🫀</span>Cardiac CT</div><div class="mq-item"><span data-i18n="index.span_16">🦴</span>MSK MRI</div><div class="mq-item"><span data-i18n="index.span_17">🫁</span>Pulmonary CT-PA</div><div class="mq-item"><span data-i18n="index.span_18">🔬</span>Prostate MRI</div><div class="mq-item"><span data-i18n="index.span_19">🩺</span>Abdominal US</div><div class="mq-item"><span data-i18n="index.span_20">👁</span>Orbital MRI</div><div class="mq-item"><span data-i18n="index.span_21">🦷</span>Dental CT</div><div class="mq-item"><span data-i18n="index.span_22">🔬</span>Liver MRI</div><div class="mq-item"><span data-i18n="index.span_23">🩻</span>Spine CT</div><div class="mq-item"><span data-i18n="index.span_24">🧪</span>PET-CT</div>
+<div class="mq-item"><span data-i18n="index.span_25">🩻</span>Chest CT</div><div class="mq-item"><span data-i18n="index.span_26">🧠</span>Brain MRI</div><div class="mq-item"><span data-i18n="index.span_27">🫀</span>Cardiac CT</div><div class="mq-item"><span data-i18n="index.span_28">🦴</span>MSK MRI</div><div class="mq-item"><span data-i18n="index.span_29">🫁</span>Pulmonary CT-PA</div><div class="mq-item"><span data-i18n="index.span_30">🔬</span>Prostate MRI</div><div class="mq-item"><span data-i18n="index.span_31">🩺</span>Abdominal US</div><div class="mq-item"><span data-i18n="index.span_32">👁</span>Orbital MRI</div><div class="mq-item"><span data-i18n="index.span_33">🦷</span>Dental CT</div><div class="mq-item"><span data-i18n="index.span_34">🔬</span>Liver MRI</div><div class="mq-item"><span data-i18n="index.span_35">🩻</span>Spine CT</div><div class="mq-item"><span data-i18n="index.span_36">🧪</span>PET-CT</div>
+</div>
+</div>
+
+<div class="stats-section">
+<div class="container">
+<div class="stats-grid">
+<div class="stat-cell rv"><div class="stat-num"><span data-i18n="index.span_37">112</span></div><div class="stat-desc" data-i18n="index.stat_desc_1">Expert templates</div></div>
+<div class="stat-cell rv rv-d1"><div class="stat-num"><span data-i18n="index.span_38">23</span></div><div class="stat-desc" data-i18n="index.stat_desc_2">Languages supported</div></div>
+<div class="stat-cell rv rv-d2"><div class="stat-num" style="font-size:clamp(1.6rem,3vw,2.6rem);letter-spacing:-0.01em"><span data-i18n="index.span_39">Early</span></div><div class="stat-desc" data-i18n="index.stat_desc_3">Access</div></div>
+<div class="stat-cell rv rv-d3"><div class="stat-num" style="font-size:clamp(2rem,3.5vw,3rem)"><span data-i18n="index.span_40">&lt;60s</span></div><div class="stat-desc" data-i18n="index.stat_desc_4">Average report time</div></div>
+</div>
+</div>
+</div>
+
+<section class="section why-section">
+<div class="container">
+<div class="why-inner" style="max-width:760px;margin:0 auto">
+<div class="why-hd rv" style="text-align:center;margin-bottom:3.5rem">
+<div class="eyebrow" style="justify-content:center"><span class="eyebrow-dot"></span><span data-i18n="index.why_eyebrow">Why PISUM Exists</span></div>
+<h2 class="serif d2 rv rv-d1" data-i18n="index.why_h2" style="margin-top:1.25rem; color:var(--ink);">Built inside a<br/>radiology department.</h2>
+<p class="rv rv-d2" data-i18n="index.why_p1" style="font-size:1.05rem;color:var(--ink-2);margin-top:1.1rem;line-height:1.65;">The major platforms were built for hospital IT departments.<br/>PISUM was built for the radiologist managing their own practice.</p>
+</div>
+<div class="why-pillars rv rv-d2">
+<div class="why-pillar">
+<div class="why-pillar-icon">🛡️</div>
+<div class="why-pillar-name" data-i18n="index.why_pillar1_name">GDPR &amp; HIPAA</div>
+<div class="why-pillar-desc" data-i18n="index.why_pillar1_desc">Built for regulated clinical environments</div>
+</div>
+<div class="why-pillar">
+<div class="why-pillar-icon">🔐</div>
+<div class="why-pillar-name" data-i18n="index.why_pillar2_name">Local encryption</div>
+<div class="why-pillar-desc" data-i18n="index.why_pillar2_desc">Patient data never leaves your machine</div>
+</div>
+<div class="why-pillar">
+<div class="why-pillar-icon">📋</div>
+<div class="why-pillar-name" data-i18n="index.why_pillar3_name">112 templates</div>
+<div class="why-pillar-desc" data-i18n="index.why_pillar3_desc">Expert-built + your own customs</div>
+</div>
+<div class="why-pillar">
+<div class="why-pillar-icon">🌍</div>
+<div class="why-pillar-name" data-i18n="index.why_pillar4_name">23 languages</div>
+<div class="why-pillar-desc" data-i18n="index.why_pillar4_desc">Switch per exam, instantly</div>
+</div>
+</div>
+<div class="why-copy rv rv-d3" style="display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start;margin-bottom:2.5rem">
+<p data-i18n="index.why_p2">Dragon Medical and PowerScribe were designed for large hospital IT teams — cloud-dependent, enterprise-priced, built around procurement cycles rather than clinical workflows.</p>
+<p data-i18n="index.why_p3">PISUM takes the opposite approach: patient data stays encrypted on your machine, reports follow structured radiology vocabulary, and the whole workflow is built for GDPR and HIPAA compliance from the start.</p>
+</div>
+<div class="rv rv-d4" style="text-align:center;">
+<a class="btn btn-primary" data-i18n="index.why_cta" href="contact.html">Get in touch →</a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section ps-section">
+<div class="container">
+<div class="eyebrow rv"><span class="eyebrow-dot"></span><span data-i18n="index.ps_eyebrow">The Problem We Solve</span></div>
+<h2 class="serif d2 rv rv-d1" data-i18n="index.h2_3" style="margin-top:1.25rem;max-width:600px; color:var(--ink);">Radiology reporting<br/>is fundamentally broken.</h2>
+<div class="ps-grid">
+<div>
+<div class="ps-col-title pain rv">Without PISUM</div>
+<div class="ps-card pain-card rv rv-d1"><span class="ps-icon" data-i18n="index.span_41">⏰</span><div><h4 data-i18n="index.h4_2">Hours lost every day</h4><p data-i18n="index.p_9">Radiologists spend up to 40% of their time typing repetitive boilerplate — time that belongs with patients.</p></div></div>
+<div class="ps-card pain-card rv rv-d2"><span class="ps-icon" data-i18n="index.span_42">🔁</span><div><h4 data-i18n="index.h4_3">Copy-paste errors compound</h4><p data-i18n="index.p_10">Yesterday's report pasted into today's. Errors introduced. Patient data mixed. Compliance risk grows.</p></div></div>
+<div class="ps-card pain-card rv rv-d3"><span class="ps-icon" data-i18n="index.span_43">🌐</span><div><h4 data-i18n="index.h4_4">Language barriers slow everything</h4><p data-i18n="index.p_11">Reporting in a second language takes twice as long and increases terminology inconsistencies.</p></div></div>
+</div>
+<div>
+<div class="ps-col-title sol rv">With PISUM</div>
+<div class="ps-card sol-card rv rv-d1"><span class="ps-icon" data-i18n="index.span_44">⚡</span><div><h4 data-i18n="index.h4_5">Under 60 seconds, every report</h4><p data-i18n="index.p_12">Expert-structured templates with guided fields. Fill in findings. Export. Done. No reformatting ever.</p></div></div>
+<div class="ps-card sol-card rv rv-d2"><span class="ps-icon" data-i18n="index.span_45">✅</span><div><h4 data-i18n="index.h4_6">Consistent, compliant, accurate</h4><p data-i18n="index.p_13">Standardized terminology, required fields enforced, patient data isolated per report. Zero copy-paste.</p></div></div>
+<div class="ps-card sol-card rv rv-d3"><span class="ps-icon" data-i18n="index.span_46">🌍</span><div><h4 data-i18n="index.h4_7">Report in any of 23 languages</h4><p data-i18n="index.p_14">Switch language per report. PISUM handles structure and clinical terminology natively in each.</p></div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section feat-section" id="features">
+<div class="container">
+<div class="feat-header">
+<div class="eyebrow rv"><span class="eyebrow-dot"></span>Built for Radiologists</div>
+<h2 class="serif d2 rv rv-d1" data-i18n="index.h2_4" style="margin-top:1.25rem; color:var(--ink);">Everything you need.<br/>Nothing you don't.</h2>
+</div>
+<div class="feat-grid">
+<div class="feat-card rv"><div class="feat-icon">⚡</div><h3 data-i18n="index.h3_2">Instant Report Generation</h3><p data-i18n="index.p_15">Guided structured fields complete your report as you type. Average completion: 47 seconds. No learning curve.</p><span class="feat-pill pill-free" data-i18n="index.span_47">All Plans</span></div>
+<div class="feat-card rv rv-d1"><div class="feat-icon">🌍</div><h3 data-i18n="index.h3_3">23-Language Support</h3><p data-i18n="index.p_16">Report natively in English, French, Spanish, German, Italian, Portuguese, and 17 more — terminology validated by native radiologists.</p><span class="feat-pill pill-free" data-i18n="index.span_48">All Plans</span></div>
+<div class="feat-card rv rv-d2"><div class="feat-icon">🧠</div><h3 data-i18n="index.h3_4">112 Structured Templates</h3><p data-i18n="index.p_17">Expert-built for CT, MRI, X-Ray, and Ultrasound across every body system. Each field has clinical validation.</p><span class="feat-pill pill-pro" data-i18n="index.span_49">Pro Templates</span></div>
+<div class="feat-card rv rv-d3"><div class="feat-icon">📄</div><h3 data-i18n="index.h3_5">One-Click PDF &amp; Word Export</h3><p data-i18n="index.p_18">Professionally formatted output ready for PACS, EMR, or direct delivery. Your letterhead, your layout.</p><span class="feat-pill pill-free" data-i18n="index.span_50">All Plans</span></div>
+<div class="feat-card rv"><div class="feat-icon">🎙️</div><h3 data-i18n="index.h3_6">Voice Dictation Ready</h3><p data-i18n="index.p_19">Compatible with all major voice recognition tools. Dictate directly into structured fields.</p><span class="feat-pill pill-pro" data-i18n="index.span_51">Pro</span></div>
+<div class="feat-card rv rv-d1"><div class="feat-icon">🏥</div><h3 data-i18n="index.h3_7">Multi-Site Clinic Mode</h3><p data-i18n="index.p_20">Manage multiple radiologists from one admin panel. Custom branding per site. Centralized reporting dashboard.</p><span class="feat-pill pill-pro" data-i18n="index.span_52">Clinic Plan</span></div>
+<div class="feat-card rv rv-d2"><div class="feat-icon">🔗</div><h3 data-i18n="index.h3_8">LAN Network Sharing</h3><p data-i18n="index.p_21">Share the patient database across all workstations in your clinic via a shared local network folder. One shared folder on your LAN is all it takes. AES-256 encrypted end-to-end.</p><span class="feat-pill pill-pro" data-i18n="index.span_53">Expert &amp; Clinic</span></div>
+<div class="feat-card rv rv-d3"><div class="feat-icon">🗃️</div><h3 data-i18n="index.h3_9">Patient Worklist &amp; Audit Log</h3><p data-i18n="index.p_22">Full PACS-style worklist with accession numbers, exam status, and GDPR-compliant audit trail. Every access, modification, and export is logged with timestamp and user.</p><span class="feat-pill pill-pro" data-i18n="index.span_54">Pro+</span></div>
+<div class="feat-card rv rv-d1"><div class="feat-icon" style="background:linear-gradient(135deg,#6d28d9,#3b6ef8)">🔄</div><h3 data-i18n="index.h3_10">Report Conversion &amp; Translation</h3><p data-i18n="index.p_23">Instantly translate any completed radiology report into another language. Clinical terminology preserved, report structure intact — one click, 23 target languages.</p><span class="feat-pill pill-new" data-i18n="index.span_55">Pro+ · New in v2.9.8</span></div>
+<div class="feat-card rv rv-d2" style="background:rgba(0,229,204,0.02);border-color:rgba(0,229,204,0.15);grid-column:span 3"><div class="feat-icon" style="background:var(--grad); color:#fff; border:none;">🌙</div><h3 data-i18n="index.h3_11" style="color:var(--blue)">Dark Medical-Grade Interface</h3><p data-i18n="index.p_24">Designed for reading rooms. Near-black surface palette, cyan accents, zero eye strain during long reporting sessions. Your eyes will thank you after shift 3.</p><span class="feat-pill" data-i18n="index.span_56" style="background:rgba(0,229,204,0.1);color:var(--blue)">All Plans</span></div>
+</div>
+</div>
+</section>
+
+<section class="section idemo-section" id="demo">
+  <div class="container">
+    <div class="idemo-hd rv">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>See It In Action</div>
+      <h2 class="serif d2 rv rv-d1" data-i18n="index.h2_5" style="margin-top:1.25rem; color:var(--ink);">Experience the Workflow</h2>
+      <p class="rv rv-d2" data-i18n="index.p_25" style="font-size:1.05rem;color:var(--ink-2);margin-top:1rem;max-width:480px">Interact with the modules below to see PISUM in action.</p>
+    </div>
+
+    <div class="bento-grid-demo rv rv-d2">
+      <div class="bento-card">
+        <div class="bento-header">
+          <h3 style="font-family:var(--serif); font-weight:700; color:var(--ink); font-size:1.1rem;">Live Voice Dictation</h3>
+          <div style="background:transparent; border:none; color:var(--ink-4); font-size:0.75rem; font-weight:600;" id="voiceStatus">Click Mic to Start</div>
+        </div>
+        <p style="color:var(--ink-3); font-size:0.85rem; margin-bottom:1.5rem;">Click the microphone to simulate dictating findings directly into structured template fields.</p>
+        
+        <div class="voice-mic" id="voiceMic" onclick="toggleVoice()">🎙️</div>
+        
+        <div class="mockup-ui accent-left" style="flex:1;">
+          <div class="mockup-line"><div class="mockup-label cyan">IND:</div> <div class="mockup-text" id="vf-1"></div></div>
+          <div class="mockup-line"><div class="mockup-label cyan">FIND:</div> <div class="mockup-text" id="vf-2"></div></div>
+          <div class="mockup-line"><div class="mockup-label cyan">IMP:</div> <div class="mockup-text" id="vf-3"></div></div>
+        </div>
+      </div>
+
+      <div class="bento-card col-span-2">
+        <div class="bento-header">
+          <h3 style="font-family:var(--serif); font-weight:700; color:var(--ink); font-size:1.1rem;">23-Language Instant Translation</h3>
+          <div style="color:var(--blue); font-size:1.2rem;">🌍</div>
+        </div>
+        <p style="color:var(--ink-3); font-size:0.85rem; margin-bottom:1.5rem;">Report in English, output in any language. Terminology is preserved and clinically validated.</p>
+        
+        <div class="lang-flags">
+          <button class="flag-btn active" onclick="switchDemoLang('en', this)">🇬🇧 EN</button>
+          <button class="flag-btn" onclick="switchDemoLang('fr', this)">🇫🇷 FR</button>
+          <button class="flag-btn" onclick="switchDemoLang('es', this)">🇪🇸 ES</button>
+          <button class="flag-btn" onclick="switchDemoLang('de', this)">🇩🇪 DE</button>
+          <button class="flag-btn" onclick="switchDemoLang('pt', this)">🇧🇷 PT</button>
+          <button class="flag-btn" onclick="switchDemoLang('ar', this)">🇸🇦 AR</button>
+        </div>
+
+        <div class="mockup-ui" style="flex:1;">
+          <div style="padding-bottom:10px; border-bottom:1px solid var(--b2); margin-bottom:10px; color:var(--ink); font-weight:600;">🩻 Chest CT — <span id="demoLangLabel">English</span></div>
+          <div class="mockup-line"><div class="mockup-label cyan">IND:</div> <div class="mockup-text" id="lf-ind">Pulmonary nodule follow-up.</div></div>
+          <div class="mockup-line"><div class="mockup-label cyan">FIND:</div> <div class="mockup-text" id="lf-find">No focal consolidation. Stable 6mm GGO, right upper lobe.</div></div>
+          <div class="mockup-line"><div class="mockup-label cyan">IMP:</div> <div class="mockup-text" id="lf-imp">Stable right upper lobe GGO. No malignant transformation.</div></div>
+        </div>
+      </div>
+
+      <div class="bento-card col-span-3">
+        <div class="bento-header">
+          <h3 style="font-family:var(--serif); font-weight:700; color:var(--ink); font-size:1.1rem;">Sally AI: Intelligent Structuring</h3>
+          <div style="color:var(--blue); font-size:1.2rem;">✨</div>
+        </div>
+        <p style="color:var(--ink-3); font-size:0.85rem; margin-bottom:1.5rem;">Turn messy, conversational dictation into perfectly formatted, structured clinical findings with a single click.</p>
+        
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1.5rem; align-items: stretch; flex:1;">
+          <div class="mockup-ui" style="border-color: rgba(239,68,68,0.3);">
+            <div style="color:#EF4444; font-weight:700; margin-bottom:1rem; letter-spacing:1px; display:flex; align-items:center; justify-content:space-between;">
+              RAW DICTATION <span style="font-size:1.2rem">⚠️</span>
+            </div>
+            <div class="mockup-text" style="color: var(--ink-3); font-family:var(--sans); font-size:0.95rem;">
+              "Yeah so the lungs look mostly okay. I don't see any big problems or masses. Heart seems normal size. Um, airway is clear. Basically nothing bad found here today."
+            </div>
+          </div>
+          
+          <div class="mockup-ui accent-left" style="display:flex; flex-direction:column; justify-content:space-between;">
+            <div>
+              <div style="color:var(--blue); font-weight:700; margin-bottom:1rem; letter-spacing:1px; display:flex; align-items:center; justify-content:space-between;">
+                AI STRUCTURED <span style="font-size:1.2rem">✅</span>
+              </div>
+              <div class="mockup-text" id="aiAfterText" style="opacity:0; font-family:var(--sans); font-size:0.95rem; line-height:1.7; color:var(--ink-2);"></div>
+              <div id="aiPlaceholder" style="color:var(--ink-4); font-style:italic; font-family:var(--sans); font-size:0.9rem; text-align:center; padding:2rem 0;">
+                Waiting for AI Refinement...
+              </div>
+            </div>
+            <button class="btn btn-grad" id="aiBtn" onclick="triggerAI()" style="width:100%; margin-top:1rem; border:none; font-family:var(--sans); font-weight:700; padding:0.75rem; border-radius:999px; cursor:pointer;">✨ Refine with AI</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section tpl-section" id="templates">
+<div class="container">
+<div class="tpl-header">
+<div class="eyebrow rv" style="display:inline-flex"><span class="eyebrow-dot"></span>112 Templates</div>
+<h2 class="serif d2 rv rv-d1" data-i18n="index.h2_6" style="margin-top:1.25rem; color:var(--ink);">Start from an expert template.<br/>Own the result.</h2>
+<p class="rv rv-d2" data-i18n="index.p_30">Browse free and Pro templates across every modality and body region — in your language.</p>
+</div>
+<div class="tpl-tabs">
+<button class="ttab on" data-i18n="index.button_30" onclick="ftpl('all',this)">All</button>
+<button class="ttab" data-i18n="index.button_31" onclick="ftpl('CT',this)">CT</button>
+<button class="ttab" data-i18n="index.button_32" onclick="ftpl('MRI',this)">MRI</button>
+<button class="ttab" data-i18n="index.button_33" onclick="ftpl('XR',this)">X-Ray</button>
+<button class="ttab" data-i18n="index.button_34" onclick="ftpl('US',this)">Ultrasound</button>
+</div>
+<div class="tpl-grid" id="tplGrid"></div>
+<div class="tpl-more rv"><a class="btn btn-ghost btn-lg" data-i18n="index.a_9" href="#pricing">Unlock all 112 Pro templates →</a></div>
+</div>
+</section>
+
+<section class="shots-section section" id="screenshots">
+<div class="container">
+<div class="shots-hd rv">
+<div class="eyebrow" style="justify-content:center;"><span class="eyebrow-dot"></span>Real Interface</div>
+<h2 class="serif d2" data-i18n="index.h2_7" style="margin-top:1.25rem; color:var(--ink);">This is what PISUM<br/><em style="color:var(--blue); font-style:normal;">actually looks like.</em></h2>
+<p data-i18n="index.p_31">Dark medical-grade UI. Designed for long reporting sessions in dimly lit reading rooms.</p>
+</div>
+<div class="shots-tabs rv rv-d1">
+<button class="stab on" data-i18n="index.button_35" onclick="switchShot(0,this)">Report Section</button>
+<button class="stab" data-i18n="index.button_36" onclick="switchShot(1,this)">AI Assistant</button>
+<button class="stab" data-i18n="index.button_37" onclick="switchShot(2,this)">Medical Translation</button>
+<button class="stab" data-i18n="index.button_38" onclick="switchShot(3,this)">WorkList</button>
+<button class="stab" data-i18n="index.button_51" onclick="switchShot(4,this)">Worklist Report</button>
+<button class="stab" data-i18n="index.button_52" onclick="switchShot(5,this)">Word Print</button>
+</div>
+<div class="shots-frame rv rv-d2">
+<div class="shots-win">
+<div class="shots-bar">
+<div class="shots-dots">
+<div class="shots-dot" style="background:#ff5f57"></div>
+<div class="shots-dot" style="background:#febc2e"></div>
+<div class="shots-dot" style="background:#28c840"></div>
+</div>
+</div>
+<div class="shots-img-wrap">
+<img alt="PISUM Report Section" class="shots-img on" id="shot-0" src="screenshots/Report Section.png"/>
+<img alt="PISUM AI Assistant" class="shots-img" id="shot-1" src="screenshots/Ai Assistant.png"/>
+<img alt="PISUM Medical Translation" class="shots-img" id="shot-2" src="screenshots/Medical Translation.png"/>
+<img alt="PISUM WorkList" class="shots-img" id="shot-3" src="screenshots/WorkList.png"/>
+<img alt="PISUM Worklist Report" class="shots-img" id="shot-4" src="screenshots/Worklist report.png"/>
+<img alt="PISUM Word Print" class="shots-img" id="shot-5" src="screenshots/Word Print.png"/>
+</div>
+<div class="shots-caption">
+<div class="shots-cap-text">
+<h4 data-i18n="index.h4_8" id="shotTitle">Report Section</h4>
+<p data-i18n="index.p_32" id="shotDesc">Structured radiology report editor with field-by-field sections, templates, and real-time dictation.</p>
+</div>
+<span class="shots-badge" style="background:rgba(0,229,204,0.15); color:var(--blue); padding:0.2rem 0.6rem; border-radius:6px; font-size:0.7rem; font-weight:700;" data-i18n="index.span_61" id="shotBadge">All Plans</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section how-section" id="how">
+<div class="container">
+<div class="how-header" style="max-width:580px;margin:0 auto 5rem;text-align:center">
+<div class="eyebrow rv" style="display:inline-flex"><span class="eyebrow-dot"></span>Simple Workflow</div>
+<h2 class="serif d2 rv rv-d1" data-i18n="index.h2_8" style="margin-top:1.25rem; color:var(--ink);">Up and running<br/>in three steps.</h2>
+<p class="rv rv-d2" data-i18n="index.p_33">Create your account, download the app, and start reporting in minutes.</p>
+</div>
+<div class="how-steps">
+<div class="how-step rv"><div class="step-ring">1</div><h3 data-i18n="index.h3_12">Create an Account</h3><p data-i18n="index.p_34">Sign up at pisum.app to activate your license and access the software. Free trial available — no credit card required.</p></div>
+<div class="how-arrow rv rv-d1">→</div>
+<div class="how-step rv rv-d2"><div class="step-ring">2</div><h3 data-i18n="index.h3_13">Download &amp; Install</h3><p data-i18n="index.p_35">One .exe installer for Windows 10/11. Double-click, follow the wizard — done in under a minute. No configuration needed.</p></div>
+<div class="how-arrow rv rv-d3">→</div>
+<div class="how-step rv rv-d4"><div class="step-ring">3</div><h3 data-i18n="index.h3_14">Report &amp; Export</h3><p data-i18n="index.p_36">Choose from 112 expert templates. Dictate or type your findings and export a professional PDF or Word in one click.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section compliance-section" id="compliance">
+<div class="container">
+<div class="eyebrow rv" style="display:inline-flex"><span class="eyebrow-dot" style="background:var(--green)"></span>Compliance &amp; Trust</div>
+<h2 class="serif d2 rv rv-d1" style="margin-top:1.25rem; color:var(--ink);">Built for regulated<br/><em style="color:var(--green); font-style:normal;">medical practice.</em></h2>
+<p class="rv rv-d2" style="font-size:1rem;color:var(--ink-3);max-width:580px;margin-top:1rem;line-height:1.75">PISUM is a report formatting and dictation tool — not a diagnostic device. No CE marking required. Designed from the ground up for French and European regulatory requirements.</p>
+<div class="compliance-grid rv rv-d2">
+<div class="compliance-card">
+<h4>🔒 AES-256 Local Encryption</h4>
+<p>Patient data is encrypted on your own machine. Nothing is uploaded to the cloud. Your data never leaves your practice network.</p>
+</div>
+<div class="compliance-card">
+<h4>📋 GDPR / RGPD</h4>
+<p>Full data portability and right-to-erasure support. Every data access and export is logged in an immutable audit trail that satisfies CNIL documentation requirements.</p>
+</div>
+<div class="compliance-card">
+<h4>🗃️ Full Audit Log</h4>
+<p>PACS-style traceability for every report — creation, modification, export, and deletion events, each stamped with timestamp and user identity.</p>
+</div>
+<div class="compliance-card">
+<h4>🏥 HDS-Ready Architecture <span class="compliance-badge">Certification Q3 2026</span></h4>
+<p>Designed to meet HDS hosting requirements. Certification roadmap underway — no false claim, honest timeline.</p>
+</div>
+</div>
+<div class="compliance-disclaimer rv rv-d3">
+<strong style="color:var(--ink-2)">Regulatory status:</strong> PISUM is a report formatting and dictation assistance tool, not a medical device. It does not produce diagnostic output — clinical decisions remain entirely yours. No CE marking or MDR classification applies under current scope.
+</div>
+</div>
+</section>
+
+<section class="section pricing-section" id="pricing">
+<div class="container">
+<div class="pricing-header" style="max-width:560px;margin:0 auto 1.5rem;text-align:center">
+<div class="eyebrow rv" style="display:inline-flex; justify-content:center;"><span class="eyebrow-dot"></span>Simple Pricing</div>
+<h2 class="serif d2 rv rv-d1" data-i18n="index.h2_9" style="margin-top:1.25rem; color:var(--ink);">Start free.<br/>Scale when ready.</h2>
+<p class="rv rv-d2" data-i18n="index.p_37">No credit card needed to start. Cancel anytime. Every plan includes the core workflow.</p>
+</div>
+<div class="bill-row rv">
+<span data-i18n="index.span_65">Monthly</span>
+<label class="tog"><input id="togB" onchange="toggleBill()" type="checkbox"/><span class="tog-sl"></span></label>
+<span data-i18n="index.span_66">Annual <span class="save-tag">Save 20%</span></span>
+</div>
+<div class="plans">
+<div class="plan rv">
+<div class="plan-name">Free</div>
+<div class="plan-price"><span class="psym" data-i18n="index.span_67">€</span><span class="pamt" data-i18n="index.span_68">0</span><span class="pper" data-i18n="index.span_69">/mo</span></div>
+<p class="plan-desc" data-i18n="index.p_38">Assistant, dictation and 10 expert templates — no commitment, no card.</p>
+<a class="plan-cta cta-ghost" data-i18n="index.a_10" href="https://github.com/AminWalha/Pisum/releases/latest/download/PISUM_Radiology_Setup.exe" rel="noopener noreferrer" target="_blank">Download Free</a>
+<hr class="plan-div"/>
+<ul class="plan-list">
+<li data-i18n="index.li_9"><span class="lchk">✓</span>10 templates</li>
+<li data-i18n="index.li_10"><span class="lchk">✓</span>2 languages</li>
+<li data-i18n="index.li_11"><span class="lchk">✓</span>PDF export</li>
+<li data-i18n="index.li_12"><span class="lx">○</span><span class="ldim">Word export</span></li>
+<li data-i18n="index.li_13"><span class="lchk">✓</span>🎙️ AI Dictation (30 min)</li>
+<li data-i18n="index.li_14"><span class="lchk">✓</span>✨ AI Assistant (10/mo)</li>
+<li data-i18n="index.li_16"><span class="lchk">✓</span>50 reports / month</li>
+</ul>
+</div>
+<div class="plan rv rv-d1">
+<div class="plan-name">Starter</div>
+<div class="plan-price"><span class="psym" data-i18n="index.span_70">€</span><span class="pamt" data-i18n="index.span_71" id="starterAmt">29</span><span class="pper" data-i18n="index.span_72">/mo</span></div>
+<p class="bill-note" data-i18n="index.p_39" style="display:none;font-size:0.72rem;color:var(--green);margin-bottom:0.25rem">276€/yr — save 72€</p>
+<p class="plan-desc" data-i18n="index.p_40">Your first step to faster reports.</p>
+<p data-i18n="index.p_roi_starter" style="font-size:0.7rem;color:var(--green);text-align:center;margin-bottom:0.3rem;font-weight:600">Save 30 min/day from day one</p>
+<p data-i18n="index.p_41" style="font-size:0.7rem;color:var(--ink-4);margin-bottom:0.75rem;margin-top:0">14-day free trial</p>
+<button class="plan-cta cta-ghost plan-sub-btn" data-i18n="index.button_39" onclick="subscribe('starter')">Try Starter</button>
+<hr class="plan-div"/>
+<ul class="plan-list">
+<li data-i18n="index.li_17"><span class="lchk">✓</span>20 templates</li>
+<li data-i18n="index.li_18"><span class="lchk">✓</span>23 languages</li>
+<li data-i18n="index.li_19"><span class="lchk">✓</span>PDF + Word export</li>
+<li data-i18n="index.li_20"><span class="lchk">✓</span>🎙️ AI Dictation (500 min)</li>
+<li data-i18n="index.li_21"><span class="lchk">✓</span>✨ AI Assistant (50/mo)</li>
+<li data-i18n="index.li_22"><span class="lchk">✓</span>Basic worklist</li>
+<li data-i18n="index.li_23"><span class="lchk">✓</span>Unlimited reports</li>
+</ul>
+</div>
+<div class="plan hot rv rv-d2">
+<div class="hot-lbl">⭐ Most Popular</div>
+<div class="plan-name">Pro</div>
+<div class="plan-price"><span class="psym" data-i18n="index.span_73">€</span><span class="pamt" data-i18n="index.span_74" id="proAmt">79</span><span class="pper" data-i18n="index.span_75">/mo</span></div>
+<p class="bill-note" data-i18n="index.p_42" style="display:none;font-size:0.72rem;color:var(--purple);margin-bottom:0.25rem">756€/yr — save 192€</p>
+<p class="plan-desc" data-i18n="index.p_43">Complete workflow for daily practice.</p>
+<p data-i18n="index.p_roi_pro" style="font-size:0.7rem;color:var(--ink);text-align:center;margin-bottom:0.3rem;font-weight:600">Pays for itself in &lt; 3 days</p>
+<p data-i18n="index.p_44" style="font-size:0.7rem;color:var(--ink-4);margin-bottom:0.75rem;margin-top:0">14-day free trial</p>
+<button class="plan-cta cta-white plan-sub-btn" data-i18n="index.button_40" onclick="subscribe('pro')">Try Pro free</button>
+<hr class="plan-div"/>
+<ul class="plan-list">
+<li data-i18n="index.li_26"><span class="lchk">✓</span>112+ templates</li>
+<li data-i18n="index.li_27"><span class="lchk">✓</span>23 languages</li>
+<li data-i18n="index.li_28"><span class="lchk">✓</span>PDF + Word + HTML</li>
+<li data-i18n="index.li_29"><span class="lchk">✓</span>🎙️ AI Dictation (2,000 min)</li>
+<li data-i18n="index.li_30"><span class="lchk">✓</span>✨ AI Assistant (200/mo)</li>
+<li data-i18n="index.li_31"><span class="lchk">✓</span>🔄 Translation (100/mo)</li>
+<li data-i18n="index.li_32"><span class="lchk">✓</span>Full worklist & stats</li>
+</ul>
+</div>
+<div class="plan rv rv-d3" style="position:relative">
+<div style="position:absolute;top:1.25rem;right:1.75rem;background:rgba(16,185,129,0.15);color:var(--green);font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:6px;">Best Value</div>
+<div class="plan-name">Expert 🔥</div>
+<div class="plan-price"><span class="psym" data-i18n="index.span_76">€</span><span class="pamt" data-i18n="index.span_77" id="expertAmt">129</span><span class="pper" data-i18n="index.span_78">/mo</span></div>
+<p class="bill-note" data-i18n="index.p_45" style="display:none;font-size:0.72rem;color:var(--green);margin-bottom:0.25rem">1 236€/yr — save 312€</p>
+<p class="plan-desc" data-i18n="index.p_46">Multi-workstation · Unlimited AI.</p>
+<p data-i18n="index.p_47" style="font-size:0.7rem;color:var(--ink-4);margin-bottom:0.75rem;margin-top:-1.5rem">14-day free trial</p>
+<button class="plan-cta cta-ghost plan-sub-btn" data-i18n="index.button_41" onclick="subscribe('expert')">Try Expert</button>
+<hr class="plan-div"/>
+<ul class="plan-list">
+<li data-i18n="index.li_35"><span class="lchk">✓</span>112+ custom templates</li>
+<li data-i18n="index.li_38"><span class="lchk">✓</span>🎙️ AI Dictation (Unlimited)</li>
+<li data-i18n="index.li_39"><span class="lchk">✓</span>✨ AI Enhancer (Unlimited)</li>
+<li data-i18n="index.li_40"><span class="lchk">✓</span>🔄 Translation (Unlimited)</li>
+<li data-i18n="index.li_43"><span class="lchk">✓</span>LAN Sync (1 site · 3 PCs)</li>
+</ul>
+</div>
+<div class="plan rv rv-d4">
+<div class="plan-name">Clinic 🏥</div>
+<div class="plan-price"><span class="psym" data-i18n="index.span_79">€</span><span class="pamt" data-i18n="index.span_80" id="clinicAmt">399</span><span class="pper" data-i18n="index.span_81">/mo</span></div>
+<p class="bill-note" data-i18n="index.p_48" style="display:none;font-size:0.72rem;color:var(--green);margin-bottom:0.25rem">3 828€/yr — save 960€</p>
+<p class="plan-desc" data-i18n="index.p_49">Multi-site · Team management.</p>
+<button class="plan-cta cta-ghost plan-sub-btn" data-i18n="index.button_42" onclick="subscribe('clinic')">Contact Sales</button>
+<hr class="plan-div"/>
+<ul class="plan-list">
+<li data-i18n="index.li_45"><span class="lchk">✓</span>5 users incl. (+€69/extra)</li>
+<li data-i18n="index.li_48"><span class="lchk">✓</span>🎙️ AI Dictation (Unlimited)</li>
+<li data-i18n="index.li_49"><span class="lchk">✓</span>✨ AI Enhancer (Unlimited)</li>
+<li data-i18n="index.li_50"><span class="lchk">✓</span>🔄 Translation (Unlimited)</li>
+<li data-i18n="index.li_53"><span class="lchk">✓</span>LAN Sync (multi-site · unlimited)</li>
+</ul>
+</div>
+</div>
+<p data-i18n="index.p_50" style="text-align:center;margin-top:2.25rem;font-size:0.78rem;color:var(--ink-4);letter-spacing:0.01em">
+<span style="color:var(--green);font-weight:700">✓</span> 30-day money-back guarantee  · 
+      <span style="color:var(--green);font-weight:700">✓</span> Cancel anytime  · 
+      No cloud upload of patient data  ·  GDPR compliant
+    </p>
+</div>
+</section>
+
+<section class="section lang-section" id="languages">
+<div class="container">
+<div class="lang-hd rv">
+<div class="eyebrow" style="display:inline-flex;justify-content:center"><span class="eyebrow-dot"></span><span data-i18n="index.lang_eyebrow">23 Languages</span></div>
+<h2 class="serif d2" data-i18n="index.h2_10" style="margin-top:1.25rem; color:var(--ink);">Work in Your Language,<br/><em style="color:var(--blue); font-style:normal;">Anywhere.</em></h2>
+<p data-i18n="index.p_51" style="color:var(--ink-3);">Our AI-powered radiology assistant understands and processes 23 languages with high medical accuracy — so your team reports in the language they think in.</p>
+</div>
+<div class="lang-featured rv rv-d1">
+<div class="lang-feat-card rv">
+<div class="lang-flag-wrap"><img alt="French flag" loading="lazy" src="https://flagcdn.com/48x36/fr.png"/></div>
+<div style="text-align:center">
+<div class="lang-feat-name">French</div><div class="lang-feat-native">Français</div>
+</div>
+<span style="font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.22rem 0.65rem;border-radius:999px;background:rgba(0,229,204,0.15);color:var(--blue);" data-i18n="index.span_82">Default</span>
+</div>
+<div class="lang-feat-card rv rv-d1">
+<div class="lang-flag-wrap"><img alt="English flag" loading="lazy" src="https://flagcdn.com/48x36/gb.png"/></div>
+<div style="text-align:center">
+<div class="lang-feat-name">English</div><div class="lang-feat-native">English</div>
+</div>
+<span style="font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.22rem 0.65rem;border-radius:999px;background:rgba(255,255,255,0.05);color:var(--ink-3);" data-i18n="index.span_83">Primary</span>
+</div>
+<div class="lang-feat-card rv rv-d2">
+<div class="lang-flag-wrap"><img alt="German flag" loading="lazy" src="https://flagcdn.com/48x36/de.png"/></div>
+<div style="text-align:center">
+<div class="lang-feat-name">German</div><div class="lang-feat-native">Deutsch</div>
+</div>
+<span style="font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.22rem 0.65rem;border-radius:999px;background:rgba(255,255,255,0.05);color:var(--ink-3);" data-i18n="index.span_84">Primary</span>
+</div>
+</div>
+<div class="lang-grid" id="langGrid">
+<div class="lang-pill rv"><div class="lang-flag-sm"><img alt="Spanish" loading="lazy" src="https://flagcdn.com/28x21/es.png"/></div><span class="lang-pill-name" data-i18n="index.span_85">Español</span></div>
+<div class="lang-pill rv rv-d1"><div class="lang-flag-sm"><img alt="Italian" loading="lazy" src="https://flagcdn.com/28x21/it.png"/></div><span class="lang-pill-name" data-i18n="index.span_86">Italiano</span></div>
+<div class="lang-pill rv rv-d2"><div class="lang-flag-sm"><img alt="Portuguese" loading="lazy" src="https://flagcdn.com/28x21/pt.png"/></div><span class="lang-pill-name" data-i18n="index.span_87">Português</span></div>
+<div class="lang-pill rv rv-d3"><div class="lang-flag-sm"><img alt="Dutch" loading="lazy" src="https://flagcdn.com/28x21/nl.png"/></div><span class="lang-pill-name" data-i18n="index.span_88">Nederlands</span></div>
+<div class="lang-pill rv rv-d4"><div class="lang-flag-sm"><img alt="Russian" loading="lazy" src="https://flagcdn.com/28x21/ru.png"/></div><span class="lang-pill-name" data-i18n="index.span_89">Русский</span></div>
+<div class="lang-pill rv"><div class="lang-flag-sm"><img alt="Turkish" loading="lazy" src="https://flagcdn.com/28x21/tr.png"/></div><span class="lang-pill-name" data-i18n="index.span_90">Türkçe</span></div>
+<div class="lang-pill rv rv-d1"><div class="lang-flag-sm"><img alt="Swedish" loading="lazy" src="https://flagcdn.com/28x21/se.png"/></div><span class="lang-pill-name" data-i18n="index.span_91">Svenska</span></div>
+<div class="lang-pill rv rv-d2"><div class="lang-flag-sm"><img alt="Polish" loading="lazy" src="https://flagcdn.com/28x21/pl.png"/></div><span class="lang-pill-name" data-i18n="index.span_92">Polski</span></div>
+<div class="lang-pill rv rv-d3"><div class="lang-flag-sm"><img alt="Greek" loading="lazy" src="https://flagcdn.com/28x21/gr.png"/></div><span class="lang-pill-name" data-i18n="index.span_93">Ελληνικά</span></div>
+<div class="lang-pill rv rv-d4"><div class="lang-flag-sm"><img alt="Chinese" loading="lazy" src="https://flagcdn.com/28x21/cn.png"/></div><span class="lang-pill-name" data-i18n="index.span_94">中文</span></div>
+<div class="lang-pill lang-extra rv"><div class="lang-flag-sm"><img alt="Norwegian" loading="lazy" src="https://flagcdn.com/28x21/no.png"/></div><span class="lang-pill-name" data-i18n="index.span_95">Norsk</span></div>
+<div class="lang-pill lang-extra rv rv-d1"><div class="lang-flag-sm"><img alt="Danish" loading="lazy" src="https://flagcdn.com/28x21/dk.png"/></div><span class="lang-pill-name" data-i18n="index.span_96">Dansk</span></div>
+<div class="lang-pill lang-extra rv rv-d2"><div class="lang-flag-sm"><img alt="Japanese" loading="lazy" src="https://flagcdn.com/28x21/jp.png"/></div><span class="lang-pill-name" data-i18n="index.span_97">日本語</span></div>
+<div class="lang-pill lang-extra rv rv-d3"><div class="lang-flag-sm"><img alt="Korean" loading="lazy" src="https://flagcdn.com/28x21/kr.png"/></div><span class="lang-pill-name" data-i18n="index.span_98">한국어</span></div>
+<div class="lang-pill lang-extra rv rv-d4"><div class="lang-flag-sm"><img alt="Hindi" loading="lazy" src="https://flagcdn.com/28x21/in.png"/></div><span class="lang-pill-name" data-i18n="index.span_99">हिन्दी</span></div>
+<div class="lang-pill lang-extra rv"><div class="lang-flag-sm"><img alt="Indonesian" loading="lazy" src="https://flagcdn.com/28x21/id.png"/></div><span class="lang-pill-name" data-i18n="index.span_100">Bahasa Indonesia</span></div>
+<div class="lang-pill lang-extra rv rv-d1"><div class="lang-flag-sm"><img alt="Thai" loading="lazy" src="https://flagcdn.com/28x21/th.png"/></div><span class="lang-pill-name" data-i18n="index.span_101">ไทย</span></div>
+<div class="lang-pill lang-extra rv rv-d2"><div class="lang-flag-sm"><img alt="Malay" loading="lazy" src="https://flagcdn.com/28x21/my.png"/></div><span class="lang-pill-name" data-i18n="index.span_102">Bahasa Melayu</span></div>
+<div class="lang-pill lang-extra rv rv-d3"><div class="lang-flag-sm"><img alt="Filipino" loading="lazy" src="https://flagcdn.com/28x21/ph.png"/></div><span class="lang-pill-name" data-i18n="index.span_103">Filipino</span></div>
+<div class="lang-pill lang-extra rv rv-d4"><div class="lang-flag-sm"><img alt="Romanian" loading="lazy" src="https://flagcdn.com/28x21/ro.png"/></div><span class="lang-pill-name" data-i18n="index.span_104">Română</span></div>
+</div>
+<div class="lang-more-wrap rv">
+<button class="lang-more-btn" data-i18n="index.button_43" id="langMoreBtn" onclick="toggleLangMore()">
+<svg fill="none" height="14" viewbox="0 0 14 14" width="14"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg>
+        Show 10 more languages
+      </button>
+</div>
+<div class="lang-trust rv" style="text-align:center;">
+<div style="display:inline-flex;align-items:center;gap:7px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);border-radius:999px;padding:0.4rem 1rem;font-size:0.78rem;font-weight:600;color:var(--green)">Optimized for medical and radiology terminology</div>
+<p style="font-size:0.76rem;color:var(--ink-4);letter-spacing:0.02em;margin-top:0.5rem;" data-i18n="index.p_52">More languages are continuously being added.</p>
+</div>
+</div>
+</section>
+
+<section class="cta-section">
+<div class="container">
+<div class="cta-inner rv">
+<h2 class="serif d2" data-i18n="index.h2_11" style="color:var(--ink);">Download PISUM.<br/><em style="color:var(--blue); font-style:normal;">Start reporting today.</em></h2>
+<p class="cta-sub" data-i18n="index.p_53">Built for solo radiologists who spend too long on reports. Free plan included — no credit card.</p>
+<div class="cta-acts">
+<a class="btn btn-grad btn-xl" data-i18n="index.a_11" href="https://github.com/AminWalha/Pisum/releases/latest/download/PISUM_Radiology_Setup.exe" rel="noopener noreferrer" target="_blank">
+<svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24" width="15"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+          Download Free
+        </a>
+<a class="btn btn-xl" data-i18n="index.a_12" href="#how" style="color:var(--ink-2);border:1px solid var(--b2);background:rgba(255,255,255,0.05);backdrop-filter:blur(10px)">See how it works</a>
+</div>
+<p style="font-size:0.75rem;color:var(--ink-4);margin-top:1.5rem;letter-spacing:0.03em" data-i18n="index.p_54">Windows 10/11  ·  Free plan included  ·  GDPR compliant</p>
+</div>
+</div>
+</section>
+
+<footer class="site-footer">
+<div class="container">
+<div class="foot-in">
+<div class="foot-logo">
+<img alt="Logo" src="logo V2.png"/>
+<span data-i18n="index.span_151">PISUM</span>
+</div>
+<p class="foot-copy" data-i18n="index.p_55">© 2026 PISUM App. All rights reserved.</p>
+<div class="foot-links">
+<a data-i18n="index.a_13" href="rgpd.html">Privacy</a>
+<a data-i18n="index.a_14" href="terms.html">Terms</a>
+<a data-i18n="index.a_dpia" href="dpia.html">DPIA</a>
+<a data-i18n="index.a_dpo" href="dpo.html">DPO</a>
+<a data-i18n="index.a_15" href="faq.html">FAQ</a>
+<a data-i18n="index.a_16" href="documentation.html">Docs</a>
+<a data-i18n="index.a_17" href="contact.html">Contact</a>
+</div>
+</div>
+<div style="margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--b1);text-align:center;">
+<p style="font-size:0.68rem;color:var(--ink-4);margin-bottom:0.7rem;letter-spacing:0.1em;text-transform:uppercase;">🌐 Language / Langue</p>
+<div style="display:flex;gap:0.45rem;flex-wrap:wrap;justify-content:center;">
+<button onclick="location.href='?lang=fr'" style="background:transparent;border:1px solid var(--b1);color:var(--ink-3);border-radius:999px;padding:0.28rem 0.8rem;font-size:0.75rem;font-weight:600;cursor:pointer;font-family:inherit;">🇫🇷 Français</button>
+<button onclick="location.href='?lang=en'" style="background:transparent;border:1px solid var(--b1);color:var(--ink-3);border-radius:999px;padding:0.28rem 0.8rem;font-size:0.75rem;font-weight:600;cursor:pointer;font-family:inherit;">🇬🇧 English</button>
+<button onclick="location.href='?lang=de'" style="background:transparent;border:1px solid var(--b1);color:var(--ink-3);border-radius:999px;padding:0.28rem 0.8rem;font-size:0.75rem;font-weight:600;cursor:pointer;font-family:inherit;">🇩🇪 Deutsch</button>
+<button onclick="location.href='?lang=es'" style="background:transparent;border:1px solid var(--b1);color:var(--ink-3);border-radius:999px;padding:0.28rem 0.8rem;font-size:0.75rem;font-weight:600;cursor:pointer;font-family:inherit;">🇪🇸 Español</button>
+<button onclick="location.href='?lang=it'" style="background:transparent;border:1px solid var(--b1);color:var(--ink-3);border-radius:999px;padding:0.28rem 0.8rem;font-size:0.75rem;font-weight:600;cursor:pointer;font-family:inherit;">🇮🇹 Italiano</button>
+<button onclick="location.href='?lang=pt'" style="background:transparent;border:1px solid var(--b1);color:var(--ink-3);border-radius:999px;padding:0.28rem 0.8rem;font-size:0.75rem;font-weight:600;cursor:pointer;font-family:inherit;">🇧🇷 Português</button>
+<button onclick="location.href='?lang=nl'" style="background:transparent;border:1px solid var(--b1);color:var(--ink-3);border-radius:999px;padding:0.28rem 0.8rem;font-size:0.75rem;font-weight:600;cursor:pointer;font-family:inherit;">🇳🇱 Nederlands</button>
+<button onclick="location.href='?lang=ar'" style="background:transparent;border:1px solid var(--b1);color:var(--ink-3);border-radius:999px;padding:0.28rem 0.8rem;font-size:0.75rem;font-weight:600;cursor:pointer;font-family:inherit;">🇸🇦 عربي</button>
+</div>
+</div>
+</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+const SUPABASE_URL  = 'https://lepqbnhrdgfetoysedbq.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlcHFibmhyZGdmZXRveXNlZGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwNjQ1MDAsImV4cCI6MjA5MDY0MDUwMH0.St12IwG0_RRKzxrbH1QRolCC2OOAaSIsK4PDmlR2Loo';
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+window.sb = sb;
+</script>
+
+<script>
+const nav = document.getElementById('nav');
+const bar = document.getElementById('bar');
+window.addEventListener('scroll',()=>{
+  const s=window.scrollY;
+  nav.classList.toggle('solid',s>16);
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  bar.style.width=Math.min(100,(s/h)*100)+'%';
+},{passive:true});
+
+const ham = document.getElementById('ham');
+const navLinks = document.getElementById('nav-links');
+function closeMenu(){
+  navLinks.classList.remove('open');
+  document.body.classList.remove('menu-open');
+}
+ham.addEventListener('click',()=>{
+  const isOpen = navLinks.classList.toggle('open');
+  document.body.classList.toggle('menu-open', isOpen);
+});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeMenu));
+document.addEventListener('click', e=>{
+  if(navLinks.classList.contains('open') && !navLinks.contains(e.target) && !ham.contains(e.target)) closeMenu();
+});
+
+const obs=new IntersectionObserver((es)=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');obs.unobserve(e.target);}});
+},{threshold:0.1,rootMargin:'0px 0px -36px 0px'});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+function toggleLangMore(){
+  const extras=document.querySelectorAll('.lang-extra');
+  const btn=document.getElementById('langMoreBtn');
+  const isOpen=btn.classList.toggle('open');
+  extras.forEach(el=>{ el.classList.toggle('open',isOpen); });
+  btn.querySelector('svg').style.transform=isOpen?'rotate(180deg)':'';
+  btn.childNodes[btn.childNodes.length-1].textContent=isOpen?' Show less':' Show 10 more languages';
+}
+
+function openModal(){document.getElementById('modal').classList.add('open')}
+function closeModal(){document.getElementById('modal').classList.remove('open')}
+document.getElementById('modal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal();});
+
+async function openTplContent(id,name,mod){
+  const body=document.getElementById('tplCBody');
+  document.getElementById('tplCMod').textContent=mod;
+  document.getElementById('tplCName').textContent=name;
+  body.textContent='Loading…';
+  document.getElementById('tplContentModal').classList.add('open');
+  try{
+    const {data,error}=await window.sb.from('templates').select('content').eq('id',id).single();
+    body.textContent=(error||!data?.content)?'Could not load content.':data.content;
+  }catch(e){ body.textContent='Error: '+e.message; }
+}
+function closeTplContent(){document.getElementById('tplContentModal').classList.remove('open')}
+document.getElementById('tplContentModal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeTplContent();});
+
+const tplModMap={'Scanner':{label:'CT',dm:'CT'},'IRM':{label:'MRI',dm:'MRI'},'Radiographie conventionnelle':{label:'X-Ray',dm:'XR'},'Echographie':{label:'US',dm:'US'}};
+const langToDbLang={en:'Anglais',fr:'Francais',de:'Allemand',es:'Espagnol',it:'Italien',pt:'Portugais',nl:'Neerlandais',ru:'Russe',tr:'Turc',sv:'Suedois',pl:'Polonais',el:'Grec',zh:'Chinois',no:'Norvegien',da:'Danois',ja:'Japonais',ko:'Coreen',hi:'Hindi',id:'Indonesien',th:'Thai',ms:'Malais',tl:'Filipino',ro:'Roumain'};
+
+function ftpl(mod,btn){
+  document.querySelectorAll('.ttab').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.tpl-card').forEach(c=>{
+    c.style.display=(mod==='all'||c.dataset.m===mod)?'':'none';
+  });
+}
+
+async function loadTemplates(lang){
+  const grid=document.getElementById('tplGrid');
+  const skeleton=Array(8).fill(0).map(()=>`<div class="tpl-card" style="pointer-events:none"><div class="tpl-thumb"></div><div class="tpl-body"><div class="tpl-line" style="width:70%;height:14px;border-radius:4px;background:var(--b1)"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div>`).join('');
+  grid.innerHTML=skeleton;
+  const dbLang=langToDbLang[lang]||'Anglais';
+  const {data,error}=await sb.from('templates').select('id,name,exam_type,plan').eq('language',dbLang).order('exam_type').order('name');
+  if(error||!data){grid.innerHTML='<p style="color:var(--ink-4);text-align:center;grid-column:1/-1;padding:2rem">Could not load templates.</p>';return;}
+
+  const free=data.filter(t=>t.plan==='free');
+  const pro=data.filter(t=>t.plan!=='free').slice(0,4);
+  const preview=[...free,...pro];
+
+  grid.innerHTML=preview.map(t=>{
+    const mod=tplModMap[t.exam_type]||{label:t.exam_type,dm:t.exam_type};
+    const isPro=t.plan!=='free';
+    const proOv=isPro?`<div class="pro-ov"><span class="pro-lock">🔒</span><span class="pro-lbl">Pro Template</span></div>`:'';
+    const badge=isPro?`<span class="badge-pro">PRO</span>`:`<span class="badge-free">FREE</span>`;
+    const safeName=t.name.replace(/"/g,'&quot;');
+    const clickAttr=isPro?' onclick="openModal()"':` onclick="openTplContent('${t.id}','${safeName}','${mod.label}')" style="cursor:pointer"`;
+    const docLines=`<div class="tpl-doc"><div class="tpl-doc-h"></div><div class="tpl-doc-l" style="width:88%"></div><div class="tpl-doc-l" style="width:72%"></div><div class="tpl-doc-l" style="width:80%"></div><div class="tpl-doc-l" style="width:60%"></div></div>`;
+    return `<div class="tpl-card${isPro?' pro':''}" data-m="${mod.dm}"${clickAttr}>${proOv}<div class="tpl-thumb">${docLines}<span class="tpl-mod">${mod.label}</span></div><div class="tpl-body"><div class="tpl-name">${t.name}</div><div class="tpl-row"><span class="tpl-langs">🌍 23 langs</span>${badge}</div><div class="tpl-lines"><div class="tpl-line"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div></div>`;
+  }).join('');
+}
+document.addEventListener('languageChanged',e=>loadTemplates(e.detail.lang));
+
+const bill={m:{starter:29,pro:79,expert:129,clinic:399},a:{starter:23,pro:63,expert:103,clinic:319}};
+function toggleBill(){
+  const annual=document.getElementById('togB').checked;
+  const p=annual?bill.a:bill.m;
+  document.getElementById('starterAmt').textContent=p.starter;
+  document.getElementById('proAmt').textContent=p.pro;
+  document.getElementById('expertAmt').textContent=p.expert;
+  document.getElementById('clinicAmt').textContent=p.clinic;
+  document.querySelectorAll('.bill-note').forEach(el=>el.style.display=annual?'':'none');
+}
+
+function subscribe(plan){
+  const interval=document.getElementById('togB').checked?'annual':'monthly';
+  window.location.href='https://pisum.app/saas/frontend/pricing.html?plan='+plan+'&interval='+interval;
+}
+
+const shotData=[
+  {title:'Report Section',desc:'Structured radiology report editor with field-by-field sections, templates, and real-time dictation.'},
+  {title:'AI Assistant',desc:'Sally AI generates, refines, and completes your report text — powered by the latest large language models.'},
+  {title:'Medical Translation',desc:'Instantly translate the full report into 23 languages while preserving medical terminology and structure.'},
+  {title:'WorkList',desc:'Full patient worklist with exam queue management. Open any exam directly from the list in one click.'},
+  {title:'Worklist Report',desc:'View and edit the linked report directly from the worklist without leaving your workflow.'},
+  {title:'Word Print',desc:'Export a professionally formatted Word document with clinic letterhead, structured sections, and patient info.'}
+];
+function switchShot(i,btn){
+  document.querySelectorAll('.stab').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.shots-img').forEach(img=>img.classList.remove('on'));
+  const img=document.getElementById('shot-'+i);
+  if(img)img.classList.add('on');
+  const d=shotData[i];
+  document.getElementById('shotTitle').textContent=d.title;
+  document.getElementById('shotDesc').textContent=d.desc;
+}
+
+const statsCfg=[{end:112,fmt:v=>v},{end:23,fmt:v=>v},{skip:true},{end:0,skip:true}];
+const statObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    statObs.unobserve(e.target);
+    e.target.querySelectorAll('.stat-num span').forEach((sp,i)=>{
+      const cfg=statsCfg[i];
+      if(!cfg||cfg.skip)return;
+      let t0=null;const dur=1600;
+      function tick(ts){
+        if(!t0)t0=ts;
+        const p=Math.min((ts-t0)/dur,1);
+        const ease=1-Math.pow(1-p,3);
+        sp.textContent=cfg.fmt(Math.round(cfg.end*ease));
+        if(p<1)requestAnimationFrame(tick);
+        else sp.textContent=cfg.fmt(cfg.end);
+      }
+      setTimeout(()=>requestAnimationFrame(tick),i*110);
+    });
+  });
+},{threshold:0.4});
+const sg=document.querySelector('.stats-grid');
+if(sg)statObs.observe(sg);
+
+/* NEW BENTO DEMO LOGIC */
+let voiceActive = false;
+let voiceTimers = [];
+const voiceLines = [
+  {id: 'vf-1', text: 'Follow-up pulmonary nodule, right upper lobe.'},
+  {id: 'vf-2', text: 'Stable 6mm GGO. No new consolidation or effusion.'},
+  {id: 'vf-3', text: 'Stable RUL GGO — annual CT follow-up recommended.'}
+];
+
+function toggleVoice() {
+  const mic = document.getElementById('voiceMic');
+  const status = document.getElementById('voiceStatus');
+  voiceActive = !voiceActive;
+  
+  if (voiceActive) {
+    mic.classList.add('active');
+    status.style.color = 'var(--blue)';
+    status.textContent = 'Listening...';
+    
+    voiceLines.forEach(v => { document.getElementById(v.id).textContent = ''; });
+    
+    voiceLines.forEach((v, i) => {
+      const t = setTimeout(() => typeInto(v.id, v.text), i * 1800 + 500);
+      voiceTimers.push(t);
+    });
+    
+    const stop = setTimeout(() => { if (voiceActive) toggleVoice(); }, voiceLines.length * 1800 + 2000);
+    voiceTimers.push(stop);
+  } else {
+    mic.classList.remove('active');
+    status.style.color = 'var(--ink-4)';
+    status.textContent = 'Click Mic to Start';
+    voiceTimers.forEach(clearTimeout);
+    voiceTimers = [];
+    document.querySelectorAll('.typing-cursor').forEach(el => el.classList.remove('typing-cursor'));
+  }
+}
+
+function typeInto(id, text) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  document.querySelectorAll('.typing-cursor').forEach(e => e.classList.remove('typing-cursor'));
+  el.classList.add('typing-cursor');
+  let i = 0;
+  el.textContent = '';
+  const iv = setInterval(() => {
+    if (i < text.length) { el.textContent += text[i++]; }
+    else {
+      clearInterval(iv);
+      setTimeout(() => el.classList.remove('typing-cursor'), 500);
+    }
+  }, 25);
+}
+
+const demoLangData = {
+  en: { dir: 'ltr', ind: 'Pulmonary nodule follow-up.', find: 'No focal consolidation. Stable 6mm GGO, right upper lobe.', imp: 'Stable right upper lobe GGO. No malignant transformation.' },
+  fr: { dir: 'ltr', ind: 'Suivi de nodule pulmonaire.', find: 'Pas de condensation focale. GGO de 6mm stable, lobe supérieur droit.', imp: 'GGO du lobe supérieur droit stable. Pas de transformation maligne.' },
+  es: { dir: 'ltr', ind: 'Seguimiento nódulo pulmonar.', find: 'Sin consolidación focal. GGO de 6mm estable, lóbulo superior derecho.', imp: 'GGO lóbulo superior derecho estable. Sin transformación maligna.' },
+  de: { dir: 'ltr', ind: 'Verlaufskontrolle Lungenrundherd.', find: 'Kein fokales Infiltrat. Stabiles 6mm GGO, rechter Oberlappen.', imp: 'Stabiles GGO im rechten Oberlappen. Kein malignes Korrelat.' },
+  pt: { dir: 'ltr', ind: 'Acompanhamento de nódulo pulmonar.', find: 'Sem consolidação focal. GGO de 6mm estável, lobo superior direito.', imp: 'GGO do lobo superior direito estável. Sem transformação maligna.' },
+  ar: { dir: 'rtl', ind: 'متابعة العقدة الرئوية.', find: 'لا يوجد تصلب بؤري. عتامة زجاجية 6 ملم مستقرة، الفص العلوي الأيمن.', imp: 'عتامة زجاجية مستقرة في الفص العلوي الأيمن. لا يوجد تحول خبيث.' }
+};
+
+function switchDemoLang(code, btn) {
+  document.querySelectorAll('.flag-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const d = demoLangData[code];
+  if (!d) return;
+  document.getElementById('demoLangLabel').textContent = btn.textContent.split(' ')[1]; 
+  ['ind', 'find', 'imp'].forEach(f => {
+    const el = document.getElementById('lf-' + f);
+    el.style.opacity = '0';
+    setTimeout(() => {
+      el.textContent = d[f];
+      el.style.direction = d.dir;
+      el.style.textAlign = d.dir === 'rtl' ? 'right' : 'left';
+      el.style.opacity = '1';
+    }, 200);
+  });
+}
+
+const aiHTML = `No evidence of acute pulmonary pathology. <span class="ai-highlight">Lung parenchyma is clear bilaterally</span> with no focal consolidation, nodule, or pleural effusion. <span class="ai-highlight">Cardiothoracic ratio within normal limits</span>. Airways patent. No mediastinal or hilar lymphadenopathy.`;
+let aiDone = false;
+function triggerAI() {
+  const btn = document.getElementById('aiBtn');
+  const afterEl = document.getElementById('aiAfterText');
+  const placeholder = document.getElementById('aiPlaceholder');
+  if (aiDone) {
+    aiDone = false;
+    afterEl.style.opacity = '0';
+    setTimeout(() => { afterEl.innerHTML = ''; placeholder.style.display = 'block'; }, 300);
+    btn.textContent = '✨ Refine with AI';
+    return;
+  }
+  btn.textContent = '⏳ Analyzing Context...';
+  btn.disabled = true;
+  setTimeout(() => {
+    placeholder.style.display = 'none';
+    afterEl.innerHTML = aiHTML;
+    afterEl.style.opacity = '1';
+    btn.textContent = '↺ Reset Demo';
+    btn.disabled = false;
+    aiDone = true;
+  }, 1200);
+}
+</script>
+
+<style>
+#piw{position:fixed;bottom:24px;right:24px;z-index:9500;}
+#piw-trigger{display:flex;align-items:center;gap:8px;background:var(--grad);color:#06060a;border:none;border-radius:999px;padding:12px 18px 12px 14px;font-size:.85rem;font-weight:700;cursor:pointer;box-shadow:var(--shadow-blue);transition:transform .2s,box-shadow .2s;position:relative; font-family:var(--sans)}
+#piw-trigger:hover{transform:translateY(-2px);box-shadow:0 0 30px rgba(0,229,204,0.4)}
+#piw-badge{position:absolute;top:-4px;right:-4px;width:18px;height:18px;background:#ef4444;color:#fff;border-radius:50%;font-size:.6rem;font-weight:800;display:flex;align-items:center;justify-content:center;animation:piw-pulse 2s infinite}
+@keyframes piw-pulse{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.4)}50%{box-shadow:0 0 0 6px rgba(239,68,68,0)}}
+#piw-panel{display:none;position:absolute;bottom:64px;right:0;width:360px;background:rgba(10,12,20,0.95);backdrop-filter:blur(15px);border:1px solid var(--b2);border-radius:20px;box-shadow:0 24px 64px rgba(0,0,0,.6);overflow:hidden;flex-direction:column;animation:piw-in .25s cubic-bezier(.25,1,.5,1)}
+#piw-panel.open{display:flex}
+@keyframes piw-in{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+#piw-head{background:rgba(0,0,0,0.4);padding:14px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--b1)}
+#piw-head-info{display:flex;align-items:center;gap:10px}
+#piw-avatar{width:36px;height:36px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:1rem;color:#fff;flex-shrink:0}
+#piw-name{font-size:.88rem;font-weight:700;color:var(--ink)}
+#piw-status{font-size:.7rem;color:var(--ink-4);display:flex;align-items:center;gap:4px}
+.piw-dot{width:6px;height:6px;border-radius:50%;background:#10b981;display:inline-block}
+#piw-close{background:rgba(255,255,255,.05);border:1px solid var(--b1);color:var(--ink-3);width:28px;height:28px;border-radius:50%;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .18s}
+#piw-close:hover{background:rgba(255,255,255,.1);color:var(--ink)}
+#piw-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;max-height:280px;min-height:160px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.1) transparent}
+.piw-msg{display:flex;flex-direction:column;gap:4px;max-width:88%}
+.piw-msg.user{align-self:flex-end;align-items:flex-end}
+.piw-msg.ai{align-self:flex-start}
+.piw-bubble{padding:10px 13px;border-radius:14px;font-size:.82rem;line-height:1.6;white-space:pre-line}
+.piw-msg.ai .piw-bubble{background:rgba(255,255,255,0.05);border:1px solid var(--b1);color:var(--ink-2)}
+.piw-msg.user .piw-bubble{background:var(--grad);color:#000;font-weight:600}
+.piw-msg.ai .piw-bubble strong{color:var(--blue)}
+.piw-typing{display:flex;gap:4px;padding:10px 13px;background:rgba(255,255,255,0.05);border:1px solid var(--b1);border-radius:14px;width:fit-content}
+.piw-typing span{width:6px;height:6px;background:var(--ink-4);border-radius:50%;animation:piw-bounce .9s infinite}
+.piw-typing span:nth-child(2){animation-delay:.15s}
+.piw-typing span:nth-child(3){animation-delay:.3s}
+@keyframes piw-bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+#piw-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 12px}
+.piw-chip{background:rgba(255,255,255,.05);border:1px solid var(--b1);color:var(--ink-3);border-radius:999px;padding:5px 11px;font-size:.72rem;font-weight:600;cursor:pointer;transition:all .18s;font-family:inherit}
+.piw-chip:hover{background:rgba(0,229,204,.1);border-color:var(--blue);color:var(--ink)}
+#piw-footer{border-top:1px solid var(--b1);padding:12px 14px;display:flex;gap:8px;align-items:center;background:rgba(0,0,0,0.3)}
+#piw-input{flex:1;background:rgba(255,255,255,0.05);border:1px solid var(--b1);border-radius:999px;padding:9px 15px;font-size:.82rem;color:var(--ink);outline:none;font-family:inherit;transition:border-color .18s}
+#piw-input::placeholder{color:var(--ink-4)}
+#piw-input:focus{border-color:var(--blue)}
+#piw-send{width:34px;height:34px;border-radius:50%;background:var(--grad);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .18s,opacity .18s; color:#000}
+#piw-send:hover{transform:scale(1.08)}
+#piw-send:disabled{opacity:.4;cursor:not-allowed;transform:none}
+@media(max-width:420px){#piw-panel{width:calc(100vw - 32px);right:-8px}}
+</style>
+<div id="piw">
+<button aria-label="Ask PISUM AI" data-i18n="index.button_44" id="piw-trigger" onclick="piwToggle()">
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="16"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"></path></svg>
+    Ask AI
+    <span id="piw-badge">1</span>
+</button>
+<div aria-label="PISUM AI Assistant" id="piw-panel" role="dialog">
+<div id="piw-head">
+<div id="piw-head-info">
+<div id="piw-avatar">✨</div>
+<div>
+<div id="piw-name" data-i18n="index.piw_name">PISUM AI</div>
+<div id="piw-status"><span class="piw-dot"></span> <span data-i18n="index.piw_status">Online — always here to help</span></div>
+</div>
+</div>
+<button aria-label="Close" data-i18n="index.button_45" id="piw-close" onclick="piwToggle()">✕</button>
+</div>
+<div id="piw-msgs">
+<div class="piw-msg ai"><div class="piw-bubble" data-i18n="index.piw_msg">Hi! I'm <strong>PISUM AI</strong> 👋<br>Ask me anything about features, pricing, setup, or templates. I'll give you a straight answer.</br></div></div>
+</div>
+<div id="piw-chips">
+<button class="piw-chip" data-i18n="index.button_46" onclick="piwAsk(this.textContent)">What plans exist?</button>
+<button class="piw-chip" data-i18n="index.button_47" onclick="piwAsk(this.textContent)">Free trial?</button>
+<button class="piw-chip" data-i18n="index.button_48" onclick="piwAsk(this.textContent)">How to install?</button>
+<button class="piw-chip" data-i18n="index.button_49" onclick="piwAsk(this.textContent)">AI dictation?</button>
+<button class="piw-chip" data-i18n="index.button_50" onclick="piwAsk(this.textContent)">GDPR compliant?</button>
+</div>
+<div id="piw-footer">
+<input autocomplete="off" data-i18n="index.input_1" id="piw-input" onkeydown="if(event.key==='Enter')piwSend()" placeholder="Ask a question…" type="text"/>
+<button aria-label="Send" id="piw-send" onclick="piwSend()">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><line x1="22" x2="11" y1="2" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+</button>
+</div>
+</div>
+</div>
+<script>
+(function(){
+const PC_URL='https://pisum-chat-server.onrender.com';
+const piwSid='sess_'+Math.random().toString(36).slice(2);
+function fmt(text){return text.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');}
+function addMsg(role,text){
+  const wrap=document.getElementById('piw-msgs');
+  const d=document.createElement('div');
+  d.className='piw-msg '+role;
+  const b=document.createElement('div');
+  b.className='piw-bubble';
+  b.innerHTML=fmt(text).replace(/\n/g,'<br>');
+  d.appendChild(b);
+  wrap.appendChild(d);
+  wrap.scrollTop=wrap.scrollHeight;
+}
+function showTyping(){
+  const wrap=document.getElementById('piw-msgs');
+  const d=document.createElement('div');
+  d.className='piw-msg ai';d.id='piw-typing-indicator';
+  d.innerHTML='<div class="piw-typing"><span></span><span></span><span></span></div>';
+  wrap.appendChild(d);
+  wrap.scrollTop=wrap.scrollHeight;
+  return d;
+}
+window.piwToggle=function(){
+  const panel=document.getElementById('piw-panel');
+  const badge=document.getElementById('piw-badge');
+  const isOpen=panel.classList.contains('open');
+  panel.classList.toggle('open');
+  if(!isOpen&&badge)badge.style.display='none';
+  if(!isOpen)setTimeout(()=>document.getElementById('piw-input').focus(),100);
+};
+window.piwAsk=async function(q){
+  document.getElementById('piw-chips').style.display='none';
+  const btn=document.getElementById('piw-send');
+  addMsg('user',q);
+  btn.disabled=true;
+  const t=showTyping();
+  try{
+    const r=await fetch(PC_URL+'/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q,sessionId:piwSid})});
+    const data=await r.json();
+    t.remove();
+    addMsg('ai',data.reply||data.error);
+  }catch{
+    t.remove();
+    addMsg('ai','Connection error. Please try again.');
+  }
+  btn.disabled=false;
+};
+window.piwSend=function(){
+  const inp=document.getElementById('piw-input');
+  const q=inp.value.trim();
+  if(!q)return;
+  inp.value='';
+  piwAsk(q);
+};
+})();
+</script>
+
+<div id="pisum-err-toast" style="display:none;position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);background:#fff;border:1px solid #fecaca;color:#b91c1c;padding:.8rem 1.5rem;border-radius:12px;font-size:.83rem;font-weight:600;box-shadow:0 4px 20px rgba(0,0,0,.12);z-index:9999;max-width:90vw;text-align:center"></div>
+<script src="i18n.js"></script>
+<script>
+(function () {
+  function gev(name, params) { if (typeof gtag === 'function') gtag('event', name, params || {}); }
+  document.querySelectorAll('a[href*="PISUM_Radiology_Setup.exe"]').forEach(function (el) {
+    el.addEventListener('click', function () { gev('download_exe'); });
+  });
+  document.querySelectorAll('button.plan-sub-btn').forEach(function (el) {
+    var m = (el.getAttribute('onclick') || '').match(/subscribe\(['"](\w+)['"]\)/);
+    if (!m) return;
+    var plan = m[1];
+    el.addEventListener('click', function () {
+      if (plan === 'clinic') { gev('contact_sales_click'); } else { gev('start_trial_click', { plan: plan }); }
+    });
+  });
+  var heroTrialCta = document.getElementById('hero-trial-cta');
+  if (heroTrialCta) heroTrialCta.addEventListener('click', function () { gev('start_trial_click', { plan: 'free' }); });
+  var modalTrialBtn = document.querySelector('a[data-i18n="index.a_1"]');
+  if (modalTrialBtn) { modalTrialBtn.addEventListener('click', function () { gev('start_trial_click', { plan: 'pro' }); }); }
+  var navSignin = document.getElementById('nav-signin');
+  if (navSignin) navSignin.addEventListener('click', function () { gev('signin_click'); });
+  var navSubscribe = document.getElementById('nav-subscribe');
+  if (navSubscribe) navSubscribe.addEventListener('click', function () { gev('subscribe_click'); });
+  var scrollFired = {};
+  window.addEventListener('scroll', function () {
+    var top = window.scrollY || document.documentElement.scrollTop;
+    var max = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    if (!max) return;
+    var pct = (top / max) * 100;
+    [25, 50, 75, 100].forEach(function (t) {
+      if (pct >= t && !scrollFired[t]) { scrollFired[t] = true; gev('scroll_' + t); }
+    });
+  }, { passive: true });
+  [30, 60, 120].forEach(function (sec) { setTimeout(function () { gev('time_' + sec + 's'); }, sec * 1000); });
+})();
+</script>
+</body>
+</html>
