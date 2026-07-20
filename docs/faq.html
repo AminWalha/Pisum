@@ -654,5 +654,67 @@ window.piwSend=function(){
 };
 })();
 </script>
+
+<!-- PISUM Cookie Banner -->
+<style>
+#pisum-cookie-banner {
+  position: fixed; bottom: 24px; left: 24px; z-index: 9999;
+  background: rgba(10, 12, 20, 0.95); backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px;
+  padding: 20px; max-width: 380px; box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif; display: none;
+}
+#pisum-cookie-banner p { color: #a0a0c0; font-size: 0.85rem; line-height: 1.5; margin: 0 0 15px 0; }
+#pisum-cookie-banner strong { color: #f0f0f8; }
+.cookie-btns { display: flex; gap: 10px; }
+.cookie-btn {
+  flex: 1; padding: 8px 0; border-radius: 999px; font-size: 0.8rem; font-weight: 600;
+  cursor: pointer; border: none; transition: all 0.2s;
+}
+.cookie-btn-accept { background: linear-gradient(135deg, #00e5cc 0%, #3b6ef8 100%); color: #06060a; }
+.cookie-btn-accept:hover { opacity: 0.9; transform: translateY(-1px); }
+.cookie-btn-decline { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: #f0f0f8; }
+.cookie-btn-decline:hover { background: rgba(255, 255, 255, 0.1); }
+@media(max-width: 480px) {
+  #pisum-cookie-banner { bottom: 12px; left: 12px; right: 12px; max-width: none; }
+}
+</style>
+
+<div id="pisum-cookie-banner">
+  <p><strong>🍪 Respect de votre vie privée</strong><br>Nous utilisons Google Analytics pour analyser l'audience du site. Aucun cookie de suivi n'est déposé sans votre accord explicite.</p>
+  <div class="cookie-btns">
+    <button class="cookie-btn cookie-btn-decline" onclick="handleCookie(false)">Refuser</button>
+    <button class="cookie-btn cookie-btn-accept" onclick="handleCookie(true)">Accepter</button>
+  </div>
+</div>
+
+<script>
+function loadGoogleAnalytics() {
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = "https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F";
+  document.head.appendChild(script);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6VG09X3G7F');
+}
+
+function handleCookie(accepted) {
+  localStorage.setItem('pisum_cookie_consent', accepted ? 'granted' : 'denied');
+  document.getElementById('pisum-cookie-banner').style.display = 'none';
+  if (accepted) loadGoogleAnalytics();
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const consent = localStorage.getItem('pisum_cookie_consent');
+  if (!consent) {
+    document.getElementById('pisum-cookie-banner').style.display = 'block';
+  } else if (consent === 'granted') {
+    loadGoogleAnalytics();
+  }
+});
+</script>
+<!-- End Cookie Banner -->
 </body>
 </html>

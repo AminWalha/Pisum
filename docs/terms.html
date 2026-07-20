@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-6VG09X3G7F');
-</script>
+
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Terms and Conditions | Pisum Radiology Software</title>
@@ -352,6 +345,22 @@ footer { background: var(--s1); border-top: 1px solid var(--border); padding: 2r
         <p id="s8p2" data-i18n="terms.s8p2">For any question regarding these terms: <a href="mailto:support@pisum.app">support@pisum.app</a></p>
       </div>
 
+    
+      <div class="prose-section" id="s9">
+        <h2><span class="num">09</span> <span id="s9h">Mentions Légales</span></h2>
+        <p id="s9p1">Conformément aux dispositions de la loi pour la confiance dans l'économie numérique (LCEN), voici les mentions légales de l'éditeur du site et du logiciel PISUM :</p>
+        
+        <div class="info-block blue" id="ib9">
+          <ul style="margin:0; padding:0; gap:0.8rem;">
+            <li style="padding-left:0; border:none; list-style-type:none;"><strong>Éditeur et propriétaire :</strong> Amin WALHA, EI (Entreprise Individuelle)</li>
+            <li style="padding-left:0; border:none; list-style-type:none;"><strong>Siège social :</strong> 100 Route de Moval, 90400 Trévenans, France</li>
+            <li style="padding-left:0; border:none; list-style-type:none;"><strong>Directeur de la publication :</strong> Amin Walha</li>
+            <li style="padding-left:0; border:none; list-style-type:none;"><strong>SIRET :</strong> 107 735 417</li>
+            <li style="padding-left:0; border:none; list-style-type:none;"><strong>Contact :</strong> <a href="mailto:support@pisum.app">support@pisum.app</a> / +33 7 45 48 67 14</li>
+            <li style="padding-left:0; border:none; list-style-type:none;"><strong>Hébergeur du site :</strong> Vercel Inc. <!-- Modifie si tu utilises GitHub Pages ou Hostinger --></li>
+          </ul>
+        </div>
+      </div>
     </article>
   </div>
 </div>
@@ -726,5 +735,67 @@ window.piwSend=function(){
 })();
 </script>
 <!-- ── end AI Agent Widget ── -->
+
+<!-- PISUM Cookie Banner -->
+<style>
+#pisum-cookie-banner {
+  position: fixed; bottom: 24px; left: 24px; z-index: 9999;
+  background: rgba(10, 12, 20, 0.95); backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px;
+  padding: 20px; max-width: 380px; box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif; display: none;
+}
+#pisum-cookie-banner p { color: #a0a0c0; font-size: 0.85rem; line-height: 1.5; margin: 0 0 15px 0; }
+#pisum-cookie-banner strong { color: #f0f0f8; }
+.cookie-btns { display: flex; gap: 10px; }
+.cookie-btn {
+  flex: 1; padding: 8px 0; border-radius: 999px; font-size: 0.8rem; font-weight: 600;
+  cursor: pointer; border: none; transition: all 0.2s;
+}
+.cookie-btn-accept { background: linear-gradient(135deg, #00e5cc 0%, #3b6ef8 100%); color: #06060a; }
+.cookie-btn-accept:hover { opacity: 0.9; transform: translateY(-1px); }
+.cookie-btn-decline { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: #f0f0f8; }
+.cookie-btn-decline:hover { background: rgba(255, 255, 255, 0.1); }
+@media(max-width: 480px) {
+  #pisum-cookie-banner { bottom: 12px; left: 12px; right: 12px; max-width: none; }
+}
+</style>
+
+<div id="pisum-cookie-banner">
+  <p><strong>🍪 Respect de votre vie privée</strong><br>Nous utilisons Google Analytics pour analyser l'audience du site. Aucun cookie de suivi n'est déposé sans votre accord explicite.</p>
+  <div class="cookie-btns">
+    <button class="cookie-btn cookie-btn-decline" onclick="handleCookie(false)">Refuser</button>
+    <button class="cookie-btn cookie-btn-accept" onclick="handleCookie(true)">Accepter</button>
+  </div>
+</div>
+
+<script>
+function loadGoogleAnalytics() {
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = "https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F";
+  document.head.appendChild(script);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6VG09X3G7F');
+}
+
+function handleCookie(accepted) {
+  localStorage.setItem('pisum_cookie_consent', accepted ? 'granted' : 'denied');
+  document.getElementById('pisum-cookie-banner').style.display = 'none';
+  if (accepted) loadGoogleAnalytics();
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const consent = localStorage.getItem('pisum_cookie_consent');
+  if (!consent) {
+    document.getElementById('pisum-cookie-banner').style.display = 'block';
+  } else if (consent === 'granted') {
+    loadGoogleAnalytics();
+  }
+});
+</script>
+<!-- End Cookie Banner -->
 </body>
 </html>
