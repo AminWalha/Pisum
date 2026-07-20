@@ -534,6 +534,13 @@ footer .sep{margin:0 .5rem;color:var(--app-border)}
     No cloud upload of patient data &nbsp;·&nbsp; GDPR compliant &nbsp;·&nbsp; Local-first
   </div>
 
+  <div style="text-align: center; margin-bottom: 2rem; margin-top: 1rem;">
+    <label style="color: var(--app-text-primary); font-weight: 600; font-size: 0.9rem; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">
+      <input type="checkbox" id="with-trial-checkbox" checked style="width: 18px; height: 18px; accent-color: var(--app-primary);">
+      Start with a 14-day free trial
+    </label>
+  </div>
+
   <div class="plans-grid">
 
     <!-- FREE -->
@@ -990,13 +997,22 @@ async function subscribe(plan) {
   });
 
   try {
+    const withTrialCheckbox = document.getElementById('with-trial-checkbox');
+    const withTrial = withTrialCheckbox ? withTrialCheckbox.checked : false;
+
+    const payload = {
+      plan,
+      interval: billingInterval,
+      with_trial: withTrial,
+    };
+
     const res = await fetch(`${API_BASE}/create-checkout-session`, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${currentSession.access_token}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ plan, interval: billingInterval }),
+      body: JSON.stringify(payload),
     });
 
     if (!res.ok) {
