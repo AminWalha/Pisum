@@ -383,7 +383,7 @@ main{max-width:960px;margin:0 auto;padding:2rem 2rem 5rem}
 @media(max-width:860px){.plan-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:560px){.plan-grid{grid-template-columns:1fr}}
 .plan-card{
-  padding:1rem; cursor:pointer; text-align:center;
+  padding:1rem; cursor:pointer; text-align:center; overflow:visible;
 }
 .plan-card.sel{border-color:var(--accent-cyan);background:rgba(0,229,204,0.05);box-shadow:0 0 0 2px var(--accent-cyan)}
 .plan-tag{
@@ -401,10 +401,22 @@ main{max-width:960px;margin:0 auto;padding:2rem 2rem 5rem}
 .plan-feats li span{display:flex;margin-top:2px}
 .plan-feats li svg{width:12px;height:12px;flex-shrink:0;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
 .pop-badge{
-  position:absolute;top:-10px;left:50%;transform:translateX(-50%); background:var(--accent-violet);
-  color:var(--text-main);font-size:0.6rem;font-weight:800;
-  letter-spacing:0.05em;padding:0.2rem 0.6rem;border-radius:999px;white-space:nowrap;
-  box-shadow:0 4px 10px rgba(124,58,237,0.4);
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--grad);
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 10;
 }
 
 /* ── BUTTONS ── */
