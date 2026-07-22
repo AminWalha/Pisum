@@ -481,9 +481,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
   left: 0;
   width: 100%;
   height: 44px;
-  background: rgba(8, 10, 18, 0.75);
-  backdrop-filter: saturate(180%) blur(16px);
-  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  background: #080a12;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
@@ -492,6 +490,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
   text-decoration: none;
   overflow: hidden;
   transition: all 0.3s ease;
+  will-change: transform;
 }
 
 /* Subtly glowing animated gradient line at top */
@@ -574,7 +573,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 }
 
 .announcement-banner:hover {
-  background: rgba(12, 15, 26, 0.85);
+  background: #0c0f1a;
 }
 
 /* Adjust navigation to sit right below the banner */
@@ -1404,7 +1403,7 @@ async function loadTemplates(lang){
     const proOv=isPro?`<div class="pro-ov"><span class="pro-lock">🔒</span><span class="pro-lbl">Pro Template</span></div>`:'';
     const badge=isPro?`<span class="badge-pro">PRO</span>`:`<span class="badge-free">FREE</span>`;
     const safeName=t.name.replace(/"/g,'&quot;');
-    const clickAttr=isPro?' onclick="openModal()"':` onclick="openTplContent('${t.id}','${safeName}','${mod.label}')" style="cursor:pointer"`;
+    const clickAttr=isPro?' onclick="openModal()"' : ` onclick="openTplContent('${t.id}','${safeName}','${mod.label}')" style="cursor:pointer"`;
     const docLines=`<div class="tpl-doc"><div class="tpl-doc-h"></div><div class="tpl-doc-l" style="width:88%"></div><div class="tpl-doc-l" style="width:72%"></div><div class="tpl-doc-l" style="width:80%"></div><div class="tpl-doc-l" style="width:60%"></div></div>`;
     return `<div class="tpl-card${isPro?' pro':''}" data-m="${mod.dm}"${clickAttr}>${proOv}<div class="tpl-thumb">${docLines}<span class="tpl-mod">${mod.label}</span></div><div class="tpl-body"><div class="tpl-name">${t.name}</div><div class="tpl-row"><span class="tpl-langs">🌍 23 langs</span>${badge}</div><div class="tpl-lines"><div class="tpl-line"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div></div>`;
   }).join('');
