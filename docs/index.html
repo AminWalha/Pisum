@@ -473,7 +473,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 @media(max-width:480px){.lang-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.lang-featured{grid-template-columns:repeat(2,1fr);gap:0.85rem}}
 @media(max-width:400px){.lang-featured{grid-template-columns:1fr}}
-
+ 
 /* Modern Adapted Announcement Banner */
 .announcement-banner {
   position: fixed;
@@ -481,13 +481,35 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
   left: 0;
   width: 100%;
   height: 44px;
-  background: rgba(0, 229, 204, 0.05); /* Very subtle cyan tint */
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--b2);
+  background: rgba(8, 10, 18, 0.75);
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
+  text-decoration: none;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Subtly glowing animated gradient line at top */
+.announcement-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #00E5CC, #7C3AED, #3B82F6, #00E5CC);
+  background-size: 300% 100%;
+  animation: bannerGlow 6s linear infinite;
+}
+
+@keyframes bannerGlow {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 300% 0%; }
 }
 
 .announcement-content {
@@ -495,23 +517,67 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
   align-items: center;
   gap: 12px;
   color: var(--ink-2);
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 0.82rem;
+  font-weight: 500;
   letter-spacing: 0.01em;
 }
 
 .announcement-banner .pill {
-  background: var(--grad); /* Uses your signature gradient */
-  color: var(--bg);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--grad);
+  color: #030408;
   padding: 3px 10px;
   border-radius: 999px;
   font-size: 0.65rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
+  box-shadow: 0 0 12px rgba(0, 229, 204, 0.3);
 }
 
-/* Adjust navigation to sit below the banner */
+/* Pulsing effect on badge */
+.announcement-banner .pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #030408;
+  animation: pulseDot 1.8s infinite ease-in-out;
+}
+
+@keyframes pulseDot {
+  0%, 100% { transform: scale(0.8); opacity: 0.6; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+
+.announcement-text {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.announcement-text strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.announcement-arrow {
+  color: var(--blue);
+  font-size: 0.85rem;
+  transition: transform 0.2s ease;
+}
+
+.announcement-banner:hover .announcement-arrow {
+  transform: translateX(3px);
+}
+
+.announcement-banner:hover {
+  background: rgba(12, 15, 26, 0.85);
+}
+
+/* Adjust navigation to sit right below the banner */
 .nav {
   top: 44px; 
 }
@@ -519,22 +585,35 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 /* Update mobile menu inset */
 @media(max-width:1020px) {
   .nav-links.open {
-    inset: 114px 0 0 0; /* 70px + 44px */
+    inset: 114px 0 0 0; /* 70px nav height + 44px banner height */
+  }
+}
+
+@media(max-width: 600px) {
+  .announcement-content {
+    font-size: 0.75rem;
+    gap: 8px;
+  }
+  .announcement-text .hide-mobile {
+    display: none;
   }
 }
 </style>
 </head>
 <body>
 
-<div class="announcement-banner">
-  <span class="pill">New Update</span>
-  <span>  A major update was released today 15/07/2026. Ai Enhancement</span>
-</div>
-<div id="bar"></div>
-<div class="bg-elements">
-  <div class="glow-orb glow-1"></div>
-  <div class="glow-orb glow-2"></div>
-</div>
+<a href="#features" class="announcement-banner">
+  <div class="announcement-content">
+    <span class="pill">
+      <span class="pill-dot"></span>
+      New Update
+    </span>
+    <span class="announcement-text">
+      <strong>Ai Enhancement</strong> <span class="hide-mobile">— Major update released on 15/07/2026 ✨</span>
+    </span>
+    <span class="announcement-arrow">→</span>
+  </div>
+</a>
 
 <div class="modal-wrap" id="modal">
 <div class="modal">
