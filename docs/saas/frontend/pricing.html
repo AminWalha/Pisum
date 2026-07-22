@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="fr">
 <head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F"></script>
@@ -11,510 +11,515 @@
 </script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title data-i18n="pricing.pageTitle">PISUM — Pricing for Medical Professionals</title>
+<title data-i18n="pricing.pageTitle">PISUM — Tarification pour Professionnels de Santé</title>
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
 :root{
-  --app-bg: #0D1117;
-  --app-surface: #161B22;
-  --app-surface-2: #1C2128;
-  --app-border: #30363D;
-  --app-text-primary: #E6EDF3;
-  --app-text-secondary: #8B949E;
-  --app-text-tertiary: #6E7681;
-  --app-primary: #14B8A6; /* Teal */
-  --app-primary-dark: #0F8A7A;
-  --app-primary-light: rgba(20, 184, 166, 0.1);
-  --app-primary-text: #0D1117;
-  --app-error: #F85149;
-  --app-success: #3FB950;
-  --app-warn: #D29922;
-  --app-blue: #388BFD;
-
-  --grad-primary: linear-gradient(135deg, var(--app-primary), #34d399);
-  --grad-blue: linear-gradient(135deg, #2d80f2, #60a5fa);
-  --grad-amber: linear-gradient(135deg, #f59e0b, #fbbf24);
-
-  --shadow: 0 8px 24px rgba(0,0,0,0.3);
-  --shadow-lg: 0 24px 60px -12px rgba(0,0,0,0.5);
-  --r: 12px;
+  --bg:#04060A; 
+  --white:rgba(18, 24, 38, 0.7); 
+  --off:#080C14;
+  --ink:#FFFFFF;
+  --ink-2:#E2E8F0;
+  --ink-3:#94A3B8;
+  --ink-4:#64748B;
+  --b1:rgba(255,255,255,0.08);
+  --b2:rgba(255,255,255,0.18);
+  --blue:#00E5CC; /* Neon Cyan */
+  --blue-d:#0D9488;
+  --purple:#7C3AED; /* Neon Violet */
+  --green:#10B981;
+  --grad:linear-gradient(135deg,#00E5CC 0%,#10B981 100%);
+  --grad-purple:linear-gradient(135deg,#00E5CC 0%,#7C3AED 100%);
+  --shadow-xs:0 1px 2px rgba(0,0,0,0.3);
+  --shadow-sm:0 4px 12px rgba(0,0,0,0.4);
+  --shadow:0 10px 30px -10px rgba(0,0,0,0.5);
+  --shadow-lg:0 24px 64px rgba(0,0,0,0.7);
+  --shadow-blue:0 0 30px rgba(0,229,204,0.25);
+  --t:cubic-bezier(0.16,1,0.3,1);
+  --serif:'Outfit', sans-serif;
+  --sans:'Plus Jakarta Sans',-apple-system,sans-serif;
+  --r:16px;--r-lg:24px;--r-xl:32px;
+  --backdrop: blur(16px) saturate(180%);
 }
+
 body{
-  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
-  background:var(--app-bg);color:var(--app-text-secondary);min-height:100vh;
+  font-family:var(--sans);
+  background:var(--bg);color:var(--ink-2);min-height:100vh;
   -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden; position:relative;
 }
-body::before{
-  content:'';position:fixed;inset:0;
-  background:
-    radial-gradient(ellipse 50% 50% at 20% 10%, rgba(20, 184, 166, 0.1), transparent 70%),
-    radial-gradient(ellipse 40% 40% at 80% 90%, rgba(99, 102, 241, 0.08), transparent 70%);
-  pointer-events:none;z-index:0;
-}
+
+/* Background Orbs */
+.bg-elements { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.glow-orb { position: absolute; border-radius: 50%; filter: blur(140px); opacity: 0.25; }
+.glow-1 { top: -10%; left: 10%; width: 650px; height: 600px; background: var(--purple); }
+.glow-2 { bottom: 10%; right: -10%; width: 750px; height: 700px; background: var(--blue); }
 
 /* ── ANIMATIONS ── */
-@keyframes fadeInUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes spin{to{transform:rotate(360deg)}}
-.anim-1{animation:fadeInUp .4s ease .05s both}
-.anim-2{animation:fadeInUp .4s ease .10s both}
-.anim-3{animation:fadeInUp .4s ease .15s both}
-.anim-4{animation:fadeInUp .4s ease .20s both}
-.anim-5{animation:fadeInUp .4s ease .25s both}
-.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.2);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle}
+.anim-1{animation:fadeInUp .5s cubic-bezier(0.16, 1, 0.3, 1) .05s both}
+.anim-2{animation:fadeInUp .5s cubic-bezier(0.16, 1, 0.3, 1) .10s both}
+.anim-3{animation:fadeInUp .5s cubic-bezier(0.16, 1, 0.3, 1) .15s both}
+.anim-4{animation:fadeInUp .5s cubic-bezier(0.16, 1, 0.3, 1) .20s both}
+.anim-5{animation:fadeInUp .5s cubic-bezier(0.16, 1, 0.3, 1) .25s both}
+.spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle}
+
+/* ── ANNOUNCEMENT BANNER ── */
+.announcement-banner {
+  position: fixed; top: 0; left: 0; width: 100%; height: 44px;
+  background: rgba(0, 229, 204, 0.06); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--b2); display: flex; align-items: center; justify-content: center; z-index: 9999;
+}
+.announcement-content {
+  display: flex; align-items: center; gap: 12px; color: var(--ink-2); font-size: 0.82rem; font-weight: 600;
+}
+.announcement-banner .pill {
+  background: var(--grad); color: #040D1A; padding: 3px 10px; border-radius: 999px;
+  font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;
+}
 
 /* ── NAV ── */
 nav{
-  background:rgba(13,17,23,.7);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--app-border);padding:0 2rem;height:64px;
+  position:fixed;top:44px;left:0;right:0;z-index:998;height:72px;
   display:flex;align-items:center;justify-content:space-between;
-  position:sticky;top:0;z-index:100
+  padding:0 clamp(1.25rem,5vw,3rem);
+  background:rgba(4,6,10,0.75);backdrop-filter:var(--backdrop);-webkit-backdrop-filter:var(--backdrop);
+  border-bottom:1px solid var(--b1);box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
-.nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
-.nav-logo img{width:32px;height:32px;border-radius:9px}
-.nav-logo-text{
-  font-size:1.05rem;font-weight:800;letter-spacing:-.04em;color:var(--app-text-primary);
-}
-.nav-right{display:flex;align-items:center;gap:10px}
-.nav-user{display:flex;align-items:center;gap:8px}
+.nav-logo{display:flex;align-items:center;gap:10px;font-size:1.2rem;font-weight:800;letter-spacing:-0.03em;color:var(--ink); font-family: var(--serif); text-decoration:none;}
+.nav-logo img{width:34px;height:34px;border-radius:10px;box-shadow:0 0 15px rgba(20,184,166,0.3)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-user{display:flex;align-items:center;gap:10px}
 .nav-avatar{
-  width:32px;height:32px;border-radius:50%;background:var(--grad-primary);
-  color:#fff;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center
+  width:36px;height:36px;border-radius:50%;background:var(--grad);
+  color:#040D1A;font-size:.85rem;font-weight:800;display:flex;align-items:center;justify-content:center
 }
-.nav-name{font-size:.82rem;font-weight:600;color:var(--app-text-primary)}
+.nav-name{font-size:.85rem;font-weight:600;color:var(--ink)}
 @media(max-width:580px){.nav-name{display:none}}
 .btn-nav{
-  padding:.45rem 1rem;border:1px solid var(--app-border);border-radius:999px;
-  background:transparent;cursor:pointer;font-size:.8rem;font-weight:600;
-  color:var(--app-text-secondary);transition:all .18s;text-decoration:none;display:inline-flex;align-items:center
+  padding:.55rem 1.2rem;border:1px solid var(--b1);border-radius:999px;
+  background:rgba(255, 255, 255, 0.03);cursor:pointer;font-size:.85rem;font-weight:600;
+  color:var(--ink);transition:all .2s ease;text-decoration:none;display:inline-flex;align-items:center
 }
-.btn-nav:hover{background:var(--app-surface-2);color:var(--app-text-primary);border-color:var(--app-text-tertiary)}
-.btn-nav.primary{background:var(--grad-primary);color:var(--app-primary-text);border-color:transparent}
-.btn-nav.primary:hover{opacity:.92}
+.btn-nav:hover{background:rgba(255, 255, 255, 0.08);border-color:rgba(255, 255, 255, 0.2);transform:translateY(-1px)}
+.btn-nav.primary{background:var(--grad);color:#040D1A;border-color:transparent;font-weight:800}
+.btn-nav.primary:hover{opacity:.95;box-shadow:0 0 20px rgba(0,229,204,0.35)}
 
 /* ── HERO ── */
-.hero{text-align:center;padding:4.5rem 1.5rem 2.75rem;max-width:660px;margin:0 auto}
+.hero{text-align:center;padding:clamp(120px,13vw,160px) 1.5rem 3rem;max-width:820px;margin:0 auto;position:relative;z-index:1}
 .hero-eyebrow{
-  display:inline-flex;align-items:center;gap:6px;
-  padding:.3rem 1rem;border-radius:999px;background:var(--app-primary-light);border:1px solid rgba(20,184,166,0.2);
-  color:var(--app-primary);font-size:.75rem;font-weight:700;letter-spacing:.05em;
-  text-transform:uppercase;margin-bottom:1.3rem
+  display:inline-flex;align-items:center;gap:8px;
+  padding:.45rem 1.2rem;border-radius:999px;background:rgba(20,184,166,0.1);border:1px solid rgba(20,184,166,0.25);
+  color:var(--blue);font-size:.8rem;font-weight:700;letter-spacing:.05em;
+  text-transform:uppercase;margin-bottom:1.8rem;box-shadow:0 0 25px rgba(20,184,166,0.15)
 }
 .hero h1{
-  font-size:clamp(1.9rem,4vw,2.75rem);font-weight:800;
-  letter-spacing:-.04em;line-height:1.12;margin-bottom:1rem;color:var(--app-text-primary);
+  font-family:var(--serif);
+  font-size:clamp(2.4rem,5.5vw,3.8rem);font-weight:800;
+  letter-spacing:-.03em;line-height:1.12;margin-bottom:1.4rem;color:var(--ink);
 }
-.hero h1 span{background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero p{font-size:1rem;color:var(--app-text-secondary);line-height:1.72;max-width:520px;margin:0 auto 2rem}
-.hero-cta{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+.hero h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:1.1rem;color:var(--ink-3);line-height:1.7;max-width:620px;margin:0 auto 2.5rem}
+.hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
 .btn-hero-primary{
-  padding:.85rem 1.9rem;border-radius:var(--r);background:var(--grad-primary);color:var(--app-primary-text);
-  font-size:.9rem;font-weight:700;text-decoration:none;transition:opacity .18s,transform .15s;
+  padding:1rem 2.4rem;border-radius:999px;background:var(--grad);color:#040D1A;
+  font-size:.95rem;font-weight:800;text-decoration:none;transition:all .25s ease;
   border:none;cursor:pointer;font-family:inherit;
-  box-shadow:0 6px 24px rgba(20, 184, 166, 0.3);
+  box-shadow:0 10px 30px rgba(0, 229, 204, 0.3);
 }
-.btn-hero-primary:hover{opacity:.92;transform:translateY(-1px)}
+.btn-hero-primary:hover{transform:translateY(-2px);box-shadow:0 15px 40px rgba(0, 229, 204, 0.45)}
 .btn-hero-secondary{
-  padding:.85rem 1.9rem;border-radius:var(--r);background:var(--app-surface);color:var(--app-text-primary);
-  font-size:.9rem;font-weight:700;text-decoration:none;border:1px solid var(--app-border);
-  transition:all .18s
+  padding:1rem 2.4rem;border-radius:999px;background:var(--white);color:var(--ink);
+  font-size:.95rem;font-weight:700;text-decoration:none;border:1px solid var(--b2);
+  backdrop-filter:var(--backdrop);transition:all .25s ease
 }
-.btn-hero-secondary:hover{border-color:var(--app-text-tertiary);background:var(--app-surface-2)}
+.btn-hero-secondary:hover{border-color:rgba(255,255,255,0.25);background:rgba(255,255,255,0.1);transform:translateY(-2px)}
 
 /* ── TRUST STRIP ── */
 .trust-strip{
-  background:var(--app-surface);
-  border-top:1px solid var(--app-border);border-bottom:1px solid var(--app-border);
-  padding:1.1rem 2rem;display:flex;align-items:center;justify-content:center;
-  flex-wrap:wrap;gap:1.75rem
+  background:rgba(18, 24, 38, 0.4);backdrop-filter:var(--backdrop);
+  border-top:1px solid var(--b1);border-bottom:1px solid var(--b1);
+  padding:1.4rem 2rem;display:flex;align-items:center;justify-content:center;
+  flex-wrap:wrap;gap:2.5rem;position:relative;z-index:1
 }
-.trust-item{display:flex;align-items:center;gap:.55rem;font-size:.8rem;font-weight:600;color:var(--app-text-secondary)}
-.trust-item svg{flex-shrink:0;opacity:.85;color:var(--app-primary)}
+.trust-item{display:flex;align-items:center;gap:.65rem;font-size:.85rem;font-weight:600;color:var(--ink-3)}
+.trust-item svg{flex-shrink:0;color:var(--blue)}
 
 /* ── BILLING TOGGLE ── */
 .billing-toggle{
-  display:flex;align-items:center;justify-content:center;gap:.9rem;
-  margin-bottom:2.75rem;font-size:.88rem;font-weight:600;color:var(--app-text-secondary)
+  display:flex;align-items:center;justify-content:center;gap:1.2rem;
+  margin-bottom:3rem;font-size:1rem;font-weight:700;color:var(--ink-2)
 }
-.toggle-sw{position:relative;width:46px;height:26px;flex-shrink:0}
+.toggle-sw{position:relative;width:52px;height:28px;flex-shrink:0}
 .toggle-sw input{opacity:0;width:0;height:0;position:absolute}
 .toggle-track{
-  position:absolute;inset:0;background:var(--app-surface-2);border-radius:999px;cursor:pointer;transition:background .2s;
-  border: 1px solid var(--app-border);
+  position:absolute;inset:0;background:rgba(255, 255, 255, 0.1);border-radius:999px;cursor:pointer;transition:all .3s ease;
+  border: 1px solid var(--b2);
 }
 .toggle-track::before{
   content:'';position:absolute;left:3px;top:3px;width:20px;height:20px;
-  background:var(--app-text-secondary);border-radius:50%;transition:transform .2s;box-shadow:0 1px 4px rgba(0,0,0,.4)
+  background:var(--ink);border-radius:50%;transition:transform .25s cubic-bezier(0.16, 1, 0.3, 1);box-shadow:0 2px 6px rgba(0,0,0,.4)
 }
-.toggle-sw input:checked + .toggle-track{background:var(--app-primary); border-color: var(--app-primary-dark);}
-.toggle-sw input:checked + .toggle-track::before{background:var(--app-primary-text); transform:translateX(20px)}
+.toggle-sw input:checked + .toggle-track{background:var(--blue); border-color: var(--blue);}
+.toggle-sw input:checked + .toggle-track::before{background:#040D1A; transform:translateX(24px)}
 .save-badge{
-  background:rgba(63, 185, 80, 0.15);color:var(--app-success);font-size:.65rem;font-weight:800;
-  letter-spacing:.05em;padding:.12rem .6rem;border-radius:999px;text-transform:uppercase;margin-left:5px
+  background:rgba(16, 185, 129, 0.15);color:var(--green);font-size:.72rem;font-weight:800;
+  letter-spacing:.05em;padding:.2rem .7rem;border-radius:999px;text-transform:uppercase;margin-left:6px;
+  border: 1px solid rgba(16, 185, 129, 0.25);
 }
 
-/* ── PLANS GRID ── */
-.plans-section{max-width:1180px;margin:0 auto;padding:3rem 1.5rem 3rem}
+/* ── PLANS SECTION ── */
+.plans-section{max-width:1320px;margin:0 auto;padding:3rem 1.5rem 5rem;position:relative;z-index:1}
 .plans-grid{
   display:grid;grid-template-columns:repeat(5,1fr);
-  gap:1.25rem;align-items:stretch;padding-top:20px
+  gap:1.1rem;align-items:stretch;padding-top:20px
 }
-@media(max-width:1040px){.plans-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:660px){.plans-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:400px){.plans-grid{grid-template-columns:1fr}}
 
-/* ── PLAN CARDS ── */
+/* ── PLAN CARDS (BENTO) ── */
 .plan-card{
-  background:var(--app-surface);border-radius:var(--r);
-  box-shadow:var(--shadow);padding:1.65rem 1.35rem;
-  position:relative;border:1px solid var(--app-border);
-  transition:transform .2s ease,box-shadow .2s ease, border-color .2s ease;
+  background:var(--white);backdrop-filter:var(--backdrop);-webkit-backdrop-filter:var(--backdrop);
+  border-radius:var(--r-lg);padding:1.8rem;
+  position:relative;border:1px solid var(--b1);
+  transition:all .3s cubic-bezier(0.16, 1, 0.3, 1);
   display:flex; flex-direction:column;
 }
-.plan-card:hover{transform:translateY(-6px);border-color:var(--app-text-tertiary);box-shadow:0 14px 44px rgba(0,0,0,.25)}
+.plan-card:hover{
+  transform:translateY(-6px);border-color:var(--b2);
+  box-shadow:var(--shadow-lg);
+}
 
 .plan-card.popular{
-  border:2px solid var(--app-primary);
-  box-shadow:0 0 0 4px rgba(20,184,166,.1), 0 20px 55px rgba(20,184,166,.2), 0 4px 16px rgba(0,0,0,.1);
-  margin-top:-16px;padding:2rem 1.4rem 2.2rem;
+  border:2px solid var(--blue);
+  background: linear-gradient(180deg, rgba(20, 184, 166, 0.08) 0%, var(--white) 100%);
+  box-shadow:0 0 40px rgba(0,229,204,0.18);
+  margin-top:-14px;padding:2.2rem 1.8rem 2.2rem;
 }
 .plan-card.popular:hover{
-  box-shadow:0 0 0 4px rgba(20,184,166,.15), 0 28px 65px rgba(20,184,166,.3), 0 4px 20px rgba(0,0,0,.15);
-  transform:translateY(-7px)
+  box-shadow:0 0 50px rgba(0,229,204,0.3);
+  transform:translateY(-8px)
 }
 
 .plan-card.clinic-card{
-  background:linear-gradient(150deg, #0f172a, #161B22);color:var(--app-text-primary);border-color:transparent;
-  box-shadow:0 8px 36px rgba(0,0,0,.35)
-}
-.plan-card.clinic-card:hover{
-  box-shadow:0 20px 55px rgba(0,0,0,.45);transform:translateY(-6px)
+  background:linear-gradient(160deg, rgba(28, 38, 59, 0.8), rgba(11, 15, 25, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 /* ── POP RIBBON ── */
 .pop-ribbon{
-  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
-  background:var(--grad-primary);color:var(--app-primary-text);
-  font-size:.6rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
-  padding:.25rem .95rem;border-radius:999px;white-space:nowrap;
-  box-shadow:0 3px 10px rgba(20,184,166,.4)
+  position:absolute;top:-15px;left:50%;transform:translateX(-50%);
+  background:var(--grad);color:#040D1A;
+  font-size:.65rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  padding:.3rem 1rem;border-radius:999px;white-space:nowrap;
+  box-shadow:0 4px 15px rgba(0,229,204,.4)
 }
 .ent-ribbon{
-  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
-  background:var(--grad-amber);color:var(--app-primary-text);
-  font-size:.6rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
-  padding:.25rem .95rem;border-radius:999px;white-space:nowrap;
-  box-shadow:0 3px 10px rgba(245,158,11,.4)
+  position:absolute;top:-15px;left:50%;transform:translateX(-50%);
+  background:linear-gradient(135deg, #F59E0B 0%, #D97706 100%);color:#040D1A;
+  font-size:.65rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  padding:.3rem 1rem;border-radius:999px;white-space:nowrap;
+  box-shadow:0 4px 15px rgba(245,158,11,.4)
 }
 
 /* ── PLAN INTERNALS ── */
 .plan-tag{
-  font-size:.6rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
-  padding:.2rem .65rem;border-radius:999px;display:inline-block;margin-bottom:.6rem
+  font-size:.65rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  padding:.25rem .75rem;border-radius:999px;display:inline-block;margin-bottom:.8rem;align-self:flex-start
 }
-.tag-free{background:var(--app-surface-2);color:var(--app-text-secondary)}
-.tag-starter{background:rgba(56,139,253,0.1);color:var(--app-blue)}
-.tag-pro{background:var(--app-primary-light);color:var(--app-primary)}
-.tag-expert{background:rgba(210,153,34,0.1);color:var(--app-warn)}
-.tag-clinic{background:rgba(255,255,255,.1);color:var(--app-text-secondary)}
+.tag-free{background:rgba(255, 255, 255, 0.08);color:var(--ink-3)}
+.tag-starter{background:rgba(59, 130, 246, 0.15);color:#60A5FA;border:1px solid rgba(59, 130, 246, 0.2)}
+.tag-pro{background:rgba(20, 184, 166, 0.15);color:var(--blue);border:1px solid rgba(20, 184, 166, 0.25)}
+.tag-expert{background:rgba(245, 158, 11, 0.15);color:#FBBF24;border:1px solid rgba(245, 158, 11, 0.25)}
+.tag-clinic{background:rgba(255,255,255,.12);color:var(--ink)}
 
-.plan-name{font-size:1.05rem;font-weight:800;letter-spacing:-.025em;margin-bottom:.15rem;color:var(--app-text-primary)}
-.plan-name.pro{font-size:1.15rem;color:var(--app-primary)}
-.plan-name.clinic{color:var(--app-text-primary)}
+.plan-name{font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.25rem;color:var(--ink)}
+.plan-name.pro{font-size:1.3rem;color:var(--blue)}
 
-.plan-subtitle{font-size:.78rem;color:var(--app-text-secondary);margin-bottom:.85rem;line-height:1.4}
-.plan-subtitle.clinic{color:var(--app-text-secondary)}
+.plan-subtitle{font-size:.82rem;color:var(--ink-3);margin-bottom:1.2rem;line-height:1.4}
 
 .plan-price{
-  font-size:1.95rem;font-weight:800;letter-spacing:-.04em;line-height:1;margin-bottom:.2rem;color:var(--app-text-primary);
+  font-size:2.2rem;font-weight:800;letter-spacing:-.04em;line-height:1;margin-bottom:.25rem;color:var(--ink);
+  font-family: var(--serif);
 }
-.plan-price.pro{font-size:2.15rem;color:var(--app-primary)}
-.plan-price.clinic{color:var(--app-text-primary)}
-.plan-price span{font-size:.82rem;font-weight:500;color:var(--app-text-secondary)}
-.plan-price.clinic span{color:var(--app-text-secondary)}
+.plan-price.pro{font-size:2.5rem;color:var(--blue)}
+.plan-price span{font-size:.85rem;font-weight:500;color:var(--ink-4);font-family: var(--sans)}
 
-.plan-microcopy{font-size:.72rem;color:var(--app-text-tertiary);margin-bottom:1.25rem}
-.plan-microcopy.clinic{color:var(--app-text-tertiary)}
+.plan-microcopy{font-size:.78rem;color:var(--ink-4);margin-bottom:1.4rem;min-height:1.2em}
 
 .plan-cta{
-  display:block;width:100%;padding:.74rem 1rem;border-radius:var(--r);
-  font-size:.85rem;font-weight:700;font-family:inherit;text-align:center;
-  text-decoration:none;cursor:pointer;transition:opacity .18s,transform .15s;border:none
+  display:block;width:100%;padding:.85rem 1rem;border-radius:999px;
+  font-size:.88rem;font-weight:800;font-family:inherit;text-align:center;
+  text-decoration:none;cursor:pointer;transition:all .2s ease;border:none
 }
-.plan-cta:hover:not(:disabled){opacity:.9;transform:translateY(-1px)}
+.plan-cta:hover:not(:disabled){transform:translateY(-2px)}
 .plan-cta:disabled{opacity:.5;cursor:not-allowed;transform:none}
 
-.cta-ghost{background:var(--app-surface-2);color:var(--app-text-primary); border:1px solid var(--app-border)}
-.cta-blue{background:var(--grad-blue);color:#fff;box-shadow:0 3px 12px rgba(45,128,242,.3)}
-.cta-blue-glow{background:var(--grad-primary);color:var(--app-primary-text);box-shadow:0 4px 18px rgba(20,184,166,.35);padding:.8rem 1rem}
-.cta-amber{background:var(--grad-amber);color:var(--app-primary-text);box-shadow:0 3px 12px rgba(245,158,11,.3)}
+.cta-ghost{background:rgba(255, 255, 255, 0.05);color:var(--ink); border:1px solid var(--b2)}
+.cta-ghost:hover{background:rgba(255, 255, 255, 0.12);border-color:var(--blue)}
+.cta-blue{background:linear-gradient(135deg,#3B82F6 0%,#1D4ED8 100%);color:#fff;box-shadow:0 4px 20px rgba(59, 130, 246, 0.35)}
+.cta-blue-glow{background:var(--grad);color:#040D1A;box-shadow:0 4px 25px rgba(0, 229, 204, 0.45)}
+.cta-amber{background:linear-gradient(135deg, #F59E0B 0%, #D97706 100%);color:#040D1A;box-shadow:0 4px 20px rgba(245,158,11,.35)}
 .cta-glass{
-  background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.28);
-  backdrop-filter:blur(4px)
+  background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.2);
+  backdrop-filter:blur(10px)
 }
+.cta-glass:hover{background:rgba(255,255,255,.2)}
 
-.divider{height:1px;background:var(--app-border);margin:1.15rem 0;}
-.divider.clinic{background:rgba(255,255,255,.1)}
+.divider{height:1px;background:var(--b1);margin:1.4rem 0;}
 
-.feat-list{list-style:none;font-size:.78rem;color:var(--app-text-secondary);display:flex;flex-direction:column;gap:.55rem;flex:1}
-.feat-list li{display:flex;align-items:flex-start;gap:7px;line-height:1.42}
-.feat-list.clinic{color:var(--app-text-secondary)}
-.fi-ok{color:var(--app-success);font-weight:700;flex-shrink:0}
-.fi-ok.clinic{color:var(--app-success)}
-.fi-no{color:var(--app-text-tertiary);flex-shrink:0}
-.fi-lim{color:var(--app-warn);font-weight:700;flex-shrink:0}
-.fi-lim.clinic{color:var(--app-warn)}
+.feat-list{list-style:none;font-size:.82rem;color:var(--ink-2);display:flex;flex-direction:column;gap:.65rem;flex:1}
+.feat-list li{display:flex;align-items:flex-start;gap:10px;line-height:1.45}
+.fi-ok{color:var(--green);font-weight:800;flex-shrink:0}
+.fi-no{color:var(--ink-4);flex-shrink:0}
+.fi-lim{color:#F59E0B;font-weight:800;flex-shrink:0}
 
 /* ── TEAM AVATARS ── */
-.team-avatars{display:flex;align-items:center;gap:3px;margin-bottom:.85rem}
+.team-avatars{display:flex;align-items:center;gap:3px;margin-bottom:1rem}
 .team-av{
-  width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,.2);
-  display:flex;align-items:center;justify-content:center;font-size:.55rem;color:var(--app-primary-text);font-weight:700
+  width:26px;height:26px;border-radius:50%;border:2px solid rgba(255,255,255,.2);
+  display:flex;align-items:center;justify-content:center;font-size:.65rem;color:#fff;font-weight:800
 }
-.team-label{font-size:.7rem;color:var(--app-text-secondary);margin-left:5px;line-height:22px}
+.team-label{font-size:.75rem;color:var(--ink-3);margin-left:6px;font-weight:600}
 
 /* ── VALUE SECTION ── */
-.value-section{
-  max-width:1180px;margin:0 auto;padding:2rem 1.5rem 4.5rem
-}
-.value-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
-@media(max-width:900px){.value-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:500px){.value-grid{grid-template-columns:1fr}}
+.value-section{max-width:1320px;margin:0 auto;padding:2rem 1.5rem 5rem;position:relative;z-index:1}
+.value-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
 
 .value-card{
-  background:var(--app-surface);border-radius:var(--r);padding:1.5rem;
-  border:1px solid var(--app-border);box-shadow:var(--shadow)
+  background:var(--white);backdrop-filter:var(--backdrop);
+  border-radius:var(--r-lg);padding:1.8rem;
+  border:1px solid var(--b1);box-shadow:var(--shadow);
+  transition:all .25s ease;
 }
+.value-card:hover{transform:translateY(-5px);border-color:rgba(255, 255, 255, 0.18)}
 .value-icon{
-  width:40px;height:40px;border-radius:var(--r);background:var(--app-primary-light);
-  display:flex;align-items:center;justify-content:center;margin-bottom:.9rem;color:var(--app-primary)
+  width:48px;height:48px;border-radius:14px;background:rgba(20,184,166,0.1);
+  border:1px solid rgba(20,184,166,0.2);
+  display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;color:var(--blue)
 }
-.value-card h3{font-size:.9rem;font-weight:700;margin-bottom:.4rem;letter-spacing:-.015em;color:var(--app-text-primary)}
-.value-card p{font-size:.78rem;color:var(--app-text-secondary);line-height:1.6}
+.value-card h3{font-size:1rem;font-weight:700;margin-bottom:.6rem;letter-spacing:-.015em;color:var(--ink)}
+.value-card p{font-size:.85rem;color:var(--ink-3);line-height:1.65}
 
 /* ── COMPARISON TABLE ── */
-.compare-section{max-width:1120px;margin:0 auto;padding:0 1.5rem 5rem}
+.compare-section{max-width:1200px;margin:0 auto;padding:0 1.5rem 6rem;position:relative;z-index:1}
 .compare-section h2{
-  font-size:1.65rem;font-weight:800;letter-spacing:-.035em;color:var(--app-text-primary);
+  font-family: var(--serif);
+  font-size:2rem;font-weight:800;letter-spacing:-.035em;color:var(--ink);
   text-align:center;margin-bottom:.6rem
 }
-.compare-subtext{text-align:center;font-size:.9rem;color:var(--app-text-secondary);margin-bottom:2.5rem}
-.compare-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--r);box-shadow:var(--shadow); border:1px solid var(--app-border);}
+.compare-subtext{text-align:center;font-size:1rem;color:var(--ink-3);margin-bottom:3rem}
+.compare-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--r-lg);box-shadow:var(--shadow); border:1px solid var(--b1);backdrop-filter:var(--backdrop)}
 
-table{width:100%;border-collapse:collapse;background:var(--app-surface);font-size:.82rem;min-width:580px}
+table{width:100%;border-collapse:collapse;background:var(--white);font-size:.88rem;min-width:680px}
 colgroup col.col-feat{width:26%}
 colgroup col{width:14.8%}
 
-thead tr{background:var(--app-surface-2)}
+thead tr{background:rgba(255, 255, 255, 0.03)}
 thead th{
-  padding:1.2rem .75rem;font-weight:700;text-align:center;
-  color:var(--app-text-primary);vertical-align:middle;white-space:nowrap;
-  border-bottom: 1px solid var(--app-border);
+  padding:1.4rem .9rem;font-weight:700;text-align:center;
+  color:var(--ink);vertical-align:middle;white-space:nowrap;
+  border-bottom: 1px solid var(--b1);
 }
-thead th:first-child{text-align:left;padding-left:1.5rem}
-thead th.col-pro{background:var(--app-primary-light)}
-thead th.col-clinic{background:rgba(255,255,255,0.03)}
+thead th:first-child{text-align:left;padding-left:1.8rem}
+thead th.col-pro{background:rgba(20, 184, 166, 0.1)}
+thead th.col-clinic{background:rgba(255,255,255,0.04)}
 
-.th-inner{display:flex;flex-direction:column;align-items:center;gap:3px}
+.th-inner{display:flex;flex-direction:column;align-items:center;gap:4px}
 thead th:first-child .th-inner{align-items:flex-start}
-.th-name{font-size:.85rem;font-weight:800;letter-spacing:-.01em}
-.th-price{font-size:.67rem;font-weight:500;color:var(--app-text-secondary);margin-top:1px}
+.th-name{font-size:.95rem;font-weight:800;letter-spacing:-.01em}
+.th-price{font-size:.75rem;font-weight:500;color:var(--ink-4)}
 .rec-badge{
-  display:inline-block;background:var(--app-primary);color:var(--app-primary-text);
-  font-size:.55rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
-  padding:.1rem .55rem;border-radius:999px;margin-bottom:3px
+  display:inline-block;background:var(--blue);color:#040D1A;
+  font-size:.6rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
+  padding:.15rem .65rem;border-radius:999px;margin-bottom:4px
 }
 .ent-badge{
-  display:inline-block;background:rgba(255,255,255,.1);color:var(--app-text-primary);
-  font-size:.55rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
-  padding:.1rem .55rem;border-radius:999px;margin-bottom:3px;border:1px solid var(--app-border)
+  display:inline-block;background:rgba(255,255,255,.1);color:var(--ink);
+  font-size:.6rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
+  padding:.15rem .65rem;border-radius:999px;margin-bottom:4px;border:1px solid var(--b1)
 }
 
-tbody tr{border-bottom:1px solid var(--app-border)}
+tbody tr{border-bottom:1px solid var(--b1)}
 tbody tr:last-child{border-bottom:none}
-tbody tr:nth-child(odd){background:var(--app-surface)}
-tbody tr:nth-child(even){background:var(--app-bg)}
-tbody tr:hover{background:var(--app-surface-2)}
-tbody td{padding:.72rem .75rem;text-align:center;vertical-align:middle;color:var(--app-text-secondary)}
-tbody td:first-child{text-align:left;font-weight:600;color:var(--app-text-primary);padding-left:1.5rem;white-space:nowrap}
-tbody td.col-pro{background:rgba(20,184,166,.04)}
-tbody tr:nth-child(even) td.col-pro{background:rgba(20,184,166,.06)}
-tbody tr:hover td.col-pro{background:rgba(20,184,166,.1)}
-tbody td.col-clinic{background:rgba(255,255,255,.02)}
-tbody tr:nth-child(even) td.col-clinic{background:rgba(255,255,255,.03)}
-tbody tr:hover td.col-clinic{background:rgba(255,255,255,.05)}
+tbody tr:nth-child(odd){background:transparent}
+tbody tr:nth-child(even){background:rgba(255, 255, 255, 0.015)}
+tbody tr:hover{background:rgba(255, 255, 255, 0.04)}
+tbody td{padding:.9rem .9rem;text-align:center;vertical-align:middle;color:var(--ink-3)}
+tbody td:first-child{text-align:left;font-weight:600;color:var(--ink);padding-left:1.8rem;white-space:nowrap}
+tbody td.col-pro{background:rgba(20,184,166,.03)}
+tbody tr:hover td.col-pro{background:rgba(20,184,166,.08)}
 
 .cat-row td{
-  background:var(--app-surface-2) !important;
-  font-size:.68rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
-  color:var(--app-text-secondary);padding:.5rem .75rem
+  background:rgba(255, 255, 255, 0.04) !important;
+  font-size:.72rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-3);padding:.7rem .9rem
 }
-.cat-row td:first-child{padding-left:1.5rem;color:var(--app-text-primary)}
+.cat-row td:first-child{padding-left:1.8rem;color:var(--ink)}
 
-.yes{color:var(--app-success);font-size:1rem;font-weight:700}
-.no{color:var(--app-text-tertiary);font-size:1rem;font-weight:700}
-.lim{color:var(--app-warn);font-size:.75rem;font-weight:700}
+.yes{color:var(--green);font-size:1.1rem;font-weight:800}
+.no{color:var(--ink-4);font-size:1.1rem;font-weight:800}
+.lim{color:#F59E0B;font-size:.8rem;font-weight:700}
 
 /* ── LAN SYNC ── */
-.how-section{max-width:1120px;margin:0 auto;padding:0 1.5rem 4.5rem;text-align:center}
-.how-section h2{font-size:1.6rem;font-weight:800;letter-spacing:-.035em;margin-bottom:.55rem;color:var(--app-text-primary)}
-.how-sub{font-size:.92rem;color:var(--app-text-secondary);margin-bottom:2.5rem}
-.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-bottom:2rem;text-align:left}
-@media(max-width:700px){.how-grid{grid-template-columns:1fr}}
+.how-section{max-width:1200px;margin:0 auto;padding:0 1.5rem 5.5rem;text-align:center;position:relative;z-index:1}
+.how-section h2{font-family:var(--serif);font-size:1.8rem;font-weight:800;letter-spacing:-.035em;margin-bottom:.6rem;color:var(--ink)}
+.how-sub{font-size:1rem;color:var(--ink-3);margin-bottom:3rem}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-bottom:2.2rem;text-align:left}
+
 .how-step{
-  background:var(--app-surface);border-radius:var(--r);padding:1.5rem;
-  box-shadow:var(--shadow);border:1px solid var(--app-border)
+  background:var(--white);backdrop-filter:var(--backdrop);border-radius:var(--r-lg);padding:1.8rem;
+  box-shadow:var(--shadow);border:1px solid var(--b1)
 }
 .how-icon{
-  width:38px;height:38px;border-radius:var(--r);background:var(--app-primary-light);
-  display:flex;align-items:center;justify-content:center;margin-bottom:.8rem;font-size:1.2rem
+  width:46px;height:46px;border-radius:14px;background:rgba(20,184,166,0.1);
+  border:1px solid rgba(20,184,166,0.2);
+  display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;font-size:1.4rem
 }
-.how-step h3{font-size:.9rem;font-weight:700;margin-bottom:.45rem;letter-spacing:-.01em;color:var(--app-text-primary)}
-.how-step p{font-size:.79rem;color:var(--app-text-secondary);line-height:1.6}
-.how-limits{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.how-step h3{font-size:1rem;font-weight:700;margin-bottom:.6rem;letter-spacing:-.01em;color:var(--ink)}
+.how-step p{font-size:.85rem;color:var(--ink-3);line-height:1.65}
+.how-limits{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap}
 .how-limit-item{
-  display:flex;align-items:center;gap:.6rem;background:var(--app-surface);
-  border:1px solid var(--app-border);border-radius:999px;
-  padding:.4rem 1rem;font-size:.8rem;font-weight:600;color:var(--app-text-primary);
+  display:flex;align-items:center;gap:.7rem;background:var(--white);backdrop-filter:var(--backdrop);
+  border:1px solid var(--b1);border-radius:999px;
+  padding:.5rem 1.4rem;font-size:.85rem;font-weight:600;color:var(--ink);
   box-shadow:var(--shadow)
 }
-.hl-expert{background:rgba(210,153,34,0.15);color:var(--app-warn);font-size:.6rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:.15rem .5rem;border-radius:999px}
-.hl-clinic{background:rgba(63, 185, 80, 0.15);color:var(--app-success);font-size:.6rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:.15rem .5rem;border-radius:999px}
+.hl-expert{background:rgba(245,158,11,0.15);color:#FBBF24;font-size:.65rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .6rem;border-radius:999px}
+.hl-clinic{background:rgba(16, 185, 129, 0.15);color:var(--green);font-size:.65rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .6rem;border-radius:999px}
 
 /* ── FAQ ── */
-.faq-section{max-width:720px;margin:0 auto;padding:0 1.5rem 5rem}
-.faq-section h2{font-size:1.55rem;font-weight:800;letter-spacing:-.03em;text-align:center;margin-bottom:.5rem;color:var(--app-text-primary)}
-.faq-intro{text-align:center;font-size:.88rem;color:var(--app-text-secondary);margin-bottom:2rem}
-.faq-item{border-radius:var(--r);background:var(--app-surface);box-shadow:var(--shadow);margin-bottom:.7rem;overflow:hidden; border:1px solid var(--app-border)}
+.faq-section{max-width:800px;margin:0 auto;padding:0 1.5rem 6rem;position:relative;z-index:1}
+.faq-section h2{font-family:var(--serif);font-size:1.8rem;font-weight:800;letter-spacing:-.03em;text-align:center;margin-bottom:.6rem;color:var(--ink)}
+.faq-intro{text-align:center;font-size:.95rem;color:var(--ink-3);margin-bottom:2.5rem}
+.faq-item{border-radius:var(--r);background:var(--white);backdrop-filter:var(--backdrop);box-shadow:var(--shadow);margin-bottom:1rem;overflow:hidden; border:1px solid var(--b1);transition:all .2s ease}
+.faq-item:hover{border-color:rgba(255, 255, 255, 0.18)}
 .faq-q{
-  width:100%;padding:1.1rem 1.25rem;text-align:left;background:none;border:none;
-  font-size:.9rem;font-weight:600;font-family:inherit;color:var(--app-text-primary);
+  width:100%;padding:1.3rem 1.6rem;text-align:left;background:none;border:none;
+  font-size:1rem;font-weight:700;font-family:inherit;color:var(--ink);
   cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem
 }
-.faq-q .arr{transition:transform .22s;font-size:.72rem;color:var(--app-text-tertiary);flex-shrink:0}
-.faq-q.open .arr{transform:rotate(180deg)}
-.faq-a{display:none;padding:0 1.25rem 1.1rem;font-size:.85rem;color:var(--app-text-secondary);line-height:1.72}
+.faq-q .arr{transition:transform .25s cubic-bezier(0.16, 1, 0.3, 1);font-size:.8rem;color:var(--ink-4);flex-shrink:0}
+.faq-q.open .arr{transform:rotate(180deg);color:var(--blue)}
+.faq-a{display:none;padding:0 1.6rem 1.4rem;font-size:.9rem;color:var(--ink-3);line-height:1.7}
 .faq-a.show{display:block}
 
 /* ── FOOTER ── */
-footer{text-align:center;padding:2rem 1.5rem 3.5rem;font-size:.82rem;color:var(--app-text-secondary)}
-footer a{color:var(--app-primary);text-decoration:none;font-weight:600}
-footer a:hover{text-decoration:underline}
-footer .sep{margin:0 .5rem;color:var(--app-border)}
+footer{text-align:center;padding:3rem 1.5rem 4.5rem;font-size:.88rem;color:var(--ink-3);border-top:1px solid var(--b1);position:relative;z-index:1;background:rgba(4, 6, 10, 0.8)}
+footer a{color:var(--blue);text-decoration:none;font-weight:600;transition:color .2s}
+footer a:hover{color:#fff;text-decoration:underline}
+footer .sep{margin:0 .7rem;color:var(--ink-4)}
 
 /* ── ERR TOAST ── */
 #err-toast{
-  display:none;position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);
-  background:var(--app-surface);border:1px solid var(--app-error);color:var(--app-error);
-  padding:.8rem 1.5rem;border-radius:var(--r);font-size:.83rem;font-weight:600;
-  box-shadow:var(--shadow-lg);z-index:999;max-width:90vw;text-align:center
+  display:none;position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);
+  background:#0F1626;border:1px solid #EF4444;color:#EF4444;
+  padding:1rem 2rem;border-radius:999px;font-size:.9rem;font-weight:700;
+  box-shadow:0 20px 40px rgba(0,0,0,0.8);z-index:999;max-width:90vw;text-align:center
 }
 
 /* ── RESPONSIVE ── */
-@media(max-width:1040px){
+@media(max-width:1150px){
   .plans-grid{grid-template-columns:repeat(3,1fr)}
   .plan-card.popular{margin-top:0}
+  .value-grid{grid-template-columns:repeat(2,1fr)}
 }
-@media(max-width:660px){.plans-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:400px){.plans-grid{grid-template-columns:1fr}}
+@media(max-width:768px){
+  .plans-grid{grid-template-columns:repeat(2,1fr)}
+  .how-grid{grid-template-columns:1fr}
+}
+@media(max-width:540px){
+  .plans-grid{grid-template-columns:1fr}
+  .value-grid{grid-template-columns:1fr}
+}
 
-/* ── MOBILE IMPROVEMENTS ── */
 @media(max-width:600px){
-  /* Nav */
-  nav{padding:0 0.75rem}
-  .nav-right{gap:6px}
-  .btn-nav{padding:.4rem .7rem;font-size:.76rem;white-space:nowrap}
-  .nav-logo-text{font-size:.95rem}
-
-  /* Hero */
-  .hero{padding:3rem 1rem 2rem}
+  nav{padding:0 1.2rem}
+  .hero{padding:4rem 1.2rem 2.5rem}
   .hero-cta{flex-direction:column;align-items:stretch}
   .btn-hero-primary,.btn-hero-secondary{text-align:center;justify-content:center;width:100%}
 
-  /* Trust strip — horizontal scroll on phone */
   .trust-strip{
     flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
-    justify-content:flex-start;padding:1rem 1.25rem;gap:1.25rem;
+    justify-content:flex-start;padding:1.2rem;gap:1.8rem;
     scrollbar-width:none
   }
   .trust-strip::-webkit-scrollbar{display:none}
   .trust-item{flex-shrink:0}
 
-  /* Plans section */
-  .plans-section{padding:2rem 1rem 2rem}
-  .billing-toggle{font-size:.82rem}
+  .plans-section{padding:2rem 1rem}
+  .billing-toggle{font-size:.9rem}
 
-  /* FAQ */
-  .faq-q{font-size:.85rem;padding:.9rem 1rem}
-  .faq-a{padding:0 1rem .9rem;font-size:.82rem}
-}
-
-@media(max-width:420px){
-  nav{height:56px;padding:0 0.6rem}
-  .nav-logo-text{display:none}
-  .btn-nav{padding:.35rem .55rem;font-size:.72rem}
-  .nav-right{gap:4px}
-  .hero h1{font-size:1.55rem}
-  .hero p{font-size:.88rem}
+  .faq-q{font-size:.92rem;padding:1.1rem 1.2rem}
+  .faq-a{padding:0 1.2rem 1.2rem;font-size:.85rem}
 }
 </style>
 </head>
 <body>
 
+<div class="announcement-banner">
+  <div class="announcement-content">
+    <span class="pill">Mise à jour</span>
+    <span>Paiement sécurisé via Stripe &amp; Nouveaux modules IA actifs</span>
+  </div>
+</div>
+
+<div class="bg-elements">
+  <div class="glow-orb glow-1"></div>
+  <div class="glow-orb glow-2"></div>
+</div>
+
 <!-- NAV -->
 <nav>
   <a class="nav-logo" href="https://pisum.app">
     <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="PISUM"/>
-    <span class="nav-logo-text">PISUM</span>
+    <span>PISUM</span>
   </a>
   <div class="nav-right">
     <div class="nav-user" id="nav-user" style="display:none">
       <div class="nav-avatar" id="nav-avatar">?</div>
       <span class="nav-name" id="nav-name"></span>
     </div>
-    <a class="btn-nav" id="nav-login-btn" href="https://pisum.app/" data-i18n="pricing.nav.signIn">Sign in</a>
-    <a class="btn-nav primary" id="nav-dashboard-btn" href="dashboard.html" style="display:none" data-i18n="pricing.nav.mySubscription">My subscription</a>
+    <a class="btn-nav" id="nav-login-btn" href="https://pisum.app/" data-i18n="pricing.nav.signIn">Se connecter</a>
+    <a class="btn-nav primary" id="nav-dashboard-btn" href="dashboard.html" style="display:none" data-i18n="pricing.nav.mySubscription">Mon abonnement</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
   <div class="hero-eyebrow">
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-    <span data-i18n="pricing.hero.eyebrow">Radiology Software · AI-Powered · GDPR Compliant</span>
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+    <span data-i18n="pricing.hero.eyebrow">Logiciel de Radiologie · Propulsé par l'IA · Conforme RGPD</span>
   </div>
-  <h1 data-i18n="pricing.hero.title">Professional tools,<br/><span>built for radiologists</span></h1>
-  <p data-i18n="pricing.hero.subtitle">From independent radiologist to multi-site clinic — PISUM adapts to your practice with structured templates, AI dictation, and local data control.</p>
+  <h1 data-i18n="pricing.hero.title">Des outils professionnels,<br/><span>conçus pour les radiologues</span></h1>
+  <p data-i18n="pricing.hero.subtitle">Du radiologue libéral aux centres multi-sites — PISUM s'adapte à votre pratique grâce aux modèles structurés, à la dictée IA et au contrôle local de vos données.</p>
   <div class="hero-cta">
-    <a class="btn-hero-primary" href="/saas/frontend/auth.html" data-i18n="pricing.hero.ctaPrimary">Start for free</a>
-    <a class="btn-hero-secondary" href="#compare" data-i18n="pricing.hero.ctaSecondary">Compare plans</a>
+    <a class="btn-hero-primary" href="/saas/frontend/auth.html" data-i18n="pricing.hero.ctaPrimary">Démarrer gratuitement</a>
+    <a class="btn-hero-secondary" href="#compare" data-i18n="pricing.hero.ctaSecondary">Comparer les offres</a>
   </div>
 </div>
 
 <!-- TRUST STRIP -->
 <div class="trust-strip">
   <div class="trust-item">
-    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-    <span data-i18n="pricing.trust.gdpr">GDPR Compliant</span>
+    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <span data-i18n="pricing.trust.gdpr">Conforme RGPD</span>
   </div>
   <div class="trust-item">
-    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-    <span data-i18n="pricing.trust.local">Patient reports stay on your machine — never uploaded</span>
+    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+    <span data-i18n="pricing.trust.local">Comptes-rendus stockés en local — jamais envoyés sur le cloud</span>
   </div>
   <div class="trust-item">
-    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-    <span data-i18n="pricing.trust.builtFor">Built for radiologists</span>
+    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+    <span data-i18n="pricing.trust.builtFor">Conçu pour les radiologues</span>
   </div>
   <div class="trust-item">
-    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
-    <span data-i18n="pricing.trust.clinics">Designed for radiologists across Europe</span>
-  </div>
-  <div class="trust-item">
-    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
-    <span data-i18n="pricing.trust.fast">Reports completed in under 60 seconds</span>
+    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+    <span data-i18n="pricing.trust.fast">Compte-rendu rédigé en moins de 60s</span>
   </div>
 </div>
 
@@ -523,21 +528,21 @@ footer .sep{margin:0 .5rem;color:var(--app-border)}
 
   <!-- Billing toggle -->
   <div class="billing-toggle">
-    <span id="label-monthly" style="color:var(--app-primary)" data-i18n="pricing.billing.monthly">Monthly</span>
+    <span id="label-monthly" style="color:var(--blue)" data-i18n="pricing.billing.monthly">Mensuel</span>
     <label class="toggle-sw">
       <input type="checkbox" id="billing-annual" onchange="setBilling(this.checked)"/>
       <span class="toggle-track"></span>
     </label>
-    <span id="label-annual"><span data-i18n="pricing.billing.annual">Annual</span><span class="save-badge" data-i18n="pricing.billing.save20">−20%</span></span>
+    <span id="label-annual"><span data-i18n="pricing.billing.annual">Annuel</span><span class="save-badge" data-i18n="pricing.billing.save20">−20%</span></span>
   </div>
-  <div style="text-align:center;font-size:.75rem;color:var(--app-text-tertiary);margin-top:-.5rem;margin-bottom:1.5rem;letter-spacing:.01em" data-i18n="pricing.billing.guarantee">
-    No cloud upload of patient data &nbsp;·&nbsp; GDPR compliant &nbsp;·&nbsp; Local-first
+  <div style="text-align:center;font-size:.82rem;color:var(--ink-4);margin-top:-.8rem;margin-bottom:1.8rem;letter-spacing:.01em" data-i18n="pricing.billing.guarantee">
+    Pas d'envoi cloud des données patient &nbsp;·&nbsp; Conforme RGPD &nbsp;·&nbsp; Architecture Local-First
   </div>
 
-  <div style="text-align: center; margin-bottom: 2rem; margin-top: 1rem;">
-    <label style="color: var(--app-text-primary); font-weight: 600; font-size: 0.9rem; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">
-      <input type="checkbox" id="with-trial-checkbox" checked style="width: 18px; height: 18px; accent-color: var(--app-primary);">
-      Start with a 14-day free trial
+  <div style="text-align: center; margin-bottom: 2.2rem; margin-top: 1rem;">
+    <label style="color: var(--ink); font-weight: 600; font-size: 0.95rem; cursor: pointer; display: inline-flex; align-items: center; gap: 10px;">
+      <input type="checkbox" id="with-trial-checkbox" checked style="width: 20px; height: 20px; accent-color: var(--blue);">
+      Commencer par un essai gratuit de 14 jours
     </label>
   </div>
 
@@ -545,108 +550,108 @@ footer .sep{margin:0 .5rem;color:var(--app-border)}
 
     <!-- FREE -->
     <div class="plan-card anim-1">
-      <div class="plan-tag tag-free" data-i18n="pricing.plans.free.tag">Free</div>
+      <div class="plan-tag tag-free" data-i18n="pricing.plans.free.tag">Gratuit</div>
       <div class="plan-name" data-i18n="pricing.plans.free.name">Pisum Free</div>
-      <div class="plan-subtitle" data-i18n="pricing.plans.free.subtitle">Discover PISUM</div>
-      <div class="plan-price">0 €<span data-i18n="pricing.plans.free.period"> / month</span></div>
-      <div class="plan-microcopy" data-i18n="pricing.plans.free.microcopy">No commitment</div>
-      <a class="plan-cta cta-ghost" href="/saas/frontend/auth.html" data-label="Get started" data-i18n="pricing.plans.free.cta">Get started</a>
+      <div class="plan-subtitle" data-i18n="pricing.plans.free.subtitle">Découvrez PISUM</div>
+      <div class="plan-price">0 €<span data-i18n="pricing.plans.free.period"> / mois</span></div>
+      <div class="plan-microcopy" data-i18n="pricing.plans.free.microcopy">Sans engagement</div>
+      <a class="plan-cta cta-ghost" href="/saas/frontend/auth.html" data-label="Démarrer" data-i18n="pricing.plans.free.cta">Démarrer</a>
       <div class="divider"></div>
       <ul class="feat-list">
-        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.free.f1">10 templates</span></li>
-        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.free.f2">2 languages</span></li>
-        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.free.f3">PDF Export</span></li>
-        <li><span class="fi-no">–</span><span data-i18n="pricing.plans.free.f4">Word Export</span></li>
-        <li><span class="fi-lim">◐</span><span data-i18n="pricing.plans.free.f5">AI Dictation (30 min ≈ 10–20 CRs/mo)</span></li>
-        <li><span class="fi-lim">◐</span><span data-i18n="pricing.plans.free.f6">AI Enhancer (10 uses/mo)</span></li>
-        <li><span class="fi-lim">◐</span><span data-i18n="pricing.plans.free.f7">Limited Worklist</span></li>
-        <li><span class="fi-lim">◐</span><span data-i18n="pricing.plans.free.f8">50 reports / month</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.free.f1">10 modèles</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.free.f2">2 langues</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.free.f3">Export PDF</span></li>
+        <li><span class="fi-no">–</span><span data-i18n="pricing.plans.free.f4">Export Word</span></li>
+        <li><span class="fi-lim">◐</span><span data-i18n="pricing.plans.free.f5">Dictée IA (30 min ≈ 10–20 CR/mois)</span></li>
+        <li><span class="fi-lim">◐</span><span data-i18n="pricing.plans.free.f6">Optimiseur IA (10 utilisations/mois)</span></li>
+        <li><span class="fi-lim">◐</span><span data-i18n="pricing.plans.free.f7">Worklist limitée</span></li>
+        <li><span class="fi-lim">◐</span><span data-i18n="pricing.plans.free.f8">50 comptes-rendus / mois</span></li>
       </ul>
     </div>
 
     <!-- STARTER -->
-    <div class="plan-card anim-2" style="border-color:#bfdbfe">
+    <div class="plan-card anim-2">
       <div class="plan-tag tag-starter" data-i18n="pricing.plans.starter.tag">Starter</div>
       <div class="plan-name" data-i18n="pricing.plans.starter.name">Pisum Starter</div>
-      <div class="plan-subtitle" data-i18n="pricing.plans.starter.subtitle">Solo radiologist</div>
-      <div class="plan-price" id="price-starter" data-monthly="29" data-annual="23">29 €<span id="price-starter-sub" data-i18n="pricing.plans.starter.period"> / month</span></div>
-      <div class="plan-microcopy" id="sub-starter" data-i18n="pricing.plans.starter.microcopy">Billed monthly</div>
-      <div style="font-size:.7rem;color:var(--app-primary);text-align:center;margin-bottom:.3rem;font-weight:600" data-i18n="pricing.plans.starter.roi">Save 30 min/day from day one</div>
-      <div style="font-size:.68rem;color:var(--app-text-tertiary);text-align:center;margin-bottom:.4rem" data-i18n="pricing.plans.starter.trial">14-day free trial included</div>
-      <button class="plan-cta cta-blue" onclick="subscribe('starter')" data-label="Try Starter free — 14 days" data-i18n="pricing.plans.starter.cta">Try Starter free — 14 days</button>
+      <div class="plan-subtitle" data-i18n="pricing.plans.starter.subtitle">Radiologue indépendant</div>
+      <div class="plan-price" id="price-starter" data-monthly="29" data-annual="23">29 €<span id="price-starter-sub" data-i18n="pricing.plans.starter.period"> / mois</span></div>
+      <div class="plan-microcopy" id="sub-starter" data-i18n="pricing.plans.starter.microcopy">Facturé mensuellement</div>
+      <div style="font-size:.75rem;color:var(--green);text-align:center;margin-bottom:.3rem;font-weight:700" data-i18n="pricing.plans.starter.roi">Économisez 30 min/jour dès le 1er jour</div>
+      <div style="font-size:.72rem;color:var(--ink-4);text-align:center;margin-bottom:.6rem" data-i18n="pricing.plans.starter.trial">14 jours d'essai gratuit inclus</div>
+      <button class="plan-cta cta-blue" onclick="subscribe('starter')" data-label="Essai Starter gratuit — 14 jours" data-i18n="pricing.plans.starter.cta">Essai Starter gratuit — 14 jours</button>
       <div class="divider"></div>
       <ul class="feat-list">
-        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.starter.f1">20 templates</span></li>
-        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.starter.f2">23 languages</span></li>
-        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.starter.f3">PDF + Word Export</span></li>
-        <li><span class="fi-no">–</span><span data-i18n="pricing.plans.starter.f4">HTML Export</span></li>
-        <li><span class="fi-lim">◐</span><span data-i18n="pricing.plans.starter.f5">AI Dictation (500 min ≈ 150–300 CRs/mo)</span></li>
-        <li><span class="fi-lim">◐</span><span data-i18n="pricing.plans.starter.f6">AI Enhancer (50/mo)</span></li>
-        <li><span class="fi-lim">◐</span><span data-i18n="pricing.plans.starter.f7">Basic Worklist</span></li>
-        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.starter.f8">Unlimited reports</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.starter.f1">20 modèles</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.starter.f2">23 langues</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.starter.f3">Export PDF + Word</span></li>
+        <li><span class="fi-no">–</span><span data-i18n="pricing.plans.starter.f4">Export HTML</span></li>
+        <li><span class="fi-lim">◐</span><span data-i18n="pricing.plans.starter.f5">Dictée IA (500 min ≈ 150–300 CR/mois)</span></li>
+        <li><span class="fi-lim">◐</span><span data-i18n="pricing.plans.starter.f6">Optimiseur IA (50/mois)</span></li>
+        <li><span class="fi-lim">◐</span><span data-i18n="pricing.plans.starter.f7">Worklist basique</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.starter.f8">Comptes-rendus illimités</span></li>
       </ul>
     </div>
 
     <!-- PRO — MOST POPULAR -->
     <div class="plan-card popular anim-3">
-      <div class="pop-ribbon" data-i18n="pricing.plans.pro.ribbon">Most Popular</div>
+      <div class="pop-ribbon" data-i18n="pricing.plans.pro.ribbon">Le plus populaire</div>
       <div class="plan-tag tag-pro" data-i18n="pricing.plans.pro.tag">Pro ⭐</div>
       <div class="plan-name pro" data-i18n="pricing.plans.pro.name">Pisum Pro</div>
-      <div class="plan-subtitle" data-i18n="pricing.plans.pro.subtitle">Advanced practitioner, all-in-one</div>
-      <div class="plan-price pro" id="price-pro" data-monthly="79" data-annual="63">79 €<span id="price-pro-sub" data-i18n="pricing.plans.pro.period"> / month</span></div>
-      <div class="plan-microcopy" id="sub-pro" data-i18n="pricing.plans.pro.microcopy">Billed monthly</div>
-      <div style="font-size:.7rem;color:var(--app-primary);text-align:center;margin-bottom:.3rem;font-weight:600" data-i18n="pricing.plans.pro.roi">Pays for itself in &lt; 3 working days</div>
-      <div style="font-size:.68rem;color:var(--app-text-tertiary);text-align:center;margin-bottom:.4rem" data-i18n="pricing.plans.pro.trial">14-day free trial included</div>
-      <button class="plan-cta cta-blue-glow" onclick="subscribe('pro')" data-label="Try Pro free — 14 days" data-i18n="pricing.plans.pro.cta">Try Pro free — 14 days</button>
-      <div class="divider" style="background:rgba(37,99,235,.12)"></div>
+      <div class="plan-subtitle" data-i18n="pricing.plans.pro.subtitle">Praticien confirmé, clé en main</div>
+      <div class="plan-price pro" id="price-pro" data-monthly="79" data-annual="63">79 €<span id="price-pro-sub" data-i18n="pricing.plans.pro.period"> / mois</span></div>
+      <div class="plan-microcopy" id="sub-pro" data-i18n="pricing.plans.pro.microcopy">Facturé mensuellement</div>
+      <div style="font-size:.75rem;color:var(--blue);text-align:center;margin-bottom:.3rem;font-weight:700" data-i18n="pricing.plans.pro.roi">Rentabilisé en moins de 3 jours</div>
+      <div style="font-size:.72rem;color:var(--ink-4);text-align:center;margin-bottom:.6rem" data-i18n="pricing.plans.pro.trial">14 jours d'essai gratuit inclus</div>
+      <button class="plan-cta cta-blue-glow" onclick="subscribe('pro')" data-label="Essai Pro gratuit — 14 jours" data-i18n="pricing.plans.pro.cta">Essai Pro gratuit — 14 jours</button>
+      <div class="divider"></div>
       <ul class="feat-list">
-        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.pro.f1">112+ templates</span></li>
-        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.pro.f2">23 languages</span></li>
-        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.pro.f3">PDF + Word + HTML Export</span></li>
-        <li><span class="fi-lim">◐</span><span data-i18n="pricing.plans.pro.f4">AI Dictation (2,000 min ≈ 600–1,200 CRs/mo)</span></li>
-        <li><span class="fi-lim">◐</span><span data-i18n="pricing.plans.pro.f5">AI Enhancer (200/mo)</span></li>
-        <li><span class="fi-lim">◐</span><span data-i18n="pricing.plans.pro.f6">Report Translation (100/mo)</span></li>
-        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.pro.f7">Full Worklist</span></li>
-        <li><span class="fi-lim">◐</span><span data-i18n="pricing.plans.pro.f8">Basic Statistics</span></li>
-        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.pro.f9">Priority support</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.pro.f1">112+ modèles</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.pro.f2">23 langues</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.pro.f3">Export PDF + Word + HTML</span></li>
+        <li><span class="fi-lim">◐</span><span data-i18n="pricing.plans.pro.f4">Dictée IA (2 000 min ≈ 600–1 200 CR/mois)</span></li>
+        <li><span class="fi-lim">◐</span><span data-i18n="pricing.plans.pro.f5">Optimiseur IA (200/mois)</span></li>
+        <li><span class="fi-lim">◐</span><span data-i18n="pricing.plans.pro.f6">Traduction de CR (100/mois)</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.pro.f7">Worklist complète</span></li>
+        <li><span class="fi-lim">◐</span><span data-i18n="pricing.plans.pro.f8">Statistiques de base</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.pro.f9">Support prioritaire</span></li>
       </ul>
     </div>
 
     <!-- EXPERT -->
-    <div class="plan-card anim-4" style="border-color:#fde68a">
-      <div class="pop-ribbon" style="background:linear-gradient(135deg,#059669,#10b981)" data-i18n="pricing.plans.expert.ribbon">Best Value</div>
+    <div class="plan-card anim-4">
+      <div class="pop-ribbon" style="background:var(--grad)" data-i18n="pricing.plans.expert.ribbon">Meilleure Valeur</div>
       <div class="plan-tag tag-expert" data-i18n="pricing.plans.expert.tag">Expert 🔥</div>
       <div class="plan-name" data-i18n="pricing.plans.expert.name">Pisum Expert</div>
-      <div class="plan-subtitle" data-i18n="pricing.plans.expert.subtitle">No limits, full power</div>
-      <div class="plan-price" id="price-expert" data-monthly="129" data-annual="103">129 €<span id="price-expert-sub" data-i18n="pricing.plans.expert.period"> / month</span></div>
-      <div class="plan-microcopy" id="sub-expert" data-i18n="pricing.plans.expert.microcopy">Billed monthly</div>
-      <div style="font-size:.68rem;color:var(--app-text-tertiary);text-align:center;margin-bottom:.4rem" data-i18n="pricing.plans.expert.trial">14-day free trial included</div>
-      <button class="plan-cta cta-amber" onclick="subscribe('expert')" data-label="Try Expert free — 14 days" data-i18n="pricing.plans.expert.cta">Try Expert free — 14 days</button>
+      <div class="plan-subtitle" data-i18n="pricing.plans.expert.subtitle">Sans limites, puissance maximale</div>
+      <div class="plan-price" id="price-expert" data-monthly="129" data-annual="103">129 €<span id="price-expert-sub" data-i18n="pricing.plans.expert.period"> / mois</span></div>
+      <div class="plan-microcopy" id="sub-expert" data-i18n="pricing.plans.expert.microcopy">Facturé mensuellement</div>
+      <div style="font-size:.72rem;color:var(--ink-4);text-align:center;margin-bottom:.6rem" data-i18n="pricing.plans.expert.trial">14 jours d'essai gratuit inclus</div>
+      <button class="plan-cta cta-amber" onclick="subscribe('expert')" data-label="Essai Expert gratuit — 14 jours" data-i18n="pricing.plans.expert.cta">Essai Expert gratuit — 14 jours</button>
       <div class="divider"></div>
       <ul class="feat-list">
-        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.expert.f1">112+ custom templates</span></li>
-        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.expert.f2">23 languages</span></li>
-        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.expert.f3">PDF + Word + HTML Export</span></li>
-        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.expert.f4">AI Dictation (Unlimited)</span></li>
-        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.expert.f5">AI Enhancer (Unlimited)</span></li>
-        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.expert.f6">Report Translation (Unlimited)</span></li>
-        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.expert.f7">Advanced Worklist</span></li>
-        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.expert.f8">Full Statistics</span></li>
-        <li><span class="fi-lim">◐</span><span data-i18n="pricing.plans.expert.f9">LAN Sync (1 site · 3 PCs)</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.expert.f1">112+ modèles personnalisables</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.expert.f2">23 langues</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.expert.f3">Export PDF + Word + HTML</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.expert.f4">Dictée IA (Illimitée)</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.expert.f5">Optimiseur IA (Illimité)</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.expert.f6">Traduction de CR (Illimitée)</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.expert.f7">Worklist avancée</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.expert.f8">Statistiques complètes</span></li>
+        <li><span class="fi-lim">◐</span><span data-i18n="pricing.plans.expert.f9">Synchro LAN (1 site · 3 PC)</span></li>
       </ul>
     </div>
 
     <!-- CLINIC — ENTERPRISE -->
     <div class="plan-card clinic-card anim-5">
-      <div class="ent-ribbon" data-i18n="pricing.plans.clinic.ribbon">For Clinics</div>
+      <div class="ent-ribbon" data-i18n="pricing.plans.clinic.ribbon">Pour Cliniques</div>
       <div class="plan-tag tag-clinic" data-i18n="pricing.plans.clinic.tag">Clinic 🏥</div>
       <div class="plan-name clinic" data-i18n="pricing.plans.clinic.name">Pisum Clinic</div>
-      <div class="plan-subtitle clinic" data-i18n="pricing.plans.clinic.subtitle">Multi-site · Team management</div>
-      <div class="plan-price clinic" id="price-clinic" data-monthly="399" data-annual="319">399 €<span id="price-clinic-sub" data-i18n="pricing.plans.clinic.period"> / month</span></div>
-      <div class="plan-microcopy clinic" id="sub-clinic" data-i18n="pricing.plans.clinic.microcopy">5 users incl. · +€69/extra user</div>
-      <button class="plan-cta cta-glass" onclick="subscribe('clinic')" data-label="Get started" data-i18n="pricing.plans.clinic.cta">Get started</button>
-      <div style="font-size:.68rem;color:#7dd3fc;margin-top:.6rem;text-align:center" data-i18n="pricing.plans.clinic.extraUsers">Need more than 5 users? Add extra seats from your dashboard after subscribing.</div>
-      <div class="divider clinic"></div>
+      <div class="plan-subtitle clinic" data-i18n="pricing.plans.clinic.subtitle">Multi-sites · Gestion d'équipe</div>
+      <div class="plan-price clinic" id="price-clinic" data-monthly="399" data-annual="319">399 €<span id="price-clinic-sub" data-i18n="pricing.plans.clinic.period"> / mois</span></div>
+      <div class="plan-microcopy clinic" id="sub-clinic" data-i18n="pricing.plans.clinic.microcopy">5 utilisateurs incl. · +69€/util. sup.</div>
+      <button class="plan-cta cta-glass" onclick="subscribe('clinic')" data-label="Souscrire l'offre Clinic" data-i18n="pricing.plans.clinic.cta">Souscrire l'offre Clinic</button>
+      <div style="font-size:.72rem;color:#7dd3fc;margin-top:.8rem;text-align:center" data-i18n="pricing.plans.clinic.extraUsers">Besoin de plus de 5 accès ? Ajoutez des comptes depuis votre tableau de bord.</div>
+      <div class="divider" style="background:rgba(255,255,255,0.1)"></div>
       <!-- Team avatars -->
       <div class="team-avatars">
         <div class="team-av" style="background:linear-gradient(135deg,#60a5fa,#3b82f6)">R</div>
@@ -654,62 +659,60 @@ footer .sep{margin:0 .5rem;color:var(--app-border)}
         <div class="team-av" style="background:linear-gradient(135deg,#34d399,#10b981)">M</div>
         <div class="team-av" style="background:linear-gradient(135deg,#fb923c,#f97316)">S</div>
         <div class="team-av" style="background:rgba(255,255,255,.15)">+</div>
-        <span class="team-label" data-i18n="pricing.plans.clinic.usersCount">5 users</span>
+        <span class="team-label" data-i18n="pricing.plans.clinic.usersCount">5 utilisateurs</span>
       </div>
-      <ul class="feat-list clinic">
-        <li><span class="fi-ok clinic">✓</span><span data-i18n="pricing.plans.clinic.f1">Custom templates</span></li>
-        <li><span class="fi-ok clinic">✓</span><span data-i18n="pricing.plans.clinic.f2">5 users incl. (+€69/extra)</span></li>
-        <li><span class="fi-ok clinic">✓</span><span data-i18n="pricing.plans.clinic.f3">23 languages</span></li>
-        <li><span class="fi-ok clinic">✓</span><span data-i18n="pricing.plans.clinic.f4">PDF + Word + HTML Export</span></li>
-        <li><span class="fi-ok clinic">✓</span><span data-i18n="pricing.plans.clinic.f5">AI Dictation (Unlimited)</span></li>
-        <li><span class="fi-ok clinic">✓</span><span data-i18n="pricing.plans.clinic.f6">AI Enhancer (Unlimited)</span></li>
-        <li><span class="fi-ok clinic">✓</span><span data-i18n="pricing.plans.clinic.f7">Report Translation (Unlimited)</span></li>
-        <li><span class="fi-ok clinic">✓</span><span data-i18n="pricing.plans.clinic.f8">Multi-site Worklist</span></li>
-        <li><span class="fi-ok clinic">✓</span><span data-i18n="pricing.plans.clinic.f9">Advanced stats + onboarding</span></li>
-        <li><span class="fi-ok clinic">✓</span><span data-i18n="pricing.plans.clinic.f10">LAN Sync (multi-site · unlimited)</span></li>
+      <ul class="feat-list">
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.clinic.f1">Modèles personnalisés</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.clinic.f2">5 utilisateurs incl. (+69€/sup)</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.clinic.f3">23 langues</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.clinic.f4">Export PDF + Word + HTML</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.clinic.f5">Dictée IA (Illimitée)</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.clinic.f6">Optimiseur IA (Illimité)</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.clinic.f7">Traduction de CR (Illimitée)</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.clinic.f8">Worklist multi-sites</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.clinic.f9">Stats avancées + Onboarding</span></li>
+        <li><span class="fi-ok">✓</span><span data-i18n="pricing.plans.clinic.f10">Synchro LAN (multi-sites · illimitée)</span></li>
       </ul>
     </div>
 
   </div>
 
-  <!-- Money-back guarantee -->
-  <div style="text-align:center;margin-top:2rem;font-size:.8rem;color:var(--app-text-secondary)" data-i18n="pricing.guarantee">
-    <span style="color:var(--app-success);font-weight:700">✓</span> 30-day money-back guarantee on all paid plans &nbsp;·&nbsp;
-    <span style="color:var(--app-success);font-weight:700">✓</span> Cancel anytime, no lock-in
+  <!-- Guarantee -->
+  <div style="text-align:center;margin-top:2.8rem;font-size:.88rem;color:var(--ink-2)" data-i18n="pricing.guarantee">
+    <span style="color:var(--green);font-weight:800">✓</span> Garantie satisfait ou remboursé pendant 30 jours &nbsp;·&nbsp;
+    <span style="color:var(--green);font-weight:800">✓</span> Résiliable à tout moment, sans engagement
   </div>
 </section>
 
-<!-- TESTIMONIALS — Replace these with real radiologist quotes before launch -->
-<section style="max-width:900px;margin:0 auto;padding:1rem 1.5rem 4rem">
-  <div style="text-align:center;margin-bottom:2rem">
-    <div style="display:inline-flex;align-items:center;gap:6px;padding:.3rem 1rem;border-radius:999px;background:var(--app-primary-light);border:1px solid rgba(20,184,166,0.2);color:var(--app-primary);font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.9rem">
-      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
-      What radiologists say
+<!-- TESTIMONIALS -->
+<section style="max-width:1000px;margin:0 auto;padding:1rem 1.5rem 5rem;position:relative;z-index:1">
+  <div style="text-align:center;margin-bottom:2.5rem">
+    <div style="display:inline-flex;align-items:center;gap:6px;padding:.4rem 1.2rem;border-radius:999px;background:rgba(20,184,166,0.1);border:1px solid rgba(20,184,166,0.25);color:var(--blue);font-size:.78rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;margin-bottom:1rem">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+      Avis de praticiens
     </div>
-    <h2 style="font-size:1.45rem;font-weight:800;letter-spacing:-.03em;color:var(--app-text-primary)">Trusted by practitioners across Europe</h2>
+    <h2 style="font-family:var(--serif);font-size:1.8rem;font-weight:800;letter-spacing:-.03em;color:var(--ink)">Adopté par des professionnels de santé</h2>
   </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem">
-    <!-- Testimonial 1 — replace with a real quote -->
-    <div style="background:var(--app-surface);border:1px solid var(--app-border);border-radius:var(--r);padding:1.5rem;box-shadow:var(--shadow)">
-      <div style="font-size:2rem;line-height:1;color:var(--app-primary);margin-bottom:.6rem;font-family:Georgia,serif">"</div>
-      <p style="font-size:.85rem;color:var(--app-text-primary);line-height:1.7;margin-bottom:1.1rem;font-style:italic">I now complete my radiology reports in under 2 minutes. PISUM's templates cover everything I need — I dictate, the AI cleans it up, and I export. My workflow has completely changed.</p>
-      <div style="display:flex;align-items:center;gap:.65rem">
-        <div style="width:34px;height:34px;border-radius:50%;background:var(--grad-primary);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:var(--app-primary-text);flex-shrink:0">A</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.6rem">
+    <div style="background:var(--white);backdrop-filter:var(--backdrop);border:1px solid var(--b1);border-radius:var(--r-lg);padding:1.8rem;box-shadow:var(--shadow)">
+      <div style="font-size:2rem;line-height:1;color:var(--blue);margin-bottom:.8rem;font-family:Georgia,serif">"</div>
+      <p style="font-size:.9rem;color:var(--ink);line-height:1.75;margin-bottom:1.4rem;font-style:italic">Je finalise mes comptes-rendus en moins de 2 minutes. Les modèles de PISUM couvrent l'ensemble de ma pratique. Je dicte, l'IA remet en forme et j'exporte. Un vrai gain de temps au quotidien.</p>
+      <div style="display:flex;align-items:center;gap:.8rem">
+        <div style="width:38px;height:38px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#040D1A;flex-shrink:0">A</div>
         <div>
-          <div style="font-size:.8rem;font-weight:700;color:var(--app-text-primary)">Dr. A. — Radiologist</div>
-          <div style="font-size:.72rem;color:var(--app-text-secondary)">University Hospital</div>
+          <div style="font-size:.88rem;font-weight:700;color:var(--ink)">Dr. A. — Radiologue</div>
+          <div style="font-size:.78rem;color:var(--ink-3)">Centre Hospitalier Universitaire</div>
         </div>
       </div>
     </div>
-    <!-- Testimonial 2 — replace with a real quote -->
-    <div style="background:var(--app-surface);border:1px solid var(--app-border);border-radius:var(--r);padding:1.5rem;box-shadow:var(--shadow)">
-      <div style="font-size:2rem;line-height:1;color:var(--app-primary);margin-bottom:.6rem;font-family:Georgia,serif">"</div>
-      <p style="font-size:.85rem;color:var(--app-text-primary);line-height:1.7;margin-bottom:1.1rem;font-style:italic">This Software is a must have. Now i can work from home and write the exams that i couldn't finish in the hospital. </p>
-      <div style="display:flex;align-items:center;gap:.65rem">
-        <div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#818cf8,#6366f1);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:#fff;flex-shrink:0">M</div>
+    <div style="background:var(--white);backdrop-filter:var(--backdrop);border:1px solid var(--b1);border-radius:var(--r-lg);padding:1.8rem;box-shadow:var(--shadow)">
+      <div style="font-size:2rem;line-height:1;color:var(--blue);margin-bottom:.8rem;font-family:Georgia,serif">"</div>
+      <p style="font-size:.9rem;color:var(--ink);line-height:1.75;margin-bottom:1.4rem;font-style:italic">Ce logiciel est indispensable. Je peux désormais travailler plus sereinement et finaliser à distance les examens complexes sans perdre en qualité d'analyse.</p>
+      <div style="display:flex;align-items:center;gap:.8rem">
+        <div style="width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#818cf8,#6366f1);display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#fff;flex-shrink:0">M</div>
         <div>
-          <div style="font-size:.8rem;font-weight:700;color:var(--app-text-primary)">Dr. M. — Radiology Resident</div>
-          <div style="font-size:.72rem;color:var(--app-text-secondary)">University Hospital · Tunisia</div>
+          <div style="font-size:.88rem;font-weight:700;color:var(--ink)">Dr. M. — Interne en Radiologie</div>
+          <div style="font-size:.78rem;color:var(--ink-3)">CHU</div>
         </div>
       </div>
     </div>
@@ -718,46 +721,46 @@ footer .sep{margin:0 .5rem;color:var(--app-border)}
 
 <!-- VALUE SECTION -->
 <section class="value-section">
-  <div style="text-align:center;margin-bottom:2rem">
-    <div style="display:inline-block;padding:.3rem 1rem;border-radius:999px;background:var(--app-primary-light);border:1px solid rgba(20,184,166,.2);color:var(--app-primary);font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.9rem" data-i18n="pricing.value.eyebrow">Why professionals choose PISUM</div>
-    <h2 style="font-size:1.55rem;font-weight:800;letter-spacing:-.03em" data-i18n="pricing.value.heading">A tool that respects your workflow</h2>
+  <div style="text-align:center;margin-bottom:2.8rem">
+    <div style="display:inline-block;padding:.4rem 1.2rem;border-radius:999px;background:rgba(20,184,166,0.1);border:1px solid rgba(20,184,166,.25);color:var(--blue);font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.9rem" data-i18n="pricing.value.eyebrow">Pourquoi choisir PISUM</div>
+    <h2 style="font-family:var(--serif);font-size:1.8rem;font-weight:800;letter-spacing:-.03em" data-i18n="pricing.value.heading">Un outil conçu pour votre flux de travail</h2>
   </div>
   <div class="value-grid">
     <div class="value-card">
       <div class="value-icon">
-        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
       </div>
-      <h3 data-i18n="pricing.value.card1.title">Local-first privacy</h3>
-      <p data-i18n="pricing.value.card1.desc">Patient reports stay on your machine. No clinical data ever leaves your computer — no cloud upload, full GDPR compliance.</p>
+      <h3 data-i18n="pricing.value.card1.title">Confidentialité Local-First</h3>
+      <p data-i18n="pricing.value.card1.desc">Vos comptes-rendus restent stockés sur votre poste. Aucune donnée clinique n'est envoyée sur le cloud pour un respect strict du RGPD.</p>
     </div>
     <div class="value-card">
       <div class="value-icon">
-        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
       </div>
-      <h3 data-i18n="pricing.value.card2.title">112+ radiology templates</h3>
-      <p data-i18n="pricing.value.card2.desc">Structured reports for every modality — MRI, CT, echography, and more. In 23 languages, ready for immediate use.</p>
+      <h3 data-i18n="pricing.value.card2.title">112+ modèles radiologiques</h3>
+      <p data-i18n="pricing.value.card2.desc">Des comptes-rendus structurés pour chaque modalité — IRM, Scanner, Échographie, Radiologie standard. En 23 langues.</p>
     </div>
     <div class="value-card">
       <div class="value-icon">
-        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8"/></svg>
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8"/></svg>
       </div>
-      <h3 data-i18n="pricing.value.card3.title">AI Dictation &amp; Enhancer</h3>
-      <p data-i18n="pricing.value.card3.desc">Dictate reports hands-free and improve wording with AI — designed specifically for radiology terminology and phrasing.</p>
+      <h3 data-i18n="pricing.value.card3.title">Dictée IA &amp; Reformulation</h3>
+      <p data-i18n="pricing.value.card3.desc">Dictez naturellement vos rapports et laissez l'IA affiner la formulation avec le vocabulaire médical adapté.</p>
     </div>
     <div class="value-card">
       <div class="value-icon">
-        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
       </div>
-      <h3 data-i18n="pricing.value.card4.title">LAN Network Sync</h3>
-      <p data-i18n="pricing.value.card4.desc">Share the same worklist across all workstations in your clinic — no cloud, instant sync via your local network.</p>
+      <h3 data-i18n="pricing.value.card4.title">Synchronisation réseau LAN</h3>
+      <p data-i18n="pricing.value.card4.desc">Partagez votre liste de travail entre tous les postes de la clinique, directement sur votre réseau local sécurisé.</p>
     </div>
   </div>
 </section>
 
 <!-- COMPARISON TABLE -->
 <section class="compare-section" id="compare">
-  <h2 data-i18n="pricing.compare.title">Detailed comparison</h2>
-  <p class="compare-subtext" data-i18n="pricing.compare.subtitle">See exactly what's included at each level — pick what fits your practice.</p>
+  <h2 data-i18n="pricing.compare.title">Comparatif détaillé</h2>
+  <p class="compare-subtext" data-i18n="pricing.compare.subtitle">Découvrez l'ensemble des fonctionnalités incluses pour chaque offre.</p>
   <div class="compare-wrap">
     <table>
       <colgroup>
@@ -765,37 +768,37 @@ footer .sep{margin:0 .5rem;color:var(--app-border)}
       </colgroup>
       <thead>
         <tr>
-          <th><div class="th-inner"><span class="th-name">Feature</span></div></th>
-          <th><div class="th-inner"><span class="th-name">Free</span><span class="th-price">€0/mo</span></div></th>
-          <th><div class="th-inner"><span class="th-name">Starter</span><span class="th-price" id="table-price-starter">€29/mo</span></div></th>
-          <th class="col-pro"><div class="th-inner"><span class="rec-badge">Most Popular</span><span class="th-name">Pro ⭐</span><span class="th-price" id="table-price-pro">€79/mo</span></div></th>
-          <th><div class="th-inner"><span class="rec-badge" style="background:#34d399;color:#064e3b">Best Value</span><span class="th-name">Expert 🔥</span><span class="th-price" id="table-price-expert">€129/mo</span></div></th>
-          <th class="col-clinic"><div class="th-inner"><span class="ent-badge">Enterprise</span><span class="th-name">Clinic 🏥</span><span class="th-price" id="table-price-clinic">€399/mo</span></div></th>
+          <th><div class="th-inner"><span class="th-name">Fonctionnalité</span></div></th>
+          <th><div class="th-inner"><span class="th-name">Free</span><span class="th-price">0€/mois</span></div></th>
+          <th><div class="th-inner"><span class="th-name">Starter</span><span class="th-price" id="table-price-starter">29€/mois</span></div></th>
+          <th class="col-pro"><div class="th-inner"><span class="rec-badge">Populaire</span><span class="th-name">Pro ⭐</span><span class="th-price" id="table-price-pro">79€/mois</span></div></th>
+          <th><div class="th-inner"><span class="rec-badge" style="background:#10b981;color:#040D1A">Top Valeur</span><span class="th-name">Expert 🔥</span><span class="th-price" id="table-price-expert">129€/mois</span></div></th>
+          <th class="col-clinic"><div class="th-inner"><span class="ent-badge">Enterprise</span><span class="th-name">Clinic 🏥</span><span class="th-price" id="table-price-clinic">399€/mois</span></div></th>
         </tr>
       </thead>
       <tbody>
-        <!-- Templates & Languages -->
-        <tr class="cat-row"><td colspan="6" data-i18n="pricing.table.cat_templates">Templates &amp; Content</td></tr>
-        <tr><td data-i18n="pricing.table.feat_templates">Templates</td><td>10</td><td>20</td><td class="col-pro"><strong>112+</strong></td><td>112+ custom</td><td class="col-clinic">Custom</td></tr>
-        <tr><td data-i18n="pricing.table.feat_languages">Available languages</td><td>2</td><td>23</td><td class="col-pro"><strong>23</strong></td><td>23</td><td class="col-clinic">23</td></tr>
-        <tr><td data-i18n="pricing.table.feat_pdf">PDF Export</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td class="col-pro"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td class="col-clinic"><span class="yes">✓</span></td></tr>
-        <tr><td data-i18n="pricing.table.feat_word">Word Export</td><td><span class="no">✕</span></td><td><span class="yes">✓</span></td><td class="col-pro"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td class="col-clinic"><span class="yes">✓</span></td></tr>
-        <tr><td data-i18n="pricing.table.feat_html">HTML Export</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td class="col-clinic"><span class="yes">✓</span></td></tr>
-        <tr><td data-i18n="pricing.table.feat_reports">Reports / month</td><td><span class="lim">50 max</span></td><td><span class="yes">Unlimited</span></td><td class="col-pro"><span class="yes">Unlimited</span></td><td><span class="yes">Unlimited</span></td><td class="col-clinic"><span class="yes">Unlimited</span></td></tr>
-        <!-- AI -->
-        <tr class="cat-row"><td colspan="6" data-i18n="pricing.table.cat_ai">AI Features</td></tr>
-        <tr><td data-i18n="pricing.table.feat_dictation">AI Dictation</td><td><span class="lim">30 min ≈ 10–20 CRs</span></td><td><span class="lim">500 min ≈ 150–300 CRs</span></td><td class="col-pro"><span class="lim">2,000 min ≈ 600–1,200 CRs</span></td><td><span class="yes">Unlimited</span></td><td class="col-clinic"><span class="yes">Unlimited</span></td></tr>
-        <tr><td data-i18n="pricing.table.feat_enhancer">AI Enhancer</td><td><span class="lim">10/mo</span></td><td><span class="lim">50/mo</span></td><td class="col-pro"><span class="lim">200/mo</span></td><td><span class="yes">Unlimited</span></td><td class="col-clinic"><span class="yes">Unlimited</span></td></tr>
-        <tr><td data-i18n="pricing.table.feat_translation">Report Translation</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="lim">100/mo</span></td><td><span class="yes">Unlimited</span></td><td class="col-clinic"><span class="yes">Unlimited</span></td></tr>
-        <!-- Workflow -->
-        <tr class="cat-row"><td colspan="6" data-i18n="pricing.table.cat_workflow">Workflow &amp; Clinic</td></tr>
-        <tr><td data-i18n="pricing.table.feat_worklist">Worklist</td><td><span class="lim">Limited</span></td><td><span class="lim">Basic</span></td><td class="col-pro"><span class="yes">Full</span></td><td><span class="yes">Advanced</span></td><td class="col-clinic"><span class="yes">Multi-site</span></td></tr>
-        <tr><td data-i18n="pricing.table.feat_stats">Statistics</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="lim">Basic</span></td><td><span class="yes">Full</span></td><td class="col-clinic"><span class="yes">Advanced</span></td></tr>
-        <tr><td data-i18n="pricing.table.feat_lan">LAN Network Sync</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="no">✕</span></td><td><span class="lim">1 site · 3 PCs</span></td><td class="col-clinic"><span class="yes">Multi-site · Unlimited</span></td></tr>
-        <tr><td data-i18n="pricing.table.feat_users">Users</td><td>1</td><td>1</td><td class="col-pro">1</td><td>1</td><td class="col-clinic"><strong>5 incl. (+€69/extra)</strong></td></tr>
+        <!-- Modèles & Langues -->
+        <tr class="cat-row"><td colspan="6" data-i18n="pricing.table.cat_templates">Modèles &amp; Contenu</td></tr>
+        <tr><td data-i18n="pricing.table.feat_templates">Modèles inclus</td><td>10</td><td>20</td><td class="col-pro"><strong>112+</strong></td><td>112+ sur-mesure</td><td class="col-clinic">Sur-mesure</td></tr>
+        <tr><td data-i18n="pricing.table.feat_languages">Langues disponibles</td><td>2</td><td>23</td><td class="col-pro"><strong>23</strong></td><td>23</td><td class="col-clinic">23</td></tr>
+        <tr><td data-i18n="pricing.table.feat_pdf">Export PDF</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td class="col-pro"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td class="col-clinic"><span class="yes">✓</span></td></tr>
+        <tr><td data-i18n="pricing.table.feat_word">Export Word</td><td><span class="no">✕</span></td><td><span class="yes">✓</span></td><td class="col-pro"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td class="col-clinic"><span class="yes">✓</span></td></tr>
+        <tr><td data-i18n="pricing.table.feat_html">Export HTML</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td class="col-clinic"><span class="yes">✓</span></td></tr>
+        <tr><td data-i18n="pricing.table.feat_reports">Comptes-rendus / mois</td><td><span class="lim">50 max</span></td><td><span class="yes">Illimité</span></td><td class="col-pro"><span class="yes">Illimité</span></td><td><span class="yes">Illimité</span></td><td class="col-clinic"><span class="yes">Illimité</span></td></tr>
+        <!-- IA -->
+        <tr class="cat-row"><td colspan="6" data-i18n="pricing.table.cat_ai">Fonctionnalités IA</td></tr>
+        <tr><td data-i18n="pricing.table.feat_dictation">Dictée IA</td><td><span class="lim">30 min ≈ 10–20 CR</span></td><td><span class="lim">500 min ≈ 150–300 CR</span></td><td class="col-pro"><span class="lim">2 000 min ≈ 600–1 200 CR</span></td><td><span class="yes">Illimitée</span></td><td class="col-clinic"><span class="yes">Illimitée</span></td></tr>
+        <tr><td data-i18n="pricing.table.feat_enhancer">Optimiseur IA</td><td><span class="lim">10/mois</span></td><td><span class="lim">50/mois</span></td><td class="col-pro"><span class="lim">200/mois</span></td><td><span class="yes">Illimité</span></td><td class="col-clinic"><span class="yes">Illimité</span></td></tr>
+        <tr><td data-i18n="pricing.table.feat_translation">Traduction de CR</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="lim">100/mois</span></td><td><span class="yes">Illimitée</span></td><td class="col-clinic"><span class="yes">Illimitée</span></td></tr>
+        <!-- Flux de travail -->
+        <tr class="cat-row"><td colspan="6" data-i18n="pricing.table.cat_workflow">Flux de travail &amp; Réseau</td></tr>
+        <tr><td data-i18n="pricing.table.feat_worklist">Worklist</td><td><span class="lim">Limitée</span></td><td><span class="lim">Basique</span></td><td class="col-pro"><span class="yes">Complète</span></td><td><span class="yes">Avancée</span></td><td class="col-clinic"><span class="yes">Multi-sites</span></td></tr>
+        <tr><td data-i18n="pricing.table.feat_stats">Statistiques</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="lim">Basiques</span></td><td><span class="yes">Complètes</span></td><td class="col-clinic"><span class="yes">Avancées</span></td></tr>
+        <tr><td data-i18n="pricing.table.feat_lan">Synchronisation réseau LAN</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td class="col-pro"><span class="no">✕</span></td><td><span class="lim">1 site · 3 PC</span></td><td class="col-clinic"><span class="yes">Multi-sites · Illimitée</span></td></tr>
+        <tr><td data-i18n="pricing.table.feat_users">Utilisateurs</td><td>1</td><td>1</td><td class="col-pro">1</td><td>1</td><td class="col-clinic"><strong>5 incl. (+69€/sup)</strong></td></tr>
         <!-- Support -->
         <tr class="cat-row"><td colspan="6" data-i18n="pricing.table.cat_support">Support</td></tr>
-        <tr><td data-i18n="pricing.table.feat_support">Support level</td><td>—</td><td>Email</td><td class="col-pro">Priority email</td><td>Priority chat + email</td><td class="col-clinic"><strong>Dedicated + onboarding</strong></td></tr>
+        <tr><td data-i18n="pricing.table.feat_support">Niveau de support</td><td>—</td><td>E-mail</td><td class="col-pro">E-mail prioritaire</td><td>Chat + E-mail prioritaires</td><td class="col-clinic"><strong>Dédié + Onboarding</strong></td></tr>
       </tbody>
     </table>
   </div>
@@ -803,113 +806,113 @@ footer .sep{margin:0 .5rem;color:var(--app-border)}
 
 <!-- LAN SYNC HOW IT WORKS -->
 <section class="how-section" id="lan-sync">
-  <h2 data-i18n="pricing.lansync.title">How LAN Network Sync works</h2>
-  <p class="how-sub" data-i18n="pricing.lansync.subtitle">Share patient data across workstations on your local network — no cloud, no latency, no GDPR risk.</p>
+  <h2 data-i18n="pricing.lansync.title">Comment fonctionne la synchronisation LAN</h2>
+  <p class="how-sub" data-i18n="pricing.lansync.subtitle">Partagez vos données de travail entre vos postes locaux — sans transit cloud, sans latence et en conformité RGPD.</p>
   <div class="how-grid">
     <div class="how-step">
       <div class="how-icon">🖥️</div>
-      <h3 data-i18n="pricing.lansync.step1.title">1. Set up a shared folder</h3>
-      <p data-i18n="pricing.lansync.step1.desc">Point PISUM to a shared network folder (NAS, SMB share, or mapped drive). All workstations on the same network access the same database.</p>
+      <h3 data-i18n="pricing.lansync.step1.title">1. Répertoire partagé</h3>
+      <p data-i18n="pricing.lansync.step1.desc">Configurez un dossier partagé sur votre réseau local (NAS, serveur SMB ou lecteur réseau) auquel chaque poste aura accès.</p>
     </div>
     <div class="how-step">
       <div class="how-icon">🔐</div>
-      <h3 data-i18n="pricing.lansync.step2.title">2. One shared password</h3>
-      <p data-i18n="pricing.lansync.step2.desc">The database is AES-256 encrypted. Set one password on the first workstation — all other PCs enter the same password to connect.</p>
+      <h3 data-i18n="pricing.lansync.step2.title">2. Chiffrement sécurisé</h3>
+      <p data-i18n="pricing.lansync.step2.desc">La base de données est chiffrée en AES-256. Un mot de passe unique permet de raccorder l'ensemble de vos ordinateurs.</p>
     </div>
     <div class="how-step">
       <div class="how-icon">⚡</div>
-      <h3 data-i18n="pricing.lansync.step3.title">3. Instant sync across PCs</h3>
-      <p data-i18n="pricing.lansync.step3.desc">Each workstation reads and writes directly to the shared database. Changes appear instantly across all connected computers.</p>
+      <h3 data-i18n="pricing.lansync.step3.title">3. Synchronisation instantanée</h3>
+      <p data-i18n="pricing.lansync.step3.desc">Les modifications effectuées depuis n'importe quelle station de travail apparaissent en temps réel sur les autres postes.</p>
     </div>
   </div>
   <div class="how-limits">
     <div class="how-limit-item">
       <span class="hl-expert">Expert 🔥</span>
-      <span data-i18n="pricing.table.lan_expert">1 site · max 3 workstations</span>
+      <span data-i18n="pricing.table.lan_expert">1 site · 3 postes max</span>
     </div>
     <div class="how-limit-item">
       <span class="hl-clinic">Clinic 🏥</span>
-      <span data-i18n="pricing.table.lan_clinic">Multi-site · unlimited workstations</span>
+      <span data-i18n="pricing.table.lan_clinic">Multi-sites · postes illimités</span>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
 <section class="faq-section">
-  <h2 data-i18n="pricing.faq.title">Frequently Asked Questions</h2>
-  <p class="faq-intro" data-i18n="pricing.faq.intro">Everything you need to know before subscribing.</p>
+  <h2 data-i18n="pricing.faq.title">Foire aux questions</h2>
+  <p class="faq-intro" data-i18n="pricing.faq.intro">Tout ce que vous devez savoir avant de souscrire.</p>
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">
-      <span data-i18n="pricing.faq.q1">Can I change my plan at any time?</span> <span class="arr">▼</span>
+      <span data-i18n="pricing.faq.q1">Puis-je modifier mon abonnement à tout moment ?</span> <span class="arr">▼</span>
     </button>
-    <div class="faq-a" data-i18n="pricing.faq.a1">Yes — upgrade or cancel your subscription at any time from your dashboard. Changes take effect immediately.</div>
+    <div class="faq-a" data-i18n="pricing.faq.a1">Oui — vous pouvez faire évoluer ou résilier votre abonnement à tout moment depuis votre espace client.</div>
   </div>
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">
-      <span data-i18n="pricing.faq.q2">Is there a minimum commitment?</span> <span class="arr">▼</span>
+      <span data-i18n="pricing.faq.q2">Y a-t-il un engagement de durée ?</span> <span class="arr">▼</span>
     </button>
-    <div class="faq-a" data-i18n="pricing.faq.a2">No. All plans are month-to-month with no lock-in. Annual billing saves 20% compared to monthly. You can cancel at any time from your dashboard.</div>
+    <div class="faq-a" data-i18n="pricing.faq.a2">Non. Les offres sont proposées mensuellement sans engagement. La facturation annuelle permet de bénéficier d'une réduction de 20%.</div>
   </div>
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">
-      <span data-i18n="pricing.faq.q3">Is the Free plan truly free?</span> <span class="arr">▼</span>
+      <span data-i18n="pricing.faq.q3">L'offre Free est-elle vraiment gratuite ?</span> <span class="arr">▼</span>
     </button>
-    <div class="faq-a" data-i18n="pricing.faq.a3">Yes — no commitment, no time limit. The Free plan lets you explore PISUM with 10 templates, 50 reports per month, and PDF export. Upgrade whenever you're ready.</div>
+    <div class="faq-a" data-i18n="pricing.faq.a3">Oui — sans limitation de durée. L'offre Free vous permet de tester PISUM avec 10 modèles, 50 comptes-rendus par mois et l'export PDF.</div>
   </div>
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">
-      <span data-i18n="pricing.faq.q4">How does AI Dictation work?</span> <span class="arr">▼</span>
+      <span data-i18n="pricing.faq.q4">Comment fonctionne la dictée IA ?</span> <span class="arr">▼</span>
     </button>
-    <div class="faq-a" data-i18n="pricing.faq.a4">AI Dictation converts your voice into structured radiology report text in real time. It runs via a secure API — audio is never stored. Your monthly quota resets on the 1st of each month.</div>
+    <div class="faq-a" data-i18n="pricing.faq.a4">La dictée IA retranscrit votre voix en texte médical structuré en temps réel via une connexion sécurisée. Vos quotas se réinitialisent le 1er de chaque mois.</div>
   </div>
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">
-      <span data-i18n="pricing.faq.q5">Is payment secure?</span> <span class="arr">▼</span>
+      <span data-i18n="pricing.faq.q5">Le paiement est-il sécurisé ?</span> <span class="arr">▼</span>
     </button>
-    <div class="faq-a" data-i18n="pricing.faq.a5">All payments are processed by Lemon Squeezy, a PCI-compliant payment platform. PISUM never stores your banking details.</div>
+    <div class="faq-a" data-i18n="pricing.faq.a5">Tous les paiements sont traités de manière hautement sécurisée par Stripe, plateforme certifiée PCI-DSS de niveau 1. PISUM n'a jamais accès à vos coordonnées bancaires.</div>
   </div>
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">
-      <span data-i18n="pricing.faq.q6">Where is my data stored? Is PISUM GDPR-compliant?</span> <span class="arr">▼</span>
+      <span data-i18n="pricing.faq.q6">Où sont stockées mes données ? PISUM est-il conforme au RGPD ?</span> <span class="arr">▼</span>
     </button>
-    <div class="faq-a" data-i18n="pricing.faq.a6">Your patient reports are stored locally on your machine — PISUM never uploads clinical data to the cloud. Account data (name, email, subscription status) is hosted on Supabase with EU servers. PISUM is fully GDPR-compliant.</div>
+    <div class="faq-a" data-i18n="pricing.faq.a6">Vos comptes-rendus médicaux sont enregistrés exclusivement en local sur votre machine. PISUM n'héberge aucune donnée clinique dans le cloud, garantissant un respect total du RGPD.</div>
   </div>
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">
-      <span data-i18n="pricing.faq.q7">Does PISUM require an internet connection?</span> <span class="arr">▼</span>
+      <span data-i18n="pricing.faq.q7">PISUM nécessite-t-il une connexion Internet ?</span> <span class="arr">▼</span>
     </button>
-    <div class="faq-a" data-i18n="pricing.faq.a7">Yes. PISUM requires an active internet connection for AI Dictation, AI Enhancer, and subscription management. Your patient reports and templates are stored locally on your machine, but AI features connect securely to our cloud API.</div>
+    <div class="faq-a" data-i18n="pricing.faq.a7">Une connexion est nécessaire pour l'utilisation des modules IA (dictée et optimiseur) ainsi que la gestion de votre licence. Les fichiers et modèles restent accessibles en local.</div>
   </div>
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">
-      <span data-i18n="pricing.faq.q8">Is there a free trial for paid plans?</span> <span class="arr">▼</span>
+      <span data-i18n="pricing.faq.q8">Y a-t-il une période d'essai gratuit ?</span> <span class="arr">▼</span>
     </button>
-    <div class="faq-a" data-i18n="pricing.faq.a8">The Free plan is a permanent free tier — no time limit. Starter, Pro, and Expert all include a 14-day free trial so you can experience the full feature set risk-free before being charged. All paid plans are backed by a 30-day money-back guarantee.</div>
+    <div class="faq-a" data-i18n="pricing.faq.a8">Les formules Starter, Pro et Expert intègrent un essai gratuit de 14 jours. Vous disposez également d'une garantie satisfait ou remboursé de 30 jours.</div>
   </div>
 </section>
 
 <footer>
-  <div style="margin-bottom:.75rem">
-    <span data-i18n="pricing.footer.questions">Questions?</span> <a href="mailto:support@pisum.app">support@pisum.app</a>
+  <div style="margin-bottom:1.2rem">
+    <span data-i18n="pricing.footer.questions">Des questions ?</span> <a href="mailto:support@pisum.app">support@pisum.app</a>
   </div>
   <div>
-    <a href="./" data-i18n="pricing.footer.createAccount">Create an account</a>
+    <a href="./" data-i18n="pricing.footer.createAccount">Créer un compte</a>
     <span class="sep">·</span>
-    <a href="dashboard.html" data-i18n="pricing.footer.mySubscription">My subscription</a>
+    <a href="dashboard.html" data-i18n="pricing.footer.mySubscription">Mon abonnement</a>
     <span class="sep">·</span>
     <a href="mailto:support@pisum.app" data-i18n="pricing.footer.support">Support</a>
     <span class="sep">·</span>
-    <a href="https://pisum.app/terms.html" data-i18n="pricing.footer.terms">Terms of Service</a>
+    <a href="https://pisum.app/terms.html" data-i18n="pricing.footer.terms">Conditions d'utilisation</a>
     <span class="sep">·</span>
-    <a href="https://pisum.app/rgpd.html" data-i18n="pricing.footer.privacy">Privacy Policy</a>
+    <a href="https://pisum.app/rgpd.html" data-i18n="pricing.footer.privacy">Politique de confidentialité</a>
   </div>
 </footer>
 
@@ -945,12 +948,11 @@ const ANNUAL_SAVINGS = {
 function setBilling(isAnnual) {
   billingInterval = isAnnual ? 'annual' : 'monthly';
 
-  document.getElementById('label-monthly').style.color = isAnnual ? '' : 'var(--app-primary)';
-  document.getElementById('label-annual').style.color  = isAnnual ? 'var(--app-primary)' : '';
+  document.getElementById('label-monthly').style.color = isAnnual ? '' : 'var(--blue)';
+  document.getElementById('label-annual').style.color  = isAnnual ? 'var(--blue)' : '';
 
   ['starter','pro','expert','clinic'].forEach(plan => {
     const priceEl = document.getElementById('price-' + plan);
-    const subEl   = document.getElementById('price-' + plan + '-sub');
     const microEl = document.getElementById('sub-' + plan);
     const tablePriceEl = document.getElementById('table-price-' + plan);
     if (!priceEl) return;
@@ -958,11 +960,11 @@ function setBilling(isAnnual) {
     priceEl.childNodes[0].nodeValue = price + ' €';
     if (microEl && plan !== 'clinic') {
       microEl.textContent = isAnnual
-        ? `Billed annually · save ${ANNUAL_SAVINGS[plan]}€/year`
-        : 'Billed monthly';
+        ? `Facturé annuellement · Économie de ${ANNUAL_SAVINGS[plan]}€/an`
+        : 'Facturé mensuellement';
     }
     if (tablePriceEl) {
-      tablePriceEl.textContent = `€${price}/mo`;
+      tablePriceEl.textContent = `${price}€/mois`;
     }
   });
 }
@@ -1017,37 +1019,40 @@ async function subscribe(plan) {
 
     if (!res.ok) {
       const err = await res.json();
-      throw new Error(err.detail || 'Server error');
+      throw new Error(err.detail || 'Erreur serveur');
     }
 
     const { checkout_url } = await res.json();
     window.location.href = checkout_url;
 
   } catch (err) {
-    showError('Error: ' + err.message);
+    showError('Erreur: ' + err.message);
     document.querySelectorAll('.plan-cta').forEach(b => {
       if (b.tagName === 'BUTTON') {
         b.disabled = false;
-        b.textContent = b.dataset.label || 'Subscribe';
+        b.textContent = b.dataset.label || 'Souscrire';
       }
     });
   }
 }
 
-// Store button labels for error recovery
+// Save labels
 document.querySelectorAll('.plan-cta').forEach(b => {
   if (b.tagName === 'BUTTON') b.dataset.label = b.textContent;
 });
 
-// Auto-trigger checkout if redirected from pisum.app with ?plan=&interval=
+// Auto-trigger checkout if redirected
 (async function autoSubscribe() {
   const params = new URLSearchParams(window.location.search);
   const plan = params.get('plan');
   const interval = params.get('interval');
   if (!plan) return;
   if (interval === 'annual') {
-    document.getElementById('togB').checked = true;
-    setBilling(true);
+    const annualEl = document.getElementById('billing-annual');
+    if (annualEl) {
+      annualEl.checked = true;
+      setBilling(true);
+    }
   }
   await init();
   subscribe(plan);
@@ -1074,81 +1079,82 @@ function toggleFaq(btn) {
 
 init();
 </script>
-<!-- ── PISUM AI Agent Widget (dark theme) ─────────────────────── -->
+
+<!-- PISUM AI Agent Widget -->
 <style>
 #piw{position:fixed;bottom:24px;right:24px;z-index:9500;font-family:'Plus Jakarta Sans',system-ui,sans-serif}
-#piw-trigger{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#00e5cc 0%,#3b6ef8 100%);color:#06060a;border:none;border-radius:999px;padding:12px 18px 12px 14px;font-size:.85rem;font-weight:700;cursor:pointer;box-shadow:0 8px 32px rgba(0,229,204,.35);transition:transform .2s,box-shadow .2s;position:relative}
-#piw-trigger:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,229,204,.45)}
-#piw-badge{position:absolute;top:-4px;right:-4px;width:18px;height:18px;background:#ef4444;color:#fff;border-radius:50%;font-size:.6rem;font-weight:800;display:flex;align-items:center;justify-content:center;animation:piw-pulse 2s infinite}
-@keyframes piw-pulse{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.4)}50%{box-shadow:0 0 0 6px rgba(239,68,68,0)}}
-#piw-panel{display:none;position:absolute;bottom:64px;right:0;width:360px;background:#0e0e14;border:1px solid rgba(255,255,255,.1);border-radius:20px;box-shadow:0 24px 64px rgba(0,0,0,.6);overflow:hidden;flex-direction:column;animation:piw-in .25s cubic-bezier(.25,1,.5,1)}
+#piw-trigger{display:flex;align-items:center;gap:10px;background:var(--grad);color:#040D1A;border:none;border-radius:999px;padding:14px 22px 14px 18px;font-size:.9rem;font-weight:800;cursor:pointer;box-shadow:0 10px 35px rgba(0,229,204,.35);transition:all .25s ease;position:relative}
+#piw-trigger:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(0,229,204,.5)}
+#piw-badge{position:absolute;top:-4px;right:-4px;width:20px;height:20px;background:#EF4444;color:#fff;border-radius:50%;font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;animation:piw-pulse 2s infinite}
+@keyframes piw-pulse{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.4)}50%{box-shadow:0 0 0 8px rgba(239,68,68,0)}}
+#piw-panel{display:none;position:absolute;bottom:70px;right:0;width:380px;background:#0F1626;border:1px solid rgba(255,255,255,.15);border-radius:24px;box-shadow:0 25px 70px rgba(0,0,0,.7);overflow:hidden;flex-direction:column;animation:piw-in .25s cubic-bezier(.25,1,.5,1);backdrop-filter:blur(20px)}
 #piw-panel.open{display:flex}
-@keyframes piw-in{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
-#piw-head{background:linear-gradient(135deg,#00e5cc 0%,#3b6ef8 60%,#8b6ef8 100%);padding:14px 16px;display:flex;align-items:center;justify-content:space-between}
-#piw-head-info{display:flex;align-items:center;gap:10px}
-#piw-avatar{width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800;color:#fff;flex-shrink:0}
-#piw-name{font-size:.88rem;font-weight:700;color:#06060a}
-#piw-status{font-size:.7rem;color:rgba(6,6,10,.65);display:flex;align-items:center;gap:4px}
-.piw-dot{width:6px;height:6px;border-radius:50%;background:#16a34a;display:inline-block}
-#piw-close{background:rgba(0,0,0,.2);border:none;color:#fff;width:28px;height:28px;border-radius:50%;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .18s}
-#piw-close:hover{background:rgba(0,0,0,.4)}
-#piw-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;max-height:280px;min-height:160px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.1) transparent}
+@keyframes piw-in{from{opacity:0;transform:translateY(15px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+#piw-head{background:rgba(0,0,0,0.4);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--b1)}
+#piw-head-info{display:flex;align-items:center;gap:12px}
+#piw-avatar{width:38px;height:38px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:1rem;color:#040D1A;flex-shrink:0}
+#piw-name{font-size:.95rem;font-weight:800;color:var(--ink)}
+#piw-status{font-size:.75rem;color:var(--ink-4);display:flex;align-items:center;gap:6px;font-weight:600}
+.piw-dot{width:8px;height:8px;border-radius:50%;background:#10B981;display:inline-block}
+#piw-close{background:rgba(255,255,255,.05);border:1px solid var(--b1);color:var(--ink-3);width:30px;height:30px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .18s}
+#piw-close:hover{background:rgba(255,255,255,.12);color:var(--ink)}
+#piw-msgs{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px;max-height:300px;min-height:180px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.1) transparent}
 .piw-msg{display:flex;flex-direction:column;gap:4px;max-width:88%}
 .piw-msg.user{align-self:flex-end;align-items:flex-end}
 .piw-msg.ai{align-self:flex-start}
-.piw-bubble{padding:10px 13px;border-radius:14px;font-size:.82rem;line-height:1.6;white-space:pre-line}
-.piw-msg.ai .piw-bubble{background:#14141e;border:1px solid rgba(255,255,255,.07);color:#d0d0e8}
-.piw-msg.user .piw-bubble{background:linear-gradient(135deg,#00e5cc,#3b6ef8);color:#06060a;font-weight:600}
-.piw-msg.ai .piw-bubble strong{color:#00e5cc}
-.piw-typing{display:flex;gap:4px;padding:10px 13px;background:#14141e;border:1px solid rgba(255,255,255,.07);border-radius:14px;width:fit-content}
-.piw-typing span{width:6px;height:6px;background:#606080;border-radius:50%;animation:piw-bounce .9s infinite}
+.piw-bubble{padding:12px 16px;border-radius:18px;font-size:.85rem;line-height:1.6;white-space:pre-line}
+.piw-msg.ai .piw-bubble{background:rgba(255,255,255,0.05);border:1px solid var(--b1);color:var(--ink-2)}
+.piw-msg.user .piw-bubble{background:var(--grad);color:#040D1A;font-weight:800}
+.piw-msg.ai .piw-bubble strong{color:var(--blue)}
+.piw-typing{display:flex;gap:5px;padding:12px 16px;background:rgba(255,255,255,0.05);border:1px solid var(--b1);border-radius:18px;width:fit-content}
+.piw-typing span{width:7px;height:7px;background:var(--ink-4);border-radius:50%;animation:piw-bounce .9s infinite}
 .piw-typing span:nth-child(2){animation-delay:.15s}
 .piw-typing span:nth-child(3){animation-delay:.3s}
-@keyframes piw-bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
-#piw-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 12px}
-.piw-chip{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#a0a0c0;border-radius:999px;padding:5px 11px;font-size:.72rem;font-weight:600;cursor:pointer;transition:all .18s;font-family:inherit}
-.piw-chip:hover{background:rgba(0,229,204,.1);border-color:rgba(0,229,204,.3);color:#00e5cc}
-#piw-footer{border-top:1px solid rgba(255,255,255,.07);padding:12px 14px;display:flex;gap:8px;align-items:center;background:#0e0e14}
-#piw-input{flex:1;background:#14141e;border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:9px 15px;font-size:.82rem;color:#f0f0f8;outline:none;font-family:inherit;transition:border-color .18s}
-#piw-input::placeholder{color:#606080}
-#piw-input:focus{border-color:rgba(0,229,204,.4)}
-#piw-send{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#00e5cc,#3b6ef8);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .18s,opacity .18s}
-#piw-send:hover{transform:scale(1.08)}
+@keyframes piw-bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+#piw-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 18px 14px}
+.piw-chip{background:rgba(255,255,255,.05);border:1px solid var(--b1);color:var(--ink-3);border-radius:999px;padding:6px 14px;font-size:.78rem;font-weight:600;cursor:pointer;transition:all .18s;font-family:inherit}
+.piw-chip:hover{background:rgba(0,229,204,.15);border-color:var(--blue);color:var(--ink)}
+#piw-footer{border-top:1px solid var(--b1);padding:14px 18px;display:flex;gap:10px;align-items:center;background:rgba(0,0,0,0.3)}
+#piw-input{flex:1;background:rgba(255,255,255,0.05);border:1px solid var(--b1);border-radius:999px;padding:10px 18px;font-size:.88rem;color:var(--ink);outline:none;font-family:inherit;transition:border-color .18s}
+#piw-input::placeholder{color:var(--ink-4)}
+#piw-input:focus{border-color:var(--blue)}
+#piw-send{width:38px;height:38px;border-radius:50%;background:var(--grad);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .18s,opacity .18s; color:#040D1A}
+#piw-send:hover{transform:scale(1.06)}
 #piw-send:disabled{opacity:.4;cursor:not-allowed;transform:none}
 @media(max-width:420px){#piw-panel{width:calc(100vw - 32px);right:-8px}}
 </style>
 
 <div id="piw">
   <button id="piw-trigger" onclick="piwToggle()" aria-label="Ask PISUM AI">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-    Ask AI
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    Poser une question
     <span id="piw-badge">1</span>
   </button>
-  <div id="piw-panel" role="dialog" aria-label="PISUM AI Assistant">
+  <div id="piw-panel" role="dialog" aria-label="Assistant PISUM AI">
     <div id="piw-head">
       <div id="piw-head-info">
-        <div id="piw-avatar">🤖</div>
+        <div id="piw-avatar">✨</div>
         <div>
-          <div id="piw-name" data-i18n="pricing.piw_name">PISUM AI</div>
-          <div id="piw-status"><span class="piw-dot"></span> <span data-i18n="pricing.piw_status">Online — always here to help</span></div>
+          <div id="piw-name" data-i18n="pricing.piw_name">Assistant PISUM</div>
+          <div id="piw-status"><span class="piw-dot"></span> <span data-i18n="pricing.piw_status">En ligne — prêt à vous aider</span></div>
         </div>
       </div>
-      <button id="piw-close" onclick="piwToggle()" aria-label="Close" data-i18n="pricing.piw_close">✕</button>
+      <button id="piw-close" onclick="piwToggle()" aria-label="Fermer" data-i18n="pricing.piw_close">✕</button>
     </div>
     <div id="piw-msgs">
-      <div class="piw-msg ai"><div class="piw-bubble" data-i18n="pricing.piw_msg">Hi! I'm <strong>PISUM AI</strong> 👋<br/>Ask me anything about features, pricing, setup, or templates. I'll give you a straight answer.</div></div>
+      <div class="piw-msg ai"><div class="piw-bubble" data-i18n="pricing.piw_msg">Bonjour ! Je suis l'<strong>Assistant PISUM</strong> 👋<br/>Posez-moi vos questions sur les tarifs, les fonctionnalités ou la configuration.</div></div>
     </div>
     <div id="piw-chips">
-      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="pricing.piw_chip1">What plans exist?</button>
-      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="pricing.piw_chip2">Free trial?</button>
-      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="pricing.piw_chip3">How to install?</button>
-      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="pricing.piw_chip4">AI dictation?</button>
-      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="pricing.piw_chip5">GDPR compliant?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="pricing.piw_chip1">Quelles sont les formules ?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="pricing.piw_chip2">Essai gratuit ?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="pricing.piw_chip3">Comment l'installer ?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="pricing.piw_chip4">Dictée IA ?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="pricing.piw_chip5">Conforme RGPD ?</button>
     </div>
     <div id="piw-footer">
-      <input id="piw-input" type="text" placeholder="Ask a question…" autocomplete="off" onkeydown="if(event.key==='Enter')piwSend()" data-i18n="[placeholder]pricing.piw_input"/>
-      <button id="piw-send" onclick="piwSend()" aria-label="Send">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      <input id="piw-input" type="text" placeholder="Posez votre question…" autocomplete="off" onkeydown="if(event.key==='Enter')piwSend()" data-i18n="[placeholder]pricing.piw_input"/>
+      <button id="piw-send" onclick="piwSend()" aria-label="Envoyer">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
       </button>
     </div>
   </div>
@@ -1205,7 +1211,7 @@ window.piwAsk=async function(q){
     addMsg('ai',data.reply||data.error);
   }catch{
     t.remove();
-    addMsg('ai','Connection error. Please try again.');
+    addMsg('ai','Erreur de connexion. Veuillez réessayer.');
   }
   btn.disabled=false;
 };
@@ -1219,6 +1225,5 @@ window.piwSend=function(){
 };
 })();
 </script>
-<!-- ── end AI Agent Widget ── -->
 </body>
 </html>
