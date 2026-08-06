@@ -23,11 +23,24 @@ class I18n {
     }
 
     detectLanguage() {
+        // 1. Priorité au paramètre URL (ex: ?lang=fr)
+        try {
+            const urlLang = new URLSearchParams(window.location.search).get('lang');
+            if (urlLang && SUPPORTED_LANGUAGES.includes(urlLang)) {
+                localStorage.setItem('preferredLanguage', urlLang);
+                localStorage.setItem('langExplicit', '1');
+                return urlLang;
+            }
+        } catch(e) {}
+
+        // 2. Choix explicite enregistré dans le localStorage
         const savedLang = localStorage.getItem('preferredLanguage');
         const isExplicit = localStorage.getItem('langExplicit') === '1';
         if (savedLang && isExplicit && SUPPORTED_LANGUAGES.includes(savedLang)) {
             return savedLang;
         }
+
+        // 3. Langue préférée du navigateur
         const langs = (navigator.languages && navigator.languages.length)
             ? navigator.languages
             : [navigator.language];
@@ -43,7 +56,7 @@ class I18n {
             lang = DEFAULT_LANGUAGE;
         }
         try {
-            const response = await fetch(`${this.basePath}/${lang}.json?v=20260517`);
+            const response = await fetch(`${this.basePath}/${lang}.json?v=20260730`);
             if (!response.ok) throw new Error(`Could not load ${lang}.json`);
 
             this.translations = await response.json();
@@ -116,6 +129,9 @@ class I18n {
 
 // UI INJECTION LOGIC
 function injectFuturisticLangPicker() {
+    // Empêche l'injection multiple si le sélecteur existe déjà sur la page
+    if (document.querySelector('.pisum-lang-wrapper')) return;
+
     // 1. Inject CSS
     const style = document.createElement('style');
     style.innerHTML = `
@@ -147,6 +163,13 @@ function injectFuturisticLangPicker() {
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+        }
+        @media(max-width:640px){
+            .pisum-lang-wrapper { margin-right: 4px; margin-bottom: 0; }
+            .pisum-lang-btn { padding: 6px 10px; font-size: 0.78rem; gap: 5px; }
+            .pisum-lang-btn svg { width: 14px; height: 14px; }
+            .pisum-lang-btn .icon-chevron { display: none; }
+            .pisum-lang-dropdown { width: 190px; }
         }
         .pisum-lang-btn:hover {
             transform: translateY(-2px);
@@ -270,15 +293,15 @@ function injectFuturisticLangPicker() {
     
     let optionsHtml = '';
     SUPPORTED_LANGUAGES.forEach(code => {
-        optionsHtml += \`
-            <button class="pisum-lang-option" data-lang="\${code}">
-                <span>\${LANGUAGE_NAMES[code]}</span>
-                <span class="lang-code">\${code}</span>
+        optionsHtml += `
+            <button class="pisum-lang-option" data-lang="${code}">
+                <span>${LANGUAGE_NAMES[code]}</span>
+                <span class="lang-code">${code}</span>
             </button>
-        \`;
+        `;
     });
 
-    wrapper.innerHTML = \`
+    wrapper.innerHTML = `
         <div class="pisum-lang-btn" id="pisum-lang-btn">
             <div style="display:flex;align-items:center;gap:8px;">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
@@ -287,9 +310,9 @@ function injectFuturisticLangPicker() {
             <svg class="icon-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </div>
         <div class="pisum-lang-dropdown">
-            \${optionsHtml}
+            ${optionsHtml}
         </div>
-    \`;
+    `;
 
     // 3. Find Insertion Point
     let target = document.querySelector('.nav-right');
@@ -323,13 +346,16 @@ function injectFuturisticLangPicker() {
             const lang = btn.dataset.lang;
             localStorage.setItem('preferredLanguage', lang);
             localStorage.setItem('langExplicit', '1');
-            location.reload();
+            
+            // Recharge la page avec ?lang=XX pour appliquer la traduction instantanément
+            const url = new URL(window.location.href);
+            url.searchParams.set('lang', lang);
+            window.location.href = url.toString();
         });
     });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Both SiteWeb and saas/frontend will have a 'translations' folder next to the HTML files
     window.i18n = new I18n('./translations');
     injectFuturisticLangPicker();
     window.i18n.setLanguage(window.i18n.currentLang);

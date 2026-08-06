@@ -106,6 +106,20 @@
     --radius-lg: 20px;
     --shadow: 0 4px 24px rgba(13,17,23,0.08);
     --shadow-lg: 0 12px 48px rgba(13,17,23,0.14);
+
+    /* SaaS App Dark Theme Palette (inspired by desktop app) */
+    --app-bg: #0D1117;
+    --app-surface: #161B22;
+    --app-surface-2: #1C2128;
+    --app-border: #30363D;
+    --app-text-primary: #E6EDF3;
+    --app-text-secondary: #8B949E;
+    --app-text-tertiary: #6E7681;
+    --app-primary: #14B8A6; /* Teal */
+    --app-primary-dark: #0F8A7A;
+    --app-primary-text: #0D1117;
+    --app-error: #F85149;
+    --app-success: #3FB950;
 }
 
 body {
@@ -1612,4 +1626,312 @@ footer {
   .showcase-card:hover {
     transform: translateY(-8px) !important;
   }
+}
+
+/* ============================================================ */
+/* PISUM SaaS App UI (Auth, Dashboard, Pricing)                 */
+/* Ultra-modern, professional dark theme.                       */
+/* ============================================================ */
+
+.saas-page {
+    background-color: var(--app-bg);
+    color: var(--app-text-primary);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+/* ─── Auth Page ────────────────────────────────────────────── */
+
+.auth-container {
+    width: 100%;
+    max-width: 420px;
+}
+
+.auth-card {
+    background-color: var(--app-surface);
+    border: 1px solid var(--app-border);
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.auth-card .logo {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--app-primary);
+    background: none;
+    -webkit-text-fill-color: unset;
+    margin-bottom: 0.5rem;
+}
+
+.auth-card .tagline {
+    color: var(--app-text-secondary);
+    margin-bottom: 2.5rem;
+}
+
+.auth-form .form-group {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.auth-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--app-text-secondary);
+}
+
+.auth-form .input {
+    width: 100%;
+    height: 44px;
+    background-color: var(--app-surface-2);
+    border: 1px solid var(--app-border);
+    border-radius: 8px;
+    padding: 0 1rem;
+    color: var(--app-text-primary);
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.auth-form .input:focus {
+    outline: none;
+    border-color: var(--app-primary);
+    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.3);
+}
+
+.auth-form .btn-primary {
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--app-primary);
+    color: var(--app-primary-text);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 1rem;
+}
+
+.auth-form .btn-primary:hover {
+    background-color: var(--app-primary-dark);
+}
+
+.auth-footer {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: var(--app-text-secondary);
+}
+
+.auth-footer a {
+    color: var(--app-primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+/* ─── Dashboard Page ───────────────────────────────────────── */
+
+.dashboard-container {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+.dashboard-header {
+    grid-column: 1 / -1;
+    margin-bottom: 1rem;
+}
+
+.dashboard-header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.dashboard-header p {
+    font-size: 1.1rem;
+    color: var(--app-text-secondary);
+}
+
+.dash-card {
+    background-color: var(--app-surface);
+    border: 1px solid var(--app-border);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.dash-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.dash-card-header h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.dash-card .plan-badge {
+    background-color: var(--app-primary);
+    color: var(--app-primary-text);
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.dash-card .stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--app-border);
+}
+
+.dash-card .stat-item:last-child {
+    border-bottom: none;
+}
+
+.dash-card .stat-label {
+    color: var(--app-text-secondary);
+}
+
+.dash-card .stat-value {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.dash-card .usage-bar {
+    width: 100%;
+    height: 8px;
+    background-color: var(--app-surface-2);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
+
+.dash-card .usage-bar-fill {
+    height: 100%;
+    background-color: var(--app-primary);
+    border-radius: 4px;
+}
+
+.dash-card .btn-secondary {
+    margin-top: auto; /* Pushes button to bottom of card */
+    height: 44px;
+    border: 1px solid var(--app-border);
+    border-radius: 8px;
+    background-color: var(--app-surface-2);
+    color: var(--app-text-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.dash-card .btn-secondary:hover {
+    background-color: var(--app-border);
+}
+
+/* ─── Pricing Page (Dark Theme Override) ───────────────────── */
+
+.saas-page .section-title {
+    color: var(--app-text-primary);
+}
+.saas-page .section-subtitle {
+    color: var(--app-text-secondary);
+}
+
+.saas-page .pricing-cards {
+    gap: 2.5rem;
+}
+
+.saas-page .pricing-card {
+    background-color: var(--app-surface);
+    border: 1px solid var(--app-border);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    padding: 3rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.saas-page .pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.saas-page .pricing-card.popular {
+    border: 2px solid var(--app-primary);
+    transform: scale(1.05);
+    background: linear-gradient(145deg, var(--app-surface), #11151B);
+}
+
+.saas-page .popular-badge {
+    background: var(--app-primary);
+    color: var(--app-primary-text);
+    box-shadow: 0 6px 20px rgba(20, 184, 166, 0.3);
+}
+
+.saas-page .pricing-card h3 {
+    color: var(--app-text-primary);
+}
+
+.saas-page .price {
+    background: linear-gradient(135deg, var(--app-primary), #34d399);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.saas-page .price-period {
+    color: var(--app-text-secondary);
+}
+
+.saas-page .pricing-features {
+    margin: 2rem 0;
+}
+
+.saas-page .pricing-features li {
+    color: var(--app-text-secondary);
+    border-bottom-color: var(--app-border);
+    padding: 1rem 0;
+    font-weight: 400;
+}
+
+.saas-page .pricing-features li strong {
+    color: var(--app-text-primary);
+    font-weight: 600;
+}
+
+.saas-page .pricing-features li::before {
+    color: var(--app-primary);
+}
+
+.saas-page .pricing-btn {
+    background: var(--app-primary);
+    color: var(--app-primary-text);
+    box-shadow: 0 8px 25px rgba(20, 184, 166, 0.25);
+}
+
+.saas-page .pricing-btn:hover {
+    background: var(--app-primary-dark);
+    transform: scale(1.03);
+    box-shadow: 0 12px 30px rgba(20, 184, 166, 0.35);
 }

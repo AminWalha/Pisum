@@ -1,258 +1,319 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-6VG09X3G7F');
 </script>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>PISUM — Sign In</title>
-<link href="../../logo V2.png" rel="icon" type="image/png"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --blue:#2563eb;--blue-hover:#1d4ed8;--blue-light:#eff6ff;
-  --ink:#111827;--ink-2:#374151;--ink-3:#6b7280;--ink-4:#e5e7eb;--ink-5:#f9fafb;
-  --white:#ffffff;--bg:#f4f4f5;
-  --shadow-sm:0 1px 2px rgba(0,0,0,0.05);
-  --shadow:0 4px 6px -1px rgba(0,0,0,0.07),0 2px 4px -2px rgba(0,0,0,0.05);
-  --shadow-lg:0 20px 40px -8px rgba(0,0,0,0.12),0 8px 16px -4px rgba(0,0,0,0.06);
-  --r-sm:8px;--r:12px;--r-lg:16px;--r-xl:20px;
-  --transition:150ms cubic-bezier(0.4,0,0.2,1);
-}
-html,body{height:100%;-webkit-font-smoothing:antialiased}
-body{
-  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
-  background:var(--bg);color:var(--ink);
-  display:grid;place-items:center;min-height:100vh;padding:1.5rem
+
+:root {
+  --bg: #030408; 
+  --surface: #0A0C14;
+  --surface-glass: rgba(10, 12, 20, 0.75);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.18);
+  --text-main: #FFFFFF;
+  --text-dim: #94A3B8;
+  --text-muted: #64748B;
+  --accent-cyan: #00E5CC;
+  --accent-violet: #7C3AED;
+  --accent-green: #10B981;
+  --accent-red: #EF4444;
+  --accent-amber: #F59E0B;
+  --grad: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-violet) 100%);
+  --shadow-glow: 0 0 40px rgba(0, 229, 204, 0.15);
+  --shadow-lg: 0 24px 60px -12px rgba(0,0,0,0.8);
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --r-sm: 8px; --r: 12px; --r-lg: 16px; --r-xl: 24px;
+  --t: 200ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Background */
-body::before{
-  content:'';position:fixed;inset:0;
-  background:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(37,99,235,0.06) 0%,transparent 60%);
-  pointer-events:none;z-index:0
+html,body{height:100%;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{
+  font-family: var(--font-body);
+  background: var(--bg); color: var(--text-main);
+  display: grid; place-items: center; min-height: 100vh; padding: 1.5rem;
+  position: relative; overflow-x: hidden;
 }
+
+/* Background Elements */
+.bg-elements { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.bg-grid { position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(circle at center, black, transparent 80%); -webkit-mask-image: radial-gradient(circle at center, black, transparent 80%); opacity: 0.3; }
+.glow-orb { position: absolute; border-radius: 50%; filter: blur(140px); opacity: 0.35; animation: pulse 8s ease-in-out infinite alternate; }
+.glow-1 { top: -10%; left: -10%; width: 600px; height: 600px; background: var(--accent-violet); }
+.glow-2 { bottom: -10%; right: -10%; width: 700px; height: 700px; background: var(--accent-cyan); animation-delay: -4s; }
+@keyframes pulse { 0% { transform: scale(1); opacity: 0.3; } 100% { transform: scale(1.1); opacity: 0.45; } }
 
 /* Card */
 .card{
-  background:var(--white);border-radius:var(--r-xl);
-  box-shadow:var(--shadow-lg);border:1px solid rgba(0,0,0,0.06);
-  padding:2.5rem 2.25rem;width:100%;max-width:416px;
-  position:relative;z-index:1;
-  animation:cardIn 0.3s cubic-bezier(0.4,0,0.2,1)
+  background: var(--surface-glass);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-lg); border: 1px solid var(--border);
+  padding: 2.5rem 2.25rem; width: 100%; max-width: 420px;
+  position: relative; z-index: 1;
+  animation: cardIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
-@keyframes cardIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes cardIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
 /* Logo */
 .logo{display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:2rem}
-.logo img{width:36px;height:36px;border-radius:10px}
-.logo-text{font-size:1.2rem;font-weight:800;letter-spacing:-0.03em;color:var(--ink)}
+.logo img{width:32px;height:32px;border-radius:8px}
+.logo-text{font-family:var(--font-display);font-size:1.3rem;font-weight:800;letter-spacing:-0.03em;color:var(--text-main)}
 
 /* Tabs */
 .tabs{
-  display:flex;background:var(--ink-5);border-radius:var(--r);
-  padding:3px;margin-bottom:2rem;gap:3px;border:1px solid var(--ink-4)
+  display:flex;background: rgba(0,0,0,0.3); border-radius: 999px;
+  padding: 4px; margin-bottom: 2rem; border: 1px solid var(--border);
 }
 .tab{
-  flex:1;padding:0.5rem;border:none;border-radius:9px;cursor:pointer;
-  font-size:0.813rem;font-weight:600;font-family:inherit;
-  transition:all var(--transition);background:transparent;color:var(--ink-3)
+  flex:1;padding:0.5rem;border:none;border-radius:999px;cursor:pointer;
+  font-size:0.85rem;font-weight:600;font-family:var(--font-body);
+  transition:all var(--t);background:transparent;color:var(--text-dim)
 }
 .tab.active{
-  background:var(--white);color:var(--ink);
-  box-shadow:var(--shadow-sm);
+  background: var(--text-main); color: var(--bg);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
-.tab:not(.active):hover{color:var(--ink-2)}
+.tab:not(.active):hover{color:var(--text-main)}
 
 /* Form heading */
-.form-title{font-size:1.25rem;font-weight:700;letter-spacing:-0.025em;margin-bottom:0.25rem;color:var(--ink)}
-.form-sub{font-size:0.85rem;color:var(--ink-3);margin-bottom:1.75rem;line-height:1.5}
+.form-title{font-family:var(--font-display);font-size:1.5rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:0.25rem;color:var(--text-main);text-align:center;}
+.form-sub{font-size:0.9rem;color:var(--text-dim);margin-bottom:1.75rem;line-height:1.5;text-align:center;}
 
 /* Fields */
-.field{margin-bottom:1rem}
+.field{margin-bottom:1.25rem}
 label{
-  display:block;font-size:0.75rem;font-weight:600;
-  color:var(--ink-2);margin-bottom:0.375rem;letter-spacing:0.01em
+  display:block;font-size:0.75rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;
+  color:var(--accent-cyan);margin-bottom:0.4rem;
 }
 input{
-  width:100%;padding:0.688rem 0.875rem;
-  border:1px solid var(--ink-4);border-radius:var(--r);
-  font-size:0.875rem;font-family:inherit;font-weight:400;outline:none;
-  transition:border-color var(--transition),box-shadow var(--transition);
-  background:var(--white);color:var(--ink)
+  width:100%;padding:0.75rem 1rem;
+  border:1px solid var(--border);border-radius:var(--r);
+  font-size:0.9rem;font-family:var(--font-body);font-weight:500;outline:none;
+  transition:all var(--t);
+  background:rgba(0,0,0,0.2);color:var(--text-main)
 }
-input:hover{border-color:#d1d5db}
-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,0.1)}
-input::placeholder{color:#9ca3af}
+input:hover{border-color:var(--border-hover)}
+input:focus{border-color:var(--accent-cyan);box-shadow:0 0 0 3px rgba(0,229,204,0.15);background:rgba(0,0,0,0.4)}
+input::placeholder{color:var(--text-muted)}
 
 /* Forgot link */
-.forgot-row{display:flex;justify-content:flex-end;margin-top:-0.5rem;margin-bottom:1rem}
+.forgot-row{display:flex;justify-content:flex-end;margin-top:-0.5rem;margin-bottom:1.25rem}
 .forgot-link{
-  font-size:0.788rem;color:var(--blue);font-weight:600;
+  font-size:0.8rem;color:var(--text-dim);font-weight:600;
   text-decoration:none;cursor:pointer;background:none;border:none;
-  padding:0;font-family:inherit;transition:color var(--transition)
+  padding:0;font-family:var(--font-body);transition:color var(--t)
 }
-.forgot-link:hover{color:var(--blue-hover)}
+.forgot-link:hover{color:var(--text-main)}
 
 /* Primary Button */
 .btn{
-  width:100%;margin-top:0.5rem;padding:0.75rem;border:none;border-radius:var(--r);
-  cursor:pointer;font-size:0.875rem;font-weight:600;font-family:inherit;
-  background:var(--blue);color:#fff;
-  transition:background var(--transition),transform var(--transition),opacity var(--transition);
-  letter-spacing:-0.01em;display:flex;align-items:center;justify-content:center;gap:6px
+  width:100%;margin-top:0.5rem;padding:0.85rem;border:none;border-radius:999px;
+  cursor:pointer;font-size:0.9rem;font-family:var(--font-body);
+  background:var(--grad);color:var(--bg);
+  transition:all var(--t);
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  font-weight:700;
 }
-.btn:hover{background:var(--blue-hover);transform:translateY(-1px)}
+.btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:var(--shadow-glow)}
 .btn:active{transform:translateY(0)}
-.btn:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+.btn:disabled{opacity:0.6;cursor:wait;transform:none;box-shadow:none}
+
 .btn-secondary{
-  background:var(--ink-5);color:var(--ink-2);border:1px solid var(--ink-4);margin-top:0.625rem
+  background:transparent;color:var(--text-main);border:1px solid var(--border);margin-top:0.75rem
 }
-.btn-secondary:hover{background:#f3f4f6;border-color:#d1d5db;transform:translateY(-1px)}
+.btn-secondary:hover{background:rgba(255,255,255,0.05);border-color:var(--accent-cyan);transform:translateY(-2px)}
 
 /* Messages */
 .msg{
-  margin-top:0.875rem;padding:0.75rem 0.875rem;border-radius:var(--r-sm);
-  font-size:0.813rem;font-weight:500;display:none;line-height:1.5
+  margin-top:1rem;padding:0.8rem 1rem;border-radius:var(--r-sm);
+  font-size:0.85rem;font-weight:500;display:none;line-height:1.5;text-align:center;
 }
-.msg.error{background:#fef2f2;color:#dc2626;border:1px solid #fecaca;display:block}
-.msg.success{background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0;display:block}
-.msg.info{background:var(--blue-light);color:var(--blue);border:1px solid #bfdbfe;display:block}
+.msg.error{background:rgba(239, 68, 68, 0.1);color:var(--accent-red);border:1px solid rgba(239, 68, 68, 0.2);display:block}
+.msg.success{background:rgba(16, 185, 129, 0.1);color:var(--accent-green);border:1px solid rgba(16, 185, 129, 0.2);display:block}
+.msg.info{background:rgba(245, 158, 11, 0.1);color:var(--accent-amber);border:1px solid rgba(245, 158, 11, 0.2);display:block}
 
 /* Divider */
 .divider{
   display:flex;align-items:center;gap:0.75rem;
-  margin:1.25rem 0;color:var(--ink-4);font-size:0.75rem;color:var(--ink-3)
+  margin:1.5rem 0;color:var(--text-muted);font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;
 }
-.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--ink-4)}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
 
 /* Footer link */
-.footer-link{text-align:center;margin-top:1.5rem;font-size:0.813rem;color:var(--ink-3)}
-.footer-link a{color:var(--blue);font-weight:600;text-decoration:none}
-.footer-link a:hover{text-decoration:underline}
+.footer-link{text-align:center;margin-top:1.5rem;font-size:0.85rem;color:var(--text-dim)}
+.footer-link a{color:var(--text-main);font-weight:600;text-decoration:none;transition:color var(--t)}
+.footer-link a:hover{color:var(--accent-cyan)}
 
 /* Password strength */
-.strength-bar{height:2px;border-radius:999px;background:var(--ink-4);margin-top:0.375rem;overflow:hidden}
-.strength-fill{height:100%;border-radius:999px;transition:width 0.3s cubic-bezier(0.4,0,0.2,1),background 0.3s;width:0}
+.strength-bar{height:3px;border-radius:999px;background:rgba(255,255,255,0.1);margin-top:0.5rem;overflow:hidden}
+.strength-fill{height:100%;border-radius:999px;transition:width 0.3s var(--t),background 0.3s;width:0}
 
 /* Spinner */
 .spinner{
-  display:inline-block;width:15px;height:15px;
-  border:2px solid rgba(255,255,255,0.3);border-top-color:#fff;
+  display:inline-block;width:16px;height:16px;
+  border:2px solid rgba(0, 0, 0, 0.2);border-top-color:var(--bg);
   border-radius:50%;animation:spin 0.6s linear infinite;vertical-align:middle
 }
 @keyframes spin{to{transform:rotate(360deg)}}
 
 /* Field hint */
-.field-hint{font-size:0.75rem;color:var(--ink-3);margin-top:0.25rem}
+.field-hint{font-size:0.75rem;color:var(--text-dim);margin-top:0.4rem}
+
+/* SSO buttons (Glass style) */
+.btn-google, .btn-linkedin {
+  width:100%;padding:0.75rem;border-radius:var(--r);
+  cursor:pointer;font-size:0.9rem;font-weight:600;font-family:var(--font-body);
+  background:rgba(255,255,255,0.03);color:var(--text-main);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  transition:all var(--t);margin-bottom:0.75rem;
+}
+.btn-linkedin { margin-bottom: 0; }
+.btn-google:hover:not(:disabled), .btn-linkedin:hover:not(:disabled) {
+  background:rgba(255,255,255,0.08);border-color:var(--border-hover);transform:translateY(-1px)
+}
+.btn-google:active, .btn-linkedin:active{transform:translateY(0)}
+.btn-google:disabled, .btn-linkedin:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+.btn-google svg, .btn-linkedin svg{flex-shrink:0}
 </style>
 </head>
 <body>
+
+<div class="bg-elements">
+  <div class="glow-orb glow-1"></div>
+  <div class="glow-orb glow-2"></div>
+  <div class="bg-grid"></div>
+</div>
+
 <div class="card">
-<div class="logo">
-<a data-i18n="auth.a_1" href="https://pisum.app" style="display:flex;align-items:center;gap:0.5rem;text-decoration:none;color:inherit;">
-<img alt="PISUM" src="../../logo V2.png"/>
-<span class="logo-text">PISUM</span>
-</a>
+  <div class="logo">
+    <a href="https://pisum.app" style="display:flex;align-items:center;gap:0.5rem;text-decoration:none;color:inherit;">
+      <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/docs/logo%20V2.png" alt="PISUM"/>
+      <span class="logo-text">PISUM</span>
+    </a>
+  </div>
+
+  <div class="tabs" id="tabs">
+    <button class="tab active" id="tab-login"  onclick="switchTab('login')" data-i18n="auth.tabs.signIn">Sign In</button>
+    <button class="tab"        id="tab-signup" onclick="switchTab('signup')" data-i18n="auth.tabs.createAccount">Create Account</button>
+  </div>
+
+  <div id="view-login">
+    <div class="form-title" data-i18n="auth.login.title">Welcome back</div>
+    <div class="form-sub" data-i18n="auth.login.subtitle">Sign in to your PISUM account.</div>
+    <form onsubmit="handleLogin(event)">
+      <div class="field">
+        <label for="login-email" data-i18n="auth.login.emailLabel">Email address</label>
+        <input id="login-email" type="email" placeholder="you@clinic.com" data-i18n="[placeholder]auth.login.emailPlaceholder" required autocomplete="email"/>
+      </div>
+      <div class="field">
+        <label for="login-password" data-i18n="auth.login.passwordLabel">Password</label>
+        <input id="login-password" type="password" placeholder="••••••••" required autocomplete="current-password"/>
+      </div>
+      <div class="forgot-row">
+        <button type="button" class="forgot-link" onclick="switchTab('forgot')" data-i18n="auth.login.forgotPassword">Forgot password?</button>
+      </div>
+      <button class="btn" type="submit" id="btn-login" data-i18n="auth.login.submit">Sign In</button>
+      <div class="msg" id="msg-login"></div>
+    </form>
+    <div class="divider" data-i18n="auth.login.or">or</div>
+    <button class="btn-google" id="btn-google-login" onclick="handleGoogleAuth()">
+      <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/><path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/><path fill="#FBBC05" d="M3.964 10.706A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.706V4.962H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.038l3.007-2.332z"/><path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.962L3.964 6.294C4.672 4.169 6.656 3.58 9 3.58z"/></svg>
+      <span data-i18n="auth.login.googleBtn">Continue with Google</span>
+    </button>
+    <button class="btn-linkedin" id="btn-linkedin-login" onclick="handleLinkedInAuth()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      <span data-i18n="auth.login.linkedinBtn">Continue with LinkedIn</span>
+    </button>
+  </div>
+
+  <div id="view-signup" style="display:none">
+    <div class="form-title" data-i18n="auth.signup.title">Create your account</div>
+    <div class="form-sub" data-i18n="auth.signup.subtitle">Get started with PISUM — no credit card required.</div>
+    <form onsubmit="handleSignup(event)">
+      <div class="field">
+        <label for="signup-name" data-i18n="auth.signup.nameLabel">Full name</label>
+        <input id="signup-name" type="text" placeholder="Dr. Smith" data-i18n="[placeholder]auth.signup.namePlaceholder" required autocomplete="name"/>
+        <div class="field-hint" data-i18n="auth.signup.nameHint">Appears on your reports and in the app.</div>
+      </div>
+      <div class="field">
+        <label for="signup-email" data-i18n="auth.signup.emailLabel">Email address</label>
+        <input id="signup-email" type="email" placeholder="you@clinic.com" data-i18n="[placeholder]auth.signup.emailPlaceholder" required autocomplete="email"/>
+      </div>
+      <div class="field">
+        <label for="signup-password" data-i18n="auth.signup.passwordLabel">Password</label>
+        <input id="signup-password" type="password" placeholder="Min. 8 characters" data-i18n="[placeholder]auth.signup.passwordPlaceholder" required autocomplete="new-password" minlength="8" oninput="checkStrength(this.value)"/>
+        <div class="strength-bar"><div class="strength-fill" id="strength-fill"></div></div>
+      </div>
+      <div class="field">
+        <label for="signup-confirm" data-i18n="auth.signup.confirmLabel">Confirm password</label>
+        <input id="signup-confirm" type="password" placeholder="••••••••" required autocomplete="new-password" minlength="8"/>
+      </div>
+      <button class="btn" type="submit" id="btn-signup" data-i18n="auth.signup.submit">Create Account</button>
+      <div class="msg" id="msg-signup"></div>
+    </form>
+    <div class="divider" data-i18n="auth.signup.or">or</div>
+    <button class="btn-google" id="btn-google-signup" onclick="handleGoogleAuth()">
+      <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/><path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/><path fill="#FBBC05" d="M3.964 10.706A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.706V4.962H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.038l3.007-2.332z"/><path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.962L3.964 6.294C4.672 4.169 6.656 3.58 9 3.58z"/></svg>
+      <span data-i18n="auth.signup.googleBtn">Sign up with Google</span>
+    </button>
+    <button class="btn-linkedin" id="btn-linkedin-signup" onclick="handleLinkedInAuth()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      <span data-i18n="auth.signup.linkedinBtn">Sign up with LinkedIn</span>
+    </button>
+  </div>
+
+  <div id="view-forgot" style="display:none">
+    <div class="form-title" data-i18n="auth.forgot.title">Reset your password</div>
+    <div class="form-sub" data-i18n="auth.forgot.subtitle">Enter your email and we'll send you a reset link.</div>
+    <form onsubmit="handleForgot(event)">
+      <div class="field">
+        <label for="forgot-email" data-i18n="auth.forgot.emailLabel">Email address</label>
+        <input id="forgot-email" type="email" placeholder="you@clinic.com" data-i18n="[placeholder]auth.forgot.emailPlaceholder" required autocomplete="email"/>
+      </div>
+      <button class="btn" type="submit" id="btn-forgot" data-i18n="auth.forgot.submit">Send Reset Link</button>
+      <button type="button" class="btn btn-secondary" onclick="switchTab('login')" data-i18n="auth.forgot.back">← Back to Sign In</button>
+      <div class="msg" id="msg-forgot"></div>
+    </form>
+  </div>
+
+  <div id="view-reset" style="display:none">
+    <div class="form-title" data-i18n="auth.reset.title">New password</div>
+    <div class="form-sub" data-i18n="auth.reset.subtitle">Choose a new secure password.</div>
+    <form onsubmit="handleReset(event)">
+      <div class="field">
+        <label for="reset-password" data-i18n="auth.reset.passwordLabel">New password</label>
+        <input id="reset-password" type="password" placeholder="Min. 8 characters" data-i18n="[placeholder]auth.reset.passwordPlaceholder" required minlength="8" oninput="checkStrength(this.value)"/>
+        <div class="strength-bar"><div class="strength-fill" id="strength-fill"></div></div>
+      </div>
+      <div class="field">
+        <label for="reset-confirm" data-i18n="auth.reset.confirmLabel">Confirm password</label>
+        <input id="reset-confirm" type="password" placeholder="••••••••" data-i18n="[placeholder]auth.reset.confirmPlaceholder" required minlength="8"/>
+      </div>
+      <button class="btn" type="submit" id="btn-reset" data-i18n="auth.reset.submit">Save New Password</button>
+      <div class="msg" id="msg-reset"></div>
+    </form>
+  </div>
+
+  <div class="footer-link" id="footer-link">
+    <a href="pricing.html" data-i18n="auth.footer.viewPlans">← View plans</a>
+  </div>
 </div>
-<!-- TABS -->
-<div class="tabs" id="tabs">
-<button class="tab active" data-i18n="auth.button_1" id="tab-login" onclick="switchTab('login')">Sign In</button>
-<button class="tab" data-i18n="auth.button_2" id="tab-signup" onclick="switchTab('signup')">Create Account</button>
-</div>
-<!-- LOGIN -->
-<div id="view-login">
-<div class="form-title">Welcome back</div>
-<div class="form-sub">Sign in to your PISUM account.</div>
-<form onsubmit="handleLogin(event)">
-<div class="field">
-<label data-i18n="auth.label_1" for="login-email">Email address</label>
-<input autocomplete="email" data-i18n="auth.input_1" id="login-email" placeholder="you@clinic.com" required="" type="email"/>
-</div>
-<div class="field">
-<label data-i18n="auth.label_2" for="login-password">Password</label>
-<input autocomplete="current-password" data-i18n="auth.input_2" id="login-password" placeholder="••••••••" required="" type="password"/>
-</div>
-<div class="forgot-row">
-<button class="forgot-link" data-i18n="auth.button_3" onclick="switchTab('forgot')" type="button">Forgot password?</button>
-</div>
-<button class="btn" data-i18n="auth.button_4" id="btn-login" type="submit">Sign In</button>
-<div class="msg" id="msg-login"></div>
-</form>
-</div>
-<!-- SIGNUP -->
-<div id="view-signup" style="display:none">
-<div class="form-title">Create your account</div>
-<div class="form-sub">Get started with PISUM — no credit card required.</div>
-<form onsubmit="handleSignup(event)">
-<div class="field">
-<label data-i18n="auth.label_3" for="signup-name">Full name</label>
-<input autocomplete="name" data-i18n="auth.input_3" id="signup-name" placeholder="Dr. Smith" required="" type="text"/>
-<div class="field-hint">Appears on your reports and in the app.</div>
-</div>
-<div class="field">
-<label data-i18n="auth.label_4" for="signup-email">Email address</label>
-<input autocomplete="email" data-i18n="auth.input_4" id="signup-email" placeholder="you@clinic.com" required="" type="email"/>
-</div>
-<div class="field">
-<label data-i18n="auth.label_5" for="signup-password">Password</label>
-<input autocomplete="new-password" data-i18n="auth.input_5" id="signup-password" minlength="8" oninput="checkStrength(this.value)" placeholder="Min. 8 characters" required="" type="password"/>
-<div class="strength-bar"><div class="strength-fill" id="strength-fill"></div></div>
-</div>
-<div class="field">
-<label data-i18n="auth.label_6" for="signup-confirm">Confirm password</label>
-<input autocomplete="new-password" data-i18n="auth.input_6" id="signup-confirm" minlength="8" placeholder="••••••••" required="" type="password"/>
-</div>
-<button class="btn" data-i18n="auth.button_5" id="btn-signup" type="submit">Create Account</button>
-<div class="msg" id="msg-signup"></div>
-</form>
-</div>
-<!-- FORGOT -->
-<div id="view-forgot" style="display:none">
-<div class="form-title">Reset your password</div>
-<div class="form-sub">Enter your email and we'll send you a reset link.</div>
-<form onsubmit="handleForgot(event)">
-<div class="field">
-<label data-i18n="auth.label_7" for="forgot-email">Email address</label>
-<input autocomplete="email" data-i18n="auth.input_7" id="forgot-email" placeholder="you@clinic.com" required="" type="email"/>
-</div>
-<button class="btn" data-i18n="auth.button_6" id="btn-forgot" type="submit">Send Reset Link</button>
-<button class="btn btn-secondary" data-i18n="auth.button_7" onclick="switchTab('login')" type="button">← Back to Sign In</button>
-<div class="msg" id="msg-forgot"></div>
-</form>
-</div>
-<!-- RESET -->
-<div id="view-reset" style="display:none">
-<div class="form-title">New password</div>
-<div class="form-sub">Choose a new secure password.</div>
-<form onsubmit="handleReset(event)">
-<div class="field">
-<label data-i18n="auth.label_8" for="reset-password">New password</label>
-<input data-i18n="auth.input_8" id="reset-password" minlength="8" oninput="checkStrength(this.value)" placeholder="Min. 8 characters" required="" type="password"/>
-<div class="strength-bar"><div class="strength-fill" id="strength-fill"></div></div>
-</div>
-<div class="field">
-<label data-i18n="auth.label_9" for="reset-confirm">Confirm password</label>
-<input data-i18n="auth.input_9" id="reset-confirm" minlength="8" placeholder="••••••••" required="" type="password"/>
-</div>
-<button class="btn" data-i18n="auth.button_8" id="btn-reset" type="submit">Save New Password</button>
-<div class="msg" id="msg-reset"></div>
-</form>
-</div>
-<div class="footer-link" id="footer-link">
-<a data-i18n="auth.a_2" href="pricing.html">← View plans</a>
-</div>
-</div>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
 const SUPABASE_URL  = 'https://lepqbnhrdgfetoysedbq.supabase.co';
@@ -261,7 +322,23 @@ const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFz
 const { createClient } = supabase;
 const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
 
-const _redirect = new URLSearchParams(window.location.search).get('redirect') || 'dashboard.html';
+const _redirect = new URLSearchParams(window.location.search).get('redirect') || 'https://pisum.app/saas/frontend/dashboard.html';
+
+function setPisumCookie(session) {
+  const u = session.user;
+  const name = u.user_metadata?.full_name || u.user_metadata?.name || u.email.split('@')[0];
+  const avatar = u.user_metadata?.avatar_url || u.user_metadata?.picture || '';
+  const val = encodeURIComponent(JSON.stringify({ name, email: u.email, avatar, access_token: session.access_token, user_id: u.id }));
+  document.cookie = `pisum_user=${val}; domain=.pisum.app; path=/; max-age=604800; SameSite=Lax; Secure`;
+}
+function clearPisumCookie() {
+  document.cookie = 'pisum_user=; domain=.pisum.app; path=/; max-age=0; SameSite=Lax; Secure';
+}
+
+if (new URLSearchParams(window.location.search).get('signout') === '1') {
+  clearPisumCookie();
+  sb.auth.signOut().then(() => { window.location.href = 'https://pisum.app/'; });
+} else {
 
 function detectMode() {
   const hash = window.location.hash;
@@ -275,6 +352,7 @@ function detectMode() {
 
 sb.auth.getSession().then(({ data }) => {
   if (data.session && !window.location.hash.includes('type=recovery')) {
+    setPisumCookie(data.session);
     window.location.href = _redirect;
   }
 });
@@ -285,10 +363,15 @@ sb.auth.onAuthStateChange((event, session) => {
     return;
   }
   if ((event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') && session) {
+    setPisumCookie(session);
     if (document.getElementById('view-reset').style.display !== 'none') return;
     window.location.href = _redirect;
   }
+  if (event === 'SIGNED_OUT') clearPisumCookie();
 });
+
+detectMode();
+}
 
 detectMode();
 
@@ -318,7 +401,7 @@ function checkStrength(pw) {
   if (/[A-Z]/.test(pw)) score++;
   if (/[0-9]/.test(pw)) score++;
   if (/[^A-Za-z0-9]/.test(pw)) score++;
-  const colors = ['','#ef4444','#f59e0b','#3b82f6','#22c55e'];
+  const colors = ['','#ef4444','#f59e0b','#3b82f6','#10b981'];
   const widths = ['0%','30%','55%','75%','100%'];
   fills.forEach(f => {
     f.style.width = widths[score];
@@ -339,7 +422,47 @@ function clearMsg(id) {
 function setLoading(btnId, loading, defaultText) {
   const btn = document.getElementById(btnId);
   btn.disabled = loading;
-  btn.innerHTML = loading ? '<span class="spinner"></span> ' + defaultText : defaultText;
+  if(loading) {
+     btn.innerHTML = '<span class="spinner" style="border-top-color:var(--bg)"></span> ' + defaultText;
+  } else {
+     btn.innerHTML = defaultText;
+  }
+}
+
+async function handleGoogleAuth() {
+  ['btn-google-login','btn-google-signup'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.disabled = true;
+  });
+  const { error } = await sb.auth.signInWithOAuth({
+    provider: 'google',
+    options: { redirectTo: _redirect }
+  });
+  if (error) {
+    ['btn-google-login','btn-google-signup'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.disabled = false;
+    });
+    showMsg('msg-login', error.message, 'error');
+  }
+}
+
+async function handleLinkedInAuth() {
+  ['btn-linkedin-login','btn-linkedin-signup'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.disabled = true;
+  });
+  const { error } = await sb.auth.signInWithOAuth({
+    provider: 'linkedin_oidc',
+    options: { redirectTo: _redirect }
+  });
+  if (error) {
+    ['btn-linkedin-login','btn-linkedin-signup'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.disabled = false;
+    });
+    showMsg('msg-login', error.message, 'error');
+  }
 }
 
 async function handleLogin(e) {
@@ -420,6 +543,6 @@ async function handleReset(e) {
   setTimeout(() => { window.location.href = 'dashboard.html'; }, 1800);
 }
 </script>
-<script src="i18n.js"></script>
+<script src="./i18n.js"></script>
 </body>
 </html>
