@@ -1000,7 +1000,7 @@
     "plan_value": "最高コスパ",
     "lang_optimized": "Optimized for medical and radiology terminology",
     "foot_lang_select": "🌐 Language / Langue",
-    "cookie_text": "<strong>🍪 Respect de votre vie privée</strong><br>Nous utilisons Google Analytics pour analyser l'audience du site. Aucun cookie de suivi n'est déposé sans votre accord explicite.",
+    "cookie_text": "<strong>🍪 プライバシーの尊重</strong><br>サイトのトラフィックを分析するためにGoogle Analyticsを使用しています。明示的な同意なしにトラッキングCookieは設定されません。",
     "cookie_decline": "拒否する",
     "cookie_accept": "同意する"
   },
