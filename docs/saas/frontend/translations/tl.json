@@ -59,6 +59,7 @@
       "overview": "Pangkalahatang-ideya",
       "usage": "Paggamit",
       "billing": "Pagsingil",
+      "referral": "Referral",
       "profile": "Profile",
       "signOut": "Mag-logout"
     },
@@ -232,6 +233,26 @@
       "stats_generic": "Statistics",
       "feat_unlimited_reports": "Walang limitasyong mga report",
       "feat_unlimited_patients": "Walang limitasyong mga pasyente"
+    },
+    "referral": {
+      "title": "Programa ng Referral",
+      "badge": "1 libreng buwan bawat referral",
+      "subtitle": "Kumita ng 1 libreng buwan para sa bawat kasamahan na mag-subscribe sa isang bayad na PISUM plan gamit ang iyong link.",
+      "linkLabel": "Ang iyong referral link",
+      "copy": "Kopyahin",
+      "copied": "Nakopya na!",
+      "share": "Ibahagi sa email",
+      "stats": {
+        "referrals": "Mga Referral",
+        "monthsEarned": "Mga buwang nakuha",
+        "monthsLeft": "Mga buwang natitira"
+      },
+      "how": {
+        "title": "Paano ito gumagana",
+        "step1": "Ibahagi ang iyong natatanging link sa mga kasamahan",
+        "step2": "Mag-subscribe sila sa isang bayad na PISUM plan",
+        "step3": "Awtomatiko kang makakakuha ng 1 libreng buwan"
+      }
     }
   },
   "pricing": {

@@ -59,6 +59,7 @@
       "overview": "Overzicht",
       "usage": "Gebruik",
       "billing": "Facturering",
+      "referral": "Verwijzing",
       "profile": "Profiel",
       "signOut": "Afmelden"
     },
@@ -232,6 +233,26 @@
       "stats_generic": "Statistieken",
       "feat_unlimited_reports": "Onbeperkte rapporten",
       "feat_unlimited_patients": "Onbeperkte patiënten"
+    },
+    "referral": {
+      "title": "Verwijzingsprogramma",
+      "badge": "1 gratis maand per verwijzing",
+      "subtitle": "Verdien 1 gratis maand voor elke collega die zich abonneert op een betaald PISUM-plan via uw link.",
+      "linkLabel": "Uw verwijzingslink",
+      "copy": "Kopiëren",
+      "copied": "Gekopieerd!",
+      "share": "Delen via e-mail",
+      "stats": {
+        "referrals": "Verwijzingen",
+        "monthsEarned": "Verdiende maanden",
+        "monthsLeft": "Resterende maanden"
+      },
+      "how": {
+        "title": "Hoe het werkt",
+        "step1": "Deel uw unieke link met collega's",
+        "step2": "Ze abonneren zich op een betaald PISUM-plan",
+        "step3": "U verdient automatisch 1 gratis maand"
+      }
     }
   },
   "pricing": {

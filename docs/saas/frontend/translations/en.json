@@ -59,6 +59,7 @@
       "overview": "Overview",
       "usage": "Usage",
       "billing": "Billing",
+      "referral": "Referral",
       "profile": "Profile",
       "signOut": "Sign Out"
     },
@@ -179,7 +180,27 @@
     "piw_chip3": "How to install?",
     "piw_chip4": "AI dictation?",
     "piw_chip5": "GDPR compliant?",
-    "piw_input": "Ask a question…"
+    "piw_input": "Ask a question…",
+    "referral": {
+      "title": "Referral Program",
+      "badge": "1 free month per referral",
+      "subtitle": "Earn 1 free month for every colleague who subscribes to a paid PISUM plan using your link.",
+      "linkLabel": "Your referral link",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "share": "Share by email",
+      "stats": {
+        "referrals": "Referrals",
+        "monthsEarned": "Months earned",
+        "monthsLeft": "Months remaining"
+      },
+      "how": {
+        "title": "How it works",
+        "step1": "Share your unique link with colleagues",
+        "step2": "They subscribe to a paid PISUM plan",
+        "step3": "You earn 1 free month automatically"
+      }
+    }
   },
   "pricing": {
     "pageTitle": "PISUM — Pricing for Healthcare Professionals",

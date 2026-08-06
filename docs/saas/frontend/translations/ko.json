@@ -59,6 +59,7 @@
       "overview": "개요",
       "usage": "사용량",
       "billing": "결제",
+      "referral": "추천",
       "profile": "프로필",
       "signOut": "로그아웃"
     },
@@ -232,6 +233,26 @@
       "stats_generic": "통계",
       "feat_unlimited_reports": "무제한 보고서",
       "feat_unlimited_patients": "무제한 환자"
+    },
+    "referral": {
+      "title": "추천 프로그램",
+      "badge": "추천 1건당 1개월 무료",
+      "subtitle": "링크를 통해 유료 PISUM 플랜에 가입한 동료 1명당 1개월 무료를 획득하세요.",
+      "linkLabel": "나의 추천 링크",
+      "copy": "복사",
+      "copied": "복사됨!",
+      "share": "이메일로 공유",
+      "stats": {
+        "referrals": "추천 수",
+        "monthsEarned": "획득한 개월 수",
+        "monthsLeft": "남은 개월 수"
+      },
+      "how": {
+        "title": "작동 방식",
+        "step1": "고유 링크를 동료와 공유하세요",
+        "step2": "그들이 유료 PISUM 플랜을 구독합니다",
+        "step3": "자동으로 1개월 무료가 적립됩니다"
+      }
     }
   },
   "pricing": {

@@ -59,6 +59,7 @@
       "overview": "Oversigt",
       "usage": "Forbrug",
       "billing": "Fakturering",
+      "referral": "Henvisninger",
       "profile": "Profil",
       "signOut": "Log ud"
     },
@@ -232,6 +233,26 @@
       "stats_generic": "Statistikker",
       "feat_unlimited_reports": "Ubgrænsede rapporter",
       "feat_unlimited_patients": "Ubgrænsede patienter"
+    },
+    "referral": {
+      "title": "Henvisningsprogram",
+      "badge": "1 gratis måned pr. henvisning",
+      "subtitle": "Tjen 1 gratis måned for hver kollega, der abonnerer på en betalt PISUM-plan via dit link.",
+      "linkLabel": "Dit henvisningslink",
+      "copy": "Kopier",
+      "copied": "Kopieret!",
+      "share": "Del via e-mail",
+      "stats": {
+        "referrals": "Henvisninger",
+        "monthsEarned": "Optjente måneder",
+        "monthsLeft": "Resterende måneder"
+      },
+      "how": {
+        "title": "Sådan virker det",
+        "step1": "Del dit unikke link med kolleger",
+        "step2": "De abonnerer på en betalt PISUM-plan",
+        "step3": "Du optjener automatisk 1 gratis måned"
+      }
     }
   },
   "pricing": {

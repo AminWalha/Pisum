@@ -59,6 +59,7 @@
       "overview": "Gambaran Keseluruhan",
       "usage": "Penggunaan",
       "billing": "Pengebilan",
+      "referral": "Rujukan",
       "profile": "Profil",
       "signOut": "Log Keluar"
     },
@@ -232,6 +233,26 @@
       "stats_generic": "Statistik",
       "feat_unlimited_reports": "Laporan tanpa had",
       "feat_unlimited_patients": "Pesakit tanpa had"
+    },
+    "referral": {
+      "title": "Program Rujukan",
+      "badge": "1 bulan percuma setiap rujukan",
+      "subtitle": "Dapatkan 1 bulan percuma untuk setiap rakan sekerja yang melanggan pelan berbayar PISUM menggunakan pautan anda.",
+      "linkLabel": "Pautan rujukan anda",
+      "copy": "Salin",
+      "copied": "Disalin!",
+      "share": "Kongsi melalui e-mel",
+      "stats": {
+        "referrals": "Rujukan",
+        "monthsEarned": "Bulan yang diperoleh",
+        "monthsLeft": "Bulan berbaki"
+      },
+      "how": {
+        "title": "Cara ia berfungsi",
+        "step1": "Kongsi pautan unik anda dengan rakan sekerja",
+        "step2": "Mereka melanggan pelan berbayar PISUM",
+        "step3": "Anda mendapat 1 bulan percuma secara automatik"
+      }
     }
   },
   "pricing": {

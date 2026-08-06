@@ -59,6 +59,7 @@
       "overview": "Genel Bakış",
       "usage": "Kullanım",
       "billing": "Faturalandırma",
+      "referral": "Referans",
       "profile": "Profil",
       "signOut": "Oturumu Kapat"
     },
@@ -232,6 +233,26 @@
       "stats_generic": "İstatistik",
       "feat_unlimited_reports": "Sınırsız rapor",
       "feat_unlimited_patients": "Sınırsız hasta"
+    },
+    "referral": {
+      "title": "Referans programı",
+      "badge": "Her referans için 1 ay ücretsiz",
+      "subtitle": "Linkinizi kullanarak ücretli bir PISUM planına abone olan her meslektaşınız için 1 ücretsiz ay kazanın.",
+      "linkLabel": "Referans linkiniz",
+      "copy": "Kopyala",
+      "copied": "Kopyalandı!",
+      "share": "E-posta ile paylaş",
+      "stats": {
+        "referrals": "Referanslar",
+        "monthsEarned": "Kazanılan aylar",
+        "monthsLeft": "Kalan aylar"
+      },
+      "how": {
+        "title": "Nasıl çalışır",
+        "step1": "Benzersiz linkinizi meslektaşlarınızla paylaşın",
+        "step2": "Ücretli bir PISUM planına abone olurlar",
+        "step3": "Otomatik olarak 1 ücretsiz ay kazanırsınız"
+      }
     }
   },
   "pricing": {

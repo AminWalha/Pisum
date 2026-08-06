@@ -59,6 +59,7 @@
       "overview": "Vue d'ensemble",
       "usage": "Utilisation",
       "billing": "Facturation",
+      "referral": "Parrainage",
       "profile": "Profil",
       "signOut": "Se déconnecter"
     },
@@ -179,7 +180,27 @@
     "piw_chip3": "Comment installer ?",
     "piw_chip4": "Dictée IA ?",
     "piw_chip5": "Conforme RGPD ?",
-    "piw_input": "Posez une question…"
+    "piw_input": "Posez une question…",
+    "referral": {
+      "title": "Programme de parrainage",
+      "badge": "1 mois offert par filleul",
+      "subtitle": "Gagnez 1 mois gratuit pour chaque collègue qui souscrit à un plan PISUM payant via votre lien.",
+      "linkLabel": "Votre lien de parrainage",
+      "copy": "Copier",
+      "copied": "Copié !",
+      "share": "Partager par e-mail",
+      "stats": {
+        "referrals": "Filleuls",
+        "monthsEarned": "Mois gagnés",
+        "monthsLeft": "Mois restants"
+      },
+      "how": {
+        "title": "Comment ça marche",
+        "step1": "Partagez votre lien unique avec vos collègues",
+        "step2": "Ils s'inscrivent et souscrivent à un plan payant",
+        "step3": "Vous gagnez automatiquement 1 mois gratuit"
+      }
+    }
   },
   "pricing": {
     "pageTitle": "PISUM — Tarification pour Professionnels de Santé",

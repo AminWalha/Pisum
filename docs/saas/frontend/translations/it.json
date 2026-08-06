@@ -59,6 +59,7 @@
       "overview": "Panoramica",
       "usage": "Utilizzo",
       "billing": "Fatturazione",
+      "referral": "Referral",
       "profile": "Profilo",
       "signOut": "Esci"
     },
@@ -232,6 +233,26 @@
       "stats_generic": "Statistiche",
       "feat_unlimited_reports": "Referti illimitati",
       "feat_unlimited_patients": "Pazienti illimitati"
+    },
+    "referral": {
+      "title": "Programma referral",
+      "badge": "1 mese gratis per referral",
+      "subtitle": "Guadagna 1 mese gratuito per ogni collega che si abbona a un piano PISUM a pagamento tramite il tuo link.",
+      "linkLabel": "Il tuo link referral",
+      "copy": "Copia",
+      "copied": "Copiato!",
+      "share": "Condividi via email",
+      "stats": {
+        "referrals": "Referral",
+        "monthsEarned": "Mesi guadagnati",
+        "monthsLeft": "Mesi rimanenti"
+      },
+      "how": {
+        "title": "Come funziona",
+        "step1": "Condividi il tuo link unico con i colleghi",
+        "step2": "Si abbonano a un piano PISUM a pagamento",
+        "step3": "Guadagni automaticamente 1 mese gratuito"
+      }
     }
   },
   "pricing": {

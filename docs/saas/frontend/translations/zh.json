@@ -59,6 +59,7 @@
       "overview": "概览",
       "usage": "使用情况",
       "billing": "账单",
+      "referral": "推荐计划",
       "profile": "个人资料",
       "signOut": "登出"
     },
@@ -232,6 +233,26 @@
       "stats_generic": "统计",
       "feat_unlimited_reports": "无限报告",
       "feat_unlimited_patients": "无限患者"
+    },
+    "referral": {
+      "title": "推荐计划",
+      "badge": "每成功推荐1人赠1个月",
+      "subtitle": "每位通过您的链接订阅付费 PISUM 计划的同事，您可获得1个月免费使用。",
+      "linkLabel": "您的推荐链接",
+      "copy": "复制",
+      "copied": "已复制！",
+      "share": "通过邮件分享",
+      "stats": {
+        "referrals": "推荐人数",
+        "monthsEarned": "已获得月数",
+        "monthsLeft": "剩余月数"
+      },
+      "how": {
+        "title": "如何运作",
+        "step1": "将您的专属链接分享给同事",
+        "step2": "他们订阅付费 PISUM 计划",
+        "step3": "您将自动获得1个月免费使用"
+      }
     }
   },
   "pricing": {

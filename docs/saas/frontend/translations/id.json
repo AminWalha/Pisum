@@ -59,6 +59,7 @@
       "overview": "Tinjauan",
       "usage": "Penggunaan",
       "billing": "Penagihan",
+      "referral": "Referral",
       "profile": "Profil",
       "signOut": "Keluar"
     },
@@ -232,6 +233,26 @@
       "stats_generic": "Statistik",
       "feat_unlimited_reports": "Laporan tak terbatas",
       "feat_unlimited_patients": "Pasien tak terbatas"
+    },
+    "referral": {
+      "title": "Program Referral",
+      "badge": "1 bulan gratis per referral",
+      "subtitle": "Dapatkan 1 bulan gratis untuk setiap kolega yang berlangganan paket berbayar PISUM menggunakan tautan Anda.",
+      "linkLabel": "Tautan referral Anda",
+      "copy": "Salin",
+      "copied": "Disalin!",
+      "share": "Bagikan lewat email",
+      "stats": {
+        "referrals": "Referral",
+        "monthsEarned": "Bulan yang diperoleh",
+        "monthsLeft": "Bulan tersisa"
+      },
+      "how": {
+        "title": "Cara kerjanya",
+        "step1": "Bagikan tautan unik Anda kepada rekan sejawat",
+        "step2": "Mereka berlangganan paket berbayar PISUM",
+        "step3": "Anda mendapatkan 1 bulan gratis secara otomatis"
+      }
     }
   },
   "pricing": {

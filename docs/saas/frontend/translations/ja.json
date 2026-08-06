@@ -59,6 +59,7 @@
       "overview": "概要",
       "usage": "利用状況",
       "billing": "請求",
+      "referral": "紹介",
       "profile": "プロフィール",
       "signOut": "サインアウト"
     },
@@ -232,6 +233,26 @@
       "stats_generic": "統計",
       "feat_unlimited_reports": "レポート無制限",
       "feat_unlimited_patients": "患者無制限"
+    },
+    "referral": {
+      "title": "紹介プログラム",
+      "badge": "紹介1件につき1ヶ月無料",
+      "subtitle": "あなたのリンクから有料プランに登録した同僚1人につき、1ヶ月分無料を獲得できます。",
+      "linkLabel": "あなたの紹介リンク",
+      "copy": "コピー",
+      "copied": "コピーしました！",
+      "share": "メールで共有",
+      "stats": {
+        "referrals": "紹介数",
+        "monthsEarned": "獲得した月数",
+        "monthsLeft": "残り月数"
+      },
+      "how": {
+        "title": "仕組み",
+        "step1": "固有のリンクを同僚と共有する",
+        "step2": "彼らがPISUMの有料プランを契約する",
+        "step3": "自動的に1ヶ月分無料を獲得"
+      }
     }
   },
   "pricing": {

@@ -59,6 +59,7 @@
       "overview": "Visão Geral",
       "usage": "Uso",
       "billing": "Cobrança",
+      "referral": "Indicações",
       "profile": "Perfil",
       "signOut": "Sair"
     },
@@ -232,6 +233,26 @@
       "stats_generic": "Estatísticas",
       "feat_unlimited_reports": "Relatórios ilimitados",
       "feat_unlimited_patients": "Pacientes ilimitados"
+    },
+    "referral": {
+      "title": "Programa de indicações",
+      "badge": "1 mês grátis por indicação",
+      "subtitle": "Ganhe 1 mês grátis para cada colega que assinar um plano PISUM pago usando o seu link.",
+      "linkLabel": "Seu link de indicação",
+      "copy": "Copiar",
+      "copied": "Copiado!",
+      "share": "Compartilhar por e-mail",
+      "stats": {
+        "referrals": "Indicações",
+        "monthsEarned": "Meses ganhos",
+        "monthsLeft": "Meses restantes"
+      },
+      "how": {
+        "title": "Como funciona",
+        "step1": "Compartilhe seu link único com colegas",
+        "step2": "Eles assinam um plano PISUM pago",
+        "step3": "Você ganha 1 mês grátis automaticamente"
+      }
     }
   },
   "pricing": {

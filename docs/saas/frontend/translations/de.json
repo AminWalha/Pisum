@@ -59,6 +59,7 @@
       "overview": "Übersicht",
       "usage": "Nutzung",
       "billing": "Abrechnung",
+      "referral": "Empfehlung",
       "profile": "Profil",
       "signOut": "Abmelden"
     },
@@ -179,7 +180,27 @@
     "piw_chip3": "Wie installiere ich es?",
     "piw_chip4": "KI-Diktat?",
     "piw_chip5": "DSGVO-konform?",
-    "piw_input": "Stellen Sie eine Frage…"
+    "piw_input": "Stellen Sie eine Frage…",
+    "referral": {
+      "title": "Empfehlungsprogramm",
+      "badge": "1 Gratismonat pro Empfehlung",
+      "subtitle": "Verdienen Sie 1 kostenlosen Monat für jeden Kollegen, der über Ihren Link ein bezahltes PISUM-Abonnement abschließt.",
+      "linkLabel": "Ihr Empfehlungslink",
+      "copy": "Kopieren",
+      "copied": "Kopiert!",
+      "share": "Per E-Mail teilen",
+      "stats": {
+        "referrals": "Empfehlungen",
+        "monthsEarned": "Verdiente Monate",
+        "monthsLeft": "Verbleibende Monate"
+      },
+      "how": {
+        "title": "So funktioniert es",
+        "step1": "Teilen Sie Ihren einzigartigen Link mit Kollegen",
+        "step2": "Sie abonnieren einen bezahlten PISUM-Plan",
+        "step3": "Sie erhalten automatisch 1 Gratismonat"
+      }
+    }
   },
   "pricing": {
     "pageTitle": "PISUM — Preise für Medizinisches Fachpersonal",

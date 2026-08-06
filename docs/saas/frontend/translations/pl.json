@@ -59,6 +59,7 @@
       "overview": "Przegląd",
       "usage": "Użycie",
       "billing": "Faktury",
+      "referral": "Polecenia",
       "profile": "Profil",
       "signOut": "Wyloguj"
     },
@@ -232,6 +233,26 @@
       "stats_generic": "Statystyki",
       "feat_unlimited_reports": "Nielimitowane raporty",
       "feat_unlimited_patients": "Nielimitowani pacjenci"
+    },
+    "referral": {
+      "title": "Program poleceń",
+      "badge": "1 darmowy miesiąc za polecenie",
+      "subtitle": "Zdobądź 1 darmowy miesiąc za każdego kolegę, który subskrybuje płatny plan PISUM przez Twój link.",
+      "linkLabel": "Twój link polecający",
+      "copy": "Kopiuj",
+      "copied": "Skopiowano!",
+      "share": "Udostępnij przez e-mail",
+      "stats": {
+        "referrals": "Polecenia",
+        "monthsEarned": "Zdobyte miesiące",
+        "monthsLeft": "Pozostałe miesiące"
+      },
+      "how": {
+        "title": "Jak to działa",
+        "step1": "Udostępnij swój unikalny link kolegom",
+        "step2": "Subskrybują płatny plan PISUM",
+        "step3": "Automatycznie zyskujesz 1 darmowy miesiąc"
+      }
     }
   },
   "pricing": {

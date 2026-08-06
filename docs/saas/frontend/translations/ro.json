@@ -59,6 +59,7 @@
       "overview": "Prezentare generală",
       "usage": "Utilizare",
       "billing": "Facturare",
+      "referral": "Recomandări",
       "profile": "Profil",
       "signOut": "Deconectare"
     },
@@ -232,6 +233,26 @@
       "stats_generic": "Statistici",
       "feat_unlimited_reports": "Rapoarte nelimitate",
       "feat_unlimited_patients": "Pacienți nelimitați"
+    },
+    "referral": {
+      "title": "Program de recomandări",
+      "badge": "1 lună gratuită per recomandare",
+      "subtitle": "Câștigă 1 lună gratuită pentru fiecare coleg care se abonează la un plan PISUM plătit folosind linkul tău.",
+      "linkLabel": "Linkul tău de recomandare",
+      "copy": "Copiați",
+      "copied": "Copiat!",
+      "share": "Distribuiți prin e-mail",
+      "stats": {
+        "referrals": "Recomandări",
+        "monthsEarned": "Luni câștigate",
+        "monthsLeft": "Luni rămase"
+      },
+      "how": {
+        "title": "Cum funcționează",
+        "step1": "Distribuiți linkul unic cu colegii",
+        "step2": "Ei se abonează la un plan PISUM plătit",
+        "step3": "Câștigați automat 1 lună gratuită"
+      }
     }
   },
   "pricing": {
