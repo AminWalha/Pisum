@@ -942,7 +942,7 @@
     "a_15": "Preguntas frecuentes",
     "a_16": "Documentación",
     "a_17": "Contacto",
-    "button_44": "<svg fill=\"none\" height=\"16\" stroke=\"currentColor\" stroke-width=\"2.5\" viewbox=\"0 0 24 24\" width=\"16\"><path d=\"M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z\"></path></svg>\n    Preguntar a IA\n    @@225<a href=\"#features\">226@@",
+    "button_44": "<svg fill=\"none\" height=\"16\" stroke=\"currentColor\" stroke-width=\"2.5\" viewbox=\"0 0 24 24\" width=\"16\"><path d=\"M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z\"></path></svg>\n    Preguntar a IA\n    <span id=\"piw-badge\">1</span>",
     "piw_name": "IA de PISUM",
     "piw_status": "En línea - siempre aquí para ayudar",
     "button_45": "✕",

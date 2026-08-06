@@ -942,7 +942,7 @@
     "a_15": "FAQ",
     "a_16": "Dokumentation",
     "a_17": "Kontakt",
-    "button_44": "<svg fill=\"none\" height=\"16\" stroke=\"currentColor\" stroke-width=\"2.5\" viewbox=\"0 0 24 24\" width=\"16\"><path d=\"M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z\"></path></svg>\n    KI fragen\n    @@225<a href=\"#features\">226@@",
+    "button_44": "<svg fill=\"none\" height=\"16\" stroke=\"currentColor\" stroke-width=\"2.5\" viewbox=\"0 0 24 24\" width=\"16\"><path d=\"M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z\"></path></svg>\n    KI fragen\n    <span id=\"piw-badge\">1</span>",
     "piw_name": "PISUM KI",
     "piw_status": "Online – hilft immer gerne",
     "button_45": "✕",

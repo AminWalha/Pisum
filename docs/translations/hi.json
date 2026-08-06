@@ -942,7 +942,7 @@
     "a_15": "अक्सर पूछे जाने वाले प्रश्न",
     "a_16": "दस्तावेज़",
     "a_17": "संपर्क",
-    "button_44": "<svg fill=\"none\" height=\"16\" stroke=\"currentColor\" stroke-width=\"2.5\" viewbox=\"0 0 24 24\" width=\"16\"><path d=\"M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z\"></path></svg>\n    एआई से पूछें\n    @@225<a href=\"#features\">226@@",
+    "button_44": "<svg fill=\"none\" height=\"16\" stroke=\"currentColor\" stroke-width=\"2.5\" viewbox=\"0 0 24 24\" width=\"16\"><path d=\"M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z\"></path></svg>\n    एआई से पूछें\n    <span id=\"piw-badge\">1</span>",
     "piw_name": "PISUM AI",
     "piw_status": "ऑनलाइन — मदद के लिए हमेशा यहाँ",
     "button_45": "✕",
