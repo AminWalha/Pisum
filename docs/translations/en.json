@@ -1,4 +1,4 @@
-﻿{
+{
     "contact":  {
                     "a_1":  "\u003cimg alt=\"Logo\" src=\"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png\"/\u003e\n    PISUM",
                     "li_1":  "\u003ca href=\"index.html#features\"\u003eFeatures\u003c/a\u003e",
@@ -1002,7 +1002,35 @@
                   "foot_lang_select":  "🌐 Language / Langue",
                   "cookie_text":  "\u003cstrong\u003e🍪 Respect for your privacy\u003c/strong\u003e\u003cbr\u003eWe use Google Analytics to analyze site traffic. No tracking cookies are set without your explicit consent.",
                   "cookie_decline":  "Decline",
-                  "cookie_accept":  "Accept"
+                  "cookie_accept":  "Accept",
+                  "ai_eyebrow":  "AI Enhancement &amp; Diagnosis",
+                  "ai_h2_1":  "More than correction.",
+                  "ai_h2_2":  "It diagnoses.",
+                  "ai_p":  "PISUM reads your findings, identifies the unified clinical syndrome, calibrates diagnostic certainty with academic precision, and flags life-threatening conditions first.",
+                  "ai_input_tag":  "Raw findings input",
+                  "ai_output_tag":  "AI Diagnosis",
+                  "ai_fn_findings":  "Findings",
+                  "ai_fn_clinical":  "Clinical language",
+                  "ai_badge":  "✨ PISUM AI",
+                  "ai_step1":  "Syndrome detection",
+                  "ai_step2":  "Certainty calibration",
+                  "ai_step3":  "Emergency flagging",
+                  "ai_conc_label":  "Conclusion",
+                  "ai_cert_confirm_badge":  "Confirming",
+                  "ai_cert_strip_label":  "Diagnostic certainty — automatically calibrated",
+                  "ai_cert_confirm":  "Confirming <span>Direct, unambiguous imaging sign</span>",
+                  "ai_cert_suggest":  "Suggestive of <span>Strong pattern, not 100% specific</span>",
+                  "ai_cert_compat":  "Compatible with <span>Consistent but non-specific</span>",
+                  "ai_cert_exclude":  "Cannot exclude <span>Subtle or indirect sign only</span>",
+                  "ai_urgency":  "Critical — Immediate clinical correlation required",
+                  "ai_pillar1_title":  "Report Enhancement",
+                  "ai_pillar1_desc":  "Elevates casual dictation or telegraphic notes to academic-grade radiology prose — indistinguishable from publications in <em>Radiology</em> or <em>European Radiology</em>. Both FORMAT and terminology are preserved.",
+                  "ai_pillar2_title":  "Clinical Synthesis",
+                  "ai_pillar2_desc":  "Cross-correlates all findings to name the unified syndrome — not a list of components, but the diagnosis itself. Budd-Chiari. Conn syndrome. Metastatic pattern. The conclusion you would have written anyway, in seconds.",
+                  "ai_pillar3_title":  "Emergency First",
+                  "ai_pillar3_desc":  "Vascular thrombosis, active bleeding, tension findings, organ ischemia — life-threatening findings always appear as the first conclusion bullet, clearly flagged with urgency level. Never buried in boilerplate.",
+                  "ai_cta":  "Unlock AI Enhancement &amp; Diagnosis",
+                  "ai_cta_sub":  "Pro+ plans · Works in all 23 languages"
               },
     "hero":  {
                  "title":  "Radiology reporting software",
