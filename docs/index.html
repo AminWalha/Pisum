@@ -443,6 +443,52 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 #tplCBody { background:#000 !important; color:var(--ink-3) !important; border: 1px solid var(--b1); font-family: monospace; }
 #tplCName { color:var(--ink) !important; }
 
+/* ── AI ENHANCEMENT & DIAGNOSIS SECTION ─────────────────── */
+.ai-section{position:relative;z-index:1}
+.ai-flow{display:grid;grid-template-columns:1fr 120px 1fr;gap:1.5rem;align-items:center;margin-bottom:2.5rem}
+@media(max-width:800px){.ai-flow{grid-template-columns:1fr}.ai-arrow-wrap{transform:none;display:flex;flex-direction:row;justify-content:center;padding:0.5rem 0}}
+.ai-panel-tag{font-size:0.65rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-4);margin-bottom:0.5rem}
+.ai-panel-tag-out{color:var(--blue)}
+.ai-panel{background:var(--white);border:1px solid var(--b1);border-radius:var(--r);padding:1.25rem 1.4rem;min-height:190px}
+.ai-panel-out{border-color:rgba(0,229,204,0.25);background:rgba(0,229,204,0.03)}
+.ai-fn-label{font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-4);margin-bottom:0.65rem}
+.ai-raw{font-size:0.83rem;color:var(--ink-3);line-height:1.7;font-style:italic}
+.ai-diag-main{display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.45rem}
+.ai-diag-main strong{font-size:0.95rem;color:var(--ink)}
+.ai-cert{font-size:0.6rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.15rem 0.5rem;border-radius:4px}
+.ai-cert-confirm{background:rgba(16,185,129,0.15);color:var(--green)}
+.ai-cert-suggest{background:rgba(251,191,36,0.15);color:#FBBF24}
+.ai-cert-compat{background:rgba(59,130,246,0.15);color:#60A5FA}
+.ai-diag-detail{font-size:0.78rem;color:var(--ink-3);line-height:1.6;margin-bottom:0.65rem}
+.ai-urgency{display:flex;align-items:center;gap:0.5rem;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);border-radius:6px;padding:0.4rem 0.7rem}
+.ai-urg-text{font-size:0.7rem;font-weight:600;color:#EF4444}
+.ai-arrow-wrap{display:flex;flex-direction:column;align-items:center;gap:0.75rem}
+.ai-gemini-badge{background:var(--grad);color:var(--bg);font-size:0.65rem;font-weight:800;padding:0.25rem 0.8rem;border-radius:999px;letter-spacing:0.04em;white-space:nowrap;box-shadow:0 0 15px rgba(0,229,204,0.3)}
+.ai-arrow-svg{color:var(--blue);width:28px;height:28px}
+.ai-arrow-steps{display:flex;flex-direction:column;align-items:center;gap:0.25rem}
+.ai-arrow-steps span{font-size:0.6rem;color:var(--ink-4);letter-spacing:0.03em;white-space:nowrap}
+.ai-cert-strip{background:var(--white);border:1px solid var(--b1);border-radius:var(--r);padding:1.1rem 1.4rem;margin-bottom:2.5rem}
+.ai-cert-strip-label{font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-4);margin-bottom:0.75rem}
+.ai-cert-items{display:grid;grid-template-columns:repeat(4,1fr);gap:0.65rem}
+@media(max-width:700px){.ai-cert-items{grid-template-columns:1fr 1fr}}
+@media(max-width:440px){.ai-cert-items{grid-template-columns:1fr}}
+.ai-ci{padding:0.55rem 0.8rem;border-radius:6px;font-size:0.76rem;font-weight:700;border:1px solid transparent}
+.ai-ci span{display:block;font-size:0.67rem;font-weight:400;opacity:0.75;margin-top:2px;line-height:1.4}
+.ai-ci-4{background:rgba(16,185,129,0.1);color:var(--green);border-color:rgba(16,185,129,0.2)}
+.ai-ci-3{background:rgba(251,191,36,0.1);color:#FBBF24;border-color:rgba(251,191,36,0.2)}
+.ai-ci-2{background:rgba(59,130,246,0.1);color:#60A5FA;border-color:rgba(59,130,246,0.2)}
+.ai-ci-1{background:rgba(148,163,184,0.08);color:var(--ink-4);border-color:var(--b1)}
+.ai-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-bottom:2rem}
+@media(max-width:700px){.ai-pillars{grid-template-columns:1fr}}
+.ai-pillar{background:var(--white);border:1px solid var(--b1);border-radius:var(--r-lg);padding:1.5rem;transition:all 0.25s var(--t)}
+.ai-pillar:hover{transform:translateY(-4px);border-color:var(--b2);box-shadow:var(--shadow)}
+.ai-pillar-ic{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,0.05);border:1px solid var(--b1);display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:1rem}
+.ai-pillar h4{font-size:0.95rem;font-weight:700;color:var(--ink);margin-bottom:0.4rem;font-family:var(--serif)}
+.ai-pillar p{font-size:0.8rem;color:var(--ink-3);line-height:1.65}
+.ai-feat-inner{display:flex;gap:2rem;align-items:flex-start}
+@media(max-width:760px){.ai-feat-inner{flex-direction:column}}
+.ai-feat-demo{flex:1;background:rgba(0,0,0,0.3);border-radius:10px;border:1px solid var(--b1);padding:1.1rem;font-size:0.78rem;min-width:0;flex-shrink:0}
+
 /* REVEAL */
 .rv{opacity:0;transform:translateY(22px);transition:opacity 0.65s ease,transform 0.65s ease}
 .rv.show{opacity:1;transform:none}
@@ -593,7 +639,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
       <span data-i18n="index.banner_pill">New Update</span>
     </span>
     <span class="announcement-text">
-      <strong data-i18n="index.banner_title">Ai Enhancement</strong> <span class="hide-mobile" data-i18n="index.banner_sub">— Major update released on 15/07/2026 ✨</span>
+      <strong data-i18n="index.banner_title">AI Enhancement &amp; Diagnosis</strong> <span class="hide-mobile" data-i18n="index.banner_sub">— Identify syndromes automatically ✨</span>
     </span>
     <span class="announcement-arrow">→</span>
   </div>
@@ -862,6 +908,34 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 <h2 class="serif d2 rv rv-d1" data-i18n="index.h2_4" style="margin-top:1.25rem; color:var(--ink);">Everything you need.<br/>Nothing you don't.</h2>
 </div>
 <div class="feat-grid">
+<div class="feat-card rv" style="grid-column:span 3;background:rgba(0,229,204,0.03);border-color:rgba(0,229,204,0.2)">
+  <div class="ai-feat-inner">
+    <div style="flex:1">
+      <div class="feat-icon" style="background:var(--grad);color:var(--bg);border:none">✨</div>
+      <h3 style="color:var(--blue)">AI Enhancement &amp; Diagnosis</h3>
+      <p>Dictate or type findings in plain language. PISUM reformulates them to academic-grade radiology vocabulary, cross-correlates all signs to name the unified syndrome, calibrates diagnostic certainty, and flags life-threatening findings first — like a senior radiologist reviewing every report.</p>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:1rem">
+        <span class="feat-pill pill-new">AI Diagnosis</span>
+        <span class="feat-pill pill-pro">Pro+ Plans</span>
+      </div>
+    </div>
+    <div class="ai-feat-demo">
+      <div style="color:var(--ink-4);font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem">Raw dictation</div>
+      <p style="font-style:italic;line-height:1.65;color:var(--ink-3);margin-bottom:0.75rem">"IVC thrombosis. No flow in hepatic veins. Caudate lobe hypertrophy."</p>
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem">
+        <span style="color:var(--blue);font-size:0.85rem">↓</span>
+        <span style="background:var(--grad);color:var(--bg);font-size:0.6rem;font-weight:800;padding:0.15rem 0.55rem;border-radius:999px;letter-spacing:0.04em">✨ PISUM AI</span>
+      </div>
+      <div style="color:var(--blue);font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.45rem">AI Diagnosis</div>
+      <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.35rem">
+        <strong style="color:var(--ink);font-size:0.88rem">Budd-Chiari Syndrome</strong>
+        <span style="background:rgba(16,185,129,0.15);color:var(--green);font-size:0.6rem;font-weight:700;padding:0.1rem 0.45rem;border-radius:4px">Confirming</span>
+      </div>
+      <p style="font-size:0.73rem;color:var(--ink-3);line-height:1.55;margin-bottom:0.55rem">Obliteration of hepatic veins. Caudate lobe compensatory hypertrophy (segment I).</p>
+      <div style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);border-radius:5px;padding:0.35rem 0.6rem;font-size:0.67rem;font-weight:600;color:#EF4444">🔴 Critical — immediate clinical correlation</div>
+    </div>
+  </div>
+</div>
 <div class="feat-card rv"><div class="feat-icon">⚡</div><h3 data-i18n="index.h3_2">Instant Report Generation</h3><p data-i18n="index.p_15">Guided structured fields complete your report as you type. Average completion: 47 seconds. No learning curve.</p><span class="feat-pill pill-free" data-i18n="index.span_47">All Plans</span></div>
 <div class="feat-card rv rv-d1"><div class="feat-icon">🌍</div><h3 data-i18n="index.h3_3">23-Language Support</h3><p data-i18n="index.p_16">Report natively in English, French, Spanish, German, Italian, Portuguese, and 17 more — terminology validated by native radiologists.</p><span class="feat-pill pill-free" data-i18n="index.span_48">All Plans</span></div>
 <div class="feat-card rv rv-d2"><div class="feat-icon">🧠</div><h3 data-i18n="index.h3_4">112 Structured Templates</h3><p data-i18n="index.p_17">Expert-built for CT, MRI, X-Ray, and Ultrasound across every body system. Each field has clinical validation.</p><span class="feat-pill pill-pro" data-i18n="index.span_49">Pro Templates</span></div>
@@ -873,6 +947,87 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 <div class="feat-card rv rv-d1"><div class="feat-icon" style="background:linear-gradient(135deg,#6d28d9,#3b6ef8)">🔄</div><h3 data-i18n="index.h3_10">Report Conversion &amp; Translation</h3><p data-i18n="index.p_23">Instantly translate any completed radiology report into another language. Clinical terminology preserved, report structure intact — one click, 23 target languages.</p><span class="feat-pill pill-new" data-i18n="index.span_55">Pro+ · New in v2.9.8</span></div>
 <div class="feat-card rv rv-d2" style="background:rgba(0,229,204,0.02);border-color:rgba(0,229,204,0.15);grid-column:span 3"><div class="feat-icon" style="background:var(--grad); color:#fff; border:none;">🌙</div><h3 data-i18n="index.h3_11" style="color:var(--blue)">Dark Medical-Grade Interface</h3><p data-i18n="index.p_24">Designed for reading rooms. Near-black surface palette, cyan accents, zero eye strain during long reporting sessions. Your eyes will thank you after shift 3.</p><span class="feat-pill" data-i18n="index.span_56" style="background:rgba(0,229,204,0.1);color:var(--blue)">All Plans</span></div>
 </div>
+</div>
+</section>
+
+<section class="section ai-section" id="ai-enhancement">
+<div class="container">
+  <div class="eyebrow rv" style="justify-content:center"><span class="eyebrow-dot"></span><span>AI Enhancement &amp; Diagnosis</span></div>
+  <h2 class="serif d2 rv rv-d1" style="margin:1.25rem auto 0;color:var(--ink);text-align:center;max-width:680px">More than correction.<br/><span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">It diagnoses.</span></h2>
+  <p class="rv rv-d2" style="text-align:center;color:var(--ink-3);max-width:560px;margin:1.1rem auto 3.5rem;font-size:1.05rem;line-height:1.7">PISUM reads your findings, identifies the unified clinical syndrome, calibrates diagnostic certainty with academic precision, and flags life-threatening conditions first.</p>
+
+  <div class="ai-flow rv rv-d2">
+    <div>
+      <div class="ai-panel-tag">Raw findings input</div>
+      <div class="ai-panel">
+        <div class="ai-fn-label">Findings</div>
+        <p class="ai-raw">IVC thrombosis. Absence of flow in all hepatic veins. Marked hypertrophy of segment I (caudate lobe). Ascites. Enlarged spleen.</p>
+        <div style="margin-top:0.85rem;padding-top:0.85rem;border-top:1px solid var(--b1)">
+          <div class="ai-fn-label">Clinical language</div>
+          <p class="ai-raw" style="font-style:normal;color:var(--ink-4);font-size:0.76rem">"no flow in liver veins, big caudate lobe, belly water, big spleen"</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ai-arrow-wrap">
+      <div class="ai-gemini-badge">✨ PISUM AI</div>
+      <svg class="ai-arrow-svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      <div class="ai-arrow-steps">
+        <span>Syndrome detection</span>
+        <span>Certainty calibration</span>
+        <span>Emergency flagging</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="ai-panel-tag ai-panel-tag-out">AI Diagnosis</div>
+      <div class="ai-panel ai-panel-out">
+        <div class="ai-fn-label" style="color:var(--blue)">Conclusion</div>
+        <div class="ai-diag-main">
+          <strong>Budd-Chiari Syndrome</strong>
+          <span class="ai-cert ai-cert-confirm">Confirming</span>
+        </div>
+        <p class="ai-diag-detail">Complete obliteration of hepatic veins with compensatory hypertrophy of caudate lobe (segment I). IVC thrombosis extending to hepatic junction. Associated portal hypertension (splenomegaly, ascites).</p>
+        <div class="ai-urgency">
+          <span style="font-size:0.85rem">🔴</span>
+          <span class="ai-urg-text">Critical — Immediate clinical correlation required</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ai-cert-strip rv rv-d2">
+    <div class="ai-cert-strip-label">Diagnostic certainty — automatically calibrated</div>
+    <div class="ai-cert-items">
+      <div class="ai-ci ai-ci-4">Confirming <span>Direct, unambiguous imaging sign</span></div>
+      <div class="ai-ci ai-ci-3">Suggestive of <span>Strong pattern, not 100% specific</span></div>
+      <div class="ai-ci ai-ci-2">Compatible with <span>Consistent but non-specific</span></div>
+      <div class="ai-ci ai-ci-1">Cannot exclude <span>Subtle or indirect sign only</span></div>
+    </div>
+  </div>
+
+  <div class="ai-pillars rv rv-d3">
+    <div class="ai-pillar">
+      <div class="ai-pillar-ic">✨</div>
+      <h4>Report Enhancement</h4>
+      <p>Elevates casual dictation or telegraphic notes to academic-grade radiology prose — indistinguishable from publications in <em>Radiology</em> or <em>European Radiology</em>. Both FORMAT and terminology are preserved.</p>
+    </div>
+    <div class="ai-pillar">
+      <div class="ai-pillar-ic">🔬</div>
+      <h4>Clinical Synthesis</h4>
+      <p>Cross-correlates all findings to name the unified syndrome — not a list of components, but the diagnosis itself. Budd-Chiari. Conn syndrome. Metastatic pattern. The conclusion you would have written anyway, in seconds.</p>
+    </div>
+    <div class="ai-pillar">
+      <div class="ai-pillar-ic">🚨</div>
+      <h4>Emergency First</h4>
+      <p>Vascular thrombosis, active bleeding, tension findings, organ ischemia — life-threatening findings always appear as the first conclusion bullet, clearly flagged with urgency level. Never buried in boilerplate.</p>
+    </div>
+  </div>
+
+  <div class="rv rv-d3" style="text-align:center">
+    <a class="btn btn-ghost" href="https://pisum.app/saas/frontend/pricing.html" style="display:inline-flex;align-items:center;gap:0.5rem">Unlock AI Enhancement &amp; Diagnosis <span style="color:var(--blue)">→</span></a>
+    <p style="font-size:0.75rem;color:var(--ink-4);margin-top:0.75rem">Pro+ plans · Works in all 23 languages</p>
+  </div>
 </div>
 </section>
 
