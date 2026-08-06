@@ -1198,6 +1198,13 @@ const SVG_MINUS   = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" 
 // Translate a dashboard.js.* key — falls back to fb (English fallback string) if i18n not ready
 const t = (key, fb) => { const v = window.i18n?.getNestedTranslation?.('dashboard.js.' + key); return v || fb || key; };
 
+const getGreeting = () => {
+  const h = new Date().getHours();
+  if (h >= 5 && h < 12)  return t('greeting_morning',   'Good morning');
+  if (h >= 12 && h < 18) return t('greeting_afternoon', 'Good afternoon');
+  return t('greeting_evening', 'Good evening');
+};
+
 // ── Plans ─────────────────────────────────────────────────────────────────
 const PLAN_PRICES = {
   starter: { monthly: 29,  annual: 23  },
@@ -1267,7 +1274,7 @@ async function init() {
   loadProfile();
 
   if (name) {
-    document.getElementById('page-title').textContent = 'Hello, ' + name.split(' ')[0];
+    document.getElementById('page-title').textContent = getGreeting() + ', ' + name.split(' ')[0];
   }
 
   obInit(user.id);
@@ -1828,7 +1835,7 @@ function updateProfileDisplay(profile) {
   if (profile.full_name) {
     document.getElementById('profile-name').textContent = profile.full_name;
     document.getElementById('nav-name').textContent     = profile.full_name;
-    document.getElementById('page-title').textContent   = 'Hello, ' + profile.full_name.split(' ')[0];
+    document.getElementById('page-title').textContent   = getGreeting() + ', ' + profile.full_name.split(' ')[0];
     if (!profile.avatar_url) {
       const initials = profile.full_name.split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase();
       document.getElementById('profile-avatar').textContent = initials;
