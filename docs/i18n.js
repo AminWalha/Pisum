@@ -55,7 +55,7 @@ class I18n {
             lang = DEFAULT_LANGUAGE;
         }
         try {
-            const response = await fetch(`${this.basePath}/${lang}.json?v=20260730`);
+            const response = await fetch(`${this.basePath}/${lang}.json?v=${Date.now()}`);
             if (!response.ok) throw new Error(`Could not load ${lang}.json`);
 
             this.translations = await response.json();
