@@ -9,6 +9,9 @@
   gtag('config', 'G-6VG09X3G7F');
 </script>
 <meta charset="UTF-8"/>
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="0"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>PISUM — My Account</title>
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
@@ -602,6 +605,86 @@ main{max-width:960px;margin:0 auto;padding:2rem 2rem 5rem}
 .anim-4{animation:slideUp 0.4s cubic-bezier(0.16,1,0.3,1) 0.15s both}
 .anim-5{animation:slideUp 0.4s cubic-bezier(0.16,1,0.3,1) 0.20s both}
 
+/* ── REFERRAL CARD ── */
+.ref-hero{
+  background:linear-gradient(135deg,rgba(0,229,204,0.06) 0%,rgba(124,58,237,0.06) 100%);
+  border:1px solid rgba(0,229,204,0.18);
+  border-radius:var(--r-xl);padding:2rem;
+  position:relative;overflow:hidden;
+}
+.ref-hero::before{
+  content:'';position:absolute;top:-30%;right:-5%;
+  width:220px;height:220px;
+  background:radial-gradient(circle,rgba(0,229,204,0.1) 0%,transparent 70%);
+  pointer-events:none;
+}
+.ref-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:linear-gradient(135deg,#00E5CC,#7C3AED);
+  color:#fff;font-size:0.68rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;
+  padding:0.3rem 0.85rem;border-radius:999px;margin-bottom:0.75rem;
+}
+.ref-title{
+  font-family:var(--font-display);font-size:1.25rem;font-weight:700;
+  color:var(--text-main);margin-bottom:0.35rem;letter-spacing:-0.02em;
+}
+.ref-sub{font-size:0.9rem;color:var(--text-dim);line-height:1.55;margin-bottom:1.5rem;}
+.ref-link-box{
+  display:flex;align-items:center;gap:0.75rem;
+  background:rgba(0,0,0,0.4);border:1px solid var(--border);
+  border-radius:var(--r-lg);padding:0.75rem 1rem;margin-bottom:1.25rem;
+}
+.ref-link-input{
+  flex:1;background:none;border:none;outline:none;
+  font-family:monospace;font-size:0.82rem;color:var(--accent-cyan);
+  min-width:0;cursor:text;
+}
+.ref-copy-btn{
+  padding:0.45rem 1rem;border-radius:999px;
+  background:var(--grad);color:var(--bg);border:none;cursor:pointer;
+  font-size:0.8rem;font-weight:700;font-family:inherit;
+  transition:all var(--transition);white-space:nowrap;flex-shrink:0;
+}
+.ref-copy-btn:hover{transform:translateY(-1px);box-shadow:var(--shadow-glow)}
+.ref-copy-btn.copied{background:var(--accent-green);color:#fff}
+.ref-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem;}
+@media(max-width:560px){.ref-stats{grid-template-columns:repeat(2,1fr)}}
+.ref-stat{
+  background:rgba(0,0,0,0.3);border:1px solid var(--border);
+  border-radius:var(--r-lg);padding:1rem;text-align:center;
+}
+.ref-stat-val{
+  font-family:var(--font-display);font-size:1.8rem;font-weight:800;
+  color:var(--accent-cyan);line-height:1;margin-bottom:0.35rem;
+}
+.ref-stat-lbl{
+  font-size:0.68rem;font-weight:700;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--text-dim);
+}
+.ref-how-title{
+  font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--accent-cyan);margin-bottom:0.85rem;
+}
+.ref-how{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+@media(max-width:640px){.ref-how{grid-template-columns:1fr}}
+.ref-how-step{display:flex;align-items:flex-start;gap:0.75rem}
+.ref-step-num{
+  width:28px;height:28px;border-radius:50%;
+  background:var(--app-primary-light);border:1px solid rgba(0,229,204,0.3);
+  color:var(--accent-cyan);font-size:0.78rem;font-weight:800;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.ref-step-text{font-size:0.85rem;color:var(--text-dim);line-height:1.5;padding-top:3px;}
+.ref-share-btn{
+  display:inline-flex;align-items:center;gap:6px;margin-top:1.25rem;
+  padding:0.55rem 1.2rem;border-radius:999px;
+  background:rgba(255,255,255,0.05);color:var(--text-main);
+  border:1px solid var(--border);cursor:pointer;
+  font-size:0.82rem;font-weight:600;font-family:inherit;text-decoration:none;
+  transition:all var(--transition);
+}
+.ref-share-btn:hover{background:rgba(255,255,255,0.1);border-color:var(--accent-cyan);transform:translateY(-1px)}
+
 /* ── MOBILE BOTTOM TAB BAR ── */
 .mobile-tab-bar{
   display:none;position:fixed;bottom:0;left:0;right:0;z-index:900;
@@ -683,6 +766,10 @@ main{max-width:960px;margin:0 auto;padding:2rem 2rem 5rem}
       <button class="sb-link" id="snav-billing" onclick="sbNav(this,'section-billing')">
         <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="9" x2="22" y2="9" stroke-width="1.75"/><line x1="6" y1="14" x2="10" y2="14" stroke-width="2"/></svg>
         <span data-i18n="dashboard.nav.billing">Billing</span>
+      </button>
+      <button class="sb-link" id="snav-referral" onclick="sbNav(this,'section-referral')">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span data-i18n="dashboard.nav.referral">Referral</span>
       </button>
       <button class="sb-link" id="snav-profile" onclick="sbNav(this,'section-profile')">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
@@ -883,7 +970,63 @@ main{max-width:960px;margin:0 auto;padding:2rem 2rem 5rem}
           </div>
         </div>
 
-      </div><div class="dark-card" id="sub-card" style="display:none">
+      </div>
+
+      <div class="dark-card anim-3" id="section-referral" style="display:none">
+        <div class="dc-head">
+          <span class="dc-title" data-i18n="dashboard.referral.title">Referral Program</span>
+        </div>
+        <div class="dc-body">
+          <div class="ref-hero">
+            <div class="ref-badge" data-i18n="dashboard.referral.badge">1 free month per referral</div>
+            <div class="ref-title" data-i18n="dashboard.referral.title">Referral Program</div>
+            <div class="ref-sub" data-i18n="dashboard.referral.subtitle">Earn 1 free month for every colleague who subscribes to a paid PISUM plan using your link.</div>
+
+            <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.5rem" data-i18n="dashboard.referral.linkLabel">Your referral link</div>
+            <div class="ref-link-box">
+              <input class="ref-link-input" id="ref-link-input" type="text" readonly onclick="this.select()"/>
+              <button class="ref-copy-btn" id="ref-copy-btn" onclick="copyReferralLink()" data-i18n="dashboard.referral.copy">Copy</button>
+            </div>
+            <a class="ref-share-btn" id="ref-share-btn" href="#" onclick="shareReferralByEmail(event)">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span data-i18n="dashboard.referral.share">Share by email</span>
+            </a>
+          </div>
+
+          <div class="ref-stats" style="margin-top:1.5rem">
+            <div class="ref-stat">
+              <div class="ref-stat-val" id="ref-count">—</div>
+              <div class="ref-stat-lbl" data-i18n="dashboard.referral.stats.referrals">Referrals</div>
+            </div>
+            <div class="ref-stat">
+              <div class="ref-stat-val" id="ref-months-earned">—</div>
+              <div class="ref-stat-lbl" data-i18n="dashboard.referral.stats.monthsEarned">Months earned</div>
+            </div>
+            <div class="ref-stat">
+              <div class="ref-stat-val" id="ref-months-left">—</div>
+              <div class="ref-stat-lbl" data-i18n="dashboard.referral.stats.monthsLeft">Months remaining</div>
+            </div>
+          </div>
+
+          <div class="ref-how-title" data-i18n="dashboard.referral.how.title">How it works</div>
+          <div class="ref-how">
+            <div class="ref-how-step">
+              <div class="ref-step-num">1</div>
+              <div class="ref-step-text" data-i18n="dashboard.referral.how.step1">Share your unique link with colleagues</div>
+            </div>
+            <div class="ref-how-step">
+              <div class="ref-step-num">2</div>
+              <div class="ref-step-text" data-i18n="dashboard.referral.how.step2">They subscribe to a paid PISUM plan</div>
+            </div>
+            <div class="ref-how-step">
+              <div class="ref-step-num">3</div>
+              <div class="ref-step-text" data-i18n="dashboard.referral.how.step3">You earn 1 free month automatically</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dark-card" id="sub-card" style="display:none">
         <div class="dc-head">
           <span class="dc-title" id="sub-title" data-i18n="dashboard.subscribe.title">Choose your plan</span>
         </div>
@@ -1030,7 +1173,7 @@ main{max-width:960px;margin:0 auto;padding:2rem 2rem 5rem}
 <div class="success-toast" id="success-toast"></div>
 <div class="err-toast" id="err-toast"></div>
 
-<script src="./i18n.js"></script>
+<script src="./i18n.js?v=20260806"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
 const SUPABASE_URL  = 'https://lepqbnhrdgfetoysedbq.supabase.co';
@@ -1128,6 +1271,7 @@ async function init() {
   }
 
   obInit(user.id);
+  loadReferral(user.id);
 
   const params = new URLSearchParams(window.location.search);
   if (params.get('checkout') === 'success') {
@@ -2065,6 +2209,68 @@ function obDismiss() {
   setTimeout(() => card.style.display = 'none', 260);
 }
 
+// ── Referral Program ──────────────────────────────────────────────────────
+function loadReferral(userId) {
+  const card = document.getElementById('section-referral');
+  if (!card) return;
+  card.style.display = '';
+
+  const refLink = `https://pisum.app/saas/frontend/auth.html?ref=${userId}`;
+  const input = document.getElementById('ref-link-input');
+  if (input) input.value = refLink;
+
+  loadReferralStats(userId);
+}
+
+async function loadReferralStats(userId) {
+  try {
+    const { data: fresh } = await sb.auth.getSession();
+    if (fresh?.session) session = fresh.session;
+    const r = await fetch(`${API_BASE}/referral-stats`, {
+      headers: { Authorization: `Bearer ${session.access_token}` },
+    });
+    if (!r.ok) throw new Error('no-endpoint');
+    const j = await r.json();
+    const count       = j.referral_count  ?? 0;
+    const earned      = j.months_earned   ?? 0;
+    const remaining   = j.months_remaining ?? 0;
+    document.getElementById('ref-count').textContent        = count;
+    document.getElementById('ref-months-earned').textContent = earned;
+    document.getElementById('ref-months-left').textContent   = remaining;
+  } catch {
+    document.getElementById('ref-count').textContent        = '0';
+    document.getElementById('ref-months-earned').textContent = '0';
+    document.getElementById('ref-months-left').textContent   = '0';
+  }
+}
+
+function copyReferralLink() {
+  const input = document.getElementById('ref-link-input');
+  const btn   = document.getElementById('ref-copy-btn');
+  if (!input || !btn) return;
+  navigator.clipboard.writeText(input.value).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = t('referral_copied', 'Copied!');
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = orig;
+      btn.classList.remove('copied');
+    }, 2000);
+  }).catch(() => {
+    input.select();
+    document.execCommand('copy');
+  });
+}
+
+function shareReferralByEmail(e) {
+  e.preventDefault();
+  const input = document.getElementById('ref-link-input');
+  if (!input) return;
+  const subject = encodeURIComponent('Essayez PISUM — Logiciel de radiologie IA');
+  const body    = encodeURIComponent(`Bonjour,\n\nJe vous recommande PISUM, un logiciel de radiologie propulsé par l'IA. Inscrivez-vous via mon lien pour bénéficier d'un accès gratuit :\n\n${input.value}\n\nCordialement`);
+  window.open(`mailto:?subject=${subject}&body=${body}`);
+}
+
 init();
 
 // Aurora background effect
@@ -2105,6 +2311,6 @@ if (shell) {
 <script>
 function mtbActive(el){document.querySelectorAll('.mtb-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active')}
 </script>
-<script src="./i18n.js"></script>
+<script src="./i18n.js?v=20260806"></script>
 </body>
 </html>
