@@ -182,6 +182,10 @@
     "piw_chip5": "GDPR-kompatibel?",
     "piw_input": "Ställ en fråga…",
     "js": {
+      "greeting_morning": "God morgon",
+      "greeting_afternoon": "God eftermiddag",
+      "greeting_evening": "God kväll",
+      "referral_copied": "Kopierat!",
       "status_ok_title": "Åtkomst beviljad",
       "status_ok_desc": "Din prenumeration är aktiv. Starta PISUM-appen för att börja skriva rapporter.",
       "status_wait_payment_title": "Kontrollerar betalning…",

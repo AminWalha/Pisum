@@ -182,6 +182,10 @@
     "piw_chip5": "Patuhi GDPR?",
     "piw_input": "Tanya soalan…",
     "js": {
+      "greeting_morning": "Selamat pagi",
+      "greeting_afternoon": "Selamat tengah hari",
+      "greeting_evening": "Selamat malam",
+      "referral_copied": "Disalin!",
       "status_ok_title": "Akses diberikan",
       "status_ok_desc": "Langganan anda aktif. Lancarkan apl PISUM untuk mula menulis laporan.",
       "status_wait_payment_title": "Menyemak pembayaran…",

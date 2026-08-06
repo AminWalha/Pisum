@@ -182,6 +182,10 @@
     "piw_chip5": "เป็นไปตาม GDPR หรือไม่?",
     "piw_input": "ถามคำถาม…",
     "js": {
+      "greeting_morning": "สวัสดีตอนเช้า",
+      "greeting_afternoon": "สวัสดีตอนบ่าย",
+      "greeting_evening": "สวัสดีตอนเย็น",
+      "referral_copied": "คัดลอกแล้ว!",
       "status_ok_title": "เข้าสู่ระบบสำเร็จ",
       "status_ok_desc": "การสมัครใช้งานของคุณยังใช้งานได้อยู่ เปิดแอป PISUM เพื่อเริ่มเขียนรายงาน",
       "status_wait_payment_title": "กำลังตรวจสอบการชำระเงิน…",

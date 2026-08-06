@@ -182,6 +182,10 @@
     "piw_chip5": "GDPR uyumlu mu?",
     "piw_input": "Bir soru sorun…",
     "js": {
+      "greeting_morning": "Günaydın",
+      "greeting_afternoon": "İyi günler",
+      "greeting_evening": "İyi akşamlar",
+      "referral_copied": "Kopyalandı!",
       "status_ok_title": "Erişim verildi",
       "status_ok_desc": "Aboneliğiniz aktif. Rapor yazmaya başlamak için PISUM uygulamasını başlatın.",
       "status_wait_payment_title": "Ödeme kontrol ediliyor…",

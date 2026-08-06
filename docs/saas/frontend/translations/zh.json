@@ -182,6 +182,10 @@
     "piw_chip5": "符合 GDPR 吗？",
     "piw_input": "提问…",
     "js": {
+      "greeting_morning": "早上好",
+      "greeting_afternoon": "下午好",
+      "greeting_evening": "晚上好",
+      "referral_copied": "已复制！",
       "status_ok_title": "访问已授予",
       "status_ok_desc": "您的订阅有效。启动 PISUM 应用开始撰写报告。",
       "status_wait_payment_title": "正在检查付款…",

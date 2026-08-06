@@ -182,6 +182,10 @@
     "piw_chip5": "Соответствует GDPR?",
     "piw_input": "Задайте вопрос…",
     "js": {
+      "greeting_morning": "Доброе утро",
+      "greeting_afternoon": "Добрый день",
+      "greeting_evening": "Добрый вечер",
+      "referral_copied": "Скопировано!",
       "status_ok_title": "Доступ предоставлен",
       "status_ok_desc": "Ваша подписка активна. Запустите приложение PISUM, чтобы начать создавать отчеты.",
       "status_wait_payment_title": "Проверка оплаты…",

@@ -182,6 +182,10 @@
     "piw_chip5": "GDPR 준수?",
     "piw_input": "질문 입력…",
     "js": {
+      "greeting_morning": "좋은 아침이에요",
+      "greeting_afternoon": "안녕하세요",
+      "greeting_evening": "좋은 저녁이에요",
+      "referral_copied": "복사됨!",
       "status_ok_title": "액세스 권한 부여됨",
       "status_ok_desc": "구독이 활성화되었습니다. PISUM 앱을 실행하여 보고서 작성을 시작하세요.",
       "status_wait_payment_title": "결제 확인 중…",

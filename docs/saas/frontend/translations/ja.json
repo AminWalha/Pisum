@@ -182,6 +182,10 @@
     "piw_chip5": "GDPRに準拠していますか？",
     "piw_input": "質問を入力…",
     "js": {
+      "greeting_morning": "おはようございます",
+      "greeting_afternoon": "こんにちは",
+      "greeting_evening": "こんばんは",
+      "referral_copied": "コピーしました！",
       "status_ok_title": "アクセス許可",
       "status_ok_desc": "サブスクリプションは有効です。PISUMアプリを起動してレポート作成を開始してください。",
       "status_wait_payment_title": "支払いをチェック中…",

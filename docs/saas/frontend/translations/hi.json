@@ -182,6 +182,10 @@
     "piw_chip5": "GDPR अनुपालन?",
     "piw_input": "एक प्रश्न पूछें…",
     "js": {
+      "greeting_morning": "सुप्रभात",
+      "greeting_afternoon": "नमस्ते",
+      "greeting_evening": "शुभ संध्या",
+      "referral_copied": "कॉपी किया!",
       "status_ok_title": "पहुँच प्रदान की गई",
       "status_ok_desc": "आपकी सदस्यता सक्रिय है। रिपोर्ट लिखना शुरू करने के लिए PISUM ऐप लॉन्च करें।",
       "status_wait_payment_title": "भुगतान की जाँच हो रही है…",

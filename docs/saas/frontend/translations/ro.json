@@ -182,6 +182,10 @@
     "piw_chip5": "Conform GDPR?",
     "piw_input": "Puneți o întrebare…",
     "js": {
+      "greeting_morning": "Bună dimineața",
+      "greeting_afternoon": "Bună ziua",
+      "greeting_evening": "Bună seara",
+      "referral_copied": "Copiat!",
       "status_ok_title": "Acces acordat",
       "status_ok_desc": "Abonamentul dvs. este activ. Lansați aplicația PISUM pentru a începe redactarea rapoartelor.",
       "status_wait_payment_title": "Verificăm plata…",

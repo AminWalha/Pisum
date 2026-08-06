@@ -182,6 +182,10 @@
     "piw_chip5": "Sumusunod sa GDPR?",
     "piw_input": "Magtanong…",
     "js": {
+      "greeting_morning": "Magandang umaga",
+      "greeting_afternoon": "Magandang hapon",
+      "greeting_evening": "Magandang gabi",
+      "referral_copied": "Nakopya!",
       "status_ok_title": "Access Granted",
       "status_ok_desc": "Aktibo ang iyong subscription. Ilunsad ang PISUM app upang magsimulang magsulat ng mga report.",
       "status_wait_payment_title": "Sinusuri ang bayad…",

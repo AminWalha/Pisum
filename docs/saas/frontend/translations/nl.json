@@ -182,6 +182,10 @@
     "piw_chip5": "GDPR-conform?",
     "piw_input": "Stel een vraag…",
     "js": {
+      "greeting_morning": "Goedemorgen",
+      "greeting_afternoon": "Goedemiddag",
+      "greeting_evening": "Goedenavond",
+      "referral_copied": "Gekopieerd!",
       "status_ok_title": "Toegang verleend",
       "status_ok_desc": "Uw abonnement is actief. Start de PISUM-app om rapporten te schrijven.",
       "status_wait_payment_title": "Betaling controleren…",

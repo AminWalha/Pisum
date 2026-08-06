@@ -182,6 +182,10 @@
     "piw_chip5": "Συμμόρφωση GDPR;",
     "piw_input": "Κάντε μια ερώτηση…",
     "js": {
+      "greeting_morning": "Καλημέρα",
+      "greeting_afternoon": "Καλό απόγευμα",
+      "greeting_evening": "Καλησπέρα",
+      "referral_copied": "Αντιγράφηκε!",
       "status_ok_title": "Πρόσβαση εγκεκριμένη",
       "status_ok_desc": "Η συνδρομή σας είναι ενεργή. Εκκινήστε την εφαρμογή PISUM για να ξεκινήσετε τη συγγραφή αναφορών.",
       "status_wait_payment_title": "Έλεγχος πληρωμής…",

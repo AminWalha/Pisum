@@ -182,6 +182,10 @@
     "piw_chip5": "¿Cumple con GDPR?",
     "piw_input": "Haz una pregunta…",
     "js": {
+      "greeting_morning": "Buenos días",
+      "greeting_afternoon": "Buenas tardes",
+      "greeting_evening": "Buenas noches",
+      "referral_copied": "¡Copiado!",
       "status_ok_title": "Acceso concedido",
       "status_ok_desc": "Su suscripción está activa. Inicie la aplicación PISUM para comenzar a redactar informes.",
       "status_wait_payment_title": "Verificando pago…",
