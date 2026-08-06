@@ -1030,7 +1030,11 @@
     "ai_pillar3_title": "Emergencia Primero",
     "ai_pillar3_desc": "Trombosis vascular, hemorragia activa, hallazgos de tensión, isquemia de órganos — los hallazgos potencialmente mortales siempre aparecen como la primera viñeta de conclusión, claramente marcados con el nivel de urgencia. Nunca enterrados en texto genérico.",
     "ai_cta": "Desbloquear Mejora y Diagnóstico de IA",
-    "ai_cta_sub": "Planes Pro+ · Funciona en los 23 idiomas"
+    "ai_cta_sub": "Planes Pro+ · Funciona en los 23 idiomas",
+    "feat_ai_desc": "Dicte o escriba los hallazgos en lenguaje natural. PISUM los reformula a un vocabulario radiológico de nivel académico,  cruza todos los signos para nombrar el síndrome unificado, calibra la certeza diagnóstica y marca primero los hallazgos que ponen en peligro la vida, como un radiólogo sénior revisando cada informe.",
+    "feat_ai_raw_label": "Dictado sin procesar",
+    "feat_ai_pro_pill": "Planes Pro+",
+    "feat_ai_critical": "🔴 Crítico — correlación clínica inmediata"
   },
   "hero": {
     "title": "Software de informes de radiología",

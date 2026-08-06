@@ -1030,7 +1030,11 @@
     "ai_pillar3_title": "Najpierw Nagłe Wypadki",
     "ai_pillar3_desc": "Zakrzepica naczyniowa, aktywne krwawienie, objawy napięciowe, niedokrwienie narządów — stany zagrażające życiu zawsze pojawiają się jako pierwszy punkt wniosku, wyraźnie oznaczone poziomem pilności. Nigdy nie ukryte w standardowym tekście.",
     "ai_cta": "Odblokuj ulepszenie i diagnozę AI",
-    "ai_cta_sub": "Plany Pro+ · Działa we wszystkich 23 językach"
+    "ai_cta_sub": "Plany Pro+ · Działa we wszystkich 23 językach",
+    "feat_ai_desc": "Dyktuj lub wpisuj wyniki w prostym języku. PISUM przekształci je w profesjonalne słownictwo radiologiczne, skoreluje wszystkie objawy w celu nazwania zespołu chorobowego, skalibruje pewność diagnostyczną i jako pierwszy oznaczy wyniki zagrażające życiu — jak doświadczony radiolog przeglądający każdy raport.",
+    "feat_ai_raw_label": "Surowe dyktowanie",
+    "feat_ai_pro_pill": "Plany Pro+",
+    "feat_ai_critical": "🔴 Krytyczne — natychmiastowa korelacja kliniczna"
   },
   "hero": {
     "title": "Oprogramowanie do raportowania radiologicznego",

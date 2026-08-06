@@ -1030,7 +1030,11 @@
     "ai_pillar3_title": "Önce Aciliyet",
     "ai_pillar3_desc": "Vasküler tromboz, aktif kanama, gerilim bulguları, organ iskemisi - hayatı tehdit eden bulgular her zaman ilk sonuç maddesi olarak görünür, aciliyet seviyesi ile açıkça işaretlenir. Asla standart metinlere gömülmez.",
     "ai_cta": "YZ İyileştirme ve Tanı Kilidini Açın",
-    "ai_cta_sub": "Pro+ planları · Tüm 23 dilde çalışır"
+    "ai_cta_sub": "Pro+ planları · Tüm 23 dilde çalışır",
+    "feat_ai_desc": "Bulguları düz dilde dikte edin veya yazın. PISUM, bunları akademik düzeyde radyoloji kelime hazinesine dönüştürür, tüm bulguları çapraz ilişkilendirerek birleşik sendromu adlandırır, tanı kesinliğini ayarlar ve kıdemli bir radyoloğun her raporu gözden geçirmesi gibi hayatı tehdit eden bulguları ilk önce işaretler.",
+    "feat_ai_raw_label": "Ham dikte",
+    "feat_ai_pro_pill": "Pro+ Planları",
+    "feat_ai_critical": "🔴 Kritik — acil klinik korelasyon"
   },
   "hero": {
     "title": "Radyoloji raporlama yazılımı",

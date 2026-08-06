@@ -1030,7 +1030,11 @@
     "ai_pillar3_title": "Eerst Noodsituaties",
     "ai_pillar3_desc": "Vasculaire trombose, actieve bloeding, spanningsbevindingen, orgaanische ischemie — levensbedreigende bevindingen verschijnen altijd als de eerste conclusiebullet, duidelijk gemarkeerd met het urgentieniveau. Nooit begraven in standaardteksten.",
     "ai_cta": "Ontgrendel AI Verbetering &amp; Diagnose",
-    "ai_cta_sub": "Pro+ abonnementen · Werkt in alle 23 talen"
+    "ai_cta_sub": "Pro+ abonnementen · Werkt in alle 23 talen",
+    "feat_ai_desc": "Dikteer of typ bevindingen in duidelijke taal. PISUM formuleert ze om naar woordenschat op academisch niveau voor radiologie, correleert alle tekenen om het verenigde syndroom te benoemen, kalibreert diagnostische zekerheid en markeert eerst levensbedreigende bevindingen — als een senior radioloog die elke rapportage beoordeelt.",
+    "feat_ai_raw_label": "Ruwe dictaten",
+    "feat_ai_pro_pill": "Pro+ Abonnementen",
+    "feat_ai_critical": "🔴 Kritiek — onmiddellijke klinische correlatie"
   },
   "hero": {
     "title": "Software voor radiologieverslaggeving",

@@ -1030,7 +1030,11 @@
     "ai_pillar3_title": "Darurat Terlebih Dahulu",
     "ai_pillar3_desc": "Trombosis vaskular, perdarahan aktif, temuan tegangan, iskemia organ — temuan yang mengancam jiwa selalu muncul sebagai poin kesimpulan pertama, ditandai dengan jelas dengan tingkat urgensi. Tidak pernah terkubur dalam boilerplate.",
     "ai_cta": "Buka Peningkatan &amp; Diagnosis AI",
-    "ai_cta_sub": "Paket Pro+ · Berfungsi dalam semua 23 bahasa"
+    "ai_cta_sub": "Paket Pro+ · Berfungsi dalam semua 23 bahasa",
+    "feat_ai_desc": "Dikte atau ketik temuan dalam bahasa sehari-hari. PISUM merumuskannya kembali menjadi kosakata radiologi setingkat akademis, mengkorelasikan silang semua tanda untuk menamai sindrom terpadu, mengkalibrasi kepastian diagnostik, dan menandai temuan yang mengancam jiwa terlebih dahulu — seperti radiolog senior yang meninjau setiap laporan.",
+    "feat_ai_raw_label": "Dikte mentah",
+    "feat_ai_pro_pill": "Paket Pro+",
+    "feat_ai_critical": "🔴 Kritis — korelasi klinis segera"
   },
   "hero": {
     "title": "Perangkat lunak pelaporan radiologi",

@@ -1030,7 +1030,11 @@
     "ai_pillar3_title": "Nöd Först",
     "ai_pillar3_desc": "Vaskulär trombos, aktiv blödning, spänningsfynd, organischemi — livshotande fynd visas alltid som den första slutsatskulan, tydligt flaggade med nivå av brådska. Aldrig begravda i standardtext.",
     "ai_cta": "Lås upp AI-förbättring &amp; Diagnostik",
-    "ai_cta_sub": "Pro+-planer · Fungerar på alla 23 språk"
+    "ai_cta_sub": "Pro+-planer · Fungerar på alla 23 språk",
+    "feat_ai_desc": "Diktate eller skriv fynd på vanligt språk. PISUM omformulerar dem till radiologiskt vokabulär av akademisk kvalitet, korsrefererar alla tecken för att namnge det enhetliga syndromet, kalibrerar diagnostisk säkerhet och flaggar livshotande fynd först — som en erfaren radiolog som granskar varje rapport.",
+    "feat_ai_raw_label": "Rådiktering",
+    "feat_ai_pro_pill": "Pro+ Planer",
+    "feat_ai_critical": "🔴 Kritisk — omedelbar klinisk korrelation"
   },
   "hero": {
     "title": "Programvara för radiologirapportering",

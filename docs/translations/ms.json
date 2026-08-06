@@ -1030,7 +1030,11 @@
     "ai_pillar3_title": "Kecemasan Diutamakan",
     "ai_pillar3_desc": "Trombosis vaskular, pendarahan aktif, penemuan ketegangan, iskemia organ — penemuan yang mengancam nyawa sentiasa muncul sebagai peluru kesimpulan pertama, ditandakan dengan jelas dengan tahap urgensi. Tidak pernah terselindung dalam bahan standard.",
     "ai_cta": "Buka kunci Penambahbaikan &amp; Diagnosis AI",
-    "ai_cta_sub": "Pelan Pro+ · Berfungsi dalam semua 23 bahasa"
+    "ai_cta_sub": "Pelan Pro+ · Berfungsi dalam semua 23 bahasa",
+    "feat_ai_desc": "Diktat atau taip penemuan dalam bahasa biasa. PISUM menggubalnya semula kepada perbendaharaan kata radiologi gred akademik, merentasi korelasi semua tanda untuk menamakan sindrom bersatu, menentukur kepastian diagnostik, dan menandakan penemuan yang mengancam nyawa terlebih dahulu — seperti ahli radiologi kanan yang menyemak setiap laporan.",
+    "feat_ai_raw_label": "Diktat mentah",
+    "feat_ai_pro_pill": "Pelan Pro+",
+    "feat_ai_critical": "🔴 Kritikal — korelasi klinikal segera"
   },
   "hero": {
     "title": "Perisian pelaporan radiologi",

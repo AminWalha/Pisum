@@ -1030,7 +1030,11 @@
     "ai_pillar3_title": "L'Urgence Avant Tout",
     "ai_pillar3_desc": "Thrombose vasculaire, saignement actif, signes de tension, ischémie d'organe — les résultats potentiellement mortels apparaissent toujours comme la première puce de conclusion, clairement signalés par le niveau d'urgence. Jamais enfouis dans du texte standard.",
     "ai_cta": "Débloquez l'amélioration IA &amp; le Diagnostic",
-    "ai_cta_sub": "Plans Pro+ · Fonctionne dans les 23 langues"
+    "ai_cta_sub": "Plans Pro+ · Fonctionne dans les 23 langues",
+    "feat_ai_desc": "Dictation ou saisie de résultats en langage naturel. PISUM les reformule en vocabulaire radiologique de niveau académique, corrèle tous les signes pour nommer le syndrome unifié, calibre la certitude diagnostique et signale en premier les découvertes potentiellement mortelles — comme un radiologue senior examinant chaque rapport.",
+    "feat_ai_raw_label": "Dictée brute",
+    "feat_ai_pro_pill": "Plans Pro+",
+    "feat_ai_critical": "🔴 Critique — corrélation clinique immédiate"
   },
   "hero": {
     "title": "Logiciel de comptes rendus radiologiques",

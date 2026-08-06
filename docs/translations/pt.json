@@ -1030,7 +1030,11 @@
     "ai_pillar3_title": "Emergência em Primeiro Lugar",
     "ai_pillar3_desc": "Trombose vascular, sangramento ativo, achados de tensão, isquemia de órgãos — achados de risco de vida sempre aparecem como o primeiro item da conclusão, claramente sinalizados com nível de urgência. Nunca enterrados em texto padrão.",
     "ai_cta": "Desbloqueie Aprimoramento e Diagnóstico por IA",
-    "ai_cta_sub": "Planos Pro+ · Funciona em todos os 23 idiomas"
+    "ai_cta_sub": "Planos Pro+ · Funciona em todos os 23 idiomas",
+    "feat_ai_desc": "Dite ou digite achados em linguagem simples. O PISUM os reformula para vocabulário radiológico de nível acadêmico, autocorrelação de todos os sinais para nomear a síndrome unificada, calibração da certeza diagnóstica e sinalização prioritária de achados com risco de vida — como um radiologista sênior revisando cada laudo.",
+    "feat_ai_raw_label": "Ditação bruta",
+    "feat_ai_pro_pill": "Planos Pro+",
+    "feat_ai_critical": "🔴 Crítico — correlação clínica imediata"
   },
   "hero": {
     "title": "Software de relatórios de radiologia",

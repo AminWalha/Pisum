@@ -1030,7 +1030,11 @@
     "ai_pillar3_title": "Nødfagg Først",
     "ai_pillar3_desc": "Vaskulær trombose, aktiv blødning, spenningsfunn, organisk ischemi — livstruende funn vises alltid som det første punktet i konklusjonen, tydelig flagget med urgensnivå. Aldri begravd i standardtekst.",
     "ai_cta": "Lås opp AI-forsterkning &amp; Diagnose",
-    "ai_cta_sub": "Pro+-planer · Fungerer på alle 23 språk"
+    "ai_cta_sub": "Pro+-planer · Fungerer på alle 23 språk",
+    "feat_ai_desc": "Dikter eller skriv funn med vanlig språk. PISUM omformulerer dem til radiologisk vokabular på akademisk nivå, krysskorrelerer alle tegn for å navngi det samlede syndromet, kalibrerer diagnostisk sikkerhet og flagger livstruende funn først – som en erfaren radiolog som gjennomgår hver rapport.",
+    "feat_ai_raw_label": "Rå diktering",
+    "feat_ai_pro_pill": "Pro+ Planer",
+    "feat_ai_critical": "🔴 Kritisk — umiddelbar klinisk korrelasjon"
   },
   "hero": {
     "title": "Programvare for radiologirapportering",

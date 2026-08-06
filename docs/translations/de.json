@@ -1030,7 +1030,11 @@
     "ai_pillar3_title": "Notfall zuerst",
     "ai_pillar3_desc": "Vaskuläre Thrombose, aktive Blutung, Spannungsbefunde, Organischämie – lebensbedrohliche Befunde erscheinen immer als erste Schlussfolgerungsaufzählung, klar mit dem Dringlichkeitsgrad gekennzeichnet. Nie im Standardtext vergraben.",
     "ai_cta": "KI-Verfeinerung &amp; Diagnose freischalten",
-    "ai_cta_sub": "Pro+ Pläne · Funktioniert in allen 23 Sprachen"
+    "ai_cta_sub": "Pro+ Pläne · Funktioniert in allen 23 Sprachen",
+    "feat_ai_desc": "Diktieren oder tippen Sie Befunde in einfacher Sprache. PISUM formuliert diese in radiologische Fachsprache auf akademischem Niveau um, korreliert alle Anzeichen, um das einheitliche Syndrom zu benennen, kalibriert die diagnostische Sicherheit und kennzeichnet zuerst lebensbedrohliche Befunde – wie ein leitender Radiologe, der jeden Bericht überprüft.",
+    "feat_ai_raw_label": "Rohe Diktion",
+    "feat_ai_pro_pill": "Pro+ Pläne",
+    "feat_ai_critical": "🔴 Kritisch – sofortige klinische Korrelation"
   },
   "hero": {
     "title": "Radiologie-Befundsoftware",

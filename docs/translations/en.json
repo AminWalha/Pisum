@@ -1030,7 +1030,11 @@
                   "ai_pillar3_title":  "Emergency First",
                   "ai_pillar3_desc":  "Vascular thrombosis, active bleeding, tension findings, organ ischemia — life-threatening findings always appear as the first conclusion bullet, clearly flagged with urgency level. Never buried in boilerplate.",
                   "ai_cta":  "Unlock AI Enhancement &amp; Diagnosis",
-                  "ai_cta_sub":  "Pro+ plans · Works in all 23 languages"
+                  "ai_cta_sub":  "Pro+ plans · Works in all 23 languages",
+                  "feat_ai_desc":  "Dictate or type findings in plain language. PISUM reformulates them to academic-grade radiology vocabulary, cross-correlates all signs to name the unified syndrome, calibrates diagnostic certainty, and flags life-threatening findings first — like a senior radiologist reviewing every report.",
+                  "feat_ai_raw_label":  "Raw dictation",
+                  "feat_ai_pro_pill":  "Pro+ Plans",
+                  "feat_ai_critical":  "🔴 Critical — immediate clinical correlation"
               },
     "hero":  {
                  "title":  "Radiology reporting software",

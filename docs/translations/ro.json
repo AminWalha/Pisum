@@ -1030,7 +1030,11 @@
     "ai_pillar3_title": "Urgența Primul",
     "ai_pillar3_desc": "Tromboza vasculară, sângerarea activă, constatările de tensiune, ischemia organelor — descoperirile care pun viața în pericol apar întotdeauna ca primul punct de concluzie, clar semnalat cu nivelul de urgență. Niciodată îngropat în boilerplate.",
     "ai_cta": "Deblocați Îmbunătățirea AI și Diagnosticarea",
-    "ai_cta_sub": "Planuri Pro+ · Funcționează în toate cele 23 de limbi"
+    "ai_cta_sub": "Planuri Pro+ · Funcționează în toate cele 23 de limbi",
+    "feat_ai_desc": "Dictați sau tastați constatările în limbaj curent. PISUM le reformulează în vocabular radiologic de nivel academic, corelează toate semnele pentru a denumi sindromul unificat, calibrează certitudinea diagnostică și marchează mai întâi constatările care pun viața în pericol — ca un medic radiolog senior care revizuiește fiecare raport.",
+    "feat_ai_raw_label": "Dictare brută",
+    "feat_ai_pro_pill": "Planuri Pro+",
+    "feat_ai_critical": "🔴 Critic — corelare clinică imediată"
   },
   "hero": {
     "title": "Software de raportare radiologică",

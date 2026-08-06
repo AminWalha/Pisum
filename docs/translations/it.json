@@ -1030,7 +1030,11 @@
     "ai_pillar3_title": "Emergenza Prima",
     "ai_pillar3_desc": "Trombosi vascolare, sanguinamento attivo, reperti di tensione, ischemia d'organo — i reperti potenzialmente letali compaiono sempre come primo punto di conclusione, chiaramente segnalati con livello di urgenza. Mai sepolti in testo boilerplate.",
     "ai_cta": "Sblocca Potenziamento Diagnosi IA",
-    "ai_cta_sub": "Piani Pro+ · Funziona in tutte le 23 lingue"
+    "ai_cta_sub": "Piani Pro+ · Funziona in tutte le 23 lingue",
+    "feat_ai_desc": "Dettare o digitare i referti in linguaggio naturale. PISUM li riformula in un vocabolario radiologico di livello accademico, correla tutti i segni per nominare la sindrome unificata, calibra la certezza diagnostica e segnala prima i reperti potenzialmente letali — come un radiologo senior che rivede ogni referto.",
+    "feat_ai_raw_label": "Dettatura grezza",
+    "feat_ai_pro_pill": "Piani Pro+",
+    "feat_ai_critical": "🔴 Critico — correlazione clinica immediata"
   },
   "hero": {
     "title": "Software di refertazione radiologica",

@@ -1030,7 +1030,11 @@
     "ai_pillar3_title": "Nødsituation Først",
     "ai_pillar3_desc": "Vaskulær trombose, aktiv blødning, spændingsfund, organisk iskæmi — livstruende fund vises altid som den første konklusionsbullet, tydeligt flagget med urgensniveau. Aldrig begravet i boilerplate.",
     "ai_cta": "Lås op for AI-forbedring &amp; Diagnose",
-    "ai_cta_sub": "Pro+ planer · Fungerer på alle 23 sprog"
+    "ai_cta_sub": "Pro+ planer · Fungerer på alle 23 sprog",
+    "feat_ai_desc": "Dikter eller skriv fund på almindeligt sprog. PISUM omformulerer dem til fagtermer på akademisk niveau inden for radiologi, krydsrefererer alle tegn for at navngive det samlede syndrom, kalibrerer diagnostisk sikkerhed og fremhæver livstruende fund først — som en erfaren radiolog, der gennemgår hver rapport.",
+    "feat_ai_raw_label": "Rå diktering",
+    "feat_ai_pro_pill": "Pro+ Planer",
+    "feat_ai_critical": "🔴 Kritisk — øjeblikkelig klinisk korrelation"
   },
   "hero": {
     "title": "Software til radiologirapportering",
