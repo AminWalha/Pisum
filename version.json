@@ -1,0 +1,10 @@
+{
+  "version": "3.0",
+  "release_date": "2026-08-09",
+  "download_url": "https://www.pisum.app",
+  "changelog": {
+    "en": "Enhancement"
+  },
+  "mandatory": false,
+  "min_version_required": "1.0.0"
+}
