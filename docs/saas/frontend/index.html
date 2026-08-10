@@ -1,0 +1,2525 @@
+[cite: 1]<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6VG09X3G7F');
+</script>
+<meta charset="UTF-8"/>
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="0"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>PISUM — My Account</title>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* Ultra-modern dark theme palette */
+:root {
+  --bg: #030408; 
+  --surface: #0A0C14;
+  --surface-glass: rgba(10, 12, 20, 0.65);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.18);
+  --text-main: #FFFFFF;
+  --text-dim: #94A3B8;
+  --text-muted: #64748B;
+  --accent-cyan: #00E5CC;
+  --accent-violet: #7C3AED;
+  --accent-green: #10B981;
+  --accent-red: #EF4444;
+  --accent-amber: #F59E0B;
+  --grad: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-violet) 100%);
+  --shadow-glow: 0 0 40px rgba(0, 229, 204, 0.15);
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+
+  /* Legacy Compat Aliases for JS */
+  --app-bg: var(--bg);
+  --app-surface: var(--surface);
+  --app-surface-2: rgba(255,255,255,0.03);
+  --app-border: var(--border);
+  --app-border-2: var(--border-hover);
+  --app-text-primary: var(--text-main);
+  --app-text-secondary: var(--text-dim);
+  --app-text-tertiary: var(--text-muted);
+  --app-primary: var(--accent-cyan);
+  --app-primary-dark: #00B3A1;
+  --app-primary-light: rgba(0, 229, 204, 0.1);
+  --app-primary-text: #000000;
+  --app-error: var(--accent-red);
+  --app-success: var(--accent-green);
+  --app-warn: var(--accent-amber);
+  --app-blue: var(--accent-cyan);
+
+  --sidebar-w: 260px;
+  --r-sm: 8px; --r: 12px; --r-lg: 16px; --r-xl: 24px;
+  --transition: 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow: 0 8px 32px rgba(0,0,0,0.4);
+
+  --t1: var(--text-main); --t2: var(--text-dim); --t3: var(--text-muted);
+  --ink: var(--text-main); --ink-2: var(--text-dim); --ink-3: var(--text-muted);
+  --ink-4: var(--border); --ink-5: var(--app-surface-2);
+  --green: var(--accent-green); --red: var(--accent-red); --amber: var(--accent-amber);
+  --blue: var(--accent-cyan); --blue-hover: var(--app-primary-dark); --blue-light: var(--app-primary-light);
+}
+
+html,body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;height:100%}
+body{font-family:var(--font-body);background:var(--bg);color:var(--t1);overflow:hidden;line-height:1.5}
+
+/* Background Elements */
+.bg-elements { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.bg-grid { position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(circle at center, black, transparent 80%); -webkit-mask-image: radial-gradient(circle at center, black, transparent 80%); opacity: 0.3; }
+.glow-orb { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.3; }
+.glow-1 { top: -10%; left: 10%; width: 500px; height: 500px; background: var(--accent-violet); }
+.glow-2 { bottom: 10%; right: -5%; width: 600px; height: 600px; background: var(--accent-cyan); }
+
+/* ── APP SHELL ── */
+.app-shell{display:flex;height:100vh;overflow:hidden; position:relative; z-index:1;}
+.app-shell::before {
+  content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(0, 229, 204, 0.05), transparent 40%);
+  opacity: 0; transition: opacity 0.5s ease;
+}
+.app-shell:hover::before { opacity: 1; }
+
+/* ── SIDEBAR ── */
+.sidebar{
+  width:var(--sidebar-w);flex-shrink:0;
+  background:var(--surface-glass); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;height:100vh;
+  overflow-y:auto;overflow-x:hidden;
+  position:relative;z-index:10;
+  scrollbar-width:none
+}
+.sidebar::-webkit-scrollbar{display:none}
+
+.sb-top{padding:1.5rem 1.25rem 0}
+.sb-logo{
+  display:flex;align-items:center;gap:10px;text-decoration:none;
+  padding:0.5rem;border-radius:var(--r);
+  transition:background var(--transition)
+}
+.sb-logo:hover{background:rgba(255,255,255,0.05)}
+.sb-logo img{width:32px;height:32px;border-radius:8px}
+.sb-logo-text{font-family:var(--font-display);font-size:1.1rem;font-weight:800;letter-spacing:-0.02em;color:var(--text-main)}
+
+.sb-divider{height:1px;background:var(--border);margin:1.25rem 1.25rem}
+
+.sb-user{padding:0 1.25rem;display:flex;align-items:center;gap:12px}
+.sb-avatar{
+  width:38px;height:38px;border-radius:50%;
+  background:var(--grad);
+  color:var(--bg);font-size:0.8rem;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;overflow:hidden;
+  box-shadow:0 0 0 2px var(--app-primary-light)
+}
+.sb-user-info{overflow:hidden}
+.sb-name{font-size:0.85rem;font-weight:600;color:var(--text-main);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sb-email{font-size:0.7rem;color:var(--text-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.sb-nav{padding:0.5rem 0.75rem;display:flex;flex-direction:column;gap:4px;flex:1}
+.sb-nav-label{
+  font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--accent-cyan);padding:1rem 0.75rem 0.5rem
+}
+.sb-link{
+  display:flex;align-items:center;gap:10px;padding:0.65rem 0.75rem;border-radius:var(--r);
+  color:var(--text-dim);font-size:0.85rem;font-weight:500;cursor:pointer;
+  transition:all var(--transition);text-decoration:none;user-select:none;
+  border:none;background:none;font-family:inherit;width:100%;text-align:left
+}
+.sb-link svg{width:16px;height:16px;flex-shrink:0;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:stroke var(--transition)}
+.sb-link:hover{color:var(--text-main);background:rgba(255,255,255,0.05)}
+.sb-link.active{color:var(--accent-cyan);background:var(--app-primary-light);font-weight:600;}
+.sb-link.active svg{stroke:var(--accent-cyan)}
+
+.sb-bottom{padding:1rem 0.75rem 1.5rem;border-top:1px solid var(--border)}
+.sb-signout{
+  display:flex;align-items:center;gap:10px;padding:0.65rem 0.75rem;border-radius:var(--r);
+  color:var(--text-dim);font-size:0.85rem;font-weight:500;cursor:pointer;
+  transition:all var(--transition);background:none;border:none;font-family:inherit;
+  width:100%;text-align:left
+}
+.sb-signout svg{width:16px;height:16px;flex-shrink:0;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.sb-signout:hover{color:var(--accent-red);background:rgba(239, 68, 68, 0.1)}
+
+/* ── MAIN WRAP ── */
+.main-wrap{flex:1;min-width:0;overflow-y:auto;height:100vh;background:transparent;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.1) transparent; position: relative; z-index: 1;}
+.main-wrap::-webkit-scrollbar{width:6px}
+.main-wrap::-webkit-scrollbar-track{background:transparent}
+.main-wrap::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:99px}
+main{max-width:960px;margin:0 auto;padding:2rem 2rem 5rem}
+
+/* ── BENTO CARDS BASE ── */
+.dark-card, .stat-card, .ring-card, .plan-card, #onboarding-card, .quote-card {
+  background: var(--surface-glass);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  transition: all 0.3s var(--t);
+  position: relative; overflow: hidden;
+}
+.dark-card:hover, .stat-card:hover, .ring-card:hover, .plan-card:hover, #onboarding-card:hover, .quote-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  transform: translateY(-2px);
+}
+.dark-card{margin-bottom:1.5rem}
+
+/* ── QUOTE CARD ── */
+.quote-card {
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  background: linear-gradient(135deg, rgba(0, 229, 204, 0.04) 0%, rgba(124, 58, 237, 0.04) 100%);
+  border: 1px solid rgba(0, 229, 204, 0.15);
+}
+.quote-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--app-primary-light);
+  border: 1px solid rgba(0, 229, 204, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--accent-cyan);
+}
+.quote-content { flex: 1; min-width: 0; }
+.quote-text {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--text-main);
+  line-height: 1.5;
+  margin-bottom: 0.25rem;
+}
+.quote-author {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: right;
+}
+
+/* ── ONBOARDING ── */
+#onboarding-card{padding:2rem;margin-bottom:1.5rem;animation:slideUp 0.35s cubic-bezier(0.4,0,0.2,1) both}
+.ob-header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1.5rem}
+.ob-title{font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--text-main);letter-spacing:-0.02em}
+.ob-sub{font-size:0.9rem;color:var(--text-dim);margin-top:4px}
+.ob-dismiss{background:rgba(255,255,255,0.05);border:1px solid var(--border);color:var(--text-dim);cursor:pointer;padding:6px;border-radius:8px;transition:all var(--transition);flex-shrink:0;}
+.ob-dismiss:hover{color:var(--text-main);background:rgba(255,255,255,0.1);border-color:var(--border-hover)}
+.ob-steps{display:flex;flex-direction:column;gap:1rem}
+.ob-step{display:flex;align-items:flex-start;gap:1rem;padding:1.25rem;border-radius:var(--r-lg);background:rgba(0,0,0,0.2);border:1px solid var(--border);transition:all var(--transition)}
+.ob-step.done{opacity:0.5}
+.ob-step-num{width:30px;height:30px;border-radius:50%;background:var(--app-primary-light);border:1px solid var(--accent-cyan);color:var(--accent-cyan);font-family:var(--font-mono);font-size:0.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ob-step.done .ob-step-num{background:rgba(16,185,129,0.15);border-color:var(--accent-green);color:var(--accent-green)}
+.ob-step-body{flex:1;min-width:0}
+.ob-step-title{font-size:0.95rem;font-weight:600;color:var(--text-main);margin-bottom:4px}
+.ob-step-desc{font-size:0.85rem;color:var(--text-dim);line-height:1.5}
+.ob-step-action{margin-top:0.8rem}
+.ob-btn{display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;font-weight:600;padding:0.6rem 1.2rem;border-radius:999px;background:var(--grad);color:var(--bg);border:none;cursor:pointer;text-decoration:none;transition:all var(--transition)}
+.ob-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-glow)}
+.ob-progress{display:flex;align-items:center;gap:12px;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.ob-progress-bar{flex:1;height:6px;background:rgba(255,255,255,0.1);border-radius:999px;overflow:hidden}
+.ob-progress-fill{height:100%;background:var(--accent-cyan);border-radius:999px;transition:width 0.4s ease}
+.ob-progress-label{font-size:0.8rem;color:var(--text-dim);font-weight:600;font-family:var(--font-mono)}
+
+/* ── HERO BANNER ── */
+.hero{
+  background: var(--surface-glass); backdrop-filter: blur(12px); border: 1px solid var(--border);
+  border-radius: var(--r-xl); padding: 2.5rem; margin-bottom: 1.5rem;
+  animation: slideUp 0.4s cubic-bezier(0.16,1,0.3,1) both;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: -50%; right: -10%; width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(0,229,204,0.15) 0%, transparent 60%); pointer-events: none;
+}
+.hero-row{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;position:relative;z-index:1}
+.hero-left{flex:1;min-width:0}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:0.75rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--accent-cyan);margin-bottom:0.75rem
+}
+.hero-eyebrow svg{opacity:1; width:14px; height:14px;}
+.hero-title-el{font-family:var(--font-display);font-size:2.2rem;font-weight:800;letter-spacing:-0.03em;color:var(--text-main);line-height:1.1;margin-bottom:0.5rem}
+.hero-sub-el{font-size:0.95rem;color:var(--text-dim);margin-bottom:1.5rem;line-height:1.6}
+.hero-badges-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.25rem}
+
+/* Status alert */
+.hero-status-line{
+  display:flex;align-items:center;gap:12px;
+  border-radius:var(--r);padding:1rem 1.25rem;
+  border-left-width:4px;border-left-style:solid;
+  background: rgba(0,0,0,0.3); backdrop-filter: blur(10px);
+  transition:all var(--transition)
+}
+.hero-status-line.status-ok{border-color:rgba(16,185,129,0.2);border-left-color:var(--accent-green)}
+.hero-status-line.status-err{border-color:rgba(239,68,68,0.2);border-left-color:var(--accent-red)}
+.hero-status-line.status-wait{border-color:rgba(0,229,204,0.2);border-left-color:var(--accent-cyan)}
+.hero-status-icon{flex-shrink:0;width:24px;height:24px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(255,255,255,0.05)}
+.hero-status-icon svg{width:14px;height:14px;stroke-width:2.5}
+.icon-ok .hero-status-icon svg{stroke:var(--accent-green)}
+.icon-err .hero-status-icon svg{stroke:var(--accent-red)}
+.icon-wait .hero-status-icon svg{stroke:var(--accent-cyan)}
+.hero-status-text h2{font-size:0.95rem;font-weight:700;color:var(--text-main);margin-bottom:0.1rem;line-height:1.3}
+.hero-status-text p{font-size:0.85rem;color:var(--text-dim);line-height:1.5}
+
+.hero-actions{display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:1.5rem}
+.btn-hero{
+  display:inline-flex;align-items:center;gap:8px;padding:0.75rem 1.5rem;
+  border-radius:999px;font-size:0.9rem;font-weight:600;font-family:var(--font-body);
+  cursor:pointer;transition:all var(--transition);border:none;line-height:1
+}
+.btn-hero-primary{background:var(--text-main);color:var(--bg)}
+.btn-hero-primary:hover{background:#E2E8F0;transform:translateY(-2px);box-shadow:0 4px 15px rgba(255,255,255,0.2)}
+.btn-hero-primary:disabled{opacity:0.6;cursor:not-allowed;transform:none;box-shadow:none}
+.btn-hero-outline{background:rgba(255,255,255,0.05);color:var(--text-main);border:1px solid var(--border)!important;text-decoration:none}
+.btn-hero-outline:hover{background:rgba(255,255,255,0.1);border-color:var(--accent-cyan)!important;transform:translateY(-2px)}
+
+/* ── DARK CARD HEADERS ── */
+.dc-head{
+  padding:1.5rem;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  background: rgba(0,0,0,0.2);
+}
+.dc-title{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:var(--text-main); letter-spacing:-0.01em;}
+.dc-body{padding:1.5rem}
+
+/* ── STAT ROW ── */
+.stat-row{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;
+  margin-bottom:1.5rem
+}
+@media(max-width:768px){.stat-row{grid-template-columns:repeat(2,1fr)}}
+.stat-card{
+  padding:1.5rem; cursor:default;
+  animation:slideUp 0.4s cubic-bezier(0.16,1,0.3,1) both;
+}
+.stat-card:nth-child(1){animation-delay:0.05s}
+.stat-card:nth-child(2){animation-delay:0.10s}
+.stat-card:nth-child(3){animation-delay:0.15s}
+.stat-card:nth-child(4){animation-delay:0.20s}
+.stat-icon-box{
+  width:40px;height:40px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:1rem;flex-shrink:0; border:1px solid var(--border);
+}
+.stat-icon-box svg{width:18px;height:18px;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.stat-icon-box.blue{background:var(--app-primary-light); border-color:rgba(0,229,204,0.2)}
+.stat-icon-box.blue svg{stroke:var(--accent-cyan)}
+.stat-icon-box.green{background:rgba(16, 185, 129, 0.1); border-color:rgba(16,185,129,0.2)}
+.stat-icon-box.green svg{stroke:var(--accent-green)}
+.stat-icon-box.amber{background:rgba(245, 158, 11, 0.1); border-color:rgba(245,158,11,0.2)}
+.stat-icon-box.amber svg{stroke:var(--accent-amber)}
+.stat-icon-box.t2{background:rgba(255,255,255,0.05)}
+.stat-icon-box.t2 svg{stroke:var(--text-dim)}
+.stat-label{font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.4rem}
+.stat-value,.info-value{font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--text-main);letter-spacing:-0.02em}
+.info-value.warn{color:var(--accent-amber)}
+.info-value.ok{color:var(--accent-green)}
+
+/* ── USAGE RINGS ── */
+.rings-row{display:flex;gap:1rem;flex-wrap:wrap;padding:1.5rem}
+.ring-card{
+  flex:1;min-width:220px;
+  display:flex;align-items:center;gap:1.25rem;
+  padding:1.5rem;
+}
+.ring-wrap{position:relative;width:90px;height:90px;flex-shrink:0}
+.ring-svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring-track{fill:none;stroke:rgba(255,255,255,0.08);stroke-width:8}
+.ring-fill{fill:none;stroke-width:8;stroke-linecap:round}
+.ring-center{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0}
+.ring-pct{font-family:var(--font-display);font-size:1.2rem;font-weight:800;color:var(--text-main);line-height:1}
+.ring-info{flex:1;min-width:0}
+.ring-name{font-size:0.95rem;font-weight:700;color:var(--text-main);margin-bottom:0.35rem;}
+.ring-count{font-size:0.85rem;color:var(--text-dim);margin-bottom:0.25rem; font-family:var(--font-mono);}
+.ring-sub{font-size:0.75rem;color:var(--text-muted);line-height:1.4}
+.usage-unlimited{color:var(--accent-green);font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;}
+
+/* ── FEATURE GRID ── */
+.feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0.75rem 1.5rem}
+@media(max-width:600px){.feature-grid{grid-template-columns:1fr}}
+.feature-item{
+  display:flex;align-items:center;gap:10px;
+  font-size:0.9rem;color:var(--text-dim);
+  padding:0.5rem 0;line-height:1.4;
+  border-bottom:1px solid rgba(255,255,255,0.05)
+}
+.feature-item:last-child,.feature-item:nth-last-child(2):nth-child(odd){border-bottom:none}
+.fi-icon{flex-shrink:0;width:18px;height:18px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.05);border-radius:4px;border:1px solid var(--border);}
+.fi-icon svg{width:12px;height:12px;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.fi-ok .fi-icon{background:rgba(16,185,129,0.15);border-color:rgba(16,185,129,0.3);}
+.fi-ok .fi-icon svg{stroke:var(--accent-green)}
+.fi-lim .fi-icon{background:rgba(245,158,11,0.15);border-color:rgba(245,158,11,0.3);}
+.fi-lim .fi-icon svg{stroke:var(--accent-amber)}
+.fi-no .fi-icon svg{stroke:var(--text-muted)}
+.fi-ok{color:var(--text-main)}
+.fi-lim{color:var(--text-main)}
+.fi-no{color:var(--text-muted)}
+
+/* ── PROFILE CARD ── */
+.profile-row{display:flex;align-items:center;gap:1.5rem;padding:1.5rem}
+.profile-avatar-wrap{position:relative;cursor:pointer;flex-shrink:0}
+.profile-avatar{
+  width:64px;height:64px;border-radius:50%;
+  background:var(--grad);
+  color:var(--bg);font-size:1.2rem;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;box-shadow:0 0 0 4px var(--app-primary-light)
+}
+.profile-avatar-wrap:hover .profile-avatar{filter:brightness(0.8)}
+.avatar-edit-overlay{
+  position:absolute;inset:0;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;opacity:0;transition:opacity var(--transition);pointer-events:none;
+  background:rgba(0,0,0,0.5);
+}
+.profile-avatar-wrap:hover .avatar-edit-overlay{opacity:1}
+.profile-info{flex:1;min-width:0}
+.profile-name{font-family:var(--font-display);font-size:1.3rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:0.2rem;color:var(--text-main)}
+.profile-email{font-size:0.85rem;color:var(--text-dim);margin-bottom:0.5rem;font-family:var(--font-mono)}
+.profile-plan{margin-bottom:0.5rem}
+.profile-extra{display:flex;flex-wrap:wrap;gap:0.5rem 1rem}
+.profile-extra-item{font-size:0.8rem;color:var(--text-dim);background:rgba(255,255,255,0.05);padding:2px 8px;border-radius:4px;border:1px solid var(--border)}
+.profile-actions{display:flex;flex-wrap:wrap;gap:0.75rem;padding:0 1.5rem 1.5rem}
+.btn-edit-profile{
+  padding:0.5rem 1rem;border:1px solid var(--border);
+  border-radius:999px;background:rgba(255,255,255,0.05);cursor:pointer;
+  font-size:0.85rem;font-weight:600;color:var(--text-main);font-family:inherit;
+  transition:all var(--transition)
+}
+.btn-edit-profile:hover{background:rgba(255,255,255,0.1);border-color:var(--accent-cyan);transform:translateY(-1px)}
+
+/* ── BADGES ── */
+.badge{
+  display:inline-flex;align-items:center;gap:4px;padding:0.25rem 0.75rem;
+  border-radius:999px;font-size:0.7rem;font-weight:800;letter-spacing:0.05em;text-transform:uppercase
+}
+.badge-active{background:rgba(16,185,129,0.15);color:var(--accent-green);border:1px solid rgba(16,185,129,0.3)}
+.badge-inactive{background:rgba(239,68,68,0.15);color:var(--accent-red);border:1px solid rgba(239,68,68,0.3)}
+.badge-free{background:rgba(255,255,255,0.05);color:var(--text-dim);border:1px solid var(--border)}
+.badge-starter{background:rgba(0,229,204,0.1);color:var(--accent-cyan);border:1px solid rgba(0,229,204,0.2)}
+.badge-pro{background:var(--grad);color:var(--bg);border:none;}
+.badge-expert{background:rgba(245,158,11,0.15);color:var(--accent-amber);border:1px solid rgba(245,158,11,0.3)}
+.badge-clinic{background:rgba(16,185,129,0.15);color:var(--accent-green);border:1px solid rgba(16,185,129,0.3)}
+
+/* ── PLAN GRID ── */
+.plan-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0.75rem;margin-bottom:1.5rem}
+@media(max-width:860px){.plan-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.plan-grid{grid-template-columns:1fr}}
+.plan-card{
+  padding:1rem; cursor:pointer; text-align:center; overflow:visible;
+}
+.plan-card.sel{border-color:var(--accent-cyan);background:rgba(0,229,204,0.05);box-shadow:0 0 0 2px var(--accent-cyan)}
+.plan-tag{
+  font-size:0.65rem;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;
+  padding:0.2rem 0.6rem;border-radius:999px;display:inline-block;margin-bottom:0.5rem
+}
+.tag-free{background:rgba(255,255,255,0.05);color:var(--text-dim);border:1px solid var(--border)}
+.tag-starter{background:rgba(0,229,204,0.1);color:var(--accent-cyan);border:1px solid rgba(0,229,204,0.2)}
+.tag-pro{background:var(--grad);color:var(--bg)}
+.tag-expert{background:rgba(245,158,11,0.15);color:var(--accent-amber);border:1px solid rgba(245,158,11,0.3)}
+.tag-clinic{background:rgba(16,185,129,0.15);color:var(--accent-green);border:1px solid rgba(16,185,129,0.3)}
+.plan-name{font-family:var(--font-display);font-weight:700;font-size:1.1rem;color:var(--text-main);margin-bottom:0.5rem}
+.plan-feats{list-style:none;text-align:left;font-size:0.75rem;color:var(--text-dim);line-height:1.6;display:flex;flex-direction:column;gap:6px;}
+.plan-feats li{display:flex;align-items:flex-start;gap:6px}
+.plan-feats li span{display:flex;margin-top:2px}
+.plan-feats li svg{width:12px;height:12px;flex-shrink:0;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.pop-badge{
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--grad);
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 10;
+}
+
+/* ── BUTTONS ── */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:0.8rem 1.5rem;border:none;border-radius:999px;cursor:pointer;
+  font-size:0.9rem;font-weight:700;font-family:var(--font-body);
+  transition:all var(--transition);line-height:1
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 4px 20px rgba(0,0,0,0.3)}
+.btn:active{transform:translateY(0);box-shadow:none}
+.btn:disabled{opacity:0.6;cursor:wait;transform:none;box-shadow:none}
+.btn-primary{background:var(--grad);color:var(--bg);width:100%}
+.btn-primary:hover{box-shadow:var(--shadow-glow)}
+.btn-free{background:rgba(255,255,255,0.05);color:var(--text-main);width:100%;border:1px solid var(--border)}
+.btn-free:hover{background:rgba(255,255,255,0.1);border-color:var(--accent-cyan)}
+
+/* ── BILLING TOGGLE ── */
+.billing-toggle{
+  display:flex;align-items:center;justify-content:center;gap:1rem;
+  margin-bottom:1.5rem;font-size:0.9rem;font-weight:600;color:var(--text-dim)
+}
+.toggle-switch{position:relative;width:48px;height:26px;flex-shrink:0}
+.toggle-switch input{opacity:0;width:0;height:0;position:absolute}
+.toggle-slider{
+  position:absolute;inset:0;background:rgba(255,255,255,0.1);border-radius:999px;cursor:pointer;
+  transition:background var(--transition);border:1px solid var(--border);
+}
+.toggle-slider::before{
+  content:'';position:absolute;left:3px;top:3px;width:18px;height:18px;
+  background:var(--text-dim);border-radius:50%;transition:all 0.2s;
+}
+.toggle-switch input:checked + .toggle-slider{background:var(--accent-cyan);border-color:var(--accent-cyan)}
+.toggle-switch input:checked + .toggle-slider::before{transform:translateX(22px);background:var(--bg)}
+.save-badge{
+  background:rgba(16,185,129,0.15);color:var(--accent-green);font-size:0.65rem;font-weight:800;
+  letter-spacing:0.05em;padding:0.15rem 0.5rem;border-radius:6px;
+  text-transform:uppercase;border:1px solid rgba(16,185,129,0.3);margin-left:6px;vertical-align:middle;
+}
+
+/* ── TEAM SEATS CARD ── */
+.seats-body{padding:1.5rem;display:flex;flex-direction:column;gap:1.5rem}
+.seats-stats{display:flex;gap:1rem;flex-wrap:wrap}
+.seats-stat{flex:1;min-width:100px;background:rgba(0,0,0,0.2);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.25rem;text-align:center}
+.seats-stat-val{font-family:var(--font-display);font-size:1.8rem;font-weight:800;color:var(--text-main);line-height:1;margin-bottom:0.4rem}
+.seats-stat-val.green{color:var(--accent-green)}
+.seats-stat-lbl{font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim)}
+.seats-add-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;background:rgba(255,255,255,0.02);padding:1rem;border-radius:var(--r-lg);border:1px solid var(--border)}
+.seats-add-label{font-size:0.9rem;color:var(--text-dim);flex:1;min-width:200px;line-height:1.5}
+.seats-add-label strong{color:var(--text-main)}
+.seats-picker{display:flex;align-items:center;gap:0.75rem;background:rgba(0,0,0,0.3);padding:4px;border-radius:999px;border:1px solid var(--border)}
+.seats-picker-btn{
+  width:32px;height:32px;border-radius:50%; background:rgba(255,255,255,0.05);
+  color:var(--text-main);font-size:1.2rem;cursor:pointer;font-family:inherit;
+  display:flex;align-items:center;justify-content:center;line-height:1;border:none;
+  transition:all var(--transition)
+}
+.seats-picker-btn:hover{background:var(--accent-cyan);color:var(--bg)}
+.seats-qty{font-family:var(--font-mono);font-size:1rem;font-weight:700;color:var(--text-main);min-width:24px;text-align:center}
+.btn-add-seats{
+  padding:0.6rem 1.25rem;border-radius:999px;
+  background:var(--text-main);color:var(--bg);border:none;cursor:pointer;
+  font-size:0.85rem;font-weight:700;font-family:inherit;
+  transition:all var(--transition);white-space:nowrap
+}
+.btn-add-seats:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 4px 15px rgba(255,255,255,0.2)}
+.btn-add-seats:disabled{opacity:0.6;cursor:wait}
+
+/* ── UPGRADE LINK ── */
+.upgrade-row{text-align:center;margin-top:1rem;font-size:0.85rem;color:var(--text-dim)}
+.upgrade-row a{color:var(--accent-cyan);font-weight:600;text-decoration:none;transition:opacity 0.2s}
+.upgrade-row a:hover{opacity:0.8}
+
+/* ── DANGER ZONE ── */
+.danger-zone{
+  border-top:1px solid rgba(239,68,68,0.2);
+  padding:1.5rem;background:rgba(239,68,68,0.05)
+}
+.danger-title{font-size:0.75rem;font-weight:800;color:var(--accent-red);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1rem}
+.danger-actions{display:flex;flex-wrap:wrap;gap:0.75rem}
+.btn-danger-outline,.btn-cancel-sub{
+  padding:0.6rem 1.25rem;border:1px solid rgba(239,68,68,0.4);border-radius:999px;
+  background:rgba(239,68,68,0.1);cursor:pointer;font-size:0.85rem;font-weight:700;
+  color:var(--accent-red);font-family:inherit;transition:all var(--transition)
+}
+.btn-danger-outline:hover,.btn-cancel-sub:hover{background:var(--accent-red);color:var(--text-main);border-color:var(--accent-red)}
+
+/* ── MODAL ── */
+.modal-overlay{
+  display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  z-index:1000;align-items:center;justify-content:center;padding:1rem
+}
+.modal-overlay.open{display:flex}
+.modal{
+  background:var(--surface-glass); border-radius:var(--r-xl);
+  border:1px solid var(--border); box-shadow:0 24px 64px rgba(0,0,0,0.8);
+  width:100%;max-width:500px;max-height:90vh;overflow-y:auto;padding:2rem;
+  animation:modalIn 0.3s cubic-bezier(0.16,1,0.3,1)
+}
+@keyframes modalIn{from{opacity:0;transform:scale(0.95) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.modal-title{font-family:var(--font-display);font-size:1.4rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:1.5rem;color:var(--text-main);text-align:center;}
+.modal-avatar-wrap{display:flex;flex-direction:column;align-items:center;margin-bottom:1.5rem;gap:0.75rem}
+.modal-avatar-btn{position:relative;cursor:pointer;display:inline-block}
+.modal-avatar-btn .profile-avatar{transition:filter var(--transition);width:80px;height:80px;font-size:1.5rem;}
+.modal-avatar-btn:hover .profile-avatar{filter:brightness(0.6)}
+.modal-avatar-btn .avatar-edit-overlay{opacity:0;font-size:1.2rem;}
+.modal-avatar-btn:hover .avatar-edit-overlay{opacity:1}
+.modal-avatar-hint{font-size:0.8rem;color:var(--text-dim)}
+
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:480px){.form-grid{grid-template-columns:1fr}}
+.form-group{display:flex;flex-direction:column;gap:0.4rem}
+.form-group.full{grid-column:1/-1}
+.form-label{font-size:0.75rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--accent-cyan)}
+.form-input{
+  padding:0.75rem 1rem;border:1px solid var(--border);border-radius:var(--r);
+  font-size:0.9rem;font-family:var(--font-body);color:var(--text-main);outline:none;
+  background:rgba(0,0,0,0.3);
+  transition:all var(--transition)
+}
+.form-input:hover{border-color:var(--border-hover)}
+.form-input:focus{border-color:var(--accent-cyan);box-shadow:0 0 0 3px rgba(0,229,204,0.15)}
+.form-input::placeholder{color:var(--text-muted)}
+
+.modal-actions{display:flex;gap:0.75rem;margin-top:2rem;justify-content:flex-end}
+.btn-modal-save{
+  padding:0.75rem 1.5rem;background:var(--grad);color:var(--bg);border:none;border-radius:999px;
+  font-size:0.9rem;font-weight:700;font-family:inherit;cursor:pointer;
+  transition:all var(--transition);display:flex;align-items:center;gap:8px
+}
+.btn-modal-save:hover{transform:translateY(-2px);box-shadow:var(--shadow-glow)}
+.btn-modal-save:disabled{opacity:0.6;cursor:wait;transform:none;box-shadow:none}
+.btn-modal-cancel{
+  padding:0.75rem 1.5rem;background:transparent;color:var(--text-main);
+  border:1px solid var(--border);border-radius:999px;
+  font-size:0.9rem;font-weight:600;font-family:inherit;cursor:pointer;
+  transition:all var(--transition)
+}
+.btn-modal-cancel:hover{background:rgba(255,255,255,0.05);border-color:var(--accent-cyan)}
+
+.modal-msg{margin-top:1rem;padding:0.8rem 1rem;border-radius:var(--r);font-size:0.85rem;font-weight:500;display:none;text-align:center;}
+.modal-msg.ok{background:rgba(16,185,129,0.15);color:var(--accent-green);border:1px solid rgba(16,185,129,0.3)}
+.modal-msg.err{background:rgba(239,68,68,0.15);color:var(--accent-red);border:1px solid rgba(239,68,68,0.3)}
+
+/* ── CONFIRM INPUT ── */
+.confirm-input{
+  width:100%;padding:0.75rem 1rem;border:1px solid rgba(239,68,68,0.4);border-radius:var(--r);
+  font-size:0.9rem;font-family:var(--font-mono);color:var(--text-main);outline:none;
+  background:rgba(239,68,68,0.05);text-align:center;
+  transition:border-color var(--transition);margin-top:0.75rem
+}
+.confirm-input:focus{border-color:var(--accent-red);box-shadow:0 0 0 3px rgba(239,68,68,0.2)}
+.confirm-hint{font-size:0.85rem;color:var(--text-dim);margin-top:1rem;line-height:1.55;text-align:center}
+
+/* ── TOASTS ── */
+.success-toast,.err-toast{
+  display:none;position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);
+  padding:1rem 1.5rem;border-radius:999px;font-size:0.9rem;font-weight:600;
+  box-shadow:0 10px 40px rgba(0,0,0,0.5);z-index:9999;max-width:90vw;text-align:center;
+  animation:toastIn 0.3s cubic-bezier(0.16,1,0.3,1); backdrop-filter:blur(12px);
+}
+@keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(16px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.success-toast{background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);color:var(--accent-green)}
+.err-toast{background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.3);color:var(--accent-red)}
+
+/* ── SPINNER ── */
+.spinner{
+  display:inline-block;width:16px;height:16px;
+  border:2px solid rgba(0, 0, 0, 0.2);border-top-color:currentColor;
+  border-radius:50%;animation:spin 0.6s linear infinite
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── ANIMATIONS ── */
+@keyframes slideUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.anim-1{animation:slideUp 0.4s cubic-bezier(0.16,1,0.3,1) 0.00s both}
+.anim-2{animation:slideUp 0.4s cubic-bezier(0.16,1,0.3,1) 0.05s both}
+.anim-3{animation:slideUp 0.4s cubic-bezier(0.16,1,0.3,1) 0.10s both}
+.anim-4{animation:slideUp 0.4s cubic-bezier(0.16,1,0.3,1) 0.15s both}
+.anim-5{animation:slideUp 0.4s cubic-bezier(0.16,1,0.3,1) 0.20s both}
+
+/* ── REFERRAL CARD ── */
+.ref-hero{
+  background:linear-gradient(135deg,rgba(0,229,204,0.06) 0%,rgba(124,58,237,0.06) 100%);
+  border:1px solid rgba(0,229,204,0.18);
+  border-radius:var(--r-xl);padding:2rem;
+  position:relative;overflow:hidden;
+}
+.ref-hero::before{
+  content:'';position:absolute;top:-30%;right:-5%;
+  width:220px;height:220px;
+  background:radial-gradient(circle,rgba(0,229,204,0.1) 0%,transparent 70%);
+  pointer-events:none;
+}
+.ref-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:linear-gradient(135deg,#00E5CC,#7C3AED);
+  color:#fff;font-size:0.68rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;
+  padding:0.3rem 0.85rem;border-radius:999px;margin-bottom:0.75rem;
+}
+.ref-title{
+  font-family:var(--font-display);font-size:1.25rem;font-weight:700;
+  color:var(--text-main);margin-bottom:0.35rem;letter-spacing:-0.02em;
+}
+.ref-sub{font-size:0.9rem;color:var(--text-dim);line-height:1.55;margin-bottom:1.5rem;}
+.ref-link-box{
+  display:flex;align-items:center;gap:0.75rem;
+  background:rgba(0,0,0,0.4);border:1px solid var(--border);
+  border-radius:var(--r-lg);padding:0.75rem 1rem;margin-bottom:1.25rem;
+}
+.ref-link-input{
+  flex:1;background:none;border:none;outline:none;
+  font-family:monospace;font-size:0.82rem;color:var(--accent-cyan);
+  min-width:0;cursor:text;
+}
+.ref-copy-btn{
+  padding:0.45rem 1rem;border-radius:999px;
+  background:var(--grad);color:var(--bg);border:none;cursor:pointer;
+  font-size:0.8rem;font-weight:700;font-family:inherit;
+  transition:all var(--transition);white-space:nowrap;flex-shrink:0;
+}
+.ref-copy-btn:hover{transform:translateY(-1px);box-shadow:var(--shadow-glow)}
+.ref-copy-btn.copied{background:var(--accent-green);color:#fff}
+.ref-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem;}
+@media(max-width:560px){.ref-stats{grid-template-columns:repeat(2,1fr)}}
+.ref-stat{
+  background:rgba(0,0,0,0.3);border:1px solid var(--border);
+  border-radius:var(--r-lg);padding:1rem;text-align:center;
+}
+.ref-stat-val{
+  font-family:var(--font-display);font-size:1.8rem;font-weight:800;
+  color:var(--accent-cyan);line-height:1;margin-bottom:0.35rem;
+}
+.ref-stat-lbl{
+  font-size:0.68rem;font-weight:700;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--text-dim);
+}
+.ref-how-title{
+  font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--accent-cyan);margin-bottom:0.85rem;
+}
+.ref-how{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+@media(max-width:640px){.ref-how{grid-template-columns:1fr}}
+.ref-how-step{display:flex;align-items:flex-start;gap:0.75rem}
+.ref-step-num{
+  width:28px;height:28px;border-radius:50%;
+  background:var(--app-primary-light);border:1px solid rgba(0,229,204,0.3);
+  color:var(--accent-cyan);font-size:0.78rem;font-weight:800;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.ref-step-text{font-size:0.85rem;color:var(--text-dim);line-height:1.5;padding-top:3px;}
+.ref-share-btn{
+  display:inline-flex;align-items:center;gap:6px;margin-top:1.25rem;
+  padding:0.55rem 1.2rem;border-radius:999px;
+  background:rgba(255,255,255,0.05);color:var(--text-main);
+  border:1px solid var(--border);cursor:pointer;
+  font-size:0.82rem;font-weight:600;font-family:inherit;text-decoration:none;
+  transition:all var(--transition);
+}
+.ref-share-btn:hover{background:rgba(255,255,255,0.1);border-color:var(--accent-cyan);transform:translateY(-1px)}
+
+/* ── MOBILE BOTTOM TAB BAR ── */
+.mobile-tab-bar{
+  display:none;position:fixed;bottom:0;left:0;right:0;z-index:900;
+  background:var(--surface-glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-top:1px solid var(--border);
+  padding:0.5rem 0.5rem calc(0.5rem + env(safe-area-inset-bottom,0px));
+  gap:0
+}
+.mtb-btn{
+  flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;
+  padding:0.4rem 0.25rem;background:none;border:none;cursor:pointer;
+  color:var(--text-dim);font-family:inherit;font-size:0.65rem;font-weight:600;
+  letter-spacing:0.03em;border-radius:var(--r);transition:all var(--t)
+}
+.mtb-btn svg{width:22px;height:22px;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke:currentColor;transition:all var(--t)}
+.mtb-btn.active{color:var(--accent-cyan)}
+.mtb-btn.active svg{stroke:var(--accent-cyan);transform:translateY(-2px)}
+
+@media(max-width:780px){
+  body{overflow:auto}
+  .app-shell{flex-direction:column;height:auto}
+  .sidebar{
+    width:100%;height:auto;flex-direction:row;flex-shrink:0; z-index: 10;
+    border-right:none;border-bottom:1px solid var(--border);
+    padding:1rem;align-items:center;justify-content:space-between;
+    overflow:visible;background:var(--surface-glass)
+  }
+  .sb-top{padding:0}
+  .sb-user{display:none}
+  .sb-nav{display:none}
+  .sb-divider{display:none}
+  .sb-bottom{display:none}
+  .main-wrap{height:auto}
+  main{padding-top:1.5rem;padding-bottom:6rem}
+  .hero{border-radius:var(--r-lg);margin-bottom:1.5rem}
+  .stat-row{grid-template-columns:repeat(2,1fr)}
+  .mobile-tab-bar{display:flex}
+}
+@media(max-width:480px){
+  .stat-row{grid-template-columns:1fr 1fr}
+  .rings-row{flex-direction:column}
+}
+
+/* ── PISUM AI FLOATING WIDGET ── */
+#piw{position:fixed;bottom:24px;right:24px;z-index:9500;}
+#piw-trigger{display:flex;align-items:center;gap:8px;background:var(--grad);color:#06060a;border:none;border-radius:999px;padding:12px 18px 12px 14px;font-size:.85rem;font-weight:700;cursor:pointer;box-shadow:var(--shadow-glow);transition:transform .2s,box-shadow .2s;position:relative;font-family:var(--font-body)}
+#piw-trigger:hover{transform:translateY(-2px);box-shadow:0 0 30px rgba(0,229,204,0.4)}
+#piw-badge{position:absolute;top:-4px;right:-4px;width:18px;height:18px;background:var(--accent-red);color:#fff;border-radius:50%;font-size:.6rem;font-weight:800;display:flex;align-items:center;justify-content:center;animation:piw-pulse 2s infinite}
+@keyframes piw-pulse{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.4)}50%{box-shadow:0 0 0 6px rgba(239,68,68,0)}}
+#piw-panel{display:none;position:absolute;bottom:64px;right:0;width:360px;background:rgba(10,12,20,0.95);backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);border:1px solid var(--border);border-radius:var(--r-xl);box-shadow:0 24px 64px rgba(0,0,0,.8);overflow:hidden;flex-direction:column;animation:piw-in .25s cubic-bezier(.25,1,.5,1)}
+#piw-panel.open{display:flex}
+@keyframes piw-in{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+#piw-head{background:rgba(0,0,0,0.4);padding:14px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
+#piw-head-info{display:flex;align-items:center;gap:10px}
+#piw-avatar{width:36px;height:36px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:1rem;color:#fff;flex-shrink:0}
+#piw-name{font-size:.88rem;font-weight:700;color:var(--text-main)}
+#piw-status{font-size:.7rem;color:var(--text-muted);display:flex;align-items:center;gap:4px}
+.piw-dot{width:6px;height:6px;border-radius:50%;background:var(--accent-green);display:inline-block}
+#piw-close{background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--text-dim);width:28px;height:28px;border-radius:50%;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .18s}
+#piw-close:hover{background:rgba(255,255,255,.1);color:var(--text-main)}
+#piw-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;max-height:280px;min-height:160px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.1) transparent}
+.piw-msg{display:flex;flex-direction:column;gap:4px;max-width:88%}
+.piw-msg.user{align-self:flex-end;align-items:flex-end}
+.piw-msg.ai{align-self:flex-start}
+.piw-bubble{padding:10px 13px;border-radius:14px;font-size:.82rem;line-height:1.6;white-space:pre-line}
+.piw-msg.ai .piw-bubble{background:rgba(255,255,255,0.05);border:1px solid var(--border);color:var(--text-dim)}
+.piw-msg.user .piw-bubble{background:var(--grad);color:#000;font-weight:600}
+.piw-msg.ai .piw-bubble strong{color:var(--accent-cyan)}
+.piw-typing{display:flex;gap:4px;padding:10px 13px;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:14px;width:fit-content}
+.piw-typing span{width:6px;height:6px;background:var(--text-muted);border-radius:50%;animation:piw-bounce .9s infinite}
+.piw-typing span:nth-child(2){animation-delay:.15s}
+.piw-typing span:nth-child(3){animation-delay:.3s}
+@keyframes piw-bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+#piw-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 12px}
+.piw-chip{background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--text-dim);border-radius:999px;padding:5px 11px;font-size:.72rem;font-weight:600;cursor:pointer;transition:all .18s;font-family:inherit}
+.piw-chip:hover{background:rgba(0,229,204,.1);border-color:var(--accent-cyan);color:var(--text-main)}
+#piw-footer{border-top:1px solid var(--border);padding:12px 14px;display:flex;gap:8px;align-items:center;background:rgba(0,0,0,0.3)}
+#piw-input{flex:1;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:999px;padding:9px 15px;font-size:.82rem;color:var(--text-main);outline:none;font-family:inherit;transition:border-color .18s}
+#piw-input::placeholder{color:var(--text-muted)}
+#piw-input:focus{border-color:var(--accent-cyan)}
+#piw-send{width:34px;height:34px;border-radius:50%;background:var(--grad);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .18s,opacity .18s; color:#000}
+#piw-send:hover{transform:scale(1.08)}
+#piw-send:disabled{opacity:.4;cursor:not-allowed;transform:none}
+@media(max-width:420px){#piw-panel{width:calc(100vw - 32px);right:-8px}}
+</style>
+</head>
+<body>
+
+<div class="app-shell">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-top">
+      <a class="sb-logo" href="https://pisum.app">
+        <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/docs/logo%20V2.png" alt="PISUM"/>
+        <span class="sb-logo-text">PISUM</span>
+      </a>
+    </div>
+
+    <div class="sb-divider"></div>
+
+    <div class="sb-user">
+      <div class="sb-avatar" id="nav-avatar">?</div>
+      <div class="sb-user-info">
+        <div class="sb-name" id="nav-name">—</div>
+        <div class="sb-email" id="nav-email">—</div>
+      </div>
+    </div>
+
+    <div class="sb-divider"></div>
+
+    <nav class="sb-nav">
+      <span class="sb-nav-label" data-i18n="dashboard.nav.label">Navigation</span>
+      <button class="sb-link active" id="snav-overview" onclick="sbNav(this,'section-overview')">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+        <span data-i18n="dashboard.nav.overview">Overview</span>
+      </button>
+      <button class="sb-link" id="snav-usage" onclick="sbNav(this,'section-usage')">
+        <svg viewBox="0 0 24 24"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg>
+        <span data-i18n="dashboard.nav.usage">Usage</span>
+      </button>
+      <button class="sb-link" id="snav-billing" onclick="sbNav(this,'section-billing')">
+        <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="9" x2="22" y2="9" stroke-width="1.75"/><line x1="6" y1="14" x2="10" y2="14" stroke-width="2"/></svg>
+        <span data-i18n="dashboard.nav.billing">Billing</span>
+      </button>
+      <button class="sb-link" id="snav-referral" onclick="sbNav(this,'section-referral')">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span data-i18n="dashboard.nav.referral">Referral</span>
+      </button>
+      <button class="sb-link" id="snav-profile" onclick="sbNav(this,'section-profile')">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        <span data-i18n="dashboard.nav.profile">Profile</span>
+      </button>
+    </nav>
+
+    <div class="sb-bottom">
+      <button class="sb-signout" onclick="signOut()">
+        <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        <span data-i18n="dashboard.nav.signOut">Sign Out</span>
+      </button>
+    </div>
+  </aside>
+
+  <div class="main-wrap" id="main-wrap">
+    <main>
+
+      <div class="hero" id="section-overview">
+        <div class="hero-row">
+          <div class="hero-left">
+            <div class="hero-eyebrow">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+              <span data-i18n="dashboard.hero.eyebrow">My Account</span>
+            </div>
+            <h1 class="hero-title-el" id="page-title" data-i18n="dashboard.hero.title">My Account</h1>
+            <p class="hero-sub-el" id="page-sub" data-i18n="dashboard.hero.subtitle">Manage your subscription and access PISUM.</p>
+
+            <div class="hero-badges-row">
+              <span class="badge" id="hdr-plan-badge"></span>
+              <span class="badge" id="hdr-status-badge"></span>
+            </div>
+
+            <div class="hero-status-line status-wait" id="status-banner">
+              <div class="status-icon icon-wait hero-status-icon" id="status-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+              </div>
+              <div class="hero-status-text status-text">
+                <h2 id="status-title" data-i18n="dashboard.hero.statusTitle">Checking access…</h2>
+                <p id="status-desc" data-i18n="dashboard.hero.statusDesc">Please wait.</p>
+              </div>
+            </div>
+
+            <div class="hero-actions">
+              <button class="btn-hero btn-hero-primary" onclick="handleBillingPortal()" id="btn-billing-portal" style="display:none" data-i18n="dashboard.hero.manageBilling">
+                Manage Billing
+              </button>
+              <a class="btn-hero btn-hero-outline" href="pricing.html" data-i18n="dashboard.hero.changePlan">Change Plan →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── MOTIVATIONAL QUOTE CARD ── -->
+      <div class="quote-card anim-1" id="quote-card">
+        <div class="quote-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 2v6c0 1.25.75 2 2 2h3c0 4-2 6-4 6z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 2v6c0 1.25.75 2 2 2h3c0 4-2 6-4 6z"/></svg>
+        </div>
+        <div class="quote-content">
+          <div class="quote-text" id="quote-text">"Loading quote..."</div>
+          <div class="quote-author" id="quote-author">— ...</div>
+        </div>
+      </div>
+
+      <div id="onboarding-card" style="display:none">
+        <div class="ob-header">
+          <div>
+            <div class="ob-title" data-i18n="dashboard.onboarding.title">👋 Get started with PISUM</div>
+            <div class="ob-sub" data-i18n="dashboard.onboarding.subtitle">3 steps to your first radiology report</div>
+          </div>
+          <button class="ob-dismiss" onclick="obDismiss()" title="Dismiss">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div class="ob-steps">
+          <div class="ob-step" id="ob-step-1">
+            <div class="ob-step-num" id="ob-num-1">1</div>
+            <div class="ob-step-body">
+              <div class="ob-step-title" data-i18n="dashboard.onboarding.step1.title">Download &amp; install PISUM</div>
+              <div class="ob-step-desc" data-i18n="dashboard.onboarding.step1.desc">One .exe installer for Windows 10/11. Takes under a minute.</div>
+              <div class="ob-step-action">
+                <a class="ob-btn" href="https://github.com/AminWalha/Pisum/releases/latest/download/PISUM_Radiology_Setup.exe" target="_blank" rel="noopener noreferrer" onclick="obComplete(1)">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  <span data-i18n="dashboard.onboarding.step1.download">Download for Windows</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="ob-step" id="ob-step-2">
+            <div class="ob-step-num" id="ob-num-2">2</div>
+            <div class="ob-step-body">
+              <div class="ob-step-title" data-i18n="dashboard.onboarding.step2.title">Open PISUM and sign in</div>
+              <div class="ob-step-desc" data-i18n="dashboard.onboarding.step2.desc">Launch the app after installation. Sign in with the same email and password you used here.</div>
+            </div>
+          </div>
+          <div class="ob-step" id="ob-step-3">
+            <div class="ob-step-num" id="ob-num-3">3</div>
+            <div class="ob-step-body">
+              <div class="ob-step-title" data-i18n="dashboard.onboarding.step3.title">Create your first report</div>
+              <div class="ob-step-desc" data-i18n="dashboard.onboarding.step3.desc">Choose a template by modality — CT, MRI, X-Ray, or Ultrasound. Fill in your findings and export to PDF.</div>
+            </div>
+          </div>
+        </div>
+        <div class="ob-progress">
+          <div class="ob-progress-bar"><div class="ob-progress-fill" id="ob-progress-fill" style="width:33%"></div></div>
+          <div class="ob-progress-label" id="ob-progress-label">Step 1 of 3</div>
+        </div>
+      </div>
+
+      <div id="active-card" style="display:none">
+
+        <div class="stat-row" id="section-billing">
+          <div class="stat-card">
+            <div class="stat-icon-box blue">
+              <svg viewBox="0 0 24 24" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <div class="stat-label" data-i18n="dashboard.stats.nextBilling">Next Billing</div>
+            <div class="info-value" id="info-next-billing">—</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon-box amber">
+              <svg viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+            </div>
+            <div class="stat-label" data-i18n="dashboard.stats.expires">Expires</div>
+            <div class="info-value" id="info-expiry">—</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon-box t2">
+              <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+            </div>
+            <div class="stat-label" data-i18n="dashboard.stats.billingCycle">Billing Cycle</div>
+            <div class="info-value" id="info-interval">—</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon-box green">
+              <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="stat-label" data-i18n="dashboard.stats.memberSince">Member Since</div>
+            <div class="info-value" id="info-since">—</div>
+          </div>
+        </div>
+
+        <div class="dark-card anim-2" id="section-usage">
+          <div class="dc-head">
+            <span class="dc-title" data-i18n="dashboard.usage.title">This Month's Usage</span>
+          </div>
+          <div id="usage-section">
+            <div class="rings-row" id="usage-bars"></div>
+          </div>
+        </div>
+
+        <div class="dark-card anim-3">
+          <div class="dc-head">
+            <span class="dc-title" data-i18n="dashboard.features.title">Included Features</span>
+            <a class="upgrade-row" href="pricing.html" style="margin:0;font-size:0.85rem" data-i18n="dashboard.features.viewPlans">View all plans →</a>
+          </div>
+          <div class="dc-body">
+            <div class="feature-grid" id="feature-grid"></div>
+          </div>
+        </div>
+
+        <div class="dark-card anim-4" id="team-seats-card" style="display:none">
+          <div class="dc-head">
+            <span class="dc-title" data-i18n="dashboard.team.title">Team &amp; Seats</span>
+            <span class="badge badge-clinic" id="total-seats-badge">5 users</span>
+          </div>
+          <div class="seats-body">
+            <div class="seats-stats">
+              <div class="seats-stat">
+                <div class="seats-stat-val">5</div>
+                <div class="seats-stat-lbl" data-i18n="dashboard.team.included">Included</div>
+              </div>
+              <div class="seats-stat">
+                <div class="seats-stat-val" id="extra-seats-val">0</div>
+                <div class="seats-stat-lbl" data-i18n="dashboard.team.extra">Extra</div>
+              </div>
+              <div class="seats-stat">
+                <div class="seats-stat-val green" id="total-seats-val">5</div>
+                <div class="seats-stat-lbl" data-i18n="dashboard.team.total">Total users</div>
+              </div>
+            </div>
+            <div class="seats-add-row">
+              <div class="seats-add-label" data-i18n="dashboard.team.addInfo">
+                <strong>Add extra users</strong> — €69 / user / month.<br>
+                Billed as a separate recurring add-on. Manage via billing portal.
+              </div>
+              <div class="seats-picker">
+                <button class="seats-picker-btn" onclick="changeAddSeats(-1)">−</button>
+                <span class="seats-qty" id="add-seats-qty">1</span>
+                <button class="seats-picker-btn" onclick="changeAddSeats(1)">+</button>
+              </div>
+              <button class="btn-add-seats" id="btn-add-seats" onclick="handleAddSeats()">
+                Add <span id="add-seats-label">1 seat</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="dark-card anim-4" id="danger-zone" style="display:none">
+          <div class="danger-zone">
+            <div class="danger-title" data-i18n="dashboard.danger.title">Danger Zone</div>
+            <div class="danger-actions">
+              <button class="btn-cancel-sub" id="btn-cancel-sub" onclick="openCancelModal()" style="display:none" data-i18n="dashboard.danger.cancelSub">Cancel Subscription</button>
+              <button class="btn-danger-outline" onclick="openDeleteModal()" data-i18n="dashboard.danger.deleteAccount">Delete Account</button>
+            </div>
+            <p id="canceling-notice" style="display:none;font-size:0.85rem;color:var(--accent-amber);margin-top:1rem;line-height:1.55" data-i18n="dashboard.danger.cancelingNotice">
+              Your subscription is set to cancel at the end of the current billing period. You still have full access until then.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="dark-card anim-3" id="section-referral" style="display:none">
+        <div class="dc-head">
+          <span class="dc-title" data-i18n="dashboard.referral.title">Referral Program</span>
+        </div>
+        <div class="dc-body">
+          <div class="ref-hero">
+            <div class="ref-badge" data-i18n="dashboard.referral.badge">1 free month per referral</div>
+            <div class="ref-title" data-i18n="dashboard.referral.title">Referral Program</div>
+            <div class="ref-sub" data-i18n="dashboard.referral.subtitle">Earn 1 free month for every colleague who subscribes to a paid PISUM plan using your link.</div>
+
+            <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.5rem" data-i18n="dashboard.referral.linkLabel">Your referral link</div>
+            <div class="ref-link-box">
+              <input class="ref-link-input" id="ref-link-input" type="text" readonly onclick="this.select()"/>
+              <button class="ref-copy-btn" id="ref-copy-btn" onclick="copyReferralLink()" data-i18n="dashboard.referral.copy">Copy</button>
+            </div>
+            <a class="ref-share-btn" id="ref-share-btn" href="#" onclick="shareReferralByEmail(event)">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span data-i18n="dashboard.referral.share">Share by email</span>
+            </a>
+          </div>
+
+          <div class="ref-stats" style="margin-top:1.5rem">
+            <div class="ref-stat">
+              <div class="ref-stat-val" id="ref-count">—</div>
+              <div class="ref-stat-lbl" data-i18n="dashboard.referral.stats.referrals">Referrals</div>
+            </div>
+            <div class="ref-stat">
+              <div class="ref-stat-val" id="ref-months-earned">—</div>
+              <div class="ref-stat-lbl" data-i18n="dashboard.referral.stats.monthsEarned">Months earned</div>
+            </div>
+            <div class="ref-stat">
+              <div class="ref-stat-val" id="ref-months-left">—</div>
+              <div class="ref-stat-lbl" data-i18n="dashboard.referral.stats.monthsLeft">Months remaining</div>
+            </div>
+          </div>
+
+          <div class="ref-how-title" data-i18n="dashboard.referral.how.title">How it works</div>
+          <div class="ref-how">
+            <div class="ref-how-step">
+              <div class="ref-step-num">1</div>
+              <div class="ref-step-text" data-i18n="dashboard.referral.how.step1">Share your unique link with colleagues</div>
+            </div>
+            <div class="ref-how-step">
+              <div class="ref-step-num">2</div>
+              <div class="ref-step-text" data-i18n="dashboard.referral.how.step2">They subscribe to a paid PISUM plan</div>
+            </div>
+            <div class="ref-how-step">
+              <div class="ref-step-num">3</div>
+              <div class="ref-step-text" data-i18n="dashboard.referral.how.step3">You earn 1 free month automatically</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dark-card" id="sub-card" style="display:none">
+        <div class="dc-head">
+          <span class="dc-title" id="sub-title" data-i18n="dashboard.subscribe.title">Choose your plan</span>
+        </div>
+        <div class="sub-wrapper">
+          <p class="sub-desc-el" id="sub-desc" data-i18n="dashboard.subscribe.desc" style="text-align:center;font-size:0.95rem;margin-bottom:2rem;">Select the plan that fits your practice and proceed to secure checkout.</p>
+          <div class="billing-toggle">
+            <span data-i18n="dashboard.subscribe.monthly">Monthly</span>
+            <label class="toggle-switch">
+              <input type="checkbox" id="billing-annual" onchange="setBilling(this.checked)"/>
+              <span class="toggle-slider"></span>
+            </label>
+            <span><span data-i18n="dashboard.subscribe.annual">Annual</span> <span class="save-badge" data-i18n="dashboard.subscribe.save20">−20%</span></span>
+          </div>
+          <div class="plan-grid" id="plan-grid"></div>
+          <button class="btn btn-primary" id="btn-subscribe" onclick="handleSubscribe()" data-i18n="dashboard.subscribe.continue">Continue</button>
+          <div id="sub-err" style="display:none;margin-top:1rem;padding:0.75rem;background:rgba(239,68,68,0.1);color:var(--accent-red);border:1px solid rgba(239,68,68,0.3);border-radius:var(--r);font-size:0.85rem;text-align:center;"></div>
+        </div>
+      </div>
+
+      <div class="dark-card anim-5" id="profile-card" id="section-profile" style="display:none">
+        <div class="dc-head">
+          <span class="dc-title" data-i18n="dashboard.profile.title">Profile</span>
+        </div>
+        <div class="profile-row">
+          <div class="profile-avatar-wrap" onclick="openProfileModal()" title="Edit profile">
+            <div class="profile-avatar" id="profile-avatar">?</div>
+            <div class="avatar-edit-overlay">📷</div>
+          </div>
+          <div class="profile-info">
+            <div class="profile-name" id="profile-name">—</div>
+            <div class="profile-email" id="profile-email">—</div>
+            <div class="profile-plan"><span class="badge" id="profile-plan-badge"></span></div>
+            <div class="profile-extra" id="profile-extra"></div>
+          </div>
+        </div>
+        <div class="profile-actions">
+          <button class="btn-edit-profile" onclick="openProfileModal()">✏️ <span data-i18n="dashboard.profile.editProfile">Edit Profile</span></button>
+          <button class="btn-edit-profile" onclick="openPwModal()">🔑 <span data-i18n="dashboard.profile.changePassword">Change Password</span></button>
+        </div>
+      </div>
+
+    </main>
+  </div></div><div class="modal-overlay" id="profile-modal-overlay" onclick="closeProfileModal()">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-title" data-i18n="dashboard.profileModal.title">Edit Profile</div>
+    <div class="modal-avatar-wrap">
+      <div class="modal-avatar-btn" onclick="document.getElementById('avatar-input-modal').click()" title="Change photo">
+        <div class="profile-avatar" id="modal-avatar">?</div>
+        <div class="avatar-edit-overlay">📷</div>
+      </div>
+      <input type="file" id="avatar-input-modal" accept="image/*" style="display:none" onchange="handleAvatarChange(this)">
+      <span class="modal-avatar-hint" data-i18n="dashboard.profileModal.avatarHint">Click the photo to change it (max 2 MB)</span>
+    </div>
+    <div class="form-grid">
+      <div class="form-group full">
+        <label class="form-label" data-i18n="dashboard.profileModal.fullName">Full Name</label>
+        <input class="form-input" id="f-name" type="text" placeholder="Dr. John Smith" data-i18n="[placeholder]dashboard.profileModal.fullNamePlaceholder">
+      </div>
+      <div class="form-group">
+        <label class="form-label" data-i18n="dashboard.profileModal.phone">Phone</label>
+        <input class="form-input" id="f-phone" type="tel" placeholder="+1 555 000 0000" data-i18n="[placeholder]dashboard.profileModal.phonePlaceholder">
+      </div>
+      <div class="form-group">
+        <label class="form-label" data-i18n="dashboard.profileModal.specialty">Specialty</label>
+        <input class="form-input" id="f-specialty" type="text" placeholder="Radiology, MRI…" data-i18n="[placeholder]dashboard.profileModal.specialtyPlaceholder">
+      </div>
+      <div class="form-group full">
+        <label class="form-label" data-i18n="dashboard.profileModal.organization">Organization / Practice</label>
+        <input class="form-input" id="f-org" type="text" placeholder="City Imaging Center" data-i18n="[placeholder]dashboard.profileModal.organizationPlaceholder">
+      </div>
+      <div class="form-group">
+        <label class="form-label" data-i18n="dashboard.profileModal.city">City</label>
+        <input class="form-input" id="f-city" type="text" placeholder="New York" data-i18n="[placeholder]dashboard.profileModal.cityPlaceholder">
+      </div>
+      <div class="form-group">
+        <label class="form-label" data-i18n="dashboard.profileModal.country">Country</label>
+        <input class="form-input" id="f-country" type="text" placeholder="United States" data-i18n="[placeholder]dashboard.profileModal.countryPlaceholder">
+      </div>
+    </div>
+    <div class="modal-msg" id="modal-msg"></div>
+    <div class="modal-actions">
+      <button class="btn-modal-cancel" onclick="closeProfileModal()" data-i18n="dashboard.profileModal.cancel">Cancel</button>
+      <button class="btn-modal-save" id="btn-save-profile" onclick="saveProfile()" data-i18n="dashboard.profileModal.save">Save</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="cancel-modal-overlay" onclick="closeCancelModal()">
+  <div class="modal" onclick="event.stopPropagation()" style="max-width:460px">
+    <div class="modal-title" style="color:var(--accent-red)" data-i18n="dashboard.cancelModal.title">Cancel Subscription</div>
+    <p style="font-size:0.95rem;color:var(--text-dim);line-height:1.65;text-align:center;" data-i18n="dashboard.cancelModal.desc">
+      Your subscription will remain active until the end of the current billing period.
+      After that, your account will revert to the Free plan.
+    </p>
+    <p class="confirm-hint" data-i18n="dashboard.cancelModal.hint">Type <strong style="color:var(--text-main)">CANCEL</strong> below to confirm:</p>
+    <input class="confirm-input" id="cancel-confirm-input" type="text" placeholder="CANCEL" oninput="validateCancelInput()" data-i18n="[placeholder]dashboard.cancelModal.placeholder">
+    <div class="modal-msg" id="cancel-modal-msg"></div>
+    <div class="modal-actions">
+      <button class="btn-modal-cancel" onclick="closeCancelModal()" data-i18n="dashboard.cancelModal.keep">Keep Subscription</button>
+      <button class="btn-modal-save" id="btn-confirm-cancel" onclick="confirmCancel()"
+        disabled style="background:var(--accent-red);opacity:0.5;color:var(--text-main)" data-i18n="dashboard.cancelModal.confirm">Cancel Subscription</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="pw-modal-overlay" onclick="closePwModal()">
+  <div class="modal" onclick="event.stopPropagation()" style="max-width:460px">
+    <div class="modal-title" data-i18n="dashboard.pwModal.title">Change Password</div>
+    <div class="form-grid" style="grid-template-columns:1fr">
+      <div class="form-group">
+        <label class="form-label" data-i18n="dashboard.pwModal.newPassword">New Password</label>
+        <input class="form-input" id="pw-new" type="password" placeholder="Min. 8 characters" minlength="8" data-i18n="[placeholder]dashboard.pwModal.newPasswordPlaceholder">
+      </div>
+      <div class="form-group">
+        <label class="form-label" data-i18n="dashboard.pwModal.confirmPassword">Confirm New Password</label>
+        <input class="form-input" id="pw-confirm" type="password" placeholder="••••••••" minlength="8" data-i18n="[placeholder]dashboard.pwModal.confirmPasswordPlaceholder">
+      </div>
+    </div>
+    <div class="modal-msg" id="pw-modal-msg"></div>
+    <div class="modal-actions">
+      <button class="btn-modal-cancel" onclick="closePwModal()" data-i18n="dashboard.pwModal.cancel">Cancel</button>
+      <button class="btn-modal-save" id="btn-save-pw" onclick="savePassword()" data-i18n="dashboard.pwModal.submit">Update Password</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="delete-modal-overlay" onclick="closeDeleteModal()">
+  <div class="modal" onclick="event.stopPropagation()" style="max-width:460px">
+    <div class="modal-title" style="color:var(--accent-red)" data-i18n="dashboard.deleteModal.title">Delete Account</div>
+    <p style="font-size:0.95rem;color:var(--text-dim);line-height:1.65;text-align:center;" data-i18n="dashboard.deleteModal.desc">
+      This action is <strong style="color:var(--text-main)">permanent and irreversible</strong>. All your data, reports, and subscription will be deleted immediately.
+    </p>
+    <p class="confirm-hint" data-i18n="dashboard.deleteModal.hint">Type <strong style="color:var(--text-main)">DELETE</strong> below to confirm:</p>
+    <input class="confirm-input" id="delete-confirm-input" type="text" placeholder="DELETE" oninput="validateDeleteInput()" data-i18n="[placeholder]dashboard.deleteModal.placeholder">
+    <div class="modal-msg" id="delete-modal-msg"></div>
+    <div class="modal-actions">
+      <button class="btn-modal-cancel" onclick="closeDeleteModal()" data-i18n="dashboard.deleteModal.cancel">Cancel</button>
+      <button class="btn-modal-save" id="btn-confirm-delete" onclick="confirmDeleteAccount()"
+        disabled style="background:var(--accent-red);opacity:0.5;color:var(--text-main)" data-i18n="dashboard.deleteModal.confirm">Delete My Account</button>
+    </div>
+  </div>
+</div>
+
+<div class="success-toast" id="success-toast"></div>
+<div class="err-toast" id="err-toast"></div>
+
+<script src="./i18n.js?v=20260806"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+const SUPABASE_URL  = 'https://lepqbnhrdgfetoysedbq.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlcHFibmhyZGdmZXRveXNlZGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwNjQ1MDAsImV4cCI6MjA5MDY0MDUwMH0.St12IwG0_RRKzxrbH1QRolCC2OOAaSIsK4PDmlR2Loo';
+const API_BASE      = 'https://pisum-backend.onrender.com';
+
+const { createClient } = supabase;
+const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
+
+let session = null;
+let selectedPlan = 'starter';
+let billingInterval = 'monthly';
+let currentProfile = null;
+let pendingAvatarBlob = null;
+let currentSubInfo = {};
+
+// SVG icon snippets for JS-rendered feature lists
+const SVG_CHECK   = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+const SVG_PARTIAL = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`;
+const SVG_MINUS   = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>`;
+
+// Fetch Motivational Quote from DummyJSON API
+async function fetchDailyQuote() {
+  try {
+    const res = await fetch('https://dummyjson.com/quotes/random');
+    const data = await res.json();
+    document.getElementById('quote-text').textContent = `"${data.quote}"`;
+    document.getElementById('quote-author').textContent = `— ${data.author}`;
+  } catch (err) {
+    document.getElementById('quote-card').style.display = 'none';
+  }
+}
+
+// Translate a dashboard.js.* key — falls back to fb (English fallback string) if i18n not ready
+const t = (key, fb) => { const v = window.i18n?.getNestedTranslation?.('dashboard.js.' + key); return v || fb || key; };
+
+const getGreeting = () => {
+  const h = new Date().getHours();
+  if (h >= 5 && h < 12)  return t('greeting_morning',   'Good morning');
+  if (h >= 12 && h < 18) return t('greeting_afternoon', 'Good afternoon');
+  return t('greeting_evening', 'Good evening');
+};
+
+// ── Plans ─────────────────────────────────────────────────────────────────
+const PLAN_PRICES = {
+  starter: { monthly: 29,  annual: 23  },
+  pro:     { monthly: 79,  annual: 63  },
+  expert:  { monthly: 129, annual: 103 },
+  clinic:  { monthly: 399, annual: 319 },
+};
+
+const PLANS = {
+  free:    { label:'Free',       tag:'tag-free',    paid:false, features:[
+    {ok:true, t:'10 templates'},{ok:true,t:'2 languages'},{ok:true,t:'PDF export'},
+    {ok:false,t:'Word export'},{ok:'lim',t:'AI Dictation (30 min/mo)'},{ok:'lim',t:'AI Enhancer (10/mo)'},
+    {ok:'lim',t:'Limited worklist'},{ok:'lim',t:'50 reports / month'}] },
+  starter: { label:'Starter',    tag:'tag-starter', paid:true, features:[
+    {ok:true,t:'20 templates'},{ok:true,t:'23 languages'},{ok:true,t:'PDF + Word export'},
+    {ok:false,t:'HTML export'},{ok:'lim',t:'AI Dictation (500 min/mo)'},{ok:'lim',t:'AI Enhancer (50/mo)'},
+    {ok:'lim',t:'Basic worklist'},{ok:true,t:'Unlimited reports'}] },
+  pro:     { label:'Pro',        tag:'tag-pro',     paid:true, popular:true, features:[
+    {ok:true,t:'112+ templates'},{ok:true,t:'23 languages'},{ok:true,t:'PDF + Word + HTML export'},
+    {ok:'lim',t:'AI Dictation (2,000 min/mo)'},{ok:'lim',t:'AI Enhancer (200/mo)'},
+    {ok:'lim',t:'Report Translation (100/mo)'},{ok:true,t:'Full worklist'},
+    {ok:'lim',t:'Basic stats'},{ok:true,t:'Priority support'}] },
+  expert:  { label:'Expert',     tag:'tag-expert',  paid:true, features:[
+    {ok:true,t:'112+ custom templates'},{ok:true,t:'23 languages'},{ok:true,t:'PDF + Word + HTML export'},
+    {ok:true,t:'AI Dictation (Unlimited)'},{ok:true,t:'AI Enhancer (Unlimited)'},
+    {ok:true,t:'Report Translation (Unlimited)'},{ok:true,t:'Advanced worklist'},
+    {ok:true,t:'Full statistics'},{ok:'lim',t:'LAN Sync (1 site · 3 PCs)'}] },
+  clinic:  { label:'Clinic',     tag:'tag-clinic',  paid:true, features:null },
+};
+const ORDER = ['free','starter','pro','expert','clinic'];
+
+// ── Sidebar nav ────────────────────────────────────────────────────────────
+function sbNav(el, sectionId) {
+  document.querySelectorAll('.sb-link').forEach(l => l.classList.remove('active'));
+  el.classList.add('active');
+  const target = document.getElementById(sectionId);
+  if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────
+async function init() {
+  fetchDailyQuote();
+
+  // getUser() validates the token server-side and triggers a refresh if expired.
+  // This prevents mobile browsers from using a stale access_token that would
+  // cause the Render backend to get 403 from Supabase /auth/v1/user.
+  const { data: userData, error: userError } = await sb.auth.getUser();
+  if (!userData?.user || userError) { window.location.href = 'https://pisum.app/saas/frontend/auth.html'; return; }
+  // Re-fetch session after getUser() to pick up any auto-refreshed token
+  const { data } = await sb.auth.getSession();
+  if (!data.session) { window.location.href = 'https://pisum.app/saas/frontend/auth.html'; return; }
+  session = data.session;
+
+  const user  = session.user;
+  const name  = user.user_metadata?.full_name || user.user_metadata?.name || '';
+  const email = user.email || '';
+  const initials = name
+    ? name.split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase()
+    : email[0]?.toUpperCase() || '?';
+
+  document.getElementById('nav-avatar').textContent = initials;
+  document.getElementById('nav-name').textContent   = name || email.split('@')[0];
+  document.getElementById('nav-email').textContent  = email;
+
+  document.getElementById('profile-avatar').textContent = initials;
+  document.getElementById('profile-name').textContent   = name || email.split('@')[0];
+  document.getElementById('profile-email').textContent  = email;
+  document.getElementById('profile-card').style.display = '';
+  loadProfile();
+
+  if (name) {
+    document.getElementById('page-title').textContent = getGreeting() + ', ' + name.split(' ')[0];
+  }
+
+  obInit(user.id);
+  loadReferral(user.id);
+
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('checkout') === 'success') {
+    pollUntilUpgraded();
+  } else {
+    loadAccess();
+  }
+}
+
+async function pollUntilUpgraded() {
+  setStatus('wait', t('status_wait_payment_title','Checking payment…'), t('status_wait_payment_desc','Waiting for payment confirmation. This may take up to a minute.'));
+  const MAX = 22, INT = 4000;
+  let n = 0;
+  const poll = async () => {
+    n++;
+    try {
+      const r = await fetch(`${API_BASE}/check-access`,
+        { headers:{Authorization:`Bearer ${session.access_token}`} });
+      const j = await r.json();
+      if (j.access && j.plan && j.plan !== 'free') {
+        await loadAccess();
+        window.history.replaceState({},'','dashboard.html');
+        return;
+      }
+      if (n < MAX) { setTimeout(poll, INT); return; }
+    } catch {}
+    if (n < MAX) setTimeout(poll, INT);
+    else { loadAccess(); window.history.replaceState({},'','dashboard.html'); }
+  };
+  setTimeout(poll, 2000);
+}
+
+async function loadAccess() {
+  try {
+    // Always use the latest session token (may have been auto-refreshed)
+    const { data: fresh } = await sb.auth.getSession();
+    if (fresh?.session) session = fresh.session;
+    const hdrs = { Authorization: `Bearer ${session.access_token}` };
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 15000);
+    const [r1, r2] = await Promise.all([
+      fetch(`${API_BASE}/check-access`,      { headers: hdrs, signal: ctrl.signal }),
+      fetch(`${API_BASE}/subscription-info`, { headers: hdrs, signal: ctrl.signal }),
+    ]);
+    clearTimeout(timer);
+    const accessData = await r1.json();
+    currentSubInfo   = r2.ok ? await r2.json() : {};
+    renderAccess(accessData, currentSubInfo);
+  } catch {
+    renderAccess({ access: false, reason: 'network_error' }, {});
+  }
+}
+
+function setStatus(type, title, desc) {
+  const banner  = document.getElementById('status-banner');
+  const iconEl  = document.getElementById('status-icon');
+  const iconSVGs = {
+    ok:   `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`,
+    err:  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`,
+    wait: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>`,
+  };
+  banner.className  = 'hero-status-line status-' + type;
+  iconEl.className  = 'status-icon hero-status-icon icon-' + type;
+  iconEl.innerHTML  = iconSVGs[type] || iconSVGs.wait;
+  document.getElementById('status-title').textContent = title;
+  document.getElementById('status-title').style.color = '';
+  document.getElementById('status-desc').textContent  = desc;
+}
+
+function buildClinicFeatures(subInfo) {
+  const enhRaw    = subInfo.features?.ai_enhancer_monthly_limit ?? -1;
+  const dictRaw   = subInfo.features?.ai_dictation_minutes ?? -1;
+  const seats     = 5 + (subInfo.extra_seats || 0);
+  const dictLabel = dictRaw < 0 ? t('feat_dict_unlimited','AI Dictation (Unlimited)') : `${t('feat_dictation','AI Dictation')} (${dictRaw.toLocaleString()} min/mo)`;
+  const enhLabel  = enhRaw  < 0 ? t('feat_enh_unlimited','AI Enhancer (Unlimited)')  : `${t('feat_enhancer','AI Enhancer')} (${enhRaw.toLocaleString()}/mo)`;
+  return [
+    {ok:true, t:t('feat_custom_templates','Custom templates')},
+    {ok:true, t:t('feat_23_lang','23 languages')},
+    {ok:true, t:t('feat_pdf_word','PDF + Word export')},
+    {ok:true, t:dictLabel},
+    {ok:true, t:enhLabel},
+    {ok:true, t:t('wl_multisite','Multi-site worklist')},
+    {ok:true, t:t('stats_advanced_export','Advanced stats + export')},
+    {ok:true, t:`${seats} ${t('users_unit','users')}`},
+    {ok:true, t:t('feat_unlimited_patients','Unlimited patients')},
+  ];
+}
+
+async function renderAccess({ access, reason, plan }, subInfo = {}) {
+  const activeCard = document.getElementById('active-card');
+  const subCard    = document.getElementById('sub-card');
+
+  if (access) {
+    setStatus('ok', t('status_ok_title','Access granted'), t('status_ok_desc','Your subscription is active. Launch the PISUM app to start writing reports.'));
+
+    const pb = document.getElementById('profile-plan-badge');
+    pb.textContent = (PLANS[plan]?.label || plan).toUpperCase();
+    pb.className   = 'badge badge-' + (plan || 'free');
+
+    const hdrPlan = document.getElementById('hdr-plan-badge');
+    hdrPlan.textContent = (PLANS[plan]?.label || plan).toUpperCase();
+    hdrPlan.className   = 'badge badge-' + (plan || 'free');
+
+    const statusRaw = subInfo.status || 'active';
+    const statusLabels = {
+      active:   '● ' + t('status_active','Active'),
+      inactive: '● ' + t('status_inactive','Inactive'),
+      canceled: '● ' + t('status_canceled','Canceled'),
+      canceling:'⏳ ' + t('status_canceling','Cancels at period end'),
+      expired:  '● ' + t('status_expired_badge','Expired'),
+    };
+    const hdrStatus = document.getElementById('hdr-status-badge');
+    hdrStatus.textContent = statusLabels[statusRaw] || statusRaw;
+    hdrStatus.className   = 'badge ' + (statusRaw === 'active' || statusRaw === 'canceling' ? 'badge-active' : 'badge-inactive');
+
+    const fmt = iso => iso
+      ? new Date(iso).toLocaleDateString('en-US', { day:'numeric', month:'long', year:'numeric' })
+      : '—';
+    const periodEnd   = subInfo.current_period_end;
+    const periodStart = subInfo.current_period_start;
+    const createdAt   = subInfo.created_at;
+    const interval    = subInfo.billing_interval || 'monthly';
+
+    const expiryEl = document.getElementById('info-expiry');
+    expiryEl.textContent = fmt(periodEnd);
+    if (periodEnd) {
+      const daysLeft = Math.ceil((new Date(periodEnd) - Date.now()) / 86400000);
+      expiryEl.className = 'info-value ' + (daysLeft <= 7 ? 'warn' : 'ok');
+    }
+
+    document.getElementById('info-next-billing').textContent = statusRaw === 'active' ? fmt(periodEnd) : '—';
+    document.getElementById('info-interval').textContent = interval === 'annual'
+      ? (window.i18n?.getNestedTranslation?.('dashboard.subscribe.annual') || t('interval_annual','Annual'))
+      : (window.i18n?.getNestedTranslation?.('dashboard.subscribe.monthly') || t('interval_monthly','Monthly'));
+    document.getElementById('info-since').textContent = fmt(periodStart || createdAt);
+
+    document.getElementById('btn-billing-portal').style.display = subInfo.has_billing_portal ? '' : 'none';
+
+    // Clinic-only: Team & Seats card
+    const teamCard = document.getElementById('team-seats-card');
+    if (plan === 'clinic' && statusRaw === 'active') {
+      const extraSeats = subInfo.extra_seats || 0;
+      const totalSeats = 5 + extraSeats;
+      document.getElementById('extra-seats-val').textContent  = extraSeats;
+      document.getElementById('total-seats-val').textContent  = totalSeats;
+      document.getElementById('total-seats-badge').textContent = totalSeats + ' users';
+      teamCard.style.display = '';
+    } else {
+      teamCard.style.display = 'none';
+    }
+
+    renderUsage(plan, subInfo);
+    renderFeatures(plan, subInfo);
+    activeCard.style.display = '';
+
+    document.getElementById('danger-zone').style.display = '';
+    const cancelBtn = document.getElementById('btn-cancel-sub');
+    const cancelingNotice = document.getElementById('canceling-notice');
+    if (plan !== 'free' && (statusRaw === 'active' || statusRaw === 'canceling')) {
+      if (statusRaw === 'active') {
+        cancelBtn.style.display = '';
+        cancelingNotice.style.display = 'none';
+      } else {
+        cancelBtn.style.display = 'none';
+        cancelingNotice.style.display = '';
+      }
+    } else {
+      cancelBtn.style.display = 'none';
+      cancelingNotice.style.display = 'none';
+    }
+
+    if (plan === 'free') {
+      document.getElementById('sub-title').textContent = t('upgrade_title','Upgrade your plan');
+      document.getElementById('sub-desc').textContent  = t('upgrade_desc','Unlock more features by switching to a paid plan.');
+      selectedPlan = 'starter';
+      renderPlanGrid();
+      subCard.style.display = '';
+    } else {
+      subCard.style.display = 'none';
+    }
+  } else if (reason === 'no_subscription') {
+    // Auto-activate free plan — no manual step required
+    setStatus('wait', t('status_activating_title','Activating free plan…'), t('status_activating_desc','Setting up your account, please wait.'));
+    try {
+      const r = await fetch(`${API_BASE}/activate-free`,
+        { method: 'POST', headers: { Authorization: `Bearer ${session.access_token}` } });
+      if (r.ok) {
+        await loadAccess();
+        return;
+      }
+    } catch {}
+    // Fallback: let the user pick manually if auto-activation failed
+    setStatus('err', t('status_err_title','No active subscription'), t('status_err_choose','Choose a plan to access PISUM.'));
+    renderPlanGrid();
+    subCard.style.display = '';
+    activeCard.style.display = 'none';
+    document.getElementById('danger-zone').style.display = '';
+    document.getElementById('btn-cancel-sub').style.display = 'none';
+    document.getElementById('canceling-notice').style.display = 'none';
+    const pbFallback = document.getElementById('profile-plan-badge');
+    pbFallback.textContent = 'NO PLAN';
+    pbFallback.className   = 'badge badge-inactive';
+  } else {
+    setStatus('err', t('status_err_title','No active subscription'),
+      reason === 'canceled' ? t('status_canceled_desc','Your subscription was canceled. Resubscribe to regain access.') :
+      reason === 'expired'  ? t('status_expired_desc','Your subscription has expired. Renew to continue.') :
+                              t('status_err_choose','Choose a plan to access PISUM.'));
+    renderPlanGrid();
+    subCard.style.display = '';
+    activeCard.style.display = 'none';
+    document.getElementById('danger-zone').style.display = '';
+    document.getElementById('btn-cancel-sub').style.display = 'none';
+    document.getElementById('canceling-notice').style.display = 'none';
+
+    const pb = document.getElementById('profile-plan-badge');
+    pb.textContent = 'NO PLAN';
+    pb.className   = 'badge badge-inactive';
+  }
+}
+
+function renderUsage(plan, subInfo) {
+  const section   = document.getElementById('usage-section');
+  const container = document.getElementById('usage-bars');
+  const rows      = [];
+
+  const enh = subInfo.usage?.ai_enhancer;
+  if (enh && enh.limit !== 0) {
+    if (enh.limit === -1) {
+      rows.push(makeUsageBar(t('feat_enhancer','AI Enhancer'), null, -1, t('unit_prompts','prompts'), null,
+        `<span class="usage-unlimited">${t('unlimited','Unlimited')}</span>`));
+    } else {
+      const pct     = Math.min(100, Math.round(enh.used / enh.limit * 100));
+      const resetTxt = enh.reset_at
+        ? t('resets','Resets') + ' ' + new Date(enh.reset_at).toLocaleDateString(window.i18n?.currentLang || 'en')
+        : '';
+      rows.push(makeUsageBar(t('feat_enhancer','AI Enhancer'), enh.used, enh.limit, t('unit_prompts','prompts'), pct, resetTxt));
+    }
+  }
+
+  const dictLimit = subInfo.features?.ai_dictation_minutes ?? null;
+  if (dictLimit !== null && dictLimit !== 0) {
+    rows.push(makeUsageBar(t('feat_dictation','AI Dictation'), null, dictLimit, t('unit_min','min'), null,
+      `<span style="color:var(--text-dim);font-size:0.75rem">${t('tracked_in_app','Usage tracked in the desktop app')}</span>`));
+  }
+
+  const crLimit = subInfo.features?.cr_monthly_limit ?? null;
+  if (crLimit !== null && crLimit !== undefined) {
+    rows.push(makeUsageBar(t('feat_reports_month','Reports / Month'), null, crLimit, t('unit_reports','reports'), null,
+      `<span style="color:var(--text-dim);font-size:0.75rem">${t('tracked_in_app','Usage tracked in the desktop app')}</span>`));
+  }
+
+  if (rows.length === 0) { section.style.display = 'none'; return; }
+  section.style.display = '';
+  container.innerHTML = rows.join('');
+
+  requestAnimationFrame(() => {
+    container.querySelectorAll('.ring-fill[data-target]').forEach(el => {
+      el.style.strokeDashoffset = el.dataset.target;
+    });
+    container.querySelectorAll('[data-count]').forEach(el => {
+      const target = parseInt(el.dataset.count, 10);
+      if (target > 0) animateCount(el, target, '%');
+    });
+  });
+}
+
+function makeUsageBar(name, used, limit, unit, pct, sub) {
+  const r = 40, circ = +(2 * Math.PI * r).toFixed(2);
+  const pctNum = pct !== null && pct !== undefined ? pct : 0;
+  const isUnlimited = limit === -1;
+  const pctTxt = isUnlimited ? '∞' : (pct !== null ? pct + '%' : '—');
+  const targetOffset = isUnlimited ? 0 : +(circ * (1 - pctNum / 100)).toFixed(2);
+  const limitTxt = isUnlimited ? '∞' : (limit || 0).toLocaleString();
+  const usedTxt = used !== null ? used.toLocaleString() : null;
+  const countTxt = (usedTxt ? usedTxt + ' / ' : '') + limitTxt + ' ' + unit;
+  const strokeColor = isUnlimited ? '#10B981' : pctNum >= 90 ? '#EF4444' : pctNum >= 70 ? '#F59E0B' : '#00E5CC';
+  const countAttr = !isUnlimited && pct !== null && pct > 0 ? `data-count="${pctNum}"` : '';
+
+  return `<div class="ring-card">
+    <div class="ring-wrap">
+      <svg viewBox="0 0 96 96" class="ring-svg">
+        <circle class="ring-track" cx="48" cy="48" r="${r}"/>
+        <circle class="ring-fill" cx="48" cy="48" r="${r}"
+          stroke="${strokeColor}"
+          stroke-dasharray="${circ}"
+          stroke-dashoffset="${circ}"
+          data-target="${targetOffset}"
+          style="transition:stroke-dashoffset 1.3s cubic-bezier(0.16,1,0.3,1)"
+        />
+      </svg>
+      <div class="ring-center"><span class="ring-pct" ${countAttr}>${pctTxt}</span></div>
+    </div>
+    <div class="ring-info">
+      <div class="ring-name">${name}</div>
+      <div class="ring-count">${countTxt}</div>
+      ${sub ? `<div class="ring-sub">${sub}</div>` : ''}
+    </div>
+  </div>`;
+}
+
+function animateCount(el, target, suffix) {
+  suffix = suffix || '';
+  const dur = 1000;
+  const start = performance.now();
+  const tick = now => {
+    const t = Math.min((now - start) / dur, 1);
+    const eased = 1 - Math.pow(1 - t, 4);
+    el.textContent = Math.round(eased * target) + suffix;
+    if (t < 1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+
+function renderFeatures(plan, subInfo) {
+  const f = subInfo && subInfo.features ? subInfo.features : null;
+
+  if (!f) {
+    const p = PLANS[plan]; if (!p) return;
+    const feats = p.features || buildClinicFeatures(currentSubInfo);
+    document.getElementById('feature-grid').innerHTML = feats.map(feat => {
+      const cls  = feat.ok===true ? 'fi-ok' : feat.ok==='lim' ? 'fi-lim' : 'fi-no';
+      const icon = feat.ok===true ? SVG_CHECK : feat.ok==='lim' ? SVG_PARTIAL : SVG_MINUS;
+      return `<div class="feature-item ${cls}"><span class="fi-icon">${icon}</span>${feat.t}</div>`;
+    }).join('');
+    return;
+  }
+
+  const feats = [];
+
+  const tpl = f.templates;
+  if (tpl === -1) feats.push({ok:true, t:t('feat_unlimited_templates','Unlimited custom templates')});
+  else if (tpl)   feats.push({ok:true, t:`${tpl} ${t('unit_templates','templates')}`});
+
+  const lang = f.languages;
+  if (lang === 23)      feats.push({ok:true,  t:t('feat_23_lang','23 languages')});
+  else if (lang > 1)    feats.push({ok:'lim', t:`${lang} ${t('unit_languages','languages')}`});
+  else if (lang === 1)  feats.push({ok:'lim', t:`1 ${t('unit_language','language')}`});
+
+  if (f.export_word) feats.push({ok:true,  t:t('feat_pdf_word','PDF + Word export')});
+  else               feats.push({ok:true,  t:t('feat_pdf','PDF export')});
+
+  const dict = f.ai_dictation_minutes;
+  if (dict === -1)      feats.push({ok:true,  t:t('feat_dict_unlimited','AI Dictation (Unlimited)')});
+  else if (dict > 0)    feats.push({ok:'lim', t:`${t('feat_dictation','AI Dictation')} (${dict.toLocaleString()} min/mo)`});
+  else                  feats.push({ok:false, t:t('feat_dictation','AI Dictation')});
+
+  const enh = f.ai_enhancer_monthly_limit;
+  if (enh === -1)       feats.push({ok:true,  t:t('feat_enh_unlimited','AI Enhancer (Unlimited)')});
+  else if (enh > 0)     feats.push({ok:'lim', t:`${t('feat_enhancer','AI Enhancer')} (${enh}/mo)`});
+  else                  feats.push({ok:false, t:t('feat_enhancer','AI Enhancer')});
+
+  const wlLabels = {
+    multisite: t('wl_multisite','Multi-site worklist'),
+    advanced:  t('wl_advanced','Advanced worklist'),
+    full:      t('wl_full','Full worklist'),
+    basic:     t('wl_basic','Basic worklist'),
+  };
+  const wl = f.worklist;
+  if (wl && wlLabels[wl]) feats.push({ok: wl === 'basic' ? 'lim' : true, t: wlLabels[wl]});
+  else                    feats.push({ok:false, t:t('wl_generic','Worklist')});
+
+  const stats = f.stats;
+  if (stats === 'advanced')    feats.push({ok:true,  t:t('stats_advanced','Advanced stats')});
+  else if (stats === 'basic')  feats.push({ok:'lim', t:t('stats_basic','Basic stats')});
+  else                         feats.push({ok:false, t:t('stats_generic','Statistics')});
+
+  const users = f.users;
+  if (plan === 'clinic') feats.push({ok:true, t:`${users || 5}+ ${t('users_unit','users')}`});
+
+  const cr = f.cr_monthly_limit;
+  if (cr !== null && cr !== undefined) feats.push({ok:'lim', t:`${cr} ${t('unit_reports_per_month','reports / month')}`});
+  else                                 feats.push({ok:true,  t:t('feat_unlimited_reports','Unlimited reports')});
+
+  document.getElementById('feature-grid').innerHTML = feats.map(feat => {
+    const cls  = feat.ok===true ? 'fi-ok' : feat.ok==='lim' ? 'fi-lim' : 'fi-no';
+    const icon = feat.ok===true ? SVG_CHECK : feat.ok==='lim' ? SVG_PARTIAL : SVG_MINUS;
+    return `<div class="feature-item ${cls}"><span class="fi-icon">${icon}</span>${feat.t}</div>`;
+  }).join('');
+}
+
+function renderPlanGrid() {
+  const grid = document.getElementById('plan-grid');
+  grid.innerHTML = '';
+  ORDER.forEach(k => {
+    const p = PLANS[k];
+    const card = document.createElement('div');
+    card.className = 'plan-card' + (k===selectedPlan?' sel':'');
+    card.id = 'pc-'+k;
+    card.onclick = () => selectPlan(k);
+    const feats = (p.features || buildClinicFeatures(currentSubInfo)).slice(0,5).map(f => {
+      const cls  = f.ok===true ? 'fi-ok' : f.ok==='lim' ? 'fi-lim' : 'fi-no';
+      const icon = f.ok===true ? SVG_CHECK : f.ok==='lim' ? SVG_PARTIAL : SVG_MINUS;
+      return `<li><span class="${cls}">${icon}</span>${f.t}</li>`;
+    }).join('');
+    card.innerHTML = `
+      ${p.popular?'<div class="pop-badge">Recommended</div>':''}
+      <div class="plan-tag ${p.tag}">${p.label.replace(/\s+\S+$/,'').trim()}</div>
+      <div class="plan-name">${p.label}</div>
+      <ul class="plan-feats">${feats}</ul>`;
+    grid.appendChild(card);
+  });
+  updateSubBtn();
+}
+
+function setBilling(isAnnual) {
+  billingInterval = isAnnual ? 'annual' : 'monthly';
+  updateSubBtn();
+}
+
+function selectPlan(k) {
+  selectedPlan = k;
+  ORDER.forEach(p => document.getElementById('pc-'+p)?.classList.toggle('sel', p===k));
+  updateSubBtn();
+}
+
+function updateSubBtn() {
+  const btn  = document.getElementById('btn-subscribe');
+  const planInfo = PLANS[selectedPlan];
+  if (!planInfo) return;
+
+  if (planInfo.paid) {
+    const prices = PLAN_PRICES[selectedPlan];
+    const price = prices ? prices[billingInterval] : null;
+    const intervalText = billingInterval === 'annual' ? '/mo (annual)' : '/mo';
+    const priceText = price ? ` — €${price}${intervalText}` : '';
+    btn.textContent = `Subscribe — ${planInfo.label}${priceText}`;
+    btn.className   = 'btn btn-primary';
+  } else {
+    btn.textContent = 'Activate Free Plan';
+    btn.className   = 'btn btn-free';
+  }
+}
+
+async function handleSubscribe() {
+  const plan = PLANS[selectedPlan];
+  if (!plan) return;
+  const btn = document.getElementById('btn-subscribe');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> ' + (plan.paid ? 'Redirecting…' : 'Activating…');
+
+  try {
+    if (!plan.paid) {
+      const r = await fetch(`${API_BASE}/activate-free`,
+        { method:'POST', headers:{Authorization:`Bearer ${session.access_token}`} });
+      if (!r.ok) throw new Error((await r.json()).detail || 'Error');
+      await loadAccess();
+    } else {
+      const body = { plan: selectedPlan, interval: billingInterval };
+      // Force quantity to 1 for clinic plan to fix pricing bug
+      if (selectedPlan === 'clinic') {
+        body.quantity = 1;
+      }
+      const r = await fetch(`${API_BASE}/create-checkout-session`, {
+        method:'POST',
+        headers:{Authorization:`Bearer ${session.access_token}`,'Content-Type':'application/json'},
+        body: JSON.stringify(body),
+      });
+      if (!r.ok) throw new Error((await r.json()).detail || 'Error');
+      const { checkout_url } = await r.json();
+      window.location.href = checkout_url;
+    }
+  } catch(err) {
+    const errEl = document.getElementById('sub-err');
+    errEl.textContent = 'Error: ' + err.message;
+    errEl.style.display = '';
+    btn.disabled = false;
+    updateSubBtn();
+  }
+}
+
+async function signOut() {
+  document.cookie = 'pisum_user=; domain=.pisum.app; path=/; max-age=0; SameSite=Lax; Secure';
+  await sb.auth.signOut();
+  window.location.href = 'https://pisum.app/';
+}
+
+async function loadProfile() {
+  if (!session) return;
+  const { data } = await sb
+    .from('profiles')
+    .select('*')
+    .eq('user_id', session.user.id)
+    .maybeSingle();
+  const meta = session.user.user_metadata || {};
+  const oauthName   = (meta.full_name || meta.name   || '').trim();
+  const oauthAvatar = (meta.avatar_url || meta.picture || '').trim();
+
+  if (data) {
+    currentProfile = data;
+    // Persist OAuth avatar for existing profiles that have no photo yet
+    if (!data.avatar_url && oauthAvatar) {
+      const { data: updated } = await sb
+        .from('profiles')
+        .update({ avatar_url: oauthAvatar })
+        .eq('user_id', session.user.id)
+        .select()
+        .maybeSingle();
+      if (updated) currentProfile = updated;
+    }
+    updateProfileDisplay(currentProfile);
+  } else {
+    // No profile yet — auto-populate from OAuth metadata
+    if (oauthName || oauthAvatar) {
+      const profileData = {
+        user_id:    session.user.id,
+        full_name:  oauthName   || null,
+        avatar_url: oauthAvatar || null,
+      };
+      const { data: created } = await sb
+        .from('profiles')
+        .upsert(profileData, { onConflict: 'user_id' })
+        .select()
+        .maybeSingle();
+      currentProfile = created || profileData;
+    }
+    updateProfileDisplay(currentProfile || {});
+  }
+}
+
+function setAvatarEl(el, url) {
+  if (!el) return;
+  el.innerHTML = '';
+  const img = document.createElement('img');
+  img.src = url;
+  img.alt = 'Avatar';
+  img.style.cssText = 'width:100%;height:100%;border-radius:50%;object-fit:cover;display:block';
+  el.style.background = 'none';
+  el.style.padding = '0';
+  el.appendChild(img);
+}
+
+function updateProfileDisplay(profile) {
+  const _u = session?.user;
+  const avatarSrc = profile.avatar_url || _u?.user_metadata?.avatar_url || _u?.user_metadata?.picture || '';
+  if (avatarSrc) {
+    setAvatarEl(document.getElementById('profile-avatar'), avatarSrc);
+    setAvatarEl(document.getElementById('nav-avatar'),     avatarSrc);
+  }
+  if (session) {
+    const u = session.user;
+    const name = profile.full_name || u.user_metadata?.full_name || u.email.split('@')[0];
+    const avatar = profile.avatar_url || u.user_metadata?.avatar_url || u.user_metadata?.picture || '';
+    const val = encodeURIComponent(JSON.stringify({ name, email: u.email, avatar }));
+    document.cookie = `pisum_user=${val}; domain=.pisum.app; path=/; max-age=604800; SameSite=Lax; Secure`;
+  }
+  const extra = document.getElementById('profile-extra');
+  const parts = [];
+  if (profile.specialty)    parts.push('🔬 ' + profile.specialty);
+  if (profile.organization) parts.push('🏥 ' + profile.organization);
+  if (profile.city || profile.country)
+    parts.push('📍 ' + [profile.city, profile.country].filter(Boolean).join(', '));
+  extra.innerHTML = parts.map(p => `<span class="profile-extra-item">${p}</span>`).join('');
+
+  if (profile.full_name) {
+    document.getElementById('profile-name').textContent = profile.full_name;
+    document.getElementById('nav-name').textContent     = profile.full_name;
+    document.getElementById('page-title').textContent   = getGreeting() + ', ' + profile.full_name.split(' ')[0];
+    if (!profile.avatar_url) {
+      const initials = profile.full_name.split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase();
+      document.getElementById('profile-avatar').textContent = initials;
+      document.getElementById('nav-avatar').textContent     = initials;
+    }
+  }
+}
+
+function openProfileModal() {
+  const p = currentProfile || {};
+  const meta = session?.user?.user_metadata || {};
+  document.getElementById('f-name').value      = p.full_name    || meta.full_name || meta.name || '';
+  document.getElementById('f-phone').value     = p.phone        || '';
+  document.getElementById('f-specialty').value = p.specialty    || '';
+  document.getElementById('f-org').value       = p.organization || '';
+  document.getElementById('f-city').value      = p.city         || '';
+  document.getElementById('f-country').value   = p.country      || '';
+
+  const modalAv = document.getElementById('modal-avatar');
+  if (p.avatar_url) {
+    setAvatarEl(modalAv, p.avatar_url);
+  } else {
+    const name = p.full_name || meta.full_name || meta.name || '';
+    const email = session?.user?.email || '';
+    const initials = name
+      ? name.split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase()
+      : (email[0]?.toUpperCase() || '?');
+    modalAv.innerHTML = initials;
+    modalAv.style.background = 'var(--grad)';
+    modalAv.style.padding = '';
+  }
+
+  pendingAvatarBlob = null;
+  hideModalMsg();
+  document.getElementById('profile-modal-overlay').classList.add('open');
+}
+
+function closeProfileModal() {
+  document.getElementById('profile-modal-overlay').classList.remove('open');
+  pendingAvatarBlob = null;
+}
+
+function hideModalMsg() {
+  const m = document.getElementById('modal-msg');
+  m.style.display = 'none'; m.className = 'modal-msg';
+}
+
+function showModalMsg(text, type) {
+  const m = document.getElementById('modal-msg');
+  m.textContent = text;
+  m.className = 'modal-msg ' + type;
+  m.style.display = '';
+}
+
+async function handleAvatarChange(input) {
+  const file = input.files[0];
+  if (!file) return;
+  if (file.size > 2 * 1024 * 1024) {
+    showModalMsg('Image too large — maximum 2 MB.', 'err');
+    input.value = ''; return;
+  }
+  const blob = await compressImage(file);
+  pendingAvatarBlob = blob;
+  const url = URL.createObjectURL(blob);
+  setAvatarEl(document.getElementById('modal-avatar'), url);
+  input.value = '';
+}
+
+async function compressImage(file) {
+  return new Promise(resolve => {
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      const MAX = 240;
+      let w = img.width, h = img.height;
+      if (w > h) { if (w > MAX) { h = Math.round(h * MAX / w); w = MAX; } }
+      else        { if (h > MAX) { w = Math.round(w * MAX / h); h = MAX; } }
+      const canvas = document.createElement('canvas');
+      canvas.width = w; canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      URL.revokeObjectURL(url);
+      canvas.toBlob(b => resolve(b), 'image/jpeg', 0.82);
+    };
+    img.src = url;
+  });
+}
+
+async function uploadAvatar() {
+  if (!pendingAvatarBlob) return null;
+  const path = `${session.user.id}/avatar.jpg`;
+  const { error } = await sb.storage
+    .from('avatars')
+    .upload(path, pendingAvatarBlob, { upsert: true, contentType: 'image/jpeg' });
+  if (error) throw new Error('Upload photo : ' + error.message);
+  const { data } = sb.storage.from('avatars').getPublicUrl(path);
+  return data.publicUrl + '?t=' + Date.now();
+}
+
+async function saveProfile() {
+  const btn = document.getElementById('btn-save-profile');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Saving…';
+  hideModalMsg();
+
+  try {
+    const fullName = document.getElementById('f-name').value.trim();
+    let avatarUrl = currentProfile?.avatar_url || null;
+    if (pendingAvatarBlob) { avatarUrl = await uploadAvatar(); }
+
+    const payload = {
+      user_id:      session.user.id,
+      full_name:    fullName    || null,
+      phone:        document.getElementById('f-phone').value.trim()     || null,
+      specialty:    document.getElementById('f-specialty').value.trim() || null,
+      organization: document.getElementById('f-org').value.trim()       || null,
+      city:         document.getElementById('f-city').value.trim()      || null,
+      country:      document.getElementById('f-country').value.trim()   || null,
+      avatar_url:   avatarUrl,
+    };
+
+    const { error } = await sb.from('profiles').upsert(payload, { onConflict: 'user_id' });
+    if (error) throw new Error(error.message);
+
+    if (fullName) {
+      await sb.auth.updateUser({ data: { full_name: fullName } });
+    }
+
+    currentProfile = { ...(currentProfile || {}), ...payload };
+    updateProfileDisplay(currentProfile);
+    pendingAvatarBlob = null;
+
+    showModalMsg('Profile saved successfully!', 'ok');
+    setTimeout(closeProfileModal, 1400);
+  } catch(err) {
+    showModalMsg('Error: ' + err.message, 'err');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Save';
+  }
+}
+
+function showSuccessToast(msg) {
+  const t = document.getElementById('success-toast');
+  t.textContent = msg;
+  t.style.display = '';
+  setTimeout(() => { t.style.display = 'none'; }, 3500);
+}
+
+function showErrToast(msg) {
+  const t = document.getElementById('err-toast');
+  t.textContent = msg;
+  t.style.display = '';
+  setTimeout(() => { t.style.display = 'none'; }, 3500);
+}
+
+// ── Extra Seats ──────────────────────────────────────────────────────────────
+
+let addSeatsQty = 1;
+
+function changeAddSeats(delta) {
+  addSeatsQty = Math.max(1, addSeatsQty + delta);
+  document.getElementById('add-seats-qty').textContent = addSeatsQty;
+  const label = addSeatsQty === 1 ? '1 seat — €69/mo' : `${addSeatsQty} seats — €${addSeatsQty * 69}/mo`;
+  document.getElementById('add-seats-label').textContent = label;
+}
+
+async function handleAddSeats() {
+  const btn = document.getElementById('btn-add-seats');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Redirecting…';
+  try {
+    const r = await fetch(`${API_BASE}/create-extra-seat-checkout`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${session.access_token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ quantity: addSeatsQty }),
+    });
+    if (!r.ok) {
+      const err = await r.json().catch(() => ({}));
+      throw new Error(err.detail || 'Server error');
+    }
+    const { checkout_url } = await r.json();
+    window.location.href = checkout_url;
+  } catch (e) {
+    showErrToast('Error: ' + e.message);
+    btn.disabled = false;
+    btn.innerHTML = 'Add <span id="add-seats-label">' + (addSeatsQty === 1 ? '1 seat — €69/mo' : `${addSeatsQty} seats — €${addSeatsQty * 69}/mo`) + '</span>';
+  }
+}
+
+async function handleBillingPortal() {
+  const btn = document.getElementById('btn-billing-portal');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Loading…';
+  try {
+    const r = await fetch(`${API_BASE}/billing-portal`, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${session.access_token}` },
+    });
+    if (!r.ok) throw new Error((await r.json()).detail || 'Error');
+    const { portal_url } = await r.json();
+    window.location.href = portal_url;
+  } catch(err) {
+    btn.disabled = false;
+    btn.textContent = 'Manage Billing';
+    alert('Could not open billing portal: ' + err.message);
+  }
+}
+
+function openCancelModal() {
+  document.getElementById('cancel-confirm-input').value = '';
+  document.getElementById('cancel-modal-msg').style.display = 'none';
+  document.getElementById('btn-confirm-cancel').disabled = true;
+  document.getElementById('btn-confirm-cancel').style.opacity = '0.5';
+  document.getElementById('cancel-modal-overlay').classList.add('open');
+}
+function closeCancelModal() {
+  document.getElementById('cancel-modal-overlay').classList.remove('open');
+}
+function validateCancelInput() {
+  const inp = document.getElementById('cancel-confirm-input');
+  const ok = inp.value.trim().toUpperCase() === inp.placeholder.trim().toUpperCase();
+  const btn = document.getElementById('btn-confirm-cancel');
+  btn.disabled = !ok;
+  btn.style.opacity = ok ? '1' : '0.5';
+}
+async function confirmCancel() {
+  const btn = document.getElementById('btn-confirm-cancel');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Canceling…';
+  try {
+    const r = await fetch(`${API_BASE}/cancel-subscription`, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${session.access_token}` },
+    });
+    if (!r.ok) throw new Error((await r.json()).detail || 'Error');
+    closeCancelModal();
+    showSuccessToast('Subscription canceled. You keep access until the end of your billing period.');
+    setTimeout(loadAccess, 1500);
+  } catch(err) {
+    const m = document.getElementById('cancel-modal-msg');
+    m.textContent = 'Error: ' + err.message;
+    m.className = 'modal-msg err';
+    m.style.display = '';
+    btn.disabled = false;
+    btn.textContent = 'Cancel Subscription';
+  }
+}
+
+function openPwModal() {
+  document.getElementById('pw-new').value = '';
+  document.getElementById('pw-confirm').value = '';
+  document.getElementById('pw-modal-msg').style.display = 'none';
+  document.getElementById('pw-modal-overlay').classList.add('open');
+}
+function closePwModal() {
+  document.getElementById('pw-modal-overlay').classList.remove('open');
+}
+async function savePassword() {
+  const pw  = document.getElementById('pw-new').value;
+  const cfm = document.getElementById('pw-confirm').value;
+  const msg = document.getElementById('pw-modal-msg');
+
+  if (pw.length < 8) {
+    msg.textContent = 'Password must be at least 8 characters.';
+    msg.className = 'modal-msg err'; msg.style.display = ''; return;
+  }
+  if (pw !== cfm) {
+    msg.textContent = 'Passwords do not match.';
+    msg.className = 'modal-msg err'; msg.style.display = ''; return;
+  }
+
+  const btn = document.getElementById('btn-save-pw');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Saving…';
+
+  const { error } = await sb.auth.updateUser({ password: pw });
+  if (error) {
+    msg.textContent = 'Error: ' + error.message;
+    msg.className = 'modal-msg err'; msg.style.display = '';
+  } else {
+    msg.textContent = '✓ Password updated successfully.';
+    msg.className = 'modal-msg ok'; msg.style.display = '';
+    setTimeout(closePwModal, 1400);
+  }
+  btn.disabled = false;
+  btn.textContent = 'Update Password';
+}
+
+function openDeleteModal() {
+  document.getElementById('delete-confirm-input').value = '';
+  document.getElementById('delete-modal-msg').style.display = 'none';
+  document.getElementById('btn-confirm-delete').disabled = true;
+  document.getElementById('btn-confirm-delete').style.opacity = '0.5';
+  document.getElementById('delete-modal-overlay').classList.add('open');
+}
+function closeDeleteModal() {
+  document.getElementById('delete-modal-overlay').classList.remove('open');
+}
+function validateDeleteInput() {
+  const inp = document.getElementById('delete-confirm-input');
+  const ok = inp.value.trim().toUpperCase() === inp.placeholder.trim().toUpperCase();
+  const btn = document.getElementById('btn-confirm-delete');
+  btn.disabled = !ok;
+  btn.style.opacity = ok ? '1' : '0.5';
+}
+async function confirmDeleteAccount() {
+  const btn = document.getElementById('btn-confirm-delete');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Deleting…';
+  try {
+    const r = await fetch(`${API_BASE}/delete-account`, {
+      method: 'DELETE',
+      headers: { Authorization: `Bearer ${session.access_token}` },
+    });
+    if (!r.ok) throw new Error((await r.json()).detail || 'Error');
+    await sb.auth.signOut();
+    window.location.href = 'https://pisum.app/';
+  } catch(err) {
+    const m = document.getElementById('delete-modal-msg');
+    m.textContent = 'Error: ' + err.message;
+    m.className = 'modal-msg err';
+    m.style.display = '';
+    btn.disabled = false;
+    btn.textContent = 'Delete My Account';
+  }
+}
+
+/* ── ONBOARDING ── */
+function obKey(uid) { return 'pisum_ob_' + uid; }
+
+function obInit(uid) {
+  const raw = localStorage.getItem(obKey(uid));
+  const state = raw ? JSON.parse(raw) : { dismissed: false, steps: [] };
+  if (state.dismissed) return;
+  const card = document.getElementById('onboarding-card');
+  card.style.display = '';
+  obRender(state.steps);
+}
+
+function obRender(steps) {
+  const total = 3;
+  const done = steps.length;
+  [1,2,3].forEach(n => {
+    const isDone = steps.includes(n);
+    document.getElementById('ob-step-' + n).classList.toggle('done', isDone);
+    const numEl = document.getElementById('ob-num-' + n);
+    numEl.innerHTML = isDone
+      ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
+      : n;
+  });
+  const pct = Math.round((done / total) * 100);
+  document.getElementById('ob-progress-fill').style.width = pct + '%';
+  document.getElementById('ob-progress-label').textContent =
+    done === total ? 'All done! 🎉' : `Step ${done + 1} of ${total}`;
+}
+
+function obComplete(step) {
+  if (!session) return;
+  const key = obKey(session.user.id);
+  const state = JSON.parse(localStorage.getItem(key) || '{"dismissed":false,"steps":[]}');
+  if (!state.steps.includes(step)) state.steps.push(step);
+  localStorage.setItem(key, JSON.stringify(state));
+  obRender(state.steps);
+}
+
+function obDismiss() {
+  if (!session) return;
+  const key = obKey(session.user.id);
+  const state = JSON.parse(localStorage.getItem(key) || '{"dismissed":false,"steps":[]}');
+  state.dismissed = true;
+  localStorage.setItem(key, JSON.stringify(state));
+  const card = document.getElementById('onboarding-card');
+  card.style.transition = 'opacity 0.25s';
+  card.style.opacity = '0';
+  setTimeout(() => card.style.display = 'none', 260);
+}
+
+// ── Referral Program ──────────────────────────────────────────────────────
+function loadReferral(userId) {
+  const card = document.getElementById('section-referral');
+  if (!card) return;
+  card.style.display = '';
+
+  const refLink = `https://pisum.app/saas/frontend/auth.html?ref=${userId}`;
+  const input = document.getElementById('ref-link-input');
+  if (input) input.value = refLink;
+
+  loadReferralStats(userId);
+}
+
+async function loadReferralStats(userId) {
+  try {
+    const { data: fresh } = await sb.auth.getSession();
+    if (fresh?.session) session = fresh.session;
+    const r = await fetch(`${API_BASE}/referral-stats`, {
+      headers: { Authorization: `Bearer ${session.access_token}` },
+    });
+    if (!r.ok) throw new Error('no-endpoint');
+    const j = await r.json();
+    const count       = j.referral_count  ?? 0;
+    const earned      = j.months_earned   ?? 0;
+    const remaining   = j.months_remaining ?? 0;
+    document.getElementById('ref-count').textContent        = count;
+    document.getElementById('ref-months-earned').textContent = earned;
+    document.getElementById('ref-months-left').textContent   = remaining;
+  } catch {
+    document.getElementById('ref-count').textContent        = '0';
+    document.getElementById('ref-months-earned').textContent = '0';
+    document.getElementById('ref-months-left').textContent   = '0';
+  }
+}
+
+function copyReferralLink() {
+  const input = document.getElementById('ref-link-input');
+  const btn   = document.getElementById('ref-copy-btn');
+  if (!input || !btn) return;
+  navigator.clipboard.writeText(input.value).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = t('referral_copied', 'Copied!');
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = orig;
+      btn.classList.remove('copied');
+    }, 2000);
+  }).catch(() => {
+    input.select();
+    document.execCommand('copy');
+  });
+}
+
+function shareReferralByEmail(e) {
+  e.preventDefault();
+  const input = document.getElementById('ref-link-input');
+  if (!input) return;
+  const subject = encodeURIComponent('Essayez PISUM — Logiciel de radiologie IA');
+  const body    = encodeURIComponent(`Bonjour,\n\nJe vous recommande PISUM, un logiciel de radiologie propulsé par l'IA. Inscrivez-vous via mon lien pour bénéficier d'un accès gratuit :\n\n${input.value}\n\nCordialement`);
+  window.open(`mailto:?subject=${subject}&body=${body}`);
+}
+
+init();
+
+// Aurora background effect
+const shell = document.querySelector('.app-shell');
+if (shell) {
+  shell.addEventListener('mousemove', e => {
+    const rect = shell.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    shell.style.setProperty('--mouse-x', `${x}px`);
+    shell.style.setProperty('--mouse-y', `${y}px`);
+  });
+}
+</script>
+
+<nav class="mobile-tab-bar" aria-label="Mobile navigation">
+  <button class="mtb-btn active" id="mtb-overview" onclick="sbNav(document.getElementById('snav-overview'),'section-overview');mtbActive(this)">
+    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+    <span data-i18n="dashboard.nav.overview">Overview</span>
+  </button>
+  <button class="mtb-btn" id="mtb-usage" onclick="sbNav(document.getElementById('snav-usage'),'section-usage');mtbActive(this)">
+    <svg viewBox="0 0 24 24"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg>
+    <span data-i18n="dashboard.nav.usage">Usage</span>
+  </button>
+  <button class="mtb-btn" id="mtb-billing" onclick="sbNav(document.getElementById('snav-billing'),'section-billing');mtbActive(this)">
+    <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="9" x2="22" y2="9" stroke-width="1.75"/><line x1="6" y1="14" x2="10" y2="14" stroke-width="2"/></svg>
+    <span data-i18n="dashboard.nav.billing">Billing</span>
+  </button>
+  <button class="mtb-btn" id="mtb-profile" onclick="sbNav(document.getElementById('snav-profile'),'section-profile');mtbActive(this)">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+    <span data-i18n="dashboard.nav.profile">Profile</span>
+  </button>
+  <button class="mtb-btn" onclick="signOut()">
+    <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+    <span data-i18n="dashboard.nav.signOut">Sign Out</span>
+  </button>
+</nav>
+<script>
+function mtbActive(el){document.querySelectorAll('.mtb-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active')}
+</script>
+<script src="./i18n.js?v=20260806"></script>
+
+<!-- ── PISUM AI WIDGET ── -->
+<div id="piw">
+  <button aria-label="Ask PISUM AI" id="piw-trigger" onclick="piwToggle()" data-i18n="index.button_44">
+    <svg fill="none" height="16" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="16"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"></path></svg>
+    Ask AI
+    <span id="piw-badge">1</span>
+  </button>
+  <div aria-label="PISUM AI Assistant" id="piw-panel" role="dialog">
+    <div id="piw-head">
+      <div id="piw-head-info">
+        <div id="piw-avatar">✨</div>
+        <div>
+          <div id="piw-name" data-i18n="index.piw_name">PISUM AI</div>
+          <div id="piw-status"><span class="piw-dot"></span> <span data-i18n="index.piw_status">Online — always here to help</span></div>
+        </div>
+      </div>
+      <button aria-label="Close" id="piw-close" onclick="piwToggle()" data-i18n="index.button_45">✕</button>
+    </div>
+    <div id="piw-msgs">
+      <div class="piw-msg ai"><div class="piw-bubble" data-i18n="index.piw_msg">Hi! I'm <strong>PISUM AI</strong> 👋<br>Ask me anything about features, pricing, setup, or templates. I'll give you a straight answer.</div></div>
+    </div>
+    <div id="piw-chips">
+      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="index.button_46">What plans exist?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="index.button_47">Free trial?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="index.button_48">How to install?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="index.button_49">AI dictation?</button>
+      <button class="piw-chip" onclick="piwAsk(this.textContent)" data-i18n="index.button_50">GDPR compliant?</button>
+    </div>
+    <div id="piw-footer">
+      <input autocomplete="off" id="piw-input" onkeydown="if(event.key==='Enter')piwSend()" placeholder="Ask a question…" type="text" data-i18n="[placeholder]index.input_1"/>
+      <button aria-label="Send" id="piw-send" onclick="piwSend()">
+        <svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><line x1="22" x2="11" y1="2" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+      </button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+const PC_URL='https://pisum-chat-server.onrender.com';
+const piwSid='sess_'+Math.random().toString(36).slice(2);
+function fmt(text){return text.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');}
+function addMsg(role,text){
+  const wrap=document.getElementById('piw-msgs');
+  const d=document.createElement('div');
+  d.className='piw-msg '+role;
+  const b=document.createElement('div');
+  b.className='piw-bubble';
+  b.innerHTML=fmt(text).replace(/\n/g,'<br>');
+  d.appendChild(b);
+  wrap.appendChild(d);
+  wrap.scrollTop=wrap.scrollHeight;
+}
+function showTyping(){
+  const wrap=document.getElementById('piw-msgs');
+  const d=document.createElement('div');
+  d.className='piw-msg ai';d.id='piw-typing-indicator';
+  d.innerHTML='<div class="piw-typing"><span></span><span></span><span></span></div>';
+  wrap.appendChild(d);
+  wrap.scrollTop=wrap.scrollHeight;
+  return d;
+}
+window.piwToggle=function(){
+  const panel=document.getElementById('piw-panel');
+  const badge=document.getElementById('piw-badge');
+  const isOpen=panel.classList.contains('open');
+  panel.classList.toggle('open');
+  if(!isOpen&&badge)badge.style.display='none';
+  if(!isOpen)setTimeout(()=>document.getElementById('piw-input').focus(),100);
+};
+window.piwAsk=async function(q){
+  document.getElementById('piw-chips').style.display='none';
+  const btn=document.getElementById('piw-send');
+  addMsg('user',q);
+  btn.disabled=true;
+  const t=showTyping();
+  try{
+    const r=await fetch(PC_URL+'/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q,sessionId:piwSid})});
+    const data=await r.json();
+    t.remove();
+    addMsg('ai',data.reply||data.error);
+  }catch{
+    t.remove();
+    addMsg('ai','Connection error. Please try again.');
+  }
+  btn.disabled=false;
+};
+window.piwSend=function(){
+  const inp=document.getElementById('piw-input');
+  const q=inp.value.trim();
+  if(!q)return;
+  inp.value='';
+  piwAsk(q);
+};
+})();
+</script>
+</body>
+</html>
