@@ -34,39 +34,11 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
-/* Empêche le logo de se faire écraser */
-.nav-logo {
-  flex-shrink: 0;
-}
-
-/* Rapproche légèrement les liens du menu pour gagner de l'espace */
-.nav-links {
-  gap: clamp(1rem, 1.5vw, 2.2rem);
-}
-
-/* Active le menu hamburger plus tôt (à 1200px au lieu de 1020px) pour éviter les collisions */
-@media (max-width: 1200px) {
-  .nav-links, .nav-login { display: none !important; }
-  .hamburger { display: flex !important; }
-  .nav-links.open {
-    display: flex !important;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
-    position: fixed;
-    inset: 70px 0 0 0;
-    background: var(--bg);
-    padding: 2rem clamp(1.25rem, 5vw, 3rem);
-    z-index: 997;
-    border-bottom: 1px solid var(--b1);
-  }
-  .nav-links.open a { font-size: 1.15rem; color: var(--ink); }
-}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
 :root{
-  --bg:#030408; 
-  --white:#0D0E15;
+  --bg:#030509; 
+  --white:#090D16;
   --off:#06070B;
   --ink:#FFFFFF;
   --ink-2:#E2E8F0;
@@ -76,9 +48,10 @@ html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:op
   --b2:rgba(255,255,255,0.15);
   --blue:#00E5CC;
   --blue-d:#00B3A1;
-  --purple:#7C3AED;
+  --accent-blue:#3B82F6;
+  --purple:#6366F1;
   --green:#10B981;
-  --grad:linear-gradient(135deg,#00E5CC 0%,#7C3AED 100%);
+  --grad:linear-gradient(135deg,#00E5CC 0%,#3B82F6 100%);
   --shadow-xs:0 1px 2px rgba(0,0,0,0.3);
   --shadow-sm:0 4px 12px rgba(0,0,0,0.4);
   --shadow:0 8px 32px rgba(0,0,0,0.5);
@@ -106,7 +79,7 @@ a{text-decoration:none;color:inherit}
 .btn-primary:hover{background:#E2E8F0;transform:translateY(-2px);box-shadow:0 8px 25px rgba(255,255,255,0.2)}
 .btn-ghost{background:rgba(255,255,255,0.05);color:var(--ink);padding:0.75rem 1.75rem;border:1px solid var(--b2);backdrop-filter:blur(8px)}
 .btn-ghost:hover{background:rgba(255,255,255,0.1);color:var(--ink);border-color:var(--blue);transform:translateY(-2px);box-shadow:var(--shadow-blue)}
-.btn-grad{background:var(--grad);color:var(--ink);padding:0.8rem 2rem;box-shadow:var(--shadow-blue)}
+.btn-grad{background:var(--grad);color:var(--bg);padding:0.8rem 2rem;box-shadow:var(--shadow-blue)}
 .btn-grad:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(0,229,204,0.4)}
 .btn-lg{padding:0.9rem 2.2rem;font-size:0.95rem}
 .btn-xl{padding:1rem 2.5rem;font-size:1rem}
@@ -122,8 +95,8 @@ a{text-decoration:none;color:inherit}
 .glow-2 { bottom: 10%; right: -10%; width: 700px; height: 700px; background: var(--blue); }
 
 /* NAV */
-.nav{position:fixed;top:0;left:0;right:0;z-index:998;height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.25rem,5vw,3rem);transition:all 0.3s var(--t)}
-.nav.solid{background:rgba(10,12,20,0.7);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--b1);box-shadow:0 4px 30px rgba(0,0,0,0.5)}
+.nav{position:fixed;top:44px;left:0;right:0;z-index:998;height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.25rem,5vw,3rem);transition:all 0.3s var(--t)}
+.nav.solid{background:rgba(10,12,20,0.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--b1);box-shadow:0 4px 30px rgba(0,0,0,0.5)}
 .nav-logo{display:flex;align-items:center;gap:9px;font-size:1.2rem;font-weight:800;letter-spacing:-0.03em;color:var(--ink); font-family: var(--serif);}
 .nav-logo img{width:30px;height:30px;border-radius:8px;}
 .nav-links{display:flex;align-items:center;gap:2.2rem;list-style:none}
@@ -134,7 +107,7 @@ a{text-decoration:none;color:inherit}
 .nav-login:hover{color:var(--blue)}
 .nav-profile{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.05);border:1px solid var(--b2);border-radius:999px;padding:4px 12px 4px 4px;}
 .nav-profile-avatar{width:36px;height:36px;border-radius:50%;object-fit:cover;flex-shrink:0}
-.nav-profile-avatar-fallback{width:36px;height:36px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:var(--ink);flex-shrink:0}
+.nav-profile-avatar-fallback{width:36px;height:36px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:var(--bg);flex-shrink:0}
 .nav-profile-info{display:flex;flex-direction:column;gap:1px}
 .nav-profile-name{font-size:0.8rem;font-weight:600;color:var(--ink);line-height:1.2}
 .nav-profile-email{font-size:0.7rem;color:var(--ink-3);line-height:1.2}
@@ -146,14 +119,14 @@ a{text-decoration:none;color:inherit}
 @media(max-width:1020px){
   .nav-links,.nav-login{display:none}
   .hamburger{display:flex}
-  .nav-links.open{display:flex;flex-direction:column;align-items:flex-start;gap:1.5rem;position:fixed;inset:70px 0 0 0;background:var(--bg);padding:2rem clamp(1.25rem,5vw,3rem);z-index:997; border-bottom:1px solid var(--b1)}
+  .nav-links.open{display:flex;flex-direction:column;align-items:flex-start;gap:1.5rem;position:fixed;inset:114px 0 0 0;background:var(--bg);padding:2rem clamp(1.25rem,5vw,3rem);z-index:997; border-bottom:1px solid var(--b1)}
   .nav-links.open a{font-size:1.15rem;color:var(--ink)}
   .nav-profile-info,.nav-profile-signout{display:none}
   .nav-profile{padding:4px;gap:0;background:transparent;border:none;}
 }
 
 /* HERO */
-.hero{position:relative;overflow:hidden;padding:clamp(100px,12vw,140px) 0 clamp(60px,8vw,80px); z-index: 1;}
+.hero{position:relative;overflow:hidden;padding:clamp(120px,14vw,150px) 0 clamp(60px,8vw,80px); z-index: 1;}
 .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(2.5rem,5vw,5rem);align-items:center}
 .hero-left{max-width:600px}
 .hero-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.03);border:1px solid var(--b2);border-radius:999px;padding:0.35rem 1rem 0.35rem 0.5rem;margin-bottom:1.75rem;font-size:0.8rem;font-weight:500;color:var(--ink-2); backdrop-filter: blur(10px);}
@@ -204,7 +177,7 @@ a{text-decoration:none;color:inherit}
 .rb{display:flex;align-items:center;gap:5px;padding:0.32rem 0.7rem;border-radius:7px;font-size:0.7rem;font-weight:600;cursor:pointer;border:none;font-family:var(--sans)}
 .rb-pdf{background:rgba(239,68,68,0.15);color:#EF4444}
 .rb-word{background:rgba(59,130,246,0.15);color:#3B82F6}
-.rb-ai{background:var(--grad);color:#fff; border:none;}
+.rb-ai{background:var(--grad);color:var(--bg); border:none;}
 @media(max-width:780px){.win-body{grid-template-columns:150px 1fr}.win-sb{min-height:240px}}
 @media(max-width:640px){.win-sb{display:none}.win-body{grid-template-columns:1fr}}
 
@@ -272,7 +245,7 @@ a{text-decoration:none;color:inherit}
 .feat-card p{font-size:0.83rem;color:var(--ink-3);line-height:1.65}
 .feat-pill{display:inline-block;margin-top:1rem;padding:0.2rem 0.6rem;border-radius:6px;font-size:0.66rem;font-weight:700;letter-spacing:0.06em}
 .pill-free{background:rgba(255,255,255,0.05);color:var(--ink-3)}
-.pill-pro{background:rgba(124,90,240,0.15);color:var(--purple)}
+.pill-pro{background:rgba(99,102,241,0.15);color:var(--purple)}
 .pill-new{background:rgba(0,229,204,0.15);color:var(--blue);border:1px solid rgba(0,229,204,0.2)}
 @media(max-width:860px){.feat-grid{grid-template-columns:1fr 1fr}.feat-grid .feat-card[style*="span 3"]{grid-column:span 2!important}}
 @media(max-width:560px){.feat-grid{grid-template-columns:1fr}.feat-grid .feat-card[style*="span 3"]{grid-column:span 1!important}}
@@ -321,7 +294,7 @@ a{text-decoration:none;color:inherit}
 .tpl-row{display:flex;align-items:center;justify-content:space-between}
 .tpl-langs{font-size:0.7rem;color:var(--ink-4)}
 .badge-free{font-size:0.63rem;font-weight:700;padding:0.18rem 0.48rem;border-radius:5px;background:rgba(255,255,255,0.05);color:var(--ink-3)}
-.badge-pro{font-size:0.63rem;font-weight:700;padding:0.18rem 0.48rem;border-radius:5px;background:rgba(124,90,240,0.15);color:var(--purple)}
+.badge-pro{font-size:0.63rem;font-weight:700;padding:0.18rem 0.48rem;border-radius:5px;background:rgba(99,102,241,0.15);color:var(--purple)}
 .tpl-lines{margin-top:0.55rem;display:flex;flex-direction:column;gap:4px}
 .tpl-line{height:5px;background:var(--b1);border-radius:3px}
 .l2{width:72%}.l3{width:52%}
@@ -357,7 +330,7 @@ a{text-decoration:none;color:inherit}
 .plans{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;align-items:stretch}
 .plan{background:var(--white);border:1px solid var(--b1);border-radius:var(--r-xl);padding:1.75rem;transition:all 0.25s var(--t);display:flex;flex-direction:column}
 .plan:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg); border-color:var(--b2);}
-.plan.hot{background:linear-gradient(180deg, rgba(124,58,237,0.1) 0%, var(--white) 100%); border-color:var(--purple); box-shadow:0 0 30px rgba(124,58,237,0.15);transform:scale(1.02);position:relative;padding-top:3.25rem}
+.plan.hot{background:linear-gradient(180deg, rgba(99,102,241,0.1) 0%, var(--white) 100%); border-color:var(--purple); box-shadow:0 0 30px rgba(99,102,241,0.15);transform:scale(1.02);position:relative;padding-top:3.25rem}
 .plan.hot:hover{transform:scale(1.02) translateY(-4px)}
 .hot-lbl{position:absolute;top:1.25rem;left:1.75rem;background:var(--purple);color:#fff;font-size:0.63rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.23rem 0.65rem;border-radius:6px}
 .plan-name{font-size:0.75rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:0.75rem}
@@ -563,7 +536,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, #00E5CC, #7C3AED, #3B82F6, #00E5CC);
+  background: linear-gradient(90deg, #00E5CC, #3B82F6, #6366F1, #00E5CC);
   background-size: 300% 100%;
   animation: bannerGlow 6s linear infinite;
 }
@@ -637,18 +610,14 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
   background: #0c0f1a;
 }
 
-.nav {
-  top: 44px; 
-}
-
 @media(max-width:1020px) {
   .nav-links.open {
     inset: 114px 0 0 0;
   }
 }
 
-/* ── CORRECTIFS MOBILE UNIVERSELS (TOUTES LANGUES) ── */
-@media(max-width: 600px) {
+/* ── FIXES MOBILE UNIVERSEL (TOUTES LANGUES : FR, RU, RO, DE...) ── */
+@media (max-width: 600px) {
   .announcement-banner {
     height: auto !important;
     min-height: 40px !important;
@@ -665,24 +634,30 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
     display: none;
   }
   .hero-pill {
-    display: inline-flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 8px 12px !important;
+    border-radius: 16px !important;
     font-size: 0.72rem !important;
-    line-height: 1.4 !important;
-    padding: 6px 12px !important;
+    text-align: center !important;
     max-width: 100% !important;
-    margin-bottom: 1.25rem !important;
   }
-  .pill-tag {
-    font-size: 0.6rem !important;
-    padding: 0.2rem 0.6rem !important;
+  .hero-h {
+    font-size: clamp(1.4rem, 6.5vw, 2rem) !important;
+    line-height: 1.18 !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+  }
+  .hero-tagline {
+    font-size: 0.98rem !important;
   }
   .hero-actions {
-    width: 100% !important;
     flex-direction: column !important;
-    gap: 0.75rem !important;
+    width: 100% !important;
+    gap: 10px !important;
   }
   .hero-actions .btn {
     width: 100% !important;
@@ -690,16 +665,12 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
     padding: 0.85rem 1rem !important;
     white-space: normal !important;
     text-align: center !important;
-    word-break: break-word !important;
   }
-}
-
-@media (max-width: 768px) {
-  .hero-h {
-    font-size: clamp(1.6rem, 6.5vw, 2.4rem) !important;
-    line-height: 1.15 !important;
-    word-break: break-word !important;
-    overflow-wrap: break-word !important;
+  .hero-note, 
+  .hero-left p.rv {
+    font-size: 0.72rem !important;
+    padding: 0 10px !important;
+    margin-bottom: 2rem !important;
   }
   .why-pillars {
     grid-template-columns: 1fr 1fr !important;
@@ -709,8 +680,8 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
     right: 12px !important;
   }
   #piw-trigger {
-    padding: 8px 12px !important;
-    font-size: 0.75rem !important;
+    padding: 8px 14px !important;
+    font-size: 0.78rem !important;
   }
 }
 
@@ -835,7 +806,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 <p class="hero-sub rv rv-d2" data-i18n="index.p_3">Pisum helps radiologists produce <strong style="color:var(--ink)">structured, AI-enhanced reports faster</strong> — intelligent formatting, medical context correction, and expert template structuring.</p>
 <div class="hero-actions rv rv-d3">
 <a class="btn btn-primary btn-xl" id="hero-trial-cta" href="https://pisum.app/saas/frontend/auth.html" data-i18n="index.hero_trial_cta">
-<svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24" width="15"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 16 14"></polyline></svg>
+<svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24" width="15"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
             Start free trial — 14 days
           </a>
 <a class="btn btn-ghost btn-lg" data-i18n="index.a_7" href="https://github.com/AminWalha/Pisum/releases/latest/download/PISUM_Radiology_Setup.exe" rel="noopener noreferrer" target="_blank">
@@ -1861,9 +1832,9 @@ function changeLang(lang) {
 #piw-send:hover{transform:scale(1.08)}
 #piw-send:disabled{opacity:.4;cursor:not-allowed;transform:none}
 @media(max-width:600px){
-  #piw{bottom:16px !important;right:12px !important;}
-  #piw-trigger{padding:8px 12px !important;font-size:.75rem !important;}
-  #piw-panel{width:calc(100vw - 24px) !important;right:-4px !important;bottom:58px !important;}
+  #piw{bottom:16px;right:16px;}
+  #piw-trigger{padding:10px 14px;font-size:.78rem}
+  #piw-panel{width:calc(100vw - 32px);right:-8px;bottom:58px}
 }
 </style>
 <div id="piw">
@@ -1981,8 +1952,8 @@ window.piwSend=function(){
   if (heroTrialCta) heroTrialCta.addEventListener('click', function () { gev('start_trial_click', { plan: 'free' }); });
   var modalTrialBtn = document.querySelector('a[data-i18n="index.a_1"]');
   if (modalTrialBtn) { modalTrialBtn.addEventListener('click', function () { gev('start_trial_click', { plan: 'pro' }); }); }
-  var navSignin = document.getElementById('nav-signin');
-  if (navSignin) navSignin.addEventListener('click', function () { gev('signin_click'); });
+  var navsignin = document.getElementById('nav-signin');
+  if (navsignin) navsignin.addEventListener('click', function () { gev('signin_click'); });
   var navSubscribe = document.getElementById('nav-subscribe');
   if (navSubscribe) navSubscribe.addEventListener('click', function () { gev('subscribe_click'); });
   var scrollFired = {};
@@ -2024,7 +1995,7 @@ window.piwSend=function(){
 </style>
 
 <div id="pisum-cookie-banner">
-  <p data-i18n="index.cookie_text"><strong>🍪 Respect for your privacy</strong><br>We use Google Analytics to analyze site traffic. No tracking cookies are set without your explicit consent.</p>
+  <p data-i18n="index.cookie_text"><strong>🍪 Respect for your privacy</strong><br>We use Google Analytics to analyze site traffic.No tracking cookies are set without your explicit consent.</p>
   <div class="cookie-btns">
     <button class="cookie-btn cookie-btn-decline" onclick="handleCookie(false)" data-i18n="index.cookie_decline">Decline</button>
     <button class="cookie-btn cookie-btn-accept" onclick="handleCookie(true)" data-i18n="index.cookie_accept">Accept</button>
@@ -2034,7 +2005,7 @@ window.piwSend=function(){
 <script>
 function loadGoogleAnalytics() {
   const script = document.createElement('script');
-  script.async = true;
+  script.api = true;
   script.src = "https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F";
   document.head.appendChild(script);
   window.dataLayer = window.dataLayer || [];
@@ -2043,7 +2014,7 @@ function loadGoogleAnalytics() {
   gtag('config', 'G-6VG09X3G7F');
 }
 
-function handleCookie(accepted) {
+function handleCloudCookie(accepted) {
   localStorage.setItem('pisum_cookie_consent', accepted ? 'granted' : 'denied');
   document.getElementById('pisum-cookie-banner').style.display = 'none';
   if (accepted) loadGoogleAnalytics();
