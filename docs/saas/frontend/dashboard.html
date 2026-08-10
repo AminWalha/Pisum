@@ -811,6 +811,13 @@ main{max-width:980px;margin:0 auto;padding:2.5rem 2rem 6rem}
 #piw-send:hover{transform:scale(1.08)}
 #piw-send:disabled{opacity:.4;cursor:not-allowed;transform:none}
 @media(max-width:420px){#piw-panel{width:calc(100vw - 32px);right:-8px}}
+/* Correctif superposition mobile - à placer tout à la fin de <style> */
+@media (max-width: 780px) {
+  #piw {
+    bottom: calc(80px + env(safe-area-inset-bottom, 0px)) !important;
+    right: 16px !important;
+  }
+}
 </style>
 </head>
 <body>
