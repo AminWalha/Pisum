@@ -129,7 +129,7 @@ class I18n {
     }
 }
 
-// Fonction globale pour changer la langue depuis n'importe où (boutons footer, etc.)
+// Fonction globale pour changer la langue depuis n'importe où
 window.changeLang = function(lang) {
     localStorage.setItem('pisum_lang', lang);
     if (window.i18n) {
@@ -141,17 +141,21 @@ window.changeLang = function(lang) {
     }
 };
 
-// UI INJECTION LOGIC
+window.setLanguage = window.changeLang;
+
+// UI INJECTION LOGIC (Style Dark Glassmorphic Médical)
 function injectFuturisticLangPicker() {
+    if (document.querySelector('.pisum-lang-wrapper')) return;
+
     const style = document.createElement('style');
     style.innerHTML = `
         .pisum-lang-wrapper {
             position: relative;
             display: inline-block;
-            font-family: 'Sora', -apple-system, sans-serif;
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
             z-index: 9999;
-            margin-right: 15px;
-            margin-bottom: 10px;
+            margin-right: 12px;
+            margin-bottom: 0;
         }
         .nav-right .pisum-lang-wrapper,
         .auth-nav .pisum-lang-wrapper {
@@ -161,88 +165,85 @@ function injectFuturisticLangPicker() {
             display: flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(12, 16, 28, 0.75);
             backdrop-filter: blur(16px) saturate(180%);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            padding: 8px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 7px 14px;
             border-radius: 99px;
-            color: #09090f;
-            font-size: 0.85rem;
-            font-weight: 600;
+            color: #FFFFFF;
+            font-size: 0.82rem;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
         @media(max-width:640px){
-            .pisum-lang-wrapper { margin-right: 4px; margin-bottom: 0; }
-            .pisum-lang-btn { padding: 6px 10px; font-size: 0.78rem; gap: 5px; }
+            .pisum-lang-wrapper { margin-right: 4px; }
+            .pisum-lang-btn { padding: 6px 10px; font-size: 0.75rem; gap: 5px; }
             .pisum-lang-btn svg { width: 14px; height: 14px; }
             .pisum-lang-btn .icon-chevron { display: none; }
-            .pisum-lang-dropdown { width: 190px; }
+            .pisum-lang-dropdown { width: 190px; right: -10px; }
         }
         .pisum-lang-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(59, 110, 248, 0.2), 0 4px 10px rgba(59, 110, 248, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.6);
-            background: rgba(255,255,255,0.9);
-            border-color: rgba(59, 110, 248, 0.5);
-            color: #3b6ef8;
+            transform: translateY(-1px);
+            box-shadow: 0 0 20px rgba(0, 229, 204, 0.25);
+            background: rgba(18, 24, 38, 0.9);
+            border-color: rgba(0, 229, 204, 0.4);
+            color: #00E5CC;
         }
         .pisum-lang-btn svg {
-            width: 16px;
-            height: 16px;
+            width: 15px;
+            height: 15px;
             transition: transform 0.3s ease;
         }
         .pisum-lang-dropdown {
             position: absolute;
-            top: calc(100% + 12px);
+            top: calc(100% + 10px);
             right: 0;
-            width: 220px;
-            max-height: 380px;
+            width: 210px;
+            max-height: 340px;
             overflow-y: auto;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(24px) saturate(200%);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            border-radius: 20px;
-            padding: 10px;
-            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0,0,0,0.02);
+            background: rgba(9, 13, 22, 0.95);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 18px;
+            padding: 8px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
             opacity: 0;
             visibility: hidden;
-            transform: translateY(15px) scale(0.92);
+            transform: translateY(10px) scale(0.96);
             transform-origin: top right;
-            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .sb-bottom .pisum-lang-wrapper {
             margin-right: 0;
             width: 100%;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
         .sb-bottom .pisum-lang-btn {
             width: 100%;
             justify-content: space-between;
-            background: transparent;
+            background: rgba(255, 255, 255, 0.04);
             border-radius: 12px;
-            color: var(--t2, #64748b);
-            border-color: var(--border, #e2e8f0);
+            color: #94A3B8;
+            border-color: rgba(255, 255, 255, 0.08);
             box-shadow: none;
         }
         .sb-bottom .pisum-lang-dropdown {
-            bottom: calc(100% + 12px);
+            bottom: calc(100% + 10px);
             top: auto;
             right: auto;
             left: 0;
             transform-origin: bottom left;
-            transform: translateY(-15px) scale(0.92);
-        }
-        .sb-bottom .pisum-lang-wrapper.open .pisum-lang-dropdown {
-            transform: translateY(0) scale(1);
+            transform: translateY(-10px) scale(0.96);
         }
         .pisum-lang-dropdown::-webkit-scrollbar {
-            width: 6px;
+            width: 5px;
         }
         .pisum-lang-dropdown::-webkit-scrollbar-thumb {
-            background: rgba(0,0,0,0.15);
+            background: rgba(255,255,255,0.15);
             border-radius: 10px;
         }
         .pisum-lang-wrapper.open .pisum-lang-dropdown {
@@ -257,13 +258,13 @@ function injectFuturisticLangPicker() {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 12px 16px;
-            border-radius: 12px;
-            color: #3a3a4c;
+            padding: 10px 14px;
+            border-radius: 10px;
+            color: #94A3B8;
             text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: all 0.25s ease;
+            font-size: 0.83rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
             cursor: pointer;
             border: none;
             background: transparent;
@@ -275,22 +276,22 @@ function injectFuturisticLangPicker() {
             margin-bottom: 0;
         }
         .pisum-lang-option:hover {
-            background: rgba(59, 110, 248, 0.08);
-            color: #3b6ef8;
-            transform: translateX(4px);
+            background: rgba(0, 229, 204, 0.1);
+            color: #FFFFFF;
+            transform: translateX(3px);
         }
         .pisum-lang-option.active {
-            background: linear-gradient(135deg, rgba(59, 110, 248, 0.15) 0%, rgba(124, 90, 240, 0.15) 100%);
-            color: #3b6ef8;
-            font-weight: 700;
-            box-shadow: inset 2px 0 0 #3b6ef8;
+            background: rgba(0, 229, 204, 0.15);
+            color: #00E5CC;
+            font-weight: 800;
+            box-shadow: inset 2px 0 0 #00E5CC;
         }
         .pisum-lang-option .lang-code {
             font-size: 0.65rem;
             opacity: 0.6;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-weight: 700;
+            font-weight: 800;
         }
     `;
     document.head.appendChild(style);
@@ -310,7 +311,7 @@ function injectFuturisticLangPicker() {
 
     wrapper.innerHTML = `
         <div class="pisum-lang-btn" id="pisum-lang-btn">
-            <div style="display:flex;align-items:center;gap:8px;">
+            <div style="display:flex;align-items:center;gap:6px;">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
                 <span id="pisum-active-lang" style="letter-spacing:0.5px;">EN</span>
             </div>
@@ -346,7 +347,6 @@ function injectFuturisticLangPicker() {
         }
     });
 
-    // Clic sur une langue : Changement instantané sans recharger la page
     wrapper.querySelectorAll('.pisum-lang-option').forEach(btn => {
         btn.addEventListener('click', () => {
             const lang = btn.dataset.lang;
@@ -379,12 +379,13 @@ function showLanguageBanner() {
     banner.id = 'pisum-lang-banner';
     banner.style.cssText = [
         'position:fixed', 'bottom:90px', 'left:50%', 'transform:translateX(-50%)',
-        'background:#ffffff', 'border:1px solid rgba(0,0,0,0.09)',
-        'border-radius:16px', 'padding:0.85rem 1.1rem',
-        'box-shadow:0 12px 40px rgba(0,0,0,0.13),0 2px 8px rgba(0,0,0,0.06)',
+        'background:rgba(10, 12, 20, 0.95)', 'backdrop-filter:blur(16px)',
+        'border:1px solid rgba(255,255,255,0.12)', 'border-radius:16px',
+        'padding:0.85rem 1.1rem',
+        'box-shadow:0 16px 48px rgba(0,0,0,0.7)',
         'z-index:9100', 'display:flex', 'align-items:center', 'gap:0.5rem',
         'flex-wrap:wrap', 'justify-content:center',
-        'max-width:min(92vw,600px)', 'font-family:\'Sora\',-apple-system,sans-serif'
+        'max-width:min(92vw,600px)', 'font-family:\'Plus Jakarta Sans\',-apple-system,sans-serif'
     ].join(';');
 
     const dismiss = () => {
@@ -394,11 +395,11 @@ function showLanguageBanner() {
 
     const label = document.createElement('span');
     label.textContent = '🌐';
-    label.style.cssText = 'color:#8a8aa8;font-size:0.8rem;flex-shrink:0';
+    label.style.cssText = 'color:#00E5CC;font-size:0.8rem;flex-shrink:0';
 
     const closeBtn = document.createElement('button');
     closeBtn.textContent = '✕';
-    closeBtn.style.cssText = 'background:none;border:none;color:#bbbbd0;cursor:pointer;font-size:0.9rem;line-height:1;padding:0 4px;flex-shrink:0';
+    closeBtn.style.cssText = 'background:none;border:none;color:#94A3B8;cursor:pointer;font-size:0.9rem;line-height:1;padding:0 4px;flex-shrink:0';
     closeBtn.addEventListener('click', dismiss);
 
     banner.appendChild(label);
@@ -407,12 +408,12 @@ function showLanguageBanner() {
         const b = document.createElement('button');
         b.textContent = l.label;
         b.style.cssText = [
-            'border-radius:999px', 'padding:0.32rem 0.85rem', 'font-size:0.78rem',
-            'font-weight:600', 'cursor:pointer', 'font-family:inherit',
+            'border-radius:999px', 'padding:0.35rem 0.85rem', 'font-size:0.78rem',
+            'font-weight:700', 'cursor:pointer', 'font-family:inherit',
             'white-space:nowrap',
             isActive
-                ? 'background:#09090f;color:#fff;border:1px solid #09090f'
-                : 'background:transparent;color:#3a3a4c;border:1px solid rgba(0,0,0,0.12)'
+                ? 'background:#00E5CC;color:#000;border:1px solid #00E5CC'
+                : 'background:rgba(255,255,255,0.05);color:#E2E8F0;border:1px solid rgba(255,255,255,0.1)'
         ].join(';');
         b.addEventListener('click', () => {
             if (window.i18n) {
