@@ -23,30 +23,32 @@ class I18n {
     }
 
     detectLanguage() {
-        // 1. URL param is the most explicit signal (set by footer/banner buttons)
+        // 1. URL param (?lang=fr)
         try {
             const urlLang = new URLSearchParams(window.location.search).get('lang');
             if (urlLang && SUPPORTED_LANGUAGES.includes(urlLang)) {
-                localStorage.setItem('preferredLanguage', urlLang);
+                localStorage.setItem('pisum_lang', urlLang);
                 localStorage.setItem('langExplicit', '1');
                 return urlLang;
             }
         } catch(e) {}
-        // 2. Explicit localStorage choice
+
+        // 2. LocalStorage (pisum_lang ou preferredLanguage)
         try {
-            const savedLang = localStorage.getItem('preferredLanguage');
-            const isExplicit = localStorage.getItem('langExplicit') === '1';
-            if (savedLang && isExplicit && SUPPORTED_LANGUAGES.includes(savedLang)) {
+            const savedLang = localStorage.getItem('pisum_lang') || localStorage.getItem('preferredLanguage');
+            if (savedLang && SUPPORTED_LANGUAGES.includes(savedLang)) {
                 return savedLang;
             }
         } catch(e) {}
-        // 3. Browser preferred languages
+
+        // 3. Langues du navigateur
         const langs = (navigator.languages && navigator.languages.length)
             ? navigator.languages : [navigator.language];
         for (const lang of langs) {
             const code = lang.split('-')[0].toLowerCase();
             if (SUPPORTED_LANGUAGES.includes(code)) return code;
         }
+
         return DEFAULT_LANGUAGE;
     }
 
@@ -62,9 +64,9 @@ class I18n {
             this.currentLang = lang;
             document.documentElement.lang = lang;
 
-            // Only persist to localStorage when user explicitly picks a language
+            // Sauvegarde dans le localStorage
+            localStorage.setItem('pisum_lang', lang);
             if (explicit) {
-                localStorage.setItem('preferredLanguage', lang);
                 localStorage.setItem('langExplicit', '1');
             }
 
@@ -127,9 +129,20 @@ class I18n {
     }
 }
 
+// Fonction globale pour changer la langue depuis n'importe où (boutons footer, etc.)
+window.changeLang = function(lang) {
+    localStorage.setItem('pisum_lang', lang);
+    if (window.i18n) {
+        window.i18n.setLanguage(lang, true);
+    } else {
+        const url = new URL(window.location.href);
+        url.searchParams.set('lang', lang);
+        window.location.href = url.toString();
+    }
+};
+
 // UI INJECTION LOGIC
 function injectFuturisticLangPicker() {
-    // 1. Inject CSS
     const style = document.createElement('style');
     style.innerHTML = `
         .pisum-lang-wrapper {
@@ -200,7 +213,6 @@ function injectFuturisticLangPicker() {
             transform-origin: top right;
             transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
-        /* Dashboard specific fallback styling */
         .sb-bottom .pisum-lang-wrapper {
             margin-right: 0;
             width: 100%;
@@ -226,7 +238,6 @@ function injectFuturisticLangPicker() {
         .sb-bottom .pisum-lang-wrapper.open .pisum-lang-dropdown {
             transform: translateY(0) scale(1);
         }
-
         .pisum-lang-dropdown::-webkit-scrollbar {
             width: 6px;
         }
@@ -284,7 +295,6 @@ function injectFuturisticLangPicker() {
     `;
     document.head.appendChild(style);
 
-    // 2. Create HTML
     const wrapper = document.createElement('div');
     wrapper.className = 'pisum-lang-wrapper';
     
@@ -311,7 +321,6 @@ function injectFuturisticLangPicker() {
         </div>
     `;
 
-    // 3. Find Insertion Point
     let target = document.querySelector('.nav-right');
     if (!target) target = document.querySelector('.sb-bottom');
     if (!target) target = document.querySelector('.auth-nav');
@@ -325,7 +334,6 @@ function injectFuturisticLangPicker() {
         document.body.appendChild(wrapper);
     }
 
-    // 4. Events
     const btn = wrapper.querySelector('#pisum-lang-btn');
     btn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -338,10 +346,16 @@ function injectFuturisticLangPicker() {
         }
     });
 
+    // Clic sur une langue : Changement instantané sans recharger la page
     wrapper.querySelectorAll('.pisum-lang-option').forEach(btn => {
         btn.addEventListener('click', () => {
             const lang = btn.dataset.lang;
-            location.href = '?lang=' + lang;
+            if (window.i18n) {
+                window.i18n.setLanguage(lang, true);
+                wrapper.classList.remove('open');
+            } else {
+                window.changeLang(lang);
+            }
         });
     });
 }
@@ -401,7 +415,12 @@ function showLanguageBanner() {
                 : 'background:transparent;color:#3a3a4c;border:1px solid rgba(0,0,0,0.12)'
         ].join(';');
         b.addEventListener('click', () => {
-            location.href = '?lang=' + l.code;
+            if (window.i18n) {
+                window.i18n.setLanguage(l.code, true);
+                dismiss();
+            } else {
+                window.changeLang(l.code);
+            }
         });
         banner.appendChild(b);
     });
@@ -410,8 +429,8 @@ function showLanguageBanner() {
     document.body.appendChild(banner);
 }
 
+// Initialisation globale au chargement du DOM
 document.addEventListener('DOMContentLoaded', () => {
-    // Both SiteWeb and saas/frontend will have a 'translations' folder next to the HTML files
     window.i18n = new I18n('./translations');
     injectFuturisticLangPicker();
     window.i18n.setLanguage(window.i18n.currentLang).then(() => {
