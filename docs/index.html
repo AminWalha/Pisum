@@ -653,6 +653,40 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
     text-align: center;
   }
 }
+/* ── CORRECTIFS MOBILE INDEX.HTML ── */
+@media (max-width: 768px) {
+  /* Fix du titre principal (taille adaptée au mobile) */
+  .hero-h {
+    font-size: clamp(1.8rem, 7vw, 2.5rem) !important;
+  }
+
+  /* Fix de la grille Why PISUM (passage sur 2 colonnes) */
+  .why-pillars {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* Compactage du bouton IA flottant pour ne pas masquer les CTA */
+  #piw {
+    bottom: 16px !important;
+    right: 12px !important;
+  }
+  #piw-trigger {
+    padding: 8px 12px !important;
+    font-size: 0.75rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Passage de la grille Why PISUM sur 1 seule colonne */
+  .why-pillars {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Ajustement de la marge haute sous le menu fixe */
+  .hero {
+    padding-top: 130px !important;
+  }
+}
 </style>
 </head>
 <body>
