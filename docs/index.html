@@ -620,12 +620,37 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 }
 
 @media(max-width: 600px) {
+  .announcement-banner {
+    height: auto;
+    min-height: 38px;
+    padding: 4px 12px;
+  }
   .announcement-content {
-    font-size: 0.75rem;
-    gap: 8px;
+    font-size: 0.72rem;
+    gap: 6px;
+    justify-content: center;
   }
   .announcement-text .hide-mobile {
     display: none;
+  }
+  .hero-pill {
+    font-size: 0.72rem;
+    padding: 0.3rem 0.75rem 0.3rem 0.4rem;
+    max-width: 100%;
+    margin-bottom: 1.25rem;
+  }
+  .pill-tag {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.6rem;
+  }
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+  .hero-actions .btn {
+    width: 100%;
+    text-align: center;
   }
 }
 </style>
@@ -931,7 +956,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
         <strong style="color:var(--ink);font-size:0.88rem">Budd-Chiari Syndrome</strong>
         <span data-i18n="index.ai_cert_confirm_badge" style="background:rgba(16,185,129,0.15);color:var(--green);font-size:0.6rem;font-weight:700;padding:0.1rem 0.45rem;border-radius:4px">Confirming</span>
       </div>
-      <p style="font-size:0.73rem;color:var(--ink-3);line-height:1.55;margin-bottom:0.55rem">Obliteration of hepatic veins. Caudate lobe compensatory hypertrophy (segment I).</p>
+      <p style="font-size:0.73rem;color:var(--ink-3);line-height:1.55;margin-bottom:0.55rem">Obliteration of hepatic veins with compensatory hypertrophy of caudate lobe (segment I).</p>
       <div data-i18n="index.feat_ai_critical" style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);border-radius:5px;padding:0.35rem 0.6rem;font-size:0.67rem;font-weight:600;color:#EF4444">🔴 Critical — immediate clinical correlation</div>
     </div>
   </div>
@@ -1766,7 +1791,11 @@ function changeLang(lang) {
 #piw-send{width:34px;height:34px;border-radius:50%;background:var(--grad);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .18s,opacity .18s; color:#000}
 #piw-send:hover{transform:scale(1.08)}
 #piw-send:disabled{opacity:.4;cursor:not-allowed;transform:none}
-@media(max-width:420px){#piw-panel{width:calc(100vw - 32px);right:-8px}}
+@media(max-width:600px){
+  #piw{bottom:16px;right:16px;}
+  #piw-trigger{padding:10px 14px;font-size:.78rem}
+  #piw-panel{width:calc(100vw - 24px);right:-8px;bottom:58px}
+}
 </style>
 <div id="piw">
 <button aria-label="Ask PISUM AI" data-i18n="index.button_44" id="piw-trigger" onclick="piwToggle()">
