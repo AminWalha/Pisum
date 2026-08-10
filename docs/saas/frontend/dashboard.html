@@ -161,7 +161,7 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--t1);overflow:
 main{max-width:960px;margin:0 auto;padding:2rem 2rem 5rem}
 
 /* ── BENTO CARDS BASE ── */
-.dark-card, .stat-card, .ring-card, .plan-card, #onboarding-card {
+.dark-card, .stat-card, .ring-card, .plan-card, #onboarding-card, .quote-card {
   background: var(--surface-glass);
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border);
@@ -169,12 +169,138 @@ main{max-width:960px;margin:0 auto;padding:2rem 2rem 5rem}
   transition: all 0.3s var(--t);
   position: relative; overflow: hidden;
 }
-.dark-card:hover, .stat-card:hover, .ring-card:hover, .plan-card:hover, #onboarding-card:hover {
+.dark-card:hover, .stat-card:hover, .ring-card:hover, .plan-card:hover, #onboarding-card:hover, .quote-card:hover {
   border-color: var(--border-hover);
   box-shadow: 0 10px 40px rgba(0,0,0,0.3);
   transform: translateY(-2px);
 }
 .dark-card{margin-bottom:1.5rem}
+
+/* ── ULTRA-MODERN MOTIVATIONAL QUOTE CARD ── */
+.quote-card {
+  position: relative;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+  border-radius: var(--r-xl);
+  background: linear-gradient(135deg, rgba(0, 229, 204, 0.08) 0%, rgba(124, 58, 237, 0.08) 50%, rgba(10, 12, 20, 0.7) 100%);
+  border: 1px solid rgba(0, 229, 204, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.quote-card:hover {
+  border-color: rgba(0, 229, 204, 0.5);
+  box-shadow: 0 12px 40px rgba(0, 229, 204, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+.quote-card::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: -10%;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(0, 229, 204, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.quote-card::after {
+  content: '“';
+  position: absolute;
+  right: 1.25rem;
+  bottom: -1.25rem;
+  font-family: var(--font-display);
+  font-size: 7.5rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.035);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.quote-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+  position: relative;
+  z-index: 2;
+}
+.quote-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+  background: rgba(0, 229, 204, 0.12);
+  border: 1px solid rgba(0, 229, 204, 0.3);
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  box-shadow: 0 0 15px rgba(0, 229, 204, 0.15);
+}
+.quote-badge svg {
+  width: 12px;
+  height: 12px;
+  stroke: var(--accent-cyan);
+}
+.quote-refresh-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.quote-refresh-btn:hover {
+  color: var(--accent-cyan);
+  background: rgba(0, 229, 204, 0.15);
+  border-color: var(--accent-cyan);
+  transform: rotate(180deg);
+}
+
+.quote-body {
+  position: relative;
+  z-index: 2;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.quote-body.fading {
+  opacity: 0;
+  transform: translateY(4px);
+}
+.quote-text {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.75rem;
+}
+.quote-author-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.quote-author-line {
+  height: 2px;
+  width: 20px;
+  background: var(--grad);
+  border-radius: 99px;
+}
+.quote-author {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  letter-spacing: 0.03em;
+}
 
 /* ── ONBOARDING ── */
 #onboarding-card{padding:2rem;margin-bottom:1.5rem;animation:slideUp 0.35s cubic-bezier(0.4,0,0.2,1) both}
@@ -865,6 +991,31 @@ main{max-width:960px;margin:0 auto;padding:2rem 2rem 5rem}
         </div>
       </div>
 
+      <!-- ── ULTRA-MODERN MOTIVATIONAL QUOTE CARD ── -->
+      <div class="quote-card anim-1" id="quote-card">
+        <div class="quote-header">
+          <div class="quote-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+            Daily Motivation
+          </div>
+          <button class="quote-refresh-btn" onclick="fetchDailyQuote(true)" title="New Quote" aria-label="Refresh quote">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21.5 2v6h-6M2.5 22v-6h6"/>
+              <path d="M2 11.5a10 10 0 0 1 18.8-4.3L21.5 8M2.5 16l1.2 0.8A10 10 0 0 0 22 12.5"/>
+            </svg>
+          </button>
+        </div>
+        <div class="quote-body" id="quote-body">
+          <div class="quote-text" id="quote-text">"Loading quote..."</div>
+          <div class="quote-author-row">
+            <div class="quote-author-line"></div>
+            <div class="quote-author" id="quote-author">— ...</div>
+          </div>
+        </div>
+      </div>
+
       <div id="onboarding-card" style="display:none">
         <div class="ob-header">
           <div>
@@ -1237,6 +1388,29 @@ const SVG_CHECK   = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" 
 const SVG_PARTIAL = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`;
 const SVG_MINUS   = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>`;
 
+// Fetch Motivational Quote from DummyJSON with smooth fade transition
+async function fetchDailyQuote(animated = false) {
+  const quoteBody = document.getElementById('quote-body');
+  
+  if (animated && quoteBody) {
+    quoteBody.classList.add('fading');
+  }
+
+  try {
+    const res = await fetch('https://dummyjson.com/quotes/random');
+    const data = await res.json();
+    
+    setTimeout(() => {
+      document.getElementById('quote-text').textContent = `"${data.quote}"`;
+      document.getElementById('quote-author').textContent = `— ${data.author}`;
+      if (quoteBody) quoteBody.classList.remove('fading');
+    }, animated ? 200 : 0);
+
+  } catch (err) {
+    if (quoteBody) quoteBody.classList.remove('fading');
+  }
+}
+
 // Translate a dashboard.js.* key — falls back to fb (English fallback string) if i18n not ready
 const t = (key, fb) => { const v = window.i18n?.getNestedTranslation?.('dashboard.js.' + key); return v || fb || key; };
 
@@ -1288,6 +1462,8 @@ function sbNav(el, sectionId) {
 
 // ── Init ──────────────────────────────────────────────────────────────────
 async function init() {
+  fetchDailyQuote();
+
   // getUser() validates the token server-side and triggers a refresh if expired.
   // This prevents mobile browsers from using a stale access_token that would
   // cause the Render backend to get 403 from Supabase /auth/v1/user.
