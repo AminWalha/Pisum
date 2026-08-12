@@ -2033,7 +2033,7 @@ function loadGoogleAnalytics() {
   gtag('config', 'G-6VG09X3G7F');
 }
 
-function handleCloudCookie(accepted) {
+function handleCookie(accepted) {
   localStorage.setItem('pisum_cookie_consent', accepted ? 'granted' : 'denied');
   document.getElementById('pisum-cookie-banner').style.display = 'none';
   if (accepted) loadGoogleAnalytics();
