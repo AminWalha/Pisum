@@ -3,16 +3,43 @@
 <head>
 <meta charset="utf-8"/>
 <!-- Google Analytics 4 (Basic Consent Mode) -->
+<!-- Google Analytics 4 (International + Geo-Targeted Consent Mode) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  // On lance GA4 UNIQUEMENT si le visiteur a déjà accepté
+  // 1. Autorisé par défaut pour le RESTE DU MONDE (USA, Asie, Afrique, etc.)
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted',
+    'ad_storage': 'granted',
+    'ad_user_data': 'granted',
+    'ad_personalization': 'granted'
+  });
+
+  // 2. Refusé par défaut EXCLUSIVEMENT pour l'Europe (RGPD)
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    // Codes ISO de l'UE + UK + Suisse + EEE
+    'region': ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO', 'GB', 'CH']
+  });
+
+  // 3. Mise à jour si l'utilisateur a déjà cliqué sur "Accepter" lors d'une visite précédente
   if (localStorage.getItem('pisum_cookie_consent') === 'granted') {
-    gtag('config', 'G-6VG09X3G7F');
+    gtag('consent', 'update', {
+      'analytics_storage': 'granted',
+      'ad_storage': 'granted',
+      'ad_user_data': 'granted',
+      'ad_personalization': 'granted'
+    });
   }
+
+  // 4. Initialisation de la balise
+  gtag('js', new Date());
+  gtag('config', 'G-6VG09X3G7F');
 </script>
 <meta http-equiv="Cache-Control" content="no-cache, must-revalidate"/>
 <meta http-equiv="Pragma" content="no-cache"/>
@@ -1973,20 +2000,26 @@ window.piwSend=function(){
 
 <script>
 function handleCookie(accepted) {
-  // Sauvegarde le choix
+  // Sauvegarde du choix
   localStorage.setItem('pisum_cookie_consent', accepted ? 'granted' : 'denied');
   
-  // Masque le bandeau
+  // Masquage du bandeau
   const banner = document.getElementById('pisum-cookie-banner');
   if (banner) banner.style.display = 'none';
 
-  // Si le visiteur accepte à l'instant, on déclenche GA4 immédiatement
+  // Si l'utilisateur clique sur "Accepter", on met à jour le statut
+  // GA4 débloquera alors les données pour les Européens
   if (accepted) {
-    gtag('config', 'G-6VG09X3G7F');
+    gtag('consent', 'update', {
+      'analytics_storage': 'granted',
+      'ad_storage': 'granted',
+      'ad_user_data': 'granted',
+      'ad_personalization': 'granted'
+    });
   }
 }
 
-// Affiche le bandeau uniquement si aucun choix n'a été fait
+// Affichage du bandeau si aucun choix n'a été fait
 if (!localStorage.getItem('pisum_cookie_consent')) {
   document.getElementById('pisum-cookie-banner').style.display = 'block';
 }
