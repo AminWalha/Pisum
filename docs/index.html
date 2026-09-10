@@ -4,12 +4,32 @@
 <meta charset="utf-8"/>
 <!-- Google Analytics 4 + Consent Mode -->
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F"></script>
+<!-- Google Analytics 4 + Consent Mode v2 -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
+  // 1. Tout refuser par défaut (obligatoire pour GA4 en Europe)
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+
+  // 2. Si le visiteur a déjà accepté, on met à jour le statut
+  if (localStorage.getItem('pisum_cookie_consent') === 'granted') {
+    gtag('consent', 'update', {
+      'analytics_storage': 'granted',
+      'ad_storage': 'granted',
+      'ad_user_data': 'granted',
+      'ad_personalization': 'granted'
+    });
+  }
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F"></script>
+<script>
+  gtag('js', new Date());
   gtag('config', 'G-6VG09X3G7F');
 </script>
 <meta http-equiv="Cache-Control" content="no-cache, must-revalidate"/>
@@ -1937,5 +1957,63 @@ window.piwSend=function(){
 }
 </style>
 
+<style>
+#pisum-cookie-banner {
+  position: fixed; bottom: 24px; left: 24px; z-index: 9999;
+  background: rgba(10, 12, 20, 0.95); backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px;
+  padding: 20px; max-width: 380px; box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif; display: none;
+}
+#pisum-cookie-banner p { color: #a0a0c0; font-size: 0.85rem; line-height: 1.5; margin: 0 0 15px 0; }
+#pisum-cookie-banner strong { color: #f0f0f8; }
+.cookie-btns { display: flex; gap: 10px; }
+.cookie-btn {
+  flex: 1; padding: 8px 0; border-radius: 999px; font-size: 0.8rem; font-weight: 600;
+  cursor: pointer; border: none; transition: all 0.2s;
+}
+.cookie-btn-accept { background: linear-gradient(135deg, #00e5cc 0%, #3b6ef8 100%); color: #06060a; }
+.cookie-btn-accept:hover { opacity: 0.9; transform: translateY(-1px); }
+.cookie-btn-decline { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: #f0f0f8; }
+.cookie-btn-decline:hover { background: rgba(255, 255, 255, 0.1); }
+@media(max-width: 480px) {
+  #pisum-cookie-banner { bottom: 12px; left: 12px; right: 12px; max-width: none; }
+}
+</style>
+
+<div id="pisum-cookie-banner">
+  <p data-i18n="index.cookie_text"><strong>🍪 Respect for your privacy</strong><br>We use Google Analytics to analyze site traffic. No tracking cookies are set without your explicit consent.</p>
+  <div class="cookie-btns">
+    <button class="cookie-btn cookie-btn-decline" onclick="handleCookie(false)" data-i18n="index.cookie_decline">Decline</button>
+    <button class="cookie-btn cookie-btn-accept" onclick="handleCookie(true)" data-i18n="index.cookie_accept">Accept</button>
+  </div>
+</div>
+
+<script>
+function handleCookie(accepted) {
+  // Sauvegarde le choix
+  localStorage.setItem('pisum_cookie_consent', accepted ? 'granted' : 'denied');
+  
+  // Masque le bandeau
+  const banner = document.getElementById('pisum-cookie-banner');
+  if (banner) banner.style.display = 'none';
+
+  // Si accepté, on met à jour le Consent Mode en direct (GA4 va alors envoyer la donnée en attente)
+  if (accepted) {
+    gtag('consent', 'update', {
+      'analytics_storage': 'granted',
+      'ad_storage': 'granted',
+      'ad_user_data': 'granted',
+      'ad_personalization': 'granted'
+    });
+  }
+}
+
+// Affiche le bandeau uniquement si aucun choix n'a été fait
+if (!localStorage.getItem('pisum_cookie_consent')) {
+  document.getElementById('pisum-cookie-banner').style.display = 'block';
+}
+</script>
+  
 </body>
 </html>
