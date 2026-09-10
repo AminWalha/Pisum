@@ -2,35 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<!-- Google Analytics 4 + Consent Mode -->
-<!-- Google tag (gtag.js) -->
-<!-- Google Analytics 4 + Consent Mode v2 -->
+<!-- Google Analytics 4 (Basic Consent Mode) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-
-  // 1. Tout refuser par défaut (obligatoire pour GA4 en Europe)
-  gtag('consent', 'default', {
-    'analytics_storage': 'denied',
-    'ad_storage': 'denied',
-    'ad_user_data': 'denied',
-    'ad_personalization': 'denied'
-  });
-
-  // 2. Si le visiteur a déjà accepté, on met à jour le statut
-  if (localStorage.getItem('pisum_cookie_consent') === 'granted') {
-    gtag('consent', 'update', {
-      'analytics_storage': 'granted',
-      'ad_storage': 'granted',
-      'ad_user_data': 'granted',
-      'ad_personalization': 'granted'
-    });
-  }
-</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F"></script>
-<script>
   gtag('js', new Date());
-  gtag('config', 'G-6VG09X3G7F');
+
+  // On lance GA4 UNIQUEMENT si le visiteur a déjà accepté
+  if (localStorage.getItem('pisum_cookie_consent') === 'granted') {
+    gtag('config', 'G-6VG09X3G7F');
+  }
 </script>
 <meta http-equiv="Cache-Control" content="no-cache, must-revalidate"/>
 <meta http-equiv="Pragma" content="no-cache"/>
@@ -1998,14 +1980,9 @@ function handleCookie(accepted) {
   const banner = document.getElementById('pisum-cookie-banner');
   if (banner) banner.style.display = 'none';
 
-  // Si accepté, on met à jour le Consent Mode en direct (GA4 va alors envoyer la donnée en attente)
+  // Si le visiteur accepte à l'instant, on déclenche GA4 immédiatement
   if (accepted) {
-    gtag('consent', 'update', {
-      'analytics_storage': 'granted',
-      'ad_storage': 'granted',
-      'ad_user_data': 'granted',
-      'ad_personalization': 'granted'
-    });
+    gtag('config', 'G-6VG09X3G7F');
   }
 }
 
