@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Empêcher le crawl des pages privées/applicatives
+Disallow: /saas/frontend/dashboard.html
+Disallow: /saas/frontend/auth.html
+
+Sitemap: https://pisum.app/sitemap.xml
