@@ -1462,9 +1462,11 @@ const nav = document.getElementById('nav');
 const bar = document.getElementById('bar');
 window.addEventListener('scroll',()=>{
   const s=window.scrollY;
-  nav.classList.toggle('solid',s>16);
-  const h=document.documentElement.scrollHeight-window.innerHeight;
-  bar.style.width=Math.min(100,(s/h)*100)+'%';
+  if (nav) nav.classList.toggle('solid',s>16);
+  if (bar) {
+    const h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=Math.min(100,(s/h)*100)+'%';
+  }
 },{passive:true});
 
 const ham = document.getElementById('ham');
