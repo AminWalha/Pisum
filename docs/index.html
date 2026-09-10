@@ -2,6 +2,22 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
+<!-- Google Analytics 4 + Consent Mode -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  // Vérifie si l'utilisateur a déjà consenti lors d'une précédente visite
+  const userConsent = localStorage.getItem('pisum_cookie_consent');
+
+  gtag('consent', 'default', {
+    'analytics_storage': userConsent === 'granted' ? 'granted' : 'denied'
+  });
+
+  gtag('js', new Date());
+  gtag('config', 'G-6VG09X3G7F');
+</script>
 <meta http-equiv="Cache-Control" content="no-cache, must-revalidate"/>
 <meta http-equiv="Pragma" content="no-cache"/>
 <meta http-equiv="Expires" content="0"/>
@@ -1936,24 +1952,6 @@ window.piwSend=function(){
 </div>
 
 <script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-
-// 1. Consent Mode par défaut : Refus des cookies analytiques
-gtag('consent', 'default', {
-  'analytics_storage': 'denied'
-});
-
-// 2. Chargement immédiat du script GA4
-(function() {
-  const script = document.createElement('script');
-  script.async = true;
-  script.src = "https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F";
-  document.head.appendChild(script);
-  gtag('js', new Date());
-  gtag('config', 'G-6VG09X3G7F');
-})();
-
 function handleCookie(accepted) {
   localStorage.setItem('pisum_cookie_consent', accepted ? 'granted' : 'denied');
   const banner = document.getElementById('pisum-cookie-banner');
@@ -1963,27 +1961,19 @@ function handleCookie(accepted) {
     gtag('consent', 'update', {
       'analytics_storage': 'granted'
     });
+    // Envoie immédiatement la page_view qui avait été bloquée en denied
+    gtag('event', 'page_view');
   }
 }
 
-// 3. Affichage du bandeau sans dépendre uniquement de DOMContentLoaded
-function checkConsentBanner() {
+// Affichage du bandeau si aucun choix n'a été fait
+(function() {
   const consent = localStorage.getItem('pisum_cookie_consent');
   const banner = document.getElementById('pisum-cookie-banner');
   if (!consent && banner) {
     banner.style.display = 'block';
-  } else if (consent === 'granted') {
-    gtag('consent', 'update', {
-      'analytics_storage': 'granted'
-    });
   }
-}
-
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', checkConsentBanner);
-} else {
-  checkConsentBanner();
-}
+})();
 </script>
 </body>
 </html>
