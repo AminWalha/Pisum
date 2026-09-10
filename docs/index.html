@@ -1937,37 +1937,5 @@ window.piwSend=function(){
 }
 </style>
 
-<div id="pisum-cookie-banner">
-  <p data-i18n="index.cookie_text"><strong>🍪 Respect for your privacy</strong><br>We use Google Analytics to analyze site traffic. No tracking cookies are set without your explicit consent.</p>
-  <div class="cookie-btns">
-    <button class="cookie-btn cookie-btn-decline" onclick="handleCookie(false)" data-i18n="index.cookie_decline">Decline</button>
-    <button class="cookie-btn cookie-btn-accept" onclick="handleCookie(true)" data-i18n="index.cookie_accept">Accept</button>
-  </div>
-</div>
-
-<script>
-function handleCookie(accepted) {
-  localStorage.setItem('pisum_cookie_consent', accepted ? 'granted' : 'denied');
-  const banner = document.getElementById('pisum-cookie-banner');
-  if (banner) banner.style.display = 'none';
-
-  if (accepted) {
-    gtag('consent', 'update', {
-      'analytics_storage': 'granted'
-    });
-    // Envoie immédiatement la page_view qui avait été bloquée en denied
-    gtag('event', 'page_view');
-  }
-}
-
-// Affichage du bandeau si aucun choix n'a été fait
-(function() {
-  const consent = localStorage.getItem('pisum_cookie_consent');
-  const banner = document.getElementById('pisum-cookie-banner');
-  if (!consent && banner) {
-    banner.style.display = 'block';
-  }
-})();
-</script>
 </body>
 </html>
