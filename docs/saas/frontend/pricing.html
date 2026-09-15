@@ -18,7 +18,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
 :root{
   --bg:#030408;
   --white:#0D0E15;
@@ -47,8 +47,7 @@ html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:op
 body{font-family:var(--sans);background:var(--bg);color:var(--ink-2);overflow-x:hidden;line-height:1.65;min-height:100vh}
 img{display:block;max-width:100%}
 a{text-decoration:none;color:inherit}
-button, input, a {touch-action:manipulation}
-.container{max-width:1160px;margin:0 auto;padding:0 clamp(1rem,5vw,3rem)}
+.container{max-width:1160px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem)}
 
 /* PROGRESS BAR */
 #bar{position:fixed;top:0;left:0;height:2px;z-index:10000;background:var(--grad);width:0;transition:width .08s linear}
@@ -64,8 +63,7 @@ button, input, a {touch-action:manipulation}
   position:fixed;top:0;left:0;width:100%;height:44px;
   background:#080a12;border-bottom:1px solid rgba(255,255,255,.08);
   display:flex;align-items:center;justify-content:center;
-  z-index:9999;text-decoration:none;overflow:hidden;transition:background .3s;
-  padding:0 12px;
+  z-index:9999;text-decoration:none;overflow:hidden;transition:background .3s
 }
 .announcement-banner::before{
   content:'';position:absolute;top:0;left:0;right:0;height:2px;
@@ -73,15 +71,15 @@ button, input, a {touch-action:manipulation}
   background-size:300% 100%;animation:bannerGlow 6s linear infinite
 }
 @keyframes bannerGlow{0%{background-position:0% 0%}100%{background-position:300% 0%}}
-.announcement-content{display:flex;align-items:center;gap:12px;color:var(--ink-2);font-size:.82rem;font-weight:500;letter-spacing:.01em;text-align:center}
+.announcement-content{display:flex;align-items:center;gap:12px;color:var(--ink-2);font-size:.82rem;font-weight:500;letter-spacing:.01em}
 .ann-pill{
   display:inline-flex;align-items:center;gap:6px;background:var(--grad);color:#030408;
   padding:3px 10px;border-radius:999px;font-size:.65rem;font-weight:800;
-  text-transform:uppercase;letter-spacing:.06em;box-shadow:0 0 12px rgba(0,229,204,.3);flex-shrink:0;
+  text-transform:uppercase;letter-spacing:.06em;box-shadow:0 0 12px rgba(0,229,204,.3)
 }
 .ann-dot{width:6px;height:6px;border-radius:50%;background:#030408;animation:pDot 1.8s infinite ease-in-out}
 @keyframes pDot{0%,100%{transform:scale(.8);opacity:.6}50%{transform:scale(1.2);opacity:1}}
-.ann-arrow{color:var(--blue);font-size:.85rem;transition:transform .2s;flex-shrink:0}
+.ann-arrow{color:var(--blue);font-size:.85rem;transition:transform .2s}
 .announcement-banner:hover{background:#0c0f1a}
 .announcement-banner:hover .ann-arrow{transform:translateX(3px)}
 @media(max-width:600px){.announcement-content{font-size:.72rem;gap:8px}.ann-hide{display:none}}
@@ -90,25 +88,25 @@ button, input, a {touch-action:manipulation}
 .nav{
   position:fixed;top:44px;left:0;right:0;z-index:998;height:70px;
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 clamp(1rem,5vw,3rem);
+  padding:0 clamp(1.25rem,5vw,3rem);
   background:rgba(10,12,20,.75);backdrop-filter:saturate(180%) blur(20px);
   -webkit-backdrop-filter:saturate(180%) blur(20px);
   border-bottom:1px solid var(--b1);box-shadow:0 4px 30px rgba(0,0,0,.5);
   transition:all .3s var(--t)
 }
-.nav-logo{display:flex;align-items:center;gap:9px;font-size:1.2rem;font-weight:800;letter-spacing:-.03em;color:var(--ink);font-family:var(--serif);text-decoration:none;flex-shrink:0}
+.nav-logo{display:flex;align-items:center;gap:9px;font-size:1.2rem;font-weight:800;letter-spacing:-.03em;color:var(--ink);font-family:var(--serif);text-decoration:none}
 .nav-logo img{width:30px;height:30px;border-radius:8px}
 .nav-links{display:flex;align-items:center;gap:2.2rem;list-style:none}
 .nav-links a{font-size:.875rem;font-weight:500;color:var(--ink-3);transition:color .2s}
 .nav-links a:hover{color:var(--ink)}
 .nav-links a.active{color:var(--blue)}
 .nav-right{display:flex;align-items:center;gap:1rem}
-.nav-login{font-size:.875rem;font-weight:600;color:var(--ink-2);transition:color .2s;white-space:nowrap}
+.nav-login{font-size:.875rem;font-weight:600;color:var(--ink-2);transition:color .2s}
 .nav-login:hover{color:var(--blue)}
 .nav-subscribe{
   display:inline-flex;align-items:center;font-size:.85rem;font-weight:600;
   color:var(--bg);background:var(--ink);padding:.48rem 1.1rem;
-  border-radius:999px;transition:all .25s var(--t);border:none;font-family:var(--sans);cursor:pointer;white-space:nowrap
+  border-radius:999px;transition:all .25s var(--t);border:none;font-family:var(--sans);cursor:pointer
 }
 .nav-subscribe:hover{background:#E2E8F0;transform:translateY(-1px);box-shadow:0 4px 15px rgba(255,255,255,.15)}
 .nav-profile{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid var(--b2);border-radius:999px;padding:4px 12px 4px 4px}
@@ -117,27 +115,19 @@ button, input, a {touch-action:manipulation}
 .nav-profile-name{font-size:.8rem;font-weight:600;color:var(--ink);line-height:1.2}
 .nav-signout{font-size:.78rem;font-weight:500;color:var(--ink-4);background:none;border:1px solid transparent;border-radius:999px;padding:.3rem .8rem;cursor:pointer;transition:all .18s;font-family:var(--sans)}
 .nav-signout:hover{color:var(--ink);background:rgba(255,255,255,.1)}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;margin-right:-4px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
 .hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s}
 @media(max-width:1020px){
   .nav-links{display:none}
   .hamburger{display:flex}
   .nav-links.open{
     display:flex;flex-direction:column;align-items:flex-start;gap:1.5rem;
-    position:fixed;top:114px;left:0;right:0;bottom:0;background:var(--bg);
-    padding:2rem clamp(1.25rem,5vw,3rem);z-index:997;border-bottom:1px solid var(--b1);
-    overflow-y:auto;-webkit-overflow-scrolling:touch;
+    position:fixed;inset:114px 0 0 0;background:var(--bg);
+    padding:2rem clamp(1.25rem,5vw,3rem);z-index:997;border-bottom:1px solid var(--b1)
   }
   .nav-links.open a{font-size:1.15rem;color:var(--ink)}
   .nav-profile-info,.nav-signout{display:none}
   .nav-profile{padding:4px;gap:0;background:transparent;border:none}
-}
-@media(max-width:480px){
-  .nav{height:60px}
-  .nav-links.open{top:104px}
-  .nav-right{gap:.5rem}
-  .nav-subscribe{padding:.4rem .75rem;font-size:.78rem}
-  .nav-login{font-size:.8rem}
 }
 
 /* REVEAL */
@@ -146,22 +136,22 @@ button, input, a {touch-action:manipulation}
 .rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}.rv-d4{transition-delay:.32s}
 
 /* EYEBROW */
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.73rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);text-align:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.73rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--blue)}
 .eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0;box-shadow:0 0 10px var(--blue)}
-.section-h{font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-.03em;color:var(--ink);line-height:1.15}
+.section-h{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-.03em;color:var(--ink);line-height:1.15}
 .section-sub{font-size:.95rem;color:var(--ink-3);line-height:1.7;margin-top:.6rem}
 
 /* ── HERO ───────────────────────────────────── */
 .hero{
   position:relative;z-index:1;text-align:center;
-  padding:clamp(130px,16vw,180px) 0 clamp(2.5rem,5vw,4rem)
+  padding:clamp(140px,16vw,180px) 0 clamp(2.5rem,5vw,4rem)
 }
 .hero h1{
-  font-family:var(--serif);font-size:clamp(2.1rem,5.5vw,4rem);font-weight:800;
+  font-family:var(--serif);font-size:clamp(2.4rem,5.5vw,4rem);font-weight:800;
   letter-spacing:-.035em;line-height:1.1;color:var(--ink);margin-bottom:1rem
 }
 .hero-accent{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-sub{font-size:clamp(.9rem,1.5vw,1.1rem);color:var(--ink-3);line-height:1.7;max-width:500px;margin:0 auto 2.5rem}
+.hero-sub{font-size:clamp(.95rem,1.5vw,1.1rem);color:var(--ink-3);line-height:1.7;max-width:500px;margin:0 auto 2.5rem}
 
 /* BILLING TOGGLE */
 .bill-row{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap}
@@ -173,10 +163,10 @@ button, input, a {touch-action:manipulation}
 .tog-sl::before{content:'';position:absolute;width:20px;height:20px;left:3px;top:3px;background:var(--ink);border-radius:50%;transition:.28s cubic-bezier(.16,1,.3,1)}
 .tog input:checked+.tog-sl{background:var(--grad);border-color:transparent}
 .tog input:checked+.tog-sl::before{left:23px;background:#fff}
-.save-tag{background:rgba(16,185,129,.15);color:var(--green);font-size:.7rem;font-weight:700;padding:.18rem .55rem;border-radius:6px;border:1px solid rgba(16,185,129,.2);white-space:nowrap}
+.save-tag{background:rgba(16,185,129,.15);color:var(--green);font-size:.7rem;font-weight:700;padding:.18rem .55rem;border-radius:6px;border:1px solid rgba(16,185,129,.2)}
 
 /* ── PLANS ──────────────────────────────────── */
-.plans-section{position:relative;z-index:1;padding:clamp(2.5rem,6vw,5rem) 0 clamp(1.5rem,3vw,2.5rem)}
+.plans-section{position:relative;z-index:1;padding:clamp(3rem,6vw,5rem) 0 clamp(1.5rem,3vw,2.5rem)}
 .plans-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;align-items:start}
 
 .plan{
@@ -227,18 +217,18 @@ button, input, a {touch-action:manipulation}
 .fi-ok{color:var(--green);font-size:.9rem;flex-shrink:0;font-weight:800;margin-top:1px}
 .fi-no{color:var(--ink-4);font-size:.9rem;flex-shrink:0;margin-top:1px}
 
-.plan-guarantee{text-align:center;margin-top:2.2rem;font-size:.8rem;color:var(--ink-4);line-height:1.6}
+.plan-guarantee{text-align:center;margin-top:2.2rem;font-size:.8rem;color:var(--ink-4)}
 .plan-guarantee span{color:var(--green);font-weight:700}
 
 @media(max-width:1080px){.plans-grid{grid-template-columns:repeat(2,1fr)}.plan.hot{padding-top:3rem}}
-@media(max-width:640px){.plans-grid{grid-template-columns:1fr}}
+@media(max-width:540px){.plans-grid{grid-template-columns:1fr}}
 
 /* ── CLINIC SECTION ─────────────────────────── */
-.clinic-section{position:relative;z-index:1;padding:clamp(2rem,4vw,3.5rem) 0 clamp(3rem,8vw,7rem)}
+.clinic-section{position:relative;z-index:1;padding:clamp(2rem,4vw,3.5rem) 0 clamp(4rem,8vw,7rem)}
 .clinic-card{
   background:linear-gradient(145deg,rgba(124,58,237,.09) 0%,rgba(0,229,204,.04) 100%);
   border:1px solid var(--b2);border-radius:var(--r-xl);
-  padding:clamp(1.5rem,5vw,3.5rem);
+  padding:clamp(2rem,5vw,3.5rem);
   position:relative;overflow:hidden
 }
 .clinic-card::before{
@@ -253,15 +243,15 @@ button, input, a {touch-action:manipulation}
 }
 .clinic-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(2rem,5vw,5rem);align-items:center;position:relative;z-index:1}
 .clinic-eyebrow{margin-bottom:.9rem}
-.clinic-h{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.5rem);font-weight:800;letter-spacing:-.03em;color:var(--ink);line-height:1.15;margin-bottom:.7rem}
+.clinic-h{font-family:var(--serif);font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;letter-spacing:-.03em;color:var(--ink);line-height:1.15;margin-bottom:.7rem}
 .clinic-sub{font-size:.9rem;color:var(--ink-3);line-height:1.7;margin-bottom:1.8rem;max-width:440px}
 .clinic-price-row{display:flex;align-items:baseline;gap:1px;margin-bottom:.3rem}
 .cl-sym{font-size:1.15rem;font-weight:600;color:var(--ink-3);margin-right:1px}
 .cl-amt{font-family:var(--serif);font-size:3.2rem;font-weight:800;color:var(--ink);line-height:1}
 .cl-per{font-size:.85rem;color:var(--ink-4);margin-left:4px}
-.clinic-users{font-size:.82rem;color:var(--blue);font-weight:700;margin-bottom:1.6rem}
+.clinic-users{font-size:.84rem;color:var(--blue);font-weight:700;margin-bottom:1.6rem}
 .clinic-cta{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:.85rem 2rem;
+  display:inline-flex;align-items:center;gap:8px;padding:.85rem 2rem;
   border-radius:999px;font-size:.9rem;font-weight:700;font-family:var(--sans);
   border:1px solid var(--b2);background:rgba(255,255,255,.07);color:var(--ink);
   cursor:pointer;transition:all .25s var(--t);text-decoration:none
@@ -271,29 +261,29 @@ button, input, a {touch-action:manipulation}
 .cl-feat{display:flex;align-items:flex-start;gap:.5rem;font-size:.83rem;color:var(--ink-2);line-height:1.4}
 .cl-chk{color:var(--green);font-weight:800;flex-shrink:0;font-size:.85rem;margin-top:1px}
 @media(max-width:800px){.clinic-grid{grid-template-columns:1fr}.clinic-feats{grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.clinic-feats{grid-template-columns:1fr}.clinic-cta{width:100%}}
+@media(max-width:460px){.clinic-feats{grid-template-columns:1fr}}
 
 /* ── TRUST SECTION ──────────────────────────── */
 .trust-section{
   position:relative;z-index:1;
   background:var(--off);border-top:1px solid var(--b1);border-bottom:1px solid var(--b1);
-  padding:clamp(3rem,7vw,5.5rem) 0
+  padding:clamp(3.5rem,7vw,5.5rem) 0
 }
 .trust-header{text-align:center;margin-bottom:2.5rem}
 .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--b1);border:1px solid var(--b1);border-radius:var(--r-lg);overflow:hidden}
-.trust-item{background:var(--white);padding:1.75rem 1.25rem;text-align:center;transition:background .2s}
+.trust-item{background:var(--white);padding:2rem 1.5rem;text-align:center;transition:background .2s}
 .trust-item:hover{background:rgba(255,255,255,.06)}
 .trust-icon{font-size:1.5rem;margin-bottom:.75rem}
 .trust-name{font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:.3rem}
 .trust-desc{font-size:.76rem;color:var(--ink-3);line-height:1.6}
 @media(max-width:640px){.trust-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.trust-grid{grid-template-columns:1fr}}
+@media(max-width:380px){.trust-grid{grid-template-columns:1fr}}
 
 /* ── COMPARE TABLE ──────────────────────────── */
-.compare-section{position:relative;z-index:1;padding:clamp(3rem,8vw,7rem) 0}
+.compare-section{position:relative;z-index:1;padding:clamp(4rem,8vw,7rem) 0}
 .compare-head{text-align:center;margin-bottom:2.8rem}
 .compare-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--r-lg);border:1px solid var(--b1);box-shadow:var(--shadow)}
-table{width:100%;border-collapse:collapse;background:var(--white);font-size:.845rem;min-width:650px}
+table{width:100%;border-collapse:collapse;background:var(--white);font-size:.845rem;min-width:720px}
 colgroup col.col-feat{width:22%}
 thead tr{background:rgba(255,255,255,.02)}
 thead th{
@@ -321,14 +311,8 @@ tbody tr:hover td.td-pro{background:rgba(0,229,204,.055)}
 .tno{color:var(--ink-4)}
 .tlim{color:#F59E0B;font-size:.76rem;font-weight:600}
 
-@media(max-width:600px){
-  table{font-size:.78rem}
-  thead th, tbody td{padding:.65rem .5rem}
-  tbody td:first-child, thead th:first-child, .cat-row td:first-child{padding-left:.85rem}
-}
-
 /* ── FAQ ────────────────────────────────────── */
-.faq-section{position:relative;z-index:1;padding:clamp(3rem,8vw,7rem) 0}
+.faq-section{position:relative;z-index:1;padding:clamp(4rem,8vw,7rem) 0}
 .faq-head{text-align:center;margin-bottom:2.8rem}
 .faq-list{max-width:740px;margin:0 auto}
 .faq-item{border-radius:var(--r);background:var(--white);border:1px solid var(--b1);margin-bottom:.8rem;overflow:hidden;transition:border-color .2s}
@@ -398,22 +382,14 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0;positi
 .piw-chip{background:rgba(255,255,255,.05);border:1px solid var(--b1);color:var(--ink-3);border-radius:999px;padding:5px 12px;font-size:.76rem;font-weight:600;cursor:pointer;transition:all .18s;font-family:inherit}
 .piw-chip:hover{background:rgba(0,229,204,.12);border-color:var(--blue);color:var(--ink)}
 #piw-footer{border-top:1px solid var(--b1);padding:12px 16px;display:flex;gap:8px;align-items:center;background:rgba(0,0,0,.3)}
-#piw-input{flex:1;background:rgba(255,255,255,.05);border:1px solid var(--b1);border-radius:999px;padding:9px 16px;font-size:16px;color:var(--ink);outline:none;font-family:inherit;transition:border-color .18s}
+#piw-input{flex:1;background:rgba(255,255,255,.05);border:1px solid var(--b1);border-radius:999px;padding:9px 16px;font-size:.85rem;color:var(--ink);outline:none;font-family:inherit;transition:border-color .18s}
 #piw-input::placeholder{color:var(--ink-4)}
 #piw-input:focus{border-color:var(--blue)}
 #piw-send{width:36px;height:36px;border-radius:50%;background:var(--grad);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .18s,opacity .18s;color:#040D1A}
 #piw-send:hover{transform:scale(1.07)}
 #piw-send:disabled{opacity:.4;cursor:not-allowed;transform:none}
-
-@media(max-width:520px){
-  #piw{bottom:16px;right:16px}
-  #piw-panel{
-    position:fixed;inset:auto 12px 75px 12px;width:auto;max-height:calc(100vh - 100px);
-    right:auto;bottom:75px;
-  }
-  #piw-trigger span.piw-label{display:none}
-  #piw-trigger{padding:12px}
-}
+@media(max-width:420px){#piw-panel{width:calc(100vw - 32px);right:-8px}}
+@media(max-width:480px){#piw-trigger span.piw-label{display:none}#piw-trigger{padding:14px}}
 </style>
 </head>
 <body>
@@ -465,9 +441,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0;positi
   </div>
 </nav>
 
-<!-- ═══════════════════════════════════════════ -->
-<!--  HERO                                      -->
-<!-- ═══════════════════════════════════════════ -->
+<!-- HERO -->
 <section class="hero" aria-labelledby="hero-heading">
   <div class="container">
     <div class="eyebrow rv" style="justify-content:center;margin-bottom:1.2rem">
@@ -496,9 +470,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0;positi
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════ -->
-<!--  4 INDIVIDUAL PLANS                        -->
-<!-- ═══════════════════════════════════════════ -->
+<!-- 4 INDIVIDUAL PLANS -->
 <section class="plans-section">
   <div class="container">
     <div class="plans-grid">
@@ -512,16 +484,23 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0;positi
           <span class="p-per" data-i18n="pricing.plans.free.period">/month</span>
         </div>
         <div class="plan-micro" data-i18n="pricing.plans.free.microcopy">No commitment</div>
-        <p class="plan-desc" data-i18n="pricing.plans.free.subtitle">For exploring PISUM and basic reporting.</p>
+        <p class="plan-desc" data-i18n="pricing.plans.free.subtitle">For exploring PISUM and essential reporting.</p>
         <a class="plan-cta cta-ghost" href="/saas/frontend/auth.html" data-label="Start Free" data-i18n="pricing.plans.free.cta">Start Free</a>
         <hr class="plan-div"/>
         <ul class="feat-list">
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.free.f1">5 templates</span></li>
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.free.f2">2 languages</span></li>
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.free.f3">PDF export</span></li>
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.free.f4">20 patients</span></li>
-          <li><span class="fi-no" aria-hidden="true">–</span><span data-i18n="pricing.plans.free.f5">Limited worklist</span></li>
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.free.f6">1 user</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>10 templates</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>2 languages</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>50 reports / month</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>PDF export</span></li>
+          <li><span class="fi-no" aria-hidden="true">–</span><span>No Word export</span></li>
+          <li><span class="fi-no" aria-hidden="true">–</span><span>No HTML export</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>AI Dictation — 30 min/month</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>AI Enhancer — 10/month</span></li>
+          <li><span class="fi-no" aria-hidden="true">–</span><span>No Report Translation</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>Limited worklist</span></li>
+          <li><span class="fi-no" aria-hidden="true">–</span><span>No Statistics</span></li>
+          <li><span class="fi-no" aria-hidden="true">–</span><span>No LAN Sync</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>1 user</span></li>
         </ul>
       </div>
 
@@ -538,14 +517,19 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0;positi
         <button class="plan-cta cta-solid" onclick="subscribe('starter')" data-label="Start Free Trial" data-i18n="pricing.plans.starter.cta">Start Free Trial</button>
         <hr class="plan-div"/>
         <ul class="feat-list">
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.starter.f1">20 templates</span></li>
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.starter.f2">5 languages</span></li>
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.starter.f3">AI Dictation</span></li>
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.starter.f5">60 min AI dictation/month</span></li>
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.starter.f6">20 AI Enhancer uses/month</span></li>
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.starter.f8">Unlimited patients</span></li>
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.starter.f7">Basic worklist</span></li>
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.starter.f9">1 user</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>20 templates</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>23 languages</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>Unlimited reports</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>PDF export</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>Word export</span></li>
+          <li><span class="fi-no" aria-hidden="true">–</span><span>No HTML export</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>AI Dictation — 500 min/month</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>AI Enhancer — 50/month</span></li>
+          <li><span class="fi-no" aria-hidden="true">–</span><span>No Report Translation</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>Basic worklist</span></li>
+          <li><span class="fi-no" aria-hidden="true">–</span><span>No Statistics</span></li>
+          <li><span class="fi-no" aria-hidden="true">–</span><span>No LAN Sync</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>1 user</span></li>
         </ul>
       </div>
 
@@ -559,18 +543,23 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0;positi
           <span class="p-per" data-i18n="pricing.plans.pro.period">/month</span>
         </div>
         <div class="plan-micro" id="sub-pro" data-i18n="pricing.plans.pro.microcopy">Billed monthly</div>
-        <p class="plan-desc" data-i18n="pricing.plans.pro.subtitle">All you need for a complete daily workflow.</p>
+        <p class="plan-desc" data-i18n="pricing.plans.pro.subtitle">All you need for an optimized daily practice.</p>
         <button class="plan-cta cta-cyan" onclick="subscribe('pro')" data-label="Start Free Trial" data-i18n="pricing.plans.pro.cta">Start Free Trial</button>
         <hr class="plan-div"/>
         <ul class="feat-list">
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.pro.f1">112+ templates</span></li>
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.pro.f2">23 languages</span></li>
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.pro.f3">PDF + Word export</span></li>
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.pro.f4">600 min AI dictation/month</span></li>
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.pro.f5">50 AI Enhancer uses/month</span></li>
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.pro.f8">Unlimited patients</span></li>
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.pro.f7">Complete worklist</span></li>
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.pro.f9">1 user</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>Unlimited templates</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>23 languages</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>Unlimited reports</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>PDF export</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>Word export</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>HTML export</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>AI Dictation — 2,000 min/month</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>AI Enhancer — 200/month</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>Report Translation — 100/month</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>Full worklist</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>Basic statistics</span></li>
+          <li><span class="fi-no" aria-hidden="true">–</span><span>No LAN Sync</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>1 user</span></li>
         </ul>
       </div>
 
@@ -583,23 +572,27 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0;positi
           <span class="p-per" data-i18n="pricing.plans.expert.period">/month</span>
         </div>
         <div class="plan-micro" id="sub-expert" data-i18n="pricing.plans.expert.microcopy">Billed monthly</div>
-        <p class="plan-desc" data-i18n="pricing.plans.expert.subtitle">For advanced radiologists and intensive workflows.</p>
+        <p class="plan-desc" data-i18n="pricing.plans.expert.subtitle">For high-volume reporting and networked workstations.</p>
         <button class="plan-cta cta-solid" onclick="subscribe('expert')" data-label="Start Free Trial" data-i18n="pricing.plans.expert.cta">Start Free Trial</button>
         <hr class="plan-div"/>
         <ul class="feat-list">
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.expert.f1">112+ templates</span></li>
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.expert.f10">Custom templates</span></li>
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.expert.f2">23 languages</span></li>
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.expert.f3">PDF + Word export</span></li>
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.expert.f4">3,000 min AI dictation/month</span></li>
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.expert.f5">400 AI Enhancer uses/month</span></li>
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.expert.f8">Unlimited patients</span></li>
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.expert.f7">Advanced worklist</span></li>
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span data-i18n="pricing.plans.expert.f9">1 user</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>Unlimited templates</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>23 languages</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>Unlimited reports</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>PDF export</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>Word export</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>HTML export</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>AI Dictation — Unlimited</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>AI Enhancer — Unlimited</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>Report Translation — Unlimited</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>Advanced worklist</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>Advanced statistics</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>LAN Sync — 1 site / 3 PCs</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>1 user</span></li>
         </ul>
       </div>
 
-    </div><!-- /.plans-grid -->
+    </div>
 
     <p class="plan-guarantee rv rv-d2" data-i18n="pricing.guarantee">
       <span>✓</span> 30-day money-back guarantee &nbsp;·&nbsp; <span>✓</span> Cancel anytime &nbsp;·&nbsp; <span>✓</span> 14-day free trial on all paid plans
@@ -607,9 +600,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0;positi
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════ -->
-<!--  CLINIC — ENTERPRISE SECTION               -->
-<!-- ═══════════════════════════════════════════ -->
+<!-- CLINIC — ENTERPRISE SECTION -->
 <section class="clinic-section" aria-labelledby="clinic-heading">
   <div class="container">
     <div class="clinic-card rv">
@@ -621,27 +612,29 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0;positi
             <span data-i18n="pricing.clinic.eyebrow">Clinic Plan</span>
           </div>
           <h2 class="clinic-h" id="clinic-heading" data-i18n="pricing.clinic.heading">Built for radiology departments.</h2>
-          <p class="clinic-sub" data-i18n="pricing.clinic.sub">Powerful tools for clinics, teams and multi-site radiology workflows.</p>
+          <p class="clinic-sub" data-i18n="pricing.clinic.sub">Powerful multi-site tools, centralized teamwork and dedicated technical support.</p>
           <div class="clinic-price-row">
             <span class="cl-sym">€</span>
             <span class="cl-amt" id="price-clinic" data-monthly="399" data-annual="319">399</span>
             <span class="cl-per" id="sub-clinic" data-i18n="pricing.plans.clinic.period">/month</span>
           </div>
-          <div class="clinic-users" data-i18n="pricing.plans.clinic.usersCount">5 users included</div>
+          <div class="clinic-users">5 users included · Additional users — €49/user</div>
           <a class="clinic-cta" href="mailto:support@pisum.app" data-i18n="pricing.clinic.cta">Contact us →</a>
         </div>
 
         <div class="clinic-feats">
-          <div class="cl-feat"><span class="cl-chk" aria-hidden="true">✓</span><span data-i18n="pricing.plans.clinic.f1">Custom templates</span></div>
-          <div class="cl-feat"><span class="cl-chk" aria-hidden="true">✓</span><span data-i18n="pricing.plans.clinic.f3">23 languages</span></div>
-          <div class="cl-feat"><span class="cl-chk" aria-hidden="true">✓</span><span data-i18n="pricing.clinic.f_dictation">6,000 min AI dictation/month</span></div>
-          <div class="cl-feat"><span class="cl-chk" aria-hidden="true">✓</span><span data-i18n="pricing.clinic.f_enhancer">1,500 AI Enhancer uses/month</span></div>
-          <div class="cl-feat"><span class="cl-chk" aria-hidden="true">✓</span><span data-i18n="pricing.plans.clinic.f5">Unlimited patients</span></div>
-          <div class="cl-feat"><span class="cl-chk" aria-hidden="true">✓</span><span data-i18n="pricing.plans.clinic.f8">Multi-site worklist</span></div>
-          <div class="cl-feat"><span class="cl-chk" aria-hidden="true">✓</span><span data-i18n="pricing.clinic.f_admin">Centralized administration</span></div>
-          <div class="cl-feat"><span class="cl-chk" aria-hidden="true">✓</span><span data-i18n="pricing.plans.clinic.f2">5 users included</span></div>
-          <div class="cl-feat"><span class="cl-chk" aria-hidden="true">✓</span><span data-i18n="pricing.clinic.f_extra">Additional users available</span></div>
-          <div class="cl-feat"><span class="cl-chk" aria-hidden="true">✓</span><span data-i18n="pricing.plans.clinic.f9">Dedicated onboarding</span></div>
+          <div class="cl-feat"><span class="cl-chk" aria-hidden="true">✓</span><span>Unlimited templates</span></div>
+          <div class="cl-feat"><span class="cl-chk" aria-hidden="true">✓</span><span>23 languages</span></div>
+          <div class="cl-feat"><span class="cl-chk" aria-hidden="true">✓</span><span>Unlimited reports</span></div>
+          <div class="cl-feat"><span class="cl-chk" aria-hidden="true">✓</span><span>PDF, Word &amp; HTML export</span></div>
+          <div class="cl-feat"><span class="cl-chk" aria-hidden="true">✓</span><span>AI Dictation — Unlimited</span></div>
+          <div class="cl-feat"><span class="cl-chk" aria-hidden="true">✓</span><span>AI Enhancer — Unlimited</span></div>
+          <div class="cl-feat"><span class="cl-chk" aria-hidden="true">✓</span><span>Report Translation — Unlimited</span></div>
+          <div class="cl-feat"><span class="cl-chk" aria-hidden="true">✓</span><span>Multi-site worklist</span></div>
+          <div class="cl-feat"><span class="cl-chk" aria-hidden="true">✓</span><span>Advanced statistics</span></div>
+          <div class="cl-feat"><span class="cl-chk" aria-hidden="true">✓</span><span>LAN Sync — Multi-site</span></div>
+          <div class="cl-feat"><span class="cl-chk" aria-hidden="true">✓</span><span>5 users included + €49/user</span></div>
+          <div class="cl-feat"><span class="cl-chk" aria-hidden="true">✓</span><span>Dedicated Support</span></div>
         </div>
 
       </div>
@@ -649,9 +642,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0;positi
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════ -->
-<!--  TRUST SECTION                             -->
-<!-- ═══════════════════════════════════════════ -->
+<!-- TRUST SECTION -->
 <section class="trust-section" aria-labelledby="trust-heading">
   <div class="container">
     <div class="trust-header">
@@ -671,7 +662,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0;positi
       <div class="trust-item">
         <div class="trust-icon" aria-hidden="true">🩻</div>
         <div class="trust-name" data-i18n="pricing.trust.item3.name">Built for radiologists</div>
-        <div class="trust-desc" data-i18n="pricing.trust.item3.desc">Designed by a radiologist. 112 expert templates covering every modality.</div>
+        <div class="trust-desc" data-i18n="pricing.trust.item3.desc">Designed by a radiologist. Unlimited structured templates covering every modality.</div>
       </div>
       <div class="trust-item">
         <div class="trust-icon" aria-hidden="true">⚡</div>
@@ -682,9 +673,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0;positi
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════ -->
-<!--  COMPARISON TABLE                          -->
-<!-- ═══════════════════════════════════════════ -->
+<!-- COMPARISON TABLE -->
 <section class="compare-section" id="compare" aria-labelledby="compare-heading">
   <div class="container">
     <div class="compare-head">
@@ -710,96 +699,111 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0;positi
           <tr class="cat-row"><td colspan="6" data-i18n="pricing.table.cat_templates">Templates &amp; Content</td></tr>
           <tr>
             <td data-i18n="pricing.table.feat_templates">Templates</td>
-            <td>5</td><td>20</td>
-            <td class="td-pro"><strong>112+</strong></td>
-            <td>112+ custom</td><td>Custom</td>
-          </tr>
-          <tr>
-            <td data-i18n="pricing.table.feat_custom">Custom templates</td>
-            <td><span class="tno">—</span></td><td><span class="tno">—</span></td>
-            <td class="td-pro"><span class="tno">—</span></td>
-            <td><span class="tyes">✓</span></td><td><span class="tyes">✓</span></td>
+            <td>10</td>
+            <td>20</td>
+            <td class="td-pro"><strong>Unlimited</strong></td>
+            <td><strong>Unlimited</strong></td>
+            <td><strong>Unlimited</strong></td>
           </tr>
           <tr>
             <td data-i18n="pricing.table.feat_languages">Languages</td>
-            <td>2</td><td>5</td>
+            <td>2</td>
+            <td>23</td>
             <td class="td-pro"><strong>23</strong></td>
-            <td>23</td><td>23</td>
+            <td>23</td>
+            <td>23</td>
           </tr>
           <tr>
-            <td data-i18n="pricing.table.feat_pdf">PDF export</td>
-            <td><span class="tyes">✓</span></td><td><span class="tyes">✓</span></td>
-            <td class="td-pro"><span class="tyes">✓</span></td>
-            <td><span class="tyes">✓</span></td><td><span class="tyes">✓</span></td>
-          </tr>
-          <tr>
-            <td data-i18n="pricing.table.feat_word">Word export</td>
-            <td><span class="tno">—</span></td><td><span class="tyes">✓</span></td>
-            <td class="td-pro"><span class="tyes">✓</span></td>
-            <td><span class="tyes">✓</span></td><td><span class="tyes">✓</span></td>
-          </tr>
-
-          <tr class="cat-row"><td colspan="6" data-i18n="pricing.table.cat_ai">AI Features</td></tr>
-          <tr>
-            <td data-i18n="pricing.table.feat_dictation">AI Dictation</td>
-            <td><span class="tno">—</span></td><td><span class="tyes">✓</span></td>
-            <td class="td-pro"><span class="tyes">✓</span></td>
-            <td><span class="tyes">✓</span></td><td><span class="tyes">✓</span></td>
-          </tr>
-          <tr>
-            <td data-i18n="pricing.table.feat_dictation_min">AI Dictation minutes</td>
-            <td><span class="tno">—</span></td>
-            <td><span class="tlim">60 min</span></td>
-            <td class="td-pro"><span class="tlim">600 min</span></td>
-            <td><span class="tlim">3,000 min</span></td>
-            <td>6,000 min</td>
-          </tr>
-          <tr>
-            <td data-i18n="pricing.table.feat_enhancer">AI Enhancer</td>
-            <td><span class="tno">—</span></td>
-            <td><span class="tlim">20/month</span></td>
-            <td class="td-pro"><span class="tlim">50/month</span></td>
-            <td><span class="tlim">400/month</span></td>
-            <td>1,500/month</td>
-          </tr>
-
-          <tr class="cat-row"><td colspan="6" data-i18n="pricing.table.cat_workflow">Workflow &amp; Network</td></tr>
-          <tr>
-            <td data-i18n="pricing.table.feat_patients">Patients</td>
-            <td><span class="tlim">20</span></td>
+            <td data-i18n="pricing.table.feat_patients">Reports / month</td>
+            <td><span class="tlim">50</span></td>
             <td><span class="tyes">Unlimited</span></td>
             <td class="td-pro"><span class="tyes">Unlimited</span></td>
             <td><span class="tyes">Unlimited</span></td>
             <td><span class="tyes">Unlimited</span></td>
           </tr>
           <tr>
+            <td data-i18n="pricing.table.feat_pdf">PDF export</td>
+            <td><span class="tyes">✓</span></td>
+            <td><span class="tyes">✓</span></td>
+            <td class="td-pro"><span class="tyes">✓</span></td>
+            <td><span class="tyes">✓</span></td>
+            <td><span class="tyes">✓</span></td>
+          </tr>
+          <tr>
+            <td data-i18n="pricing.table.feat_word">Word export</td>
+            <td><span class="tno">—</span></td>
+            <td><span class="tyes">✓</span></td>
+            <td class="td-pro"><span class="tyes">✓</span></td>
+            <td><span class="tyes">✓</span></td>
+            <td><span class="tyes">✓</span></td>
+          </tr>
+          <tr>
+            <td>HTML export</td>
+            <td><span class="tno">—</span></td>
+            <td><span class="tno">—</span></td>
+            <td class="td-pro"><span class="tyes">✓</span></td>
+            <td><span class="tyes">✓</span></td>
+            <td><span class="tyes">✓</span></td>
+          </tr>
+
+          <tr class="cat-row"><td colspan="6" data-i18n="pricing.table.cat_ai">AI Features</td></tr>
+          <tr>
+            <td data-i18n="pricing.table.feat_dictation_min">AI Dictation</td>
+            <td><span class="tlim">30 min/mo</span></td>
+            <td><span class="tlim">500 min/mo</span></td>
+            <td class="td-pro"><span class="tlim">2,000 min/mo</span></td>
+            <td><span class="tyes">Unlimited</span></td>
+            <td><span class="tyes">Unlimited</span></td>
+          </tr>
+          <tr>
+            <td data-i18n="pricing.table.feat_enhancer">AI Enhancer</td>
+            <td><span class="tlim">10/month</span></td>
+            <td><span class="tlim">50/month</span></td>
+            <td class="td-pro"><span class="tlim">200/month</span></td>
+            <td><span class="tyes">Unlimited</span></td>
+            <td><span class="tyes">Unlimited</span></td>
+          </tr>
+          <tr>
+            <td>Report Translation</td>
+            <td><span class="tno">—</span></td>
+            <td><span class="tno">—</span></td>
+            <td class="td-pro"><span class="tlim">100/month</span></td>
+            <td><span class="tyes">Unlimited</span></td>
+            <td><span class="tyes">Unlimited</span></td>
+          </tr>
+
+          <tr class="cat-row"><td colspan="6" data-i18n="pricing.table.cat_workflow">Workflow &amp; Network</td></tr>
+          <tr>
             <td data-i18n="pricing.table.feat_worklist">Worklist</td>
             <td><span class="tlim">Limited</span></td>
             <td><span class="tlim">Basic</span></td>
-            <td class="td-pro"><span class="tyes">Complete</span></td>
+            <td class="td-pro"><span class="tyes">Full</span></td>
             <td><span class="tyes">Advanced</span></td>
             <td><span class="tyes">Multi-site</span></td>
           </tr>
           <tr>
+            <td>Statistics</td>
+            <td><span class="tno">—</span></td>
+            <td><span class="tno">—</span></td>
+            <td class="td-pro"><span class="tlim">Basic</span></td>
+            <td><span class="tyes">Advanced</span></td>
+            <td><span class="tyes">Advanced</span></td>
+          </tr>
+          <tr>
             <td data-i18n="pricing.table.feat_lan">LAN Sync</td>
-            <td><span class="tno">—</span></td><td><span class="tno">—</span></td>
+            <td><span class="tno">—</span></td>
+            <td><span class="tno">—</span></td>
             <td class="td-pro"><span class="tno">—</span></td>
             <td><span class="tlim">1 site · 3 PCs</span></td>
             <td><span class="tyes">Multi-site</span></td>
           </tr>
           <tr>
-            <td data-i18n="pricing.table.feat_multisite">Multi-site</td>
-            <td><span class="tno">—</span></td><td><span class="tno">—</span></td>
-            <td class="td-pro"><span class="tno">—</span></td>
-            <td><span class="tno">—</span></td>
-            <td><span class="tyes">✓</span></td>
-          </tr>
-          <tr>
             <td data-i18n="pricing.table.feat_users">Users</td>
-            <td>1</td><td>1</td>
+            <td>1</td>
+            <td>1</td>
             <td class="td-pro">1</td>
             <td>1</td>
-            <td><strong>5 incl.</strong></td>
+            <td><strong>5 incl. (+€49/user)</strong></td>
           </tr>
 
           <tr class="cat-row"><td colspan="6" data-i18n="pricing.table.cat_support">Support</td></tr>
@@ -807,9 +811,9 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0;positi
             <td data-i18n="pricing.table.feat_support">Support</td>
             <td><span class="tno">—</span></td>
             <td>Email</td>
-            <td class="td-pro">Priority email</td>
+            <td class="td-pro">Priority</td>
             <td>Chat + email</td>
-            <td><strong>Dedicated + Onboarding</strong></td>
+            <td><strong>Dedicated</strong></td>
           </tr>
         </tbody>
       </table>
@@ -817,9 +821,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0;positi
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════ -->
-<!--  FAQ                                       -->
-<!-- ═══════════════════════════════════════════ -->
+<!-- FAQ (SYNCHRONISÉE AVEC FAQ.HTML) -->
 <section class="faq-section" aria-labelledby="faq-heading">
   <div class="container">
     <div class="faq-head">
@@ -831,67 +833,65 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0;positi
 
       <div class="faq-item rv">
         <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-          <span data-i18n="pricing.faq.q3">Can I use PISUM for free?</span>
+          <span>Can I use PISUM for free?</span>
           <span class="faq-arr" aria-hidden="true">▼</span>
         </button>
-        <div class="faq-a" data-i18n="pricing.faq.a3">Yes — with no time limit. The Free plan gives you access to PISUM with 5 templates, PDF export, and up to 20 patients, forever.</div>
+        <div class="faq-a">Yes — with no time limit. The Free plan gives you access to PISUM with 10 templates, PDF export, 30 min/month AI dictation, 10 AI Enhancer uses, and up to 50 reports per month, forever.</div>
       </div>
 
       <div class="faq-item rv rv-d1">
         <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-          <span data-i18n="pricing.faq.q2">Can I cancel anytime?</span>
+          <span>What's the difference between Pro and Clinic?</span>
           <span class="faq-arr" aria-hidden="true">▼</span>
         </button>
-        <div class="faq-a" data-i18n="pricing.faq.a2">Yes. All plans are month-to-month with no long-term commitment. Annual billing saves 20% and you can cancel before renewal without penalty.</div>
+        <div class="faq-a">PISUM offers 5 distinct tiers: Free, Starter, Pro, Expert, and Clinic. While Pro includes unlimited templates, full worklists, and basic statistics for a single user, Clinic is built for teams: it includes 5 users (+€49/additional user), multi-site LAN sync, unlimited AI capabilities, and dedicated support.</div>
       </div>
 
       <div class="faq-item rv rv-d2">
         <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-          <span data-i18n="pricing.faq.q1">Can I switch plans?</span>
+          <span>Can I switch plans anytime?</span>
           <span class="faq-arr" aria-hidden="true">▼</span>
         </button>
-        <div class="faq-a" data-i18n="pricing.faq.a1">Yes — at any time from your dashboard. Upgrades take effect immediately and are prorated. Downgrades apply at the start of the next billing cycle.</div>
+        <div class="faq-a">Yes, anytime. Upgrades take effect immediately and are prorated. Downgrades apply at the start of your next billing cycle directly through your dashboard.</div>
       </div>
 
       <div class="faq-item rv rv-d3">
         <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-          <span data-i18n="pricing.faq.q4">What happens if I exceed my AI allowance?</span>
+          <span>Is there a discount for annual billing?</span>
           <span class="faq-arr" aria-hidden="true">▼</span>
         </button>
-        <div class="faq-a" data-i18n="pricing.faq.a4">AI features pause temporarily until your quota resets on the 1st of the next month. You can upgrade at any time to get more capacity immediately.</div>
+        <div class="faq-a">Yes — 20% off when you choose annual billing across any paid plan (Starter, Pro, Expert, or Clinic).</div>
       </div>
 
       <div class="faq-item rv rv-d4">
         <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-          <span data-i18n="pricing.faq.q6">Is my data secure?</span>
+          <span>Is there a free trial?</span>
           <span class="faq-arr" aria-hidden="true">▼</span>
         </button>
-        <div class="faq-a" data-i18n="pricing.faq.a6">All medical reports are stored locally on your machine and never uploaded to our servers. AI dictation uses a secure API but no audio is ever stored. PISUM is fully GDPR / RGPD compliant.</div>
+        <div class="faq-a">Yes. Starter, Pro, and Expert plans all include a 14-day free trial without commitment. Paid plans are also protected by a 30-day money-back guarantee.</div>
       </div>
 
       <div class="faq-item rv rv-d4">
         <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-          <span data-i18n="pricing.faq.q_clinic">What is included in the Clinic plan?</span>
+          <span>Is PISUM GDPR / RGPD compliant?</span>
           <span class="faq-arr" aria-hidden="true">▼</span>
         </button>
-        <div class="faq-a" data-i18n="pricing.faq.a_clinic">Clinic includes 5 users, multi-site LAN sync, custom templates, 6,000 min AI dictation, 1,500 AI Enhancer uses per month, centralized administration, and dedicated onboarding. Additional users can be added from your dashboard.</div>
+        <div class="faq-a">Yes. All clinical and patient findings are processed locally on your workstation using local encryption. No patient health information is retained on external cloud servers, guaranteeing strict European GDPR / RGPD compliance.</div>
       </div>
 
       <div class="faq-item rv rv-d4">
         <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-          <span data-i18n="pricing.faq.q8">Is there a free trial?</span>
+          <span>Can multiple radiologists use PISUM on the same site?</span>
           <span class="faq-arr" aria-hidden="true">▼</span>
         </button>
-        <div class="faq-a" data-i18n="pricing.faq.a8">Yes. Starter, Pro and Expert all include a 14-day free trial — no credit card required. All paid plans are also backed by a 30-day money-back guarantee.</div>
+        <div class="faq-a">Yes. The Expert plan supports local LAN sync for up to 3 PCs on 1 site, while the Clinic plan delivers comprehensive multi-site LAN synchronization across all your practice locations.</div>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════ -->
-<!--  FOOTER                                    -->
-<!-- ═══════════════════════════════════════════ -->
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="foot-in">
@@ -956,12 +956,9 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0;positi
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════ -->
-<!--  SCRIPTS                                   -->
-<!-- ═══════════════════════════════════════════ -->
+<!-- SCRIPTS -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
-// ─── CONSTANTS ───────────────────────────────
 const SUPABASE_URL  = 'https://lepqbnhrdgfetoysedbq.supabase.co';
 const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxlcHFibmhyZGdmZXRveXNlZGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwNjQ1MDAsImV4cCI6MjA5MDY0MDUwMH0.St12IwG0_RRKzxrbH1QRolCC2OOAaSIsK4PDmlR2Loo';
 const API_BASE      = 'https://pisum-backend.onrender.com';
@@ -985,7 +982,6 @@ const ANNUAL_SAVINGS = {
   clinic:  960,
 };
 
-// ─── BILLING TOGGLE ──────────────────────────
 function setBilling(isAnnual) {
   billingInterval = isAnnual ? 'annual' : 'monthly';
 
@@ -1019,7 +1015,6 @@ function setBilling(isAnnual) {
   });
 }
 
-// ─── AUTH STATE ──────────────────────────────
 async function init() {
   const { data } = await sb.auth.getSession();
   if (!data.session) return;
@@ -1041,15 +1036,12 @@ async function init() {
   if (dashEl)  dashEl.style.display  = '';
 }
 
-// Sign-out handler
 document.getElementById('nav-signout').addEventListener('click', function() {
   sb.auth.signOut().then(function() {
     window.location.href = 'https://pisum.app/';
   });
 });
 
-// ─── SUBSCRIBE ───────────────────────────────
-// Save original button labels before any mutation
 document.querySelectorAll('.plan-cta[data-label]').forEach(b => {
   b._origLabel = b.dataset.label;
 });
@@ -1060,7 +1052,6 @@ async function subscribe(plan) {
     return;
   }
 
-  // Disable all buttons
   document.querySelectorAll('.plan-cta').forEach(b => {
     if (b.tagName === 'BUTTON') {
       b.disabled = true;
@@ -1097,7 +1088,6 @@ async function subscribe(plan) {
   }
 }
 
-// Auto-trigger checkout if redirected back with URL params
 (async function autoSubscribe() {
   const params   = new URLSearchParams(window.location.search);
   const plan     = params.get('plan');
@@ -1118,7 +1108,6 @@ function showError(msg) {
   setTimeout(function() { el.style.display = 'none'; }, 6000);
 }
 
-// ─── FAQ ACCORDION ───────────────────────────
 function toggleFaq(btn) {
   const isOpen = btn.classList.contains('open');
   document.querySelectorAll('.faq-q').forEach(function(q) {
@@ -1135,7 +1124,6 @@ function toggleFaq(btn) {
   }
 }
 
-// ─── SCROLL PROGRESS BAR ─────────────────────
 (function() {
   var bar = document.getElementById('bar');
   window.addEventListener('scroll', function() {
@@ -1145,7 +1133,6 @@ function toggleFaq(btn) {
   }, { passive: true });
 })();
 
-// ─── HAMBURGER MENU ──────────────────────────
 (function() {
   var ham   = document.getElementById('ham');
   var links = document.getElementById('nav-links');
@@ -1156,7 +1143,6 @@ function toggleFaq(btn) {
   });
 })();
 
-// ─── REVEAL ON SCROLL ────────────────────────
 (function() {
   var items = document.querySelectorAll('.rv');
   if (!items.length) return;
@@ -1168,7 +1154,6 @@ function toggleFaq(btn) {
   items.forEach(function(el) { io.observe(el); });
 })();
 
-// ─── INIT ────────────────────────────────────
 init();
 </script>
 
@@ -1244,7 +1229,6 @@ init();
   };
 })();
 </script>
-
 <script src="./i18n.js"></script>
 </body>
 </html>
