@@ -27,46 +27,6 @@
 <meta name="twitter:title" content="FAQ — PISUM Clinical Synthesis & Reporting Software"/>
 <meta name="twitter:description" content="Learn how PISUM connects radiological findings into coherent clinical impressions, protects patient data locally, and integrates into reading rooms."/>
 <meta name="twitter:image" content="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is PISUM and what is its primary clinical purpose?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "PISUM is a specialized desktop application for radiologists. Its core engine assists practitioners by correlating semiotic findings, organizing structured anatomical reports across 112 expert templates, and proposing coherent clinical impressions ready for physician sign-off."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does PISUM make autonomous diagnoses?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. PISUM is a report drafting aid and clinical synthesis tool. It does not replace medical judgment or autonomously interpret imaging. The radiologist remains the sole medical authority responsible for validating observations and signing the final report."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Where is patient data stored and how is confidentiality protected?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "All patient files, reports, and database records remain encrypted locally on your workstation or LAN storage with AES-256 encryption. Patient identifiable data is never stored on external cloud servers."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does PISUM integrate with existing RIS and PACS systems?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "PISUM integrates seamlessly via rich-text clipboard transfer directly into any RIS/PACS text field, one-click PDF and Word exports with practice letterheads, and a roadmap for direct HL7/DICOM SR connectivity."
-      }
-    }
-  ]
-}
-</script>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"/>
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png"/>
@@ -252,24 +212,24 @@ a { text-decoration: none; color: inherit; }
 </div>
 
 <nav class="nav" id="nav">
-  <a href="index.html" class="nav-logo">
+  <a href="index.html" class="nav-logo" data-i18n="contact.a_1">
     <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="Logo"/>
     PISUM
   </a>
   <ul class="nav-links" id="nav-links">
-    <li><a href="index.html#features">Platform</a></li>
-    <li><a href="index.html#ai-enhancement">Clinical Synthesis</a></li>
-    <li><a href="index.html#templates">Templates</a></li>
-    <li><a href="index.html#pricing">Pricing</a></li>
-    <li><a href="index.html#languages">Languages</a></li>
-    <li><a href="faq.html" class="active">FAQ</a></li>
-    <li><a href="documentation.html">Docs</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li id="nav-mobile-signout" style="display:none"><a href="javascript:void(0)" id="nav-mobile-signout-btn">Sign Out</a></li>
+    <li data-i18n="contact.li_1"><a href="index.html#features">Features</a></li>
+    <li data-i18n="index.li_synthesis"><a href="index.html#ai-enhancement">Clinical Synthesis</a></li>
+    <li data-i18n="contact.li_2"><a href="index.html#templates">Templates</a></li>
+    <li data-i18n="contact.li_3"><a href="index.html#pricing">Pricing</a></li>
+    <li data-i18n="contact.li_4"><a href="index.html#languages">Languages</a></li>
+    <li data-i18n="contact.li_5"><a href="faq.html" class="active">FAQ</a></li>
+    <li data-i18n="contact.li_6"><a href="documentation.html">Docs</a></li>
+    <li data-i18n="contact.li_7"><a href="contact.html">Contact</a></li>
+    <li id="nav-mobile-signout" style="display:none"><a href="javascript:void(0)" id="nav-mobile-signout-btn" data-i18n="contact.button_1">Sign Out</a></li>
   </ul>
   <div class="nav-right">
-    <a href="https://pisum.app/saas/frontend/auth.html" id="nav-signin" class="nav-login">Sign in</a>
-    <a href="index.html#pricing" class="btn-cta" id="nav-cta">Get Started Free</a>
+    <a href="https://pisum.app/saas/frontend/auth.html" id="nav-signin" class="nav-login" data-i18n="contact.a_signin">Sign in</a>
+    <a href="index.html#pricing" class="btn-cta" id="nav-cta" data-i18n="contact.a_2">Get Started Free</a>
     <div id="nav-profile" class="nav-profile" style="display:none">
       <a href="https://pisum.app/saas/frontend/dashboard.html" class="nav-profile-link">
         <img id="nav-profile-img" class="nav-profile-avatar" src="" alt="" style="display:none"/>
@@ -279,7 +239,7 @@ a { text-decoration: none; color: inherit; }
           <span id="nav-profile-email" class="nav-profile-email"></span>
         </div>
       </a>
-      <button class="nav-profile-signout" id="nav-signout">Sign Out</button>
+      <button class="nav-profile-signout" id="nav-signout" data-i18n="contact.button_1">Sign Out</button>
     </div>
     <button class="hamburger" id="ham" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -310,9 +270,9 @@ a { text-decoration: none; color: inherit; }
 
 <section class="hero">
   <div class="container">
-    <div class="animate-in d1"><span class="eyebrow">Clinical Workflow &amp; Architecture</span></div>
-    <h1 class="animate-in d2">Clear answers about PISUM<br/><em>engineered for clinical rigor.</em></h1>
-    <p class="hero-sub animate-in d3">Semiotic clinical synthesis, local patient data encryption, RIS/PACS integration, and expert reporting protocols.</p>
+    <div class="animate-in d1"><span class="eyebrow" data-i18n="faq.span_1">Support</span></div>
+    <h1 class="animate-in d2" data-i18n="faq.h1_1">Radiology reporting software<br/><em>— your questions answered.</em></h1>
+    <p class="hero-sub animate-in d3" data-i18n="faq.p_1">Everything you need to know about PISUM. Can't find what you're looking for? Reach our team directly.</p>
   </div>
 </section>
 
@@ -323,9 +283,9 @@ a { text-decoration: none; color: inherit; }
         <circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.5"/>
         <path d="M11 11l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
       </svg>
-      <input type="search" id="search" placeholder="Search questions (synthesis, local data, PACS, LAN, pricing, GDPR)..." autocomplete="off"/>
+      <input type="search" id="search" placeholder="Search questions…" data-i18n="[placeholder]faq.input_1" autocomplete="off"/>
     </div>
-    <div class="no-results" id="no-results">No questions matched your search query.</div>
+    <div class="no-results" id="no-results" data-i18n="faq.no_results">No results found for your search.</div>
   </div>
 </div>
 
@@ -333,117 +293,86 @@ a { text-decoration: none; color: inherit; }
   <div class="container">
 
     <div class="faq-tabs">
-      <button class="faq-tab active" data-filter="all">All Questions</button>
-      <button class="faq-tab" data-filter="clinical">Clinical Synthesis &amp; AI</button>
-      <button class="faq-tab" data-filter="security">Security &amp; Privacy</button>
-      <button class="faq-tab" data-filter="workflow">Workflow &amp; RIS/PACS</button>
-      <button class="faq-tab" data-filter="licensing">Plans &amp; Teams</button>
+      <button class="faq-tab active" data-filter="all" data-i18n="faq.button_2">All</button>
+      <button class="faq-tab" data-filter="general" data-i18n="faq.button_3">General</button>
+      <button class="faq-tab" data-filter="features" data-i18n="faq.button_4">Features</button>
+      <button class="faq-tab" data-filter="pricing" data-i18n="faq.button_5">Pricing &amp; Plans</button>
+      <button class="faq-tab" data-filter="privacy" data-i18n="faq.button_6">Privacy &amp; Security</button>
     </div>
 
-    <!-- 1. CLINICAL SYNTHESIS & AI ROLE -->
-    <div class="faq-group" data-group data-category="clinical">
-      <div class="faq-group-label">Clinical Synthesis &amp; AI Role</div>
+    <!-- GENERAL / CLINICAL PURPOSE -->
+    <div class="faq-group" data-group data-category="general">
+      <div class="faq-group-label" data-i18n="faq.label_general">General</div>
       <div class="accordion">
         
-        <div class="acc-item" data-q="What is PISUM and what is its role in the radiology workflow?">
-          <button class="acc-q">
-            <span class="acc-q-text">What is PISUM and what is its role in the radiology workflow?</span>
-            <span class="acc-icon">+</span>
+        <div class="acc-item">
+          <button class="acc-q" data-i18n="faq.button_7">
+            <span class="acc-q-text">What is radiology dictation software?</span>
+            <span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></span>
           </button>
           <div class="acc-body">
-            <div class="acc-body-inner">
-              PISUM is a dedicated desktop application engineered to assist radiologists in structuring and synthesizing their clinical reports. Unlike basic speech-to-text dictation tools, PISUM incorporates a <strong>semiotic synthesis engine</strong>[cite: 5]: it connects isolated anatomical observations across exam sections, clarifies multi-organ findings, and structures a coherent, publication-grade impression across 112 peer-built protocols.
+            <div class="acc-body-inner" data-i18n="faq.ans_1">
+              Radiology dictation software is a specialized voice recognition tool designed specifically for radiologists...
             </div>
           </div>
         </div>
 
-        <div class="acc-item" data-q="Does PISUM make autonomous clinical diagnoses?">
-          <button class="acc-q">
-            <span class="acc-q-text">Does PISUM make autonomous clinical diagnoses?</span>
-            <span class="acc-icon">+</span>
+        <div class="acc-item">
+          <button class="acc-q" data-i18n="faq.button_8">
+            <span class="acc-q-text">Is AI good for radiology reports?</span>
+            <span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></span>
           </button>
           <div class="acc-body">
-            <div class="acc-body-inner">
-              <strong>No.</strong> PISUM is a clinical synthesis and structured reporting tool. It does not perform autonomous image analysis on DICOM pixels and does not replace the physician's interpretation[cite: 1, 5]. The reviewing radiologist remains the sole clinical authority: you examine the images, edit the synthesized proposals, validate the findings, and maintain complete legal responsibility for the signed medical report[cite: 1, 4, 5].
+            <div class="acc-body-inner" data-i18n="faq.ans_2">
+              Yes — when used correctly as a productivity layer, not a replacement for clinical judgment...
             </div>
           </div>
         </div>
 
-        <div class="acc-item" data-q="How does the semiotic correlation engine assist reporting?">
-          <button class="acc-q">
-            <span class="acc-q-text">How does the semiotic correlation engine assist reporting?</span>
-            <span class="acc-icon">+</span>
+        <div class="acc-item">
+          <button class="acc-q" data-i18n="faq.button_9">
+            <span class="acc-q-text">What is PISUM and who is it for?</span>
+            <span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></span>
           </button>
           <div class="acc-body">
-            <div class="acc-body-inner">
-              When you document related signs across different compartments (such as IVC thrombosis, hepatic vein flow obliteration, and caudate lobe enlargement), PISUM connects these findings into an overarching clinical entity (e.g. <em>Budd-Chiari syndrome</em>) instead of leaving disjointed notes[cite: 4, 5].<br/><br/>
-              It organizes impressions according to 4 standardized certainty levels[cite: 4, 5]:
-              <ul>
-                <li><strong>Confirming:</strong> Direct, unambiguous hallmark imaging signs[cite: 4, 5].</li>
-                <li><strong>Suggestive of:</strong> Strong pattern matching requiring clinical correlation[cite: 4, 5].</li>
-                <li><strong>Compatible with:</strong> Consistent non-specific signs aligned with patient history[cite: 4, 5].</li>
-                <li><strong>Cannot exclude:</strong> Subtle threshold markers or indirect indicators requiring monitoring[cite: 4, 5].</li>
-              </ul>
+            <div class="acc-body-inner" data-i18n="faq.ans_3">
+              PISUM is a radiology reporting desktop application designed for radiologists and radiology departments...
             </div>
           </div>
         </div>
 
-        <div class="acc-item" data-q="How are critical and emergency findings handled?">
-          <button class="acc-q">
-            <span class="acc-q-text">How does PISUM prioritize critical or life-threatening findings?</span>
-            <span class="acc-icon">+</span>
+        <div class="acc-item">
+          <button class="acc-q" data-i18n="faq.button_10">
+            <span class="acc-q-text">Does PISUM require an internet connection?</span>
+            <span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></span>
           </button>
           <div class="acc-body">
-            <div class="acc-body-inner">
-              PISUM enforces an <strong>Emergency-First</strong> clinical hierarchy[cite: 4, 5]. Any sign pointing to an acute condition (such as vascular thrombosis, active hemorrhage, ischemic compromise, occlusive pulmonary embolism, or tension pneumothorax) is automatically promoted to the <strong>first bullet point of the impression</strong> and flagged with an alert[cite: 4, 5]. Life-saving information is never hidden inside routine boilerplate[cite: 4, 5].
+            <div class="acc-body-inner" data-i18n="faq.ans_4">
+              Yes. PISUM requires an active internet connection for AI Dictation, AI Enhancer, and subscription management...
             </div>
           </div>
         </div>
 
-      </div>
-    </div>
-
-    <!-- 2. SECURITY, PATIENT DATA & PRIVACY -->
-    <div class="faq-group" data-group data-category="security">
-      <div class="faq-group-label">Security, Patient Confidentiality &amp; GDPR</div>
-      <div class="accordion">
-        
-        <div class="acc-item" data-q="Where is patient health data stored?">
-          <button class="acc-q">
-            <span class="acc-q-text">Where is patient health data stored?</span>
-            <span class="acc-icon">+</span>
+        <div class="acc-item">
+          <button class="acc-q" data-i18n="faq.button_11">
+            <span class="acc-q-text">What operating systems are supported?</span>
+            <span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></span>
           </button>
           <div class="acc-body">
-            <div class="acc-body-inner">
-              <strong>Your patient files and clinical reports remain strictly on your local infrastructure[cite: 1, 4, 5].</strong> Databases and completed reports are stored on your reading workstation (or your practice's local network share) protected by <strong>AES-256 encryption</strong>[cite: 1, 4, 5]. PISUM does not host or store identifiable medical records on external cloud databases[cite: 4, 5].
+            <div class="acc-body-inner" data-i18n="faq.ans_5">
+              PISUM supports Windows 10/11 (64-bit)...
             </div>
           </div>
         </div>
 
-        <div class="acc-item" data-q="What data transmits over the internet when using AI features?">
-          <button class="acc-q">
-            <span class="acc-q-text">What data transmits over the internet when using AI features?</span>
-            <span class="acc-icon">+</span>
+        <div class="acc-item">
+          <button class="acc-q" data-i18n="faq.button_12">
+            <span class="acc-q-text">Can multiple radiologists use PISUM on the same site?</span>
+            <span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></span>
           </button>
           <div class="acc-body">
-            <div class="acc-body-inner">
-              There is an absolute boundary between patient identification and AI processing[cite: 4]:
-              <ul>
-                <li><strong>Local Data (Zero Cloud Transfer):</strong> Patient identities (name, date of birth, medical record ID/IPP), patient archives, and local exam queues remain strictly on your machine[cite: 4, 5].</li>
-                <li><strong>AI Processing (Ephemeral Transit):</strong> Only isolated, de-identified clinical text phrases or voice audio stream securely over encrypted channels (HTTPS / TLS 1.3) to API endpoints[cite: 4]. Processing occurs in volatile memory, is deleted immediately after completion, and is <strong>never</strong> retained or used to train public machine learning models[cite: 4, 5].</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="acc-item" data-q="Is PISUM GDPR-compliant and hospital firewall ready?">
-          <button class="acc-q">
-            <span class="acc-q-text">Is PISUM GDPR-compliant and hospital firewall ready?</span>
-            <span class="acc-icon">+</span>
-          </button>
-          <div class="acc-body">
-            <div class="acc-body-inner">
-              Yes[cite: 4, 5]. Built upon <em>Privacy by Design</em> principles (GDPR Art. 25)[cite: 4], local data isolation ensures clinical secrecy and satisfies healthcare DPO requirements[cite: 4]. An immutable local audit trail logs all report creations and exports[cite: 1, 4, 5]. The desktop software communicates through standard outbound HTTPS ports (Port 443), requiring zero inbound firewall modifications[cite: 5].
+            <div class="acc-body-inner" data-i18n="faq.ans_6">
+              Yes — with the Clinic plan...
             </div>
           </div>
         </div>
@@ -451,61 +380,79 @@ a { text-decoration: none; color: inherit; }
       </div>
     </div>
 
-    <!-- 3. WORKFLOW, TEMPLATES & RIS/PACS INTEGRATION -->
-    <div class="faq-group" data-group data-category="workflow">
-      <div class="faq-group-label">Workflow, Protocols &amp; RIS/PACS Integration</div>
+    <!-- FEATURES & WORKFLOW -->
+    <div class="faq-group" data-group data-category="features">
+      <div class="faq-group-label" data-i18n="faq.label_features">Features</div>
       <div class="accordion">
 
-        <div class="acc-item" data-q="How does PISUM integrate with existing RIS and PACS?">
-          <button class="acc-q">
-            <span class="acc-q-text">How does PISUM integrate with my current RIS and PACS?</span>
-            <span class="acc-icon">+</span>
+        <div class="acc-item">
+          <button class="acc-q" data-i18n="faq.button_13">
+            <span class="acc-q-text">How does the voice dictation (Sally AI) work?</span>
+            <span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></span>
           </button>
           <div class="acc-body">
-            <div class="acc-body-inner">
-              PISUM operates as a companion workstation application without forcing heavy infrastructure overhauls[cite: 4]:
-              <ul>
-                <li><strong>Instant Rich-Text Transfer:</strong> With a single shortcut or click, formatted report content copies to your clipboard ready for direct pasting into your RIS or PACS editor with formatting intact[cite: 4].</li>
-                <li><strong>Document Exports:</strong> Export clean PDF or Word (.docx) documents complete with your clinic's letterhead and digital signatures[cite: 4, 5].</li>
-                <li><strong>Direct Connectors (HL7 / DICOM SR):</strong> Direct integration connectors are actively on our development roadmap[cite: 4, 5].</li>
-              </ul>
+            <div class="acc-body-inner" data-i18n="faq.ans_7">
+              Sally AI is PISUM's voice recognition engine...
             </div>
           </div>
         </div>
 
-        <div class="acc-item" data-q="How does LAN Network Sync work across multiple workstations?">
-          <button class="acc-q">
-            <span class="acc-q-text">How does multi-workstation LAN Network Sync operate?</span>
-            <span class="acc-icon">+</span>
+        <div class="acc-item">
+          <button class="acc-q" data-i18n="faq.button_14">
+            <span class="acc-q-text">How many templates are available? Can I create my own?</span>
+            <span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></span>
           </button>
           <div class="acc-body">
-            <div class="acc-body-inner">
-              Included in Expert and Clinic plans, LAN Sync lets reading rooms share a local database and worklist across multiple stations using an internal shared folder (Windows SMB share or internal clinic NAS)[cite: 1, 4, 5]. All data remains within your local network with AES-256 protection, requiring no external server hosting or third-party cloud dependence[cite: 1, 4].
+            <div class="acc-body-inner" data-i18n="faq.ans_8">
+              PISUM ships with 112 structured templates...
             </div>
           </div>
         </div>
 
-        <div class="acc-item" data-q="How many templates are included? Does it support voice dictation?">
-          <button class="acc-q">
-            <span class="acc-q-text">How many templates are included? Can I use voice dictation?</span>
-            <span class="acc-icon">+</span>
+        <div class="acc-item">
+          <button class="acc-q" data-i18n="faq.button_15">
+            <span class="acc-q-text">What export formats are supported?</span>
+            <span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></span>
           </button>
           <div class="acc-body">
-            <div class="acc-body-inner">
-              PISUM includes <strong>112 expert structured templates</strong> covering CT, MRI, Ultrasound, and X-Ray across all anatomical regions[cite: 1, 4, 5]. You can fully customize these templates or build custom department protocols[cite: 1, 4, 5].<br/><br/>
-              The integrated Sally AI voice engine recognizes medical terminology across 23 languages[cite: 4, 5]. You can dictate telegraphic notes or conversational descriptions directly into template fields before generating the clinical synthesis[cite: 4, 5].
+            <div class="acc-body-inner" data-i18n="faq.ans_9">
+              PISUM exports to PDF and Microsoft Word (.docx)...
             </div>
           </div>
         </div>
 
-        <div class="acc-item" data-q="Can I translate completed reports into other clinical languages?">
-          <button class="acc-q">
-            <span class="acc-q-text">Can I translate completed reports into other languages?</span>
-            <span class="acc-icon">+</span>
+        <div class="acc-item">
+          <button class="acc-q" data-i18n="faq.button_16">
+            <span class="acc-q-text">Can I use PISUM in languages other than English?</span>
+            <span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></span>
           </button>
           <div class="acc-body">
-            <div class="acc-body-inner">
-              Yes[cite: 4, 5]. The medical translation tool converts any finished report into any of 23 supported target languages within seconds[cite: 1, 4, 5]. Anatomical terminology, semiotic descriptions, and international classifications (e.g. BI-RADS, EU-TIRADS) remain preserved[cite: 1, 4, 5]. The original report remains completely untouched while linking a distinct translated copy to the patient exam[cite: 4].
+            <div class="acc-body-inner" data-i18n="faq.ans_10">
+              Yes. The interface and report templates are available in 23 languages...
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-q" data-i18n="faq.button_17">
+            <span class="acc-q-text">Can I translate a completed report to another language?</span>
+            <span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-body-inner" data-i18n="faq.ans_11">
+              Yes — this is a feature in PISUM v2.9.8...
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-q" data-i18n="faq.button_18">
+            <span class="acc-q-text">Can I brand reports with my clinic's identity?</span>
+            <span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-body-inner" data-i18n="faq.ans_12">
+              Yes — the Clinic plan includes full custom branding...
             </div>
           </div>
         </div>
@@ -513,39 +460,99 @@ a { text-decoration: none; color: inherit; }
       </div>
     </div>
 
-    <!-- 4. PLANS, TRIALS & LICENSING -->
-    <div class="faq-group" data-group data-category="licensing">
-      <div class="faq-group-label">Plans, Pricing &amp; Deployment</div>
+    <!-- PRICING & PLANS -->
+    <div class="faq-group" data-group data-category="pricing">
+      <div class="faq-group-label" data-i18n="faq.label_pricing">Pricing &amp; Plans</div>
       <div class="accordion">
 
-        <div class="acc-item" data-q="What plans are available for individual radiologists and teams?">
-          <button class="acc-q">
-            <span class="acc-q-text">What plans are available for individual radiologists and clinics?</span>
-            <span class="acc-icon">+</span>
+        <div class="acc-item">
+          <button class="acc-q" data-i18n="faq.button_19">
+            <span class="acc-q-text">What's the difference between Pro and Clinic?</span>
+            <span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></span>
           </button>
           <div class="acc-body">
-            <div class="acc-body-inner">
-              PISUM offers transparent plans tailored to your practice volume[cite: 1, 4]:
-              <ul>
-                <li><strong>Free (€0):</strong> 10 templates, PDF export, and basic AI features (50 reports/month)[cite: 1, 4].</li>
-                <li><strong>Starter (€29/mo):</strong> 20 templates, Word/PDF export, and 50 AI report enhancements per month[cite: 1, 4].</li>
-                <li><strong>Pro (€79/mo):</strong> The complete clinical suite with all 112+ templates, 200 AI enhancements, translation, and full worklist[cite: 1, 4].</li>
-                <li><strong>Expert (€129/mo):</strong> Unlimited AI synthesis, unlimited dictation, full statistics, and 3-workstation LAN sync[cite: 1, 4].</li>
-                <li><strong>Clinic (€399/mo):</strong> Team license including 5 physician seats (+€69/extra user), unlimited LAN sync, and department admin[cite: 1, 4].</li>
-              </ul>
+            <div class="acc-body-inner" data-i18n="faq.ans_13">
+              PISUM has 5 plans: Free, Starter, Pro, Expert, Clinic...
             </div>
           </div>
         </div>
 
-        <div class="acc-item" data-q="Is there a free trial? What are the system requirements?">
-          <button class="acc-q">
-            <span class="acc-q-text">Is there a free trial? What are the workstation requirements?</span>
-            <span class="acc-icon">+</span>
+        <div class="acc-item">
+          <button class="acc-q" data-i18n="faq.button_20">
+            <span class="acc-q-text">Can I switch plans anytime?</span>
+            <span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></span>
           </button>
           <div class="acc-body">
-            <div class="acc-body-inner">
-              Yes[cite: 4, 5]. Every paid plan includes a <strong>14-day free trial</strong> with full feature access and no commitment[cite: 1, 4, 5], along with a 30-day money-back guarantee[cite: 1, 4, 5].<br/><br/>
-              PISUM runs natively on <strong>Windows 10 and 11 (64-bit)</strong>[cite: 1, 4, 5]. A minimum of 8 GB RAM is required (16 GB is recommended for high-volume multi-screen reading room setups)[cite: 4, 5].
+            <div class="acc-body-inner" data-i18n="faq.ans_14">
+              Yes, anytime. Upgrades take effect immediately...
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-q" data-i18n="faq.button_21">
+            <span class="acc-q-text">Is there a discount for annual billing?</span>
+            <span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-body-inner" data-i18n="faq.ans_15">
+              Yes — 20% off when you pay annually...
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-q" data-i18n="faq.button_22">
+            <span class="acc-q-text">Is there a free trial?</span>
+            <span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-body-inner" data-i18n="faq.ans_16">
+              Yes. All paid plans include a 14-day free trial...
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PRIVACY & SECURITY -->
+    <div class="faq-group" data-group data-category="privacy">
+      <div class="faq-group-label" data-i18n="faq.label_privacy">Privacy &amp; Security</div>
+      <div class="accordion">
+
+        <div class="acc-item">
+          <button class="acc-q" data-i18n="faq.button_23">
+            <span class="acc-q-text">Is PISUM GDPR / RGPD compliant?</span>
+            <span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-body-inner" data-i18n="faq.ans_17">
+              Yes. All patient data is generated and stored locally on your machine...
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-q" data-i18n="faq.button_24">
+            <span class="acc-q-text">Where is patient data stored?</span>
+            <span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-body-inner" data-i18n="faq.ans_18">
+              Patient reports are stored locally on your machine...
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-q" data-i18n="faq.button_25">
+            <span class="acc-q-text">Can PISUM be used in hospitals with strict IT security policies?</span>
+            <span class="acc-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-body-inner" data-i18n="faq.ans_19">
+              Yes. Patient reports never leave your machine...
             </div>
           </div>
         </div>
@@ -558,9 +565,9 @@ a { text-decoration: none; color: inherit; }
 
 <section class="faq-cta">
   <div class="container-wide faq-cta-in">
-    <h2>Have specific clinical or integration questions?</h2>
-    <p>Our team is available to discuss custom workflows, practice configurations, and hospital deployments[cite: 5].</p>
-    <a href="contact.html" class="btn-grad">Contact our team →</a>
+    <h2 data-i18n="faq.h2_1">Still have questions?</h2>
+    <p data-i18n="faq.p_2">Our team is happy to help with anything not covered above.</p>
+    <a href="contact.html" class="btn-grad" data-i18n="faq.a_5">Contact us →</a>
   </div>
 </section>
 
@@ -569,17 +576,17 @@ a { text-decoration: none; color: inherit; }
     <div class="foot-in">
       <div class="foot-logo">
         <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="Logo"/>
-        PISUM
+        <span data-i18n="faq.span_1">PISUM</span>
       </div>
-      <p class="foot-copy">© 2026 PISUM. All rights reserved.[cite: 4, 5]</p>
+      <p class="foot-copy" data-i18n="faq.p_3">© 2026 PISUM. All rights reserved.</p>
       <div class="foot-links">
-        <a href="rgpd.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-        <a href="dpia.html">DPIA</a>
-        <a href="dpo.html">DPO</a>
-        <a href="faq.html">FAQ</a>
-        <a href="documentation.html">Docs</a>
-        <a href="contact.html">Contact</a>
+        <a href="rgpd.html" data-i18n="faq.a_6">Privacy</a>
+        <a href="terms.html" data-i18n="faq.a_7">Terms</a>
+        <a href="dpia.html" data-i18n="index.a_dpia">DPIA</a>
+        <a href="dpo.html" data-i18n="index.a_dpo">DPO</a>
+        <a href="faq.html" data-i18n="faq.a_8">FAQ</a>
+        <a href="documentation.html" data-i18n="faq.a_9">Docs</a>
+        <a href="contact.html" data-i18n="faq.a_10">Contact</a>
       </div>
     </div>
   </div>
@@ -635,7 +642,7 @@ document.querySelectorAll('.faq-tab').forEach(tab => {
   });
 });
 
-// Full-text dynamic search (searches questions and answers)
+// Full-text dynamic search
 document.getElementById('search').addEventListener('input', function() {
   const q = this.value.toLowerCase().trim();
   document.querySelectorAll('.faq-tab').forEach(t => t.classList.remove('active'));
@@ -644,18 +651,15 @@ document.getElementById('search').addEventListener('input', function() {
 
   let count = 0;
   document.querySelectorAll('.acc-item').forEach(item => {
-    const qText = (item.dataset.q || '');
-    const aText = (item.querySelector('.acc-body-inner') || {}).textContent || '';
-    const fullText = (qText + ' ' + aText).toLowerCase();
-    
-    const match = !q || fullText.includes(q);
+    const text = item.textContent.toLowerCase();
+    const match = !q || text.includes(q);
     item.classList.toggle('hidden', !match);
     if (match) count++;
   });
 
   document.querySelectorAll('[data-group]').forEach(g => {
-    const hasVisible = [...g.querySelectorAll('.acc-item')].some(i => !i.classList.contains('hidden'));
-    g.style.display = hasVisible ? '' : 'none';
+    const vis = [...g.querySelectorAll('.acc-item')].some(i => !i.classList.contains('hidden'));
+    g.style.display = vis ? '' : 'none';
   });
 
   document.getElementById('no-results').classList.toggle('show', count === 0);
