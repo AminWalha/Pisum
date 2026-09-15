@@ -4,7 +4,6 @@
 <meta charset="utf-8"/>
 <!-- Google Analytics 4 (Standard) -->
 <script>
-  // Si le visiteur a explicitement refusé, on désactive le suivi GA4
   if (localStorage.getItem('pisum_cookie_consent') === 'denied') {
     window['ga-disable-G-6VG09X3G7F'] = true;
   }
@@ -21,8 +20,8 @@
 <meta http-equiv="Pragma" content="no-cache"/>
 <meta http-equiv="Expires" content="0"/>
 <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
-<title>Radiology Reporting Software &amp; AI Report Enhancement | Pisum</title>
-<meta content="Pisum enhances radiology reports with AI — structured templates, intelligent formatting, and medical context correction. Save time and reduce burnout. Try it free." name="description"/>
+<title>PISUM — Clinical Synthesis &amp; Radiology Reporting Platform</title>
+<meta content="Turn radiological findings into coherent clinical syntheses. PISUM correlates signs, structures findings, and assists radiologists in constructing definitive conclusions." name="description"/>
 <meta content="index, follow" name="robots"/>
 <link href="https://pisum.app/" rel="canonical"/>
 <link href="https://pisum.app/" hreflang="en" rel="alternate"/>
@@ -30,16 +29,16 @@
 <link href="https://pisum.app/" hreflang="x-default" rel="alternate"/>
 <meta content="website" property="og:type"/>
 <meta content="https://pisum.app/" property="og:url"/>
-<meta content="PISUM — Radiology Reporting Software | AI-Powered Medical Reports" property="og:title"/>
-<meta content="PISUM is radiology reporting software built for solo radiologists. 112 templates, AI report enhancement, PDF &amp; Word export." property="og:description"/>
+<meta content="PISUM — More than reporting. Clinical synthesis." property="og:title"/>
+<meta content="PISUM correlates radiological observations into coherent clinical syntheses for independent practices, imaging centers, and hospital departments." property="og:description"/>
 <meta content="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/docs/logo%20V2.png" property="og:image"/>
 <meta content="PISUM" property="og:site_name"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="PISUM — Radiology Reporting Software | AI-Powered Medical Reports" name="twitter:title"/>
-<meta content="Generate AI-enhanced radiology reports in seconds. 112 templates, intelligent formatting, 23 languages. Free trial available." name="twitter:description"/>
+<meta content="PISUM — Clinical Synthesis for Modern Radiology" name="twitter:title"/>
+<meta content="Connect disparate findings into coherent clinical conclusions. Retain complete validation control. Free trial available." name="twitter:description"/>
 <meta content="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" name="twitter:image"/>
 <script type="application/ld+json">
-[{"@context":"https://schema.org","@type":"Organization","name":"PISUM","url":"https://pisum.app","logo":"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/docs/logo%20V2.png","email":"support@pisum.app","description":"Radiology reporting software with AI report enhancement, 112 expert templates, and 23-language support","contactPoint":{"@type":"ContactPoint","contactType":"customer support","email":"support@pisum.app","availableLanguage":["English","French","German","Spanish"]}},{"@context":"https://schema.org","@type":"SoftwareApplication","name":"PISUM","applicationCategory":"MedicalApplication","operatingSystem":"Windows 10, Windows 11","description":"Radiology reporting desktop software with AI report enhancement, 112 structured templates, and PDF/Word export","url":"https://pisum.app","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR","description":"Free plan available, Pro from €79/month with 14-day free trial"},"featureList":["112 radiology report templates","AI report enhancement (Sally AI)","23 language support","PDF and Word export","RIS/PACS integration","LAN network sync","GDPR compliant"]}]
+[{"@context":"https://schema.org","@type":"Organization","name":"PISUM","url":"https://pisum.app","logo":"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/docs/logo%20V2.png","email":"support@pisum.app","description":"Clinical synthesis and radiology reporting platform connecting observations into structured medical conclusions.","contactPoint":{"@type":"ContactPoint","contactType":"customer support","email":"support@pisum.app","availableLanguage":["English","French","German","Spanish"]}},{"@context":"https://schema.org","@type":"SoftwareApplication","name":"PISUM","applicationCategory":"MedicalApplication","operatingSystem":"Windows 10, Windows 11","description":"Radiology desktop platform for clinical finding correlation, report structuring, and export.","url":"https://pisum.app","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR","description":"Free plan available, Pro from €79/month with 14-day free trial"},"featureList":["Clinical findings synthesis","112 structured radiology templates","23 language support","PDF and Word export","Worklist and LAN network sync","Local encryption and GDPR compliance"]}]
 </script>
 <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="/favicon-48x48.png" rel="icon" sizes="48x48" type="image/png"/>
@@ -82,7 +81,7 @@ a{text-decoration:none;color:inherit}
 .container{max-width:1160px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem)}
 .section{padding:clamp(5.5rem,11vw,9rem) 0; position: relative;}
 .serif{font-family:var(--serif);line-height:1.1;letter-spacing:-0.02em}
-.d1{font-size:clamp(3rem,6.5vw,6rem); font-weight:800;}
+.d1{font-size:clamp(2.9rem,5.8vw,5.4rem); font-weight:800;}
 .d2{font-size:clamp(2.2rem,4vw,3.8rem); font-weight:700;}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:0.75rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue)}
 .eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0; box-shadow: 0 0 10px var(--blue);}
@@ -140,15 +139,15 @@ a{text-decoration:none;color:inherit}
 }
 
 /* HERO */
-.hero{position:relative;overflow:hidden;padding:clamp(100px,12vw,140px) 0 clamp(60px,8vw,80px); z-index: 1;}
-.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(2.5rem,5vw,5rem);align-items:center}
-.hero-left{max-width:600px}
+.hero{position:relative;overflow:hidden;padding:clamp(110px,13vw,150px) 0 clamp(60px,8vw,80px); z-index: 1;}
+.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(2.5rem,5vw,5rem);align-items:center}
+.hero-left{max-width:620px}
 .hero-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.03);border:1px solid var(--b2);border-radius:999px;padding:0.35rem 1rem 0.35rem 0.5rem;margin-bottom:1.75rem;font-size:0.8rem;font-weight:500;color:var(--ink-2); backdrop-filter: blur(10px);}
 .pill-tag{background:rgba(0,229,204,0.15);color:var(--blue);font-size:0.65rem;font-weight:700;letter-spacing:0.08em;padding:0.3rem 0.8rem;border-radius:999px;text-transform:uppercase}
-.hero-h{margin-bottom:1rem;color:var(--ink);font-size:clamp(3rem,5vw,4.2rem);line-height:1.1; font-weight:800; letter-spacing:-0.03em;}
-.hero-tagline{font-size:clamp(1.1rem,1.8vw,1.3rem);font-family:var(--sans);color:var(--ink-2);margin-bottom:1.25rem;line-height:1.4;}
+.hero-h{margin-bottom:1.25rem;color:var(--ink);line-height:1.08; letter-spacing:-0.03em;}
+.hero-tagline{font-size:clamp(1.15rem,2vw,1.4rem);font-family:var(--sans);color:var(--ink-2);margin-bottom:1.2rem;line-height:1.45;font-weight:500;}
 .hero-tagline .t-accent{background:var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-weight:700;}
-.hero-sub{font-size:clamp(0.9rem,1.3vw,1rem);color:var(--ink-3);margin:0 0 2rem;line-height:1.7;font-weight:400}
+.hero-sub{font-size:clamp(0.92rem,1.25vw,1.02rem);color:var(--ink-3);margin:0 0 2.2rem;line-height:1.75;font-weight:400}
 .hero-actions{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.2rem}
 .hero-note{font-size:0.75rem;color:var(--ink-4);letter-spacing:0.02em}
 @media(max-width:920px){
@@ -159,7 +158,7 @@ a{text-decoration:none;color:inherit}
 }
 
 /* MOCKUP */
-.mockup-stage{position:relative;max-width:820px;margin:0 auto}
+.mockup-stage{position:relative;max-width:840px;margin:0 auto}
 .mockup-glow{position:absolute;inset:-30px;background:radial-gradient(ellipse 70% 50% at 50% 60%,rgba(0,229,204,0.15) 0%,transparent 70%);border-radius:var(--r-xl);filter:blur(20px);z-index:0}
 .mockup-win{position:relative;z-index:1;background:rgba(10,12,20,0.8);backdrop-filter:blur(20px);border-radius:var(--r-xl);border:1px solid var(--b2);box-shadow:0 24px 80px rgba(0,0,0,0.6);overflow:hidden}
 .win-bar{background:rgba(0,0,0,0.4);border-bottom:1px solid var(--b1);padding:0 1.25rem;height:44px;display:flex;align-items:center;gap:0.85rem}
@@ -168,7 +167,7 @@ a{text-decoration:none;color:inherit}
 .dr{background:#ff5f57}.dy{background:#febc2e}.dg{background:#28c840}
 .win-url{flex:1;background:rgba(255,255,255,0.05);border-radius:8px;height:26px;display:flex;align-items:center;gap:6px;padding:0 10px;font-size:0.72rem;color:var(--ink-3);font-weight:500}
 .win-body{display:grid;grid-template-columns:200px 1fr}
-.win-sb{background:rgba(0,0,0,0.2);border-right:1px solid var(--b1);padding:1.25rem 0;min-height:380px}
+.win-sb{background:rgba(0,0,0,0.2);border-right:1px solid var(--b1);padding:1.25rem 0;min-height:400px}
 .sb-lbl{font-size:0.6rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-4);padding:0 1rem;margin-bottom:0.5rem;margin-top:1rem;display:block}
 .sb-row{display:flex;align-items:center;gap:8px;padding:0.45rem 1rem;font-size:0.76rem;font-weight:500;color:var(--ink-3);cursor:pointer;transition:all 0.15s}
 .sb-row:hover{background:rgba(255,255,255,0.05);color:var(--ink)}
@@ -185,13 +184,13 @@ a{text-decoration:none;color:inherit}
 .rc-body{padding:0.9rem 1.2rem;display:flex;flex-direction:column;gap:0.7rem}
 .rc-f label{font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:4px}
 .rc-val{font-size:0.76rem;color:var(--ink-3);line-height:1.55;background:rgba(0,0,0,0.3);border-radius:7px;padding:0.38rem 0.65rem;border-left:2.5px solid rgba(0,229,204,0.3)}
-.rc-type{font-size:0.76rem;color:var(--ink);border:1px solid var(--blue);border-radius:7px;padding:0.38rem 0.65rem;background:rgba(0,229,204,0.05); box-shadow: inset 0 0 10px rgba(0,229,204,0.1)}
+.rc-type{font-size:0.76rem;color:var(--ink);border:1px solid var(--blue);border-radius:7px;padding:0.5rem 0.75rem;background:rgba(0,229,204,0.05); box-shadow: inset 0 0 10px rgba(0,229,204,0.1);line-height:1.6}
 .cursor{display:inline-block;width:1.5px;height:0.82em;background:var(--blue);animation:blink 1s infinite;vertical-align:text-bottom;margin-left:1px}
 .rc-foot{padding:0.7rem 1.2rem;border-top:1px solid var(--b1);display:flex;gap:0.45rem;background:rgba(0,0,0,0.3)}
 .rb{display:flex;align-items:center;gap:5px;padding:0.32rem 0.7rem;border-radius:7px;font-size:0.7rem;font-weight:600;cursor:pointer;border:none;font-family:var(--sans)}
 .rb-pdf{background:rgba(239,68,68,0.15);color:#EF4444}
 .rb-word{background:rgba(59,130,246,0.15);color:#3B82F6}
-.rb-ai{background:var(--grad);color:#fff; border:none;}
+.rb-ai{background:var(--grad);color:#030408; font-weight:700; border:none;}
 @media(max-width:780px){.win-body{grid-template-columns:150px 1fr}.win-sb{min-height:240px}}
 @media(max-width:640px){.win-sb{display:none}.win-body{grid-template-columns:1fr}}
 
@@ -250,7 +249,7 @@ a{text-decoration:none;color:inherit}
 
 /* FEATURES GRID */
 .feat-section{position: relative; z-index: 1;}
-.feat-header{max-width:620px;margin-bottom:4rem}
+.feat-header{max-width:680px;margin-bottom:4rem}
 .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 .feat-card{background:var(--white); border:1px solid var(--b1); border-radius:var(--r-lg); padding:2rem; transition:all 0.3s var(--t); position:relative; overflow:hidden;}
 .feat-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--b2)}
@@ -266,7 +265,7 @@ a{text-decoration:none;color:inherit}
 
 /* INTERACTIVE DEMO */
 .idemo-section{position: relative; z-index: 1;}
-.idemo-hd{max-width:600px;margin-bottom:3.5rem}
+.idemo-hd{max-width:620px;margin-bottom:3.5rem}
 .bento-grid-demo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; auto-rows: minmax(320px, auto); }
 .col-span-2 { grid-column: span 2; }
 .col-span-3 { grid-column: span 3; }
@@ -380,7 +379,7 @@ a{text-decoration:none;color:inherit}
 
 /* SCREENSHOTS */
 .shots-section{position:relative;overflow:hidden; z-index: 1;}
-.shots-hd{text-align:center;max-width:600px;margin:0 auto 3.5rem}
+.shots-hd{text-align:center;max-width:620px;margin:0 auto 3.5rem}
 .shots-tabs{display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-bottom:2.5rem;flex-wrap:wrap}
 .stab{padding:0.45rem 1.1rem;border-radius:999px;border:1px solid var(--b2);background:transparent;font-size:0.8rem;font-weight:600;cursor:pointer;transition:all 0.2s;color:var(--ink-3);font-family:var(--sans)}
 .stab:hover{border-color:var(--blue);color:var(--ink)}
@@ -399,7 +398,7 @@ a{text-decoration:none;color:inherit}
 
 /* LANGUAGES */
 .lang-section{position:relative;overflow:hidden; z-index: 1;}
-.lang-hd{max-width:620px;margin:0 auto 3.5rem;text-align:center}
+.lang-hd{max-width:660px;margin:0 auto 3.5rem;text-align:center}
 .lang-featured{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-bottom:2rem}
 .lang-feat-card{background:var(--white);border:1px solid var(--b2);border-radius:var(--r-xl);padding:2rem 1.5rem;display:flex;flex-direction:column;align-items:center;gap:1rem;transition:all 0.28s var(--t);position:relative;overflow:hidden;}
 .lang-feat-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--blue)}
@@ -431,7 +430,7 @@ a{text-decoration:none;color:inherit}
 
 /* CTA SECTION */
 .cta-section{background:var(--off); border-top:1px solid var(--b1); padding:clamp(6rem,12vw,10rem) 0; text-align:center; position: relative; z-index: 1;}
-.cta-sub{font-size:1.1rem;color:var(--ink-3);margin:1.25rem auto 3rem;max-width:500px;line-height:1.7}
+.cta-sub{font-size:1.1rem;color:var(--ink-3);margin:1.25rem auto 3rem;max-width:540px;line-height:1.7}
 .cta-acts{display:flex;align-items:center;justify-content:center;gap:0.85rem;flex-wrap:wrap}
 
 /* FOOTER */
@@ -458,13 +457,13 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 #tplCBody { background:#000 !important; color:var(--ink-3) !important; border: 1px solid var(--b1); font-family: monospace; }
 #tplCName { color:var(--ink) !important; }
 
-/* ── AI ENHANCEMENT & DIAGNOSIS SECTION ─────────────────── */
+/* ── AI ENHANCEMENT & SYNTHESIS SECTION ─────────────────── */
 .ai-section{position:relative;z-index:1}
 .ai-flow{display:grid;grid-template-columns:1fr 120px 1fr;gap:1.5rem;align-items:center;margin-bottom:2.5rem}
 @media(max-width:800px){.ai-flow{grid-template-columns:1fr}.ai-arrow-wrap{transform:none;display:flex;flex-direction:row;justify-content:center;padding:0.5rem 0}}
 .ai-panel-tag{font-size:0.65rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-4);margin-bottom:0.5rem}
 .ai-panel-tag-out{color:var(--blue)}
-.ai-panel{background:var(--white);border:1px solid var(--b1);border-radius:var(--r);padding:1.25rem 1.4rem;min-height:190px}
+.ai-panel{background:var(--white);border:1px solid var(--b1);border-radius:var(--r);padding:1.25rem 1.4rem;min-height:200px}
 .ai-panel-out{border-color:rgba(0,229,204,0.25);background:rgba(0,229,204,0.03)}
 .ai-fn-label{font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-4);margin-bottom:0.65rem}
 .ai-raw{font-size:0.83rem;color:var(--ink-3);line-height:1.7;font-style:italic}
@@ -647,14 +646,14 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 </head>
 <body>
 
-<a href="#features" class="announcement-banner">
+<a href="#ai-enhancement" class="announcement-banner">
   <div class="announcement-content">
     <span class="pill">
       <span class="pill-dot"></span>
-      <span data-i18n="index.banner_pill">New Update</span>
+      <span data-i18n="index.banner_pill">Clinical Engine</span>
     </span>
     <span class="announcement-text">
-      <strong data-i18n="index.banner_title">AI Enhancement &amp; Diagnosis</strong> <span class="hide-mobile" data-i18n="index.banner_sub">— Identify syndromes automatically ✨</span>
+      <strong data-i18n="index.banner_title">Clinical Synthesis &amp; Findings Correlation</strong> <span class="hide-mobile" data-i18n="index.banner_sub">— Connect signs into actionable conclusions</span>
     </span>
     <span class="announcement-arrow">→</span>
   </div>
@@ -692,7 +691,8 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
     PISUM
   </a>
 <ul class="nav-links" id="nav-links">
-<li data-i18n="index.li_1"><a href="#features">Features</a></li>
+<li data-i18n="index.li_1"><a href="#features">Platform</a></li>
+<li data-i18n="index.li_synthesis"><a href="#ai-enhancement">Clinical Synthesis</a></li>
 <li data-i18n="index.li_2"><a href="#templates">Templates</a></li>
 <li data-i18n="index.li_3"><a href="#pricing">Pricing</a></li>
 <li data-i18n="index.li_4"><a href="#languages">Languages</a></li>
@@ -746,39 +746,39 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 <div class="hero-inner">
 <div class="hero-left">
 <div class="hero-pill rv">
-<span class="pill-tag" data-i18n="index.span_1">New</span>
-          <span data-i18n="index.hero_pill_text">23 languages · 112 templates · 14-day free trial on all paid plans</span>
-        </div>
-<h1 class="serif hero-h rv rv-d1" data-i18n="hero.title">
-          Radiology reporting software
-        </h1>
-<p class="hero-tagline rv rv-d2" data-i18n="hero.tagline">Type or speak. Let <span class="t-accent">AI enhance your reports.</span></p>
-<p class="hero-sub rv rv-d2" data-i18n="index.p_3">Pisum helps radiologists produce <strong style="color:var(--ink)">structured, AI-enhanced reports faster</strong> — intelligent formatting, medical context correction, and expert template structuring.</p>
+<span class="pill-tag" data-i18n="index.span_1">Clinical Synthesis</span>
+<span data-i18n="index.hero_pill_text">Beyond reporting · From radiological findings to definitive conclusions</span>
+</div>
+<h1 class="serif hero-h d1 rv rv-d1" data-i18n="hero.title">
+More than reporting.<br/><span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Clinical synthesis.</span>
+</h1>
+<p class="hero-tagline rv rv-d2" data-i18n="hero.tagline">Turn isolated radiological findings into <span class="t-accent">coherent, structured conclusions</span>.</p>
+<p class="hero-sub rv rv-d2" data-i18n="index.p_3">PISUM understands radiological semiology, correlates multiple signs across exam sections, and assists you in constructing clear clinical conclusions — while leaving the radiologist in absolute diagnostic control.</p>
 <div class="hero-actions rv rv-d3">
 <a class="btn btn-primary btn-xl" id="hero-trial-cta" href="https://pisum.app/saas/frontend/auth.html" data-i18n="index.hero_trial_cta">
 <svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24" width="15"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-            Start free trial — 14 days
-          </a>
+Start free trial — 14 days
+</a>
 <a class="btn btn-ghost btn-lg" data-i18n="index.a_7" href="https://github.com/AminWalha/Pisum/releases/latest/download/PISUM_Radiology_Setup.exe" rel="noopener noreferrer" target="_blank">
 <svg fill="none" height="13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24" width="13"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
-            Download Free
-          </a>
+Download Free
+</a>
 </div>
-<p class="hero-note" data-i18n="index.p_4">Windows 10/11  ·  Free plan included</p>
-<p class="rv rv-d3" style="font-size:0.8rem;color:rgba(255,255,255,0.35);margin-top:0.5rem;line-height:1.5" data-i18n="index.hero_built_by">Built by a radiologist. No VC, no marketing fluff.</p>
+<p class="hero-note" data-i18n="index.p_4">Native Windows 10/11 desktop architecture · Free plan included · Practice &amp; department ready</p>
+<p class="rv rv-d3" style="font-size:0.8rem;color:rgba(255,255,255,0.4);margin-top:0.6rem;line-height:1.5" data-i18n="index.hero_built_by">Engineered inside clinical radiology workflows for private practices, imaging clinics, and hospital centers.</p>
 </div>
 <div class="hero-right rv rv-d4">
 <div class="mockup-stage">
 <div class="mockup-glow"></div>
-<div class="chip c1"><span data-i18n="index.span_2">⚡</span> Report in <span class="chip-s" data-i18n="index.span_3"> 47 seconds</span></div>
-<div class="chip c2"><span data-i18n="index.span_4">🌍</span><span class="chip-s" data-i18n="index.span_5">23 languages</span> supported</div>
+<div class="chip c1"><span data-i18n="index.span_2">🧠</span> Semiotic <span class="chip-s" data-i18n="index.span_3"> correlation engine</span></div>
+<div class="chip c2"><span data-i18n="index.span_4">🛡️</span><span class="chip-s" data-i18n="index.span_5">Radiologist retains final control</span></div>
 <div class="mockup-win">
 <div class="win-bar">
 <div class="win-dots"><div class="wdot dr"></div><div class="wdot dy"></div><div class="wdot dg"></div></div>
 <div class="win-url">
 <svg fill="none" height="12" viewbox="0 0 10 12" width="10" xmlns="http://www.w3.org/2000/svg"><rect height="7" rx="1.5" stroke="currentColor" width="9" x="0.5" y="4.5"></rect><path d="M3 4.5V3a2 2 0 1 1 4 0v1.5" stroke="currentColor" stroke-linecap="round"></path></svg>
-                app.pisum.app — Chest CT Report
-              </div>
+app.pisum.app — Abdominal CT Protocol &amp; Synthesis
+</div>
 </div>
 <div class="win-body">
 <div class="win-sb">
@@ -787,29 +787,29 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 <div class="sb-row"><span class="sb-pip" style="background:var(--purple)"></span>MRI</div>
 <div class="sb-row"><span class="sb-pip" style="background:#f59e0b"></span>X-Ray</div>
 <div class="sb-row"><span class="sb-pip" style="background:#10b981"></span>Ultrasound</div>
-<span class="sb-lbl" data-i18n="index.span_7">Recent</span>
-<div class="sb-row">Brain MRI</div>
-<div class="sb-row">Chest XR</div>
+<span class="sb-lbl" data-i18n="index.span_7">Clinical Context</span>
+<div class="sb-row">Abdominal Angio</div>
+<div class="sb-row">Hepatic MRI</div>
 <span class="sb-lbl" data-i18n="index.span_8">Language</span>
 <div class="sb-row on">🇬🇧 English</div>
 </div>
 <div class="win-main">
 <div class="rc">
-<div class="rc-hd"><h4 data-i18n="index.h4_1">Chest CT — Standard Protocol</h4><span class="rc-tag" data-i18n="index.span_9">CT · THORAX</span></div>
+<div class="rc-hd"><h4 data-i18n="index.h4_1">Abdominal CT — Findings Synthesis</h4><span class="rc-tag" data-i18n="index.span_9">CT · MULTIPHASE</span></div>
 <div class="rc-meta">
 <div class="rc-m"><label data-i18n="index.label_1">Patient</label><span data-i18n="index.span_10">M. Laurent, 58y</span></div>
-<div class="rc-m"><label data-i18n="index.label_2">Date</label><span data-i18n="index.span_11">04/04/2026</span></div>
-<div class="rc-m"><label data-i18n="index.label_3">Referring</label><span data-i18n="index.span_12">Dr. Moreau</span></div>
+<div class="rc-m"><label data-i18n="index.label_2">Modality</label><span data-i18n="index.span_11">Contrast-enhanced CT</span></div>
+<div class="rc-m"><label data-i18n="index.label_3">Validation</label><span data-i18n="index.span_12" style="color:var(--green)">Radiologist Review</span></div>
 </div>
 <div class="rc-body">
-<div class="rc-f"><label data-i18n="index.label_4">Indication</label><div class="rc-val">Follow-up pulmonary nodule, right upper lobe. Prior CT 12 months ago.</div></div>
-<div class="rc-f"><label data-i18n="index.label_5">Parenchyma</label><div class="rc-val">Known 6mm GGO, right upper lobe. Stable in size and morphology.</div></div>
-<div class="rc-f"><label data-i18n="index.label_6">Impression</label><div class="rc-type">Stable RUL GGO 6mm — no malignant transformation. Annual CT follow-up recommended<span class="cursor"></span></div></div>
+<div class="rc-f"><label data-i18n="index.label_4">Correlated Observations</label><div class="rc-val">Suprahepatic IVC thrombosis. Hepatic vein outflow occlusion with marked caudate lobe (segment I) hypertrophy and ascites.</div></div>
+<div class="rc-f"><label data-i18n="index.label_5">Semiotic Linkage</label><div class="rc-val">Venous outflow obstruction + compensatory segmental perfusion anomaly.</div></div>
+<div class="rc-f"><label data-i18n="index.label_6">Clinical Synthesis (Impression)</label><div class="rc-type"><strong>Primary Budd-Chiari Syndrome</strong> with hepatic venous outflow obstruction, secondary caudate hypertrophy, and portal hypertension. Emergency vascular alert.<span class="cursor"></span></div></div>
 </div>
 <div class="rc-foot">
 <button class="rb rb-pdf" data-i18n="index.button_5">📄 PDF</button>
 <button class="rb rb-word" data-i18n="index.button_6">📝 Word</button>
-<button class="rb rb-ai" data-i18n="index.button_7">✨ AI Assistant</button>
+<button class="rb rb-ai" data-i18n="index.button_7">✨ Synthesize Findings</button>
 </div>
 </div>
 </div>
@@ -824,19 +824,19 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 <section class="video-section section">
 <div class="container">
 <div class="video-hd rv" style="text-align:center; margin-bottom:3rem;">
-<div class="eyebrow" style="justify-content:center; margin-bottom:1rem;"><span class="eyebrow-dot"></span><span data-i18n="index.video_eyebrow">See it in action</span></div>
-<h2 class="serif d2" data-i18n="index.h2_1" style="color:var(--ink);">Watch Pisum in action</h2>
-<p data-i18n="index.p_5" style="color:var(--ink-3); max-width:540px; margin:0 auto;">See how radiologists generate structured, AI-enhanced reports in under a minute — from dictation to final PDF.</p>
+<div class="eyebrow" style="justify-content:center; margin-bottom:1rem;"><span class="eyebrow-dot"></span><span data-i18n="index.video_eyebrow">Demonstration</span></div>
+<h2 class="serif d2" data-i18n="index.h2_1" style="color:var(--ink);">Watch Clinical Synthesis in Action</h2>
+<p data-i18n="index.p_5" style="color:var(--ink-3); max-width:580px; margin:0 auto;">Observe how radiologists move from isolated observations to fully articulated clinical syntheses, maintaining full diagnostic authority at each step.</p>
 </div>
 <div class="video-wrapper rv rv-d1">
-<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" src="https://www.youtube.com/embed/hSjfXH0J1W0" title="Pisum — Radiology Reporting Software Demo">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" src="https://www.youtube.com/embed/hSjfXH0J1W0" title="Pisum — Radiology Clinical Synthesis Demo">
 </iframe>
 </div>
 </div>
 </section>
 
 <div class="mq-section">
-<div class="mq-label" data-i18n="index.mq_label">112 modality templates · 23 languages · AI Report Enhancement</div>
+<div class="mq-label" data-i18n="index.mq_label">Comprehensive Semiotic Structuring · 112 Modality Protocols · 23 Working Languages</div>
 <div class="mq-track">
 <div class="mq-item"><span data-i18n="index.span_13">🩻</span>Chest CT</div><div class="mq-item"><span data-i18n="index.span_14">🧠</span>Brain MRI</div><div class="mq-item"><span data-i18n="index.span_15">🫀</span>Cardiac CT</div><div class="mq-item"><span data-i18n="index.span_16">🦴</span>MSK MRI</div><div class="mq-item"><span data-i18n="index.span_17">🫁</span>Pulmonary CT-PA</div><div class="mq-item"><span data-i18n="index.span_18">🔬</span>Prostate MRI</div><div class="mq-item"><span data-i18n="index.span_19">🩺</span>Abdominal US</div><div class="mq-item"><span data-i18n="index.span_20">👁</span>Orbital MRI</div><div class="mq-item"><span data-i18n="index.span_21">🦷</span>Dental CT</div><div class="mq-item"><span data-i18n="index.span_22">🔬</span>Liver MRI</div><div class="mq-item"><span data-i18n="index.span_23">🩻</span>Spine CT</div><div class="mq-item"><span data-i18n="index.span_24">🧪</span>PET-CT</div>
 <div class="mq-item"><span data-i18n="index.span_25">🩻</span>Chest CT</div><div class="mq-item"><span data-i18n="index.span_26">🧠</span>Brain MRI</div><div class="mq-item"><span data-i18n="index.span_27">🫀</span>Cardiac CT</div><div class="mq-item"><span data-i18n="index.span_28">🦴</span>MSK MRI</div><div class="mq-item"><span data-i18n="index.span_29">🫁</span>Pulmonary CT-PA</div><div class="mq-item"><span data-i18n="index.span_30">🔬</span>Prostate MRI</div><div class="mq-item"><span data-i18n="index.span_31">🩺</span>Abdominal US</div><div class="mq-item"><span data-i18n="index.span_32">👁</span>Orbital MRI</div><div class="mq-item"><span data-i18n="index.span_33">🦷</span>Dental CT</div><div class="mq-item"><span data-i18n="index.span_34">🔬</span>Liver MRI</div><div class="mq-item"><span data-i18n="index.span_35">🩻</span>Spine CT</div><div class="mq-item"><span data-i18n="index.span_36">🧪</span>PET-CT</div>
@@ -846,50 +846,50 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 <div class="stats-section">
 <div class="container">
 <div class="stats-grid">
-<div class="stat-cell rv"><div class="stat-num"><span data-i18n="index.span_37">112</span></div><div class="stat-desc" data-i18n="index.stat_desc_1">Expert templates</div></div>
-<div class="stat-cell rv rv-d1"><div class="stat-num"><span data-i18n="index.span_38">23</span></div><div class="stat-desc" data-i18n="index.stat_desc_2">Languages supported</div></div>
-<div class="stat-cell rv rv-d2"><div class="stat-num" style="font-size:clamp(1.6rem,3vw,2.6rem);letter-spacing:-0.01em"><span data-i18n="index.span_39">Early</span></div><div class="stat-desc" data-i18n="index.stat_desc_3">Access</div></div>
-<div class="stat-cell rv rv-d3"><div class="stat-num" style="font-size:clamp(2rem,3.5vw,3rem)"><span data-i18n="index.span_40">&lt;60s</span></div><div class="stat-desc" data-i18n="index.stat_desc_4">Average report time</div></div>
+<div class="stat-cell rv"><div class="stat-num"><span data-i18n="index.span_37">112</span></div><div class="stat-desc" data-i18n="index.stat_desc_1">Structured expert templates</div></div>
+<div class="stat-cell rv rv-d1"><div class="stat-num"><span data-i18n="index.span_38">23</span></div><div class="stat-desc" data-i18n="index.stat_desc_2">Languages supported natively</div></div>
+<div class="stat-cell rv rv-d2"><div class="stat-num" style="font-size:clamp(1.6rem,3vw,2.6rem);letter-spacing:-0.01em"><span data-i18n="index.span_39">Early</span></div><div class="stat-desc" data-i18n="index.stat_desc_3">Access deployment</div></div>
+<div class="stat-cell rv rv-d3"><div class="stat-num" style="font-size:clamp(2rem,3.5vw,3rem)"><span data-i18n="index.span_40">&lt;60s</span></div><div class="stat-desc" data-i18n="index.stat_desc_4">Structured synthesis turnaround</div></div>
 </div>
 </div>
 </div>
 
 <section class="section why-section">
 <div class="container">
-<div class="why-inner" style="max-width:760px;margin:0 auto">
+<div class="why-inner" style="max-width:800px;margin:0 auto">
 <div class="why-hd rv" style="text-align:center;margin-bottom:3.5rem">
-<div class="eyebrow" style="justify-content:center"><span class="eyebrow-dot"></span><span data-i18n="index.why_eyebrow">Why PISUM Exists</span></div>
-<h2 class="serif d2 rv rv-d1" data-i18n="index.why_h2" style="margin-top:1.25rem; color:var(--ink);">Built inside a<br/>radiology department.</h2>
-<p class="rv rv-d2" data-i18n="index.why_p1" style="font-size:1.05rem;color:var(--ink-2);margin-top:1.1rem;line-height:1.65;">The major platforms were built for hospital IT departments.<br/>PISUM was built for the radiologist managing their own practice.</p>
+<div class="eyebrow" style="justify-content:center"><span class="eyebrow-dot"></span><span data-i18n="index.why_eyebrow">Clinical Foundation</span></div>
+<h2 class="serif d2 rv rv-d1" data-i18n="index.why_h2" style="margin-top:1.25rem; color:var(--ink);">Built inside clinical practice.<br/>Engineered for medical precision.</h2>
+<p class="rv rv-d2" data-i18n="index.why_p1" style="font-size:1.05rem;color:var(--ink-2);margin-top:1.1rem;line-height:1.65;">Traditional speech tools stop at transcription. Enterprise RIS modules drown clinicians in rigid forms. PISUM focuses entirely on the cognitive work of the radiologist: turning semiology into diagnosis.</p>
 </div>
 <div class="why-pillars rv rv-d2">
 <div class="why-pillar">
-<div class="why-pillar-icon">🛡️</div>
-<div class="why-pillar-name" data-i18n="index.why_pillar1_name">GDPR &amp; HIPAA</div>
-<div class="why-pillar-desc" data-i18n="index.why_pillar1_desc">Built for regulated clinical environments</div>
+<div class="why-pillar-icon">🔬</div>
+<div class="why-pillar-name" data-i18n="index.why_pillar1_name">Semiotic Linkage</div>
+<div class="why-pillar-desc" data-i18n="index.why_pillar1_desc">Correlates disparate signs across all body sections</div>
 </div>
 <div class="why-pillar">
 <div class="why-pillar-icon">🔐</div>
-<div class="why-pillar-name" data-i18n="index.why_pillar2_name">Local encryption</div>
-<div class="why-pillar-desc" data-i18n="index.why_pillar2_desc">Patient data never leaves your machine</div>
+<div class="why-pillar-name" data-i18n="index.why_pillar2_name">Local Encryption</div>
+<div class="why-pillar-desc" data-i18n="index.why_pillar2_desc">AES-256 local database, no patient data on external clouds</div>
 </div>
 <div class="why-pillar">
-<div class="why-pillar-icon">📋</div>
-<div class="why-pillar-name" data-i18n="index.why_pillar3_name">112 templates</div>
-<div class="why-pillar-desc" data-i18n="index.why_pillar3_desc">Expert-built + your own customs</div>
+<div class="why-pillar-icon">⚖️</div>
+<div class="why-pillar-name" data-i18n="index.why_pillar3_name">Physician Control</div>
+<div class="why-pillar-desc" data-i18n="index.why_pillar3_desc">Every conclusion is validated and edited by the radiologist</div>
 </div>
 <div class="why-pillar">
 <div class="why-pillar-icon">🌍</div>
-<div class="why-pillar-name" data-i18n="index.why_pillar4_name">23 languages</div>
-<div class="why-pillar-desc" data-i18n="index.why_pillar4_desc">Switch per exam, instantly</div>
+<div class="why-pillar-name" data-i18n="index.why_pillar4_name">23 Clinical Lexicons</div>
+<div class="why-pillar-desc" data-i18n="index.why_pillar4_desc">Native radiology terminology across international cohorts</div>
 </div>
 </div>
 <div class="why-copy rv rv-d3" style="display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start;margin-bottom:2.5rem">
-<p data-i18n="index.why_p2">Dragon Medical and PowerScribe were designed for large hospital IT teams — cloud-dependent, enterprise-priced, built around procurement cycles rather than clinical workflows.</p>
-<p data-i18n="index.why_p3">PISUM takes the opposite approach: patient data stays encrypted on your machine, reports follow structured radiology vocabulary, and the whole workflow is built for GDPR and HIPAA compliance from the start.</p>
+<p data-i18n="index.why_p2">Enterprise hospital tools are built around administrative billing codes and monolithic cloud infrastructures. They transcribe text word-for-word without understanding the radiological significance of organ interactions or critical clinical urgency.</p>
+<p data-i18n="index.why_p3">PISUM was created to serve the medical reasoning of the reading room: encrypting data locally, standardizing semiotic terminology, highlighting critical thresholds, and helping produce conclusions that referring clinicians can immediately act upon.</p>
 </div>
 <div class="rv rv-d4" style="text-align:center;">
-<a class="btn btn-primary" data-i18n="index.why_cta" href="contact.html">Get in touch →</a>
+<a class="btn btn-primary" data-i18n="index.why_cta" href="contact.html">Discuss Departmental Integration →</a>
 </div>
 </div>
 </div>
@@ -897,51 +897,132 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 
 <section class="section ps-section">
 <div class="container">
-<div class="eyebrow rv"><span class="eyebrow-dot"></span><span data-i18n="index.ps_eyebrow">The Problem We Solve</span></div>
-<h2 class="serif d2 rv rv-d1" data-i18n="index.h2_3" style="margin-top:1.25rem;max-width:600px; color:var(--ink);">Radiology reporting<br/>is fundamentally broken.</h2>
+<div class="eyebrow rv"><span class="eyebrow-dot"></span><span data-i18n="index.ps_eyebrow">The Diagnostic Challenge</span></div>
+<h2 class="serif d2 rv rv-d1" data-i18n="index.h2_3" style="margin-top:1.25rem;max-width:680px; color:var(--ink);">A report without synthesis<br/>is just an inventory of signs.</h2>
 <div class="ps-grid">
 <div>
-<div class="ps-col-title pain rv" data-i18n="index.ps_without">Without PISUM</div>
-<div class="ps-card pain-card rv rv-d1"><span class="ps-icon" data-i18n="index.span_41">⏰</span><div><h4 data-i18n="index.h4_2">Hours lost every day</h4><p data-i18n="index.p_9">Radiologists spend up to 40% of their time typing repetitive boilerplate — time that belongs with patients.</p></div></div>
-<div class="ps-card pain-card rv rv-d2"><span class="ps-icon" data-i18n="index.span_42">🔁</span><div><h4 data-i18n="index.h4_3">Copy-paste errors compound</h4><p data-i18n="index.p_10">Yesterday's report pasted into today's. Errors introduced. Patient data mixed. Compliance risk grows.</p></div></div>
-<div class="ps-card pain-card rv rv-d3"><span class="ps-icon" data-i18n="index.span_43">🌐</span><div><h4 data-i18n="index.h4_4">Language barriers slow everything</h4><p data-i18n="index.p_11">Reporting in a second language takes twice as long and increases terminology inconsistencies.</p></div></div>
+<div class="ps-col-title pain rv" data-i18n="index.ps_without">Standard Dictation &amp; Templates</div>
+<div class="ps-card pain-card rv rv-d1"><span class="ps-icon" data-i18n="index.span_41">📝</span><div><h4 data-i18n="index.h4_2">Disjointed list of organ observations</h4><p data-i18n="index.p_9">Findings remain trapped in separate sub-sections. Referring physicians receive a catalog of signs instead of an integrated clinical diagnosis.</p></div></div>
+<div class="ps-card pain-card rv rv-d2"><span class="ps-icon" data-i18n="index.span_42">⚠️</span><div><h4 data-i18n="index.h4_3">Cognitive fatigue in high-volume shifts</h4><p data-i18n="index.p_10">Synthesizing multi-organ findings under pressure increases the risk of omitting unifying syndromes or burying urgent alerts in boilerplate paragraphs.</p></div></div>
+<div class="ps-card pain-card rv rv-d3"><span class="ps-icon" data-i18n="index.span_43">🔁</span><div><h4 data-i18n="index.h4_4">Template copy-paste vulnerabilities</h4><p data-i18n="index.p_11">Reusing static blocks leads to contradictory statements, outdated patient parameters, and irregular phrasing across institutions.</p></div></div>
 </div>
 <div>
-<div class="ps-col-title sol rv" data-i18n="index.ps_with">With PISUM</div>
-<div class="ps-card sol-card rv rv-d1"><span class="ps-icon" data-i18n="index.span_44">⚡</span><div><h4 data-i18n="index.h4_5">Under 60 seconds, every report</h4><p data-i18n="index.p_12">Expert-structured templates with guided fields. Fill in findings. Export. Done. No reformatting ever.</p></div></div>
-<div class="ps-card sol-card rv rv-d2"><span class="ps-icon" data-i18n="index.span_45">✅</span><div><h4 data-i18n="index.h4_6">Consistent, compliant, accurate</h4><p data-i18n="index.p_13">Standardized terminology, required fields enforced, patient data isolated per report. Zero copy-paste.</p></div></div>
-<div class="ps-card sol-card rv rv-d3"><span class="ps-icon" data-i18n="index.span_46">🌍</span><div><h4 data-i18n="index.h4_7">Report in any of 23 languages</h4><p data-i18n="index.p_14">Switch language per report. PISUM handles structure and clinical terminology natively in each.</p></div></div>
+<div class="ps-col-title sol rv" data-i18n="index.ps_with">With PISUM Clinical Synthesis</div>
+<div class="ps-card sol-card rv rv-d1"><span class="ps-icon" data-i18n="index.span_44">⚡</span><div><h4 data-i18n="index.h4_5">Coherent semiotic correlation</h4><p data-i18n="index.p_12">PISUM links vascular, parenchymal, and nodal findings into a unified clinical entity with calibrated diagnostic certainty.</p></div></div>
+<div class="ps-card sol-card rv rv-d2"><span class="ps-icon" data-i18n="index.span_45">🚨</span><div><h4 data-i18n="index.h4_6">Prioritized emergency hierarchies</h4><p data-i18n="index.p_13">Acute ischemia, active hemorrhages, and critical thresholds are highlighted as primary conclusions, never hidden in negative findings.</p></div></div>
+<div class="ps-card sol-card rv rv-d3"><span class="ps-icon" data-i18n="index.span_46">🛡️</span><div><h4 data-i18n="index.h4_7">Strict radiologist sign-off</h4><p data-i18n="index.p_14">You remain the sole medical authority. Every synthetic proposal is editable, verifiable, and validated before final sign-off.</p></div></div>
 </div>
 </div>
+</div>
+</section>
+
+<section class="section ai-section" id="ai-enhancement">
+<div class="container">
+  <div class="eyebrow rv" style="justify-content:center"><span class="eyebrow-dot"></span><span data-i18n="index.ai_eyebrow">Core Engine · Clinical Synthesis</span></div>
+  <h2 class="serif d2 rv rv-d1" style="margin:1.25rem auto 0;color:var(--ink);text-align:center;max-width:760px"><span data-i18n="index.ai_h2_1">Beyond mechanical formatting.</span><br/><span data-i18n="index.ai_h2_2" style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Connecting signs into coherent clinical conclusions.</span></h2>
+  <p class="rv rv-d2" data-i18n="index.ai_p" style="text-align:center;color:var(--ink-3);max-width:640px;margin:1.1rem auto 3.5rem;font-size:1.05rem;line-height:1.75">PISUM processes disparate radiological observations, correlates semiological patterns, calibrates diagnostic certainty according to academic criteria, and structures the definitive impression for your validation.</p>
+
+  <div class="ai-flow rv rv-d2">
+    <div>
+      <div class="ai-panel-tag" data-i18n="index.ai_input_tag">Documented semiotic findings</div>
+      <div class="ai-panel">
+        <div class="ai-fn-label" data-i18n="index.ai_fn_findings">Observations Across Modalities</div>
+        <p class="ai-raw">Suprahepatic IVC thrombosis. Complete loss of Doppler flow in all major hepatic veins. Marked hypertrophy of segment I (caudate lobe). Moderate peritoneal ascites. Congestive splenomegaly.</p>
+        <div style="margin-top:0.85rem;padding-top:0.85rem;border-top:1px solid var(--b1)">
+          <div class="ai-fn-label" data-i18n="index.ai_fn_clinical">Clinical input or dictation</div>
+          <p class="ai-raw" style="font-style:normal;color:var(--ink-4);font-size:0.76rem">"thrombus in hepatic IVC, no flow in hepatic veins, enlarged caudate lobe, ascites, splenomegaly"</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ai-arrow-wrap">
+      <div class="ai-gemini-badge" data-i18n="index.ai_badge">✨ PISUM ENGINE</div>
+      <svg class="ai-arrow-svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      <div class="ai-arrow-steps">
+        <span data-i18n="index.ai_step1">Cross-Finding Linkage</span>
+        <span data-i18n="index.ai_step2">Certainty Calibration</span>
+        <span data-i18n="index.ai_step3">Actionable Conclusion</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="ai-panel-tag ai-panel-tag-out" data-i18n="index.ai_output_tag">Synthesized Clinical Conclusion</div>
+      <div class="ai-panel ai-panel-out">
+        <div class="ai-fn-label" data-i18n="index.ai_conc_label" style="color:var(--blue)">Structured Impression</div>
+        <div class="ai-diag-main">
+          <strong>Budd-Chiari Syndrome</strong>
+          <span class="ai-cert ai-cert-confirm" data-i18n="index.ai_cert_confirm_badge">Confirming</span>
+        </div>
+        <p class="ai-diag-detail">Complete obstruction of hepatic venous outflow with compensatory hypertrophy of the caudate lobe (segment I). Associated portal hypertension with congestive splenomegaly and ascites.</p>
+        <div class="ai-urgency">
+          <span style="font-size:0.85rem">🔴</span>
+          <span class="ai-urg-text" data-i18n="index.ai_urgency">Critical Finding: Urgent clinical correlation and vascular surgery notification advised</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ai-cert-strip rv rv-d2">
+    <div class="ai-cert-strip-label" data-i18n="index.ai_cert_strip_label">Diagnostic certainty calibration (peer-reviewed semiotic standards)</div>
+    <div class="ai-cert-items">
+      <div class="ai-ci ai-ci-4" data-i18n="index.ai_cert_confirm">Confirming <span>Direct, pathognomonic imaging signs</span></div>
+      <div class="ai-ci ai-ci-3" data-i18n="index.ai_cert_suggest">Suggestive of <span>High-probability pattern requiring correlation</span></div>
+      <div class="ai-ci ai-ci-2" data-i18n="index.ai_cert_compat">Compatible with <span>Non-specific findings consistent with context</span></div>
+      <div class="ai-ci ai-ci-1" data-i18n="index.ai_cert_exclude">Cannot exclude <span>Subtle or borderline threshold alerts</span></div>
+    </div>
+  </div>
+
+  <div class="ai-pillars rv rv-d3">
+    <div class="ai-pillar">
+      <div class="ai-pillar-ic">🔬</div>
+      <h4 data-i18n="index.ai_pillar2_title">Clinical Finding Linkage</h4>
+      <p data-i18n="index.ai_pillar2_desc">Correlates multi-compartment observations into unified pathological entities. Instead of leaving separate notes across organs, PISUM articulates the overarching diagnosis for referring physicians.</p>
+    </div>
+    <div class="ai-pillar">
+      <div class="ai-pillar-ic">⚖️</div>
+      <h4 data-i18n="index.ai_pillar1_title">Academic Medical Lexicon</h4>
+      <p data-i18n="index.ai_pillar1_desc">Elevates rapid notes into rigorous, standardized radiological prose consistent with international reporting standards, preserving exact numerical dimensions and anatomical landmarks.</p>
+    </div>
+    <div class="ai-pillar">
+      <div class="ai-pillar-ic">🚨</div>
+      <h4 data-i18n="index.ai_pillar3_title">Critical Alert Prioritization</h4>
+      <p data-i18n="index.ai_pillar3_desc">Emergency conditions—including ischemia, hemorrhage, and mechanical obstruction—are placed at the forefront of the conclusion hierarchy, preventing critical oversights.</p>
+    </div>
+  </div>
+
+  <div class="rv rv-d3" style="text-align:center">
+    <a class="btn btn-ghost" href="https://pisum.app/saas/frontend/pricing.html" style="display:inline-flex;align-items:center;gap:0.5rem"><span data-i18n="index.ai_cta">Experience Clinical Synthesis in Pro+</span> <span style="color:var(--blue)">→</span></a>
+    <p data-i18n="index.ai_cta_sub" style="font-size:0.75rem;color:var(--ink-4);margin-top:0.75rem">Available across Pro, Expert, and Clinic plans · Validated in 23 languages</p>
+  </div>
 </div>
 </section>
 
 <section class="section feat-section" id="features">
 <div class="container">
 <div class="feat-header">
-<div class="eyebrow rv"><span class="eyebrow-dot"></span><span data-i18n="index.feat_eyebrow">Built for Radiologists</span></div>
-<h2 class="serif d2 rv rv-d1" data-i18n="index.h2_4" style="margin-top:1.25rem; color:var(--ink);">Everything you need.<br/>Nothing you don't.</h2>
+<div class="eyebrow rv"><span class="eyebrow-dot"></span><span data-i18n="index.feat_eyebrow">The PISUM Architecture</span></div>
+<h2 class="serif d2 rv rv-d1" data-i18n="index.h2_4" style="margin-top:1.25rem; color:var(--ink);">Built for medical precision.<br/>Designed for real clinical tempo.</h2>
 </div>
 <div class="feat-grid">
 <div class="feat-card rv" style="grid-column:span 3;background:rgba(0,229,204,0.03);border-color:rgba(0,229,204,0.2)">
   <div class="ai-feat-inner">
     <div style="flex:1">
-      <div class="feat-icon" style="background:var(--grad);color:var(--bg);border:none">✨</div>
-      <h3 data-i18n="index.ai_eyebrow" style="color:var(--blue)">AI Enhancement &amp; Diagnosis</h3>
-      <p data-i18n="index.feat_ai_desc">Dictate or type findings in plain language. PISUM reformulates them to academic-grade radiology vocabulary, cross-correlates all signs to name the unified syndrome, calibrates diagnostic certainty, and flags life-threatening findings first — like a senior radiologist reviewing every report.</p>
+      <div class="feat-icon" style="background:var(--grad);color:var(--bg);border:none">🧠</div>
+      <h3 data-i18n="index.ai_eyebrow" style="color:var(--blue)">Findings-to-Conclusion Transformation</h3>
+      <p data-i18n="index.feat_ai_desc">Input rapid observations via keyboard or dictation. PISUM structures them into compliant clinical sections, connects semiotic indicators, assesses diagnostic certainty levels, and formats a definitive conclusion ready for physician signature.</p>
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:1rem">
-        <span class="feat-pill pill-new" data-i18n="index.ai_output_tag">AI Diagnosis</span>
+        <span class="feat-pill pill-new" data-i18n="index.ai_output_tag">Clinical Synthesis</span>
         <span class="feat-pill pill-pro" data-i18n="index.feat_ai_pro_pill">Pro+ Plans</span>
       </div>
     </div>
     <div class="ai-feat-demo">
-      <div data-i18n="index.feat_ai_raw_label" style="color:var(--ink-4);font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem">Raw dictation</div>
+      <div data-i18n="index.feat_ai_raw_label" style="color:var(--ink-4);font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem">Documented Signs</div>
       <p style="font-style:italic;line-height:1.65;color:var(--ink-3);margin-bottom:0.75rem">"IVC thrombosis. No flow in hepatic veins. Caudate lobe hypertrophy."</p>
       <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem">
         <span style="color:var(--blue);font-size:0.85rem">↓</span>
-        <span data-i18n="index.ai_badge" style="background:var(--grad);color:var(--bg);font-size:0.6rem;font-weight:800;padding:0.15rem 0.55rem;border-radius:999px;letter-spacing:0.04em">✨ PISUM AI</span>
+        <span data-i18n="index.ai_badge" style="background:var(--grad);color:var(--bg);font-size:0.6rem;font-weight:800;padding:0.15rem 0.55rem;border-radius:999px;letter-spacing:0.04em">✨ PISUM Synthesis</span>
       </div>
-      <div data-i18n="index.ai_output_tag" style="color:var(--blue);font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.45rem">AI Diagnosis</div>
+      <div data-i18n="index.ai_output_tag" style="color:var(--blue);font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.45rem">Clinical Conclusion</div>
       <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.35rem">
         <strong style="color:var(--ink);font-size:0.88rem">Budd-Chiari Syndrome</strong>
         <span data-i18n="index.ai_cert_confirm_badge" style="background:rgba(16,185,129,0.15);color:var(--green);font-size:0.6rem;font-weight:700;padding:0.1rem 0.45rem;border-radius:4px">Confirming</span>
@@ -951,116 +1032,35 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
     </div>
   </div>
 </div>
-<div class="feat-card rv"><div class="feat-icon">⚡</div><h3 data-i18n="index.h3_2">Instant Report Generation</h3><p data-i18n="index.p_15">Guided structured fields complete your report as you type. Average completion: 47 seconds. No learning curve.</p><span class="feat-pill pill-free" data-i18n="index.span_47">All Plans</span></div>
-<div class="feat-card rv rv-d1"><div class="feat-icon">🌍</div><h3 data-i18n="index.h3_3">23-Language Support</h3><p data-i18n="index.p_16">Report natively in English, French, Spanish, German, Italian, Portuguese, and 17 more — terminology validated by native radiologists.</p><span class="feat-pill pill-free" data-i18n="index.span_48">All Plans</span></div>
-<div class="feat-card rv rv-d2"><div class="feat-icon">🧠</div><h3 data-i18n="index.h3_4">112 Structured Templates</h3><p data-i18n="index.p_17">Expert-built for CT, MRI, X-Ray, and Ultrasound across every body system. Each field has clinical validation.</p><span class="feat-pill pill-pro" data-i18n="index.span_49">Pro Templates</span></div>
-<div class="feat-card rv rv-d3"><div class="feat-icon">📄</div><h3 data-i18n="index.h3_5">One-Click PDF &amp; Word Export</h3><p data-i18n="index.p_18">Professionally formatted output ready for PACS, EMR, or direct delivery. Your letterhead, your layout.</p><span class="feat-pill pill-free" data-i18n="index.span_50">All Plans</span></div>
-<div class="feat-card rv"><div class="feat-icon">🎙️</div><h3 data-i18n="index.h3_6">Voice Dictation Ready</h3><p data-i18n="index.p_19">Compatible with all major voice recognition tools. Dictate directly into structured fields.</p><span class="feat-pill pill-pro" data-i18n="index.span_51">Pro</span></div>
-<div class="feat-card rv rv-d1"><div class="feat-icon">🏥</div><h3 data-i18n="index.h3_7">Multi-Site Clinic Mode</h3><p data-i18n="index.p_20">Manage multiple radiologists from one admin panel. Custom branding per site. Centralized reporting dashboard.</p><span class="feat-pill pill-pro" data-i18n="index.span_52">Clinic Plan</span></div>
-<div class="feat-card rv rv-d2"><div class="feat-icon">🔗</div><h3 data-i18n="index.h3_8">LAN Network Sharing</h3><p data-i18n="index.p_21">Share the patient database across all workstations in your clinic via a shared local network folder. One shared folder on your LAN is all it takes. AES-256 encrypted end-to-end.</p><span class="feat-pill pill-pro" data-i18n="index.span_53">Expert &amp; Clinic</span></div>
-<div class="feat-card rv rv-d3"><div class="feat-icon">🗃️</div><h3 data-i18n="index.h3_9">Patient Worklist &amp; Audit Log</h3><p data-i18n="index.p_22">Full PACS-style worklist with accession numbers, exam status, and GDPR-compliant audit trail. Every access, modification, and export is logged with timestamp and user.</p><span class="feat-pill pill-pro" data-i18n="index.span_54">Pro+</span></div>
-<div class="feat-card rv rv-d1"><div class="feat-icon" style="background:linear-gradient(135deg,#6d28d9,#3b6ef8)">🔄</div><h3 data-i18n="index.h3_10">Report Conversion &amp; Translation</h3><p data-i18n="index.p_23">Instantly translate any completed radiology report into another language. Clinical terminology preserved, report structure intact — one click, 23 target languages.</p><span class="feat-pill pill-new" data-i18n="index.span_55">Pro+ · New in v2.9.8</span></div>
-<div class="feat-card rv rv-d2" style="background:rgba(0,229,204,0.02);border-color:rgba(0,229,204,0.15);grid-column:span 3"><div class="feat-icon" style="background:var(--grad); color:#fff; border:none;">🌙</div><h3 data-i18n="index.h3_11" style="color:var(--blue)">Dark Medical-Grade Interface</h3><p data-i18n="index.p_24">Designed for reading rooms. Near-black surface palette, cyan accents, zero eye strain during long reporting sessions. Your eyes will thank you after shift 3.</p><span class="feat-pill" data-i18n="index.span_56" style="background:rgba(0,229,204,0.1);color:var(--blue)">All Plans</span></div>
+<div class="feat-card rv"><div class="feat-icon">⚡</div><h3 data-i18n="index.h3_2">Structured Report Generation</h3><p data-i18n="index.p_15">Guided fields structured around radiological guidelines. Capture clinical indications, technique, findings, and impressions cleanly.</p><span class="feat-pill pill-free" data-i18n="index.span_47">All Plans</span></div>
+<div class="feat-card rv rv-d1"><div class="feat-icon">🌍</div><h3 data-i18n="index.h3_3">23-Language Lexicon</h3><p data-i18n="index.p_16">Produce reports in English, French, German, Spanish, and 19 additional languages with terminology calibrated to native radiological practice.</p><span class="feat-pill pill-free" data-i18n="index.span_48">All Plans</span></div>
+<div class="feat-card rv rv-d2"><div class="feat-icon">📋</div><h3 data-i18n="index.h3_4">112 Specialty Protocols</h3><p data-i18n="index.p_17">Validated templates for CT, MRI, Ultrasound, and Radiography across all organ systems, fully customizable to your workflow.</p><span class="feat-pill pill-pro" data-i18n="index.span_49">Pro Templates</span></div>
+<div class="feat-card rv rv-d3"><div class="feat-icon">📄</div><h3 data-i18n="index.h3_5">PDF &amp; Word Export</h3><p data-i18n="index.p_18">Generate clinical documents formatted for PACS, hospital EHRs, or patient handover with custom headers and practice branding.</p><span class="feat-pill pill-free" data-i18n="index.span_50">All Plans</span></div>
+<div class="feat-card rv"><div class="feat-icon">🎙️</div><h3 data-i18n="index.h3_6">Dictation Engine Ready</h3><p data-i18n="index.p_19">Compatible with industry-standard voice recognition systems. Stream speech directly into structured template sections without friction.</p><span class="feat-pill pill-pro" data-i18n="index.span_51">Pro</span></div>
+<div class="feat-card rv rv-d1"><div class="feat-icon">🏥</div><h3 data-i18n="index.h3_7">Multi-Site Practice Mode</h3><p data-i18n="index.p_20">Coordinate reporting across private cabinets, imaging clinics, and hospital sites with centralized license administration.</p><span class="feat-pill pill-pro" data-i18n="index.span_52">Clinic Plan</span></div>
+<div class="feat-card rv rv-d2"><div class="feat-icon">🔗</div><h3 data-i18n="index.h3_8">Secure LAN Database Sync</h3><p data-i18n="index.p_21">Synchronize examinations across practice workstations via local network folders with end-to-end AES-256 encryption. Zero external exposure.</p><span class="feat-pill pill-pro" data-i18n="index.span_53">Expert &amp; Clinic</span></div>
+<div class="feat-card rv rv-d3"><div class="feat-icon">🗃️</div><h3 data-i18n="index.h3_9">Patient Worklist &amp; Audit Log</h3><p data-i18n="index.p_22">PACS-compatible worklist tracking accession IDs, study states, and timestamped user events fulfilling strict regulatory traceability.</p><span class="feat-pill pill-pro" data-i18n="index.span_54">Pro+</span></div>
+<div class="feat-card rv rv-d1"><div class="feat-icon" style="background:linear-gradient(135deg,#6d28d9,#3b6ef8)">🔄</div><h3 data-i18n="index.h3_10">Report Translation Engine</h3><p data-i18n="index.p_23">Convert validated reports into secondary clinical languages with anatomical nomenclature and standardized syntax preserved.</p><span class="feat-pill pill-new" data-i18n="index.span_55">Pro+ · New in v2.9.8</span></div>
+<div class="feat-card rv rv-d2" style="background:rgba(0,229,204,0.02);border-color:rgba(0,229,204,0.15);grid-column:span 3"><div class="feat-icon" style="background:var(--grad); color:#030408; border:none; font-weight:700;">🌙</div><h3 data-i18n="index.h3_11" style="color:var(--blue)">Medical-Grade Reading Room UI</h3><p data-i18n="index.p_24">Engineered specifically for low-lux reporting workstations. High-contrast, minimal eye strain, and clear visual hierarchy for 10-hour diagnostic shifts.</p><span class="feat-pill" data-i18n="index.span_56" style="background:rgba(0,229,204,0.1);color:var(--blue)">All Plans</span></div>
 </div>
-</div>
-</section>
-
-<section class="section ai-section" id="ai-enhancement">
-<div class="container">
-  <div class="eyebrow rv" style="justify-content:center"><span class="eyebrow-dot"></span><span data-i18n="index.ai_eyebrow">AI Enhancement &amp; Diagnosis</span></div>
-  <h2 class="serif d2 rv rv-d1" style="margin:1.25rem auto 0;color:var(--ink);text-align:center;max-width:680px"><span data-i18n="index.ai_h2_1">More than correction.</span><br/><span data-i18n="index.ai_h2_2" style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">It diagnoses.</span></h2>
-  <p class="rv rv-d2" data-i18n="index.ai_p" style="text-align:center;color:var(--ink-3);max-width:560px;margin:1.1rem auto 3.5rem;font-size:1.05rem;line-height:1.7">PISUM reads your findings, identifies the unified clinical syndrome, calibrates diagnostic certainty with academic precision, and flags life-threatening conditions first.</p>
-
-  <div class="ai-flow rv rv-d2">
-    <div>
-      <div class="ai-panel-tag" data-i18n="index.ai_input_tag">Raw findings input</div>
-      <div class="ai-panel">
-        <div class="ai-fn-label" data-i18n="index.ai_fn_findings">Findings</div>
-        <p class="ai-raw">IVC thrombosis. Absence of flow in all hepatic veins. Marked hypertrophy of segment I (caudate lobe). Ascites. Enlarged spleen.</p>
-        <div style="margin-top:0.85rem;padding-top:0.85rem;border-top:1px solid var(--b1)">
-          <div class="ai-fn-label" data-i18n="index.ai_fn_clinical">Clinical language</div>
-          <p class="ai-raw" style="font-style:normal;color:var(--ink-4);font-size:0.76rem">"no flow in liver veins, big caudate lobe, belly water, big spleen"</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="ai-arrow-wrap">
-      <div class="ai-gemini-badge" data-i18n="index.ai_badge">✨ PISUM AI</div>
-      <svg class="ai-arrow-svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      <div class="ai-arrow-steps">
-        <span data-i18n="index.ai_step1">Syndrome detection</span>
-        <span data-i18n="index.ai_step2">Certainty calibration</span>
-        <span data-i18n="index.ai_step3">Emergency flagging</span>
-      </div>
-    </div>
-
-    <div>
-      <div class="ai-panel-tag ai-panel-tag-out" data-i18n="index.ai_output_tag">AI Diagnosis</div>
-      <div class="ai-panel ai-panel-out">
-        <div class="ai-fn-label" data-i18n="index.ai_conc_label" style="color:var(--blue)">Conclusion</div>
-        <div class="ai-diag-main">
-          <strong>Budd-Chiari Syndrome</strong>
-          <span class="ai-cert ai-cert-confirm" data-i18n="index.ai_cert_confirm_badge">Confirming</span>
-        </div>
-        <p class="ai-diag-detail">Complete obliteration of hepatic veins with compensatory hypertrophy of caudate lobe (segment I). IVC thrombosis extending to hepatic junction. Associated portal hypertension (splenomegaly, ascites).</p>
-        <div class="ai-urgency">
-          <span style="font-size:0.85rem">🔴</span>
-          <span class="ai-urg-text" data-i18n="index.ai_urgency">Critical — Immediate clinical correlation required</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="ai-cert-strip rv rv-d2">
-    <div class="ai-cert-strip-label" data-i18n="index.ai_cert_strip_label">Diagnostic certainty — automatically calibrated</div>
-    <div class="ai-cert-items">
-      <div class="ai-ci ai-ci-4" data-i18n="index.ai_cert_confirm">Confirming <span>Direct, unambiguous imaging sign</span></div>
-      <div class="ai-ci ai-ci-3" data-i18n="index.ai_cert_suggest">Suggestive of <span>Strong pattern, not 100% specific</span></div>
-      <div class="ai-ci ai-ci-2" data-i18n="index.ai_cert_compat">Compatible with <span>Consistent but non-specific</span></div>
-      <div class="ai-ci ai-ci-1" data-i18n="index.ai_cert_exclude">Cannot exclude <span>Subtle or indirect sign only</span></div>
-    </div>
-  </div>
-
-  <div class="ai-pillars rv rv-d3">
-    <div class="ai-pillar">
-      <div class="ai-pillar-ic">✨</div>
-      <h4 data-i18n="index.ai_pillar1_title">Report Enhancement</h4>
-      <p data-i18n="index.ai_pillar1_desc">Elevates casual dictation or telegraphic notes to academic-grade radiology prose — indistinguishable from publications in <em>Radiology</em> or <em>European Radiology</em>. Both FORMAT and terminology are preserved.</p>
-    </div>
-    <div class="ai-pillar">
-      <div class="ai-pillar-ic">🔬</div>
-      <h4 data-i18n="index.ai_pillar2_title">Clinical Synthesis</h4>
-      <p data-i18n="index.ai_pillar2_desc">Cross-correlates all findings to name the unified syndrome — not a list of components, but the diagnosis itself. Budd-Chiari. Conn syndrome. Metastatic pattern. The conclusion you would have written anyway, in seconds.</p>
-    </div>
-    <div class="ai-pillar">
-      <div class="ai-pillar-ic">🚨</div>
-      <h4 data-i18n="index.ai_pillar3_title">Emergency First</h4>
-      <p data-i18n="index.ai_pillar3_desc">Vascular thrombosis, active bleeding, tension findings, organ ischemia — life-threatening findings always appear as the first conclusion bullet, clearly flagged with urgency level. Never buried in boilerplate.</p>
-    </div>
-  </div>
-
-  <div class="rv rv-d3" style="text-align:center">
-    <a class="btn btn-ghost" href="https://pisum.app/saas/frontend/pricing.html" style="display:inline-flex;align-items:center;gap:0.5rem"><span data-i18n="index.ai_cta">Unlock AI Enhancement &amp; Diagnosis</span> <span style="color:var(--blue)">→</span></a>
-    <p data-i18n="index.ai_cta_sub" style="font-size:0.75rem;color:var(--ink-4);margin-top:0.75rem">Pro+ plans · Works in all 23 languages</p>
-  </div>
 </div>
 </section>
 
 <section class="section idemo-section" id="demo">
   <div class="container">
     <div class="idemo-hd rv">
-      <div class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="index.demo_eyebrow">See It In Action</span></div>
-      <h2 class="serif d2 rv rv-d1" data-i18n="index.h2_5" style="margin-top:1.25rem; color:var(--ink);">Experience the Workflow</h2>
-      <p class="rv rv-d2" data-i18n="index.p_25" style="font-size:1.05rem;color:var(--ink-2);margin-top:1rem;max-width:480px">Interact with the modules below to see PISUM in action.</p>
+      <div class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="index.demo_eyebrow">Interactive Environment</span></div>
+      <h2 class="serif d2 rv rv-d1" data-i18n="index.h2_5" style="margin-top:1.25rem; color:var(--ink);">Experience the Synthesis Workflow</h2>
+      <p class="rv rv-d2" data-i18n="index.p_25" style="font-size:1.05rem;color:var(--ink-2);margin-top:1rem;max-width:540px">Interact with the modules below to evaluate how PISUM captures findings, standardizes semiology, and produces conclusions.</p>
     </div>
 
     <div class="bento-grid-demo rv rv-d2">
       <div class="bento-card">
         <div class="bento-header">
-          <h3 style="font-family:var(--serif); font-weight:700; color:var(--ink); font-size:1.1rem;" data-i18n="index.demo_voice_title">Live Voice Dictation</h3>
+          <h3 style="font-family:var(--serif); font-weight:700; color:var(--ink); font-size:1.1rem;" data-i18n="index.demo_voice_title">Targeted Voice Capture</h3>
           <div style="background:transparent; border:none; color:var(--ink-4); font-size:0.75rem; font-weight:600;" id="voiceStatus" data-i18n="index.demo_voice_status">Click Mic to Start</div>
         </div>
-        <p style="color:var(--ink-3); font-size:0.85rem; margin-bottom:1.5rem;" data-i18n="index.demo_voice_desc">Click the microphone to simulate dictating findings directly into structured template fields.</p>
+        <p style="color:var(--ink-3); font-size:0.85rem; margin-bottom:1.5rem;" data-i18n="index.demo_voice_desc">Simulate dictating observations directly into dedicated clinical sections (Indication, Findings, Impression).</p>
         
         <div class="voice-mic" id="voiceMic" onclick="toggleVoice()">🎙️</div>
         
@@ -1073,10 +1073,10 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 
       <div class="bento-card col-span-2">
         <div class="bento-header">
-          <h3 style="font-family:var(--serif); font-weight:700; color:var(--ink); font-size:1.1rem;" data-i18n="index.demo_trans_title">23-Language Instant Translation</h3>
+          <h3 style="font-family:var(--serif); font-weight:700; color:var(--ink); font-size:1.1rem;" data-i18n="index.demo_trans_title">Multilingual Clinical Harmonization</h3>
           <div style="color:var(--blue); font-size:1.2rem;">🌍</div>
         </div>
-        <p style="color:var(--ink-3); font-size:0.85rem; margin-bottom:1.5rem;" data-i18n="index.demo_trans_desc">Report in English, output in any language. Terminology is preserved and clinically validated.</p>
+        <p style="color:var(--ink-3); font-size:0.85rem; margin-bottom:1.5rem;" data-i18n="index.demo_trans_desc">Validate how findings and impressions translate while strictly maintaining semiotic accuracy and clinical sense.</p>
         
         <div class="lang-flags">
           <button class="flag-btn active" onclick="switchDemoLang('en', this)">🇬🇧 EN</button>
@@ -1097,15 +1097,15 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 
       <div class="bento-card col-span-3">
         <div class="bento-header">
-          <h3 style="font-family:var(--serif); font-weight:700; color:var(--ink); font-size:1.1rem;" data-i18n="index.demo_sally_title">Sally AI: Intelligent Structuring</h3>
+          <h3 style="font-family:var(--serif); font-weight:700; color:var(--ink); font-size:1.1rem;" data-i18n="index.demo_sally_title">Semiotic Structuring &amp; Synthesis Engine</h3>
           <div style="color:var(--blue); font-size:1.2rem;">✨</div>
         </div>
-        <p style="color:var(--ink-3); font-size:0.85rem; margin-bottom:1.5rem;" data-i18n="index.demo_sally_desc">Turn messy, conversational dictation into perfectly formatted, structured clinical findings with a single click.</p>
+        <p style="color:var(--ink-3); font-size:0.85rem; margin-bottom:1.5rem;" data-i18n="index.demo_sally_desc">Observe how unstructured dictation is converted into rigorous semiological findings ready for diagnostic validation.</p>
         
         <div class="sally-inner-grid" style="flex:1;">
           <div class="mockup-ui" style="border-color: rgba(239,68,68,0.3);">
             <div style="color:#EF4444; font-weight:700; margin-bottom:1rem; letter-spacing:1px; display:flex; align-items:center; justify-content:space-between;">
-              <span data-i18n="index.demo_raw_label">RAW DICTATION</span> <span style="font-size:1.2rem">⚠️</span>
+              <span data-i18n="index.demo_raw_label">UNSTRUCTURED DICTATION</span> <span style="font-size:1.2rem">⚠️</span>
             </div>
             <div class="mockup-text" style="color: var(--ink-3); font-family:var(--sans); font-size:0.95rem;" data-i18n="index.demo_raw_text">
               "Yeah so the lungs look mostly okay. I don't see any big problems or masses. Heart seems normal size. Um, airway is clear. Basically nothing bad found here today."
@@ -1115,14 +1115,14 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
           <div class="mockup-ui accent-left" style="display:flex; flex-direction:column; justify-content:space-between;">
             <div>
               <div style="color:var(--blue); font-weight:700; margin-bottom:1rem; letter-spacing:1px; display:flex; align-items:center; justify-content:space-between;">
-                <span data-i18n="index.demo_ai_label">AI STRUCTURED</span> <span style="font-size:1.2rem">✅</span>
+                <span data-i18n="index.demo_ai_label">CLINICALLY STRUCTURED</span> <span style="font-size:1.2rem">✅</span>
               </div>
               <div class="mockup-text" id="aiAfterText" style="opacity:0; font-family:var(--sans); font-size:0.95rem; line-height:1.7; color:var(--ink-2);"></div>
               <div id="aiPlaceholder" style="color:var(--ink-4); font-style:italic; font-family:var(--sans); font-size:0.9rem; text-align:center; padding:2rem 0;" data-i18n="index.demo_ai_placeholder">
-                Waiting for AI Refinement...
+                Waiting for Clinical Structuring...
               </div>
             </div>
-            <button class="btn btn-grad" id="aiBtn" onclick="triggerAI()" style="width:100%; margin-top:1rem; border:none; font-family:var(--sans); font-weight:700; padding:0.75rem; border-radius:999px; cursor:pointer;" data-i18n="index.demo_ai_btn">✨ Refine with AI</button>
+            <button class="btn btn-grad" id="aiBtn" onclick="triggerAI()" style="width:100%; margin-top:1rem; border:none; font-family:var(--sans); font-weight:700; padding:0.75rem; border-radius:999px; cursor:pointer;" data-i18n="index.demo_ai_btn">✨ Synthesize with PISUM</button>
           </div>
         </div>
       </div>
@@ -1133,9 +1133,9 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 <section class="section tpl-section" id="templates">
 <div class="container">
 <div class="tpl-header">
-<div class="eyebrow rv" style="display:inline-flex"><span class="eyebrow-dot"></span><span data-i18n="index.tpl_eyebrow">112 Templates</span></div>
-<h2 class="serif d2 rv rv-d1" data-i18n="index.h2_6" style="margin-top:1.25rem; color:var(--ink);">Start from an expert template.<br/>Own the result.</h2>
-<p class="rv rv-d2" data-i18n="index.p_30">Browse free and Pro templates across every modality and body region — in your language.</p>
+<div class="eyebrow rv" style="display:inline-flex"><span class="eyebrow-dot"></span><span data-i18n="index.tpl_eyebrow">112 Expert Protocols</span></div>
+<h2 class="serif d2 rv rv-d1" data-i18n="index.h2_6" style="margin-top:1.25rem; color:var(--ink);">Start with structured rigor.<br/>Maintain full editorial control.</h2>
+<p class="rv rv-d2" data-i18n="index.p_30">Browse validated templates across CT, MRI, Ultrasound, and Radiography. Pre-configured for anatomical completeness.</p>
 </div>
 <div class="tpl-tabs">
 <button class="ttab on" data-i18n="index.button_30" onclick="ftpl('all',this)">All</button>
@@ -1152,13 +1152,13 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 <section class="shots-section section" id="screenshots">
 <div class="container">
 <div class="shots-hd rv">
-<div class="eyebrow" style="justify-content:center;"><span class="eyebrow-dot"></span><span data-i18n="index.shots_eyebrow">Real Interface</span></div>
-<h2 class="serif d2" data-i18n="index.h2_7" style="margin-top:1.25rem; color:var(--ink);">This is what PISUM<br/><em style="color:var(--blue); font-style:normal;">actually looks like.</em></h2>
-<p data-i18n="index.p_31">Dark medical-grade UI. Designed for long reporting sessions in dimly lit reading rooms.</p>
+<div class="eyebrow" style="justify-content:center;"><span class="eyebrow-dot"></span><span data-i18n="index.shots_eyebrow">Clinical Interface</span></div>
+<h2 class="serif d2" data-i18n="index.h2_7" style="margin-top:1.25rem; color:var(--ink);">Native Desktop Performance.<br/><em style="color:var(--blue); font-style:normal;">Built for the reading room.</em></h2>
+<p data-i18n="index.p_31">Engineered for fast, reliable reporting without browser lag. High-contrast surfaces designed for dim diagnostic environments.</p>
 </div>
 <div class="shots-tabs rv rv-d1">
 <button class="stab on" data-i18n="index.button_35" onclick="switchShot(0,this)">Report Section</button>
-<button class="stab" data-i18n="index.button_36" onclick="switchShot(1,this)">AI Assistant</button>
+<button class="stab" data-i18n="index.button_36" onclick="switchShot(1,this)">Synthesis Assistant</button>
 <button class="stab" data-i18n="index.button_37" onclick="switchShot(2,this)">Medical Translation</button>
 <button class="stab" data-i18n="index.button_38" onclick="switchShot(3,this)">WorkList</button>
 <button class="stab" data-i18n="index.button_51" onclick="switchShot(4,this)">Worklist Report</button>
@@ -1196,45 +1196,45 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 <section class="section how-section" id="how">
 <div class="container">
 <div class="how-header" style="max-width:580px;margin:0 auto 5rem;text-align:center">
-<div class="eyebrow rv" style="display:inline-flex"><span class="eyebrow-dot"></span><span data-i18n="index.how_eyebrow">Simple Workflow</span></div>
-<h2 class="serif d2 rv rv-d1" data-i18n="index.h2_8" style="margin-top:1.25rem; color:var(--ink);">Up and running<br/>in three steps.</h2>
-<p class="rv rv-d2" data-i18n="index.p_33">Create your account, download the app, and start reporting in minutes.</p>
+<div class="eyebrow rv" style="display:inline-flex"><span class="eyebrow-dot"></span><span data-i18n="index.how_eyebrow">Deployment</span></div>
+<h2 class="serif d2 rv rv-d1" data-i18n="index.h2_8" style="margin-top:1.25rem; color:var(--ink);">Ready for clinical use<br/>in three steps.</h2>
+<p class="rv rv-d2" data-i18n="index.p_33">Deploy locally on your reading workstation and start producing synthesized reports immediately.</p>
 </div>
 <div class="how-steps">
-<div class="how-step rv"><div class="step-ring">1</div><h3 data-i18n="index.h3_12">Create an Account</h3><p data-i18n="index.p_34">Sign up at pisum.app to activate your license and access the software. A 14-day free trial is available on all paid plans.</p></div>
+<div class="how-step rv"><div class="step-ring">1</div><h3 data-i18n="index.h3_12">Activate Account</h3><p data-i18n="index.p_34">Register securely on pisum.app to generate your license credentials. 14-day free trial on all professional tiers.</p></div>
 <div class="how-arrow rv rv-d1">→</div>
-<div class="how-step rv rv-d2"><div class="step-ring">2</div><h3 data-i18n="index.h3_13">Download &amp; Install</h3><p data-i18n="index.p_35">One .exe installer for Windows 10/11. Double-click, follow the wizard — done in under a minute. No configuration needed.</p></div>
+<div class="how-step rv rv-d2"><div class="step-ring">2</div><h3 data-i18n="index.h3_13">Install Locally</h3><p data-i18n="index.p_35">Run the native Windows installer. Operates entirely on your local workstation without complex IT server configurations.</p></div>
 <div class="how-arrow rv rv-d3">→</div>
-<div class="how-step rv rv-d4"><div class="step-ring">3</div><h3 data-i18n="index.h3_14">Report &amp; Export</h3><p data-i18n="index.p_36">Choose from 112 expert templates. Dictate or type your findings and export a professional PDF or Word in one click.</p></div>
+<div class="how-step rv rv-d4"><div class="step-ring">3</div><h3 data-i18n="index.h3_14">Synthesize &amp; Export</h3><p data-i18n="index.p_36">Select an expert protocol, record findings, let PISUM structure the synthesis, validate the text, and export to PDF or Word.</p></div>
 </div>
 </div>
 </section>
 
 <section class="section compliance-section" id="compliance">
 <div class="container">
-<div class="eyebrow rv" style="display:inline-flex"><span class="eyebrow-dot" style="background:var(--green)"></span><span data-i18n="index.comp_eyebrow">Compliance &amp; Trust</span></div>
-<h2 class="serif d2 rv rv-d1" style="margin-top:1.25rem; color:var(--ink);" data-i18n="index.comp_h2">Built for regulated<br/><em style="color:var(--green); font-style:normal;">medical practice.</em></h2>
-<p class="rv rv-d2" style="font-size:1rem;color:var(--ink-3);max-width:580px;margin-top:1rem;line-height:1.75" data-i18n="index.comp_desc">PISUM is a report formatting and AI enhancement tool — not a diagnostic device. No CE marking required. Designed from the ground up for French and European regulatory requirements.</p>
+<div class="eyebrow rv" style="display:inline-flex"><span class="eyebrow-dot" style="background:var(--green)"></span><span data-i18n="index.comp_eyebrow">Governance &amp; Data Security</span></div>
+<h2 class="serif d2 rv rv-d1" style="margin-top:1.25rem; color:var(--ink);" data-i18n="index.comp_h2">Built for regulated<br/><em style="color:var(--green); font-style:normal;">medical environments.</em></h2>
+<p class="rv rv-d2" style="font-size:1rem;color:var(--ink-3);max-width:620px;margin-top:1rem;line-height:1.75" data-i18n="index.comp_desc">PISUM is a clinical synthesis, report formatting, and workflow enhancement software. Patient data remains strictly on your local infrastructure.</p>
 <div class="compliance-grid rv rv-d2">
 <div class="compliance-card">
-<h4 data-i18n="index.comp_c1_title">🔒 AES-256 Local Encryption</h4>
-<p data-i18n="index.comp_c1_desc">Patient data is encrypted on your own machine. Nothing is uploaded to the cloud. Your data never leaves your practice network.</p>
+<h4 data-i18n="index.comp_c1_title">🔒 AES-256 Local Storage</h4>
+<p data-i18n="index.comp_c1_desc">Patient identifiers and clinical records are stored locally with AES-256 encryption. Patient data is not hosted on external cloud servers.</p>
 </div>
 <div class="compliance-card">
-<h4 data-i18n="index.comp_c2_title">📋 GDPR / RGPD</h4>
-<p data-i18n="index.comp_c2_desc">Full data portability and right-to-erasure support. Every data access and export is logged in an immutable audit trail that satisfies CNIL documentation requirements.</p>
+<h4 data-i18n="index.comp_c2_title">📋 GDPR / RGPD Alignment</h4>
+<p data-i18n="index.comp_c2_desc">Full support for data isolation, export, and right-to-erasure. Activity tracking supports CNIL accountability standards.</p>
 </div>
 <div class="compliance-card">
-<h4 data-i18n="index.comp_c3_title">🗃️ Full Audit Log</h4>
-<p data-i18n="index.comp_c3_desc">PACS-style traceability for every report — creation, modification, export, and deletion events, each stamped with timestamp and user identity.</p>
+<h4 data-i18n="index.comp_c3_title">🗃️ Traceable Audit Trail</h4>
+<p data-i18n="index.comp_c3_desc">Complete local audit logging of report generation, revisions, and exports stamped with practitioner credentials and time records.</p>
 </div>
 <div class="compliance-card">
 <h4><span data-i18n="index.comp_c4_title">🏥 HDS-Ready Architecture</span> <span class="compliance-badge" data-i18n="index.comp_c4_badge">Certification Q3 2026</span></h4>
-<p data-i18n="index.comp_c4_desc">Designed to meet HDS hosting requirements. Certification roadmap underway — no false claim, honest timeline.</p>
+<p data-i18n="index.comp_c4_desc">Architecture engineered to meet HDS requirements. Certification process actively progressing with clear milestone timelines.</p>
 </div>
 </div>
 <div class="compliance-disclaimer rv rv-d3" data-i18n="index.comp_disclaimer">
-<strong style="color:var(--ink-2)">Regulatory status:</strong> PISUM is a report formatting and AI assistance tool, not a medical device. It does not produce diagnostic output — clinical decisions remain entirely yours. No CE marking or MDR classification applies under current scope.
+<strong style="color:var(--ink-2)">Medical Responsibility Notice:</strong> PISUM is a clinical synthesis and document formatting tool. It does not replace clinical evaluation or provide autonomous diagnostic clearance. The reviewing radiologist remains entirely responsible for validating findings, verifying diagnostic accuracy, and signing the medical report. No CE marking or MDR classification applies under current software scope.
 </div>
 </div>
 </section>
@@ -1242,9 +1242,9 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 <section class="section pricing-section" id="pricing">
 <div class="container">
 <div class="pricing-header" style="max-width:560px;margin:0 auto 1.5rem;text-align:center">
-<div class="eyebrow rv" style="display:inline-flex; justify-content:center;"><span class="eyebrow-dot"></span><span data-i18n="index.pricing_eyebrow">Simple Pricing</span></div>
-<h2 class="serif d2 rv rv-d1" data-i18n="index.h2_9" style="margin-top:1.25rem; color:var(--ink);">Start free.<br/>Scale when ready.</h2>
-<p class="rv rv-d2" data-i18n="index.p_37">Cancel anytime. Every plan includes the core workflow.</p>
+<div class="eyebrow rv" style="display:inline-flex; justify-content:center;"><span class="eyebrow-dot"></span><span data-i18n="index.pricing_eyebrow">Transparent Plans</span></div>
+<h2 class="serif d2 rv rv-d1" data-i18n="index.h2_9" style="margin-top:1.25rem; color:var(--ink);">Start with Free.<br/>Scale for your practice.</h2>
+<p class="rv rv-d2" data-i18n="index.p_37">14-day free trial on paid plans. Cancel anytime.</p>
 </div>
 <div class="bill-row rv">
 <span data-i18n="index.span_65">Monthly</span>
@@ -1255,7 +1255,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 <div class="plan rv">
 <div class="plan-name">Free</div>
 <div class="plan-price"><span class="psym" data-i18n="index.span_67">€</span><span class="pamt" data-i18n="index.span_68">0</span><span class="pper" data-i18n="index.span_69">/mo</span></div>
-<p class="plan-desc" data-i18n="index.p_38">Assistant, dictation and 10 expert templates — no commitment.</p>
+<p class="plan-desc" data-i18n="index.p_38">Basic structuring, dictation input, and 10 core protocols.</p>
 <a class="plan-cta cta-ghost" data-i18n="index.a_10" href="https://github.com/AminWalha/Pisum/releases/latest/download/PISUM_Radiology_Setup.exe" rel="noopener noreferrer" target="_blank">Download Free</a>
 <hr class="plan-div"/>
 <ul class="plan-list">
@@ -1264,7 +1264,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 <li data-i18n="index.li_11"><span class="lchk">✓</span>PDF export</li>
 <li data-i18n="index.li_12"><span class="lx">○</span><span class="ldim">Word export</span></li>
 <li data-i18n="index.li_13"><span class="lchk">✓</span>🎙️ AI Dictation (30 min)</li>
-<li data-i18n="index.li_14"><span class="lchk">✓</span>✨ AI Assistant (10/mo)</li>
+<li data-i18n="index.li_14"><span class="lchk">✓</span>✨ Synthesis Assistant (10/mo)</li>
 <li data-i18n="index.li_16"><span class="lchk">✓</span>50 reports / month</li>
 </ul>
 </div>
@@ -1272,7 +1272,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 <div class="plan-name">Starter</div>
 <div class="plan-price"><span class="psym" data-i18n="index.span_70">€</span><span class="pamt" data-i18n="index.span_71" id="starterAmt">29</span><span class="pper" data-i18n="index.span_72">/mo</span></div>
 <p class="bill-note" data-i18n="index.p_39" style="display:none;font-size:0.72rem;color:var(--green);margin-bottom:0.25rem">276€/yr — save 72€</p>
-<p class="plan-desc" data-i18n="index.p_40">Your first step to faster reports.</p>
+<p class="plan-desc" data-i18n="index.p_40">Essential structured workflow for solo practice.</p>
 <p data-i18n="index.p_roi_starter" style="font-size:0.7rem;color:var(--green);text-align:center;margin-bottom:0.3rem;font-weight:600">Save 30 min/day from day one</p>
 <p data-i18n="index.p_41" style="font-size:0.7rem;color:var(--ink-4);margin-bottom:0.75rem;margin-top:0">14-day free trial</p>
 <button class="plan-cta cta-white plan-sub-btn" data-i18n="index.button_39" onclick="subscribe('starter')">Try Starter free</button>
@@ -1282,7 +1282,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 <li data-i18n="index.li_18"><span class="lchk">✓</span>23 languages</li>
 <li data-i18n="index.li_19"><span class="lchk">✓</span>PDF + Word export</li>
 <li data-i18n="index.li_20"><span class="lchk">✓</span>🎙️ AI Dictation (500 min)</li>
-<li data-i18n="index.li_21"><span class="lchk">✓</span>✨ AI Assistant (50/mo)</li>
+<li data-i18n="index.li_21"><span class="lchk">✓</span>✨ Synthesis Assistant (50/mo)</li>
 <li data-i18n="index.li_22"><span class="lchk">✓</span>Basic worklist</li>
 <li data-i18n="index.li_23"><span class="lchk">✓</span>Unlimited reports</li>
 </ul>
@@ -1292,7 +1292,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 <div class="plan-name">Pro</div>
 <div class="plan-price"><span class="psym" data-i18n="index.span_73">€</span><span class="pamt" data-i18n="index.span_74" id="proAmt">79</span><span class="pper" data-i18n="index.span_75">/mo</span></div>
 <p class="bill-note" data-i18n="index.p_42" style="display:none;font-size:0.72rem;color:var(--purple);margin-bottom:0.25rem">756€/yr — save 192€</p>
-<p class="plan-desc" data-i18n="index.p_43">Complete workflow for daily practice.</p>
+<p class="plan-desc" data-i18n="index.p_43">Full clinical synthesis suite for daily reading shifts.</p>
 <p data-i18n="index.p_roi_pro" style="font-size:0.7rem;color:var(--ink);text-align:center;margin-bottom:0.3rem;font-weight:600">Pays for itself in &lt; 3 days</p>
 <p data-i18n="index.p_44" style="font-size:0.7rem;color:var(--ink-4);margin-bottom:0.75rem;margin-top:0">14-day free trial</p>
 <button class="plan-cta cta-white plan-sub-btn" data-i18n="index.button_40" onclick="subscribe('pro')">Try Pro free</button>
@@ -1302,24 +1302,24 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 <li data-i18n="index.li_27"><span class="lchk">✓</span>23 languages</li>
 <li data-i18n="index.li_28"><span class="lchk">✓</span>PDF + Word + HTML</li>
 <li data-i18n="index.li_29"><span class="lchk">✓</span>🎙️ AI Dictation (2,000 min)</li>
-<li data-i18n="index.li_30"><span class="lchk">✓</span>✨ AI Assistant (200/mo)</li>
+<li data-i18n="index.li_30"><span class="lchk">✓</span>✨ Synthesis Assistant (200/mo)</li>
 <li data-i18n="index.li_31"><span class="lchk">✓</span>🔄 Translation (100/mo)</li>
 <li data-i18n="index.li_32"><span class="lchk">✓</span>Full worklist & stats</li>
 </ul>
 </div>
 <div class="plan rv rv-d3" style="position:relative;padding-top:3.25rem">
-<div style="position:absolute;top:1.25rem;right:1.75rem;background:rgba(16,185,129,0.15);color:var(--green);font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:6px;" data-i18n="index.plan_value">Best Value</div>
+<div style="position:absolute;top:1.25rem;right:1.75rem;background:rgba(16,185,129,0.15);color:var(--green);font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:6px;" data-i18n="index.plan_value">High Volume</div>
 <div class="plan-name">Expert 🔥</div>
 <div class="plan-price"><span class="psym" data-i18n="index.span_76">€</span><span class="pamt" data-i18n="index.span_77" id="expertAmt">129</span><span class="pper" data-i18n="index.span_78">/mo</span></div>
 <p class="bill-note" data-i18n="index.p_45" style="display:none;font-size:0.72rem;color:var(--green);margin-bottom:0.25rem">1 236€/yr — save 312€</p>
-<p class="plan-desc" data-i18n="index.p_46">Multi-workstation · Unlimited AI.</p>
+<p class="plan-desc" data-i18n="index.p_46">Multi-workstation sync with unlimited clinical synthesis.</p>
 <p data-i18n="index.p_47" style="font-size:0.7rem;color:var(--ink-4);margin-bottom:0.75rem;margin-top:-1.5rem">14-day free trial</p>
 <button class="plan-cta cta-ghost plan-sub-btn" data-i18n="index.button_41" onclick="subscribe('expert')">Try Expert</button>
 <hr class="plan-div"/>
 <ul class="plan-list">
 <li data-i18n="index.li_35"><span class="lchk">✓</span>112+ custom templates</li>
 <li data-i18n="index.li_38"><span class="lchk">✓</span>🎙️ AI Dictation (Unlimited)</li>
-<li data-i18n="index.li_39"><span class="lchk">✓</span>✨ AI Enhancer (Unlimited)</li>
+<li data-i18n="index.li_39"><span class="lchk">✓</span>✨ Synthesis Assistant (Unlimited)</li>
 <li data-i18n="index.li_40"><span class="lchk">✓</span>🔄 Translation (Unlimited)</li>
 <li data-i18n="index.li_43"><span class="lchk">✓</span>LAN Sync (1 site · 3 PCs)</li>
 </ul>
@@ -1328,13 +1328,13 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 <div class="plan-name">Clinic 🏥</div>
 <div class="plan-price"><span class="psym" data-i18n="index.span_79">€</span><span class="pamt" data-i18n="index.span_80" id="clinicAmt">399</span><span class="pper" data-i18n="index.span_81">/mo</span></div>
 <p class="bill-note" data-i18n="index.p_48" style="display:none;font-size:0.72rem;color:var(--green);margin-bottom:0.25rem">3 828€/yr — save 960€</p>
-<p class="plan-desc" data-i18n="index.p_49">Multi-site · Team management.</p>
+<p class="plan-desc" data-i18n="index.p_49">Imaging groups, hospital services, and multi-site teams.</p>
 <button class="plan-cta cta-ghost plan-sub-btn" data-i18n="index.button_42" onclick="subscribe('clinic')">Contact Sales</button>
 <hr class="plan-div"/>
 <ul class="plan-list">
 <li data-i18n="index.li_45"><span class="lchk">✓</span>5 users incl. (+€69/extra)</li>
 <li data-i18n="index.li_48"><span class="lchk">✓</span>🎙️ AI Dictation (Unlimited)</li>
-<li data-i18n="index.li_49"><span class="lchk">✓</span>✨ AI Enhancer (Unlimited)</li>
+<li data-i18n="index.li_49"><span class="lchk">✓</span>✨ Synthesis Assistant (Unlimited)</li>
 <li data-i18n="index.li_50"><span class="lchk">✓</span>🔄 Translation (Unlimited)</li>
 <li data-i18n="index.li_53"><span class="lchk">✓</span>LAN Sync (multi-site · unlimited)</li>
 </ul>
@@ -1342,18 +1342,18 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 </div>
 <p data-i18n="index.p_50" style="text-align:center;margin-top:2.25rem;font-size:0.78rem;color:var(--ink-4);letter-spacing:0.01em">
 <span style="color:var(--green);font-weight:700">✓</span> 30-day money-back guarantee  · 
-      <span style="color:var(--green);font-weight:700">✓</span> Cancel anytime  · 
-      No cloud upload of patient data  ·  GDPR compliant
-    </p>
+<span style="color:var(--green);font-weight:700">✓</span> Cancel anytime  · 
+No cloud hosting of patient records  ·  GDPR compliant
+</p>
 </div>
 </section>
 
 <section class="section lang-section" id="languages">
 <div class="container">
 <div class="lang-hd rv">
-<div class="eyebrow" style="display:inline-flex;justify-content:center"><span class="eyebrow-dot"></span><span data-i18n="index.lang_eyebrow">23 Languages</span></div>
-<h2 class="serif d2" data-i18n="index.h2_10" style="margin-top:1.25rem; color:var(--ink);">Work in Your Language,<br/><em style="color:var(--blue); font-style:normal;">Anywhere.</em></h2>
-<p data-i18n="index.p_51" style="color:var(--ink-3);">Our AI-powered radiology assistant understands and processes 23 languages with high medical accuracy — so your team reports in the language they think in.</p>
+<div class="eyebrow" style="display:inline-flex;justify-content:center"><span class="eyebrow-dot"></span><span data-i18n="index.lang_eyebrow">Multilingual Practice</span></div>
+<h2 class="serif d2" data-i18n="index.h2_10" style="margin-top:1.25rem; color:var(--ink);">Synthesize Findings in Your Language,<br/><em style="color:var(--blue); font-style:normal;">Across 23 Medical Lexicons.</em></h2>
+<p data-i18n="index.p_51" style="color:var(--ink-3);">PISUM operates across 23 languages with accurate medical terminology — enabling clinical teams to construct syntheses in their preferred language.</p>
 </div>
 <div class="lang-featured rv rv-d1">
 <div class="lang-feat-card rv">
@@ -1403,12 +1403,12 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 <div class="lang-more-wrap rv">
 <button class="lang-more-btn" data-i18n="index.button_43" id="langMoreBtn" onclick="toggleLangMore()">
 <svg fill="none" height="14" viewbox="0 0 14 14" width="14"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg>
-        Show 10 more languages
-      </button>
+Show 10 more languages
+</button>
 </div>
 <div class="lang-trust rv" style="text-align:center;">
-<div style="display:inline-flex;align-items:center;gap:7px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);border-radius:999px;padding:0.4rem 1rem;font-size:0.78rem;font-weight:600;color:var(--green)" data-i18n="index.lang_optimized">Optimized for medical and radiology terminology</div>
-<p style="font-size:0.76rem;color:var(--ink-4);letter-spacing:0.02em;margin-top:0.5rem;" data-i18n="index.p_52">More languages are continuously being added.</p>
+<div style="display:inline-flex;align-items:center;gap:7px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);border-radius:999px;padding:0.4rem 1rem;font-size:0.78rem;font-weight:600;color:var(--green)" data-i18n="index.lang_optimized">Optimized for clinical semiology and radiological syntax</div>
+<p style="font-size:0.76rem;color:var(--ink-4);letter-spacing:0.02em;margin-top:0.5rem;" data-i18n="index.p_52">Additional medical vocabularies updated continuously.</p>
 </div>
 </div>
 </section>
@@ -1416,16 +1416,16 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 <section class="cta-section">
 <div class="container">
 <div class="cta-inner rv">
-<h2 class="serif d2" data-i18n="index.h2_11" style="color:var(--ink);">Download PISUM.<br/><em style="color:var(--blue); font-style:normal;">Start reporting today.</em></h2>
-<p class="cta-sub" data-i18n="index.p_53">Built for solo radiologists who spend too long on reports. Free plan included — no credit card.</p>
+<h2 class="serif d2" data-i18n="index.h2_11" style="color:var(--ink);">Transform your findings into conclusions.<br/><em style="color:var(--blue); font-style:normal;">Deploy PISUM today.</em></h2>
+<p class="cta-sub" data-i18n="index.p_53">Suitable for radiologists across private practice, imaging clinics, and hospital departments. Local evaluation available immediately.</p>
 <div class="cta-acts">
 <a class="btn btn-grad btn-xl" data-i18n="index.a_11" href="https://github.com/AminWalha/Pisum/releases/latest/download/PISUM_Radiology_Setup.exe" rel="noopener noreferrer" target="_blank">
 <svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24" width="15"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
-        Download Free
-      </a>
-<a class="btn btn-xl" data-i18n="index.a_12" href="#how" style="color:var(--ink-2);border:1px solid var(--b2);background:rgba(255,255,255,0.05);backdrop-filter:blur(10px)">See how it works</a>
+Download Free
+</a>
+<a class="btn btn-xl" data-i18n="index.a_12" href="#how" style="color:var(--ink-2);border:1px solid var(--b2);background:rgba(255,255,255,0.05);backdrop-filter:blur(10px)">Review Workflow</a>
 </div>
-<p style="font-size:0.75rem;color:var(--ink-4);margin-top:1.5rem;letter-spacing:0.03em" data-i18n="index.p_54">Windows 10/11  ·  Free plan included  ·  GDPR compliant</p>
+<p style="font-size:0.75rem;color:var(--ink-4);margin-top:1.5rem;letter-spacing:0.03em" data-i18n="index.p_54">Windows 10/11  ·  Free tier included  ·  GDPR compliant</p>
 </div>
 </div>
 </section>
@@ -1585,7 +1585,7 @@ function subscribe(plan){
 
 const shotData=[
   {title:'Report Section',desc:'Structured radiology report editor with field-by-field sections, templates, and real-time dictation.'},
-  {title:'AI Assistant',desc:'Sally AI generates, refines, and completes your report text — powered by the latest large language models.'},
+  {title:'Synthesis Assistant',desc:'Sally AI correlates signs, organizes findings, and assists in formulating accurate clinical impressions.'},
   {title:'Medical Translation',desc:'Instantly translate the full report into 23 languages while preserving medical terminology and structure.'},
   {title:'WorkList',desc:'Full patient worklist with exam queue management. Open any exam directly from the list in one click.'},
   {title:'Worklist Report',desc:'View and edit the linked report directly from the worklist without leaving your workflow.'},
@@ -1626,7 +1626,7 @@ const statObs=new IntersectionObserver(entries=>{
 const sg=document.querySelector('.stats-grid');
 if(sg)statObs.observe(sg);
 
-/* NEW BENTO DEMO LOGIC */
+/* DEMO LOGIC */
 let voiceActive = false;
 let voiceTimers = [];
 const voiceLines = [
@@ -1717,10 +1717,10 @@ function triggerAI() {
     aiDone = false;
     afterEl.style.opacity = '0';
     setTimeout(() => { afterEl.innerHTML = ''; placeholder.style.display = 'block'; }, 300);
-    btn.textContent = '✨ Refine with AI';
+    btn.textContent = '✨ Synthesize with PISUM';
     return;
   }
-  btn.textContent = '⏳ Analyzing Context...';
+  btn.textContent = '⏳ Analyzing Semiotic Context...';
   btn.disabled = true;
   setTimeout(() => {
     placeholder.style.display = 'none';
@@ -1788,8 +1788,8 @@ function changeLang(lang) {
 <div id="piw">
 <button aria-label="Ask PISUM AI" data-i18n="index.button_44" id="piw-trigger" onclick="piwToggle()">
 <svg fill="none" height="16" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="16"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"></path></svg>
-    Ask AI
-    <span id="piw-badge">1</span>
+Ask AI
+<span id="piw-badge">1</span>
 </button>
 <div aria-label="PISUM AI Assistant" id="piw-panel" role="dialog">
 <div id="piw-head">
@@ -1797,19 +1797,19 @@ function changeLang(lang) {
 <div id="piw-avatar">✨</div>
 <div>
 <div id="piw-name" data-i18n="index.piw_name">PISUM AI</div>
-<div id="piw-status"><span class="piw-dot"></span> <span data-i18n="index.piw_status">Online — always here to help</span></div>
+<div id="piw-status"><span class="piw-dot"></span> <span data-i18n="index.piw_status">Online — ready to assist</span></div>
 </div>
 </div>
 <button aria-label="Close" data-i18n="index.button_45" id="piw-close" onclick="piwToggle()">✕</button>
 </div>
 <div id="piw-msgs">
-<div class="piw-msg ai"><div class="piw-bubble" data-i18n="index.piw_msg">Hi! I'm <strong>PISUM AI</strong> 👋<br>Ask me anything about features, pricing, setup, or templates. I'll give you a straight answer.</br></div></div>
+<div class="piw-msg ai"><div class="piw-bubble" data-i18n="index.piw_msg">Welcome! I'm <strong>PISUM AI</strong> 👋<br>Ask me about clinical synthesis, templates, installation, or practice plans.</br></div></div>
 </div>
 <div id="piw-chips">
 <button class="piw-chip" data-i18n="index.button_46" onclick="piwAsk(this.textContent)">What plans exist?</button>
 <button class="piw-chip" data-i18n="index.button_47" onclick="piwAsk(this.textContent)">Free trial?</button>
 <button class="piw-chip" data-i18n="index.button_48" onclick="piwAsk(this.textContent)">How to install?</button>
-<button class="piw-chip" data-i18n="index.button_49" onclick="piwAsk(this.textContent)">AI dictation?</button>
+<button class="piw-chip" data-i18n="index.button_49" onclick="piwAsk(this.textContent)">Clinical synthesis?</button>
 <button class="piw-chip" data-i18n="index.button_50" onclick="piwAsk(this.textContent)">GDPR compliant?</button>
 </div>
 <div id="piw-footer">
@@ -1942,30 +1942,6 @@ window.piwSend=function(){
 }
 </style>
 
-<style>
-#pisum-cookie-banner {
-  position: fixed; bottom: 24px; left: 24px; z-index: 9999;
-  background: rgba(10, 12, 20, 0.95); backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px;
-  padding: 20px; max-width: 380px; box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif; display: none;
-}
-#pisum-cookie-banner p { color: #a0a0c0; font-size: 0.85rem; line-height: 1.5; margin: 0 0 15px 0; }
-#pisum-cookie-banner strong { color: #f0f0f8; }
-.cookie-btns { display: flex; gap: 10px; }
-.cookie-btn {
-  flex: 1; padding: 8px 0; border-radius: 999px; font-size: 0.8rem; font-weight: 600;
-  cursor: pointer; border: none; transition: all 0.2s;
-}
-.cookie-btn-accept { background: linear-gradient(135deg, #00e5cc 0%, #3b6ef8 100%); color: #06060a; }
-.cookie-btn-accept:hover { opacity: 0.9; transform: translateY(-1px); }
-.cookie-btn-decline { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: #f0f0f8; }
-.cookie-btn-decline:hover { background: rgba(255, 255, 255, 0.1); }
-@media(max-width: 480px) {
-  #pisum-cookie-banner { bottom: 12px; left: 12px; right: 12px; max-width: none; }
-}
-</style>
-
 <div id="pisum-cookie-banner">
   <p data-i18n="index.cookie_text"><strong>🍪 Respect for your privacy</strong><br>We use Google Analytics to analyze site traffic. No tracking cookies are set without your explicit consent.</p>
   <div class="cookie-btns">
@@ -1981,12 +1957,10 @@ function handleCookie(accepted) {
   if (banner) banner.style.display = 'none';
 
   if (!accepted) {
-    // Désactive immédiatement GA4 pour la session et supprime les cookies
     window['ga-disable-G-6VG09X3G7F'] = true;
   }
 }
 
-// Affiche le bandeau si l'utilisateur n'a pas encore fait de choix
 if (!localStorage.getItem('pisum_cookie_consent')) {
   const banner = document.getElementById('pisum-cookie-banner');
   if (banner) banner.style.display = 'block';
