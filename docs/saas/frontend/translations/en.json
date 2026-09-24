@@ -130,7 +130,7 @@
     },
     "profileModal": {
       "title": "Edit Profile",
-      "avatarHint": "Click the photo to change it (max 2 MB)",
+      "avatarHint": "Click the photo to change it",
       "fullName": "Full Name",
       "phone": "Phone",
       "specialty": "Specialty",
