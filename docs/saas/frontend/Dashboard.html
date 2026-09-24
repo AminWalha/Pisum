@@ -1094,7 +1094,7 @@ main{max-width:960px;margin:0 auto;padding:2rem 2rem 5rem}
         <div class="avatar-edit-overlay">📷</div>
       </div>
       <input type="file" id="avatar-input-modal" accept="image/*" style="display:none" onchange="handleAvatarChange(this)">
-      <span class="modal-avatar-hint" data-i18n="dashboard.profileModal.avatarHint">Click the photo to change it (max 2 MB)</span>
+      <span class="modal-avatar-hint" data-i18n="dashboard.profileModal.avatarHint">Click the photo to change it</span>
     </div>
     <div class="form-grid">
       <div class="form-group full">
@@ -1979,15 +1979,18 @@ function showModalMsg(text, type) {
 async function handleAvatarChange(input) {
   const file = input.files[0];
   if (!file) return;
-  if (file.size > 2 * 1024 * 1024) {
-    showModalMsg('Image too large — maximum 2 MB.', 'err');
-    input.value = ''; return;
+
+  hideModalMsg();
+  try {
+    const blob = await compressImage(file);
+    pendingAvatarBlob = blob;
+    const url = URL.createObjectURL(blob);
+    setAvatarEl(document.getElementById('modal-avatar'), url);
+  } catch (err) {
+    showModalMsg('Impossible de charger l\'image.', 'err');
+  } finally {
+    input.value = '';
   }
-  const blob = await compressImage(file);
-  pendingAvatarBlob = blob;
-  const url = URL.createObjectURL(blob);
-  setAvatarEl(document.getElementById('modal-avatar'), url);
-  input.value = '';
 }
 
 async function compressImage(file) {
