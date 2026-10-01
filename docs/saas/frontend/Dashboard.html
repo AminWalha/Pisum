@@ -382,7 +382,11 @@ main{max-width:960px;margin:0 auto;padding:2rem 2rem 5rem}
 .tag-pro{background:var(--grad);color:var(--bg)}
 .tag-expert{background:rgba(245,158,11,0.15);color:var(--accent-amber);border:1px solid rgba(245,158,11,0.3)}
 .tag-clinic{background:rgba(16,185,129,0.15);color:var(--accent-green);border:1px solid rgba(16,185,129,0.3)}
-.plan-name{font-family:var(--font-display);font-weight:700;font-size:1.1rem;color:var(--text-main);margin-bottom:0.5rem}
+.plan-name{font-family:var(--font-display);font-weight:700;font-size:1.1rem;color:var(--text-main);margin-bottom:0.25rem}
+.plan-price-mini{font-family:var(--font-display);font-weight:800;font-size:1.25rem;color:var(--text-main);margin-bottom:0.6rem}
+.plan-price-mini span{font-size:0.75rem;font-weight:500;color:var(--text-dim)}
+.usage-nudge{display:block;margin:0 1.5rem 1.5rem;padding:0.8rem 1rem;border-radius:var(--r);background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.3);color:#F59E0B;font-size:0.85rem;font-weight:600;text-decoration:none;transition:border-color .2s}
+.usage-nudge:hover{border-color:#F59E0B}
 .plan-feats{list-style:none;text-align:left;font-size:0.75rem;color:var(--text-dim);line-height:1.6;display:flex;flex-direction:column;gap:6px;}
 .plan-feats li{display:flex;align-items:flex-start;gap:6px}
 .plan-feats li span{display:flex;margin-top:2px}
@@ -871,7 +875,7 @@ main{max-width:960px;margin:0 auto;padding:2rem 2rem 5rem}
             <div class="ob-step-num" id="ob-num-3">3</div>
             <div class="ob-step-body">
               <div class="ob-step-title" data-i18n="dashboard.onboarding.step3.title">Create your first report</div>
-              <div class="ob-step-desc" data-i18n="dashboard.onboarding.step3.desc">Choose a template by modality — CT, MRI, X-Ray, or Ultrasound. Fill in your findings and export to PDF.</div>
+              <div class="ob-step-desc" data-i18n="dashboard.onboarding.step3.desc">Choose a template, dictate your findings with AI Dictation, and let the AI Enhancer draft the conclusion. Review, sign, and export to PDF or Word.</div>
             </div>
           </div>
         </div>
@@ -895,7 +899,7 @@ main{max-width:960px;margin:0 auto;padding:2rem 2rem 5rem}
             <div class="stat-icon-box amber">
               <svg viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
             </div>
-            <div class="stat-label" data-i18n="dashboard.stats.expires">Expires</div>
+            <div class="stat-label" id="lbl-expiry">Current plan</div>
             <div class="info-value" id="info-expiry">—</div>
           </div>
           <div class="stat-card">
@@ -970,19 +974,27 @@ main{max-width:960px;margin:0 auto;padding:2rem 2rem 5rem}
           </div>
         </div>
 
-        <div class="dark-card anim-4" id="danger-zone" style="display:none">
-          <div class="danger-zone">
-            <div class="danger-title" data-i18n="dashboard.danger.title">Danger Zone</div>
-            <div class="danger-actions">
-              <button class="btn-cancel-sub" id="btn-cancel-sub" onclick="openCancelModal()" style="display:none" data-i18n="dashboard.danger.cancelSub">Cancel Subscription</button>
-              <button class="btn-danger-outline" onclick="openDeleteModal()" data-i18n="dashboard.danger.deleteAccount">Delete Account</button>
-            </div>
-            <p id="canceling-notice" style="display:none;font-size:0.85rem;color:var(--accent-amber);margin-top:1rem;line-height:1.55" data-i18n="dashboard.danger.cancelingNotice">
-              Your subscription is set to cancel at the end of the current billing period. You still have full access until then.
-            </p>
-          </div>
-        </div>
 
+      </div>
+
+      <div class="dark-card" id="sub-card" style="display:none">
+        <div class="dc-head">
+          <span class="dc-title" id="sub-title" data-i18n="dashboard.subscribe.title">Choose your plan</span>
+        </div>
+        <div class="sub-wrapper">
+          <p class="sub-desc-el" id="sub-desc" data-i18n="dashboard.subscribe.desc" style="text-align:center;font-size:0.95rem;margin-bottom:2rem;">Select the plan that fits your practice and proceed to secure checkout.</p>
+          <div class="billing-toggle">
+            <span data-i18n="dashboard.subscribe.monthly">Monthly</span>
+            <label class="toggle-switch">
+              <input type="checkbox" id="billing-annual" onchange="setBilling(this.checked)"/>
+              <span class="toggle-slider"></span>
+            </label>
+            <span><span data-i18n="dashboard.subscribe.annual">Annual</span> <span class="save-badge" data-i18n="dashboard.subscribe.save20">−20%</span></span>
+          </div>
+          <div class="plan-grid" id="plan-grid"></div>
+          <button class="btn btn-primary" id="btn-subscribe" onclick="handleSubscribe()" data-i18n="dashboard.subscribe.continue">Continue</button>
+          <div id="sub-err" style="display:none;margin-top:1rem;padding:0.75rem;background:rgba(239,68,68,0.1);color:var(--accent-red);border:1px solid rgba(239,68,68,0.3);border-radius:var(--r);font-size:0.85rem;text-align:center;"></div>
+        </div>
       </div>
 
       <div class="dark-card anim-3" id="section-referral" style="display:none">
@@ -1039,25 +1051,6 @@ main{max-width:960px;margin:0 auto;padding:2rem 2rem 5rem}
         </div>
       </div>
 
-      <div class="dark-card" id="sub-card" style="display:none">
-        <div class="dc-head">
-          <span class="dc-title" id="sub-title" data-i18n="dashboard.subscribe.title">Choose your plan</span>
-        </div>
-        <div class="sub-wrapper">
-          <p class="sub-desc-el" id="sub-desc" data-i18n="dashboard.subscribe.desc" style="text-align:center;font-size:0.95rem;margin-bottom:2rem;">Select the plan that fits your practice and proceed to secure checkout.</p>
-          <div class="billing-toggle">
-            <span data-i18n="dashboard.subscribe.monthly">Monthly</span>
-            <label class="toggle-switch">
-              <input type="checkbox" id="billing-annual" onchange="setBilling(this.checked)"/>
-              <span class="toggle-slider"></span>
-            </label>
-            <span><span data-i18n="dashboard.subscribe.annual">Annual</span> <span class="save-badge" data-i18n="dashboard.subscribe.save20">−20%</span></span>
-          </div>
-          <div class="plan-grid" id="plan-grid"></div>
-          <button class="btn btn-primary" id="btn-subscribe" onclick="handleSubscribe()" data-i18n="dashboard.subscribe.continue">Continue</button>
-          <div id="sub-err" style="display:none;margin-top:1rem;padding:0.75rem;background:rgba(239,68,68,0.1);color:var(--accent-red);border:1px solid rgba(239,68,68,0.3);border-radius:var(--r);font-size:0.85rem;text-align:center;"></div>
-        </div>
-      </div>
 
       <div class="dark-card anim-5" id="profile-card" style="display:none">
         <div class="dc-head">
@@ -1078,6 +1071,19 @@ main{max-width:960px;margin:0 auto;padding:2rem 2rem 5rem}
         <div class="profile-actions">
           <button class="btn-edit-profile" onclick="openProfileModal()">✏️ <span data-i18n="dashboard.profile.editProfile">Edit Profile</span></button>
           <button class="btn-edit-profile" onclick="openPwModal()">🔑 <span data-i18n="dashboard.profile.changePassword">Change Password</span></button>
+        </div>
+      </div>
+
+      <div class="dark-card anim-4" id="danger-zone" style="display:none">
+        <div class="danger-zone">
+          <div class="danger-title" data-i18n="dashboard.danger.title">Danger Zone</div>
+          <div class="danger-actions">
+            <button class="btn-cancel-sub" id="btn-cancel-sub" onclick="openCancelModal()" style="display:none" data-i18n="dashboard.danger.cancelSub">Cancel Subscription</button>
+            <button class="btn-danger-outline" onclick="openDeleteModal()" data-i18n="dashboard.danger.deleteAccount">Delete Account</button>
+          </div>
+          <p id="canceling-notice" style="display:none;font-size:0.85rem;color:var(--accent-amber);margin-top:1rem;line-height:1.55" data-i18n="dashboard.danger.cancelingNotice">
+            Your subscription is set to cancel at the end of the current billing period. You still have full access until then.
+          </p>
         </div>
       </div>
 
@@ -1225,15 +1231,19 @@ const PLAN_PRICES = {
   expert:  { monthly: 129, annual: 103 },
   clinic:  { monthly: 399, annual: 319 },
 };
+const EXTRA_SEAT_PRICE = 79;   // € TTC / utilisateur Clinic supplémentaire / mois
+const uiLocale = () => window.i18n?.currentLang || document.documentElement.lang || 'en';
+const seatsLabel = qty => `${qty} ${qty === 1 ? t('seat','seat') : t('seats','seats')} — €${qty * EXTRA_SEAT_PRICE}/${t('per_month_short','mo')}`;
+const clinicUsersLabel = seats => `${seats} ${t('users_included','users included')} + €${EXTRA_SEAT_PRICE}/${t('per_user','user')}`;
 
 const PLANS = {
   free: {
     label: 'Free', tag: 'tag-free', paid: false, features: [
       { ok: true,  t: '10 templates' },
-      { ok: true,  t: '2 languages' },
+      { ok: true,  t: '23 languages' },
       { ok: 'lim', t: '50 reports / month' },
       { ok: true,  t: 'PDF export' },
-      { ok: false, t: 'No Word export' },
+      { ok: 'lim', t: 'Word export (basic)' },
       { ok: false, t: 'No HTML export' },
       { ok: 'lim', t: 'AI Dictation (30 min/mo)' },
       { ok: 'lim', t: 'AI Enhancer (10/mo)' },
@@ -1306,7 +1316,7 @@ const PLANS = {
       { ok: true,  t: 'Multi-site worklist' },
       { ok: true,  t: 'Advanced statistics' },
       { ok: true,  t: 'LAN Sync (Multi-site)' },
-      { ok: true,  t: '5 users included + €79/user' },
+      { ok: true,  t: clinicUsersLabel(5) },
       { ok: true,  t: 'Dedicated support' }
     ]
   }
@@ -1434,7 +1444,7 @@ function buildClinicFeatures(subInfo) {
     {ok:true, t:t('wl_multisite','Multi-site worklist')},
     {ok:true, t:t('stats_advanced','Advanced statistics')},
     {ok:true, t:t('feat_lan_multisite','LAN Sync (Multi-site)')},
-    {ok:true, t:`${seats} users included + €79/user`},
+    {ok:true, t:clinicUsersLabel(seats)},
     {ok:true, t:t('feat_unlimited_reports','Unlimited reports')},
   ];
 }
@@ -1454,9 +1464,14 @@ async function renderAccess({ access, reason, plan }, subInfo = {}) {
     hdrPlan.textContent = (PLANS[plan]?.label || plan).toUpperCase();
     hdrPlan.className   = 'badge badge-' + (plan || 'free');
 
-    const statusRaw = subInfo.status || 'active';
+    // Le backend renvoie le statut Stripe + cancel_at_period_end (jamais « canceling »)
+    const stripeStatus = subInfo.status || 'active';
+    const statusRaw = subInfo.cancel_at_period_end && stripeStatus !== 'canceled' ? 'canceling' : stripeStatus;
+    const live = ['active', 'trialing', 'past_due'].includes(statusRaw);
     const statusLabels = {
       active:   '● ' + t('status_active','Active'),
+      trialing: '● ' + t('status_trialing','Free trial'),
+      past_due: '⚠ ' + t('status_past_due','Payment issue'),
       inactive: '● ' + t('status_inactive','Inactive'),
       canceled: '● ' + t('status_canceled','Canceled'),
       canceling:'⏳ ' + t('status_canceling','Cancels at period end'),
@@ -1464,38 +1479,59 @@ async function renderAccess({ access, reason, plan }, subInfo = {}) {
     };
     const hdrStatus = document.getElementById('hdr-status-badge');
     hdrStatus.textContent = statusLabels[statusRaw] || statusRaw;
-    hdrStatus.className   = 'badge ' + (statusRaw === 'active' || statusRaw === 'canceling' ? 'badge-active' : 'badge-inactive');
+    hdrStatus.className   = 'badge ' + (['active', 'trialing', 'canceling'].includes(statusRaw) ? 'badge-active' : 'badge-inactive');
 
     const fmt = iso => iso
-      ? new Date(iso).toLocaleDateString('en-US', { day:'numeric', month:'long', year:'numeric' })
+      ? new Date(iso).toLocaleDateString(uiLocale(), { day:'numeric', month:'long', year:'numeric' })
       : '—';
     const periodEnd   = subInfo.current_period_end;
     const periodStart = subInfo.current_period_start;
     const createdAt   = subInfo.created_at;
     const interval    = subInfo.billing_interval || 'monthly';
 
-    const expiryEl = document.getElementById('info-expiry');
-    expiryEl.textContent = fmt(periodEnd);
-    if (periodEnd) {
-      const daysLeft = Math.ceil((new Date(periodEnd) - Date.now()) / 86400000);
-      expiryEl.className = 'info-value ' + (daysLeft <= 7 ? 'warn' : 'ok');
+    if (statusRaw === 'trialing') {
+      setStatus('ok', t('status_trial_title','Free trial active'),
+        t('status_trial_desc','Your first payment will be taken on {date}. Cancel before then and you will not be charged.').replace('{date}', fmt(periodEnd)));
+    } else if (statusRaw === 'past_due') {
+      setStatus('err', t('status_past_due_title','Payment failed'),
+        t('status_past_due_desc','We could not charge your card. Update your payment method in Manage Billing to keep your access.'));
+    } else if (statusRaw === 'canceling') {
+      setStatus('wait', t('status_canceling_title','Subscription ending'),
+        t('status_canceling_desc','You keep full access until {date}. You can resubscribe at any time.').replace('{date}', fmt(periodEnd)));
     }
 
-    document.getElementById('info-next-billing').textContent = statusRaw === 'active' ? fmt(periodEnd) : '—';
+    // « Prochaine facturation » donne déjà la date : cette carte montre le plan
+    // et son prix, ou la date de fin d'accès si une résiliation est programmée
+    const expiryEl = document.getElementById('info-expiry');
+    const expiryLbl = document.getElementById('lbl-expiry');
+    if (statusRaw === 'canceling' || !live) {
+      expiryLbl.textContent = t('access_until','Access until');
+      expiryEl.textContent = fmt(periodEnd);
+      const daysLeft = periodEnd ? Math.ceil((new Date(periodEnd) - Date.now()) / 86400000) : 99;
+      expiryEl.className = 'info-value ' + (daysLeft <= 7 ? 'warn' : 'ok');
+    } else {
+      const price = PLAN_PRICES[plan]?.[interval];
+      expiryLbl.textContent = t('current_plan','Current plan');
+      expiryEl.textContent = (PLANS[plan]?.label || plan) + (price ? ` · €${price}/${t('per_month_short','mo')}` : '');
+      expiryEl.className = 'info-value ok';
+    }
+
+    document.getElementById('info-next-billing').textContent = live ? fmt(periodEnd) : '—';
     document.getElementById('info-interval').textContent = interval === 'annual'
       ? (window.i18n?.getNestedTranslation?.('dashboard.subscribe.annual') || t('interval_annual','Annual'))
       : (window.i18n?.getNestedTranslation?.('dashboard.subscribe.monthly') || t('interval_monthly','Monthly'));
-    document.getElementById('info-since').textContent = fmt(periodStart || createdAt);
+    document.getElementById('info-since').textContent = fmt(createdAt || periodStart);
 
     document.getElementById('btn-billing-portal').style.display = subInfo.has_billing_portal ? '' : 'none';
 
     const teamCard = document.getElementById('team-seats-card');
-    if (plan === 'clinic' && statusRaw === 'active') {
+    if (plan === 'clinic' && (live || statusRaw === 'canceling')) {
       const extraSeats = subInfo.extra_seats || 0;
       const totalSeats = 5 + extraSeats;
       document.getElementById('extra-seats-val').textContent  = extraSeats;
       document.getElementById('total-seats-val').textContent  = totalSeats;
-      document.getElementById('total-seats-badge').textContent = totalSeats + ' users';
+      document.getElementById('total-seats-badge').textContent = totalSeats + ' ' + t('users_unit','users');
+      changeAddSeats(0);
       teamCard.style.display = '';
     } else {
       teamCard.style.display = 'none';
@@ -1508,8 +1544,8 @@ async function renderAccess({ access, reason, plan }, subInfo = {}) {
     document.getElementById('danger-zone').style.display = '';
     const cancelBtn = document.getElementById('btn-cancel-sub');
     const cancelingNotice = document.getElementById('canceling-notice');
-    if (plan !== 'free' && (statusRaw === 'active' || statusRaw === 'canceling')) {
-      if (statusRaw === 'active') {
+    if (plan !== 'free' && (live || statusRaw === 'canceling')) {
+      if (live) {
         cancelBtn.style.display = '';
         cancelingNotice.style.display = 'none';
       } else {
@@ -1573,30 +1609,35 @@ function renderUsage(plan, subInfo) {
   const container = document.getElementById('usage-bars');
   const rows      = [];
 
-  const enh = subInfo.usage?.ai_enhancer;
-  if (enh && enh.limit !== 0) {
-    if (enh.limit === -1) {
-      rows.push(makeUsageBar(t('feat_enhancer','AI Enhancer'), null, -1, t('unit_prompts','prompts'), null,
+  container.parentElement.querySelectorAll('.usage-nudge').forEach(el => el.remove());
+  let nearLimit = false;
+  // Une jauge par quota : utilisé / limite, ou « Illimité »
+  const pushUsage = (name, u, unit) => {
+    if (!u || u.limit === 0) return;
+    if (u.limit === -1) {
+      rows.push(makeUsageBar(name, typeof u.used === 'number' ? u.used : null, -1, unit, null,
         `<span class="usage-unlimited">${t('unlimited','Unlimited')}</span>`));
-    } else {
-      const pct     = Math.min(100, Math.round(enh.used / enh.limit * 100));
-      const resetTxt = enh.reset_at
-        ? t('resets','Resets') + ' ' + new Date(enh.reset_at).toLocaleDateString(window.i18n?.currentLang || 'en')
-        : '';
-      rows.push(makeUsageBar(t('feat_enhancer','AI Enhancer'), enh.used, enh.limit, t('unit_prompts','prompts'), pct, resetTxt));
+      return;
     }
-  }
+    const used = u.used || 0;
+    const pct = Math.min(100, Math.round(used / u.limit * 100));
+    if (pct >= 80) nearLimit = true;
+    const resetTxt = u.reset_at ? t('resets','Resets') + ' ' + new Date(u.reset_at).toLocaleDateString(uiLocale()) : '';
+    rows.push(makeUsageBar(name, used, u.limit, unit, pct, resetTxt));
+  };
+
+  pushUsage(t('feat_enhancer','AI Enhancer'), subInfo.usage?.ai_enhancer, t('unit_prompts','prompts'));
 
   const dictLimit = subInfo.features?.ai_dictation_minutes ?? null;
-  if (dictLimit !== null && dictLimit !== 0) {
-    if (dictLimit === -1) {
-      rows.push(makeUsageBar(t('feat_dictation','AI Dictation'), null, -1, t('unit_min','min'), null,
-        `<span class="usage-unlimited">${t('unlimited','Unlimited')}</span>`));
-    } else {
-      rows.push(makeUsageBar(t('feat_dictation','AI Dictation'), null, dictLimit, t('unit_min','min'), null,
-        `<span style="color:var(--text-dim);font-size:0.75rem">${t('tracked_in_app','Usage tracked in the desktop app')}</span>`));
-    }
+  if (subInfo.usage?.ai_dictation) {
+    pushUsage(t('feat_dictation','AI Dictation'), subInfo.usage.ai_dictation, t('unit_min','min'));
+  } else if (dictLimit !== null && dictLimit !== 0) {   // ancien backend : limite seule
+    rows.push(makeUsageBar(t('feat_dictation','AI Dictation'), null, dictLimit, t('unit_min','min'), null,
+      dictLimit === -1 ? `<span class="usage-unlimited">${t('unlimited','Unlimited')}</span>`
+                       : `<span style="color:var(--text-dim);font-size:0.75rem">${t('tracked_in_app','Usage tracked in the desktop app')}</span>`));
   }
+
+  pushUsage(t('feat_translation','Report Translation'), subInfo.usage?.translation, t('unit_translations','translations'));
 
   const crLimit = subInfo.features?.cr_monthly_limit ?? null;
   if (crLimit !== null && crLimit !== undefined && crLimit !== -1) {
@@ -1607,6 +1648,10 @@ function renderUsage(plan, subInfo) {
   if (rows.length === 0) { section.style.display = 'none'; return; }
   section.style.display = '';
   container.innerHTML = rows.join('');
+  if (nearLimit && plan !== 'clinic') {
+    container.insertAdjacentHTML('afterend',
+      `<a class="usage-nudge" href="pricing.html">⚡ ${t('near_limit','You are close to your monthly limits — upgrade to keep working without interruption.')} →</a>`);
+  }
 
   requestAnimationFrame(() => {
     container.querySelectorAll('.ring-fill[data-target]').forEach(el => {
@@ -1738,8 +1783,8 @@ function renderFeatures(plan, subInfo) {
   else                              feats.push({ok:false, t:t('lan_none','No LAN Sync')});
 
   const users = f.users;
-  if (plan === 'clinic') feats.push({ok:true, t:`${users || 5} users included + €79/user`});
-  else feats.push({ok:true, t:'1 user'});
+  if (plan === 'clinic') feats.push({ok:true, t:clinicUsersLabel(users || 5)});
+  else feats.push({ok:true, t:t('one_user','1 user')});
 
   document.getElementById('feature-grid').innerHTML = feats.map(feat => {
     const cls  = feat.ok===true ? 'fi-ok' : feat.ok==='lim' ? 'fi-lim' : 'fi-no';
@@ -1762,10 +1807,12 @@ function renderPlanGrid() {
       const icon = f.ok===true ? SVG_CHECK : f.ok==='lim' ? SVG_PARTIAL : SVG_MINUS;
       return `<li><span class="${cls}">${icon}</span>${f.t}</li>`;
     }).join('');
+    const price = PLAN_PRICES[k]?.[billingInterval];
     card.innerHTML = `
-      ${p.popular?'<div class="pop-badge">Recommended</div>':''}
+      ${p.popular?`<div class="pop-badge">${t('recommended','Recommended')}</div>`:''}
       <div class="plan-tag ${p.tag}">${p.label.replace(/\s+\S+$/,'').trim()}</div>
       <div class="plan-name">${p.label}</div>
+      <div class="plan-price-mini">${price ? `€${price}<span>/${t('per_month_short','mo')}</span>` : `€0<span>/${t('per_month_short','mo')}</span>`}</div>
       <ul class="plan-feats">${feats}</ul>`;
     grid.appendChild(card);
   });
@@ -1774,7 +1821,7 @@ function renderPlanGrid() {
 
 function setBilling(isAnnual) {
   billingInterval = isAnnual ? 'annual' : 'monthly';
-  updateSubBtn();
+  renderPlanGrid();   // met à jour les prix des cartes et le bouton
 }
 
 function selectPlan(k) {
@@ -1791,12 +1838,14 @@ function updateSubBtn() {
   if (planInfo.paid) {
     const prices = PLAN_PRICES[selectedPlan];
     const price = prices ? prices[billingInterval] : null;
-    const intervalText = billingInterval === 'annual' ? '/mo (annual)' : '/mo';
+    const intervalText = billingInterval === 'annual'
+      ? '/' + t('per_month_short','mo') + ' (' + t('billed_annually','billed annually') + ')'
+      : '/' + t('per_month_short','mo');
     const priceText = price ? ` — €${price}${intervalText}` : '';
-    btn.textContent = `Subscribe — ${planInfo.label}${priceText}`;
+    btn.textContent = `${t('subscribe_btn','Subscribe')} — ${planInfo.label}${priceText}`;
     btn.className   = 'btn btn-primary';
   } else {
-    btn.textContent = 'Activate Free Plan';
+    btn.textContent = t('activate_free','Activate Free Plan');
     btn.className   = 'btn btn-free';
   }
 }
@@ -1806,7 +1855,7 @@ async function handleSubscribe() {
   if (!plan) return;
   const btn = document.getElementById('btn-subscribe');
   btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> ' + (plan.paid ? 'Redirecting…' : 'Activating…');
+  btn.innerHTML = '<span class="spinner"></span> ' + (plan.paid ? t('redirecting','Redirecting…') : t('activating','Activating…'));
 
   try {
     if (!plan.paid) {
@@ -1830,7 +1879,7 @@ async function handleSubscribe() {
     }
   } catch(err) {
     const errEl = document.getElementById('sub-err');
-    errEl.textContent = 'Error: ' + err.message;
+    errEl.textContent = t('error_prefix','Error:') + ' ' + err.message;
     errEl.style.display = '';
     btn.disabled = false;
     updateSubBtn();
@@ -2085,14 +2134,13 @@ let addSeatsQty = 1;
 function changeAddSeats(delta) {
   addSeatsQty = Math.max(1, addSeatsQty + delta);
   document.getElementById('add-seats-qty').textContent = addSeatsQty;
-  const label = addSeatsQty === 1 ? '1 seat — €79/mo' : `${addSeatsQty} seats — €${addSeatsQty * 69}/mo`;
-  document.getElementById('add-seats-label').textContent = label;
+  document.getElementById('add-seats-label').textContent = seatsLabel(addSeatsQty);
 }
 
 async function handleAddSeats() {
   const btn = document.getElementById('btn-add-seats');
   btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> Redirecting…';
+  btn.innerHTML = '<span class="spinner"></span> ' + t('redirecting','Redirecting…');
   try {
     const r = await fetch(`${API_BASE}/create-extra-seat-checkout`, {
       method: 'POST',
@@ -2109,16 +2157,16 @@ async function handleAddSeats() {
     const { checkout_url } = await r.json();
     window.location.href = checkout_url;
   } catch (e) {
-    showErrToast('Error: ' + e.message);
+    showErrToast(t('error_prefix','Error:') + ' ' + e.message);
     btn.disabled = false;
-    btn.innerHTML = 'Add <span id="add-seats-label">' + (addSeatsQty === 1 ? '1 seat — €79/mo' : `${addSeatsQty} seats — €${addSeatsQty * 69}/mo`) + '</span>';
+    btn.innerHTML = t('add','Add') + ' <span id="add-seats-label">' + seatsLabel(addSeatsQty) + '</span>';
   }
 }
 
 async function handleBillingPortal() {
   const btn = document.getElementById('btn-billing-portal');
   btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> Loading…';
+  btn.innerHTML = '<span class="spinner"></span> ' + t('loading','Loading…');
   try {
     const r = await fetch(`${API_BASE}/billing-portal`, {
       method: 'POST',
@@ -2129,8 +2177,8 @@ async function handleBillingPortal() {
     window.location.href = portal_url;
   } catch(err) {
     btn.disabled = false;
-    btn.textContent = 'Manage Billing';
-    alert('Could not open billing portal: ' + err.message);
+    btn.textContent = window.i18n?.getNestedTranslation?.('dashboard.hero.manageBilling') || 'Manage Billing';
+    showErrToast(t('billing_portal_error','Could not open the billing portal:') + ' ' + err.message);
   }
 }
 
@@ -2154,7 +2202,7 @@ function validateCancelInput() {
 async function confirmCancel() {
   const btn = document.getElementById('btn-confirm-cancel');
   btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> Canceling…';
+  btn.innerHTML = '<span class="spinner"></span> ' + t('canceling','Canceling…');
   try {
     const r = await fetch(`${API_BASE}/cancel-subscription`, {
       method: 'POST',
@@ -2162,15 +2210,15 @@ async function confirmCancel() {
     });
     if (!r.ok) throw new Error((await r.json()).detail || 'Error');
     closeCancelModal();
-    showSuccessToast('Subscription canceled. You keep access until the end of your billing period.');
+    showSuccessToast(t('cancel_success','Subscription canceled. You keep access until the end of your billing period.'));
     setTimeout(loadAccess, 1500);
   } catch(err) {
     const m = document.getElementById('cancel-modal-msg');
-    m.textContent = 'Error: ' + err.message;
+    m.textContent = t('error_prefix','Error:') + ' ' + err.message;
     m.className = 'modal-msg err';
     m.style.display = '';
     btn.disabled = false;
-    btn.textContent = 'Cancel Subscription';
+    btn.textContent = window.i18n?.getNestedTranslation?.('dashboard.danger.cancelSub') || 'Cancel Subscription';
   }
 }
 
