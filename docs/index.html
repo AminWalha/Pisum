@@ -20,8 +20,8 @@
 <meta http-equiv="Pragma" content="no-cache"/>
 <meta http-equiv="Expires" content="0"/>
 <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
-<title>PISUM — Clinical Synthesis &amp; Radiology Reporting Platform</title>
-<meta content="Turn radiological findings into coherent clinical syntheses. PISUM correlates signs, structures findings, and assists radiologists in constructing definitive conclusions." name="description"/>
+<title>PISUM — AI Radiology Dictation &amp; Clinical Synthesis</title>
+<meta content="Real-time AI medical dictation and clinical synthesis for radiologists. Dictate your findings in 23 languages — PISUM writes them correctly and turns them into coherent, definitive conclusions." name="description"/>
 <meta content="index, follow" name="robots"/>
 <link href="https://pisum.app/" rel="canonical"/>
 <link href="https://pisum.app/" hreflang="en" rel="alternate"/>
@@ -556,6 +556,24 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 @media(max-width:760px){.ai-feat-inner{flex-direction:column}}
 .ai-feat-demo{flex:1;background:rgba(0,0,0,0.3);border-radius:10px;border:1px solid var(--b1);padding:1.1rem;font-size:0.78rem;min-width:0;flex-shrink:0}
 
+/* SALLY AI DICTATION */
+.dict-section{position:relative;z-index:1}
+.dict-note{text-align:center;font-size:0.72rem;color:var(--ink-4);letter-spacing:0.02em;margin:0 auto 1rem}
+.dict-tag-bad{color:#F87171}
+.dict-panel-bad{border-color:rgba(239,68,68,0.2);background:rgba(239,68,68,0.02)}
+.dict-rows{display:flex;flex-direction:column;gap:0.55rem}
+.dict-row{font-size:0.84rem;line-height:1.55;color:var(--ink-2);padding:0.5rem 0.7rem;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid var(--b1)}
+.dict-bad{color:#F87171;text-decoration:line-through;text-decoration-color:rgba(248,113,113,0.55)}
+.dict-good{color:var(--blue);font-weight:600;background:rgba(0,229,204,0.12);padding:0 4px;border-radius:4px}
+.dict-flow{display:flex;align-items:center;justify-content:center;gap:0.6rem 0.75rem;flex-wrap:wrap;margin:0 auto 1.25rem}
+.dict-step{background:var(--white);border:1px solid var(--b1);border-radius:999px;padding:0.55rem 1rem;font-size:0.8rem;font-weight:600;color:var(--ink-2)}
+a.dict-step-ai{border-color:rgba(0,229,204,0.3);color:var(--blue);transition:border-color 0.2s}
+a.dict-step-ai:hover{border-color:var(--blue)}
+.dict-step-arrow{color:var(--blue);font-weight:700}
+.dict-facts{display:flex;justify-content:center;flex-wrap:wrap;gap:0.4rem 1.5rem;font-size:0.75rem;color:var(--ink-4);margin-bottom:2rem}
+.dict-facts span::before{content:"✓ ";color:var(--green)}
+@media(max-width:600px){.dict-step-arrow{display:none}.dict-flow{flex-direction:column}}
+
 /* REVEAL */
 .rv{opacity:0;transform:translateY(22px);transition:opacity 0.65s ease,transform 0.65s ease}
 .rv.show{opacity:1;transform:none}
@@ -745,6 +763,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
   </a>
 <ul class="nav-links" id="nav-links">
 <li data-i18n="index.li_1"><a href="#features">Platform</a></li>
+<li data-i18n="index.li_dictation"><a href="#dictation">AI Dictation</a></li>
 <li data-i18n="index.li_synthesis"><a href="#ai-enhancement">Clinical Synthesis</a></li>
 <li data-i18n="index.li_2"><a href="#templates">Templates</a></li>
 <li data-i18n="index.li_3"><a href="#pricing">Pricing</a></li>
@@ -805,7 +824,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0; posit
 <h1 class="serif hero-h d1 rv rv-d1" data-i18n="hero.title">
 More than reporting.<br/><span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Clinical synthesis.</span>
 </h1>
-<p class="hero-tagline rv rv-d2" data-i18n="hero.tagline">Turn isolated radiological findings into <span class="t-accent">coherent, structured conclusions</span>.</p>
+<p class="hero-tagline rv rv-d2" data-i18n="hero.tagline">Dictate your findings. Get <span class="t-accent">coherent, structured conclusions.</span></p>
 <p class="hero-sub rv rv-d2" data-i18n="index.p_3">PISUM understands radiological semiology, correlates multiple signs across exam sections, and assists you in constructing clear clinical conclusions — while leaving the radiologist in absolute diagnostic control.</p>
 <div class="hero-actions rv rv-d3">
 <a class="btn btn-primary btn-xl" id="hero-trial-cta" href="https://pisum.app/saas/frontend/auth.html" data-i18n="index.hero_trial_cta">
@@ -974,6 +993,88 @@ app.pisum.app — Abdominal CT Protocol &amp; Synthesis
 </div>
 </section>
 
+<section class="section dict-section" id="dictation">
+<div class="container">
+  <div class="eyebrow rv" style="justify-content:center"><span class="eyebrow-dot"></span><span data-i18n="index.dict_eyebrow">Sally AI · Medical Dictation</span></div>
+  <h2 class="serif d2 rv rv-d1" style="margin:1.25rem auto 0;color:var(--ink);text-align:center;max-width:760px"><span data-i18n="index.dict_h2_1">Dictation that understands radiology.</span><br/><span data-i18n="index.dict_h2_2" style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Not just words — medical meaning.</span></h2>
+  <p class="rv rv-d2" data-i18n="index.dict_p" style="text-align:center;color:var(--ink-3);max-width:640px;margin:1.1rem auto 2.5rem;font-size:1.05rem;line-height:1.75">Speak naturally, in real time. Sally AI recognizes semiology, anatomy, measurements and classifications in context, in 23 languages — and writes your findings the way you would type them.</p>
+
+  <p class="dict-note rv rv-d2" data-i18n="index.dict_note">Real test dictation, recorded in French — same sentences, two engines</p>
+  <div class="ai-flow rv rv-d2">
+    <div>
+      <div class="ai-panel-tag dict-tag-bad" data-i18n="index.dict_generic_tag">Generic speech recognition</div>
+      <div class="ai-panel dict-panel-bad">
+        <div class="dict-rows">
+          <div class="dict-row" lang="fr">Présence d'un <span class="dict-bad">adulte</span> pulmonaires <span class="dict-bad">contorsiculé</span></div>
+          <div class="dict-row" lang="fr">mesurant 3 <span class="dict-bad">fois</span> 4 <span class="dict-bad">fois</span> 7 <span class="dict-bad">millimètres</span></div>
+          <div class="dict-row" lang="fr">classé <span class="dict-bad">utérus</span> 3</div>
+          <div class="dict-row" lang="fr">Vascularisation du lobe thyroïdien <span class="dict-bad">endroit</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ai-arrow-wrap">
+      <div class="ai-gemini-badge" data-i18n="index.dict_badge">🎙️ SALLY AI</div>
+      <svg class="ai-arrow-svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      <div class="ai-arrow-steps">
+        <span data-i18n="index.dict_step1">Medical context</span>
+        <span data-i18n="index.dict_step2">Smart formatting</span>
+        <span data-i18n="index.dict_step3">Ready to sign</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="ai-panel-tag ai-panel-tag-out" data-i18n="index.dict_pisum_tag">PISUM · Sally AI</div>
+      <div class="ai-panel ai-panel-out">
+        <div class="dict-rows">
+          <div class="dict-row" lang="fr">Présence d'un <span class="dict-good">nodule</span> pulmonaire <span class="dict-good">à contours spiculés</span></div>
+          <div class="dict-row" lang="fr">mesurant <span class="dict-good">3 x 4 x 7 mm</span></div>
+          <div class="dict-row" lang="fr">classé <span class="dict-good">EU-TIRADS 3</span></div>
+          <div class="dict-row" lang="fr">Vascularisation du lobe thyroïdien <span class="dict-good">droit</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ai-pillars rv rv-d3">
+    <div class="ai-pillar">
+      <div class="ai-pillar-ic">🧠</div>
+      <h4 data-i18n="index.dict_p1_title">Understands radiological context</h4>
+      <p data-i18n="index.dict_p1_desc">Sally AI writes what you mean, not only what it hears: “nodule”, never a sound-alike word. Semiology, anatomy and classifications come out correctly spelled.</p>
+    </div>
+    <div class="ai-pillar">
+      <div class="ai-pillar-ic">📏</div>
+      <h4 data-i18n="index.dict_p2_title">Written the way you type</h4>
+      <p data-i18n="index.dict_p2_desc">Measurements, units and classifications are formatted automatically — EU-TIRADS, BI-RADS, PI-RADS, Lung-RADS, Bosniak. “3 by 4 by 7 millimeters” becomes “3 x 4 x 7 mm”.</p>
+    </div>
+    <div class="ai-pillar">
+      <div class="ai-pillar-ic">🛡️</div>
+      <h4 data-i18n="index.dict_p3_title">Built for clinical safety</h4>
+      <p data-i18n="index.dict_p3_desc">Designed to preserve numbers, laterality and negations. Clicks and background noise are ignored, and you validate every sentence before signing.</p>
+    </div>
+  </div>
+
+  <div class="dict-flow rv rv-d3">
+    <span class="dict-step" data-i18n="index.dict_flow_1">🎙️ Dictate your findings</span>
+    <span class="dict-step-arrow">→</span>
+    <span class="dict-step" data-i18n="index.dict_flow_2">📝 Structured into report sections</span>
+    <span class="dict-step-arrow">→</span>
+    <a class="dict-step dict-step-ai" href="#ai-enhancement" data-i18n="index.dict_flow_3">✨ Clinical Synthesis builds the conclusion</a>
+  </div>
+
+  <div class="dict-facts rv rv-d3">
+    <span data-i18n="index.dict_fact_1">23 languages</span>
+    <span data-i18n="index.dict_fact_2">Processed within the European Union</span>
+    <span data-i18n="index.dict_fact_3">Audio never stored by PISUM</span>
+  </div>
+
+  <div class="rv rv-d3" style="text-align:center">
+    <a class="btn btn-ghost" href="#ai-enhancement" style="display:inline-flex;align-items:center;gap:0.5rem"><span data-i18n="index.dict_cta">Discover Clinical Synthesis</span> <span style="color:var(--blue)">↓</span></a>
+    <p data-i18n="index.dict_cta_sub" style="font-size:0.75rem;color:var(--ink-4);margin-top:0.75rem">Included in every plan · 30 min free · 500 min Starter · 2,000 min Pro · Unlimited on Expert &amp; Clinic</p>
+  </div>
+</div>
+</section>
+
 <section class="section ai-section" id="ai-enhancement">
 <div class="container">
   <div class="eyebrow rv" style="justify-content:center"><span class="eyebrow-dot"></span><span data-i18n="index.ai_eyebrow">Core Engine · Clinical Synthesis</span></div>
@@ -1094,7 +1195,7 @@ app.pisum.app — Abdominal CT Protocol &amp; Synthesis
 <div class="feat-card rv rv-d1"><div class="feat-icon">🌍</div><h3 data-i18n="index.h3_3">23-Language Lexicon</h3><p data-i18n="index.p_16">Produce reports in English, French, German, Spanish, and 19 additional languages with terminology calibrated to native radiological practice.</p><span class="feat-pill pill-free" data-i18n="index.span_48">All Plans</span></div>
 <div class="feat-card rv rv-d2"><div class="feat-icon">📋</div><h3 data-i18n="index.h3_4">112 Specialty Protocols</h3><p data-i18n="index.p_17">Validated templates for CT, MRI, Ultrasound, and Radiography across all organ systems, fully customizable to your workflow.</p><span class="feat-pill pill-pro" data-i18n="index.span_49">Pro Templates</span></div>
 <div class="feat-card rv rv-d3"><div class="feat-icon">📄</div><h3 data-i18n="index.h3_5">PDF &amp; Word Export</h3><p data-i18n="index.p_18">Generate clinical documents formatted for PACS, hospital EHRs, or patient handover with custom headers and practice branding.</p><span class="feat-pill pill-free" data-i18n="index.span_50">All Plans</span></div>
-<div class="feat-card rv"><div class="feat-icon">🎙️</div><h3 data-i18n="index.h3_6">Dictation Engine Ready</h3><p data-i18n="index.p_19">Compatible with industry-standard voice recognition systems. Stream speech directly into structured template sections without friction.</p><span class="feat-pill pill-pro" data-i18n="index.span_51">Pro</span></div>
+<div class="feat-card rv"><div class="feat-icon">🎙️</div><h3 data-i18n="index.h3_6">Sally AI Medical Dictation</h3><p data-i18n="index.p_19">Dictate naturally into any report section, in real time. Sally AI understands radiological context, formats measurements and classifications, and works in 23 languages — processed within the EU.</p><span class="feat-pill pill-free" data-i18n="index.span_51">All Plans</span></div>
 <div class="feat-card rv rv-d1"><div class="feat-icon">🏥</div><h3 data-i18n="index.h3_7">Multi-Site Practice Mode</h3><p data-i18n="index.p_20">Coordinate reporting across private cabinets, imaging clinics, and hospital sites with centralized license administration.</p><span class="feat-pill pill-pro" data-i18n="index.span_52">Clinic Plan</span></div>
 <div class="feat-card rv rv-d2"><div class="feat-icon">🔗</div><h3 data-i18n="index.h3_8">Secure LAN Database Sync</h3><p data-i18n="index.p_21">Synchronize examinations across practice workstations via local network folders with end-to-end AES-256 encryption. Zero external exposure.</p><span class="feat-pill pill-pro" data-i18n="index.span_53">Expert &amp; Clinic</span></div>
 <div class="feat-card rv rv-d3"><div class="feat-icon">🗃️</div><h3 data-i18n="index.h3_9">Patient Worklist &amp; Audit Log</h3><p data-i18n="index.p_22">PACS-compatible worklist tracking accession IDs, study states, and timestamped user events fulfilling strict regulatory traceability.</p><span class="feat-pill pill-pro" data-i18n="index.span_54">Pro+</span></div>
