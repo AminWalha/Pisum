@@ -86,7 +86,7 @@
       },
       "step3": {
         "title": "Create your first report",
-        "desc": "Choose a template by modality — CT, MRI, X-Ray, or Ultrasound. Fill in your findings and export to PDF."
+        "desc": "Choose a template, dictate your findings with AI Dictation, and let the AI Enhancer draft the conclusion. Review, sign, and export to PDF or Word."
       }
     },
     "stats": {
@@ -107,7 +107,7 @@
       "included": "Included",
       "extra": "Extra",
       "total": "Total users",
-      "addInfo": "<strong>Add extra users</strong> — €69 / user / month.<br/>\n                Billed as a separate recurring add-on. Manage via billing portal."
+      "addInfo": "<strong>Add extra users</strong> — €79 / user / month.<br/>\n                Billed as a separate recurring add-on. Manage via billing portal."
     },
     "danger": {
       "title": "Danger Zone",
@@ -234,7 +234,54 @@
       "unit_languages": "languages",
       "unit_language": "language",
       "tracked_in_app": "Usage tracked in the desktop app",
-      "referral_copied": "Copied!"
+      "referral_copied": "Copied!",
+      "seat": "seat",
+      "seats": "seats",
+      "per_month_short": "mo",
+      "users_included": "users included",
+      "per_user": "user",
+      "feat_pdf_word_html": "PDF + Word + HTML export",
+      "feat_translation_unlimited": "Report Translation (Unlimited)",
+      "feat_lan_multisite": "LAN Sync (Multi-site)",
+      "status_trialing": "Free trial",
+      "status_past_due": "Payment issue",
+      "status_trial_title": "Free trial active",
+      "status_trial_desc": "Your first payment will be taken on {date}. Cancel before then and you will not be charged.",
+      "status_past_due_title": "Payment failed",
+      "status_past_due_desc": "We could not charge your card. Update your payment method in Manage Billing to keep your access.",
+      "status_canceling_title": "Subscription ending",
+      "status_canceling_desc": "You keep full access until {date}. You can resubscribe at any time.",
+      "access_until": "Access until",
+      "current_plan": "Current plan",
+      "interval_annual": "Annual",
+      "interval_monthly": "Monthly",
+      "feat_translation": "Report Translation",
+      "unit_translations": "translations",
+      "near_limit": "You are close to your monthly limits — upgrade to keep working without interruption.",
+      "feat_word": "Word export",
+      "feat_no_word": "No Word export",
+      "feat_html": "HTML export",
+      "feat_no_html": "No HTML export",
+      "feat_trans_unlimited": "Report Translation (Unlimited)",
+      "feat_no_translation": "No Report Translation",
+      "wl_limited": "Limited worklist",
+      "stats_none": "No Statistics",
+      "lan_multisite": "LAN Sync (Multi-site)",
+      "lan_single": "LAN Sync (1 site · 3 PCs)",
+      "lan_none": "No LAN Sync",
+      "one_user": "1 user",
+      "recommended": "Recommended",
+      "billed_annually": "billed annually",
+      "subscribe_btn": "Subscribe",
+      "activate_free": "Activate Free Plan",
+      "redirecting": "Redirecting…",
+      "activating": "Activating…",
+      "error_prefix": "Error:",
+      "add": "Add",
+      "loading": "Loading…",
+      "billing_portal_error": "Could not open the billing portal:",
+      "canceling": "Canceling…",
+      "cancel_success": "Subscription canceled. You keep access until the end of your billing period."
     },
     "referral": {
       "title": "Referral Program",
@@ -275,7 +322,24 @@
       "local": "Patient reports stay on your machine — never uploaded",
       "builtFor": "Built for Radiologists",
       "clinics": "Designed for Radiologists in Europe",
-      "fast": "Reports completed in under 60 seconds"
+      "fast": "Reports completed in under 60 seconds",
+      "heading": "Your reports. Your workflow. Your data.",
+      "item1": {
+        "name": "Local encryption",
+        "desc": "Reports encrypted and stored on your machine. No cloud storage."
+      },
+      "item2": {
+        "name": "GDPR / RGPD",
+        "desc": "Fully compliant with European data protection regulations."
+      },
+      "item3": {
+        "name": "Built for radiologists",
+        "desc": "Designed by a radiologist. Unlimited structured templates covering every modality."
+      },
+      "item4": {
+        "name": "Fast desktop workflow",
+        "desc": "A full report in under 60 seconds. Offline-capable. No browser lag."
+      }
     },
     "billing": {
       "monthly": "Monthly",
@@ -363,12 +427,12 @@
         "name": "PISUM Clinic",
         "subtitle": "Multi-location · Team management",
         "period": "/ month",
-        "microcopy": "Includes 5 users · +€69 per additional user",
-        "cta": "Get Started",
+        "microcopy": "Includes 5 users · +€79 per additional user",
+        "cta": "Try Clinic Free — 14 days",
         "extraUsers": "Need more than 5 users? Add additional seats from your post-subscription control panel.",
         "usersCount": "5 users",
         "f1": "Custom templates",
-        "f2": "5 users included (+€69 per additional)",
+        "f2": "5 users included (+€79 per additional)",
         "f3": "23 languages",
         "f4": "PDF + Word + HTML Export",
         "f5": "AI Dictation (Unlimited)",
@@ -446,7 +510,8 @@
       "mySubscription": "My Subscription",
       "support": "Support",
       "terms": "Terms of Service",
-      "privacy": "Privacy Policy"
+      "privacy": "Privacy Policy",
+      "docs": "Docs"
     },
     "table": {
       "cat_templates": "Templates & Content",
@@ -468,7 +533,10 @@
       "cat_support": "Support",
       "feat_support": "Support level",
       "lan_expert": "1 location · max. 3 workstations",
-      "lan_clinic": "Multi-location · unlimited workstations"
+      "lan_clinic": "Multi-location · unlimited workstations",
+      "feature": "Feature",
+      "feat_patients": "Reports / month",
+      "feat_dictation_min": "AI Dictation"
     },
     "piw_name": "PISUM AI",
     "piw_status": "Online — always here to help you",
@@ -493,7 +561,14 @@
         "author": "Dr. M. — Radiology Resident",
         "role": "University Hospital"
       }
-    }
+    },
+    "clinic": {
+      "eyebrow": "Clinic Plan",
+      "heading": "Built for radiology departments.",
+      "sub": "Powerful multi-site tools, centralized teamwork and dedicated technical support.",
+      "users": "5 users included · Additional users — €79/user"
+    },
+    "piw_trigger": "Ask a question"
   },
   "index": {
     "button_1": "✕",
@@ -792,7 +867,7 @@
     "p_49": "Multi-site · Team management.",
     "button_42": "Contact Sales",
     "li_44": "<span class=\"lchk\">✓</span>Custom templates",
-    "li_45": "<span class=\"lchk\">✓</span>5 users incl. (+€69/extra)",
+    "li_45": "<span class=\"lchk\">✓</span>5 users incl. (+€79/extra)",
     "li_46": "<span class=\"lchk\">✓</span>23 languages",
     "li_47": "<span class=\"lchk\">✓</span>PDF + Word + HTML export",
     "li_48": "<span class=\"lchk\">✓</span>🎙️ AI Dictation (Unlimited)",
