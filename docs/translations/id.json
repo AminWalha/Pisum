@@ -1048,7 +1048,7 @@
     "dict_h2_1": "Dikte yang memahami radiologi.",
     "dict_h2_2": "Bukan hanya kata — makna medis.",
     "dict_p": "Bicara secara alami, secara real time. Sally AI mengenali semiologi, anatomi, pengukuran, dan klasifikasi dalam konteks, dalam 23 bahasa — dan menulis temuan Anda seperti Anda mengetiknya.",
-    "dict_note": "Dikte uji coba sebenarnya, direkam dalam bahasa Prancis — kalimat yang sama, dua mesin",
+    "dict_note": "Contoh ilustratif — kalimat yang sama, dua mesin",
     "dict_generic_tag": "Pengenalan ucapan generik",
     "dict_pisum_tag": "PISUM · Sally AI",
     "dict_badge": "🎙️ SALLY AI",
@@ -1068,7 +1068,15 @@
     "dict_fact_2": "Diproses di dalam Uni Eropa",
     "dict_fact_3": "Audio tidak pernah disimpan oleh PISUM",
     "dict_cta": "Temukan Sintesis Klinis",
-    "dict_cta_sub": "Termasuk dalam setiap paket · Gratis 30 menit · 500 menit Starter · 2.000 menit Pro · Tanpa batas pada Expert &amp; Clinic"
+    "dict_cta_sub": "Termasuk dalam setiap paket · Gratis 30 menit · 500 menit Starter · 2.000 menit Pro · Tanpa batas pada Expert &amp; Clinic",
+    "dict_ex1_bad": "Small pleural <span class=\"dict-bad\">fusion</span> on the left",
+    "dict_ex1_good": "Small pleural <span class=\"dict-good\">effusion</span> on the left",
+    "dict_ex2_bad": "measuring 3 <span class=\"dict-bad\">by</span> 4 <span class=\"dict-bad\">by</span> 7 <span class=\"dict-bad\">millimeters</span>",
+    "dict_ex2_good": "measuring <span class=\"dict-good\">3 x 4 x 7 mm</span>",
+    "dict_ex3_bad": "classified <span class=\"dict-bad\">E you tie rads</span> 3",
+    "dict_ex3_good": "classified <span class=\"dict-good\">EU-TIRADS 3</span>",
+    "dict_ex4_bad": "Nodule in the <span class=\"dict-bad\">write</span> upper lobe",
+    "dict_ex4_good": "Nodule in the <span class=\"dict-good\">right</span> upper lobe"
   },
   "hero": {
     "title": "Lebih dari sekadar pelaporan.<br/><span style=\"background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text\">Sintesis klinis.</span>",

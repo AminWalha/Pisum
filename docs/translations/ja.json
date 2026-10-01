@@ -1048,7 +1048,7 @@
     "dict_h2_1": "放射線科を理解する音声入力。",
     "dict_h2_2": "単なる言葉ではなく、医学的な意味を。",
     "dict_p": "リアルタイムで自然に話すだけです。Sally AIは、23言語で半特徴、解剖学的構造、測定値、分類を文脈で認識し、あなたが入力する形式で所見を記述します。",
-    "dict_note": "実際のテスト音声入力、フランス語で録音 — 同じ文章、2つのエンジン",
+    "dict_note": "例 — 同じ文章、2つのエンジン",
     "dict_generic_tag": "汎用音声認識",
     "dict_pisum_tag": "PISUM · Sally AI",
     "dict_badge": "🎙️ SALLY AI",
@@ -1068,7 +1068,15 @@
     "dict_fact_2": "欧州連合内で処理",
     "dict_fact_3": "音声はPISUMによって保存されません",
     "dict_cta": "Clinical Synthesisを体験",
-    "dict_cta_sub": "全プランに含まれます · 無料30分 · Starter 500分 · Pro 2,000分 · Expert & Clinic 無制限"
+    "dict_cta_sub": "全プランに含まれます · 無料30分 · Starter 500分 · Pro 2,000分 · Expert & Clinic 無制限",
+    "dict_ex1_bad": "Small pleural <span class=\"dict-bad\">fusion</span> on the left",
+    "dict_ex1_good": "Small pleural <span class=\"dict-good\">effusion</span> on the left",
+    "dict_ex2_bad": "measuring 3 <span class=\"dict-bad\">by</span> 4 <span class=\"dict-bad\">by</span> 7 <span class=\"dict-bad\">millimeters</span>",
+    "dict_ex2_good": "measuring <span class=\"dict-good\">3 x 4 x 7 mm</span>",
+    "dict_ex3_bad": "classified <span class=\"dict-bad\">E you tie rads</span> 3",
+    "dict_ex3_good": "classified <span class=\"dict-good\">EU-TIRADS 3</span>",
+    "dict_ex4_bad": "Nodule in the <span class=\"dict-bad\">write</span> upper lobe",
+    "dict_ex4_good": "Nodule in the <span class=\"dict-good\">right</span> upper lobe"
   },
   "hero": {
     "title": "レポート作成にとどまらず。<br/><span style=\"background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text\">臨床的統合。</span>",

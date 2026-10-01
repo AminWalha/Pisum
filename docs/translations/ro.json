@@ -1048,7 +1048,7 @@
     "dict_h2_1": "Dictare vocală care înțelege radiologia.",
     "dict_h2_2": "Nu doar cuvinte — sens medical.",
     "dict_p": "Vorbiți natural, în timp real. Sally AI recunoaște semiologia, anatomia, măsurătorile și clasificările în context, în 23 de limbi — și vă scrie constatările așa cum le-ați tasta.",
-    "dict_note": "Test real de dictare vocală, înregistrat în franceză — aceleași propoziții, două motoare",
+    "dict_note": "Exemple ilustrative — aceleași propoziții, două motoare",
     "dict_generic_tag": "Recunoaștere generică a vorbirii",
     "dict_pisum_tag": "PISUM · Sally AI",
     "dict_badge": "🎙️ SALLY AI",
@@ -1068,7 +1068,15 @@
     "dict_fact_2": "Procesat în Uniunea Europeană",
     "dict_fact_3": "Audio niciodată stocat de PISUM",
     "dict_cta": "Descoperiți Sinteza Clinică",
-    "dict_cta_sub": "Inclus în fiecare plan · 30 min gratuit · 500 min Starter · 2.000 min Pro · Nelimitat pe Expert &amp; Clinic"
+    "dict_cta_sub": "Inclus în fiecare plan · 30 min gratuit · 500 min Starter · 2.000 min Pro · Nelimitat pe Expert &amp; Clinic",
+    "dict_ex1_bad": "Small pleural <span class=\"dict-bad\">fusion</span> on the left",
+    "dict_ex1_good": "Small pleural <span class=\"dict-good\">effusion</span> on the left",
+    "dict_ex2_bad": "measuring 3 <span class=\"dict-bad\">by</span> 4 <span class=\"dict-bad\">by</span> 7 <span class=\"dict-bad\">millimeters</span>",
+    "dict_ex2_good": "measuring <span class=\"dict-good\">3 x 4 x 7 mm</span>",
+    "dict_ex3_bad": "classified <span class=\"dict-bad\">E you tie rads</span> 3",
+    "dict_ex3_good": "classified <span class=\"dict-good\">EU-TIRADS 3</span>",
+    "dict_ex4_bad": "Nodule in the <span class=\"dict-bad\">write</span> upper lobe",
+    "dict_ex4_good": "Nodule in the <span class=\"dict-good\">right</span> upper lobe"
   },
   "hero": {
     "title": "Mai mult decât raportare.<br/><span style=\"background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text\">Sinteză clinică.</span>",

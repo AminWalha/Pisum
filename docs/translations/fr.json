@@ -922,7 +922,7 @@
     "dict_h2_1": "Une dictée qui comprend la radiologie.",
     "dict_h2_2": "Pas seulement des mots — du sens médical.",
     "dict_p": "Parlez naturellement, en temps réel. Sally AI reconnaît la sémiologie, l'anatomie, les mesures et les classifications en contexte, dans 23 langues — et rédige vos observations comme vous les taperiez.",
-    "dict_note": "Vraie dictée de test, enregistrée en français — mêmes phrases, deux moteurs",
+    "dict_note": "Dictée de test réelle, enregistrée en français — mêmes phrases, deux moteurs",
     "dict_generic_tag": "Reconnaissance vocale générique",
     "dict_pisum_tag": "PISUM · Sally AI",
     "dict_badge": "🎙️ SALLY AI",
@@ -942,7 +942,15 @@
     "dict_fact_2": "Traité au sein de l'Union Européenne",
     "dict_fact_3": "Audio jamais stocké par PISUM",
     "dict_cta": "Découvrir Synthèse Clinique",
-    "dict_cta_sub": "Inclus dans chaque plan · 30 min gratuites · 500 min Starter · 2 000 min Pro · Illimité sur Expert &amp; Clinic"
+    "dict_cta_sub": "Inclus dans chaque plan · 30 min gratuites · 500 min Starter · 2 000 min Pro · Illimité sur Expert &amp; Clinic",
+    "dict_ex1_bad": "Présence d'un <span class=\"dict-bad\">adulte</span> pulmonaires <span class=\"dict-bad\">contorsiculé</span>",
+    "dict_ex1_good": "Présence d'un <span class=\"dict-good\">nodule</span> pulmonaire <span class=\"dict-good\">à contours spiculés</span>",
+    "dict_ex2_bad": "mesurant 3 <span class=\"dict-bad\">fois</span> 4 <span class=\"dict-bad\">fois</span> 7 <span class=\"dict-bad\">millimètres</span>",
+    "dict_ex2_good": "mesurant <span class=\"dict-good\">3 x 4 x 7 mm</span>",
+    "dict_ex3_bad": "classé <span class=\"dict-bad\">utérus</span> 3",
+    "dict_ex3_good": "classé <span class=\"dict-good\">EU-TIRADS 3</span>",
+    "dict_ex4_bad": "Vascularisation du lobe thyroïdien <span class=\"dict-bad\">endroit</span>",
+    "dict_ex4_good": "Vascularisation du lobe thyroïdien <span class=\"dict-good\">droit</span>"
   },
   "rgpd": {
     "a_1": "<img alt=\"Logo\" src=\"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png\"/>\n    PISUM",
