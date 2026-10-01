@@ -1,0 +1,64 @@
+/* Shared phone layout for the site pages (contact, faq, documentation, rgpd, terms, dpia, dpo).
+   Loaded after each page's inline <style>; index.html carries its own mobile block. */
+
+/* Nav CTA fallback for pages that never defined .btn-primary (documentation, rgpd, terms).
+   a:where() keeps it at element specificity, so any page rule on .btn-primary or an inline style still wins. */
+a:where(#nav-cta){background:var(--cyan,#00E5CC);color:#06060a;font-size:0.83rem;display:inline-flex;align-items:center}
+
+/* "Sign in" entry of the mobile menu: only shown where the bar link is hidden (≤640px).
+   No !important, so the inline display:none set for signed-in users still wins. */
+#nav-mobile-signin{display:none}
+
+body.menu-open{overflow:hidden}
+/* backdrop-filter makes .nav the containing block of the fixed menu panel,
+   squashing it into the 64px bar; drop it while the menu is open. */
+body.menu-open .nav{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;transition:none!important}
+
+@media (max-width:640px){
+  /* Nav: logo · language · CTA · menu on one line */
+  .nav{padding:0 1rem!important}
+  .nav-right{gap:0.5rem!important;position:relative}
+  #nav-signin{display:none!important}
+  #nav-cta{padding:0.45rem 0.85rem!important;font-size:0.78rem!important;white-space:nowrap;margin:0!important}
+  .nav-right .pisum-lang-wrapper{position:static;margin-right:0}
+  .nav-right .pisum-lang-dropdown{right:0;max-width:calc(100vw - 2rem)}
+
+  /* Mobile menu: full-width rows with real tap targets */
+  .nav-links.open{overflow-y:auto;gap:0!important;padding:0.5rem 1.25rem 2rem!important}
+  .nav-links.open li{width:100%;border-bottom:1px solid rgba(255,255,255,0.08)}
+  .nav-links.open a{display:block;padding:0.85rem 0}
+  .nav-links.open #nav-mobile-signin{display:list-item}
+  .nav-links.open #nav-mobile-signin a{color:var(--cyan,#00E5CC);font-weight:600}
+
+  /* Wide tables scroll sideways instead of pushing the page wider */
+  .data-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .data-table th,.data-table td{min-width:110px}
+
+  /* DPO signature line */
+  .designation-block .signed-line{flex-wrap:wrap;gap:0.85rem 1.25rem}
+  .designation-block .sign-box{flex:1 1 40%}
+
+  /* Footer */
+  .foot-in{flex-direction:column;align-items:center;text-align:center}
+  .foot-links{flex-wrap:wrap;justify-content:center;gap:0.4rem 1.25rem!important}
+
+  /* "Ask AI" widget: round button, full-width panel, no iOS zoom on focus */
+  body #piw{bottom:calc(16px + env(safe-area-inset-bottom,0px));right:16px}
+  body #piw-trigger{width:52px;height:52px;padding:0;justify-content:center;font-size:0;gap:0}
+  body #piw-trigger svg{width:22px;height:22px}
+  body #piw-panel{position:fixed;left:12px;right:12px;bottom:calc(80px + env(safe-area-inset-bottom,0px));width:auto;max-height:calc(100dvh - 190px)}
+  body #piw-msgs{max-height:none}
+  body #piw-input{font-size:16px}
+  body.menu-open #piw{display:none}
+}
+
+@media (max-width:640px){
+  /* Long single words (German compounds, etc.) must not widen the page */
+  h1,h2,h3,.dpo-card{overflow-wrap:anywhere;hyphens:auto;-webkit-hyphens:auto}
+}
+
+@media (max-width:380px){
+  .nav-logo{font-size:0!important;gap:0!important}
+  /* Longer CTA labels ("Démarrer gratuitement") wrap instead of pushing the menu off-screen */
+  #nav-cta{white-space:normal!important;line-height:1.15;text-align:center;max-width:8.5rem;padding:0.35rem 0.75rem!important;font-size:0.74rem!important}
+}

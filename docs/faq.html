@@ -67,6 +67,7 @@
   ]
 }
 </script>
+<link rel="icon" href="/favicon.ico" sizes="any"/>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"/>
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png"/>
@@ -241,6 +242,7 @@ a { text-decoration: none; color: inherit; }
 .animate-in { animation: fadeUp 0.55s cubic-bezier(0.16,1,0.3,1) both; }
 .d1{animation-delay:0.05s}.d2{animation-delay:0.12s}.d3{animation-delay:0.2s}.d4{animation-delay:0.28s}
 </style>
+<link rel="stylesheet" href="mobile.css?v=20261002"/>
 </head>
 <body>
 
@@ -265,6 +267,7 @@ a { text-decoration: none; color: inherit; }
     <li><a href="faq.html" class="active">FAQ</a></li>
     <li><a href="documentation.html">Docs</a></li>
     <li><a href="contact.html">Contact</a></li>
+    <li id="nav-mobile-signin"><a href="https://pisum.app/saas/frontend/auth.html">Sign in</a></li>
     <li id="nav-mobile-signout" style="display:none"><a href="javascript:void(0)" id="nav-mobile-signout-btn">Sign Out</a></li>
   </ul>
   <div class="nav-right">
@@ -293,7 +296,7 @@ a { text-decoration: none; color: inherit; }
   function getPisumUser(){var m=document.cookie.match(/(?:^|;\s*)pisum_user=([^;]+)/);if(!m)return null;try{return JSON.parse(decodeURIComponent(m[1]));}catch{return null;}}
   var u=getPisumUser();
   if(!u)return;
-  ['nav-cta','nav-signin','nav-subscribe'].forEach(function(id){var el=document.getElementById(id);if(el)el.style.display='none';});
+  ['nav-cta','nav-signin','nav-mobile-signin','nav-subscribe'].forEach(function(id){var el=document.getElementById(id);if(el)el.style.display='none';});
   document.getElementById('nav-profile-name').textContent=u.name;
   document.getElementById('nav-profile-email').textContent=u.email;
   document.getElementById('nav-profile').style.display='flex';
@@ -352,7 +355,7 @@ a { text-decoration: none; color: inherit; }
           </button>
           <div class="acc-body">
             <div class="acc-body-inner">
-              PISUM is a dedicated desktop application engineered to assist radiologists in structuring and synthesizing their clinical reports. Unlike basic speech-to-text dictation tools, PISUM incorporates a <strong>semiotic synthesis engine</strong>[cite: 5]: it connects isolated anatomical observations across exam sections, clarifies multi-organ findings, and structures a coherent, publication-grade impression across 112 peer-built protocols.
+              PISUM is a dedicated desktop application engineered to assist radiologists in structuring and synthesizing their clinical reports. Unlike basic speech-to-text dictation tools, PISUM incorporates a <strong>semiotic synthesis engine</strong>: it connects isolated anatomical observations across exam sections, clarifies multi-organ findings, and structures a coherent, publication-grade impression across 112 peer-built protocols.
             </div>
           </div>
         </div>
@@ -364,7 +367,7 @@ a { text-decoration: none; color: inherit; }
           </button>
           <div class="acc-body">
             <div class="acc-body-inner">
-              <strong>No.</strong> PISUM is a clinical synthesis and structured reporting tool. It does not perform autonomous image analysis on DICOM pixels and does not replace the physician's interpretation[cite: 1, 5]. The reviewing radiologist remains the sole clinical authority: you examine the images, edit the synthesized proposals, validate the findings, and maintain complete legal responsibility for the signed medical report[cite: 1, 4, 5].
+              <strong>No.</strong> PISUM is a clinical synthesis and structured reporting tool. It does not perform autonomous image analysis on DICOM pixels and does not replace the physician's interpretation. The reviewing radiologist remains the sole clinical authority: you examine the images, edit the synthesized proposals, validate the findings, and maintain complete legal responsibility for the signed medical report.
             </div>
           </div>
         </div>
@@ -376,13 +379,13 @@ a { text-decoration: none; color: inherit; }
           </button>
           <div class="acc-body">
             <div class="acc-body-inner">
-              When you document related signs across different compartments (such as IVC thrombosis, hepatic vein flow obliteration, and caudate lobe enlargement), PISUM connects these findings into an overarching clinical entity (e.g. <em>Budd-Chiari syndrome</em>) instead of leaving disjointed notes[cite: 4, 5].<br/><br/>
-              It organizes impressions according to 4 standardized certainty levels[cite: 4, 5]:
+              When you document related signs across different compartments (such as IVC thrombosis, hepatic vein flow obliteration, and caudate lobe enlargement), PISUM connects these findings into an overarching clinical entity (e.g. <em>Budd-Chiari syndrome</em>) instead of leaving disjointed notes.<br/><br/>
+              It organizes impressions according to 4 standardized certainty levels:
               <ul>
-                <li><strong>Confirming:</strong> Direct, unambiguous hallmark imaging signs[cite: 4, 5].</li>
-                <li><strong>Suggestive of:</strong> Strong pattern matching requiring clinical correlation[cite: 4, 5].</li>
-                <li><strong>Compatible with:</strong> Consistent non-specific signs aligned with patient history[cite: 4, 5].</li>
-                <li><strong>Cannot exclude:</strong> Subtle threshold markers or indirect indicators requiring monitoring[cite: 4, 5].</li>
+                <li><strong>Confirming:</strong> Direct, unambiguous hallmark imaging signs.</li>
+                <li><strong>Suggestive of:</strong> Strong pattern matching requiring clinical correlation.</li>
+                <li><strong>Compatible with:</strong> Consistent non-specific signs aligned with patient history.</li>
+                <li><strong>Cannot exclude:</strong> Subtle threshold markers or indirect indicators requiring monitoring.</li>
               </ul>
             </div>
           </div>
@@ -395,7 +398,7 @@ a { text-decoration: none; color: inherit; }
           </button>
           <div class="acc-body">
             <div class="acc-body-inner">
-              PISUM enforces an <strong>Emergency-First</strong> clinical hierarchy[cite: 4, 5]. Any sign pointing to an acute condition (such as vascular thrombosis, active hemorrhage, ischemic compromise, occlusive pulmonary embolism, or tension pneumothorax) is automatically promoted to the <strong>first bullet point of the impression</strong> and flagged with an alert[cite: 4, 5]. Life-saving information is never hidden inside routine boilerplate[cite: 4, 5].
+              PISUM enforces an <strong>Emergency-First</strong> clinical hierarchy. Any sign pointing to an acute condition (such as vascular thrombosis, active hemorrhage, ischemic compromise, occlusive pulmonary embolism, or tension pneumothorax) is automatically promoted to the <strong>first bullet point of the impression</strong> and flagged with an alert. Life-saving information is never hidden inside routine boilerplate.
             </div>
           </div>
         </div>
@@ -415,7 +418,7 @@ a { text-decoration: none; color: inherit; }
           </button>
           <div class="acc-body">
             <div class="acc-body-inner">
-              <strong>Your patient files and clinical reports remain strictly on your local infrastructure[cite: 1, 4, 5].</strong> Databases and completed reports are stored on your reading workstation (or your practice's local network share) protected by <strong>AES-256 encryption</strong>[cite: 1, 4, 5]. PISUM does not host or store identifiable medical records on external cloud databases[cite: 4, 5].
+              <strong>Your patient files and clinical reports remain strictly on your local infrastructure.</strong> Databases and completed reports are stored on your reading workstation (or your practice's local network share) protected by <strong>AES-256 encryption</strong>. PISUM does not host or store identifiable medical records on external cloud databases.
             </div>
           </div>
         </div>
@@ -427,10 +430,10 @@ a { text-decoration: none; color: inherit; }
           </button>
           <div class="acc-body">
             <div class="acc-body-inner">
-              There is an absolute boundary between patient identification and AI processing[cite: 4]:
+              There is an absolute boundary between patient identification and AI processing:
               <ul>
-                <li><strong>Local Data (Zero Cloud Transfer):</strong> Patient identities (name, date of birth, medical record ID/IPP), patient archives, and local exam queues remain strictly on your machine[cite: 4, 5].</li>
-                <li><strong>AI Processing (Ephemeral Transit):</strong> Only isolated, de-identified clinical text phrases or voice audio stream securely over encrypted channels (HTTPS / TLS 1.3) to API endpoints[cite: 4]. Processing occurs in volatile memory, is deleted immediately after completion, and is <strong>never</strong> retained or used to train public machine learning models[cite: 4, 5].</li>
+                <li><strong>Local Data (Zero Cloud Transfer):</strong> Patient identities (name, date of birth, medical record ID/IPP), patient archives, and local exam queues remain strictly on your machine.</li>
+                <li><strong>AI Processing (Ephemeral Transit):</strong> Only isolated, de-identified clinical text phrases or voice audio stream securely over encrypted channels (HTTPS / TLS 1.3) to API endpoints. Processing occurs in volatile memory, is deleted immediately after completion, and is <strong>never</strong> retained or used to train public machine learning models.</li>
               </ul>
             </div>
           </div>
@@ -443,7 +446,7 @@ a { text-decoration: none; color: inherit; }
           </button>
           <div class="acc-body">
             <div class="acc-body-inner">
-              Yes[cite: 4, 5]. Built upon <em>Privacy by Design</em> principles (GDPR Art. 25)[cite: 4], local data isolation ensures clinical secrecy and satisfies healthcare DPO requirements[cite: 4]. An immutable local audit trail logs all report creations and exports[cite: 1, 4, 5]. The desktop software communicates through standard outbound HTTPS ports (Port 443), requiring zero inbound firewall modifications[cite: 5].
+              Yes. Built upon <em>Privacy by Design</em> principles (GDPR Art. 25), local data isolation ensures clinical secrecy and satisfies healthcare DPO requirements. An immutable local audit trail logs all report creations and exports. The desktop software communicates through standard outbound HTTPS ports (Port 443), requiring zero inbound firewall modifications.
             </div>
           </div>
         </div>
@@ -463,11 +466,11 @@ a { text-decoration: none; color: inherit; }
           </button>
           <div class="acc-body">
             <div class="acc-body-inner">
-              PISUM operates as a companion workstation application without forcing heavy infrastructure overhauls[cite: 4]:
+              PISUM operates as a companion workstation application without forcing heavy infrastructure overhauls:
               <ul>
-                <li><strong>Instant Rich-Text Transfer:</strong> With a single shortcut or click, formatted report content copies to your clipboard ready for direct pasting into your RIS or PACS editor with formatting intact[cite: 4].</li>
-                <li><strong>Document Exports:</strong> Export clean PDF or Word (.docx) documents complete with your clinic's letterhead and digital signatures[cite: 4, 5].</li>
-                <li><strong>Direct Connectors (HL7 / DICOM SR):</strong> Direct integration connectors are actively on our development roadmap[cite: 4, 5].</li>
+                <li><strong>Instant Rich-Text Transfer:</strong> With a single shortcut or click, formatted report content copies to your clipboard ready for direct pasting into your RIS or PACS editor with formatting intact.</li>
+                <li><strong>Document Exports:</strong> Export clean PDF or Word (.docx) documents complete with your clinic's letterhead and digital signatures.</li>
+                <li><strong>Direct Connectors (HL7 / DICOM SR):</strong> Direct integration connectors are actively on our development roadmap.</li>
               </ul>
             </div>
           </div>
@@ -480,7 +483,7 @@ a { text-decoration: none; color: inherit; }
           </button>
           <div class="acc-body">
             <div class="acc-body-inner">
-              Included in Expert and Clinic plans, LAN Sync lets reading rooms share a local database and worklist across multiple stations using an internal shared folder (Windows SMB share or internal clinic NAS)[cite: 1, 4, 5]. All data remains within your local network with AES-256 protection, requiring no external server hosting or third-party cloud dependence[cite: 1, 4].
+              Included in Expert and Clinic plans, LAN Sync lets reading rooms share a local database and worklist across multiple stations using an internal shared folder (Windows SMB share or internal clinic NAS). All data remains within your local network with AES-256 protection, requiring no external server hosting or third-party cloud dependence.
             </div>
           </div>
         </div>
@@ -492,8 +495,8 @@ a { text-decoration: none; color: inherit; }
           </button>
           <div class="acc-body">
             <div class="acc-body-inner">
-              PISUM includes <strong>112 expert structured templates</strong> covering CT, MRI, Ultrasound, and X-Ray across all anatomical regions[cite: 1, 4, 5]. You can fully customize these templates or build custom department protocols[cite: 1, 4, 5].<br/><br/>
-              The integrated Sally AI voice engine recognizes medical terminology across 23 languages[cite: 4, 5]. You can dictate telegraphic notes or conversational descriptions directly into template fields before generating the clinical synthesis[cite: 4, 5].
+              PISUM includes <strong>112 expert structured templates</strong> covering CT, MRI, Ultrasound, and X-Ray across all anatomical regions. You can fully customize these templates or build custom department protocols.<br/><br/>
+              The integrated Sally AI voice engine recognizes medical terminology across 23 languages. You can dictate telegraphic notes or conversational descriptions directly into template fields before generating the clinical synthesis.
             </div>
           </div>
         </div>
@@ -505,7 +508,7 @@ a { text-decoration: none; color: inherit; }
           </button>
           <div class="acc-body">
             <div class="acc-body-inner">
-              Yes[cite: 4, 5]. The medical translation tool converts any finished report into any of 23 supported target languages within seconds[cite: 1, 4, 5]. Anatomical terminology, semiotic descriptions, and international classifications (e.g. BI-RADS, EU-TIRADS) remain preserved[cite: 1, 4, 5]. The original report remains completely untouched while linking a distinct translated copy to the patient exam[cite: 4].
+              Yes. The medical translation tool converts any finished report into any of 23 supported target languages within seconds. Anatomical terminology, semiotic descriptions, and international classifications (e.g. BI-RADS, EU-TIRADS) remain preserved. The original report remains completely untouched while linking a distinct translated copy to the patient exam.
             </div>
           </div>
         </div>
@@ -525,13 +528,13 @@ a { text-decoration: none; color: inherit; }
           </button>
           <div class="acc-body">
             <div class="acc-body-inner">
-              PISUM offers transparent plans tailored to your practice volume[cite: 1, 4]:
+              PISUM offers transparent plans tailored to your practice volume:
               <ul>
-                <li><strong>Free (€0):</strong> 10 templates, PDF export, and basic AI features (50 reports/month)[cite: 1, 4].</li>
-                <li><strong>Starter (€29/mo):</strong> 20 templates, Word/PDF export, and 50 AI report enhancements per month[cite: 1, 4].</li>
-                <li><strong>Pro (€79/mo):</strong> The complete clinical suite with all 112+ templates, 200 AI enhancements, translation, and full worklist[cite: 1, 4].</li>
-                <li><strong>Expert (€129/mo):</strong> Unlimited AI synthesis, unlimited dictation, full statistics, and 3-workstation LAN sync[cite: 1, 4].</li>
-                <li><strong>Clinic (€399/mo):</strong> Team license including 5 physician seats (+€79/extra user), unlimited LAN sync, and department admin[cite: 1, 4].</li>
+                <li><strong>Free (€0):</strong> 10 templates, PDF export, and basic AI features (50 reports/month).</li>
+                <li><strong>Starter (€29/mo):</strong> 20 templates, Word/PDF export, and 50 AI report enhancements per month.</li>
+                <li><strong>Pro (€79/mo):</strong> The complete clinical suite with all 112+ templates, 200 AI enhancements, translation, and full worklist.</li>
+                <li><strong>Expert (€129/mo):</strong> Unlimited AI synthesis, unlimited dictation, full statistics, and 3-workstation LAN sync.</li>
+                <li><strong>Clinic (€399/mo):</strong> Team license including 5 physician seats (+€79/extra user), unlimited LAN sync, and department admin.</li>
               </ul>
             </div>
           </div>
@@ -544,8 +547,8 @@ a { text-decoration: none; color: inherit; }
           </button>
           <div class="acc-body">
             <div class="acc-body-inner">
-              Yes[cite: 4, 5]. Every paid plan includes a <strong>14-day free trial</strong> with full feature access and no commitment[cite: 1, 4, 5], along with a 30-day money-back guarantee[cite: 1, 4, 5].<br/><br/>
-              PISUM runs natively on <strong>Windows 10 and 11 (64-bit)</strong>[cite: 1, 4, 5]. A minimum of 8 GB RAM is required (16 GB is recommended for high-volume multi-screen reading room setups)[cite: 4, 5].
+              Yes. Every paid plan includes a <strong>14-day free trial</strong> with full feature access and no commitment, along with a 30-day money-back guarantee.<br/><br/>
+              PISUM runs natively on <strong>Windows 10 and 11 (64-bit)</strong>. A minimum of 8 GB RAM is required (16 GB is recommended for high-volume multi-screen reading room setups).
             </div>
           </div>
         </div>
@@ -559,7 +562,7 @@ a { text-decoration: none; color: inherit; }
 <section class="faq-cta">
   <div class="container-wide faq-cta-in">
     <h2>Have specific clinical or integration questions?</h2>
-    <p>Our team is available to discuss custom workflows, practice configurations, and hospital deployments[cite: 5].</p>
+    <p>Our team is available to discuss custom workflows, practice configurations, and hospital deployments.</p>
     <a href="contact.html" class="btn-grad">Contact our team →</a>
   </div>
 </section>
@@ -571,7 +574,7 @@ a { text-decoration: none; color: inherit; }
         <img src="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png" alt="Logo"/>
         PISUM
       </div>
-      <p class="foot-copy">© 2026 PISUM. All rights reserved.[cite: 4, 5]</p>
+      <p class="foot-copy">© 2026 PISUM. All rights reserved.</p>
       <div class="foot-links">
         <a href="rgpd.html">Privacy</a>
         <a href="terms.html">Terms</a>
@@ -596,7 +599,7 @@ window.addEventListener('scroll', () => {
 // Mobile menu toggle
 const ham = document.getElementById('ham'), nl = document.getElementById('nav-links');
 if (ham && nl) {
-  ham.addEventListener('click', () => nl.classList.toggle('open'));
+  ham.addEventListener('click', () => document.body.classList.toggle('menu-open', nl.classList.toggle('open')));
 }
 
 // Accordion toggle

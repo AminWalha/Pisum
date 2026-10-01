@@ -30,6 +30,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebPage","name":"Terms of Use — PISUM","url":"https://pisum.app/terms.html","description":"Terms of use for PISUM radiology reporting software, including usage license, medical liability disclaimer, and data privacy conditions.","inLanguage":"en","publisher":{"@type":"Organization","name":"PISUM","url":"https://pisum.app","logo":"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"}}
 </script>
+<link rel="icon" href="/favicon.ico" sizes="any"/>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"/>
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png"/>
@@ -182,6 +183,7 @@ footer { background: var(--s1); border-top: 1px solid var(--border); padding: 2r
 .animate-in { animation: fadeUp 0.55s cubic-bezier(0.25,1,0.5,1) both; }
 .d1{animation-delay:0.05s}.d2{animation-delay:0.12s}.d3{animation-delay:0.2s}
 </style>
+<link rel="stylesheet" href="mobile.css?v=20261002"/>
 </head>
 <body>
 
@@ -198,10 +200,11 @@ footer { background: var(--s1); border-top: 1px solid var(--border); padding: 2r
     <li data-i18n="terms.li_5"><a href="faq.html">FAQ</a></li>
     <li data-i18n="terms.li_6"><a href="documentation.html">Docs</a></li>
     <li data-i18n="terms.li_7"><a href="contact.html">Contact</a></li>
+    <li id="nav-mobile-signin"><a href="https://pisum.app/saas/frontend/auth.html" data-i18n="terms.a_signin">Sign in</a></li>
     <li id="nav-mobile-signout" style="display:none"><a href="javascript:void(0)" id="nav-mobile-signout-btn">Sign Out</a></li>
   </ul>
   <div class="nav-right">
-    <a href="https://pisum.app/" id="nav-signin" data-i18n="terms.a_signin" style="font-size: 0.83rem; font-weight: 500; color: var(--ink-2); margin-right: 0.5rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--ink-2)'">Sign in</a>
+    <a href="https://pisum.app/saas/frontend/auth.html" id="nav-signin" data-i18n="terms.a_signin" style="font-size: 0.83rem; font-weight: 500; color: var(--ink-2); margin-right: 0.5rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--ink-2)'">Sign in</a>
     <a href="index.html#pricing" class="btn btn-primary btn-sm" id="nav-cta" data-i18n="terms.a_2" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600;">Get Started Free</a>
     <div id="nav-profile" class="nav-profile" style="display:none">
       <a href="https://pisum.app/saas/frontend/dashboard.html" class="nav-profile-link">
@@ -225,7 +228,7 @@ footer { background: var(--s1); border-top: 1px solid var(--border); padding: 2r
   function getPisumUser(){var m=document.cookie.match(/(?:^|;\s*)pisum_user=([^;]+)/);if(!m)return null;try{return JSON.parse(decodeURIComponent(m[1]));}catch{return null;}}
   var u=getPisumUser();
   if(!u)return;
-  ['nav-cta','nav-signin','nav-subscribe'].forEach(function(id){var el=document.getElementById(id);if(el)el.style.display='none';});
+  ['nav-cta','nav-signin','nav-mobile-signin','nav-subscribe'].forEach(function(id){var el=document.getElementById(id);if(el)el.style.display='none';});
   document.getElementById('nav-profile-name').textContent=u.name;
   document.getElementById('nav-profile-email').textContent=u.email;
   document.getElementById('nav-profile').style.display='flex';
@@ -383,7 +386,7 @@ footer { background: var(--s1); border-top: 1px solid var(--border); padding: 2r
 
 <script>
 const ham = document.getElementById('ham'), nl = document.getElementById('nav-links');
-if(ham) ham.addEventListener('click', () => nl.classList.toggle('open'));
+if(ham) ham.addEventListener('click', () => document.body.classList.toggle('menu-open', nl.classList.toggle('open')));
 
 // TOC active
 const sections = document.querySelectorAll('.prose-section');

@@ -21,7 +21,9 @@
 <meta property="og:description" content="PISUM DPO designation (GDPR Art. 37). Contact, tasks, independence guarantee, and exercising your data rights."/>
 <meta property="og:image" content="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
 <meta property="og:site_name" content="PISUM"/>
+<link rel="icon" href="/favicon.ico" sizes="any"/>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"/>
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png"/>
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -200,6 +202,7 @@ main { flex: 1; }
 .animate-in { animation: fadeUp 0.55s cubic-bezier(0.25,1,0.5,1) both; }
 .d1{animation-delay:0.05s}.d2{animation-delay:0.12s}.d3{animation-delay:0.2s}
 </style>
+<link rel="stylesheet" href="mobile.css?v=20261002"/>
 </head>
 <body>
 
@@ -216,10 +219,11 @@ main { flex: 1; }
     <li data-i18n="dpo.li_5"><a href="faq.html">FAQ</a></li>
     <li data-i18n="dpo.li_6"><a href="documentation.html">Docs</a></li>
     <li data-i18n="dpo.li_7"><a href="contact.html">Contact</a></li>
+    <li id="nav-mobile-signin"><a href="https://pisum.app/saas/frontend/auth.html" data-i18n="dpo.a_signin">Sign in</a></li>
     <li id="nav-mobile-signout" style="display:none"><a href="javascript:void(0)" id="nav-mobile-signout-btn">Sign Out</a></li>
   </ul>
   <div class="nav-right">
-    <a href="https://pisum.app/" id="nav-signin" data-i18n="dpo.a_signin" style="font-size: 0.83rem; font-weight: 500; color: var(--ink-2); margin-right: 0.5rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--ink-2)'">Sign in</a>
+    <a href="https://pisum.app/saas/frontend/auth.html" id="nav-signin" data-i18n="dpo.a_signin" style="font-size: 0.83rem; font-weight: 500; color: var(--ink-2); margin-right: 0.5rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--ink-2)'">Sign in</a>
     <a href="index.html#pricing" id="nav-cta" data-i18n="dpo.a_2" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600; background: var(--cyan); color: #06060a; font-size: 0.83rem;">Get Started Free</a>
     <div id="nav-profile" class="nav-profile" style="display:none">
       <a href="https://pisum.app/saas/frontend/dashboard.html" class="nav-profile-link">
@@ -241,7 +245,7 @@ main { flex: 1; }
   function getPisumUser(){var m=document.cookie.match(/(?:^|;\s*)pisum_user=([^;]+)/);if(!m)return null;try{return JSON.parse(decodeURIComponent(m[1]));}catch{return null;}}
   var u=getPisumUser();
   if(!u)return;
-  ['nav-cta','nav-signin','nav-subscribe'].forEach(function(id){var el=document.getElementById(id);if(el)el.style.display='none';});
+  ['nav-cta','nav-signin','nav-mobile-signin','nav-subscribe'].forEach(function(id){var el=document.getElementById(id);if(el)el.style.display='none';});
   document.getElementById('nav-profile-name').textContent=u.name;
   document.getElementById('nav-profile-email').textContent=u.email;
   document.getElementById('nav-profile').style.display='flex';
@@ -331,7 +335,7 @@ main { flex: 1; }
         </table>
 
         <div class="info-block cyan" data-i18n="dpo.ib1">
-          <strong>Designation scope.</strong> The DPO is designated for all processing activities conducted by PISUM as data controller, including: account management (Supabase), voice dictation (Deepgram), and the local patient database tool (SQLite). The DPO is also available to institutional users (clinics, hospitals) who use PISUM and have questions about their own compliance.
+          <strong>Designation scope.</strong> The DPO is designated for all processing activities conducted by PISUM as data controller, including: account management (Supabase), AI features — voice dictation and writing assistance (Google Cloud Vertex AI, EU), and the local patient database tool (SQLite). The DPO is also available to institutional users (clinics, hospitals) who use PISUM and have questions about their own compliance.
         </div>
       </div>
 
@@ -348,7 +352,7 @@ main { flex: 1; }
         <p data-i18n="dpo.s2p3">The DPO monitors PISUM's compliance with GDPR, including the assignment of responsibilities, raising awareness, training of staff, and the related audits. Monitoring activities include:</p>
         <ul>
           <li data-i18n="dpo.s2l1">Annual review of all consent texts and privacy notices.</li>
-          <li data-i18n="dpo.s2l2">Review of sub-processor DPAs (Supabase, Deepgram).</li>
+          <li data-i18n="dpo.s2l2">Review of sub-processor DPAs (Supabase, Google Cloud).</li>
           <li data-i18n="dpo.s2l3">Monitoring the incident log for events requiring Art. 33 notification.</li>
           <li data-i18n="dpo.s2l4">Reviewing DPIA annually and on any significant change.</li>
         </ul>
@@ -378,7 +382,7 @@ main { flex: 1; }
         </ul>
 
         <div class="info-block green" data-i18n="dpo.ib3">
-          <strong>Independence in practice.</strong> The DPO reviewed and approved the Deepgram benchmarking risk disclosure in PISUM v2.x — including the requirement to obtain explicit consent before voice dictation and the mandate to sign a DPA with Deepgram within 90 days. This decision was made independently of commercial considerations.
+          <strong>Independence in practice.</strong> For PISUM v2.x, the DPO reviewed the risk disclosure for the voice dictation provider then in use and required that a DPA be signed with it within 90 days. That provider has since been removed: AI features now run on Google Cloud (Vertex AI) in the European Union, and the DPO's assessment of this processing is in progress (DPIA v1.1). These decisions are made independently of commercial considerations.
         </div>
       </div>
 
@@ -513,7 +517,7 @@ main { flex: 1; }
 
 <script>
 const ham = document.getElementById('ham'), nl = document.getElementById('nav-links');
-if(ham) ham.addEventListener('click', () => nl.classList.toggle('open'));
+if(ham) ham.addEventListener('click', () => document.body.classList.toggle('menu-open', nl.classList.toggle('open')));
 const sections = document.querySelectorAll('.prose-section');
 const tocLinks = document.querySelectorAll('.toc-list a');
 window.addEventListener('scroll', () => {

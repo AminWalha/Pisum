@@ -18,10 +18,12 @@
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://pisum.app/dpia.html"/>
 <meta property="og:title" content="DPIA — Data Protection Impact Assessment | PISUM"/>
-<meta property="og:description" content="PISUM DPIA (GDPR Art. 35): risk assessment for health data processing, voice dictation via Deepgram, and Supabase account management."/>
+<meta property="og:description" content="PISUM DPIA (GDPR Art. 35): risk assessment for health data processing, AI features processed in the EU (Google Cloud Vertex AI), and Supabase account management."/>
 <meta property="og:image" content="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
 <meta property="og:site_name" content="PISUM"/>
+<link rel="icon" href="/favicon.ico" sizes="any"/>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"/>
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png"/>
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -167,6 +169,7 @@ main { flex: 1; }
 .risk-low { background: rgba(16,185,129,0.15); color: #10b981; border: 1px solid rgba(16,185,129,0.3); }
 .risk-med { background: rgba(245,158,11,0.15); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
 .risk-high { background: rgba(239,68,68,0.15); color: #ef4444; border: 1px solid rgba(239,68,68,0.3); }
+.risk-pending { background: rgba(148,163,184,0.12); color: #94a3b8; border: 1px solid rgba(148,163,184,0.3); }
 
 /* Signature block */
 .sig-block {
@@ -183,6 +186,7 @@ main { flex: 1; }
 .animate-in { animation: fadeUp 0.55s cubic-bezier(0.25,1,0.5,1) both; }
 .d1{animation-delay:0.05s}.d2{animation-delay:0.12s}.d3{animation-delay:0.2s}
 </style>
+<link rel="stylesheet" href="mobile.css?v=20261002"/>
 </head>
 <body>
 
@@ -199,10 +203,11 @@ main { flex: 1; }
     <li data-i18n="dpia.li_5"><a href="faq.html">FAQ</a></li>
     <li data-i18n="dpia.li_6"><a href="documentation.html">Docs</a></li>
     <li data-i18n="dpia.li_7"><a href="contact.html">Contact</a></li>
+    <li id="nav-mobile-signin"><a href="https://pisum.app/saas/frontend/auth.html" data-i18n="dpia.a_signin">Sign in</a></li>
     <li id="nav-mobile-signout" style="display:none"><a href="javascript:void(0)" id="nav-mobile-signout-btn">Sign Out</a></li>
   </ul>
   <div class="nav-right">
-    <a href="https://pisum.app/" id="nav-signin" data-i18n="dpia.a_signin" style="font-size: 0.83rem; font-weight: 500; color: var(--ink-2); margin-right: 0.5rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--ink-2)'">Sign in</a>
+    <a href="https://pisum.app/saas/frontend/auth.html" id="nav-signin" data-i18n="dpia.a_signin" style="font-size: 0.83rem; font-weight: 500; color: var(--ink-2); margin-right: 0.5rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--ink-2)'">Sign in</a>
     <a href="index.html#pricing" id="nav-cta" data-i18n="dpia.a_2" style="padding: 0.5rem 1rem; border-radius: 999px; text-decoration: none; font-weight: 600; background: var(--cyan); color: #06060a; font-size: 0.83rem;">Get Started Free</a>
     <div id="nav-profile" class="nav-profile" style="display:none">
       <a href="https://pisum.app/saas/frontend/dashboard.html" class="nav-profile-link">
@@ -224,7 +229,7 @@ main { flex: 1; }
   function getPisumUser(){var m=document.cookie.match(/(?:^|;\s*)pisum_user=([^;]+)/);if(!m)return null;try{return JSON.parse(decodeURIComponent(m[1]));}catch{return null;}}
   var u=getPisumUser();
   if(!u)return;
-  ['nav-cta','nav-signin','nav-subscribe'].forEach(function(id){var el=document.getElementById(id);if(el)el.style.display='none';});
+  ['nav-cta','nav-signin','nav-mobile-signin','nav-subscribe'].forEach(function(id){var el=document.getElementById(id);if(el)el.style.display='none';});
   document.getElementById('nav-profile-name').textContent=u.name;
   document.getElementById('nav-profile-email').textContent=u.email;
   document.getElementById('nav-profile').style.display='flex';
@@ -248,7 +253,7 @@ main { flex: 1; }
     <p class="hero-sub animate-in d3" data-i18n="dpia.p_1">Formal DPIA for PISUM radiology reporting software. Covers all processing activities involving personal and special-category health data.</p>
     <p class="hero-meta animate-in">
       <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2"/><path d="M6 4v2.5l1.5 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-      <span data-i18n="dpia.meta">Version 1.0 · May 2026 · GDPR Art. 35</span>
+      <span data-i18n="dpia.meta">Version 1.1 (draft, under DPO review) · October 2026 · GDPR Art. 35</span>
     </p>
   </div>
 </section>
@@ -262,7 +267,7 @@ main { flex: 1; }
         <li><a href="#s1" data-i18n="dpia.tl1">1. Context &amp; necessity</a></li>
         <li><a href="#s2" data-i18n="dpia.tl2">2. Processing activities</a></li>
         <li><a href="#s3" data-i18n="dpia.tl3">3. PA-1: Account data</a></li>
-        <li><a href="#s4" data-i18n="dpia.tl4">4. PA-2: Voice dictation</a></li>
+        <li><a href="#s4" data-i18n="dpia.tl4">4. PA-2: AI features</a></li>
         <li><a href="#s5" data-i18n="dpia.tl5">5. PA-3: Local database</a></li>
         <li><a href="#s6" data-i18n="dpia.tl6">6. Risk summary</a></li>
         <li><a href="#s7" data-i18n="dpia.tl7">7. Residual risk &amp; conclusion</a></li>
@@ -282,8 +287,7 @@ main { flex: 1; }
         <ul>
           <li data-i18n="dpia.s1l1"><strong>Special category data (Art. 9)</strong> — voice audio streams may include dictated medical information about patients.</li>
           <li data-i18n="dpia.s1l2"><strong>Large-scale processing</strong> — PISUM targets clinics and hospitals processing hundreds to thousands of reports per month.</li>
-          <li data-i18n="dpia.s1l3"><strong>Innovative technology</strong> — AI voice dictation (Deepgram) and AI text enhancement (Gemini) are newly deployed in a medical context.</li>
-          <li data-i18n="dpia.s1l4"><strong>Third-country transfer</strong> — voice audio is transferred to Deepgram (USA) under Art. 49(1)(a).</li>
+          <li data-i18n="dpia.s1l3"><strong>Innovative technology</strong> — AI voice dictation and AI writing assistance (Google Cloud Vertex AI) are deployed in a medical context.</li>
         </ul>
 
         <div class="info-block blue" data-i18n="dpia.ib1">
@@ -294,7 +298,7 @@ main { flex: 1; }
         <p data-i18n="dpia.s1p3">This DPIA covers all three processing activities (PA) identified in PISUM v2.x:</p>
         <ul>
           <li data-i18n="dpia.s1l5"><strong>PA-1</strong> — Account and subscription data management (Supabase)</li>
-          <li data-i18n="dpia.s1l6"><strong>PA-2</strong> — Voice dictation audio processing (Deepgram)</li>
+          <li data-i18n="dpia.s1l6"><strong>PA-2</strong> — AI features: voice dictation and writing assistance (Google Cloud Vertex AI, EU)</li>
           <li data-i18n="dpia.s1l7"><strong>PA-3</strong> — Local patient database (SQLite, on-premises)</li>
         </ul>
       </div>
@@ -326,12 +330,12 @@ main { flex: 1; }
             </tr>
             <tr>
               <td>PA-2</td>
-              <td data-i18n="dpia.t1_r2c2">Voice dictation transcription</td>
+              <td data-i18n="dpia.t1_r2c2">AI features (voice dictation, writing assistance)</td>
               <td>PISUM</td>
-              <td>Deepgram, Inc.</td>
-              <td data-i18n="dpia.t1_r2c5">USA → EU return</td>
-              <td data-i18n="dpia.t1_r2c6">Personal — potentially health-adjacent</td>
-              <td><span class="risk risk-high">HIGH</span></td>
+              <td>Google Cloud (Vertex AI)</td>
+              <td data-i18n="dpia.t1_r2c5">EU (Vertex AI EU endpoint)</td>
+              <td data-i18n="dpia.t1_r2c6">Personal — potentially health-related (dictated or processed content)</td>
+              <td><span class="risk risk-pending" data-i18n="dpia.pending">UNDER REVIEW</span></td>
             </tr>
             <tr>
               <td>PA-3</td>
@@ -400,75 +404,60 @@ main { flex: 1; }
 
       <!-- ── 04 PA-2 ── -->
       <div class="prose-section" id="s4">
-        <h2><span class="num">04</span> <span data-i18n="dpia.s4h">PA-2 — Voice dictation (Deepgram)</span></h2>
+        <h2><span class="num">04</span> <span data-i18n="dpia.s4h">PA-2 — AI features: dictation &amp; writing assistance (Google Cloud Vertex AI)</span></h2>
 
         <h3 data-i18n="dpia.s4h3a">Description</h3>
-        <p data-i18n="dpia.s4p1">When voice dictation is activated, PISUM streams real-time audio from the user's microphone to Deepgram, Inc. (San Francisco, CA, USA) via WebSocket Secure (WSS/TLS 1.3). Deepgram processes the audio using the Nova-2 Medical model and returns a text transcription. The audio stream is not stored by Deepgram after transcription. No patient identifiers are included in the audio unless explicitly dictated by the user.</p>
+        <p data-i18n="dpia.s4p1">While the microphone is switched on, PISUM captures the dictated audio and, after each pause, sends that segment to Google Cloud (Vertex AI) over an encrypted HTTPS connection. Requests are sent only to the Vertex AI European Union endpoint, with no fallback outside the EU. The transcribed text is returned to the user's workstation. The AI writing assistance (report structuring and synthesis) sends the report text being processed to the same service under the same conditions. PISUM does not store the audio, and Google does not use it to train models. Patient identifiers are only sent if the user dictates or types them into the processed content.</p>
 
         <h3 data-i18n="dpia.s4h3b">Legal basis</h3>
-        <p data-i18n="dpia.s4p2">GDPR Art. 49(1)(a) — explicit consent for third-country transfer. A dedicated consent dialog discloses all risks (including the Deepgram benchmarking risk) before the first activation. Consent is stored locally with timestamp and version.</p>
+        <p data-i18n="dpia.s4p2">Under DPO review for version 1.1. The basis used in version 1.0 (explicit consent to a transfer outside the EU, Art. 49(1)(a)) concerned the previous dictation provider; AI processing now takes place within the European Union.</p>
 
-        <h3 data-i18n="dpia.s4h3c">The benchmarking risk — specific threat</h3>
-        <div class="info-block red" data-i18n="dpia.ib4">
-          <strong>⚠ Identified high risk: Deepgram benchmarking sharing.</strong> Deepgram's data processing policy permits sharing audio recordings with "industry peers" (competitor companies) for model benchmarking and evaluation purposes. Medical audio may include terminology that, in context, is health-adjacent. This represents a material risk that audio could be accessed by third parties outside the DPA relationship.<br/><br/>
-          <strong>Status:</strong> Risk disclosed in consent dialog (v1.1) and in this DPIA. PISUM is seeking a DPA with Deepgram (security@deepgram.com) that explicitly restricts processing to core service delivery and prohibits benchmarking sharing. Until DPA is signed, users must be warned and must actively consent.
+        <h3 data-i18n="dpia.s4h3c">Data minimisation</h3>
+        <div class="info-block blue" data-i18n="dpia.ib4">
+          <strong>Minimisation instruction.</strong> Users are instructed not to dictate direct patient identifiers (name, date of birth, national ID number) and to type them on the keyboard instead. This instruction appears in PISUM's in-app privacy notice (v1.2) and at <a href="rgpd.html">pisum.app/rgpd.html</a>, which also name Google Cloud (Vertex AI, EU) as the sub-processor.
         </div>
 
         <h3 data-i18n="dpia.s4h3d">Risk analysis</h3>
         <table class="data-table">
-          <thead><tr><th data-i18n="dpia.th_threat">Threat</th><th data-i18n="dpia.th_likelihood">Likelihood</th><th data-i18n="dpia.th_severity">Severity</th><th data-i18n="dpia.th_risk_level">Risk level</th><th data-i18n="dpia.th_mitigation">Mitigation</th></tr></thead>
+          <thead><tr><th data-i18n="dpia.th_threat">Threat</th><th data-i18n="dpia.th_mitigation">Mitigation</th></tr></thead>
           <tbody>
             <tr>
-              <td data-i18n="dpia.pa2_t1">Audio interception in transit</td>
-              <td data-i18n="dpia.pa2_l1">Very low</td>
-              <td data-i18n="dpia.pa2_s1">High (medical content)</td>
-              <td><span class="risk risk-low">LOW</span></td>
-              <td data-i18n="dpia.pa2_m1">WSS/TLS 1.3 encryption for all audio streams</td>
+              <td data-i18n="dpia.pa2_t1">Interception in transit</td>
+              <td data-i18n="dpia.pa2_m1">Encrypted HTTPS (TLS) for every request</td>
             </tr>
             <tr>
-              <td data-i18n="dpia.pa2_t2">Deepgram storing audio beyond transcription</td>
-              <td data-i18n="dpia.pa2_l2">Low (per Deepgram policy)</td>
-              <td data-i18n="dpia.pa2_s2">High</td>
-              <td><span class="risk risk-med">MEDIUM</span></td>
-              <td data-i18n="dpia.pa2_m2">Deepgram policy: immediate deletion post-transcription. Audit via DPA.</td>
+              <td data-i18n="dpia.pa2_t2">Retention of audio or text by the sub-processor</td>
+              <td data-i18n="dpia.pa2_m2">PISUM does not store audio. The Google Cloud data processing terms and the retention settings applied to Vertex AI requests are being documented (see action items).</td>
             </tr>
             <tr>
-              <td data-i18n="dpia.pa2_t3">Deepgram sharing with industry peers (benchmarking)</td>
-              <td data-i18n="dpia.pa2_l3">Medium (policy allows it without DPA)</td>
-              <td data-i18n="dpia.pa2_s3">High (medical audio)</td>
-              <td><span class="risk risk-high">HIGH</span></td>
-              <td data-i18n="dpia.pa2_m3">Explicit consent disclosure; DPA negotiation in progress; manual entry alternative provided</td>
+              <td data-i18n="dpia.pa2_t3">Use of data to train models</td>
+              <td data-i18n="dpia.pa2_m3">Google does not use the audio or text sent by PISUM to train its models.</td>
             </tr>
             <tr>
               <td data-i18n="dpia.pa2_t4">Patient identifiers dictated into audio</td>
-              <td data-i18n="dpia.pa2_l4">Medium (user behavior)</td>
-              <td data-i18n="dpia.pa2_s4">Very high (Art. 9 data)</td>
-              <td><span class="risk risk-high">HIGH</span></td>
-              <td data-i18n="dpia.pa2_m4">In-app warning; consent dialog explicitly warns users not to dictate identifiers; SCC in place</td>
+              <td data-i18n="dpia.pa2_m4">Minimisation instruction in the privacy notice (v1.2): identifiers are typed, not dictated</td>
             </tr>
             <tr>
-              <td data-i18n="dpia.pa2_t5">Deepgram data breach (USA)</td>
-              <td data-i18n="dpia.pa2_l5">Low</td>
-              <td data-i18n="dpia.pa2_s5">High</td>
-              <td><span class="risk risk-med">MEDIUM</span></td>
-              <td data-i18n="dpia.pa2_m5">SCC 2021/914 + explicit consent (Art. 49(1)(a)); Deepgram deletes audio immediately</td>
+              <td data-i18n="dpia.pa2_t5">Processing outside the European Union</td>
+              <td data-i18n="dpia.pa2_m5">Requests sent only to the Vertex AI EU endpoint, with no fallback outside the EU</td>
             </tr>
           </tbody>
         </table>
+        <p data-i18n="dpia.pa2_note" style="font-size:0.8rem;color:var(--ink-3)">Likelihood, severity and risk levels for PA-2 are being re-assessed by the DPO for version 1.1 and will be published with the DPO opinion.</p>
 
         <h3 data-i18n="dpia.s4h3e">Mitigations implemented</h3>
         <ul>
-          <li data-i18n="dpia.s4l1">Voice dictation <strong>disabled by default</strong>. Cannot be activated without explicit Art. 49(1)(a) consent.</li>
-          <li data-i18n="dpia.s4l2">Consent dialog (v1.1) fully discloses: Deepgram (USA), SCC, benchmarking risk, right to withdraw, manual alternative.</li>
-          <li data-i18n="dpia.s4l3">Consent can be withdrawn at any time from Settings → Privacy, without affecting prior processing.</li>
-          <li data-i18n="dpia.s4l4">Audio streamed over WSS/TLS 1.3 — encrypted in transit.</li>
-          <li data-i18n="dpia.s4l5">Deepgram Nova-2 Medical model: audio deleted immediately after transcription per Deepgram policy.</li>
+          <li data-i18n="dpia.s4l1">Requests sent only to the <strong>Vertex AI European Union endpoint</strong> — no fallback outside the EU.</li>
+          <li data-i18n="dpia.s4l2">Encrypted HTTPS (TLS) transport for every request.</li>
+          <li data-i18n="dpia.s4l3">Audio is captured only while the user has the microphone switched on.</li>
+          <li data-i18n="dpia.s4l4">Audio is not stored by PISUM; only the returned text is kept, in the local report.</li>
+          <li data-i18n="dpia.s4l5">Minimisation instruction: patient identifiers are typed, not dictated (privacy notice v1.2).</li>
           <li data-i18n="dpia.s4l6">Manual text entry available as a zero-transfer alternative.</li>
-          <li data-i18n="dpia.s4l7">DPA negotiation pending with Deepgram (security@deepgram.com) to restrict benchmarking sharing.</li>
+          <li data-i18n="dpia.s4l7">Google Cloud (Vertex AI) named as sub-processor in the privacy notice and at pisum.app/rgpd.html.</li>
         </ul>
 
         <div class="info-block amber" data-i18n="dpia.ib4b">
-          <strong>Residual risk: MEDIUM (pending DPA).</strong> The benchmarking sharing risk remains MEDIUM until a DPA is signed with Deepgram that explicitly prohibits sharing with third parties for benchmarking. Once signed, residual risk drops to LOW. Current mitigation: explicit user consent with full risk disclosure.
+          <strong>Residual risk: under DPO review.</strong> The residual risk for PA-2 will be set by the DPO in version 1.1. The ratings published in version 1.0 concerned the previous dictation provider, which has been removed from PISUM, and no longer apply.
         </div>
       </div>
 
@@ -562,18 +551,11 @@ main { flex: 1; }
               <td data-i18n="dpia.t6_r1c5">None</td>
             </tr>
             <tr>
-              <td data-i18n="dpia.t6_r2c1">PA-2: Voice dictation (Deepgram USA) — transit &amp; storage</td>
-              <td><span class="risk risk-high">HIGH</span></td>
-              <td data-i18n="dpia.t6_r2c3">WSS/TLS 1.3, immediate audio deletion, explicit consent</td>
-              <td><span class="risk risk-low">LOW</span></td>
-              <td data-i18n="dpia.t6_r2c5">None (mitigated)</td>
-            </tr>
-            <tr>
-              <td data-i18n="dpia.t6_r3c1">PA-2: Voice dictation — benchmarking sharing</td>
-              <td><span class="risk risk-high">HIGH</span></td>
-              <td data-i18n="dpia.t6_r3c3">Full risk disclosure in consent dialog; manual alternative</td>
-              <td><span class="risk risk-med">MEDIUM</span></td>
-              <td data-i18n="dpia.t6_r3c5"><strong>Sign DPA with Deepgram</strong> (in progress)</td>
+              <td data-i18n="dpia.t6_r2c1">PA-2: AI features (Google Cloud Vertex AI, EU)</td>
+              <td><span class="risk risk-pending" data-i18n="dpia.pending">UNDER REVIEW</span></td>
+              <td data-i18n="dpia.t6_r2c3">EU-only endpoint, TLS, no audio storage by PISUM, minimisation instruction</td>
+              <td><span class="risk risk-pending" data-i18n="dpia.pending">UNDER REVIEW</span></td>
+              <td data-i18n="dpia.t6_r2c5"><strong>DPO assessment</strong> (version 1.1)</td>
             </tr>
             <tr>
               <td data-i18n="dpia.t6_r4c1">PA-3: Local database (workstation)</td>
@@ -589,13 +571,13 @@ main { flex: 1; }
       <!-- ── 07 RESIDUAL RISK ── -->
       <div class="prose-section" id="s7">
         <h2><span class="num">07</span> <span data-i18n="dpia.s7h">Residual risk &amp; conclusion</span></h2>
-        <p data-i18n="dpia.s7p1">After implementation of all identified mitigations, the overall residual risk profile of PISUM v2.x is assessed as <strong>MEDIUM</strong> — driven entirely by the Deepgram benchmarking risk (PA-2) which will be reduced to LOW once a DPA is signed with Deepgram.</p>
+        <p data-i18n="dpia.s7p1">In October 2026 the previous dictation provider was removed from PISUM and all AI features (dictation and writing assistance) moved to Google Cloud (Vertex AI) in the European Union. This DPIA is being updated accordingly (version 1.1, draft). The assessments of PA-1 and PA-3 are unchanged. The risk levels and conclusion for PA-2 will be published once the DPO review is complete.</p>
 
         <h3 data-i18n="dpia.s7h3a">Outstanding action items</h3>
         <ul>
-          <li data-i18n="dpia.s7l1"><strong>[Priority: HIGH]</strong> Sign DPA with Deepgram Inc. (contact: <a href="mailto:security@deepgram.com">security@deepgram.com</a>) — restricting processing to core service delivery and prohibiting benchmarking sharing. Target: within 60 days of this DPIA.</li>
+          <li data-i18n="dpia.s7l1"><strong>[Priority: HIGH]</strong> Complete the DPO review of PA-2 for version 1.1, documenting the Google Cloud data processing terms and the data-retention settings applied to Vertex AI requests.</li>
           <li data-i18n="dpia.s7l2"><strong>[Priority: MEDIUM]</strong> Implement in-app warning when user dictates content that appears to include patient name or ID formats (regex heuristic).</li>
-          <li data-i18n="dpia.s7l3"><strong>[Priority: LOW]</strong> Evaluate feasibility of on-device STT (Whisper.cpp) as a Deepgram alternative for users with strict data sovereignty requirements.</li>
+          <li data-i18n="dpia.s7l3"><strong>[Priority: LOW]</strong> Evaluate on-device speech recognition as an alternative for users with strict data sovereignty requirements.</li>
         </ul>
 
         <h3 data-i18n="dpia.s7h3b">DPIA review schedule</h3>
@@ -607,7 +589,7 @@ main { flex: 1; }
         </ul>
 
         <div class="info-block cyan" data-i18n="dpia.ib7">
-          <strong>Conclusion:</strong> Processing by PISUM v2.x is technically and legally justified under GDPR. All high-risk processing activities are covered by appropriate legal bases (Art. 6, Art. 9, Art. 49(1)(a)) and proportionate technical safeguards. The one outstanding MEDIUM risk (Deepgram benchmarking) is managed by full disclosure and explicit consent, with an ongoing DPA negotiation to eliminate it. PISUM may proceed with processing.
+          <strong>Status:</strong> version 1.1 is a draft under DPO review. The conclusion of version 1.0 (May 2026) relied on explicit consent for a transfer outside the EU to the previous dictation provider; that processing no longer exists. The conclusion for the current processing will be published here with the DPO opinion.
         </div>
       </div>
 
@@ -615,12 +597,12 @@ main { flex: 1; }
       <div class="prose-section" id="s8">
         <h2><span class="num">08</span> <span data-i18n="dpia.s8h">DPO consultation &amp; sign-off</span></h2>
 
-        <p data-i18n="dpia.s8p1">In accordance with GDPR Art. 35(2), the Data Protection Officer has been consulted during the preparation of this DPIA and has provided the following assessment.</p>
+        <p data-i18n="dpia.s8p1">In accordance with GDPR Art. 35(2), the Data Protection Officer is consulted on this DPIA. Version 1.1 is currently under DPO review.</p>
 
         <h3 data-i18n="dpia.s8h3">DPO opinion</h3>
-        <div class="info-block green" data-i18n="dpia.ib8">
-          <strong>Opinion: FAVOURABLE — subject to one condition.</strong><br/>
-          The DPO finds that PISUM v2.x processing is proportionate, lawful, and based on appropriate legal bases. The DPO endorses the mitigations implemented for PA-1 and PA-3. For PA-2, the DPO endorses proceeding with explicit consent under Art. 49(1)(a) as an interim measure, and <strong>requires that a DPA with Deepgram be signed within 90 days</strong> of this DPIA date. The DPO will re-evaluate PA-2 upon receipt of the signed DPA.
+        <div class="info-block amber" data-i18n="dpia.ib8">
+          <strong>Opinion on version 1.1: pending.</strong><br/>
+          The opinion issued in May 2026 on version 1.0 endorsed the mitigations for PA-1 and PA-3, which are unchanged. Its PA-2 section concerned the previous dictation provider, which has since been removed from PISUM. The DPO opinion on version 1.1 will be published here once issued.
         </div>
 
         <div class="sig-block">
@@ -631,15 +613,15 @@ main { flex: 1; }
             </div>
             <div class="sig-item">
               <label>DPIA version</label>
-              <div class="val">1.0</div>
+              <div class="val">1.1 (draft)</div>
             </div>
             <div class="sig-item">
               <label>Date</label>
-              <div class="val">May 2026</div>
+              <div class="val">October 2026</div>
             </div>
             <div class="sig-item">
               <label>DPO review</label>
-              <div class="val signed">✓ Reviewed — May 2026</div>
+              <div class="val">Pending (v1.1) · v1.0 reviewed May 2026</div>
             </div>
             <div class="sig-item">
               <label>DPO contact</label>
@@ -647,7 +629,7 @@ main { flex: 1; }
             </div>
             <div class="sig-item">
               <label>Next review</label>
-              <div class="val">May 2027 (or earlier if processing changes)</div>
+              <div class="val">On DPO sign-off of v1.1, then every 12 months</div>
             </div>
           </div>
         </div>
@@ -681,7 +663,7 @@ main { flex: 1; }
 
 <script>
 const ham = document.getElementById('ham'), nl = document.getElementById('nav-links');
-if(ham) ham.addEventListener('click', () => nl.classList.toggle('open'));
+if(ham) ham.addEventListener('click', () => document.body.classList.toggle('menu-open', nl.classList.toggle('open')));
 const sections = document.querySelectorAll('.prose-section');
 const tocLinks = document.querySelectorAll('.toc-list a');
 window.addEventListener('scroll', () => {

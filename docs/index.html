@@ -718,10 +718,14 @@ a.dict-step-ai:hover{border-color:var(--blue)}
 /* ── MOBILE / PHONE ─────────────────────────────────────── */
 body.menu-open{overflow:hidden}
 body.menu-open #piw{display:none}
+#nav-mobile-signin{display:none}
+body.menu-open .nav{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;transition:none!important}
 @media(max-width:1020px){
   .nav-links.open{overflow-y:auto;gap:0;padding-top:1rem}
   .nav-links.open li{width:100%;border-bottom:1px solid var(--b1)}
   .nav-links.open a,.nav-links.open #nav-mobile-signout-btn{display:block;padding:0.9rem 0}
+  .nav-links.open #nav-mobile-signin{display:list-item}
+  .nav-links.open #nav-mobile-signin a{color:var(--blue);font-weight:600}
 }
 @media(max-width:640px){
   /* Announcement banner: one compact line */
@@ -925,6 +929,7 @@ body.menu-open #piw{display:none}
 <li data-i18n="index.li_5"><a href="faq.html">FAQ</a></li>
 <li data-i18n="index.li_6"><a href="documentation.html">Docs</a></li>
 <li data-i18n="index.li_7"><a href="contact.html">Contact</a></li>
+<li id="nav-mobile-signin"><a href="https://pisum.app/saas/frontend/auth.html" data-i18n="index.a_4">Sign in</a></li>
 <li data-i18n="index.li_8" id="nav-mobile-signout" style="display:none;cursor:pointer"><span id="nav-mobile-signout-btn" style="cursor:pointer;color:inherit">Sign Out</span></li>
 </ul>
 <div class="nav-right">
@@ -952,7 +957,7 @@ body.menu-open #piw{display:none}
   function getPisumUser(){var m=document.cookie.match(/(?:^|;\s*)pisum_user=([^;]+)/);if(!m)return null;try{return JSON.parse(decodeURIComponent(m[1]));}catch{return null;}}
   var u=getPisumUser();
   if(!u)return;
-  ['nav-signin','nav-subscribe'].forEach(function(id){var el=document.getElementById(id);if(el)el.style.display='none';});
+  ['nav-signin','nav-mobile-signin','nav-subscribe'].forEach(function(id){var el=document.getElementById(id);if(el)el.style.display='none';});
   document.getElementById('nav-profile-name').textContent=u.name;
   document.getElementById('nav-profile-email').textContent=u.email;
   document.getElementById('nav-profile').style.display='flex';
