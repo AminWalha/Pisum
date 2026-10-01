@@ -10,6 +10,9 @@
   gtag('config', 'G-6VG09X3G7F');
 </script>
 <meta charset="UTF-8"/>
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="0"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>GDPR &amp; Data Protection | Pisum Radiology Software</title>
 <meta name="description" content="Learn how Pisum protects your data under GDPR. Secure, compliant AI radiology reporting software designed for healthcare professionals."/>
@@ -281,10 +284,10 @@ footer {
   <div class="container">
     <div class="animate-in d1"><span class="eyebrow" id="ey" data-i18n="rgpd.eyebrow">Compliance</span></div>
     <h1 class="animate-in d2" id="h1" data-i18n="rgpd.h1_1">Patient data<br/><em>protection</em></h1>
-    <p class="hero-sub animate-in d3" id="hsub" data-i18n="rgpd.p_1">100% local architecture · Zero cloud · GDPR Art. 25 · HDS-Ready</p>
+    <p class="hero-sub animate-in d3" id="hsub" data-i18n="rgpd.p_1">Local data storage · EU-only AI processing · GDPR Art. 25 · HDS-Ready</p>
     <p class="hero-meta animate-in">
       <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2"/><path d="M6 4v2.5l1.5 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-      <span id="updated" data-i18n="rgpd.updated">Updated: January 2026</span>
+      <span id="updated" data-i18n="rgpd.updated">Updated: October 2026</span>
     </p>
   </div>
 </section>
@@ -295,17 +298,17 @@ footer {
     <div class="badge-card">
       <div class="badge-card-icon icon-cyan">🔒</div>
       <div class="badge-card-title" id="b1t" data-i18n="rgpd.b1t">Local patient data</div>
-      <div class="badge-card-desc" id="b1d" data-i18n="rgpd.b1d">Reports and patient data never leave your machine. No cloud access to medical data.</div>
+      <div class="badge-card-desc" id="b1d" data-i18n="rgpd.b1d">Reports and patient files are stored only on your machine. Only the AI features send the text or audio being processed, to Google Cloud in the EU.</div>
     </div>
     <div class="badge-card">
       <div class="badge-card-icon icon-green">🛡️</div>
-      <div class="badge-card-title" id="b2t" data-i18n="rgpd.b2t">Zero sub-processing</div>
-      <div class="badge-card-desc" id="b2d" data-i18n="rgpd.b2d">No cloud host, analytics service, or third party accesses your patients' health data.</div>
+      <div class="badge-card-title" id="b2t" data-i18n="rgpd.b2t">One EU sub-processor</div>
+      <div class="badge-card-desc" id="b2d" data-i18n="rgpd.b2d">No cloud storage or analytics on health data. AI features rely on a single sub-processor: Google Cloud (Vertex AI), within the European Union.</div>
     </div>
     <div class="badge-card">
       <div class="badge-card-icon icon-amber">🎙️</div>
-      <div class="badge-card-title" id="b3t" data-i18n="rgpd.b3t">AI Dictation — Secure API</div>
-      <div class="badge-card-desc" id="b3d" data-i18n="rgpd.b3d">Sally AI processes audio via PISUM's secure cloud API. Audio is never stored.</div>
+      <div class="badge-card-title" id="b3t" data-i18n="rgpd.b3t">AI Dictation — processed in the EU</div>
+      <div class="badge-card-desc" id="b3d" data-i18n="rgpd.b3d">Sally AI transcribes audio via Google Cloud (Vertex AI) in the European Union. Audio is not stored by PISUM.</div>
     </div>
   </div>
 </div>
@@ -350,30 +353,26 @@ footer {
           </tbody>
         </table>
 
-        <div class="info-block green" id="ib1" data-i18n="rgpd.ib1">
-          <strong>✓ Health data — ZERO collection.</strong> Radiology reports, patient data (name, ID, date of birth), medical images, and voice transcriptions are <em>never</em> transmitted to PISUM SAS or any third party.
-        </div>
+        <div class="info-block green" id="ib1" data-i18n="rgpd.ib1"><strong>✓ Health data — not collected by PISUM.</strong> Radiology reports, patient data (name, ID, date of birth), medical images and voice recordings are <em>never</em> transmitted to PISUM. Only the AI features send the dictated audio or the report text being processed to our sub-processor Google Cloud (Vertex AI), which processes it within the European Union.</div>
       </div>
 
       <div class="prose-section" id="s2">
         <h2><span class="num">02</span> <span id="s2h" data-i18n="rgpd.s2h">Secure architecture — local data</span></h2>
 
         <h3 id="s2h1" data-i18n="rgpd.s2h1">🔒 Patient data always local</h3>
-        <p id="s2p1" data-i18n="rgpd.s2p1">Radiology reports, patient data, and medical images never leave your machine. PISUM does not require an Internet connection for data entry and report export. Only AI features (Dictation, Enhancer) require network access to the secure PISUM API.</p>
+        <p id="s2p1" data-i18n="rgpd.s2p1">Radiology reports, patient data and medical images are stored only on your machine. PISUM does not require an Internet connection for data entry and report export. Only the AI features (dictation, writing assistance) require network access: they send the audio or text being processed to Google Cloud (Vertex AI) in the European Union.</p>
 
-        <h3 id="s2h2" data-i18n="rgpd.s2h2">🎙️ AI Voice Dictation — secure cloud API</h3>
-        <p id="s2p2" data-i18n="rgpd.s2p2"><strong>Sally AI</strong> voice dictation processes audio in real time via PISUM's secure API. <em>Audio is never stored</em> — only the text transcription is sent back to your local machine. No identifiable patient data is included in the audio streams sent to the API.</p>
+        <h3 id="s2h2" data-i18n="rgpd.s2h2">🎙️ AI Voice Dictation — processed in the EU</h3>
+        <p id="s2p2" data-i18n="rgpd.s2p2"><strong>Sally AI</strong> voice dictation sends each dictated sentence to Google Cloud (Vertex AI), which transcribes it within the European Union; the text is sent back to your local machine. <em>PISUM does not store the audio</em>, and Google does not use it to train models. Do not dictate direct patient identifiers (name, date of birth, national ID number): type them on the keyboard.</p>
 
-        <div class="info-block cyan" id="ib2" data-i18n="rgpd.ib2">
-          <strong>HDS Compliance.</strong> Medical data remains on your machine. PISUM's AI API only processes dictation audio, never patient data.
-        </div>
+        <div class="info-block cyan" id="ib2" data-i18n="rgpd.ib2"><strong>Storage.</strong> Medical data is stored only on your machine and in your RIS/PACS. AI processing (dictation audio, report text for writing assistance) takes place in Google Cloud within the European Union, without storage by PISUM.</div>
       </div>
 
       <div class="prose-section" id="s3">
         <h2><span class="num">03</span> <span id="s3h" data-i18n="rgpd.s3h">Sovereignty and telemetry</span></h2>
 
-        <h3 id="s3h1" data-i18n="rgpd.s3h1">🛡️ Zero health data sub-processing</h3>
-        <p id="s3p1" data-i18n="rgpd.s3p1">Since the software runs isolated on the user's workstation, no third-party sub-processor (Cloud host, analytics service) has access to medical data. Legal archiving and secure storage are the sole responsibility of the institution's RIS/PACS system, ensuring full data sovereignty.</p>
+        <h3 id="s3h1" data-i18n="rgpd.s3h1">🛡️ A single sub-processor, in the EU</h3>
+        <p id="s3p1" data-i18n="rgpd.s3p1">The software runs on the user's workstation: no cloud host or analytics service stores medical data. The only sub-processor with access to health data is Google Cloud (Vertex AI), used solely for AI features (dictation, writing assistance) and processing within the European Union. Legal archiving and secure storage remain the sole responsibility of the institution's RIS/PACS system.</p>
 
         <h3 id="s3h2" data-i18n="rgpd.s3h2">📝 Anonymized application logs</h3>
         <p id="s3p2" data-i18n="rgpd.s3p2">To ensure software stability, PISUM generates local technical error logs. These files are strictly programmed to capture <strong>no business data</strong>:</p>
@@ -454,7 +453,7 @@ window.addEventListener('scroll', () => {
     });
   }
 </script>
-<script src="i18n.js"></script>
+<script src="i18n.js?v=20260806"></script>
 <!-- ── PISUM AI Agent Widget (dark theme) ─────────────────────── -->
 <style>
 #piw{position:fixed;bottom:24px;right:24px;z-index:9500;font-family:'Plus Jakarta Sans',system-ui,sans-serif}
