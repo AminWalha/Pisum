@@ -56,15 +56,21 @@
     }
   }
 
+  // The conversation is shared by every pisum.app tab, and forgotten after 30 minutes without
+  // activity (same lifetime as the server session) or when a different person signs in.
+  var IDLE_MS = 30 * 60 * 1000;
   function load() {
     try {
-      var s = JSON.parse(sessionStorage.getItem(STORE_KEY) || 'null');
-      if (s && typeof s.sid === 'string' && Array.isArray(s.msgs)) return s;
+      var s = JSON.parse(localStorage.getItem(STORE_KEY) || 'null');
+      var fresh = s && typeof s.at === 'number' && Date.now() - s.at < IDLE_MS;
+      if (fresh && typeof s.sid === 'string' && Array.isArray(s.msgs) && s.who === visitorFirstName()) return s;
+      localStorage.removeItem(STORE_KEY);
     } catch (e) {}
     return null;
   }
   function save() {
-    try { sessionStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {}
+    state.at = Date.now();
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {}
   }
   function newSid() {
     var a = new Uint8Array(12);
@@ -72,7 +78,7 @@
     return 'sess_' + Array.prototype.map.call(a, function (b) { return ('0' + b.toString(16)).slice(-2); }).join('');
   }
 
-  var state = load() || { sid: newSid(), msgs: [] };
+  var state = load() || { sid: newSid(), msgs: [], who: visitorFirstName() };
 
   function escapeHtml(s) {
     return String(s).replace(/[&<>"']/g, function (c) {
@@ -207,7 +213,7 @@
   };
 
   function resetChat() {
-    state = { sid: newSid(), msgs: [] };
+    state = { sid: newSid(), msgs: [], who: visitorFirstName() };
     save();
     var wrap = $('piw-msgs');
     if (wrap) while (wrap.children.length > 1) wrap.removeChild(wrap.lastChild);
