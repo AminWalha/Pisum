@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F"></script>
+<!-- Google Analytics 4: loaded only after explicit consent (CNIL) -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-6VG09X3G7F');
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+window.pisumLoadGA=function(){if(window._pisumGA)return;window._pisumGA=1;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F';document.head.appendChild(s);gtag('js',new Date());gtag('config','G-6VG09X3G7F');};
+try{if(localStorage.getItem('pisum_cookie_consent')==='granted')window.pisumLoadGA();}catch(e){}
 </script>
 <meta charset="UTF-8"/>
 <meta http-equiv="Cache-Control" content="no-cache, must-revalidate"/>
@@ -305,6 +304,7 @@ footer { background: var(--bg); border-top: 1px solid var(--b1); padding: 3rem 0
       <div class="foot-links">
         <a href="rgpd.html" data-i18n="contact.a_8">Privacy</a>
         <a href="terms.html" data-i18n="contact.a_9">Terms</a>
+        <a href="mentions-legales.html" data-i18n="legal.footer_link">Legal notice</a>
         <a href="faq.html" data-i18n="contact.a_10">FAQ</a>
         <a href="documentation.html" data-i18n="contact.a_11">Docs</a>
         <a href="contact.html" data-i18n="contact.a_12">Contact</a>

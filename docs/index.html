@@ -2,19 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<!-- Google Analytics 4 (Standard) -->
+<!-- Google Analytics 4: loaded only after explicit consent (CNIL) -->
 <script>
-  if (localStorage.getItem('pisum_cookie_consent') === 'denied') {
-    window['ga-disable-G-6VG09X3G7F'] = true;
-  }
-</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-6VG09X3G7F');
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+window.pisumLoadGA=function(){if(window._pisumGA)return;window._pisumGA=1;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F';document.head.appendChild(s);gtag('js',new Date());gtag('config','G-6VG09X3G7F');};
+try{if(localStorage.getItem('pisum_cookie_consent')==='granted')window.pisumLoadGA();}catch(e){}
 </script>
 <meta http-equiv="Cache-Control" content="no-cache, must-revalidate"/>
 <meta http-equiv="Pragma" content="no-cache"/>
@@ -1760,6 +1752,7 @@ Download Free
 <div class="foot-links">
 <a data-i18n="index.a_13" href="rgpd.html">Privacy</a>
 <a data-i18n="index.a_14" href="terms.html">Terms</a>
+<a data-i18n="legal.footer_link" href="mentions-legales.html">Legal notice</a>
 <a data-i18n="index.a_dpia" href="dpia.html">DPIA</a>
 <a data-i18n="index.a_dpo" href="dpo.html">DPO</a>
 <a data-i18n="index.a_15" href="faq.html">FAQ</a>
@@ -2282,9 +2275,7 @@ function handleCookie(accepted) {
   const banner = document.getElementById('pisum-cookie-banner');
   if (banner) banner.style.display = 'none';
 
-  if (!accepted) {
-    window['ga-disable-G-6VG09X3G7F'] = true;
-  }
+  if (accepted && window.pisumLoadGA) window.pisumLoadGA();
 }
 
 if (!localStorage.getItem('pisum_cookie_consent')) {

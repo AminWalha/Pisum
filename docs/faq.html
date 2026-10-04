@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F"></script>
+<!-- Google Analytics 4: loaded only after explicit consent (CNIL) -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-6VG09X3G7F');
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+window.pisumLoadGA=function(){if(window._pisumGA)return;window._pisumGA=1;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F';document.head.appendChild(s);gtag('js',new Date());gtag('config','G-6VG09X3G7F');};
+try{if(localStorage.getItem('pisum_cookie_consent')==='granted')window.pisumLoadGA();}catch(e){}
 </script>
 <meta charset="UTF-8"/>
 <meta http-equiv="Cache-Control" content="no-cache, must-revalidate"/>
@@ -579,6 +578,7 @@ a { text-decoration: none; color: inherit; }
       <div class="foot-links">
         <a href="rgpd.html">Privacy</a>
         <a href="terms.html">Terms</a>
+        <a data-i18n="legal.footer_link" href="mentions-legales.html">Legal notice</a>
         <a href="dpia.html">DPIA</a>
         <a href="dpo.html">DPO</a>
         <a href="faq.html">FAQ</a>

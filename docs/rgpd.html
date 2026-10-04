@@ -1,13 +1,11 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F"></script>
+<!-- Google Analytics 4: loaded only after explicit consent (CNIL) -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-6VG09X3G7F');
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+window.pisumLoadGA=function(){if(window._pisumGA)return;window._pisumGA=1;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F';document.head.appendChild(s);gtag('js',new Date());gtag('config','G-6VG09X3G7F');};
+try{if(localStorage.getItem('pisum_cookie_consent')==='granted')window.pisumLoadGA();}catch(e){}
 </script>
 <meta charset="UTF-8"/>
 <meta http-equiv="Cache-Control" content="no-cache, must-revalidate"/>
@@ -21,14 +19,14 @@
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://pisum.app/rgpd.html"/>
 <meta property="og:title" content="GDPR Compliance — PISUM Radiology Software"/>
-<meta property="og:description" content="PISUM is 100% GDPR compliant: patient data stays local, zero cloud sub-processing, offline AI voice dictation."/>
+<meta property="og:description" content="PISUM GDPR compliance: patient data stays on your workstation; AI dictation and writing assistance run on Google Cloud Vertex AI, in the EU only."/>
 <meta property="og:image" content="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
 <meta property="og:site_name" content="PISUM"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="GDPR Compliance — PISUM Radiology Software"/>
-<meta name="twitter:description" content="PISUM is 100% GDPR compliant: patient data stays local, zero cloud sub-processing, offline AI voice dictation."/>
+<meta name="twitter:description" content="PISUM GDPR compliance: patient data stays on your workstation; AI dictation and writing assistance run on Google Cloud Vertex AI, in the EU only."/>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"GDPR Compliance — PISUM","url":"https://pisum.app/rgpd.html","description":"PISUM radiology software GDPR compliance: patient data stays local, zero cloud sub-processing, offline AI voice dictation, privacy by design for hospitals and clinics.","inLanguage":"en","publisher":{"@type":"Organization","name":"PISUM","url":"https://pisum.app","logo":"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"}}
+{"@context":"https://schema.org","@type":"WebPage","name":"GDPR Compliance — PISUM","url":"https://pisum.app/rgpd.html","description":"PISUM radiology software GDPR compliance: patient data stays on your workstation, AI features processed by Google Cloud Vertex AI in the EU only, privacy by design for hospitals and clinics.","inLanguage":"en","publisher":{"@type":"Organization","name":"PISUM","url":"https://pisum.app","logo":"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"}}
 </script>
 <link rel="icon" href="/favicon.ico?v=2" sizes="any"/>
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2"/>
@@ -340,7 +338,7 @@ footer {
         <h2><span class="num">01</span> <span id="s1h" data-i18n="rgpd.s1h">Data collected by PISUM</span></h2>
         <p id="s1p1" data-i18n="rgpd.s1p1">PISUM is designed according to the principle of <strong>Privacy by Design</strong> (GDPR Art. 25). The software distinguishes two fundamentally separate categories of data:</p>
 
-        <h3 id="s1h2" data-i18n="rgpd.s1h2">Account data (processed by PISUM SAS)</h3>
+        <h3 id="s1h2" data-i18n="rgpd.s1h2">Account data (processed by PISUM)</h3>
         <table class="data-table">
           <thead>
             <tr>
@@ -423,6 +421,7 @@ footer {
       <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; font-family: 'Plus Jakarta Sans', sans-serif;">
         <a href="rgpd.html" data-i18n="rgpd.a_3" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Privacy</a>
         <a href="terms.html" data-i18n="rgpd.a_4" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Terms</a>
+        <a href="mentions-legales.html" data-i18n="legal.footer_link" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Legal notice</a>
         <a href="faq.html" data-i18n="rgpd.a_5" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">FAQ</a>
         <a href="documentation.html" data-i18n="rgpd.a_6" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Docs</a>
         <a href="contact.html" data-i18n="rgpd.a_7" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Contact</a>

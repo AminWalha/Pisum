@@ -1,13 +1,11 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F"></script>
+<!-- Google Analytics 4: loaded only after explicit consent (CNIL) -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-6VG09X3G7F');
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+window.pisumLoadGA=function(){if(window._pisumGA)return;window._pisumGA=1;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F';document.head.appendChild(s);gtag('js',new Date());gtag('config','G-6VG09X3G7F');};
+try{if(localStorage.getItem('pisum_cookie_consent')==='granted')window.pisumLoadGA();}catch(e){}
 </script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
@@ -654,6 +652,7 @@ main { flex: 1; }
       <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; font-family: 'Plus Jakarta Sans', sans-serif;">
         <a href="rgpd.html" data-i18n="dpia.a_3" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Privacy</a>
         <a href="terms.html" data-i18n="dpia.a_4" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Terms</a>
+        <a href="mentions-legales.html" data-i18n="legal.footer_link" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Legal notice</a>
         <a href="dpia.html" data-i18n="dpia.a_5" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">DPIA</a>
         <a href="dpo.html" data-i18n="dpia.a_6" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">DPO</a>
         <a href="contact.html" data-i18n="dpia.a_7" style="font-size: 0.75rem; color: rgba(255,255,255,0.5); text-decoration: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Contact</a>
