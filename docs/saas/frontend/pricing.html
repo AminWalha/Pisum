@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-6VG09X3G7F');</script>
+<!-- Google Analytics 4: loaded only after explicit consent (CNIL) -->
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+window.pisumLoadGA=function(){if(window._pisumGA)return;window._pisumGA=1;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F';document.head.appendChild(s);gtag('js',new Date());gtag('config','G-6VG09X3G7F');};
+try{if(localStorage.getItem('pisum_cookie_consent')==='granted')window.pisumLoadGA();}catch(e){}
+</script>
 <meta charset="UTF-8"/>
 <meta http-equiv="Cache-Control" content="no-cache, must-revalidate"/>
 <meta http-equiv="Pragma" content="no-cache"/>
@@ -489,10 +493,10 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0;positi
         <hr class="plan-div"/>
         <ul class="feat-list">
           <li><span class="fi-ok" aria-hidden="true">✓</span><span>10 templates</span></li>
-          <li><span class="fi-ok" aria-hidden="true">✓</span><span>2 languages</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>23 languages</span></li>
           <li><span class="fi-ok" aria-hidden="true">✓</span><span>50 reports / month</span></li>
           <li><span class="fi-ok" aria-hidden="true">✓</span><span>PDF export</span></li>
-          <li><span class="fi-no" aria-hidden="true">–</span><span>No Word export</span></li>
+          <li><span class="fi-ok" aria-hidden="true">✓</span><span>Word export (basic)</span></li>
           <li><span class="fi-no" aria-hidden="true">–</span><span>No HTML export</span></li>
           <li><span class="fi-ok" aria-hidden="true">✓</span><span>AI Dictation — 30 min/month</span></li>
           <li><span class="fi-ok" aria-hidden="true">✓</span><span>AI Enhancer — 10/month</span></li>
@@ -707,7 +711,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0;positi
           </tr>
           <tr>
             <td data-i18n="pricing.table.feat_languages">Languages</td>
-            <td>2</td>
+            <td>23</td>
             <td>23</td>
             <td class="td-pro"><strong>23</strong></td>
             <td>23</td>
@@ -731,7 +735,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0;positi
           </tr>
           <tr>
             <td data-i18n="pricing.table.feat_word">Word export</td>
-            <td><span class="tno">—</span></td>
+            <td><span class="tlim">Basic</span></td>
             <td><span class="tyes">✓</span></td>
             <td class="td-pro"><span class="tyes">✓</span></td>
             <td><span class="tyes">✓</span></td>
@@ -1158,77 +1162,7 @@ init();
 </script>
 
 <!-- AI WIDGET LOGIC -->
-<script>
-(function(){
-  var PC_URL = 'https://pisum-chat-server.onrender.com';
-  var piwSid = 'sess_' + Math.random().toString(36).slice(2);
-
-  function fmt(t){ return t.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>'); }
-
-  function addMsg(role, text) {
-    var wrap = document.getElementById('piw-msgs');
-    var d = document.createElement('div');
-    d.className = 'piw-msg ' + role;
-    var b = document.createElement('div');
-    b.className = 'piw-bubble';
-    b.innerHTML = fmt(text).replace(/\n/g, '<br>');
-    d.appendChild(b);
-    wrap.appendChild(d);
-    wrap.scrollTop = wrap.scrollHeight;
-  }
-
-  function showTyping() {
-    var wrap = document.getElementById('piw-msgs');
-    var d = document.createElement('div');
-    d.className = 'piw-msg ai'; d.id = 'piw-typing-ind';
-    d.innerHTML = '<div class="piw-typing"><span></span><span></span><span></span></div>';
-    wrap.appendChild(d);
-    wrap.scrollTop = wrap.scrollHeight;
-    return d;
-  }
-
-  window.piwToggle = function() {
-    var panel  = document.getElementById('piw-panel');
-    var badge  = document.getElementById('piw-badge');
-    var trigger= document.getElementById('piw-trigger');
-    var isOpen = panel.classList.contains('open');
-    panel.classList.toggle('open');
-    trigger.setAttribute('aria-expanded', !isOpen ? 'true' : 'false');
-    if (!isOpen && badge) badge.style.display = 'none';
-    if (!isOpen) setTimeout(function(){ var inp=document.getElementById('piw-input'); if(inp)inp.focus(); }, 100);
-  };
-
-  window.piwAsk = async function(q) {
-    document.getElementById('piw-chips').style.display = 'none';
-    var btn = document.getElementById('piw-send');
-    addMsg('user', q);
-    btn.disabled = true;
-    var t = showTyping();
-    try {
-      var r = await fetch(PC_URL + '/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: q, sessionId: piwSid })
-      });
-      var data = await r.json();
-      t.remove();
-      addMsg('ai', data.reply || data.error || 'Sorry, something went wrong.');
-    } catch(e) {
-      t.remove();
-      addMsg('ai', 'Connection error. Please try again.');
-    }
-    btn.disabled = false;
-  };
-
-  window.piwSend = function() {
-    var inp = document.getElementById('piw-input');
-    var q   = inp.value.trim();
-    if (!q) return;
-    inp.value = '';
-    piwAsk(q);
-  };
-})();
-</script>
+<script src="../../piw.js?v=20261004"></script>
 <script src="./i18n.js"></script>
 </body>
 </html>
