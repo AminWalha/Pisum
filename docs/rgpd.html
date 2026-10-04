@@ -19,14 +19,14 @@ try{if(localStorage.getItem('pisum_cookie_consent')==='granted')window.pisumLoad
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://pisum.app/rgpd.html"/>
 <meta property="og:title" content="GDPR Compliance — PISUM Radiology Software"/>
-<meta property="og:description" content="PISUM GDPR compliance: patient data stays on your workstation; AI dictation and writing assistance run on Google Cloud Vertex AI, in the EU only."/>
+<meta property="og:description" content="PISUM GDPR compliance: patient data stays on your workstation; AI dictation and writing assistance are processed in the EU only."/>
 <meta property="og:image" content="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
 <meta property="og:site_name" content="PISUM"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="GDPR Compliance — PISUM Radiology Software"/>
-<meta name="twitter:description" content="PISUM GDPR compliance: patient data stays on your workstation; AI dictation and writing assistance run on Google Cloud Vertex AI, in the EU only."/>
+<meta name="twitter:description" content="PISUM GDPR compliance: patient data stays on your workstation; AI dictation and writing assistance are processed in the EU only."/>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"GDPR Compliance — PISUM","url":"https://pisum.app/rgpd.html","description":"PISUM radiology software GDPR compliance: patient data stays on your workstation, AI features processed by Google Cloud Vertex AI in the EU only, privacy by design for hospitals and clinics.","inLanguage":"en","publisher":{"@type":"Organization","name":"PISUM","url":"https://pisum.app","logo":"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"}}
+{"@context":"https://schema.org","@type":"WebPage","name":"GDPR Compliance — PISUM","url":"https://pisum.app/rgpd.html","description":"PISUM radiology software GDPR compliance: patient data stays on your workstation, AI features processed in the EU only, privacy by design for hospitals and clinics.","inLanguage":"en","publisher":{"@type":"Organization","name":"PISUM","url":"https://pisum.app","logo":"https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"}}
 </script>
 <link rel="icon" href="/favicon.ico?v=2" sizes="any"/>
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2"/>
@@ -300,17 +300,17 @@ footer {
     <div class="badge-card">
       <div class="badge-card-icon icon-cyan">🔒</div>
       <div class="badge-card-title" id="b1t" data-i18n="rgpd.b1t">Local patient data</div>
-      <div class="badge-card-desc" id="b1d" data-i18n="rgpd.b1d">Reports and patient files are stored only on your machine. Only the AI features send the text or audio being processed, to Google Cloud in the EU.</div>
+      <div class="badge-card-desc" id="b1d" data-i18n="rgpd.b1d">Reports and patient files are stored only on your machine. Only the AI features send the text or audio being processed to our AI sub-processor in the EU.</div>
     </div>
     <div class="badge-card">
       <div class="badge-card-icon icon-green">🛡️</div>
       <div class="badge-card-title" id="b2t" data-i18n="rgpd.b2t">One EU sub-processor</div>
-      <div class="badge-card-desc" id="b2d" data-i18n="rgpd.b2d">No cloud storage or analytics on health data. AI features rely on a single sub-processor: Google Cloud (Vertex AI), within the European Union.</div>
+      <div class="badge-card-desc" id="b2d" data-i18n="rgpd.b2d">No cloud storage or analytics on health data. AI features rely on a single sub-processor, within the European Union.</div>
     </div>
     <div class="badge-card">
       <div class="badge-card-icon icon-amber">🎙️</div>
       <div class="badge-card-title" id="b3t" data-i18n="rgpd.b3t">AI Dictation — processed in the EU</div>
-      <div class="badge-card-desc" id="b3d" data-i18n="rgpd.b3d">Sally AI transcribes audio via Google Cloud (Vertex AI) in the European Union. Audio is not stored by PISUM.</div>
+      <div class="badge-card-desc" id="b3d" data-i18n="rgpd.b3d">Sally AI audio is processed within the European Union. Audio is not stored by PISUM.</div>
     </div>
   </div>
 </div>
@@ -355,26 +355,26 @@ footer {
           </tbody>
         </table>
 
-        <div class="info-block green" id="ib1" data-i18n="rgpd.ib1"><strong>✓ Health data — not collected by PISUM.</strong> Radiology reports, patient data (name, ID, date of birth), medical images and voice recordings are <em>never</em> transmitted to PISUM. Only the AI features send the dictated audio or the report text being processed to our sub-processor Google Cloud (Vertex AI), which processes it within the European Union.</div>
+        <div class="info-block green" id="ib1" data-i18n="rgpd.ib1"><strong>✓ Health data — not collected by PISUM.</strong> Radiology reports, patient data (name, ID, date of birth), medical images and voice recordings are <em>never</em> transmitted to PISUM. Only the AI features send the dictated audio or the report text being processed to our AI sub-processor, which processes it within the European Union.</div>
       </div>
 
       <div class="prose-section" id="s2">
         <h2><span class="num">02</span> <span id="s2h" data-i18n="rgpd.s2h">Secure architecture — local data</span></h2>
 
         <h3 id="s2h1" data-i18n="rgpd.s2h1">🔒 Patient data always local</h3>
-        <p id="s2p1" data-i18n="rgpd.s2p1">Radiology reports, patient data and medical images are stored only on your machine. PISUM does not require an Internet connection for data entry and report export. Only the AI features (dictation, writing assistance) require network access: they send the audio or text being processed to Google Cloud (Vertex AI) in the European Union.</p>
+        <p id="s2p1" data-i18n="rgpd.s2p1">Radiology reports, patient data and medical images are stored only on your machine. PISUM does not require an Internet connection for data entry and report export. Only the AI features (dictation, writing assistance) require network access: they send the audio or text being processed to our AI sub-processor in the European Union.</p>
 
         <h3 id="s2h2" data-i18n="rgpd.s2h2">🎙️ AI Voice Dictation — processed in the EU</h3>
-        <p id="s2p2" data-i18n="rgpd.s2p2"><strong>Sally AI</strong> voice dictation sends each dictated sentence to Google Cloud (Vertex AI), which transcribes it within the European Union; the text is sent back to your local machine. <em>PISUM does not store the audio</em>, and Google does not use it to train models. Do not dictate direct patient identifiers (name, date of birth, national ID number): type them on the keyboard.</p>
+        <p id="s2p2" data-i18n="rgpd.s2p2"><strong>Sally AI</strong> voice dictation sends the dictated audio to our AI sub-processor, which processes it within the European Union; the text is sent back to your local machine. <em>PISUM does not store the audio</em>, and the sub-processor does not use it to train models. Do not dictate direct patient identifiers (name, date of birth, national ID number): type them on the keyboard.</p>
 
-        <div class="info-block cyan" id="ib2" data-i18n="rgpd.ib2"><strong>Storage.</strong> Medical data is stored only on your machine and in your RIS/PACS. AI processing (dictation audio, report text for writing assistance) takes place in Google Cloud within the European Union, without storage by PISUM.</div>
+        <div class="info-block cyan" id="ib2" data-i18n="rgpd.ib2"><strong>Storage.</strong> Medical data is stored only on your machine and in your RIS/PACS. AI processing (dictation audio, report text for writing assistance) is carried out by our AI sub-processor within the European Union, without storage by PISUM.</div>
       </div>
 
       <div class="prose-section" id="s3">
         <h2><span class="num">03</span> <span id="s3h" data-i18n="rgpd.s3h">Sovereignty and telemetry</span></h2>
 
         <h3 id="s3h1" data-i18n="rgpd.s3h1">🛡️ A single sub-processor, in the EU</h3>
-        <p id="s3p1" data-i18n="rgpd.s3p1">The software runs on the user's workstation: no cloud host or analytics service stores medical data. The only sub-processor with access to health data is Google Cloud (Vertex AI), used solely for AI features (dictation, writing assistance) and processing within the European Union. Legal archiving and secure storage remain the sole responsibility of the institution's RIS/PACS system.</p>
+        <p id="s3p1" data-i18n="rgpd.s3p1">The software runs on the user's workstation: no cloud host or analytics service stores medical data. The only sub-processor with access to health data is our AI sub-processor, used solely for AI features (dictation, writing assistance) and processing within the European Union; the list of sub-processors is available from the DPO on request. Legal archiving and secure storage remain the sole responsibility of the institution's RIS/PACS system.</p>
 
         <h3 id="s3h2" data-i18n="rgpd.s3h2">📝 Anonymized application logs</h3>
         <p id="s3p2" data-i18n="rgpd.s3p2">To ensure software stability, PISUM generates local technical error logs. These files are strictly programmed to capture <strong>no business data</strong>:</p>

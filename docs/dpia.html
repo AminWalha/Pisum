@@ -16,7 +16,7 @@ try{if(localStorage.getItem('pisum_cookie_consent')==='granted')window.pisumLoad
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://pisum.app/dpia.html"/>
 <meta property="og:title" content="DPIA — Data Protection Impact Assessment | PISUM"/>
-<meta property="og:description" content="PISUM DPIA (GDPR Art. 35): risk assessment for health data processing, AI features processed in the EU (Google Cloud Vertex AI), and Supabase account management."/>
+<meta property="og:description" content="PISUM DPIA (GDPR Art. 35): risk assessment for health data processing, AI features processed in the EU, and Supabase account management."/>
 <meta property="og:image" content="https://raw.githubusercontent.com/AminWalha/Pisum/refs/heads/main/logo%20V2.png"/>
 <meta property="og:site_name" content="PISUM"/>
 <link rel="icon" href="/favicon.ico?v=2" sizes="any"/>
@@ -286,7 +286,7 @@ main { flex: 1; }
         <ul>
           <li data-i18n="dpia.s1l1"><strong>Special category data (Art. 9)</strong> — voice audio streams may include dictated medical information about patients.</li>
           <li data-i18n="dpia.s1l2"><strong>Large-scale processing</strong> — PISUM targets clinics and hospitals processing hundreds to thousands of reports per month.</li>
-          <li data-i18n="dpia.s1l3"><strong>Innovative technology</strong> — AI voice dictation and AI writing assistance (Google Cloud Vertex AI) are deployed in a medical context.</li>
+          <li data-i18n="dpia.s1l3"><strong>Innovative technology</strong> — AI voice dictation and AI writing assistance are deployed in a medical context.</li>
         </ul>
 
         <div class="info-block blue" data-i18n="dpia.ib1">
@@ -297,7 +297,7 @@ main { flex: 1; }
         <p data-i18n="dpia.s1p3">This DPIA covers all three processing activities (PA) identified in PISUM v2.x:</p>
         <ul>
           <li data-i18n="dpia.s1l5"><strong>PA-1</strong> — Account and subscription data management (Supabase)</li>
-          <li data-i18n="dpia.s1l6"><strong>PA-2</strong> — AI features: voice dictation and writing assistance (Google Cloud Vertex AI, EU)</li>
+          <li data-i18n="dpia.s1l6"><strong>PA-2</strong> — AI features: voice dictation and writing assistance (EU)</li>
           <li data-i18n="dpia.s1l7"><strong>PA-3</strong> — Local patient database (SQLite, on-premises)</li>
         </ul>
       </div>
@@ -331,8 +331,8 @@ main { flex: 1; }
               <td>PA-2</td>
               <td data-i18n="dpia.t1_r2c2">AI features (voice dictation, writing assistance)</td>
               <td>PISUM</td>
-              <td>Google Cloud (Vertex AI)</td>
-              <td data-i18n="dpia.t1_r2c5">EU (Vertex AI EU endpoint)</td>
+              <td data-i18n="dpia.t1_r2c4">AI sub-processor</td>
+              <td data-i18n="dpia.t1_r2c5">EU</td>
               <td data-i18n="dpia.t1_r2c6">Personal — potentially health-related (dictated or processed content)</td>
               <td><span class="risk risk-pending" data-i18n="dpia.pending">UNDER REVIEW</span></td>
             </tr>
@@ -403,18 +403,16 @@ main { flex: 1; }
 
       <!-- ── 04 PA-2 ── -->
       <div class="prose-section" id="s4">
-        <h2><span class="num">04</span> <span data-i18n="dpia.s4h">PA-2 — AI features: dictation &amp; writing assistance (Google Cloud Vertex AI)</span></h2>
+        <h2><span class="num">04</span> <span data-i18n="dpia.s4h">PA-2 — AI features: dictation &amp; writing assistance</span></h2>
 
         <h3 data-i18n="dpia.s4h3a">Description</h3>
-        <p data-i18n="dpia.s4p1">While the microphone is switched on, PISUM captures the dictated audio and, after each pause, sends that segment to Google Cloud (Vertex AI) over an encrypted HTTPS connection. Requests are sent only to the Vertex AI European Union endpoint, with no fallback outside the EU. The transcribed text is returned to the user's workstation. The AI writing assistance (report structuring and synthesis) sends the report text being processed to the same service under the same conditions. PISUM does not store the audio, and Google does not use it to train models. Patient identifiers are only sent if the user dictates or types them into the processed content.</p>
+        <p data-i18n="dpia.s4p1">When the AI features are used, the dictated audio or the report text being processed is sent over an encrypted connection to PISUM's AI sub-processor, which processes it exclusively within the European Union. The result is returned to the user's workstation. PISUM does not store the audio, and the sub-processor does not use the data to train models. Patient identifiers are only sent if the user dictates or types them into the processed content.</p>
 
         <h3 data-i18n="dpia.s4h3b">Legal basis</h3>
         <p data-i18n="dpia.s4p2">Under DPO review for version 1.1. The basis used in version 1.0 (explicit consent to a transfer outside the EU, Art. 49(1)(a)) concerned the previous dictation provider; AI processing now takes place within the European Union.</p>
 
         <h3 data-i18n="dpia.s4h3c">Data minimisation</h3>
-        <div class="info-block blue" data-i18n="dpia.ib4">
-          <strong>Minimisation instruction.</strong> Users are instructed not to dictate direct patient identifiers (name, date of birth, national ID number) and to type them on the keyboard instead. This instruction appears in PISUM's in-app privacy notice (v1.2) and at <a href="rgpd.html">pisum.app/rgpd.html</a>, which also name Google Cloud (Vertex AI, EU) as the sub-processor.
-        </div>
+        <div class="info-block blue" data-i18n="dpia.ib4"><strong>Minimisation instruction.</strong> Users are instructed not to dictate direct patient identifiers (name, date of birth, national ID number) and to type them on the keyboard instead. This instruction appears in PISUM's in-app privacy notice (v1.2) and at <a href="rgpd.html">pisum.app/rgpd.html</a>.</div>
 
         <h3 data-i18n="dpia.s4h3d">Risk analysis</h3>
         <table class="data-table">
@@ -426,11 +424,11 @@ main { flex: 1; }
             </tr>
             <tr>
               <td data-i18n="dpia.pa2_t2">Retention of audio or text by the sub-processor</td>
-              <td data-i18n="dpia.pa2_m2">PISUM does not store audio. The Google Cloud data processing terms and the retention settings applied to Vertex AI requests are being documented (see action items).</td>
+              <td data-i18n="dpia.pa2_m2">PISUM does not store audio. The sub-processor's data processing terms and retention settings are being documented (see action items).</td>
             </tr>
             <tr>
               <td data-i18n="dpia.pa2_t3">Use of data to train models</td>
-              <td data-i18n="dpia.pa2_m3">Google does not use the audio or text sent by PISUM to train its models.</td>
+              <td data-i18n="dpia.pa2_m3">The sub-processor does not use the audio or text sent by PISUM to train its models.</td>
             </tr>
             <tr>
               <td data-i18n="dpia.pa2_t4">Patient identifiers dictated into audio</td>
@@ -438,7 +436,7 @@ main { flex: 1; }
             </tr>
             <tr>
               <td data-i18n="dpia.pa2_t5">Processing outside the European Union</td>
-              <td data-i18n="dpia.pa2_m5">Requests sent only to the Vertex AI EU endpoint, with no fallback outside the EU</td>
+              <td data-i18n="dpia.pa2_m5">Processing carried out exclusively within the European Union</td>
             </tr>
           </tbody>
         </table>
@@ -446,13 +444,13 @@ main { flex: 1; }
 
         <h3 data-i18n="dpia.s4h3e">Mitigations implemented</h3>
         <ul>
-          <li data-i18n="dpia.s4l1">Requests sent only to the <strong>Vertex AI European Union endpoint</strong> — no fallback outside the EU.</li>
+          <li data-i18n="dpia.s4l1">Processing carried out <strong>exclusively within the European Union</strong>.</li>
           <li data-i18n="dpia.s4l2">Encrypted HTTPS (TLS) transport for every request.</li>
           <li data-i18n="dpia.s4l3">Audio is captured only while the user has the microphone switched on.</li>
           <li data-i18n="dpia.s4l4">Audio is not stored by PISUM; only the returned text is kept, in the local report.</li>
           <li data-i18n="dpia.s4l5">Minimisation instruction: patient identifiers are typed, not dictated (privacy notice v1.2).</li>
           <li data-i18n="dpia.s4l6">Manual text entry available as a zero-transfer alternative.</li>
-          <li data-i18n="dpia.s4l7">Google Cloud (Vertex AI) named as sub-processor in the privacy notice and at pisum.app/rgpd.html.</li>
+          <li data-i18n="dpia.s4l7">The AI sub-processor is covered in the privacy notice; the list of sub-processors is available from the DPO on request.</li>
         </ul>
 
         <div class="info-block amber" data-i18n="dpia.ib4b">
@@ -550,9 +548,9 @@ main { flex: 1; }
               <td data-i18n="dpia.t6_r1c5">None</td>
             </tr>
             <tr>
-              <td data-i18n="dpia.t6_r2c1">PA-2: AI features (Google Cloud Vertex AI, EU)</td>
+              <td data-i18n="dpia.t6_r2c1">PA-2: AI features (EU)</td>
               <td><span class="risk risk-pending" data-i18n="dpia.pending">UNDER REVIEW</span></td>
-              <td data-i18n="dpia.t6_r2c3">EU-only endpoint, TLS, no audio storage by PISUM, minimisation instruction</td>
+              <td data-i18n="dpia.t6_r2c3">EU-only processing, encryption in transit, no audio storage by PISUM, minimisation instruction</td>
               <td><span class="risk risk-pending" data-i18n="dpia.pending">UNDER REVIEW</span></td>
               <td data-i18n="dpia.t6_r2c5"><strong>DPO assessment</strong> (version 1.1)</td>
             </tr>
@@ -570,11 +568,11 @@ main { flex: 1; }
       <!-- ── 07 RESIDUAL RISK ── -->
       <div class="prose-section" id="s7">
         <h2><span class="num">07</span> <span data-i18n="dpia.s7h">Residual risk &amp; conclusion</span></h2>
-        <p data-i18n="dpia.s7p1">In October 2026 the previous dictation provider was removed from PISUM and all AI features (dictation and writing assistance) moved to Google Cloud (Vertex AI) in the European Union. This DPIA is being updated accordingly (version 1.1, draft). The assessments of PA-1 and PA-3 are unchanged. The risk levels and conclusion for PA-2 will be published once the DPO review is complete.</p>
+        <p data-i18n="dpia.s7p1">In October 2026 the previous dictation provider was removed from PISUM and all AI features (dictation and writing assistance) moved to a new AI sub-processor in the European Union. This DPIA is being updated accordingly (version 1.1, draft). The assessments of PA-1 and PA-3 are unchanged. The risk levels and conclusion for PA-2 will be published once the DPO review is complete.</p>
 
         <h3 data-i18n="dpia.s7h3a">Outstanding action items</h3>
         <ul>
-          <li data-i18n="dpia.s7l1"><strong>[Priority: HIGH]</strong> Complete the DPO review of PA-2 for version 1.1, documenting the Google Cloud data processing terms and the data-retention settings applied to Vertex AI requests.</li>
+          <li data-i18n="dpia.s7l1"><strong>[Priority: HIGH]</strong> Complete the DPO review of PA-2 for version 1.1, documenting the sub-processor's data processing terms and data-retention settings.</li>
           <li data-i18n="dpia.s7l2"><strong>[Priority: MEDIUM]</strong> Implement in-app warning when user dictates content that appears to include patient name or ID formats (regex heuristic).</li>
           <li data-i18n="dpia.s7l3"><strong>[Priority: LOW]</strong> Evaluate on-device speech recognition as an alternative for users with strict data sovereignty requirements.</li>
         </ul>

@@ -268,7 +268,7 @@ main { flex: 1; }
     <p class="hero-sub animate-in d3" data-i18n="dpo.p_1">PISUM has formally designated a Data Protection Officer in accordance with GDPR Art. 37. The DPO is your independent point of contact for all privacy and data rights matters.</p>
     <p class="hero-meta animate-in">
       <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2"/><path d="M6 4v2.5l1.5 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-      <span data-i18n="dpo.meta">Designated: May 2026 · GDPR Art. 37–39</span>
+      <span data-i18n="dpo.meta">Designated: July 2026 · GDPR Art. 37–39</span>
     </p>
   </div>
 </section>
@@ -280,7 +280,7 @@ main { flex: 1; }
     <div class="dpo-avatar">🛡️</div>
     <div>
       <div class="dpo-name" data-i18n="dpo.dpo_name">PISUM — Data Protection Officer</div>
-      <div class="dpo-title" data-i18n="dpo.dpo_title">Designated DPO · GDPR Art. 37 · Since May 2026</div>
+      <div class="dpo-title" data-i18n="dpo.dpo_title">Designated DPO · GDPR Art. 37 · Since July 2026</div>
       <div class="dpo-contact-row">
         <div class="dpo-contact-item">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -333,9 +333,7 @@ main { flex: 1; }
           </tbody>
         </table>
 
-        <div class="info-block cyan" data-i18n="dpo.ib1">
-          <strong>Designation scope.</strong> The DPO is designated for all processing activities conducted by PISUM as data controller, including: account management (Supabase), AI features — voice dictation and writing assistance (Google Cloud Vertex AI, EU), and the local patient database tool (SQLite). The DPO is also available to institutional users (clinics, hospitals) who use PISUM and have questions about their own compliance.
-        </div>
+        <div class="info-block cyan" data-i18n="dpo.ib1"><strong>Designation scope.</strong> The DPO is designated for all processing activities conducted by PISUM as data controller, including: account management (Supabase), AI features — voice dictation and writing assistance (EU), and the local patient database tool (SQLite). The DPO is also available to institutional users (clinics, hospitals) who use PISUM and have questions about their own compliance.</div>
       </div>
 
       <!-- ── 02 TASKS ── -->
@@ -345,13 +343,13 @@ main { flex: 1; }
         <p data-i18n="dpo.s2p1">The PISUM DPO performs all tasks mandated by GDPR Art. 39:</p>
 
         <h3 data-i18n="dpo.s2h3a">1. Informing and advising</h3>
-        <p data-i18n="dpo.s2p2">The DPO informs and advises PISUM and its employees of their obligations under GDPR and applicable national data protection law. This includes advising on new features before release, reviewing consent dialogs, and assessing sub-processor agreements.</p>
+        <p data-i18n="dpo.s2p2">The DPO informs and advises PISUM of its obligations under GDPR and applicable national data protection law. This includes advising on new features before release, reviewing consent dialogs, and assessing sub-processor agreements.</p>
 
         <h3 data-i18n="dpo.s2h3b">2. Monitoring compliance</h3>
-        <p data-i18n="dpo.s2p3">The DPO monitors PISUM's compliance with GDPR, including the assignment of responsibilities, raising awareness, training of staff, and the related audits. Monitoring activities include:</p>
+        <p data-i18n="dpo.s2p3">The DPO monitors PISUM's compliance with GDPR, including the assignment of responsibilities, awareness-raising and the related audits. Monitoring activities include:</p>
         <ul>
           <li data-i18n="dpo.s2l1">Annual review of all consent texts and privacy notices.</li>
-          <li data-i18n="dpo.s2l2">Review of sub-processor DPAs (Supabase, Google Cloud).</li>
+          <li data-i18n="dpo.s2l2">Review of sub-processor DPAs.</li>
           <li data-i18n="dpo.s2l3">Monitoring the incident log for events requiring Art. 33 notification.</li>
           <li data-i18n="dpo.s2l4">Reviewing DPIA annually and on any significant change.</li>
         </ul>
@@ -373,16 +371,14 @@ main { flex: 1; }
         <p data-i18n="dpo.s3p1">GDPR Art. 38 requires that the DPO acts independently and is not dismissed or penalized for performing their tasks. PISUM guarantees the following:</p>
 
         <ul>
-          <li data-i18n="dpo.s3l1"><strong>No conflict of interest:</strong> The DPO does not hold any role within PISUM that could conflict with data protection responsibilities (Art. 38(6)).</li>
+          <li data-i18n="dpo.s3l1"><strong>Combined role, stated openly:</strong> PISUM is a sole-proprietor business (Amin WALHA EI) with no employees. Amin WALHA performs the DPO role in addition to running the business. The European Data Protection Board considers that this combination can create a conflict of interest (Art. 38(6)); this arrangement will be reviewed as PISUM grows.</li>
           <li data-i18n="dpo.s3l2"><strong>Reporting directly to management:</strong> The DPO reports directly to the highest management level (Art. 38(3)) and is not subject to instructions regarding the performance of their tasks.</li>
           <li data-i18n="dpo.s3l3"><strong>Adequate resources:</strong> The DPO is provided with sufficient time, resources, and access to personal data and processing operations to maintain expert knowledge (Art. 38(2)).</li>
           <li data-i18n="dpo.s3l4"><strong>Confidentiality:</strong> The DPO is bound by secrecy and confidentiality regarding the performance of tasks (Art. 38(5)).</li>
           <li data-i18n="dpo.s3l5"><strong>No dismissal for performance of tasks:</strong> The DPO shall not be dismissed or penalized for performing their data protection tasks (Art. 38(3)).</li>
         </ul>
 
-        <div class="info-block green" data-i18n="dpo.ib3">
-          <strong>Independence in practice.</strong> For PISUM v2.x, the DPO reviewed the risk disclosure for the voice dictation provider then in use and required that a DPA be signed with it within 90 days. That provider has since been removed: AI features now run on Google Cloud (Vertex AI) in the European Union, and the DPO's assessment of this processing is in progress (DPIA v1.1). These decisions are made independently of commercial considerations.
-        </div>
+        <div class="info-block green" data-i18n="dpo.ib3"><strong>Independence in practice.</strong> For PISUM v2.x, the DPO reviewed the risk disclosure for the voice dictation provider then in use and required that a DPA be signed with it within 90 days. That provider has since been removed: AI features now rely on a sub-processor in the European Union, and the DPO's assessment of this processing is in progress (DPIA v1.1). These decisions are made independently of commercial considerations.</div>
       </div>
 
       <!-- ── 04 CONTACT ── -->
@@ -432,13 +428,13 @@ main { flex: 1; }
       <div class="prose-section" id="s5">
         <h2><span class="num">05</span> <span data-i18n="dpo.s5h">Notification to supervisory authority</span></h2>
 
-        <p data-i18n="dpo.s5p1">GDPR Art. 37(7) requires the controller to publish the contact details of the DPO and communicate them to the supervisory authority. PISUM has notified the relevant supervisory authority of the DPO designation as follows:</p>
+        <p data-i18n="dpo.s5p1">GDPR Art. 37(7) requires the controller to publish the contact details of the DPO and communicate them to the supervisory authority. The declaration of the DPO designation is in progress:</p>
 
         <table class="data-table">
           <thead><tr><th>Authority</th><th>Jurisdiction</th><th>Status</th></tr></thead>
           <tbody>
-            <tr><td>CNIL (France)</td><td>EU — primary supervisory authority</td><td>DPO designation communicated — May 2026</td></tr>
-            <tr><td>INPDP (Tunisia)</td><td>Tunisia</td><td>Notification filed — May 2026</td></tr>
+            <tr><td>CNIL (France)</td><td>EU — primary supervisory authority</td><td data-i18n="dpo.t5_cnil">Declaration in progress (SIREN 107 735 417)</td></tr>
+            <tr><td>INPDP (Tunisia)</td><td>Tunisia</td><td data-i18n="dpo.t5_inpdp">Declaration in progress</td></tr>
           </tbody>
         </table>
 
@@ -461,7 +457,11 @@ main { flex: 1; }
           <div class="signed-line">
             <div class="sign-box">
               <label>Organization</label>
-              <div class="val">PISUM</div>
+              <div class="val">Amin WALHA EI (PISUM)<br/>SIREN 107 735 417</div>
+            </div>
+            <div class="sign-box">
+              <label>DPO</label>
+              <div class="val">Amin WALHA</div>
             </div>
             <div class="sign-box">
               <label>DPO contact</label>
@@ -469,7 +469,7 @@ main { flex: 1; }
             </div>
             <div class="sign-box">
               <label>Effective date</label>
-              <div class="val">May 2026</div>
+              <div class="val">19/07/2026</div>
             </div>
             <div class="sign-box">
               <label>Legal basis</label>
