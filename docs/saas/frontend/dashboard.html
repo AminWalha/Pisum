@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
 <meta name="robots" content="noindex, nofollow"/>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F"></script>
+<!-- Google Analytics 4: loaded only after explicit consent (CNIL) -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-6VG09X3G7F');
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+window.pisumLoadGA=function(){if(window._pisumGA)return;window._pisumGA=1;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-6VG09X3G7F';document.head.appendChild(s);gtag('js',new Date());gtag('config','G-6VG09X3G7F');};
+try{if(localStorage.getItem('pisum_cookie_consent')==='granted')window.pisumLoadGA();}catch(e){}
 </script>
 <meta charset="UTF-8"/>
 <meta http-equiv="Cache-Control" content="no-cache, must-revalidate"/>
@@ -744,6 +743,14 @@ main{max-width:960px;margin:0 auto;padding:2rem 2rem 5rem}
 #piw-send:hover{transform:scale(1.08)}
 #piw-send:disabled{opacity:.4;cursor:not-allowed;transform:none}
 @media(max-width:420px){#piw-panel{width:calc(100vw - 32px);right:-8px}}
+/* Phones: the bottom tab bar is visible, so the assistant sits above it as a round icon button */
+@media(max-width:780px){
+  #piw{right:16px;bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+  #piw-trigger{font-size:0;gap:0;width:52px;height:52px;padding:0;justify-content:center}
+  #piw-trigger svg{width:22px;height:22px}
+  #piw-panel{position:fixed;left:12px;right:12px;width:auto;bottom:calc(148px + env(safe-area-inset-bottom,0px));max-height:calc(100dvh - 220px)}
+  #piw-msgs{max-height:none}
+}
 </style>
 </head>
 <body>
@@ -2486,64 +2493,6 @@ function mtbActive(el){document.querySelectorAll('.mtb-btn').forEach(b=>b.classL
     </div>
   </div>
 </div>
-<script>
-(function(){
-const PC_URL='https://pisum-chat-server.onrender.com';
-const piwSid='sess_'+Math.random().toString(36).slice(2);
-function fmt(text){return text.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');}
-function addMsg(role,text){
-  const wrap=document.getElementById('piw-msgs');
-  const d=document.createElement('div');
-  d.className='piw-msg '+role;
-  const b=document.createElement('div');
-  b.className='piw-bubble';
-  b.innerHTML=fmt(text).replace(/\n/g,'<br>');
-  d.appendChild(b);
-  wrap.appendChild(d);
-  wrap.scrollTop=wrap.scrollHeight;
-}
-function showTyping(){
-  const wrap=document.getElementById('piw-msgs');
-  const d=document.createElement('div');
-  d.className='piw-msg ai';d.id='piw-typing-indicator';
-  d.innerHTML='<div class="piw-typing"><span></span><span></span><span></span></div>';
-  wrap.appendChild(d);
-  wrap.scrollTop=wrap.scrollHeight;
-  return d;
-}
-window.piwToggle=function(){
-  const panel=document.getElementById('piw-panel');
-  const badge=document.getElementById('piw-badge');
-  const isOpen=panel.classList.contains('open');
-  panel.classList.toggle('open');
-  if(!isOpen&&badge)badge.style.display='none';
-  if(!isOpen)setTimeout(()=>document.getElementById('piw-input').focus(),100);
-};
-window.piwAsk=async function(q){
-  document.getElementById('piw-chips').style.display='none';
-  const btn=document.getElementById('piw-send');
-  addMsg('user',q);
-  btn.disabled=true;
-  const t=showTyping();
-  try{
-    const r=await fetch(PC_URL+'/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q,sessionId:piwSid})});
-    const data=await r.json();
-    t.remove();
-    addMsg('ai',data.reply||data.error);
-  }catch{
-    t.remove();
-    addMsg('ai','Connection error. Please try again.');
-  }
-  btn.disabled=false;
-};
-window.piwSend=function(){
-  const inp=document.getElementById('piw-input');
-  const q=inp.value.trim();
-  if(!q)return;
-  inp.value='';
-  piwAsk(q);
-};
-})();
-</script>
+<script src="../../piw.js?v=20261004"></script>
 </body>
 </html>
