@@ -43,6 +43,19 @@
 
   function $(id) { return document.getElementById(id); }
 
+  // First name of the signed-in visitor (from the site login cookie), so the assistant can greet them.
+  // Only the first name is sent: no e-mail, no last name.
+  function visitorFirstName() {
+    try {
+      var m = document.cookie.match(/(?:^|;\s*)pisum_user=([^;]+)/);
+      if (!m) return '';
+      var u = JSON.parse(decodeURIComponent(m[1]));
+      return String((u && u.name) || '').trim().split(/\s+/)[0].slice(0, 40);
+    } catch (e) {
+      return '';
+    }
+  }
+
   function load() {
     try {
       var s = JSON.parse(sessionStorage.getItem(STORE_KEY) || 'null');
@@ -162,7 +175,7 @@
       var r = await fetch(PC_URL + '/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: q, sessionId: state.sid, lang: lang(), page: location.pathname.split('/').pop() || 'index.html' }),
+        body: JSON.stringify({ message: q, sessionId: state.sid, lang: lang(), page: location.pathname.split('/').pop() || 'index.html', name: visitorFirstName() }),
         signal: ctrl ? ctrl.signal : undefined
       });
       var data = {};
