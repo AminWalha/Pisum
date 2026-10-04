@@ -147,6 +147,9 @@
     if (!isOpen) {
       if (badge) badge.style.display = 'none';
       warmUp();
+      // Messages restored while the panel was hidden could not be scrolled: show the latest one now
+      var wrap = $('piw-msgs');
+      if (wrap) wrap.scrollTop = wrap.scrollHeight;
       setTimeout(function () { var i = $('piw-input'); if (i) i.focus(); }, 100);
     }
   };
