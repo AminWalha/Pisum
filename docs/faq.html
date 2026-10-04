@@ -433,7 +433,7 @@ a { text-decoration: none; color: inherit; }
               There is an absolute boundary between patient identification and AI processing:
               <ul>
                 <li><strong>Local Data (Zero Cloud Transfer):</strong> Patient identities (name, date of birth, medical record ID/IPP), patient archives, and local exam queues remain strictly on your machine.</li>
-                <li><strong>AI Processing (Ephemeral Transit):</strong> Only isolated, de-identified clinical text phrases or voice audio stream securely over encrypted channels (HTTPS / TLS 1.3) to API endpoints. Processing occurs in volatile memory, is deleted immediately after completion, and is <strong>never</strong> retained or used to train public machine learning models.</li>
+                <li><strong>AI Processing (EU only):</strong> Only the clinical text or dictated audio needed for the request is sent over encrypted channels (HTTPS / TLS) to our AI sub-processor in the European Union. It is not stored by PISUM and is <strong>never</strong> used to train AI models. Type patient identifiers on the keyboard rather than dictating them.</li>
               </ul>
             </div>
           </div>

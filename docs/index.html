@@ -2139,65 +2139,7 @@ Ask AI
 </div>
 </div>
 </div>
-<script>
-(function(){
-const PC_URL='https://pisum-chat-server.onrender.com';
-const piwSid='sess_'+Math.random().toString(36).slice(2);
-function fmt(text){return text.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');}
-function addMsg(role,text){
-  const wrap=document.getElementById('piw-msgs');
-  const d=document.createElement('div');
-  d.className='piw-msg '+role;
-  const b=document.createElement('div');
-  b.className='piw-bubble';
-  b.innerHTML=fmt(text).replace(/\n/g,'<br>');
-  d.appendChild(b);
-  wrap.appendChild(d);
-  wrap.scrollTop=wrap.scrollHeight;
-}
-function showTyping(){
-  const wrap=document.getElementById('piw-msgs');
-  const d=document.createElement('div');
-  d.className='piw-msg ai';d.id='piw-typing-indicator';
-  d.innerHTML='<div class="piw-typing"><span></span><span></span><span></span></div>';
-  wrap.appendChild(d);
-  wrap.scrollTop=wrap.scrollHeight;
-  return d;
-}
-window.piwToggle=function(){
-  const panel=document.getElementById('piw-panel');
-  const badge=document.getElementById('piw-badge');
-  const isOpen=panel.classList.contains('open');
-  panel.classList.toggle('open');
-  if(!isOpen&&badge)badge.style.display='none';
-  if(!isOpen)setTimeout(()=>document.getElementById('piw-input').focus(),100);
-};
-window.piwAsk=async function(q){
-  document.getElementById('piw-chips').style.display='none';
-  const btn=document.getElementById('piw-send');
-  addMsg('user',q);
-  btn.disabled=true;
-  const t=showTyping();
-  try{
-    const r=await fetch(PC_URL+'/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q,sessionId:piwSid})});
-    const data=await r.json();
-    t.remove();
-    addMsg('ai',data.reply||data.error);
-  }catch{
-    t.remove();
-    addMsg('ai','Connection error. Please try again.');
-  }
-  btn.disabled=false;
-};
-window.piwSend=function(){
-  const inp=document.getElementById('piw-input');
-  const q=inp.value.trim();
-  if(!q)return;
-  inp.value='';
-  piwAsk(q);
-};
-})();
-</script>
+<script src="piw.js?v=20261004"></script>
 
 <div id="pisum-err-toast" style="display:none;position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);background:#fff;border:1px solid #fecaca;color:#b91c1c;padding:.8rem 1.5rem;border-radius:12px;font-size:.83rem;font-weight:600;box-shadow:0 4px 20px rgba(0,0,0,.12);z-index:9999;max-width:90vw;text-align:center"></div>
 <script src="i18n.js?v=20260916"></script>
