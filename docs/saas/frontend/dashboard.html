@@ -1912,10 +1912,17 @@ async function loadProfile() {
 
   if (data) {
     currentProfile = data;
-    if (!data.avatar_url && oauthAvatar) {
+    const backfill = {};
+    // Provider photo URLs change (LinkedIn's are signed and expire) — refresh them
+    // from the latest login, but never overwrite a photo the user uploaded.
+    const isProviderAvatar = /googleusercontent\.com|licdn\.com/.test(data.avatar_url || '');
+    if (oauthAvatar && (!data.avatar_url || (isProviderAvatar && data.avatar_url !== oauthAvatar)))
+      backfill.avatar_url = oauthAvatar;
+    if (!data.full_name  && oauthName)   backfill.full_name  = oauthName;
+    if (Object.keys(backfill).length) {
       const { data: updated } = await sb
         .from('profiles')
-        .update({ avatar_url: oauthAvatar })
+        .update(backfill)
         .eq('user_id', session.user.id)
         .select()
         .maybeSingle();
@@ -1942,11 +1949,24 @@ async function loadProfile() {
 
 function setAvatarEl(el, url) {
   if (!el) return;
+  // Google photos default to 96px (=s96-c) — request a sharper version
+  if (/googleusercontent\.com/.test(url)) url = url.replace(/=s\d+-c$/, '=s256-c');
   el.innerHTML = '';
   const img = document.createElement('img');
+  // Google's CDN may answer 403 when a third-party Referer is sent
+  img.referrerPolicy = 'no-referrer';
   img.src = url;
   img.alt = 'Avatar';
   img.style.cssText = 'width:100%;height:100%;border-radius:50%;object-fit:cover;display:block';
+  img.onerror = () => {
+    const name  = currentProfile?.full_name || session?.user?.user_metadata?.full_name || session?.user?.user_metadata?.name || '';
+    const email = session?.user?.email || '';
+    el.textContent = name
+      ? name.split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase()
+      : (email[0]?.toUpperCase() || '?');
+    el.style.background = '';
+    el.style.padding = '';
+  };
   el.style.background = 'none';
   el.style.padding = '0';
   el.appendChild(img);
@@ -1961,7 +1981,7 @@ function updateProfileDisplay(profile) {
   }
   if (session) {
     const u = session.user;
-    const name = profile.full_name || u.user_metadata?.full_name || u.email.split('@')[0];
+    const name = profile.full_name || u.user_metadata?.full_name || u.user_metadata?.name || u.email.split('@')[0];
     const avatar = profile.avatar_url || u.user_metadata?.avatar_url || u.user_metadata?.picture || '';
     const val = encodeURIComponent(JSON.stringify({ name, email: u.email, avatar }));
     document.cookie = `pisum_user=${val}; domain=.pisum.app; path=/; max-age=604800; SameSite=Lax; Secure`;

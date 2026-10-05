@@ -1024,7 +1024,7 @@ async function init() {
   if (!data.session) return;
   currentSession = data.session;
   const user     = data.session.user;
-  const name     = user.user_metadata?.full_name || user.email?.split('@')[0] || '';
+  const name     = user.user_metadata?.full_name || user.user_metadata?.name || user.email?.split('@')[0] || '';
   const initials = name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase() || '?';
 
   const avEl   = document.getElementById('nav-avatar');
