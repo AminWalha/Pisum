@@ -2316,7 +2316,11 @@ async function confirmDeleteAccount() {
       headers: { Authorization: `Bearer ${session.access_token}` },
     });
     if (!r.ok) throw new Error((await r.json()).detail || 'Error');
-    await sb.auth.signOut();
+    // The homepage nav reads this cookie — clear it, or the deleted profile stays visible for 7 days
+    document.cookie = 'pisum_user=; domain=.pisum.app; path=/; max-age=0; SameSite=Lax; Secure';
+    // The user no longer exists server-side, so only drop the local session
+    try { await sb.auth.signOut({ scope: 'local' }); } catch (_) {}
+    try { localStorage.removeItem(obKey(session.user.id)); } catch (_) {}
     window.location.href = 'https://pisum.app/';
   } catch(err) {
     const m = document.getElementById('delete-modal-msg');
