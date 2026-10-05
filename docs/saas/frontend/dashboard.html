@@ -1908,7 +1908,17 @@ async function loadProfile() {
     .maybeSingle();
   const meta = session.user.user_metadata || {};
   const oauthName   = (meta.full_name || meta.name   || '').trim();
-  const oauthAvatar = (meta.avatar_url || meta.picture || '').trim();
+  let   oauthAvatar = (meta.avatar_url || meta.picture || '').trim();
+
+  // LinkedIn OIDC only sets `name` / `picture`, while Google also sets `full_name` / `avatar_url`.
+  // Mirror them so every provider looks the same (Supabase's user list reads avatar_url).
+  // LinkedIn photo URLs expire, so keep a licdn avatar_url in sync with the latest picture.
+  const metaPatch = {};
+  if (meta.picture && meta.avatar_url !== meta.picture &&
+      (!meta.avatar_url || /licdn\.com/.test(meta.avatar_url))) metaPatch.avatar_url = meta.picture;
+  if (!meta.full_name && meta.name) metaPatch.full_name = meta.name;
+  if (Object.keys(metaPatch).length) sb.auth.updateUser({ data: metaPatch }).catch(() => {});
+  if (metaPatch.avatar_url) oauthAvatar = metaPatch.avatar_url;
 
   if (data) {
     currentProfile = data;
