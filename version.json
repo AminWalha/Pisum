@@ -1,10 +1,10 @@
 {
-    "version":  "3.2.2",
+    "version":  "3.2.3",
     "release_date":  "2026-10-05",
     "download_url":  "https://github.com/AminWalha/Pisum/releases/latest/download/PISUM_Radiology_Setup.exe",
     "installer_url":  "https://github.com/AminWalha/Pisum/releases/latest/download/PISUM_Radiology_Setup.exe",
-    "sha256":  "2fc476572b4c68be1f577095dfbdef2c239b13515f260165486e95c48e258fea",
-    "size":  71615056,
+    "sha256":  "f531520623404db36aa678f1573b4e0855fcb2bd50ac3e79b18790b0aefd1f24",
+    "size":  71609501,
     "mandatory":  false,
     "changelog":  {
                       "fr":  "",
