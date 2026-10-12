@@ -401,6 +401,7 @@ a{text-decoration:none;color:inherit}
 .pper{font-size:0.85rem;color:var(--ink-4)}
 .plan-desc{font-size:0.82rem;color:var(--ink-3);margin-bottom:2rem;line-height:1.55}
 .plan-cta{width:100%;padding:0.85rem;border-radius:999px;font-size:0.9rem;font-weight:700;font-family:var(--sans);cursor:pointer;transition:all 0.22s var(--t);border:none;display:block;text-align:center;margin-bottom:2rem}
+.plan-cta:disabled{opacity:.45;cursor:not-allowed;transform:none!important;box-shadow:none!important}
 .cta-ghost{background:rgba(255,255,255,0.05);border:1px solid var(--b2);color:var(--ink)}
 .cta-ghost:hover{background:rgba(255,255,255,0.1);border-color:var(--blue);}
 .cta-white{background:var(--ink);color:var(--bg);box-shadow:0 2px 8px rgba(255,255,255,0.1)}
@@ -1267,7 +1268,7 @@ app.pisum.app — Abdominal CT Protocol &amp; Synthesis
         <p class="ai-diag-detail" data-i18n="index.ai_diag_desc">Complete obstruction of hepatic venous outflow with compensatory hypertrophy of the caudate lobe (segment I). Associated portal hypertension with congestive splenomegaly and ascites.</p>
         <div class="ai-urgency">
           <span style="font-size:0.85rem">🔴</span>
-          <span class="ai-urg-text" data-i18n="index.ai_urgency">Critical Finding: Urgent clinical correlation and vascular surgery notification advised</span>
+          <span class="ai-urg-text" data-i18n="index.ai_urgency">Critical finding: placed first in the conclusion, never buried among negative findings</span>
         </div>
       </div>
     </div>
@@ -1339,7 +1340,7 @@ app.pisum.app — Abdominal CT Protocol &amp; Synthesis
         <span data-i18n="index.ai_cert_confirm_badge" style="background:rgba(16,185,129,0.15);color:var(--green);font-size:0.6rem;font-weight:700;padding:0.1rem 0.45rem;border-radius:4px">Confirming</span>
       </div>
       <p style="font-size:0.73rem;color:var(--ink-3);line-height:1.55;margin-bottom:0.55rem" data-i18n="index.feat_ai_diag_desc">Obliteration of hepatic veins. Caudate lobe compensatory hypertrophy (segment I).</p>
-      <div data-i18n="index.feat_ai_critical" style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);border-radius:5px;padding:0.35rem 0.6rem;font-size:0.67rem;font-weight:600;color:#EF4444">🔴 Critical — immediate clinical correlation</div>
+      <div data-i18n="index.feat_ai_critical" style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);border-radius:5px;padding:0.35rem 0.6rem;font-size:0.67rem;font-weight:600;color:#EF4444">🔴 Critical finding — stated first in the conclusion</div>
     </div>
   </div>
 </div>
@@ -1586,7 +1587,7 @@ app.pisum.app — Abdominal CT Protocol &amp; Synthesis
 <p class="plan-desc" data-i18n="index.p_40">Essential structured workflow for solo practice.</p>
 <p data-i18n="index.p_roi_starter" style="font-size:0.7rem;color:var(--green);text-align:center;margin-bottom:0.3rem;font-weight:600">Save 30 min/day from day one</p>
 <p data-i18n="index.p_41" style="font-size:0.7rem;color:var(--ink-4);margin-bottom:0.75rem;margin-top:0">14-day free trial</p>
-<button class="plan-cta cta-white plan-sub-btn" data-i18n="index.button_39" onclick="subscribe('starter')">Try Starter free</button>
+<button class="plan-cta cta-white plan-sub-btn" disabled aria-disabled="true" data-i18n="index.cta_unavailable">Currently unavailable</button>
 <hr class="plan-div"/>
 <ul class="plan-list">
 <li data-i18n="index.li_17"><span class="lchk">✓</span>20 templates</li>
@@ -1606,7 +1607,7 @@ app.pisum.app — Abdominal CT Protocol &amp; Synthesis
 <p class="plan-desc" data-i18n="index.p_43">Full clinical synthesis suite for daily reading shifts.</p>
 <p data-i18n="index.p_roi_pro" style="font-size:0.7rem;color:var(--ink);text-align:center;margin-bottom:0.3rem;font-weight:600">Pays for itself in &lt; 3 days</p>
 <p data-i18n="index.p_44" style="font-size:0.7rem;color:var(--ink-4);margin-bottom:0.75rem;margin-top:0">14-day free trial</p>
-<button class="plan-cta cta-white plan-sub-btn" data-i18n="index.button_40" onclick="subscribe('pro')">Try Pro free</button>
+<button class="plan-cta cta-white plan-sub-btn" disabled aria-disabled="true" data-i18n="index.cta_unavailable">Currently unavailable</button>
 <hr class="plan-div"/>
 <ul class="plan-list">
 <li data-i18n="index.li_26"><span class="lchk">✓</span>112+ templates</li>
@@ -1625,7 +1626,7 @@ app.pisum.app — Abdominal CT Protocol &amp; Synthesis
 <p class="bill-note" data-i18n="index.p_45" style="display:none;font-size:0.72rem;color:var(--green);margin-bottom:0.25rem">1 236€/yr — save 312€</p>
 <p class="plan-desc" data-i18n="index.p_46">Multi-workstation sync with unlimited clinical synthesis.</p>
 <p data-i18n="index.p_47" style="font-size:0.7rem;color:var(--ink-4);margin-bottom:0.75rem;margin-top:-1.5rem">14-day free trial</p>
-<button class="plan-cta cta-ghost plan-sub-btn" data-i18n="index.button_41" onclick="subscribe('expert')">Try Expert</button>
+<button class="plan-cta cta-ghost plan-sub-btn" disabled aria-disabled="true" data-i18n="index.cta_unavailable">Currently unavailable</button>
 <hr class="plan-div"/>
 <ul class="plan-list">
 <li data-i18n="index.li_35"><span class="lchk">✓</span>112+ custom templates</li>
@@ -1640,7 +1641,7 @@ app.pisum.app — Abdominal CT Protocol &amp; Synthesis
 <div class="plan-price"><span class="psym" data-i18n="index.span_79">€</span><span class="pamt" data-i18n="index.span_80" id="clinicAmt">399</span><span class="pper" data-i18n="index.span_81">/mo</span></div>
 <p class="bill-note" data-i18n="index.p_48" style="display:none;font-size:0.72rem;color:var(--green);margin-bottom:0.25rem">3 828€/yr — save 960€</p>
 <p class="plan-desc" data-i18n="index.p_49">Imaging groups, hospital services, and multi-site teams.</p>
-<button class="plan-cta cta-ghost plan-sub-btn" data-i18n="index.button_42" onclick="subscribe('clinic')">Try Clinic free</button>
+<button class="plan-cta cta-ghost plan-sub-btn" disabled aria-disabled="true" data-i18n="index.cta_unavailable">Currently unavailable</button>
 <hr class="plan-div"/>
 <ul class="plan-list">
 <li data-i18n="index.li_45"><span class="lchk">✓</span>5 users incl. (+€79/extra)</li>
@@ -1859,7 +1860,8 @@ async function loadTemplates(lang){
   const skeleton=Array(8).fill(0).map(()=>`<div class="tpl-card" style="pointer-events:none"><div class="tpl-thumb"></div><div class="tpl-body"><div class="tpl-line" style="width:70%;height:14px;border-radius:4px;background:var(--b1)"></div><div class="tpl-line l2"></div><div class="tpl-line l3"></div></div></div>`).join('');
   grid.innerHTML=skeleton;
   const dbLang=langToDbLang[lang]||'Anglais';
-  const {data,error}=await sb.from('templates').select('id,name,exam_type,plan').eq('language',dbLang).order('exam_type').order('name');
+  // Catalogue sans contenu : le contenu des modèles payants n'est servi qu'aux abonnés
+  const {data,error}=await sb.rpc('template_catalog',{p_language:dbLang});
   if(error||!data){grid.innerHTML='<p style="color:var(--ink-4);text-align:center;grid-column:1/-1;padding:2rem">Could not load templates.</p>';return;}
 
   const free=data.filter(t=>t.plan==='free');
@@ -1890,7 +1892,10 @@ function toggleBill(){
   document.querySelectorAll('.bill-note').forEach(el=>el.style.display=annual?'':'none');
 }
 
+// Ventes suspendues : aucun lien vers le paiement depuis la page d'accueil.
+const PAYMENTS_ENABLED = false;
 function subscribe(plan){
+  if (!PAYMENTS_ENABLED) return;
   const interval=document.getElementById('togB').checked?'annual':'monthly';
   window.location.href='https://pisum.app/saas/frontend/pricing.html?plan='+plan+'&interval='+interval;
 }
