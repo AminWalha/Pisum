@@ -281,7 +281,8 @@
       "loading": "Indlæser…",
       "billing_portal_error": "Kunne ikke åbne faktureringsportalen:",
       "canceling": "Annullerer…",
-      "cancel_success": "Abonnement annulleret. Du beholder adgang indtil slutningen af din faktureringsperiode."
+      "cancel_success": "Abonnement annulleret. Du beholder adgang indtil slutningen af din faktureringsperiode.",
+      "subs_unavailable": "Betalte abonnementer er ikke tilgængelige i øjeblikket"
     },
     "referral": {
       "title": "Henvisningsprogram",
@@ -568,7 +569,9 @@
       "sub": "Kraftfulde værktøjer til flere lokationer, centraliseret teamwork og dedikeret teknisk support.",
       "users": "5 brugere inkluderet · Yderligere brugere — €79/bruger"
     },
-    "piw_trigger": "Stil et spørgsmål"
+    "piw_trigger": "Stil et spørgsmål",
+    "sales_paused": "Betalte abonnementer er ikke tilgængelige i øjeblikket — PISUM sælger ikke licenser for tiden. Free-planen er fortsat tilgængelig.",
+    "cta_unavailable": "Ikke tilgængelig i øjeblikket"
   },
   "index": {
     "button_1": "✕",

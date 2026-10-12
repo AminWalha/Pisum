@@ -281,7 +281,8 @@
       "loading": "Memuatkan…",
       "billing_portal_error": "Gagal membuka portal bil:",
       "canceling": "Membatalkan…",
-      "cancel_success": "Langganan dibatalkan. Anda mengekalkan akses sehingga akhir tempoh bil anda."
+      "cancel_success": "Langganan dibatalkan. Anda mengekalkan akses sehingga akhir tempoh bil anda.",
+      "subs_unavailable": "Langganan berbayar tidak tersedia buat masa ini"
     },
     "referral": {
       "title": "Program Rujukan",
@@ -568,7 +569,9 @@
       "sub": "Alat berbilang tapak yang berkuasa, kerja berpasukan terpusat dan sokongan teknikal khusus.",
       "users": "5 pengguna disertakan · Pengguna tambahan — €79/pengguna"
     },
-    "piw_trigger": "Ajukan soalan"
+    "piw_trigger": "Ajukan soalan",
+    "sales_paused": "Langganan berbayar tidak tersedia buat masa ini — PISUM tidak menjual lesen pada masa ini. Pelan Free masih tersedia.",
+    "cta_unavailable": "Tidak tersedia buat masa ini"
   },
   "index": {
     "button_1": "✕",

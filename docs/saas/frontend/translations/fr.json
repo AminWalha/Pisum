@@ -281,7 +281,8 @@
       "loading": "Chargement…",
       "billing_portal_error": "Impossible d'ouvrir le portail de facturation :",
       "canceling": "Annulation…",
-      "cancel_success": "Abonnement annulé. Vous conservez l'accès jusqu'à la fin de votre période de facturation."
+      "cancel_success": "Abonnement annulé. Vous conservez l'accès jusqu'à la fin de votre période de facturation.",
+      "subs_unavailable": "Les abonnements payants sont actuellement indisponibles"
     },
     "referral": {
       "title": "Programme de parrainage",
@@ -568,7 +569,9 @@
       "sub": "Outils multi-sites puissants, travail d'équipe centralisé et support technique dédié.",
       "users": "5 utilisateurs inclus · Utilisateurs supplémentaires — €79/utilisateur"
     },
-    "piw_trigger": "Poser une question"
+    "piw_trigger": "Poser une question",
+    "sales_paused": "Les abonnements payants sont actuellement indisponibles — PISUM ne vend pas de licences pour le moment. Le plan Free reste disponible.",
+    "cta_unavailable": "Actuellement indisponible"
   },
   "index": {
     "button_1": "✕",

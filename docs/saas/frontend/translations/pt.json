@@ -281,7 +281,8 @@
       "loading": "Carregando…",
       "billing_portal_error": "Não foi possível abrir o portal de faturamento:",
       "canceling": "Cancelando…",
-      "cancel_success": "Assinatura cancelada. Você mantém o acesso até o final do seu período de faturamento."
+      "cancel_success": "Assinatura cancelada. Você mantém o acesso até o final do seu período de faturamento.",
+      "subs_unavailable": "As assinaturas pagas estão indisponíveis no momento"
     },
     "referral": {
       "title": "Programa de indicações",
@@ -568,7 +569,9 @@
       "sub": "Ferramentas poderosas multi-site, trabalho em equipe centralizado e suporte técnico dedicado.",
       "users": "5 usuários incluídos · Usuários adicionais — €79/usuário"
     },
-    "piw_trigger": "Faça uma pergunta"
+    "piw_trigger": "Faça uma pergunta",
+    "sales_paused": "As assinaturas pagas estão indisponíveis no momento — o PISUM não está vendendo licenças por enquanto. O plano Free continua disponível.",
+    "cta_unavailable": "Indisponível no momento"
   },
   "index": {
     "button_1": "✕",

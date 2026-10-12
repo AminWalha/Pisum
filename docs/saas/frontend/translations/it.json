@@ -281,7 +281,8 @@
       "loading": "Caricamento in corso…",
       "billing_portal_error": "Impossibile aprire il portale di fatturazione:",
       "canceling": "Annullamento in corso…",
-      "cancel_success": "Abbonamento annullato. Mantieni l'accesso fino alla fine del tuo periodo di fatturazione."
+      "cancel_success": "Abbonamento annullato. Mantieni l'accesso fino alla fine del tuo periodo di fatturazione.",
+      "subs_unavailable": "Gli abbonamenti a pagamento non sono attualmente disponibili"
     },
     "referral": {
       "title": "Programma referral",
@@ -568,7 +569,9 @@
       "sub": "Potenti strumenti multi-sede, lavoro di squadra centralizzato e supporto tecnico dedicato.",
       "users": "5 utenti inclusi · Utenti aggiuntivi — €79/utente"
     },
-    "piw_trigger": "Fai una domanda"
+    "piw_trigger": "Fai una domanda",
+    "sales_paused": "Gli abbonamenti a pagamento non sono attualmente disponibili — PISUM non vende licenze al momento. Il piano Free resta disponibile.",
+    "cta_unavailable": "Attualmente non disponibile"
   },
   "index": {
     "button_1": "✕",

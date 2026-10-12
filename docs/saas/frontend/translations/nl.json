@@ -281,7 +281,8 @@
       "loading": "Laden…",
       "billing_portal_error": "Kon het factureringsportaal niet openen:",
       "canceling": "Annuleren…",
-      "cancel_success": "Abonnement geannuleerd. U behoudt toegang tot het einde van uw factureringsperiode."
+      "cancel_success": "Abonnement geannuleerd. U behoudt toegang tot het einde van uw factureringsperiode.",
+      "subs_unavailable": "Betaalde abonnementen zijn momenteel niet beschikbaar"
     },
     "referral": {
       "title": "Verwijzingsprogramma",
@@ -568,7 +569,9 @@
       "sub": "Krachtige tools voor meerdere locaties, gecentraliseerd teamwork en toegewijde technische ondersteuning.",
       "users": "5 gebruikers inbegrepen · Extra gebruikers — €79/gebruiker"
     },
-    "piw_trigger": "Stel een vraag"
+    "piw_trigger": "Stel een vraag",
+    "sales_paused": "Betaalde abonnementen zijn momenteel niet beschikbaar — PISUM verkoopt op dit moment geen licenties. Het Free-abonnement blijft beschikbaar.",
+    "cta_unavailable": "Momenteel niet beschikbaar"
   },
   "index": {
     "button_1": "✕",

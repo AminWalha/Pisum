@@ -281,7 +281,8 @@
       "loading": "Loading…",
       "billing_portal_error": "Could not open the billing portal:",
       "canceling": "Canceling…",
-      "cancel_success": "Subscription canceled. You keep access until the end of your billing period."
+      "cancel_success": "Subscription canceled. You keep access until the end of your billing period.",
+      "subs_unavailable": "Paid subscriptions are currently unavailable"
     },
     "referral": {
       "title": "Referral Program",
@@ -568,7 +569,9 @@
       "sub": "Powerful multi-site tools, centralized teamwork and dedicated technical support.",
       "users": "5 users included · Additional users — €79/user"
     },
-    "piw_trigger": "Ask a question"
+    "piw_trigger": "Ask a question",
+    "sales_paused": "Paid subscriptions are currently unavailable — PISUM is not selling licences at the moment. The Free plan remains available.",
+    "cta_unavailable": "Currently unavailable"
   },
   "index": {
     "button_1": "✕",

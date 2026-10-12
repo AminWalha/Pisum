@@ -281,7 +281,8 @@
       "loading": "正在加载…",
       "billing_portal_error": "无法打开账单门户：",
       "canceling": "正在取消…",
-      "cancel_success": "订阅已取消。您将保留访问权限直到账单周期结束。"
+      "cancel_success": "订阅已取消。您将保留访问权限直到账单周期结束。",
+      "subs_unavailable": "付费订阅目前不可用"
     },
     "referral": {
       "title": "推荐计划",
@@ -568,7 +569,9 @@
       "sub": "强大的多站点工具、集中式团队协作和专属技术支持。",
       "users": "包含 5 个用户 · 额外用户 — €79/用户"
     },
-    "piw_trigger": "提问"
+    "piw_trigger": "提问",
+    "sales_paused": "付费订阅目前不可用 — PISUM 目前不出售许可证。免费（Free）方案仍可使用。",
+    "cta_unavailable": "暂不可用"
   },
   "index": {
     "button_1": "✕",

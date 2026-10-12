@@ -281,7 +281,8 @@
       "loading": "Laden…",
       "billing_portal_error": "Abrechnungsportal konnte nicht geöffnet werden:",
       "canceling": "Kündigung…",
-      "cancel_success": "Abonnement gekündigt. Sie behalten den Zugriff bis zum Ende Ihres Abrechnungszeitraums."
+      "cancel_success": "Abonnement gekündigt. Sie behalten den Zugriff bis zum Ende Ihres Abrechnungszeitraums.",
+      "subs_unavailable": "Kostenpflichtige Abonnements sind derzeit nicht verfügbar"
     },
     "referral": {
       "title": "Empfehlungsprogramm",
@@ -568,7 +569,9 @@
       "sub": "Leistungsstarke standortübergreifende Tools, zentralisierte Teamarbeit und dedizierter technischer Support.",
       "users": "5 Benutzer inklusive · Zusätzliche Benutzer — €79/Benutzer"
     },
-    "piw_trigger": "Stellen Sie eine Frage"
+    "piw_trigger": "Stellen Sie eine Frage",
+    "sales_paused": "Kostenpflichtige Abonnements sind derzeit nicht verfügbar — PISUM verkauft momentan keine Lizenzen. Der Free-Plan bleibt verfügbar.",
+    "cta_unavailable": "Derzeit nicht verfügbar"
   },
   "index": {
     "button_1": "✕",

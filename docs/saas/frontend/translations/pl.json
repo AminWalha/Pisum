@@ -281,7 +281,8 @@
       "loading": "Ładowanie…",
       "billing_portal_error": "Nie można otworzyć portalu rozliczeniowego:",
       "canceling": "Anulowanie…",
-      "cancel_success": "Subskrypcja anulowana. Zachowujesz dostęp do końca okresu rozliczeniowego."
+      "cancel_success": "Subskrypcja anulowana. Zachowujesz dostęp do końca okresu rozliczeniowego.",
+      "subs_unavailable": "Płatne subskrypcje są obecnie niedostępne"
     },
     "referral": {
       "title": "Program poleceń",
@@ -568,7 +569,9 @@
       "sub": "Potężne narzędzia wielostanowiskowe, scentralizowana praca zespołowa i dedykowane wsparcie techniczne.",
       "users": "5 użytkowników w cenie · Dodatkowi użytkownicy — 79 €/użytkownik"
     },
-    "piw_trigger": "Zadaj pytanie"
+    "piw_trigger": "Zadaj pytanie",
+    "sales_paused": "Płatne subskrypcje są obecnie niedostępne — PISUM nie sprzedaje obecnie licencji. Plan Free pozostaje dostępny.",
+    "cta_unavailable": "Obecnie niedostępne"
   },
   "index": {
     "button_1": "✕",

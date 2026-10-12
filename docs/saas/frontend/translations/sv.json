@@ -281,7 +281,8 @@
       "loading": "Laddar…",
       "billing_portal_error": "Kunde inte öppna faktureringsportalen:",
       "canceling": "Avbryter…",
-      "cancel_success": "Prenumerationen avbruten. Du behåller åtkomst till slutet av din faktureringsperiod."
+      "cancel_success": "Prenumerationen avbruten. Du behåller åtkomst till slutet av din faktureringsperiod.",
+      "subs_unavailable": "Betalda abonnemang är för närvarande inte tillgängliga"
     },
     "referral": {
       "title": "Hänvisningsprogram",
@@ -568,7 +569,9 @@
       "sub": "Kraftfulla verktyg för flera platser, centraliserat teamarbete och dedikerad teknisk support.",
       "users": "5 användare inkluderade · Ytterligare användare — €79/användare"
     },
-    "piw_trigger": "Ställ en fråga"
+    "piw_trigger": "Ställ en fråga",
+    "sales_paused": "Betalda abonnemang är för närvarande inte tillgängliga — PISUM säljer inga licenser just nu. Free-planen är fortfarande tillgänglig.",
+    "cta_unavailable": "Inte tillgängligt för närvarande"
   },
   "index": {
     "button_1": "✕",

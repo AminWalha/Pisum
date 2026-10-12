@@ -281,7 +281,8 @@
       "loading": "Naglo-load…",
       "billing_portal_error": "Hindi mabuksan ang billing portal:",
       "canceling": "Kinakansela…",
-      "cancel_success": "Nakansela ang subscription. Mananatili ang iyong access hanggang sa katapusan ng iyong billing period."
+      "cancel_success": "Nakansela ang subscription. Mananatili ang iyong access hanggang sa katapusan ng iyong billing period.",
+      "subs_unavailable": "Hindi available sa ngayon ang mga bayad na subscription"
     },
     "referral": {
       "title": "Programa ng Referral",
@@ -568,7 +569,9 @@
       "sub": "Makapangyarihang mga tool para sa maraming site, sentralisadong pagtutulungan ng pangkat, at dedikadong teknikal na suporta.",
       "users": "5 gumagamit ang kasama · Karagdagang mga gumagamit — €79/gumagamit"
     },
-    "piw_trigger": "Magtanong"
+    "piw_trigger": "Magtanong",
+    "sales_paused": "Hindi available sa ngayon ang mga bayad na subscription — hindi nagbebenta ng lisensya ang PISUM sa kasalukuyan. Mananatiling available ang Free plan.",
+    "cta_unavailable": "Hindi available sa ngayon"
   },
   "index": {
     "button_1": "✕",

@@ -281,7 +281,8 @@
       "loading": "Yükleniyor…",
       "billing_portal_error": "Fatura portalı açılamadı:",
       "canceling": "İptal ediliyor…",
-      "cancel_success": "Abonelik iptal edildi. Fatura döneminizin sonuna kadar erişime sahipsiniz."
+      "cancel_success": "Abonelik iptal edildi. Fatura döneminizin sonuna kadar erişime sahipsiniz.",
+      "subs_unavailable": "Ücretli abonelikler şu anda kullanılamıyor"
     },
     "referral": {
       "title": "Referans programı",
@@ -568,7 +569,9 @@
       "sub": "Güçlü çoklu site araçları, merkezi ekip çalışması ve özel teknik destek.",
       "users": "5 kullanıcı dahil · Ek kullanıcılar — €79/kullanıcı"
     },
-    "piw_trigger": "Bir soru sorun"
+    "piw_trigger": "Bir soru sorun",
+    "sales_paused": "Ücretli abonelikler şu anda kullanılamıyor — PISUM şu an lisans satmıyor. Free planı kullanılabilir olmaya devam ediyor.",
+    "cta_unavailable": "Şu anda kullanılamıyor"
   },
   "index": {
     "button_1": "✕",

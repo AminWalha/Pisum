@@ -281,7 +281,8 @@
       "loading": "Cargando…",
       "billing_portal_error": "No se pudo abrir el portal de facturación:",
       "canceling": "Cancelando…",
-      "cancel_success": "Suscripción cancelada. Mantienes el acceso hasta el final de tu período de facturación."
+      "cancel_success": "Suscripción cancelada. Mantienes el acceso hasta el final de tu período de facturación.",
+      "subs_unavailable": "Las suscripciones de pago no están disponibles actualmente"
     },
     "referral": {
       "title": "Programa de referidos",
@@ -568,7 +569,9 @@
       "sub": "Potentes herramientas multisitio, trabajo en equipo centralizado y soporte técnico dedicado.",
       "users": "5 usuarios incluidos · Usuarios adicionales — €79/usuario"
     },
-    "piw_trigger": "Hacer una pregunta"
+    "piw_trigger": "Hacer una pregunta",
+    "sales_paused": "Las suscripciones de pago no están disponibles actualmente — PISUM no vende licencias por el momento. El plan Free sigue disponible.",
+    "cta_unavailable": "No disponible actualmente"
   },
   "index": {
     "button_1": "✕",

@@ -281,7 +281,8 @@
       "loading": "Memuat…",
       "billing_portal_error": "Tidak dapat membuka portal penagihan:",
       "canceling": "Membatalkan…",
-      "cancel_success": "Langganan dibatalkan. Anda tetap memiliki akses hingga akhir periode penagihan Anda."
+      "cancel_success": "Langganan dibatalkan. Anda tetap memiliki akses hingga akhir periode penagihan Anda.",
+      "subs_unavailable": "Langganan berbayar saat ini tidak tersedia"
     },
     "referral": {
       "title": "Program Referral",
@@ -568,7 +569,9 @@
       "sub": "Alat multi-situs yang kuat, kerja tim terpusat, dan dukungan teknis khusus.",
       "users": "5 pengguna termasuk · Pengguna tambahan — €79/pengguna"
     },
-    "piw_trigger": "Ajukan pertanyaan"
+    "piw_trigger": "Ajukan pertanyaan",
+    "sales_paused": "Langganan berbayar saat ini tidak tersedia — PISUM sedang tidak menjual lisensi. Paket Free tetap tersedia.",
+    "cta_unavailable": "Saat ini tidak tersedia"
   },
   "index": {
     "button_1": "✕",

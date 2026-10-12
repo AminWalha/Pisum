@@ -281,7 +281,8 @@
       "loading": "Se încarcă…",
       "billing_portal_error": "Nu s-a putut deschide portalul de facturare:",
       "canceling": "Anulare…",
-      "cancel_success": "Abonament anulat. Păstrați accesul până la sfârșitul perioadei de facturare."
+      "cancel_success": "Abonament anulat. Păstrați accesul până la sfârșitul perioadei de facturare.",
+      "subs_unavailable": "Abonamentele plătite sunt momentan indisponibile"
     },
     "referral": {
       "title": "Program de recomandări",
@@ -568,7 +569,9 @@
       "sub": "Instrumente puternice multi-site, colaborare centralizată și suport tehnic dedicat.",
       "users": "5 utilizatori incluși · Utilizatori suplimentari — €79/utilizator"
     },
-    "piw_trigger": "Puneți o întrebare"
+    "piw_trigger": "Puneți o întrebare",
+    "sales_paused": "Abonamentele plătite sunt momentan indisponibile — PISUM nu vinde licențe în acest moment. Planul Free rămâne disponibil.",
+    "cta_unavailable": "Momentan indisponibil"
   },
   "index": {
     "button_1": "✕",
