@@ -974,7 +974,7 @@ main{max-width:960px;margin:0 auto;padding:2rem 2rem 5rem}
                 <span class="seats-qty" id="add-seats-qty">1</span>
                 <button class="seats-picker-btn" onclick="changeAddSeats(1)">+</button>
               </div>
-              <button class="btn-add-seats" id="btn-add-seats" onclick="handleAddSeats()">
+              <button class="btn-add-seats" id="btn-add-seats" onclick="handleAddSeats()" disabled aria-disabled="true" style="cursor:not-allowed;opacity:.45" title="Paid subscriptions are currently unavailable">
                 Add <span id="add-seats-label">1 seat — €79/mo</span>
               </button>
             </div>
@@ -1224,6 +1224,11 @@ const SVG_PARTIAL = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" 
 const SVG_MINUS   = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>`;
 
 const t = (key, fb) => { const v = window.i18n?.getNestedTranslation?.('dashboard.js.' + key); return v || fb || key; };
+
+// Ventes suspendues : les plans payants ne peuvent pas être souscrits. Le plan
+// Free et la gestion de facturation (annulation des abonnements existants)
+// restent disponibles. Le backend refuse aussi create-checkout-session.
+const PAYMENTS_ENABLED = false;
 
 const getGreeting = () => {
   const h = new Date().getHours();
@@ -1842,6 +1847,17 @@ function updateSubBtn() {
   const planInfo = PLANS[selectedPlan];
   if (!planInfo) return;
 
+  if (planInfo.paid && !PAYMENTS_ENABLED) {
+    btn.textContent = t('subs_unavailable','Paid subscriptions are currently unavailable');
+    btn.className   = 'btn btn-primary';
+    btn.disabled    = true;
+    btn.style.cursor  = 'not-allowed';
+    btn.style.opacity = '.45';
+    return;
+  }
+  btn.disabled = false;
+  btn.style.cursor = btn.style.opacity = '';
+
   if (planInfo.paid) {
     const prices = PLAN_PRICES[selectedPlan];
     const price = prices ? prices[billingInterval] : null;
@@ -1860,6 +1876,7 @@ function updateSubBtn() {
 async function handleSubscribe() {
   const plan = PLANS[selectedPlan];
   if (!plan) return;
+  if (plan.paid && !PAYMENTS_ENABLED) return;   // ventes suspendues
   const btn = document.getElementById('btn-subscribe');
   btn.disabled = true;
   btn.innerHTML = '<span class="spinner"></span> ' + (plan.paid ? t('redirecting','Redirecting…') : t('activating','Activating…'));
@@ -2175,6 +2192,7 @@ function changeAddSeats(delta) {
 }
 
 async function handleAddSeats() {
+  if (!PAYMENTS_ENABLED) return;   // ventes suspendues
   const btn = document.getElementById('btn-add-seats');
   btn.disabled = true;
   btn.innerHTML = '<span class="spinner"></span> ' + t('redirecting','Redirecting…');

@@ -260,7 +260,11 @@ a{text-decoration:none;color:inherit}
   border:1px solid var(--b2);background:rgba(255,255,255,.07);color:var(--ink);
   cursor:pointer;transition:all .25s var(--t);text-decoration:none
 }
-.clinic-cta:hover{background:rgba(255,255,255,.13);border-color:var(--blue);transform:translateY(-2px);box-shadow:var(--shadow-blue)}
+.clinic-cta:hover:not(:disabled){background:rgba(255,255,255,.13);border-color:var(--blue);transform:translateY(-2px);box-shadow:var(--shadow-blue)}
+.clinic-cta:disabled{opacity:.45;cursor:not-allowed}
+.sales-paused{max-width:760px;margin:0 auto 1.75rem;padding:.85rem 1.2rem;border-radius:12px;
+  border:1px solid rgba(245,158,11,.35);background:rgba(245,158,11,.08);color:var(--ink-2);
+  font-size:.9rem;line-height:1.55;text-align:center}
 .clinic-feats{display:grid;grid-template-columns:1fr 1fr;gap:.7rem .9rem}
 .cl-feat{display:flex;align-items:flex-start;gap:.5rem;font-size:.83rem;color:var(--ink-2);line-height:1.4}
 .cl-chk{color:var(--green);font-weight:800;flex-shrink:0;font-size:.85rem;margin-top:1px}
@@ -409,7 +413,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0;positi
 <a href="https://pisum.app/#features" class="announcement-banner" tabindex="0">
   <div class="announcement-content">
     <span class="ann-pill"><span class="ann-dot"></span> New</span>
-    <span>Secure payment via <strong>Stripe</strong> &amp; new AI modules <span class="ann-hide">now active</span></span>
+    <span>New AI modules <span class="ann-hide">now active</span></span>
     <span class="ann-arrow">→</span>
   </div>
 </a>
@@ -477,6 +481,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0;positi
 <!-- 4 INDIVIDUAL PLANS -->
 <section class="plans-section">
   <div class="container">
+    <p class="sales-paused" role="status" data-i18n="pricing.sales_paused">Paid subscriptions are currently unavailable — PISUM is not selling licences at the moment. The Free plan remains available.</p>
     <div class="plans-grid">
 
       <!-- FREE -->
@@ -518,7 +523,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0;positi
         </div>
         <div class="plan-micro" id="sub-starter" data-i18n="pricing.plans.starter.microcopy">Billed monthly</div>
         <p class="plan-desc" data-i18n="pricing.plans.starter.subtitle">For radiologists beginning their digital workflow.</p>
-        <button class="plan-cta cta-solid" onclick="subscribe('starter')" data-label="Start Free Trial" data-i18n="pricing.plans.starter.cta">Start Free Trial</button>
+        <button class="plan-cta cta-solid" disabled aria-disabled="true" data-label="Currently unavailable" data-i18n="pricing.cta_unavailable">Currently unavailable</button>
         <hr class="plan-div"/>
         <ul class="feat-list">
           <li><span class="fi-ok" aria-hidden="true">✓</span><span>20 templates</span></li>
@@ -548,7 +553,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0;positi
         </div>
         <div class="plan-micro" id="sub-pro" data-i18n="pricing.plans.pro.microcopy">Billed monthly</div>
         <p class="plan-desc" data-i18n="pricing.plans.pro.subtitle">All you need for an optimized daily practice.</p>
-        <button class="plan-cta cta-cyan" onclick="subscribe('pro')" data-label="Start Free Trial" data-i18n="pricing.plans.pro.cta">Start Free Trial</button>
+        <button class="plan-cta cta-cyan" disabled aria-disabled="true" data-label="Currently unavailable" data-i18n="pricing.cta_unavailable">Currently unavailable</button>
         <hr class="plan-div"/>
         <ul class="feat-list">
           <li><span class="fi-ok" aria-hidden="true">✓</span><span>Unlimited templates</span></li>
@@ -577,7 +582,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0;positi
         </div>
         <div class="plan-micro" id="sub-expert" data-i18n="pricing.plans.expert.microcopy">Billed monthly</div>
         <p class="plan-desc" data-i18n="pricing.plans.expert.subtitle">For high-volume reporting and networked workstations.</p>
-        <button class="plan-cta cta-solid" onclick="subscribe('expert')" data-label="Start Free Trial" data-i18n="pricing.plans.expert.cta">Start Free Trial</button>
+        <button class="plan-cta cta-solid" disabled aria-disabled="true" data-label="Currently unavailable" data-i18n="pricing.cta_unavailable">Currently unavailable</button>
         <hr class="plan-div"/>
         <ul class="feat-list">
           <li><span class="fi-ok" aria-hidden="true">✓</span><span>Unlimited templates</span></li>
@@ -623,7 +628,7 @@ footer{background:var(--bg);border-top:1px solid var(--b1);padding:3rem 0;positi
             <span class="cl-per" id="sub-clinic" data-i18n="pricing.plans.clinic.period">/month</span>
           </div>
           <div class="clinic-users" data-i18n="pricing.clinic.users">5 users included · Additional users — €79/user</div>
-          <button class="clinic-cta" type="button" onclick="subscribe('clinic')" data-label="Try Clinic Free — 14 days" data-i18n="pricing.plans.clinic.cta">Try Clinic Free — 14 days</button>
+          <button class="clinic-cta" type="button" disabled aria-disabled="true" data-label="Currently unavailable" data-i18n="pricing.cta_unavailable">Currently unavailable</button>
         </div>
 
         <div class="clinic-feats">
@@ -1050,7 +1055,12 @@ document.querySelectorAll('.plan-cta[data-label], .clinic-cta[data-label]').forE
   b._origLabel = b.dataset.label;
 });
 
+// Ventes suspendues : aucun paiement ne peut être lancé depuis cette page.
+// (Le backend refuse aussi create-checkout-session tant que PAYMENTS_ENABLED n'est pas activé.)
+const PAYMENTS_ENABLED = false;
+
 async function subscribe(plan) {
+  if (!PAYMENTS_ENABLED) return;
   if (!currentSession) {
     window.location.href = '/saas/frontend/auth.html?redirect=/saas/frontend/pricing.html&plan=' + plan + '&interval=' + billingInterval;
     return;
@@ -1096,7 +1106,7 @@ async function subscribe(plan) {
   const params   = new URLSearchParams(window.location.search);
   const plan     = params.get('plan');
   const interval = params.get('interval');
-  if (!plan) return;
+  if (!plan || !PAYMENTS_ENABLED) return;
   if (interval === 'annual') {
     const annualEl = document.getElementById('billing-annual');
     if (annualEl) { annualEl.checked = true; setBilling(true); }
